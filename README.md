@@ -14,6 +14,7 @@ Each platform has its own data model, community and release cycle.
 
 As a result, the same real-world object may appear differently:
 
+
 - present in SAT but missing from OSM
 - tagged as `ref:stockholmarchipelagetrail=unknown` in OSM
 - represented as `some value` in Wikidata
@@ -41,3 +42,8 @@ Linked data is not just about linked identifiers.
 **Linked data needs linked people.**
 
 SAT Sync is designed to support collaboration between communities rather than attempting to force different data models into a single "correct" representation.
+
+**Every source remains the Source of Truth for its own domain.**
+
+sat-sync does not replace those sources.
+It maintains an identity cache that links them together and produces audit reports highlighting missing, unknown and inconsistent identities across open data platforms.
