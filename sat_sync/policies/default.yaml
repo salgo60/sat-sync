@@ -1,0 +1,13 @@
+rules:
+
+  missing_identifier:
+    severity: warning
+
+  duplicate_identifier:
+    severity: warning
+
+  unknown_identifier:
+    severity: info
+
+  some_value:
+    severity: info
