@@ -1,18 +1,6 @@
-from sat_sync.engine import ReconciliationEngine
-from sat_sync.rules import default_rules
-from sat_sync.rules.codes import FindingCode
-from sat_sync.sources.sat import SATSource
-
-
-def test_missing_wikidata():
-
-    source = SATSource("tests/data/sat_missing_wikidata.json")
-
-    identities = source.load()
-
-    engine = ReconciliationEngine(default_rules())
-
-    findings = engine.run(identities)
-
-    assert len(findings) == 1
-    assert findings[0].code == FindingCode.SAT_WD_001
+[
+  {
+    "sat_id": "sat:poi:test1",
+    "name": "Test POI"
+  }
+]

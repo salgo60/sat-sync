@@ -1,5 +1,7 @@
-from dataclasses import dataclass, field
-from typing import Any
+from dataclasses import dataclass
+
+from sat_sync.rules.codes import FindingCode
+
 
 @dataclass(slots=True)
 class Finding:

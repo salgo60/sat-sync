@@ -2,6 +2,7 @@ from sat_sync.findings import Finding
 from sat_sync.models import Identity
 
 from .base import Rule
+from .codes import FindingCode
 
 
 class MissingWikidataRule(Rule):
@@ -18,11 +19,10 @@ class MissingWikidataRule(Rule):
             if identity.wikidata is None:
                 findings.append(
                     Finding(
-                        rule=self.name,
+                        code=FindingCode.SAT_WD_001,
                         severity="info",
-                        source=identity.source,
+                        source="sat",
                         object_id=identity.sat_id,
-                        message="Object has no linked Wikidata item.",
                     )
                 )
 
