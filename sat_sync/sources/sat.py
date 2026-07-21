@@ -6,8 +6,11 @@ from sat_sync.models import Identity
 
 class SATSource:
 
-    def identities(self, datafile: Path):
-        with open(datafile, encoding="utf-8") as f:
+    def __init__(self, datafile: Path):
+        self.datafile = datafile
+
+    def identities(self):
+        with open(self.datafile, encoding="utf-8") as f:
             data = json.load(f)
 
         return [
