@@ -1,30 +1,100 @@
-# Roadmap
+# sat-sync Roadmap
 
-## v0.1
+## Current status
 
-- SQLite
-- SAT source
+### Core
 
-## v0.2
+- [x] Reconciliation engine
+- [x] Rule framework
+- [x] Finding model
+- [x] Message localization
+- [x] Unit tests
+- [x] SAT adapter
+- [x] Taginfo prototype
 
-- Findings
-- Policies
+---
 
-## v0.3
+## Architecture
 
-- OSM source
-- Wikidata source
+### Source abstraction
 
-## v0.4
+- [ ] Define generic Source contract
+- [ ] Introduce source adapters
+- [ ] Keep rules independent from adapters
 
-- Markdown reports
-- GitHub issues
+### Domain model
 
-## v0.5
+- [ ] Identity
+- [ ] Relationship
+- [ ] Geometry
+- [ ] Accommodation
+- [ ] Media
 
-- REST API
+### Identifier model
 
-## v1.0
+- [ ] Shared SAT identifier validation
+- [ ] Common regex
+- [ ] Identifier utilities
 
-- Event stream
-- Plugins
+---
+
+## Adapters
+
+### Open data
+
+- [ ] OSM
+- [ ] Wikidata
+- [ ] Taginfo HTTP API
+- [ ] Overpass
+- [ ] Commons
+
+### Tourism
+
+- [ ] Booking.com
+- [ ] Airbnb
+- [ ] Naturkartan
+
+---
+
+## Rules
+
+### Identity
+
+- [x] Missing Wikidata
+- [x] Missing in OSM
+
+Future
+
+- [ ] Duplicate identifiers
+- [ ] Invalid identifiers
+- [ ] Broken links
+- [ ] Missing images
+- [ ] Missing accommodation
+- [ ] Broken relationships
+
+---
+
+## Reporting
+
+- [ ] CLI improvements
+- [ ] Markdown report
+- [ ] GitHub Issue exporter
+- [ ] JSON output
+
+---
+
+## Policies
+
+- [ ] Severity
+- [ ] Ignore lists
+- [ ] Source specific policies
+
+---
+
+## Vision
+
+SAT Sync compares independent systems.
+
+It does not synchronize them.
+
+It produces observations that help communities collaborate.
