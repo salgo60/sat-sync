@@ -24,6 +24,8 @@ These are not necessarily errors—they are often consequences of independent co
 
 SAT Sync helps identify these situations so they can be reviewed by people.
 
+![](SATsync.png)
+
 ## Goals
 
 - Maintain a local identity cache.
