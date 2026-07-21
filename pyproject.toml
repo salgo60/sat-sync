@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sat-sync"
+version = "0.1.0"
+description = "Synchronize Stockholm Archipelago Trail identities"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "typer",
+]
+
+[project.scripts]
+sat-sync = "sat_sync.cli:app"

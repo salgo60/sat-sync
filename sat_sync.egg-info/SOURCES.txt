@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+sat_sync/__init__.py
+sat_sync/cli.py
+sat_sync/database.py
+sat_sync/sync.py
+sat_sync.egg-info/PKG-INFO
+sat_sync.egg-info/SOURCES.txt
+sat_sync.egg-info/dependency_links.txt
+sat_sync.egg-info/entry_points.txt
+sat_sync.egg-info/requires.txt
+sat_sync.egg-info/top_level.txt

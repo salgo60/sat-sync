@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: sat-sync
+Version: 0.1.0
+Summary: Synchronize Stockholm Archipelago Trail identities
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typer
+Dynamic: license-file
+
+# SAT Sync
+
+Synchronize identities between
+
+- Stockholm Archipelago Trail
+- OpenStreetMap
+- Wikidata
+
+The project maintains a local identity cache and generates audit reports.

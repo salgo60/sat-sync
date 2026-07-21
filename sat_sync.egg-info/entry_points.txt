@@ -1,0 +1,2 @@
+[console_scripts]
+sat-sync = sat_sync.cli:app
