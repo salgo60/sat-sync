@@ -15,8 +15,10 @@ class SATSource:
 
         return [
             Identity(
-                sat_id=item["sat_id"],
-                name=item["name"],
+                sat_id=item.get("satId") or item.get("sat_id"),
+                name=item.get("name"),
+                wikidata=item.get("wikidata"),
+                osm_id=item.get("osm"),
             )
             for item in data
         ]

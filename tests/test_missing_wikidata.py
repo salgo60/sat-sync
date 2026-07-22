@@ -7,11 +7,9 @@ from sat_sync.rules.codes import FindingCode
 
 def test_missing_wikidata_creates_finding():
 
-    source = SATSource()
+    source = SATSource(Path("tests/data/sat_missing_wikidata.json"))
 
-    identities = source.identities(
-        Path("tests/data/sat_missing_wikidata.json")
-    )
+    identities = source.identities()
 
     findings = MissingWikidataRule().evaluate(identities)
 
