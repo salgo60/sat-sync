@@ -1,15 +1,13 @@
 import json
 from pathlib import Path
 
-from sat_sync.sources.base import Source
+from sat_sync.sources.sat import SATSource
 
 def test_load_sat_identities():
 
-    source = SATSource()
+    source = SATSource(Path("sat_sync/data/sat.json"))
 
-    identities = source.identities(
-        Path("sat_sync/data/sat.json")
-    )
+    identities = source.identities()
 
     assert len(identities) > 0
 

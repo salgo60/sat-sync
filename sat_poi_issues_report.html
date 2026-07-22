@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAT POI — Problem-rapport</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f2f5;color:#333}
+    .container{max-width:1400px;margin:0 auto}
+    .header{background:linear-gradient(135deg,#c0392b,#8e1a1a);color:#fff;padding:30px}
+    .header h1{font-size:2em;margin-bottom:8px}
+    .header p{opacity:.85;font-size:1.05em}
+    .header small{opacity:.7;font-size:.85em}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;padding:24px;background:#fff;border-bottom:2px solid #e9ecef}
+    .card{padding:16px 20px;border-radius:8px;border-left:4px solid #c0392b;background:#f8f9fa}
+    .card.red{border-color:#dc3545;background:#fff5f5}
+    .card.orange{border-color:#fd7e14;background:#fff8f0}
+    .card h3{font-size:.8em;text-transform:uppercase;color:#666;margin-bottom:6px}
+    .card .num{font-size:2em;font-weight:700}
+    .card .sub{font-size:.8em;color:#888;margin-top:4px}
+    .section{padding:24px}
+    .section h2{margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .section p.desc{color:#666;font-size:.92em;margin-bottom:16px}
+    .table-wrap{overflow-x:auto;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+    table{width:100%;border-collapse:collapse;font-size:.84em}
+    thead{background:#f8f9fa;border-bottom:2px solid #c0392b;position:sticky;top:0;z-index:10}
+    th{padding:11px 12px;text-align:left;font-weight:600;white-space:nowrap;cursor:pointer;user-select:none}
+    th:hover{background:#e9ecef}
+    th.sort-asc::after{content:" ▲";opacity:.7}
+    th.sort-desc::after{content:" ▼";opacity:.7}
+    th:not(.sort-asc):not(.sort-desc)::after{content:" ⇅";opacity:.25}
+    td{padding:9px 12px;border-bottom:1px solid #f0f2f5;vertical-align:top}
+    tr:hover td{background:#fafbff}
+    .row-deleted td{background:#fff0f0}
+    .row-issue td{background:#fffdf0}
+    .empty{text-align:center;padding:24px;color:#888;font-style:italic}
+    code{background:#f0f2f5;padding:2px 6px;border-radius:3px;font-size:.88em}
+    a{color:#c0392b;text-decoration:none;font-weight:500}
+    a:hover{text-decoration:underline}
+    .badge-warn{display:inline-block;background:#fff3cd;color:#856404;padding:3px 9px;border-radius:12px;font-size:.82em;font-weight:600}
+    .tag-deleted{display:inline-block;background:#f8d7da;color:#721c24;padding:3px 9px;border-radius:12px;font-size:.82em;font-weight:700}
+    .section-deleted h2{color:#c0392b}
+    .section-missing h2{color:#856404}
+    .footer{text-align:center;padding:20px;color:#777;font-size:.88em;border-top:1px solid #e9ecef;background:#fff;margin-top:24px}
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>⚠️ SAT POI — Problem-rapport</h1>
+    <p>Enbart poster med saknade backreferenser eller borttagna externa objekt</p>
+    <small>Genererad: 2026-07-22 06:25 UTC &nbsp;|&nbsp; salgo60@msn.com</small>
+  </div>
+
+  <div class="stats">
+    <div class="card red">
+      <h3>🗑️ Borttagna objekt</h3>
+      <div class="num" style="color:#c0392b">34</div>
+      <div class="sub">Kräver omedelbar åtgärd</div>
+    </div>
+    <div class="card red">
+      <h3>OSM borttagna</h3>
+      <div class="num" style="color:#c0392b">16</div>
+    </div>
+    <div class="card red">
+      <h3>Wikidata borttagna</h3>
+      <div class="num" style="color:#c0392b">18</div>
+    </div>
+    <div class="card orange">
+      <h3>⚠️ Saknar backreferens</h3>
+      <div class="num" style="color:#856404">48</div>
+      <div class="sub">Objektet finns, ref saknas</div>
+    </div>
+    <div class="card orange">
+      <h3>OSM saknar ref:sat</h3>
+      <div class="num" style="color:#856404">32</div>
+    </div>
+    <div class="card orange">
+      <h3>WD saknar P14545</h3>
+      <div class="num" style="color:#856404">16</div>
+    </div>
+  </div>
+
+  <!-- SEKTION 1: Borttagna objekt -->
+  <div class="section section-deleted">
+    <h2>🗑️ Borttagna objekt (34 st)</h2>
+    <p class="desc">
+      Dessa poster i concordance.json pekar på OSM-objekt eller Wikidata-objekt som har <strong>tagits bort</strong>.
+      Concordance behöver uppdateras.
+    </p>
+    <div class="table-wrap">
+      <table id="tbl-deleted">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Extern ID</th>
+            <th>SAT ID</th>
+            <th>Källa</th>
+            <th>Problem</th>
+            <th>Första sedd</th>
+            <th>Uppdaterad</th>
+            <th>Namn</th>
+          </tr></thead>
+        <tbody>
+      <tr class="row-deleted">
+        <td>1</td>
+        <td><a href="https://www.openstreetmap.org/node/12956347396" target="_blank">osm:node:12956347396</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:67a4d" target="_blank"><code>sat:poi:67a4d</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:67a4d" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>2</td>
+        <td><a href="https://www.openstreetmap.org/node/12959406894" target="_blank">osm:node:12959406894</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:5qbbt" target="_blank"><code>sat:poi:5qbbt</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5qbbt" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>3</td>
+        <td><a href="https://www.openstreetmap.org/node/13067993747" target="_blank">osm:node:13067993747</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:qexp5" target="_blank"><code>sat:poi:qexp5</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qexp5" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>4</td>
+        <td><a href="https://www.openstreetmap.org/node/13068007428" target="_blank">osm:node:13068007428</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:7mw8m" target="_blank"><code>sat:poi:7mw8m</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:7mw8m" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>5</td>
+        <td><a href="https://www.openstreetmap.org/node/13820131465" target="_blank">osm:node:13820131465</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:hpy7b" target="_blank"><code>sat:poi:hpy7b</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:hpy7b" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>6</td>
+        <td><a href="https://www.openstreetmap.org/node/13932136052" target="_blank">osm:node:13932136052</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:xzp8m" target="_blank"><code>sat:poi:xzp8m</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:xzp8m" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="2026-06-15">2026-06-15</td>
+        <td data-val="2026-07-06">2026-07-06</td>
+        <td>Hästholmsviken</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>7</td>
+        <td><a href="https://www.openstreetmap.org/node/13953909169" target="_blank">osm:node:13953909169</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:sqgs6" target="_blank"><code>sat:poi:sqgs6</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:sqgs6" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>8</td>
+        <td><a href="https://www.openstreetmap.org/node/13982007524" target="_blank">osm:node:13982007524</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:gdtt5" target="_blank"><code>sat:poi:gdtt5</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:gdtt5" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>9</td>
+        <td><a href="https://www.openstreetmap.org/node/13983409985" target="_blank">osm:node:13983409985</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:zn58x" target="_blank"><code>sat:poi:zn58x</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zn58x" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="2026-07-06">2026-07-06</td>
+        <td data-val="2026-07-02">2026-07-02</td>
+        <td>Dusch</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>10</td>
+        <td><a href="https://www.openstreetmap.org/node/14027456239" target="_blank">osm:node:14027456239</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:5kxr2" target="_blank"><code>sat:poi:5kxr2</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5kxr2" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="2026-07-20">2026-07-20</td>
+        <td data-val="2026-07-19">2026-07-19</td>
+        <td>Dusch</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>11</td>
+        <td><a href="https://www.openstreetmap.org/node/1414841724" target="_blank">osm:node:1414841724</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:kaq8k" target="_blank"><code>sat:poi:kaq8k</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:kaq8k" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>12</td>
+        <td><a href="https://www.openstreetmap.org/node/1848869435" target="_blank">osm:node:1848869435</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:5hc74" target="_blank"><code>sat:poi:5hc74</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5hc74" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>13</td>
+        <td><a href="https://www.openstreetmap.org/node/3665537335" target="_blank">osm:node:3665537335</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:ejn2w" target="_blank"><code>sat:poi:ejn2w</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ejn2w" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>14</td>
+        <td><a href="https://www.openstreetmap.org/way/1393060482" target="_blank">osm:way:1393060482</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:p7fan" target="_blank"><code>sat:poi:p7fan</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:p7fan" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>15</td>
+        <td><a href="https://www.openstreetmap.org/way/223282393" target="_blank">osm:way:223282393</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:cwaqz" target="_blank"><code>sat:poi:cwaqz</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:cwaqz" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>16</td>
+        <td><a href="https://www.openstreetmap.org/way/295911314" target="_blank">osm:way:295911314</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:n7j6n" target="_blank"><code>sat:poi:n7j6n</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:n7j6n" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="tag-deleted">🗑️ Ej i postpass</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>17</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134605030" target="_blank">wikidata:Q134605030</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:c8je6" target="_blank"><code>sat:poi:c8je6</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:c8je6" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-24">2026-06-24</td>
+        <td>Ålö Storsand dricksvattenpump</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>18</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134607564" target="_blank">wikidata:Q134607564</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:b7nxb" target="_blank"><code>sat:poi:b7nxb</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:b7nxb" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-18">2026-06-18</td>
+        <td>Dricksvatten Rånöhamn</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>19</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134607783" target="_blank">wikidata:Q134607783</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:mxxwb" target="_blank"><code>sat:poi:mxxwb</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:mxxwb" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-18">2026-07-18</td>
+        <td>Dricksvattenpump Grinda Tältplats</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>20</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134717347" target="_blank">wikidata:Q134717347</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:g3k29" target="_blank"><code>sat:poi:g3k29</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:g3k29" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-15">2026-07-15</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>21</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134717362" target="_blank">wikidata:Q134717362</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:kkevg" target="_blank"><code>sat:poi:kkevg</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:kkevg" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-18">2026-06-18</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>22</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134726995" target="_blank">wikidata:Q134726995</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:b3bvp" target="_blank"><code>sat:poi:b3bvp</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:b3bvp" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-17">2026-06-17</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>23</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134985579" target="_blank">wikidata:Q134985579</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:nsjj5" target="_blank"><code>sat:poi:nsjj5</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:nsjj5" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-16">2026-07-16</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>24</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134985660" target="_blank">wikidata:Q134985660</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:65far" target="_blank"><code>sat:poi:65far</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:65far" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-18">2026-06-18</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>25</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134985757" target="_blank">wikidata:Q134985757</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:95d39" target="_blank"><code>sat:poi:95d39</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:95d39" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-12">2026-07-12</td>
+        <td>Dricksvattenkran</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>26</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134986918" target="_blank">wikidata:Q134986918</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:2var9" target="_blank"><code>sat:poi:2var9</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:2var9" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-10">2026-07-10</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>27</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134987122" target="_blank">wikidata:Q134987122</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:4z558" target="_blank"><code>sat:poi:4z558</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:4z558" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-10">2026-07-10</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>28</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135011579" target="_blank">wikidata:Q135011579</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:rjyg9" target="_blank"><code>sat:poi:rjyg9</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:rjyg9" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-10">2026-07-10</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>29</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135197036" target="_blank">wikidata:Q135197036</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:zxxhc" target="_blank"><code>sat:poi:zxxhc</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zxxhc" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-13">2026-07-13</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>30</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135197156" target="_blank">wikidata:Q135197156</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:nvh64" target="_blank"><code>sat:poi:nvh64</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:nvh64" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-18">2026-06-18</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>31</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135230746" target="_blank">wikidata:Q135230746</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:v2vea" target="_blank"><code>sat:poi:v2vea</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:v2vea" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-12">2026-06-12</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>32</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135267999" target="_blank">wikidata:Q135267999</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:zmh6w" target="_blank"><code>sat:poi:zmh6w</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zmh6w" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-25">2026-06-25</td>
+        <td>Dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>33</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135268016" target="_blank">wikidata:Q135268016</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:n47kg" target="_blank"><code>sat:poi:n47kg</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:n47kg" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-09">2026-07-09</td>
+        <td>Österhamn Pump dricksvatten</td>
+      </tr>
+
+      <tr class="row-deleted">
+        <td>34</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135458780" target="_blank">wikidata:Q135458780</a> <span class="tag-deleted">🗑️ BORTTAGET</span></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:dkshm" target="_blank"><code>sat:poi:dkshm</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:dkshm" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-12">2026-06-12</td>
+        <td>Dricksvatten</td>
+      </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SEKTION 2: Saknar backreferens -->
+  <div class="section section-missing">
+    <h2>⚠️ Saknar backreferens (48 st)</h2>
+    <p class="desc">
+      Dessa poster finns kvar i OSM / Wikidata men <strong>saknar ref:stockholmarchipelagotrail</strong> (OSM) 
+      eller <strong>Property P14545</strong> (Wikidata) som pekar tillbaka till SAT.
+    </p>
+    <div class="table-wrap">
+      <table id="tbl-missing">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Extern ID</th>
+            <th>SAT ID</th>
+            <th>Källa</th>
+            <th>Problem</th>
+            <th>Första sedd</th>
+            <th>Uppdaterad</th>
+            <th>Namn</th>
+          </tr></thead>
+        <tbody>
+      <tr class="row-issue">
+        <td>1</td>
+        <td><a href="https://www.openstreetmap.org/node/12100561901" target="_blank">osm:node:12100561901</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:eqe2j" target="_blank"><code>sat:poi:eqe2j</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:eqe2j" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>2</td>
+        <td><a href="https://www.openstreetmap.org/node/12118209285" target="_blank">osm:node:12118209285</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:9xbg8" target="_blank"><code>sat:poi:9xbg8</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:9xbg8" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>3</td>
+        <td><a href="https://www.openstreetmap.org/node/14002265057" target="_blank">osm:node:14002265057</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:p5ty6" target="_blank"><code>sat:poi:p5ty6</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:p5ty6" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-07-13">2026-07-13</td>
+        <td data-val="2026-07-10">2026-07-10</td>
+        <td>Toalett</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>4</td>
+        <td><a href="https://www.openstreetmap.org/node/1430936608" target="_blank">osm:node:1430936608</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:2atzy" target="_blank"><code>sat:poi:2atzy</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:2atzy" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-19">2026-07-19</td>
+        <td>Arholma dansbana</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>5</td>
+        <td><a href="https://www.openstreetmap.org/node/8846898703" target="_blank">osm:node:8846898703</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:rcx5k" target="_blank"><code>sat:poi:rcx5k</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:rcx5k" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Fel värde: sat:poi:cbt7n</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>6</td>
+        <td><a href="https://www.openstreetmap.org/way/1087587113" target="_blank">osm:way:1087587113</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:wkrcb" target="_blank"><code>sat:poi:wkrcb</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:wkrcb" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>7</td>
+        <td><a href="https://www.openstreetmap.org/way/1087587115" target="_blank">osm:way:1087587115</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:spmav" target="_blank"><code>sat:poi:spmav</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:spmav" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>8</td>
+        <td><a href="https://www.openstreetmap.org/way/1304510629" target="_blank">osm:way:1304510629</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:bgaf7" target="_blank"><code>sat:poi:bgaf7</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:bgaf7" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>9</td>
+        <td><a href="https://www.openstreetmap.org/way/1304510630" target="_blank">osm:way:1304510630</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:qphn7" target="_blank"><code>sat:poi:qphn7</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qphn7" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>10</td>
+        <td><a href="https://www.openstreetmap.org/way/1305276858" target="_blank">osm:way:1305276858</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:5ax55" target="_blank"><code>sat:poi:5ax55</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5ax55" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>11</td>
+        <td><a href="https://www.openstreetmap.org/way/1305276860" target="_blank">osm:way:1305276860</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:tfkxa" target="_blank"><code>sat:poi:tfkxa</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:tfkxa" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>12</td>
+        <td><a href="https://www.openstreetmap.org/way/1424973417" target="_blank">osm:way:1424973417</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:cbnjd" target="_blank"><code>sat:poi:cbnjd</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:cbnjd" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2025-08-26">2025-08-26</td>
+        <td>Cissi</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>13</td>
+        <td><a href="https://www.openstreetmap.org/way/222762652" target="_blank">osm:way:222762652</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:qa4h2" target="_blank"><code>sat:poi:qa4h2</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qa4h2" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>14</td>
+        <td><a href="https://www.openstreetmap.org/way/222762673" target="_blank">osm:way:222762673</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:d69c2" target="_blank"><code>sat:poi:d69c2</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:d69c2" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>15</td>
+        <td><a href="https://www.openstreetmap.org/way/222762675" target="_blank">osm:way:222762675</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:da74h" target="_blank"><code>sat:poi:da74h</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:da74h" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>16</td>
+        <td><a href="https://www.openstreetmap.org/way/222762689" target="_blank">osm:way:222762689</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:3pe5v" target="_blank"><code>sat:poi:3pe5v</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:3pe5v" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>17</td>
+        <td><a href="https://www.openstreetmap.org/way/222762695" target="_blank">osm:way:222762695</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:w6dv3" target="_blank"><code>sat:poi:w6dv3</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:w6dv3" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>18</td>
+        <td><a href="https://www.openstreetmap.org/way/222762700" target="_blank">osm:way:222762700</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:g4b6r" target="_blank"><code>sat:poi:g4b6r</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:g4b6r" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>19</td>
+        <td><a href="https://www.openstreetmap.org/way/222762704" target="_blank">osm:way:222762704</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:bpmgr" target="_blank"><code>sat:poi:bpmgr</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:bpmgr" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>20</td>
+        <td><a href="https://www.openstreetmap.org/way/222762705" target="_blank">osm:way:222762705</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:qjb2v" target="_blank"><code>sat:poi:qjb2v</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qjb2v" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>21</td>
+        <td><a href="https://www.openstreetmap.org/way/222762706" target="_blank">osm:way:222762706</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:6bbav" target="_blank"><code>sat:poi:6bbav</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:6bbav" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>22</td>
+        <td><a href="https://www.openstreetmap.org/way/222762713" target="_blank">osm:way:222762713</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:sqn4z" target="_blank"><code>sat:poi:sqn4z</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:sqn4z" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>23</td>
+        <td><a href="https://www.openstreetmap.org/way/222762718" target="_blank">osm:way:222762718</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:zym9m" target="_blank"><code>sat:poi:zym9m</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zym9m" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>24</td>
+        <td><a href="https://www.openstreetmap.org/way/229605200" target="_blank">osm:way:229605200</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:jap84" target="_blank"><code>sat:poi:jap84</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:jap84" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>25</td>
+        <td><a href="https://www.openstreetmap.org/way/300450539" target="_blank">osm:way:300450539</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:r88rc" target="_blank"><code>sat:poi:r88rc</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:r88rc" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-26">2026-06-26</td>
+        <td data-val="2014-08-27">2014-08-27</td>
+        <td>Badplats</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>26</td>
+        <td><a href="https://www.openstreetmap.org/way/300450541" target="_blank">osm:way:300450541</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:5zvqw" target="_blank"><code>sat:poi:5zvqw</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5zvqw" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-26">2026-06-26</td>
+        <td data-val="2014-08-27">2014-08-27</td>
+        <td>Badplats</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>27</td>
+        <td><a href="https://www.openstreetmap.org/way/322935628" target="_blank">osm:way:322935628</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:rxv5b" target="_blank"><code>sat:poi:rxv5b</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:rxv5b" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-26">2026-06-26</td>
+        <td data-val="2025-05-22">2025-05-22</td>
+        <td>Skarsand, Nåttarö</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>28</td>
+        <td><a href="https://www.openstreetmap.org/way/400255324" target="_blank">osm:way:400255324</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:z2nrn" target="_blank"><code>sat:poi:z2nrn</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:z2nrn" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-26">2026-06-26</td>
+        <td data-val="2021-07-26">2021-07-26</td>
+        <td>Badplats</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>29</td>
+        <td><a href="https://www.openstreetmap.org/way/771056534" target="_blank">osm:way:771056534</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:qgkkp" target="_blank"><code>sat:poi:qgkkp</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qgkkp" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-26">2026-06-26</td>
+        <td data-val="2023-08-30">2023-08-30</td>
+        <td>Badplats</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>30</td>
+        <td><a href="https://www.openstreetmap.org/way/833809121" target="_blank">osm:way:833809121</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:nf7y3" target="_blank"><code>sat:poi:nf7y3</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:nf7y3" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2020-08-04">2020-08-04</td>
+        <td>Toalett</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>31</td>
+        <td><a href="https://www.openstreetmap.org/way/835790394" target="_blank">osm:way:835790394</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:sg94k" target="_blank"><code>sat:poi:sg94k</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:sg94k" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2020-08-10">2020-08-10</td>
+        <td>Lidö Värdshus</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>32</td>
+        <td><a href="https://www.openstreetmap.org/way/857838616" target="_blank">osm:way:857838616</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:493m8" target="_blank"><code>sat:poi:493m8</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:493m8" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>osm</td>
+        <td><span class="badge-warn">⚠️ Saknar ref:sat</span></td>
+        <td data-val="2026-06-26">2026-06-26</td>
+        <td data-val="2025-08-08">2025-08-08</td>
+        <td>Badplats</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>33</td>
+        <td><a href="https://www.wikidata.org/wiki/Q107290890" target="_blank">wikidata:Q107290890</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:rcx5k" target="_blank"><code>sat:poi:rcx5k</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:rcx5k" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Fel värde: sat:poi:cbt7n</span></td>
+        <td data-val="">—</td>
+        <td data-val="">—</td>
+        <td>—</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>34</td>
+        <td><a href="https://www.wikidata.org/wiki/Q121754355" target="_blank">wikidata:Q121754355</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:h5y4c" target="_blank"><code>sat:poi:h5y4c</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:h5y4c" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Fel värde: sat:poi:h78ed</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-11">2026-07-11</td>
+        <td>Kålgårdsöns naturreservat, grillplats</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>35</td>
+        <td><a href="https://www.wikidata.org/wiki/Q133459418" target="_blank">wikidata:Q133459418</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:e82y7" target="_blank"><code>sat:poi:e82y7</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:e82y7" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-07-08">2026-07-08</td>
+        <td data-val="2026-07-11">2026-07-11</td>
+        <td>Pestkyrkogården</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>36</td>
+        <td><a href="https://www.wikidata.org/wiki/Q133812569" target="_blank">wikidata:Q133812569</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:ybc97" target="_blank"><code>sat:poi:ybc97</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ybc97" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Fel värde: sat:poi:gysy6</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-18">2026-07-18</td>
+        <td>Möja hamnbar</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>37</td>
+        <td><a href="https://www.wikidata.org/wiki/Q133824830" target="_blank">wikidata:Q133824830</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:6p8zd" target="_blank"><code>sat:poi:6p8zd</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:6p8zd" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-21">2026-06-21</td>
+        <td data-val="2026-06-23">2026-06-23</td>
+        <td>Gruvmuseet</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>38</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134527248" target="_blank">wikidata:Q134527248</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:tjmkq" target="_blank"><code>sat:poi:tjmkq</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:tjmkq" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Fel värde: sat:poi:m438y</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-13">2026-06-13</td>
+        <td>Köpmanholms Grill & Bar</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>39</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134727862" target="_blank">wikidata:Q134727862</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:ts37b" target="_blank"><code>sat:poi:ts37b</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ts37b" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Fel värde: sat:poi:4xvhw</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-07">2026-07-07</td>
+        <td>Kayakomat Stockholms Skärgård Ornö</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>40</td>
+        <td><a href="https://www.wikidata.org/wiki/Q134871089" target="_blank">wikidata:Q134871089</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:978hx" target="_blank"><code>sat:poi:978hx</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:978hx" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-15">2026-06-15</td>
+        <td data-val="2026-06-18">2026-06-18</td>
+        <td>Jerkers udde</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>41</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135040652" target="_blank">wikidata:Q135040652</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:zqc6r" target="_blank"><code>sat:poi:zqc6r</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zqc6r" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-15">2026-07-15</td>
+        <td>Restaurang Viken Nämdö Solvik</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>42</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135103433" target="_blank">wikidata:Q135103433</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:9hzqe" target="_blank"><code>sat:poi:9hzqe</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:9hzqe" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-26">2026-06-26</td>
+        <td>Ornö badplats, Kyrkviken</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>43</td>
+        <td><a href="https://www.wikidata.org/wiki/Q135110316" target="_blank">wikidata:Q135110316</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:ybc97" target="_blank"><code>sat:poi:ybc97</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ybc97" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-18">2026-07-18</td>
+        <td>Möja hamnbar</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>44</td>
+        <td><a href="https://www.wikidata.org/wiki/Q136337450" target="_blank">wikidata:Q136337450</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:pvz9y" target="_blank"><code>sat:poi:pvz9y</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:pvz9y" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-07-17">2026-07-17</td>
+        <td>Möja bageri</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>45</td>
+        <td><a href="https://www.wikidata.org/wiki/Q18291743" target="_blank">wikidata:Q18291743</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:ys3ma" target="_blank"><code>sat:poi:ys3ma</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ys3ma" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Fel värde: sat:poi:fgfa4</span></td>
+        <td data-val="2026-06-10">2026-06-10</td>
+        <td data-val="2026-06-13">2026-06-13</td>
+        <td>Lidö Värdshus</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>46</td>
+        <td><a href="https://www.wikidata.org/wiki/Q32904803" target="_blank">wikidata:Q32904803</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:jbdd6" target="_blank"><code>sat:poi:jbdd6</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:jbdd6" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Fel värde: sat:poi:gfyya</span></td>
+        <td data-val="2026-06-21">2026-06-21</td>
+        <td data-val="2026-06-22">2026-06-22</td>
+        <td>Batteri Arholma</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>47</td>
+        <td><a href="https://www.wikidata.org/wiki/Q699873" target="_blank">wikidata:Q699873</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:fzzma" target="_blank"><code>sat:poi:fzzma</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:fzzma" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Saknar P14545</span></td>
+        <td data-val="2026-07-13">2026-07-13</td>
+        <td data-val="2026-07-10">2026-07-10</td>
+        <td>Landsorts klockstapel</td>
+      </tr>
+
+      <tr class="row-issue">
+        <td>48</td>
+        <td><a href="https://www.wikidata.org/wiki/Q842877" target="_blank">wikidata:Q842877</a></td>
+        <td><a href="https://map.stockholmarchipelagotrail.com/?sat:poi:kbxxd" target="_blank"><code>sat:poi:kbxxd</code></a> <a href="https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:kbxxd" target="_blank" style="font-size:.78em;color:#888">[json]</a></td>
+        <td>wikidata</td>
+        <td><span class="badge-warn">⚠️ Fel värde: sat:section:t3kx7</span></td>
+        <td data-val="2026-06-21">2026-06-21</td>
+        <td data-val="2026-07-05">2026-07-05</td>
+        <td>Kungsstolen</td>
+      </tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="https://www.wikidata.org/wiki/Property:P14545" target="_blank">Wikidata P14545</a> &nbsp;|&nbsp;
+    <a href="https://taginfo.openstreetmap.org/keys/ref%3Astockholmarchipelagotrail" target="_blank">OSM tag info</a> &nbsp;|&nbsp;
+    <a href="sat_poi_report.html">Fullständig rapport</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  function makeTableSortable(tblId) {
+    const tbl = document.getElementById(tblId);
+    if (!tbl) return;
+    let sortCol = -1, sortAsc = true;
+    function cellVal(row, col) {
+      const td = row.cells[col];
+      return (td ? (td.dataset.val || td.innerText || '') : '').trim().toLowerCase();
+    }
+    tbl.querySelectorAll('th').forEach((th, i) => {
+      th.addEventListener('click', () => {
+        if (sortCol === i) sortAsc = !sortAsc; else { sortCol = i; sortAsc = true; }
+        tbl.querySelectorAll('th').forEach((t, j) => {
+          t.classList.remove('sort-asc','sort-desc');
+          if (j === i) t.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+        });
+        const tbody = tbl.tBodies[0];
+        Array.from(tbody.rows)
+          .sort((a, b) => {
+            const av = cellVal(a, i), bv = cellVal(b, i);
+            return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+          })
+          .forEach(r => tbody.appendChild(r));
+      });
+    });
+  }
+  makeTableSortable('tbl-deleted');
+  makeTableSortable('tbl-missing');
+})();
+</script>
+</body>
+</html>
