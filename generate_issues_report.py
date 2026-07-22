@@ -443,7 +443,8 @@ SELECT ?item ?itemLabel ?value WHERE {
   <div class="footer">
     <a href="https://www.wikidata.org/wiki/Property:P14545" target="_blank">Wikidata P14545</a> &nbsp;|&nbsp;
     <a href="https://taginfo.openstreetmap.org/keys/ref%3Astockholmarchipelagotrail" target="_blank">OSM tag info</a> &nbsp;|&nbsp;
-    <a href="sat_poi_report.html">Fullständig rapport</a>
+    <a href="sat_poi_report.html">Fullständig rapport</a> &nbsp;|&nbsp;
+    <a href="sat_poi_issues_report.json">json</a>
   </div>
 </div>
 
@@ -482,6 +483,61 @@ SELECT ?item ?itemLabel ?value WHERE {
 </html>"""
 
     # ------------------------------------------------------------------
+    # JSON-export
+    # ------------------------------------------------------------------
+    def _record_to_dict(self, r: IssueRecord) -> dict:
+        d = {
+            "external_id": r.external_id,
+            "sat_id": r.sat_id,
+            "sat_map_url": f"https://map.stockholmarchipelagotrail.com/?{r.sat_id}",
+            "sat_api_url": f"https://map.stockholmarchipelagotrail.com/api/objects/{r.sat_id}",
+            "source_type": r.source_type,
+            "issue_type": r.issue_type,
+            "name": r.name,
+            "first_seen": r.first_seen,
+            "updated_at": r.updated_at,
+        }
+        if r.source_type == "wikidata":
+            d["wikidata"] = {
+                "q_id": r.wikidata_q,
+                "label": r.wikidata_label,
+                "url": f"https://www.wikidata.org/wiki/{r.wikidata_q}",
+                "deleted": r.wikidata_deleted,
+                "p14545_ok": r.wikidata_p14545_ok,
+                "p14545_value_in_wikidata": r.wikidata_p14545_value,
+            }
+        elif r.source_type == "osm":
+            d["osm"] = {
+                "type": r.osm_type,
+                "id": r.osm_numeric_id,
+                "url": f"https://www.openstreetmap.org/{r.osm_type}/{r.osm_numeric_id}",
+                "deleted": r.osm_deleted,
+                "ref_ok": r.osm_ref_ok,
+                "ref_value_in_osm": r.osm_ref_value,
+            }
+        return d
+
+    def save_json(self, deleted: list, missing_ref: list, generated_at: str, json_file: str):
+        output = {
+            "generated_at": generated_at,
+            "generated_by": self.email,
+            "summary": {
+                "total_issues": len(deleted) + len(missing_ref),
+                "deleted_total": len(deleted),
+                "deleted_osm": sum(1 for r in deleted if r.source_type == "osm"),
+                "deleted_wikidata": sum(1 for r in deleted if r.source_type == "wikidata"),
+                "missing_ref_total": len(missing_ref),
+                "missing_ref_osm": sum(1 for r in missing_ref if r.source_type == "osm"),
+                "missing_ref_wikidata": sum(1 for r in missing_ref if r.source_type == "wikidata"),
+            },
+            "deleted_objects": [self._record_to_dict(r) for r in deleted],
+            "missing_backreference": [self._record_to_dict(r) for r in missing_ref],
+        }
+        with open(json_file, "w", encoding="utf-8") as f:
+            json.dump(output, f, ensure_ascii=False, indent=2)
+        print(f"✅ JSON sparad: {json_file}")
+
+    # ------------------------------------------------------------------
     # Huvudmetod
     # ------------------------------------------------------------------
     def run(self, output_file="sat_poi_issues_report.html", exclude_prefixes=None):
@@ -512,12 +568,15 @@ SELECT ?item ?itemLabel ?value WHERE {
         print(f"     - OSM            : {sum(1 for r in missing_ref if r.source_type=='osm')}")
         print(f"     - Wikidata       : {sum(1 for r in missing_ref if r.source_type=='wikidata')}")
 
-        generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-        html = self.generate_html(deleted, missing_ref, generated_at)
+        generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:00Z")
 
+        html = self.generate_html(deleted, missing_ref, generated_at)
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(html)
-        print(f"\n✅ Rapport sparad: {output_file}")
+        print(f"\n✅ HTML sparad: {output_file}")
+
+        json_file = output_file.replace(".html", ".json")
+        self.save_json(deleted, missing_ref, generated_at, json_file)
 
 
 def main():

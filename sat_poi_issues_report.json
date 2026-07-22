@@ -1,0 +1,1556 @@
+{
+  "generated_at": "2026-07-22T06:47:00Z",
+  "generated_by": "salgo60@msn.com",
+  "summary": {
+    "total_issues": 81,
+    "deleted_total": 34,
+    "deleted_osm": 16,
+    "deleted_wikidata": 18,
+    "missing_ref_total": 47,
+    "missing_ref_osm": 31,
+    "missing_ref_wikidata": 16
+  },
+  "deleted_objects": [
+    {
+      "external_id": "osm:node:12956347396",
+      "sat_id": "sat:poi:67a4d",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:67a4d",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:67a4d",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 12956347396,
+        "url": "https://www.openstreetmap.org/node/12956347396",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:12959406894",
+      "sat_id": "sat:poi:5qbbt",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:5qbbt",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5qbbt",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 12959406894,
+        "url": "https://www.openstreetmap.org/node/12959406894",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:13067993747",
+      "sat_id": "sat:poi:qexp5",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:qexp5",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qexp5",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 13067993747,
+        "url": "https://www.openstreetmap.org/node/13067993747",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:13068007428",
+      "sat_id": "sat:poi:7mw8m",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:7mw8m",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:7mw8m",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 13068007428,
+        "url": "https://www.openstreetmap.org/node/13068007428",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:13820131465",
+      "sat_id": "sat:poi:hpy7b",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:hpy7b",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:hpy7b",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 13820131465,
+        "url": "https://www.openstreetmap.org/node/13820131465",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:13932136052",
+      "sat_id": "sat:poi:xzp8m",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:xzp8m",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:xzp8m",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": "Hästholmsviken",
+      "first_seen": "2026-06-15",
+      "updated_at": "2026-07-06",
+      "osm": {
+        "type": "node",
+        "id": 13932136052,
+        "url": "https://www.openstreetmap.org/node/13932136052",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:13953909169",
+      "sat_id": "sat:poi:sqgs6",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:sqgs6",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:sqgs6",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 13953909169,
+        "url": "https://www.openstreetmap.org/node/13953909169",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:13982007524",
+      "sat_id": "sat:poi:gdtt5",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:gdtt5",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:gdtt5",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 13982007524,
+        "url": "https://www.openstreetmap.org/node/13982007524",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:13983409985",
+      "sat_id": "sat:poi:zn58x",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:zn58x",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zn58x",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": "Dusch",
+      "first_seen": "2026-07-06",
+      "updated_at": "2026-07-02",
+      "osm": {
+        "type": "node",
+        "id": 13983409985,
+        "url": "https://www.openstreetmap.org/node/13983409985",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:14027456239",
+      "sat_id": "sat:poi:5kxr2",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:5kxr2",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5kxr2",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": "Dusch",
+      "first_seen": "2026-07-20",
+      "updated_at": "2026-07-19",
+      "osm": {
+        "type": "node",
+        "id": 14027456239,
+        "url": "https://www.openstreetmap.org/node/14027456239",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:1414841724",
+      "sat_id": "sat:poi:kaq8k",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:kaq8k",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:kaq8k",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 1414841724,
+        "url": "https://www.openstreetmap.org/node/1414841724",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:1848869435",
+      "sat_id": "sat:poi:5hc74",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:5hc74",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5hc74",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 1848869435,
+        "url": "https://www.openstreetmap.org/node/1848869435",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:3665537335",
+      "sat_id": "sat:poi:ejn2w",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:ejn2w",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ejn2w",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 3665537335,
+        "url": "https://www.openstreetmap.org/node/3665537335",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:1393060482",
+      "sat_id": "sat:poi:p7fan",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:p7fan",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:p7fan",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 1393060482,
+        "url": "https://www.openstreetmap.org/way/1393060482",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:223282393",
+      "sat_id": "sat:poi:cwaqz",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:cwaqz",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:cwaqz",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 223282393,
+        "url": "https://www.openstreetmap.org/way/223282393",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:295911314",
+      "sat_id": "sat:poi:n7j6n",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:n7j6n",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:n7j6n",
+      "source_type": "osm",
+      "issue_type": "deleted",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 295911314,
+        "url": "https://www.openstreetmap.org/way/295911314",
+        "deleted": true,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134605030",
+      "sat_id": "sat:poi:c8je6",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:c8je6",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:c8je6",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Ålö Storsand dricksvattenpump",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-24",
+      "wikidata": {
+        "q_id": "Q134605030",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134605030",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134607564",
+      "sat_id": "sat:poi:b7nxb",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:b7nxb",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:b7nxb",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten Rånöhamn",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-18",
+      "wikidata": {
+        "q_id": "Q134607564",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134607564",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134607783",
+      "sat_id": "sat:poi:mxxwb",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:mxxwb",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:mxxwb",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvattenpump Grinda Tältplats",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-18",
+      "wikidata": {
+        "q_id": "Q134607783",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134607783",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134717347",
+      "sat_id": "sat:poi:g3k29",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:g3k29",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:g3k29",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-15",
+      "wikidata": {
+        "q_id": "Q134717347",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134717347",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134717362",
+      "sat_id": "sat:poi:kkevg",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:kkevg",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:kkevg",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-18",
+      "wikidata": {
+        "q_id": "Q134717362",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134717362",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134726995",
+      "sat_id": "sat:poi:b3bvp",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:b3bvp",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:b3bvp",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-17",
+      "wikidata": {
+        "q_id": "Q134726995",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134726995",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134985579",
+      "sat_id": "sat:poi:nsjj5",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:nsjj5",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:nsjj5",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-16",
+      "wikidata": {
+        "q_id": "Q134985579",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134985579",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134985660",
+      "sat_id": "sat:poi:65far",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:65far",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:65far",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-18",
+      "wikidata": {
+        "q_id": "Q134985660",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134985660",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134985757",
+      "sat_id": "sat:poi:95d39",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:95d39",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:95d39",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvattenkran",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-12",
+      "wikidata": {
+        "q_id": "Q134985757",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134985757",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134986918",
+      "sat_id": "sat:poi:2var9",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:2var9",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:2var9",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-10",
+      "wikidata": {
+        "q_id": "Q134986918",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134986918",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134987122",
+      "sat_id": "sat:poi:4z558",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:4z558",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:4z558",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-10",
+      "wikidata": {
+        "q_id": "Q134987122",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q134987122",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135011579",
+      "sat_id": "sat:poi:rjyg9",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:rjyg9",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:rjyg9",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-10",
+      "wikidata": {
+        "q_id": "Q135011579",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q135011579",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135197036",
+      "sat_id": "sat:poi:zxxhc",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:zxxhc",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zxxhc",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-13",
+      "wikidata": {
+        "q_id": "Q135197036",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q135197036",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135197156",
+      "sat_id": "sat:poi:nvh64",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:nvh64",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:nvh64",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-18",
+      "wikidata": {
+        "q_id": "Q135197156",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q135197156",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135230746",
+      "sat_id": "sat:poi:v2vea",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:v2vea",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:v2vea",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-12",
+      "wikidata": {
+        "q_id": "Q135230746",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q135230746",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135267999",
+      "sat_id": "sat:poi:zmh6w",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:zmh6w",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zmh6w",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-25",
+      "wikidata": {
+        "q_id": "Q135267999",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q135267999",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135268016",
+      "sat_id": "sat:poi:n47kg",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:n47kg",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:n47kg",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Österhamn Pump dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-09",
+      "wikidata": {
+        "q_id": "Q135268016",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q135268016",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135458780",
+      "sat_id": "sat:poi:dkshm",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:dkshm",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:dkshm",
+      "source_type": "wikidata",
+      "issue_type": "deleted",
+      "name": "Dricksvatten",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-12",
+      "wikidata": {
+        "q_id": "Q135458780",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q135458780",
+        "deleted": true,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    }
+  ],
+  "missing_backreference": [
+    {
+      "external_id": "osm:node:12118209285",
+      "sat_id": "sat:poi:9xbg8",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:9xbg8",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:9xbg8",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 12118209285,
+        "url": "https://www.openstreetmap.org/node/12118209285",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:14002265057",
+      "sat_id": "sat:poi:p5ty6",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:p5ty6",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:p5ty6",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Toalett",
+      "first_seen": "2026-07-13",
+      "updated_at": "2026-07-10",
+      "osm": {
+        "type": "node",
+        "id": 14002265057,
+        "url": "https://www.openstreetmap.org/node/14002265057",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:1430936608",
+      "sat_id": "sat:poi:2atzy",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:2atzy",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:2atzy",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Arholma dansbana",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-19",
+      "osm": {
+        "type": "node",
+        "id": 1430936608,
+        "url": "https://www.openstreetmap.org/node/1430936608",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:node:8846898703",
+      "sat_id": "sat:poi:rcx5k",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:rcx5k",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:rcx5k",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "node",
+        "id": 8846898703,
+        "url": "https://www.openstreetmap.org/node/8846898703",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": "sat:poi:cbt7n"
+      }
+    },
+    {
+      "external_id": "osm:way:1087587113",
+      "sat_id": "sat:poi:wkrcb",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:wkrcb",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:wkrcb",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 1087587113,
+        "url": "https://www.openstreetmap.org/way/1087587113",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:1087587115",
+      "sat_id": "sat:poi:spmav",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:spmav",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:spmav",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 1087587115,
+        "url": "https://www.openstreetmap.org/way/1087587115",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:1304510629",
+      "sat_id": "sat:poi:bgaf7",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:bgaf7",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:bgaf7",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 1304510629,
+        "url": "https://www.openstreetmap.org/way/1304510629",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:1304510630",
+      "sat_id": "sat:poi:qphn7",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:qphn7",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qphn7",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 1304510630,
+        "url": "https://www.openstreetmap.org/way/1304510630",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:1305276858",
+      "sat_id": "sat:poi:5ax55",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:5ax55",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5ax55",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 1305276858,
+        "url": "https://www.openstreetmap.org/way/1305276858",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:1305276860",
+      "sat_id": "sat:poi:tfkxa",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:tfkxa",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:tfkxa",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 1305276860,
+        "url": "https://www.openstreetmap.org/way/1305276860",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:1424973417",
+      "sat_id": "sat:poi:cbnjd",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:cbnjd",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:cbnjd",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Cissi",
+      "first_seen": "2026-06-10",
+      "updated_at": "2025-08-26",
+      "osm": {
+        "type": "way",
+        "id": 1424973417,
+        "url": "https://www.openstreetmap.org/way/1424973417",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762652",
+      "sat_id": "sat:poi:qa4h2",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:qa4h2",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qa4h2",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762652,
+        "url": "https://www.openstreetmap.org/way/222762652",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762673",
+      "sat_id": "sat:poi:d69c2",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:d69c2",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:d69c2",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762673,
+        "url": "https://www.openstreetmap.org/way/222762673",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762675",
+      "sat_id": "sat:poi:da74h",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:da74h",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:da74h",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762675,
+        "url": "https://www.openstreetmap.org/way/222762675",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762689",
+      "sat_id": "sat:poi:3pe5v",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:3pe5v",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:3pe5v",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762689,
+        "url": "https://www.openstreetmap.org/way/222762689",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762695",
+      "sat_id": "sat:poi:w6dv3",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:w6dv3",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:w6dv3",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762695,
+        "url": "https://www.openstreetmap.org/way/222762695",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762700",
+      "sat_id": "sat:poi:g4b6r",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:g4b6r",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:g4b6r",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762700,
+        "url": "https://www.openstreetmap.org/way/222762700",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762704",
+      "sat_id": "sat:poi:bpmgr",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:bpmgr",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:bpmgr",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762704,
+        "url": "https://www.openstreetmap.org/way/222762704",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762705",
+      "sat_id": "sat:poi:qjb2v",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:qjb2v",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qjb2v",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762705,
+        "url": "https://www.openstreetmap.org/way/222762705",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762706",
+      "sat_id": "sat:poi:6bbav",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:6bbav",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:6bbav",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762706,
+        "url": "https://www.openstreetmap.org/way/222762706",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762713",
+      "sat_id": "sat:poi:sqn4z",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:sqn4z",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:sqn4z",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762713,
+        "url": "https://www.openstreetmap.org/way/222762713",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:222762718",
+      "sat_id": "sat:poi:zym9m",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:zym9m",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zym9m",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 222762718,
+        "url": "https://www.openstreetmap.org/way/222762718",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:229605200",
+      "sat_id": "sat:poi:jap84",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:jap84",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:jap84",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "osm": {
+        "type": "way",
+        "id": 229605200,
+        "url": "https://www.openstreetmap.org/way/229605200",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:300450539",
+      "sat_id": "sat:poi:r88rc",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:r88rc",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:r88rc",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Badplats",
+      "first_seen": "2026-06-26",
+      "updated_at": "2014-08-27",
+      "osm": {
+        "type": "way",
+        "id": 300450539,
+        "url": "https://www.openstreetmap.org/way/300450539",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:300450541",
+      "sat_id": "sat:poi:5zvqw",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:5zvqw",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:5zvqw",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Badplats",
+      "first_seen": "2026-06-26",
+      "updated_at": "2014-08-27",
+      "osm": {
+        "type": "way",
+        "id": 300450541,
+        "url": "https://www.openstreetmap.org/way/300450541",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:322935628",
+      "sat_id": "sat:poi:rxv5b",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:rxv5b",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:rxv5b",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Skarsand, Nåttarö",
+      "first_seen": "2026-06-26",
+      "updated_at": "2025-05-22",
+      "osm": {
+        "type": "way",
+        "id": 322935628,
+        "url": "https://www.openstreetmap.org/way/322935628",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:400255324",
+      "sat_id": "sat:poi:z2nrn",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:z2nrn",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:z2nrn",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Badplats",
+      "first_seen": "2026-06-26",
+      "updated_at": "2021-07-26",
+      "osm": {
+        "type": "way",
+        "id": 400255324,
+        "url": "https://www.openstreetmap.org/way/400255324",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:771056534",
+      "sat_id": "sat:poi:qgkkp",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:qgkkp",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qgkkp",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Badplats",
+      "first_seen": "2026-06-26",
+      "updated_at": "2023-08-30",
+      "osm": {
+        "type": "way",
+        "id": 771056534,
+        "url": "https://www.openstreetmap.org/way/771056534",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:833809121",
+      "sat_id": "sat:poi:nf7y3",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:nf7y3",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:nf7y3",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Toalett",
+      "first_seen": "2026-06-10",
+      "updated_at": "2020-08-04",
+      "osm": {
+        "type": "way",
+        "id": 833809121,
+        "url": "https://www.openstreetmap.org/way/833809121",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:835790394",
+      "sat_id": "sat:poi:sg94k",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:sg94k",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:sg94k",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Lidö Värdshus",
+      "first_seen": "2026-06-10",
+      "updated_at": "2020-08-10",
+      "osm": {
+        "type": "way",
+        "id": 835790394,
+        "url": "https://www.openstreetmap.org/way/835790394",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "osm:way:857838616",
+      "sat_id": "sat:poi:493m8",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:493m8",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:493m8",
+      "source_type": "osm",
+      "issue_type": "missing_ref",
+      "name": "Badplats",
+      "first_seen": "2026-06-26",
+      "updated_at": "2025-08-08",
+      "osm": {
+        "type": "way",
+        "id": 857838616,
+        "url": "https://www.openstreetmap.org/way/857838616",
+        "deleted": false,
+        "ref_ok": false,
+        "ref_value_in_osm": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q107290890",
+      "sat_id": "sat:poi:rcx5k",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:rcx5k",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:rcx5k",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": null,
+      "first_seen": null,
+      "updated_at": null,
+      "wikidata": {
+        "q_id": "Q107290890",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q107290890",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": "sat:poi:cbt7n"
+      }
+    },
+    {
+      "external_id": "wikidata:Q121754355",
+      "sat_id": "sat:poi:h5y4c",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:h5y4c",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:h5y4c",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Kålgårdsöns naturreservat, grillplats",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-11",
+      "wikidata": {
+        "q_id": "Q121754355",
+        "label": "Kålgårdsöns naturreservat, grillplats",
+        "url": "https://www.wikidata.org/wiki/Q121754355",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": "sat:poi:h78ed"
+      }
+    },
+    {
+      "external_id": "wikidata:Q133459418",
+      "sat_id": "sat:poi:e82y7",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:e82y7",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:e82y7",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Pestkyrkogården",
+      "first_seen": "2026-07-08",
+      "updated_at": "2026-07-11",
+      "wikidata": {
+        "q_id": "Q133459418",
+        "label": "Pestkyrkogård, Öja-Landsort",
+        "url": "https://www.wikidata.org/wiki/Q133459418",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q133812569",
+      "sat_id": "sat:poi:ybc97",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:ybc97",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ybc97",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Möja hamnbar",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-18",
+      "wikidata": {
+        "q_id": "Q133812569",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q133812569",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": "sat:poi:gysy6"
+      }
+    },
+    {
+      "external_id": "wikidata:Q133824830",
+      "sat_id": "sat:poi:6p8zd",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:6p8zd",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:6p8zd",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Gruvmuseet",
+      "first_seen": "2026-06-21",
+      "updated_at": "2026-06-23",
+      "wikidata": {
+        "q_id": "Q133824830",
+        "label": "Utö grufmuseum",
+        "url": "https://www.wikidata.org/wiki/Q133824830",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q134527248",
+      "sat_id": "sat:poi:tjmkq",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:tjmkq",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:tjmkq",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Köpmanholms Grill & Bar",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-13",
+      "wikidata": {
+        "q_id": "Q134527248",
+        "label": "Köpmanholms Lanthandel och Grill",
+        "url": "https://www.wikidata.org/wiki/Q134527248",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": "sat:poi:m438y"
+      }
+    },
+    {
+      "external_id": "wikidata:Q134727862",
+      "sat_id": "sat:poi:ts37b",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:ts37b",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ts37b",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Kayakomat Stockholms Skärgård Ornö",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-07",
+      "wikidata": {
+        "q_id": "Q134727862",
+        "label": "Kayakomat Stockholms Skärgård Ornö",
+        "url": "https://www.wikidata.org/wiki/Q134727862",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": "sat:poi:4xvhw"
+      }
+    },
+    {
+      "external_id": "wikidata:Q134871089",
+      "sat_id": "sat:poi:978hx",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:978hx",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:978hx",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Jerkers udde",
+      "first_seen": "2026-06-15",
+      "updated_at": "2026-06-18",
+      "wikidata": {
+        "q_id": "Q134871089",
+        "label": "Jerkers uddes badplats",
+        "url": "https://www.wikidata.org/wiki/Q134871089",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135040652",
+      "sat_id": "sat:poi:zqc6r",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:zqc6r",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:zqc6r",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Restaurang Viken Nämdö Solvik",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-15",
+      "wikidata": {
+        "q_id": "Q135040652",
+        "label": "Nämdö Krogen, Solvik",
+        "url": "https://www.wikidata.org/wiki/Q135040652",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135103433",
+      "sat_id": "sat:poi:9hzqe",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:9hzqe",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:9hzqe",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Ornö badplats, Kyrkviken",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-26",
+      "wikidata": {
+        "q_id": "Q135103433",
+        "label": "Ornö badplats, Kyrkviken",
+        "url": "https://www.wikidata.org/wiki/Q135103433",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q135110316",
+      "sat_id": "sat:poi:ybc97",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:ybc97",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ybc97",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Möja hamnbar",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-18",
+      "wikidata": {
+        "q_id": "Q135110316",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q135110316",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q136337450",
+      "sat_id": "sat:poi:pvz9y",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:pvz9y",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:pvz9y",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Möja bageri",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-07-17",
+      "wikidata": {
+        "q_id": "Q136337450",
+        "label": "Möja bageri",
+        "url": "https://www.wikidata.org/wiki/Q136337450",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q18291743",
+      "sat_id": "sat:poi:ys3ma",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:ys3ma",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ys3ma",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Lidö Värdshus",
+      "first_seen": "2026-06-10",
+      "updated_at": "2026-06-13",
+      "wikidata": {
+        "q_id": "Q18291743",
+        "label": "Lidö värdshus",
+        "url": "https://www.wikidata.org/wiki/Q18291743",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": "sat:poi:fgfa4"
+      }
+    },
+    {
+      "external_id": "wikidata:Q32904803",
+      "sat_id": "sat:poi:jbdd6",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:jbdd6",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:jbdd6",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Batteri Arholma",
+      "first_seen": "2026-06-21",
+      "updated_at": "2026-06-22",
+      "wikidata": {
+        "q_id": "Q32904803",
+        "label": "Batteri Arholma",
+        "url": "https://www.wikidata.org/wiki/Q32904803",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": "sat:poi:gfyya"
+      }
+    },
+    {
+      "external_id": "wikidata:Q699873",
+      "sat_id": "sat:poi:fzzma",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:fzzma",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:fzzma",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Landsorts klockstapel",
+      "first_seen": "2026-07-13",
+      "updated_at": "2026-07-10",
+      "wikidata": {
+        "q_id": "Q699873",
+        "label": null,
+        "url": "https://www.wikidata.org/wiki/Q699873",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": null
+      }
+    },
+    {
+      "external_id": "wikidata:Q842877",
+      "sat_id": "sat:poi:kbxxd",
+      "sat_map_url": "https://map.stockholmarchipelagotrail.com/?sat:poi:kbxxd",
+      "sat_api_url": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:kbxxd",
+      "source_type": "wikidata",
+      "issue_type": "missing_ref",
+      "name": "Kungsstolen",
+      "first_seen": "2026-06-21",
+      "updated_at": "2026-07-05",
+      "wikidata": {
+        "q_id": "Q842877",
+        "label": "Kungsstolen",
+        "url": "https://www.wikidata.org/wiki/Q842877",
+        "deleted": false,
+        "p14545_ok": false,
+        "p14545_value_in_wikidata": "sat:section:t3kx7"
+      }
+    }
+  ]
+}
