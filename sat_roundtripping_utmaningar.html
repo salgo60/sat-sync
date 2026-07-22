@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Data Roundtripping mellan SAT, OpenStreetMap och Wikidata</title>
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 1100px;
+    margin: auto;
+    line-height: 1.6;
+    padding: 2em;
+    background: #fafafa;
+}
+
+h1,h2,h3 {
+    color: #0b5394;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+th, td {
+    border: 1px solid #bbb;
+    padding: 8px;
+    vertical-align: top;
+}
+
+th {
+    background: #e8f1fb;
+}
+
+section {
+    background: white;
+    padding: 1em 2em;
+    margin-bottom: 2em;
+    border-radius: 8px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.08);
+}
+
+code {
+    background: #efefef;
+    padding: 2px 4px;
+}
+
+ul li {
+    margin-bottom: 0.5em;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Roundtripping mellan SAT-kartan, OpenStreetMap och Wikidata</h1>
+
+<p>
+Denna sida sammanfattar utmaningar och frågeställningar kring synkronisering
+("roundtripping") mellan tre öppna datakällor:
+</p>
+
+<ul>
+<li>SAT-kartan</li>
+<li>OpenStreetMap (OSM)</li>
+<li>Wikidata</li>
+</ul>
+
+<p>
+Målet är att förbättra datakvaliteten utan att skapa dubbla objekt eller
+förlora information när data uppdateras i flera system.
+</p>
+
+<hr>
+
+<section>
+
+<h2>Övergripande mål</h2>
+
+<ul>
+<li>Identifiera skillnader mellan systemen.</li>
+<li>Avgöra vilken källa som är mest korrekt.</li>
+<li>Förenkla återkoppling av förbättringar.</li>
+<li>Minska manuellt arbete.</li>
+<li>Bygga spårbara arbetsflöden.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Informationsflöde</h2>
+
+<pre>
+
+            +----------------+
+            |    SAT-karta   |
+            +--------+-------+
+                     |
+              diff-rapport
+                     |
+                     v
+        +------------+------------+
+        |                         |
+        |       Analys            |
+        |                         |
+        +------------+------------+
+                     |
+        +------------+------------+
+        |                         |
+        v                         v
+   OpenStreetMap            Wikidata
+
+</pre>
+
+</section>
+
+<section>
+
+<h2>Vanliga typer av differenser</h2>
+
+<table>
+
+<tr>
+<th>Typ</th>
+<th>Exempel</th>
+<th>Möjlig åtgärd</th>
+</tr>
+
+<tr>
+<td>Saknat objekt</td>
+<td>Finns i SAT men inte i OSM</td>
+<td>Verifiera och lägg till i OSM</td>
+</tr>
+
+<tr>
+<td>Saknad Wikidata-koppling</td>
+<td>OSM saknar <code>wikidata=Q...</code></td>
+<td>Länka till rätt objekt</td>
+</tr>
+
+<tr>
+<td>Fel koordinater</td>
+<td>Objekt ligger på olika plats</td>
+<td>Kontrollera mot flygbilder eller officiella källor</td>
+</tr>
+
+<tr>
+<td>Namn skiljer sig</td>
+<td>Olika stavning</td>
+<td>Verifiera officiellt namn</td>
+</tr>
+
+<tr>
+<td>Dubbletter</td>
+<td>Två objekt beskriver samma plats</td>
+<td>Slå ihop eller ta bort dublett</td>
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Vem är master?</h2>
+
+<p>En central fråga är vilken datakälla som ska betraktas som mest auktoritativ.</p>
+
+<table>
+
+<tr>
+<th>Information</th>
+<th>Möjlig master</th>
+</tr>
+
+<tr>
+<td>Geometri</td>
+<td>OpenStreetMap</td>
+</tr>
+
+<tr>
+<td>Wikipedia/Wikidata-länk</td>
+<td>Wikidata</td>
+</tr>
+
+<tr>
+<td>Objektklassning</td>
+<td>Beror på objekt</td>
+</tr>
+
+<tr>
+<td>Lokala verksamheter</td>
+<td>SAT eller OSM</td>
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>OSM Notes som arbetsflöde</h2>
+
+<p>
+OSM Notes kan användas för att rapportera observationer utan att direkt ändra kartan.
+Det gör det möjligt för lokala OSM-mappare att verifiera informationen innan ändringar görs.
+</p>
+
+<p>Exempel:</p>
+
+<ul>
+
+<li>Fel namn</li>
+
+<li>Saknat objekt</li>
+
+<li>Objekt verkar ha flyttats</li>
+
+<li>Behöver lokal kontroll</li>
+
+<li>Behöver verifieras mot officiell källa</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>Möjliga arbetsflöden</h2>
+
+<h3>1. SAT → OSM</h3>
+
+<ol>
+<li>Identifiera diff.</li>
+<li>Verifiera.</li>
+<li>Skapa OSM Note eller direkt ändring.</li>
+<li>När ändringen är godkänd uppdateras SAT.</li>
+</ol>
+
+<h3>2. OSM → SAT</h3>
+
+<ol>
+<li>Nya objekt upptäcks.</li>
+<li>Importeras efter kvalitetskontroll.</li>
+</ol>
+
+<h3>3. Wikidata → OSM</h3>
+
+<ol>
+<li>Lägg till saknade <code>wikidata</code>-taggar.</li>
+<li>Undvik felaktiga kopplingar.</li>
+</ol>
+
+</section>
+
+<section>
+
+<h2>Tekniska utmaningar</h2>
+
+<ul>
+
+<li>Stabila identifierare.</li>
+
+<li>Objekt som flyttas.</li>
+
+<li>Objekt som delas upp eller slås samman.</li>
+
+<li>Versionshantering.</li>
+
+<li>Historik.</li>
+
+<li>Automatiska kontra manuella ändringar.</li>
+
+<li>Kvalitetssäkring innan synkronisering.</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>Frågeställningar</h2>
+
+<ul>
+
+<li>Hur identifieras samma objekt i tre olika system?</li>
+
+<li>När ska en diff automatiskt accepteras?</li>
+
+<li>När krävs mänsklig granskning?</li>
+
+<li>Kan OSM Notes användas som gemensam arbetskö?</li>
+
+<li>Bör SAT lagra OSM-id och Wikidata-id permanent?</li>
+
+<li>Hur hanteras objekt som saknar Wikidata?</li>
+
+<li>Hur undviks att samma fel rapporteras flera gånger?</li>
+
+<li>Hur prioriteras vilka differenser som ska åtgärdas först?</li>
+
+<li>Kan diff-rapporten generera färdiga arbetslistor?</li>
+
+<li>Hur mäts datakvaliteten över tid?</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>Vision</h2>
+
+<p>
+
+Ett långsiktigt mål är ett öppet arbetsflöde där SAT, OpenStreetMap och
+Wikidata förstärker varandra istället för att utvecklas separat.
+
+Diff-rapporter används för att hitta avvikelser,
+OSM Notes används för samarbete,
+och förbättringar återförs till samtliga system på ett spårbart sätt.
+
+</p>
+
+</section>
+
+</body>
+</html>
