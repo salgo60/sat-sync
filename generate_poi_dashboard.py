@@ -470,12 +470,12 @@ ORDER BY DESC(geof:latitude(?coord))
     .filters select {{ min-width:180px; padding:8px; border:1px solid #cbd5e1; border-radius:6px; }}
     #languageFilter {{ min-width:300px; }}
     .filters .hint {{ margin-top:4px; font-size:.75rem; color:#64748b; }}
-    .filters .actions {{ display:flex; gap:8px; align-items:center; }}
+    .filters .actions {{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }}
     .filters button {{ padding:8px 12px; border:1px solid #1d4ed8; background:#1d4ed8; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }}
     .filters button:hover {{ background:#1e40af; }}
     .filters .toggle {{ display:flex; align-items:center; gap:6px; font-size:.9rem; color:#334155; }}
     .filters .toggle input {{ width:16px; height:16px; }}
-    .filters .distance-controls {{ display:flex; gap:8px; align-items:center; }}
+    .filters .distance-controls {{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }}
     .filters .distance-controls select {{ min-width:90px; }}
     .filters .distance-count {{ font-size:.85rem; color:#334155; background:#f8fafc; border:1px solid #cbd5e1; border-radius:9999px; padding:5px 10px; }}
     .filters .count {{ margin-left:auto; font-size:1rem; color:#0f172a; font-weight:700; background:#e0ecff; border:1px solid #93c5fd; padding:8px 12px; border-radius:8px; }}
@@ -521,6 +521,22 @@ ORDER BY DESC(geof:latitude(?coord))
     a {{ color:#1d4ed8; text-decoration:none; }}
     a:hover {{ text-decoration:underline; }}
     .footer {{ padding:20px 24px; font-size:.85rem; color:#666; text-align:center; }}
+    @media (max-width: 640px) {{
+      .header {{ padding:16px; }}
+      .header h1 {{ font-size:1.2rem; }}
+      .stats {{ padding:12px 16px; gap:8px; }}
+      .filters {{ padding:12px 16px; gap:8px; }}
+      .filters select, #languageFilter {{ min-width:100%; width:100%; box-sizing:border-box; }}
+      .filters .actions {{ width:100%; }}
+      .filters .count {{ margin-left:0; width:100%; text-align:center; }}
+      .section {{ padding:12px 16px; }}
+      #poiMap {{ height:360px; }}
+      #sankeyChart {{ height:380px; }}
+      .table-wrap {{ font-size:.78rem; }}
+      th, td {{ padding:6px 8px; }}
+      .footer {{ padding:12px 16px; font-size:.75rem; }}
+      .header-meta {{ font-size:0.72rem; }}
+    }}
   </style>
 </head>
 <body>
@@ -531,7 +547,8 @@ ORDER BY DESC(geof:latitude(?coord))
       <div class="header-meta">
         <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>{generated_at}</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> &nbsp;|&nbsp;
-        <a href="whats_new.html">What's new</a>
+        <a href="whats_new.html">What's new</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringslista</a>
       </div>
     </div>
 
@@ -655,7 +672,8 @@ ORDER BY DESC(geof:latitude(?coord))
       <a href="{SECTIONS_INDEX_URL}" target="_blank">sections-index.json</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data-sources" target="_blank">data-sources</a> |
       <a href="https://www.wikidata.org/wiki/Q131318799" target="_blank">Wikidata route</a> |
-      <a href="whats_new.html">What's new</a>
+      <a href="whats_new.html">What's new</a> |
+      <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringslista</a>
     </div>
   </div>
 
@@ -1326,6 +1344,9 @@ ORDER BY DESC(geof:latitude(?coord))
           const mapCompleteUrl = (osmRef && mapCompleteTheme)
             ? `https://mapcomplete.org/${{mapCompleteTheme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{osmRef.type}}/${{osmRef.id}}`
             : null;
+          const idEditorUrl = osmRef
+            ? `https://www.openstreetmap.org/edit?editor=id&${{osmRef.type}}=${{osmRef.id}}#map=18/${{r.lat}}/${{r.lon}}`
+            : null;
           const osmTagsHtml = osmRef
             ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div></details>`
             : `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body">${{escapeHtml(t('noOsmRef'))}}</div></details>`;
@@ -1335,6 +1356,9 @@ ORDER BY DESC(geof:latitude(?coord))
           const mapCompleteLink = mapCompleteUrl
             ? `<div><a href="${{mapCompleteUrl}}" target="_blank">✏️ MapComplete (${{mapCompleteTheme}})</a></div>`
             : '';
+          const idEditorLink = idEditorUrl
+            ? `<div><a href="${{idEditorUrl}}" target="_blank">✏️ iD editor (OSM)</a></div>`
+            : '';
           marker.bindPopup(`
             <div style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(poiName)}}</strong><br>
@@ -1342,6 +1366,7 @@ ORDER BY DESC(geof:latitude(?coord))
               <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a>
               ${{osmTagsHtml}}
               ${{osmHistoryLink}}
+              ${{idEditorLink}}
               ${{mapCompleteLink}}
               ${{imageHtml}}
             </div>
