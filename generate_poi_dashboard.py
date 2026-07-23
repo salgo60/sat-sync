@@ -1339,9 +1339,9 @@ ORDER BY DESC(geof:latitude(?coord))
               attraction: 'nature',
               viewpoint: 'nature'
             }};
-            return map[cat] || null;
+            return map[cat] || 'nature';
           }})(r.category);
-          const mapCompleteUrl = (osmRef && mapCompleteTheme)
+          const mapCompleteUrl = osmRef
             ? `https://mapcomplete.org/${{mapCompleteTheme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{osmRef.type}}/${{osmRef.id}}`
             : null;
           const idEditorUrl = osmRef
