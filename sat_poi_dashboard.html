@@ -21,6 +21,8 @@
     .filters { background:#fff; padding:14px 24px; border-bottom:1px solid #e2e8f0; display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }
     .filters label { display:block; font-size:.8rem; color:#555; margin-bottom:4px; font-weight:600; }
     .filters select { min-width:180px; padding:8px; border:1px solid #cbd5e1; border-radius:6px; }
+    .filters select[multiple] { min-width:230px; min-height:160px; }
+    .filters .hint { margin-top:4px; font-size:.75rem; color:#64748b; }
     .filters .actions { display:flex; gap:8px; align-items:center; }
     .filters button { padding:8px 12px; border:1px solid #1d4ed8; background:#1d4ed8; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }
     .filters button:hover { background:#1e40af; }
@@ -114,8 +116,7 @@
       </div>
       <div>
         <label for="categoryFilter">Filtrera objekttyp</label>
-        <select id="categoryFilter">
-          <option value="all">Alla</option>
+        <select id="categoryFilter" multiple size="8">
           <option value="attraction">attraction</option>
 <option value="beach">beach</option>
 <option value="firepit">firepit</option>
@@ -133,6 +134,7 @@
 <option value="viewpoint">viewpoint</option>
 <option value="water">water</option>
         </select>
+        <div class="hint">Flerval: välj en eller flera kategorier</div>
       </div>
       <div class="actions">
         <button id="shareBtn" type="button">Dela</button>
@@ -7901,7 +7903,7 @@
       let preserveMapView = false;
       let isProgrammaticMapMove = false;
       let lastSection = null;
-      let lastCategory = null;
+      let lastCategoryKey = null;
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
       const distanceBandLayer = L.geoJSON(trailGeoJson, {
@@ -7948,6 +7950,42 @@
         return 500;
       }
 
+      function normalizeCategorySelection(rawValues) {
+        const fromInput = Array.isArray(rawValues)
+          ? rawValues
+          : String(rawValues || '').split(',');
+        const cleaned = fromInput
+          .map((v) => String(v || '').trim())
+          .filter((v) => v && categoryValues.has(v));
+        const uniq = Array.from(new Set(cleaned));
+        if (uniq.length === 0 || uniq.length === categoryValues.size) {
+          return Array.from(categoryValues);
+        }
+        return uniq;
+      }
+
+      function setSelectedCategories(values) {
+        const selected = new Set(normalizeCategorySelection(values));
+        Array.from(categoryFilter.options).forEach((opt) => {
+          opt.selected = selected.has(opt.value);
+        });
+      }
+
+      function getSelectedCategories() {
+        return normalizeCategorySelection(
+          Array.from(categoryFilter.selectedOptions || []).map((o) => o.value)
+        );
+      }
+
+      function categorySelectionKey(values) {
+        return normalizeCategorySelection(values).slice().sort().join(',');
+      }
+
+      function categoryMatches(rowCategory, selectedCategories) {
+        const selected = new Set(normalizeCategorySelection(selectedCategories));
+        return selected.has(rowCategory);
+      }
+
       function poiIconMeta(category) {
         const c = String(category || '').toLowerCase();
         const table = {
@@ -7983,9 +8021,10 @@
         return value;
       }
 
-      function stateLabel(sec, cat) {
+      function stateLabel(sec, cats) {
         const secText = sec === 'all' ? 'Alla' : (sectionFilter.options[sectionFilter.selectedIndex]?.text || sec);
-        const catText = cat === 'all' ? 'Alla' : cat;
+        const normalized = normalizeCategorySelection(cats);
+        const catText = normalized.length === categoryValues.size ? 'Alla' : normalized.join(', ');
         return `${secText} ${catText}`;
       }
 
@@ -7998,12 +8037,12 @@
         };
       }
 
-      function buildShareUrl(sec, cat) {
+      function buildShareUrl(sec, cats) {
         const safeSec = sanitizeValue(sec, sectionValues);
-        const safeCat = sanitizeValue(cat, categoryValues);
+        const safeCats = normalizeCategorySelection(cats);
         const params = new URLSearchParams();
         if (safeSec !== 'all') params.set('s', safeSec);
-        if (safeCat !== 'all') params.set('c', safeCat);
+        if (safeCats.length !== categoryValues.size) params.set('c', safeCats.join(','));
         if (!trailInfoToggle.checked) params.set('li', '0');
         if (distanceBandToggle.checked) params.set('db', '1');
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
@@ -8016,17 +8055,18 @@
         return qs ? `${canonicalBaseUrl()}?${qs}` : canonicalBaseUrl();
       }
 
-      function saveStateInUrl(sec, cat) {
-        const url = buildShareUrl(sec, cat);
+      function saveStateInUrl(sec, cats) {
+        const url = buildShareUrl(sec, cats);
         window.history.replaceState({}, '', url);
       }
 
       function restoreStateFromUrl() {
         const params = new URLSearchParams(window.location.search);
         const sec = sanitizeValue(params.get('s') || params.get('section'), sectionValues);
-        const cat = sanitizeValue(params.get('c') || params.get('category'), categoryValues);
+        const catParam = params.get('c') || params.get('category');
+        const cats = normalizeCategorySelection(catParam ? catParam.split(',') : Array.from(categoryValues));
         sectionFilter.value = sec;
-        categoryFilter.value = cat;
+        setSelectedCategories(cats);
         const li = params.get('li');
         trailInfoToggle.checked = li !== '0';
         distanceBandToggle.checked = params.get('db') === '1';
@@ -8048,8 +8088,8 @@
 
       async function shareCurrentState() {
         const sec = sectionFilter.value;
-        const cat = categoryFilter.value;
-        const url = buildShareUrl(sec, cat);
+        const cats = getSelectedCategories();
+        const url = buildShareUrl(sec, cats);
         try {
           if (navigator.share) {
             await navigator.share({ url });
@@ -8064,30 +8104,33 @@
         }
       }
 
-      function filteredPois(sec, cat) {
+      function filteredPois(sec, cats) {
         const safeSec = sanitizeValue(sec, sectionValues);
-        const safeCat = sanitizeValue(cat, categoryValues);
+        const safeCats = normalizeCategorySelection(cats);
         return poiMapData.filter((r) =>
           (safeSec === 'all' || r.section === safeSec) &&
-          (safeCat === 'all' || r.category === safeCat)
+          categoryMatches(r.category, safeCats)
         );
       }
 
       function downloadSelectionJson() {
         const sec = sectionFilter.value;
-        const cat = categoryFilter.value;
-        const selected = filteredPois(sec, cat);
+        const cats = getSelectedCategories();
+        const selected = filteredPois(sec, cats);
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
+        const normalizedCats = normalizeCategorySelection(cats);
+        const allCategoriesSelected = normalizedCats.length === categoryValues.size;
         const payload = {
           generated_at: new Date().toISOString(),
           source: 'sat_poi_dashboard',
           filter: {
             section: sanitizeValue(sec, sectionValues),
-            category: sanitizeValue(cat, categoryValues),
+            categories: normalizedCats,
+            category_summary: allCategoriesSelected ? 'all' : normalizedCats.join(','),
             show_trail_info: trailInfoToggle.checked,
             show_distance_band: distanceBandToggle.checked,
             distance_band_m: bandMeters,
-            label: stateLabel(sec, cat),
+            label: stateLabel(sec, normalizedCats),
           },
           count: selected.length,
           items: selected,
@@ -8095,7 +8138,7 @@
         const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const secPart = payload.filter.section === 'all' ? 'all' : payload.filter.section;
-        const catPart = payload.filter.category === 'all' ? 'all' : payload.filter.category;
+        const catPart = allCategoriesSelected ? 'all' : normalizedCats.join('-');
         const a = document.createElement('a');
         a.href = url;
         a.download = `sat-poi-selection-${secPart}-${catPart}.json`;
@@ -8107,23 +8150,24 @@
 
       function resetFilters() {
         sectionFilter.value = 'all';
-        categoryFilter.value = 'all';
+        setSelectedCategories(Array.from(categoryValues));
         preserveMapView = false;
         applyFilters();
       }
 
-      function renderMap(sec, cat) {
+      function renderMap(sec, cats) {
         markerLayer.clearLayers();
         sectionLayer.clearLayers();
         const showTrailInfo = trailInfoToggle.checked;
         const showDistanceBand = distanceBandToggle.checked;
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
+        const safeCats = normalizeCategorySelection(cats);
         const selectedSection = sec !== 'all'
           ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
         const filtered = poiMapData.filter((r) =>
           (sec === 'all' || r.section === sec) &&
-          (cat === 'all' || r.category === cat) &&
+          categoryMatches(r.category, safeCats) &&
           isFiniteCoord(r.lat) &&
           isFiniteCoord(r.lon)
         );
@@ -8225,11 +8269,12 @@
         }
       }
 
-      function renderSankey(sec, cat) {
+      function renderSankey(sec, cats) {
         if (typeof Plotly === 'undefined') return;
+        const safeCats = normalizeCategorySelection(cats);
         const filtered = poiFlow.filter((r) =>
           (sec === 'all' || r.section === sec) &&
-          (cat === 'all' || r.category === cat)
+          categoryMatches(r.category, safeCats)
         );
 
         const labels = [];
@@ -8365,14 +8410,14 @@
         return best;
       }
 
-      function updateDistanceBandCount(sec, cat) {
+      function updateDistanceBandCount(sec, cats) {
         if (!distanceBandToggle.checked) {
           distanceBandCount.style.display = 'none';
           distanceBandCount.textContent = '';
           return;
         }
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
-        const selected = filteredPois(sec, cat).filter((r) => isFiniteCoord(r.lat) && isFiniteCoord(r.lon));
+        const selected = filteredPois(sec, cats).filter((r) => isFiniteCoord(r.lat) && isFiniteCoord(r.lon));
         let within = 0;
         selected.forEach((r) => {
           const d = pointTrailDistanceMeters(r.lat, r.lon);
@@ -8390,17 +8435,18 @@
         map.fitBounds(trailBounds, { padding: [20, 20], maxZoom: 11 });
         map.once('moveend', () => {
           isProgrammaticMapMove = false;
-          saveStateInUrl(sectionFilter.value, categoryFilter.value);
+          saveStateInUrl(sectionFilter.value, getSelectedCategories());
           applyFilters();
         });
       }
 
       function applyFilters() {
         const sec = sanitizeValue(sectionFilter.value, sectionValues);
-        const cat = sanitizeValue(categoryFilter.value, categoryValues);
+        const cats = getSelectedCategories();
+        const catKey = categorySelectionKey(cats);
         sectionFilter.value = sec;
-        categoryFilter.value = cat;
-        const filterChanged = (lastSection !== null && (sec !== lastSection || cat !== lastCategory));
+        setSelectedCategories(cats);
+        const filterChanged = (lastSection !== null && (sec !== lastSection || catKey !== lastCategoryKey));
         if (filterChanged) {
           preserveMapView = false;
         }
@@ -8409,7 +8455,7 @@
         poiRows.forEach((row) => {
           const rowSec = row.dataset.section;
           const rowCat = row.dataset.category;
-          const show = (sec === 'all' || rowSec === sec) && (cat === 'all' || rowCat === cat);
+          const show = (sec === 'all' || rowSec === sec) && categoryMatches(rowCat, cats);
           row.style.display = show ? '' : 'none';
           if (show) visible += 1;
         });
@@ -8420,12 +8466,12 @@
         });
 
         visibleCount.textContent = `Visar ${visible} av ${totalPoiCount} POI`;
-        saveStateInUrl(sec, cat);
-        renderSankey(sec, cat);
-        renderMap(sec, cat);
-        updateDistanceBandCount(sec, cat);
+        saveStateInUrl(sec, cats);
+        renderSankey(sec, cats);
+        renderMap(sec, cats);
+        updateDistanceBandCount(sec, cats);
         lastSection = sec;
-        lastCategory = cat;
+        lastCategoryKey = catKey;
       }
 
       sectionFilter.addEventListener('change', applyFilters);
@@ -8439,12 +8485,12 @@
       zoomTrailBtn.addEventListener('click', zoomToTrail);
       map.on('zoomend', () => {
         if (!distanceBandToggle.checked) return;
-        renderMap(sectionFilter.value, categoryFilter.value);
+        renderMap(sectionFilter.value, getSelectedCategories());
       });
       map.on('moveend', () => {
         if (isProgrammaticMapMove) return;
         preserveMapView = true;
-        saveStateInUrl(sectionFilter.value, categoryFilter.value);
+        saveStateInUrl(sectionFilter.value, getSelectedCategories());
       });
       restoreStateFromUrl();
       applyFilters();
