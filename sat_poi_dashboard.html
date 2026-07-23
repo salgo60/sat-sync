@@ -101,9 +101,9 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
       <div class="header-meta">
-        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 20:15</strong> &nbsp;|&nbsp;
+        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 20:20</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/25" target="_blank">PR #25</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/27" target="_blank">PR #27</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a>
       </div>
@@ -7933,7 +7933,7 @@
     </div>
 
     <div class="footer">
-      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 20:15</strong> |
+      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 20:20</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data/trail.jsonld" target="_blank">trail.jsonld</a> |
@@ -7978,21 +7978,21 @@
 
       // Expected OSM tags per SAT category — used for gap analysis in popups
       const EXPECTED_TAGS = {
-        toilet:     ['fee', 'opening_hours', 'wheelchair', 'access'],
-        water:      ['drinking_water', 'access', 'seasonal'],
-        shelter:    ['shelter_type', 'capacity', 'access'],
-        firepit:    ['access', 'fireplace'],
-        beach:      ['access', 'surface', 'supervised'],
-        harbour:    ['mooring', 'fee', 'access'],
-        sauna:      ['fee', 'opening_hours', 'access'],
-        food:       ['cuisine', 'opening_hours', 'website', 'phone'],
-        shop:       ['opening_hours', 'website'],
-        lodging:    ['website', 'phone', 'rooms'],
-        rental:     ['fee', 'opening_hours'],
-        rowboat:    ['fee', 'access'],
-        viewpoint:  ['name', 'description'],
-        lighthouse: ['name', 'operator'],
-        attraction: ['name', 'description', 'website'],
+        toilet:     ['fee', 'opening_hours', 'wheelchair', 'access', 'wikimedia_commons'],
+        water:      ['drinking_water', 'access', 'seasonal', 'wikimedia_commons'],
+        shelter:    ['shelter_type', 'capacity', 'access', 'wikimedia_commons'],
+        firepit:    ['access', 'fireplace', 'wikimedia_commons'],
+        beach:      ['access', 'surface', 'supervised', 'wikimedia_commons'],
+        harbour:    ['mooring', 'fee', 'access', 'wikimedia_commons'],
+        sauna:      ['fee', 'opening_hours', 'access', 'wikimedia_commons'],
+        food:       ['cuisine', 'opening_hours', 'website', 'phone', 'wikimedia_commons'],
+        shop:       ['opening_hours', 'website', 'wikimedia_commons'],
+        lodging:    ['website', 'phone', 'rooms', 'wikimedia_commons'],
+        rental:     ['fee', 'opening_hours', 'wikimedia_commons'],
+        rowboat:    ['fee', 'access', 'wikimedia_commons'],
+        viewpoint:  ['name', 'description', 'wikimedia_commons'],
+        lighthouse: ['name', 'operator', 'wikimedia_commons'],
+        attraction: ['name', 'description', 'website', 'wikimedia_commons'],
       };
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
@@ -8419,10 +8419,12 @@
       async function loadOsmTags(ref, targetEl, category) {
         if (!targetEl || !ref) return;
         const missingEl = targetEl.closest('.popup-inner')?.querySelector('.missing-tags-body');
+        const commonsThumbEl = targetEl.closest('.popup-inner')?.querySelector('.commons-thumb-body');
         if (osmTagCache.has(ref.key)) {
           const cached = osmTagCache.get(ref.key);
           targetEl.innerHTML = renderOsmTagsHtml(cached);
           renderMissingTags(cached, category, missingEl);
+          loadCommonsThumb(cached['wikimedia_commons'], commonsThumbEl);
           return;
         }
         targetEl.textContent = t('loadingOsmTags');
@@ -8438,9 +8440,28 @@
           osmTagCache.set(ref.key, tags);
           targetEl.innerHTML = renderOsmTagsHtml(tags);
           renderMissingTags(tags, category, missingEl);
+          loadCommonsThumb(tags['wikimedia_commons'], commonsThumbEl);
         } catch (err) {
           targetEl.textContent = t('failedOsmTags', { message: err && err.message ? err.message : 'unknown error' });
         }
+      }
+
+      async function loadCommonsThumb(commonsValue, el) {
+        if (!el || !commonsValue) return;
+        // Support File: or bare filename
+        const title = commonsValue.startsWith('File:') ? commonsValue : `File:${commonsValue}`;
+        try {
+          const api = `https://commons.wikimedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=imageinfo&iiprop=url&iiurlwidth=280&format=json&origin=*`;
+          const resp = await fetch(api);
+          const data = await resp.json();
+          const pages = data?.query?.pages || {};
+          const page = Object.values(pages)[0];
+          const thumbUrl = page?.imageinfo?.[0]?.thumburl;
+          if (thumbUrl) {
+            const fileUrl = `https://commons.wikimedia.org/wiki/${encodeURIComponent(title)}`;
+            el.innerHTML = `<a href="${fileUrl}" target="_blank"><img src="${thumbUrl}" style="max-width:100%;border-radius:6px;margin-top:4px" alt="Commons"></a><div style="font-size:.75rem;color:#555">📷 <a href="${fileUrl}" target="_blank">Wikimedia Commons</a></div>`;
+          }
+        } catch (_) {}
       }
 
       function renderMissingTags(tags, category, el) {
@@ -8673,7 +8694,7 @@
             ? `https://www.openstreetmap.org/edit?editor=id&${osmRef.type}=${osmRef.id}#map=18/${r.lat}/${r.lon}`
             : null;
           const osmTagsHtml = osmRef
-            ? `<details class="osm-tags"><summary>${escapeHtml(t('osmTags'))}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${escapeHtml(osmRef.key)}">${escapeHtml(t('loadingOsmTags'))}</div></details>`
+            ? `<details class="osm-tags"><summary>${escapeHtml(t('osmTags'))}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${escapeHtml(osmRef.key)}">${escapeHtml(t('loadingOsmTags'))}</div><div class="commons-thumb-body"></div></details>`
             : `<details class="osm-tags"><summary>${escapeHtml(t('osmTags'))}</summary><div class="osm-tags-body">${escapeHtml(t('noOsmRef'))}</div></details>`;
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${osmHistoryUrl}" target="_blank">OSM Deep history</a></div>`
