@@ -700,11 +700,15 @@ ORDER BY DESC(geof:latitude(?coord))
         return table[c] || {{ emoji: '📍', color: '#cbd5e1', label: category || 'POI' }};
       }}
 
-      function canonicalBaseUrl() {{
+      function canonicalShareBaseUrl() {{
         if (window.location.protocol === 'file:') {{
           return 'https://salgo60.github.io/sat-sync/sat_poi_dashboard.html';
         }}
         return `${{window.location.origin}}${{window.location.pathname}}`;
+      }}
+
+      function canonicalCurrentBaseUrl() {{
+        return window.location.href.split('?')[0];
       }}
 
       function sanitizeValue(value, allowed) {{
@@ -727,7 +731,7 @@ ORDER BY DESC(geof:latitude(?coord))
         }};
       }}
 
-      function buildShareUrl(sec, cat) {{
+      function buildShareUrl(sec, cat, baseUrl) {{
         const safeSec = sanitizeValue(sec, sectionValues);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const params = new URLSearchParams();
@@ -742,11 +746,12 @@ ORDER BY DESC(geof:latitude(?coord))
         params.set('lon', String(m.lon));
         params.set('z', String(m.z));
         const qs = params.toString();
-        return qs ? `${{canonicalBaseUrl()}}?${{qs}}` : canonicalBaseUrl();
+        const root = baseUrl || canonicalShareBaseUrl();
+        return qs ? `${{root}}?${{qs}}` : root;
       }}
 
       function saveStateInUrl(sec, cat) {{
-        const url = buildShareUrl(sec, cat);
+        const url = buildShareUrl(sec, cat, canonicalCurrentBaseUrl());
         window.history.replaceState({{}}, '', url);
       }}
 
@@ -781,7 +786,7 @@ ORDER BY DESC(geof:latitude(?coord))
       async function shareCurrentState() {{
         const sec = sectionFilter.value;
         const cat = categoryFilter.value;
-        const url = buildShareUrl(sec, cat);
+        const url = buildShareUrl(sec, cat, canonicalShareBaseUrl());
         try {{
           if (navigator.share) {{
             await navigator.share({{ url }});
@@ -1156,8 +1161,8 @@ ORDER BY DESC(geof:latitude(?coord))
 
         visibleCount.textContent = `Visar ${{visible}} av ${{totalPoiCount}} POI`;
         saveStateInUrl(sec, cat);
-        renderSankey(sec, cat);
         renderMap(sec, cat);
+        renderSankey(sec, cat);
         updateDistanceBandCount(sec, cat);
         lastSection = sec;
         lastCategory = cat;
