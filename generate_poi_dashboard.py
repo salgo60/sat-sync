@@ -296,6 +296,9 @@ ORDER BY DESC(geof:latitude(?coord))
                     "name": p.get("name"),
                     "section": sec,
                     "category": cat,
+                    "same_as": p.get("same_as") or [],
+                    "first_seen": p.get("first_seen"),
+                    "updated_at": p.get("updated_at"),
                     "lat": p.get("lat"),
                     "lon": p.get("lon"),
                     "image": p.get("image"),
@@ -420,7 +423,7 @@ ORDER BY DESC(geof:latitude(?coord))
     .filters .actions {{ display:flex; gap:8px; align-items:center; }}
     .filters button {{ padding:8px 12px; border:1px solid #1d4ed8; background:#1d4ed8; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }}
     .filters button:hover {{ background:#1e40af; }}
-    .filters .count {{ margin-left:auto; font-size:.9rem; color:#555; }}
+    .filters .count {{ margin-left:auto; font-size:1rem; color:#0f172a; font-weight:700; background:#e0ecff; border:1px solid #93c5fd; padding:8px 12px; border-radius:8px; }}
     .section {{ padding:20px 24px; }}
     h2 {{ margin:0 0 12px; }}
     .chart-wrap {{ background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:10px; }}
@@ -470,6 +473,7 @@ ORDER BY DESC(geof:latitude(?coord))
       </div>
       <div class="actions">
         <button id="shareBtn" type="button">Dela</button>
+        <button id="downloadBtn" type="button">Ladda ned urval JSON</button>
         <button id="resetBtn" type="button">Återställ</button>
       </div>
       <div class="count" id="visibleCount"></div>
@@ -547,6 +551,7 @@ ORDER BY DESC(geof:latitude(?coord))
       const sectionFilter = document.getElementById('sectionFilter');
       const categoryFilter = document.getElementById('categoryFilter');
       const shareBtn = document.getElementById('shareBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
       const resetBtn = document.getElementById('resetBtn');
       const poiRows = Array.from(document.querySelectorAll('#poiTable tbody tr'));
       const sectionRows = Array.from(document.querySelectorAll('#sectionTable tbody tr'));
@@ -554,9 +559,15 @@ ORDER BY DESC(geof:latitude(?coord))
       const poiFlow = {poi_flow_json};
       const poiMapData = {poi_map_json};
       const totalPoiCount = poiMapData.length;
+      const sectionValues = new Set(Array.from(sectionFilter.options).map(o => o.value));
+      const categoryValues = new Set(Array.from(categoryFilter.options).map(o => o.value));
       const trailGeoJson = {trail_geojson_json};
       const sectionsIndex = {sections_index_json};
       const map = L.map('poiMap').setView([59.2, 18.5], 8);
+      let preserveMapView = false;
+      let isProgrammaticMapMove = false;
+      let lastSection = null;
+      let lastCategory = null;
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
       const trailLayer = L.geoJSON(trailGeoJson, {{
@@ -588,16 +599,36 @@ ORDER BY DESC(geof:latitude(?coord))
         return `${{window.location.origin}}${{window.location.pathname}}`;
       }}
 
+      function sanitizeValue(value, allowed) {{
+        if (!value || !allowed.has(value)) return 'all';
+        return value;
+      }}
+
       function stateLabel(sec, cat) {{
         const secText = sec === 'all' ? 'Alla' : (sectionFilter.options[sectionFilter.selectedIndex]?.text || sec);
         const catText = cat === 'all' ? 'Alla' : cat;
         return `${{secText}} ${{catText}}`;
       }}
 
+      function currentMapState() {{
+        const c = map.getCenter();
+        return {{
+          lat: Number(c.lat.toFixed(5)),
+          lon: Number(c.lng.toFixed(5)),
+          z: map.getZoom()
+        }};
+      }}
+
       function buildShareUrl(sec, cat) {{
+        const safeSec = sanitizeValue(sec, sectionValues);
+        const safeCat = sanitizeValue(cat, categoryValues);
         const params = new URLSearchParams();
-        if (sec && sec !== 'all') params.set('s', sec);
-        if (cat && cat !== 'all') params.set('c', cat);
+        if (safeSec !== 'all') params.set('s', safeSec);
+        if (safeCat !== 'all') params.set('c', safeCat);
+        const m = currentMapState();
+        params.set('lat', String(m.lat));
+        params.set('lon', String(m.lon));
+        params.set('z', String(m.z));
         const qs = params.toString();
         return qs ? `${{canonicalBaseUrl()}}?${{qs}}` : canonicalBaseUrl();
       }}
@@ -609,13 +640,22 @@ ORDER BY DESC(geof:latitude(?coord))
 
       function restoreStateFromUrl() {{
         const params = new URLSearchParams(window.location.search);
-        const sec = params.get('s') || params.get('section');
-        const cat = params.get('c') || params.get('category');
-        if (sec && Array.from(sectionFilter.options).some(o => o.value === sec)) {{
-          sectionFilter.value = sec;
-        }}
-        if (cat && Array.from(categoryFilter.options).some(o => o.value === cat)) {{
-          categoryFilter.value = cat;
+        const sec = sanitizeValue(params.get('s') || params.get('section'), sectionValues);
+        const cat = sanitizeValue(params.get('c') || params.get('category'), categoryValues);
+        sectionFilter.value = sec;
+        categoryFilter.value = cat;
+
+        const lat = Number(params.get('lat'));
+        const lon = Number(params.get('lon'));
+        const z = Number(params.get('z'));
+        const validLat = Number.isFinite(lat) && lat >= -90 && lat <= 90;
+        const validLon = Number.isFinite(lon) && lon >= -180 && lon <= 180;
+        const validZoom = Number.isFinite(z) && z >= 3 && z <= 18;
+        if (validLat && validLon && validZoom) {{
+          preserveMapView = true;
+          isProgrammaticMapMove = true;
+          map.setView([lat, lon], z);
+          setTimeout(() => {{ isProgrammaticMapMove = false; }}, 0);
         }}
       }}
 
@@ -623,11 +663,9 @@ ORDER BY DESC(geof:latitude(?coord))
         const sec = sectionFilter.value;
         const cat = categoryFilter.value;
         const url = buildShareUrl(sec, cat);
-        const title = 'SAT POI Dashboard';
-        const text = stateLabel(sec, cat);
         try {{
           if (navigator.share) {{
-            await navigator.share({{ title, text, url }});
+            await navigator.share({{ url }});
           }} else if (navigator.clipboard && navigator.clipboard.writeText) {{
             await navigator.clipboard.writeText(url);
             alert(`Delningslänk kopierad:\\n${{url}}`);
@@ -639,15 +677,56 @@ ORDER BY DESC(geof:latitude(?coord))
         }}
       }}
 
+      function filteredPois(sec, cat) {{
+        const safeSec = sanitizeValue(sec, sectionValues);
+        const safeCat = sanitizeValue(cat, categoryValues);
+        return poiMapData.filter((r) =>
+          (safeSec === 'all' || r.section === safeSec) &&
+          (safeCat === 'all' || r.category === safeCat)
+        );
+      }}
+
+      function downloadSelectionJson() {{
+        const sec = sectionFilter.value;
+        const cat = categoryFilter.value;
+        const selected = filteredPois(sec, cat);
+        const payload = {{
+          generated_at: new Date().toISOString(),
+          source: 'sat_poi_dashboard',
+          filter: {{
+            section: sanitizeValue(sec, sectionValues),
+            category: sanitizeValue(cat, categoryValues),
+            label: stateLabel(sec, cat),
+          }},
+          count: selected.length,
+          items: selected,
+        }};
+        const blob = new Blob([JSON.stringify(payload, null, 2)], {{ type: 'application/json' }});
+        const url = URL.createObjectURL(blob);
+        const secPart = payload.filter.section === 'all' ? 'all' : payload.filter.section;
+        const catPart = payload.filter.category === 'all' ? 'all' : payload.filter.category;
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `sat-poi-selection-${{secPart}}-${{catPart}}.json`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }}
+
       function resetFilters() {{
         sectionFilter.value = 'all';
         categoryFilter.value = 'all';
+        preserveMapView = false;
         applyFilters();
       }}
 
       function renderMap(sec, cat) {{
         markerLayer.clearLayers();
         sectionLayer.clearLayers();
+        const selectedSection = sec !== 'all'
+          ? sectionsIndex.find((s) => s.slug === sec && typeof s.lat === 'number' && typeof s.lon === 'number')
+          : null;
         const filtered = poiMapData.filter((r) =>
           (sec === 'all' || r.section === sec) &&
           (cat === 'all' || r.category === cat) &&
@@ -709,12 +788,25 @@ ORDER BY DESC(geof:latitude(?coord))
             bounds.push([s.lat, s.lon]);
           }});
 
-        if (bounds.length > 0) {{
-          map.fitBounds(bounds, {{ padding: [20, 20], maxZoom: 13 }});
-        }} else {{
-          const trailBounds = trailLayer.getBounds();
-          if (trailBounds.isValid()) {{
-            map.fitBounds(trailBounds, {{ padding: [20, 20], maxZoom: 11 }});
+        if (!preserveMapView) {{
+          if (bounds.length > 0) {{
+            isProgrammaticMapMove = true;
+            map.fitBounds(bounds, {{ padding: [20, 20], maxZoom: 13 }});
+            if (selectedSection && map.getZoom() < 10) {{
+              map.setView([selectedSection.lat, selectedSection.lon], 11);
+            }}
+            setTimeout(() => {{ isProgrammaticMapMove = false; }}, 0);
+          }} else if (selectedSection) {{
+            isProgrammaticMapMove = true;
+            map.setView([selectedSection.lat, selectedSection.lon], 11);
+            setTimeout(() => {{ isProgrammaticMapMove = false; }}, 0);
+          }} else {{
+            const trailBounds = trailLayer.getBounds();
+            if (trailBounds.isValid()) {{
+              isProgrammaticMapMove = true;
+              map.fitBounds(trailBounds, {{ padding: [20, 20], maxZoom: 11 }});
+              setTimeout(() => {{ isProgrammaticMapMove = false; }}, 0);
+            }}
           }}
         }}
       }}
@@ -805,8 +897,14 @@ ORDER BY DESC(geof:latitude(?coord))
       }}
 
       function applyFilters() {{
-        const sec = sectionFilter.value;
-        const cat = categoryFilter.value;
+        const sec = sanitizeValue(sectionFilter.value, sectionValues);
+        const cat = sanitizeValue(categoryFilter.value, categoryValues);
+        sectionFilter.value = sec;
+        categoryFilter.value = cat;
+        const filterChanged = (lastSection !== null && (sec !== lastSection || cat !== lastCategory));
+        if (filterChanged) {{
+          preserveMapView = false;
+        }}
         let visible = 0;
 
         poiRows.forEach((row) => {{
@@ -826,12 +924,20 @@ ORDER BY DESC(geof:latitude(?coord))
         saveStateInUrl(sec, cat);
         renderMap(sec, cat);
         renderSankey(sec, cat);
+        lastSection = sec;
+        lastCategory = cat;
       }}
 
       sectionFilter.addEventListener('change', applyFilters);
       categoryFilter.addEventListener('change', applyFilters);
       shareBtn.addEventListener('click', shareCurrentState);
+      downloadBtn.addEventListener('click', downloadSelectionJson);
       resetBtn.addEventListener('click', resetFilters);
+      map.on('moveend', () => {{
+        if (isProgrammaticMapMove) return;
+        preserveMapView = true;
+        saveStateInUrl(sectionFilter.value, categoryFilter.value);
+      }});
       restoreStateFromUrl();
       applyFilters();
     }})();
