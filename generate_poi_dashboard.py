@@ -139,7 +139,7 @@ class POIDashboardGenerator:
         print("📥 Hämtar pois.geojson...")
         data = self._get_json(POIS_URL)
         self.pois_fetched_at = datetime.now().strftime("%Y%m%d %H:%M")
-        self.pois_source_generated_at = data.get("generatedAt")
+        self.pois_source_generated_at = ((data.get("metadata") or {}).get("generatedAt"))
         features = data.get("features", [])
         pois = []
         for feat in features:
