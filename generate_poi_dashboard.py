@@ -391,10 +391,7 @@ ORDER BY DESC(geof:latitude(?coord))
             f'<option value="{sec}">{section_display.get(sec, sec)}</option>'
             for _, _, sec in ordered_sections
         )
-        category_checkboxes = "\n".join(
-            f'<label class="category-item"><input type="checkbox" name="categoryFilter" value="{c}" checked> {c}</label>'
-            for c in sorted(categories)
-        )
+        category_options = "\n".join(f'<option value="{c}">{c}</option>' for c in sorted(categories))
         poi_flow_json = json.dumps(poi_flow_data, ensure_ascii=False)
         poi_map_json = json.dumps(poi_map_data, ensure_ascii=False)
         trail_geojson_json = json.dumps(trail_geojson, ensure_ascii=False)
@@ -423,9 +420,6 @@ ORDER BY DESC(geof:latitude(?coord))
     .filters {{ background:#fff; padding:14px 24px; border-bottom:1px solid #e2e8f0; display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }}
     .filters label {{ display:block; font-size:.8rem; color:#555; margin-bottom:4px; font-weight:600; }}
     .filters select {{ min-width:180px; padding:8px; border:1px solid #cbd5e1; border-radius:6px; }}
-    .filters .category-checklist {{ min-width:230px; max-height:180px; overflow:auto; border:1px solid #cbd5e1; border-radius:8px; padding:8px 10px; background:#fff; }}
-    .filters .category-item {{ display:flex; align-items:center; gap:8px; font-size:.95rem; color:#0f172a; margin:4px 0; }}
-    .filters .category-item input {{ width:16px; height:16px; }}
     .filters .hint {{ margin-top:4px; font-size:.75rem; color:#64748b; }}
     .filters .actions {{ display:flex; gap:8px; align-items:center; }}
     .filters button {{ padding:8px 12px; border:1px solid #1d4ed8; background:#1d4ed8; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }}
@@ -501,10 +495,10 @@ ORDER BY DESC(geof:latitude(?coord))
       </div>
       <div>
         <label for="categoryFilter">Filtrera objekttyp</label>
-        <div id="categoryFilter" class="category-checklist">
-          {category_checkboxes}
-        </div>
-        <div class="hint">Flerval: välj en eller flera kategorier</div>
+        <select id="categoryFilter">
+          <option value="all">Alla</option>
+          {category_options}
+        </select>
       </div>
       <div class="actions">
         <button id="shareBtn" type="button">Dela</button>
@@ -602,7 +596,6 @@ ORDER BY DESC(geof:latitude(?coord))
     (function() {{
       const sectionFilter = document.getElementById('sectionFilter');
       const categoryFilter = document.getElementById('categoryFilter');
-      const categoryCheckboxes = Array.from(categoryFilter.querySelectorAll('input[name="categoryFilter"]'));
       const trailInfoToggle = document.getElementById('trailInfoToggle');
       const distanceBandToggle = document.getElementById('distanceBandToggle');
       const distanceBandMeters = document.getElementById('distanceBandMeters');
@@ -618,14 +611,14 @@ ORDER BY DESC(geof:latitude(?coord))
       const poiMapData = {poi_map_json};
       const totalPoiCount = poiMapData.length;
       const sectionValues = new Set(Array.from(sectionFilter.options).map(o => o.value));
-      const categoryValues = new Set(categoryCheckboxes.map((cb) => cb.value));
+      const categoryValues = new Set(Array.from(categoryFilter.options).map(o => o.value));
       const trailGeoJson = {trail_geojson_json};
       const sectionsIndex = {sections_index_json};
       const map = L.map('poiMap').setView([59.2, 18.5], 8);
       let preserveMapView = false;
       let isProgrammaticMapMove = false;
       let lastSection = null;
-      let lastCategoryKey = null;
+      let lastCategory = null;
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
       const distanceBandLayer = L.geoJSON(trailGeoJson, {{
@@ -672,38 +665,16 @@ ORDER BY DESC(geof:latitude(?coord))
         return 500;
       }}
 
-      function normalizeCategorySelection(rawValues) {{
-        const fromInput = Array.isArray(rawValues)
-          ? rawValues
-          : String(rawValues || '').split(',');
-        const cleaned = fromInput
-          .map((v) => String(v || '').trim())
-          .filter((v) => v && categoryValues.has(v));
-        const uniq = Array.from(new Set(cleaned));
-        if (uniq.length === 0 || uniq.length === categoryValues.size) {{
-          return Array.from(categoryValues);
+      function normalizeCategoryValue(rawValue) {{
+        if (!rawValue) return 'all';
+        const parts = String(rawValue)
+          .split(',')
+          .map((v) => v.trim())
+          .filter(Boolean);
+        for (const part of parts) {{
+          if (categoryValues.has(part)) return part;
         }}
-        return uniq;
-      }}
-
-      function setSelectedCategories(values) {{
-        const selected = new Set(normalizeCategorySelection(values));
-        categoryCheckboxes.forEach((cb) => {{
-          cb.checked = selected.has(cb.value);
-        }});
-      }}
-
-      function getSelectedCategories() {{
-        return normalizeCategorySelection(categoryCheckboxes.filter((cb) => cb.checked).map((cb) => cb.value));
-      }}
-
-      function categorySelectionKey(values) {{
-        return normalizeCategorySelection(values).slice().sort().join(',');
-      }}
-
-      function categoryMatches(rowCategory, selectedCategories) {{
-        const selected = new Set(normalizeCategorySelection(selectedCategories));
-        return selected.has(rowCategory);
+        return 'all';
       }}
 
       function poiIconMeta(category) {{
@@ -741,10 +712,9 @@ ORDER BY DESC(geof:latitude(?coord))
         return value;
       }}
 
-      function stateLabel(sec, cats) {{
+      function stateLabel(sec, cat) {{
         const secText = sec === 'all' ? 'Alla' : (sectionFilter.options[sectionFilter.selectedIndex]?.text || sec);
-        const normalized = normalizeCategorySelection(cats);
-        const catText = normalized.length === categoryValues.size ? 'Alla' : normalized.join(', ');
+        const catText = cat === 'all' ? 'Alla' : cat;
         return `${{secText}} ${{catText}}`;
       }}
 
@@ -757,12 +727,12 @@ ORDER BY DESC(geof:latitude(?coord))
         }};
       }}
 
-      function buildShareUrl(sec, cats) {{
+      function buildShareUrl(sec, cat) {{
         const safeSec = sanitizeValue(sec, sectionValues);
-        const safeCats = normalizeCategorySelection(cats);
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const params = new URLSearchParams();
         if (safeSec !== 'all') params.set('s', safeSec);
-        if (safeCats.length !== categoryValues.size) params.set('c', safeCats.join(','));
+        if (safeCat !== 'all') params.set('c', safeCat);
         if (!trailInfoToggle.checked) params.set('li', '0');
         if (distanceBandToggle.checked) params.set('db', '1');
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
@@ -775,18 +745,20 @@ ORDER BY DESC(geof:latitude(?coord))
         return qs ? `${{canonicalBaseUrl()}}?${{qs}}` : canonicalBaseUrl();
       }}
 
-      function saveStateInUrl(sec, cats) {{
-        const url = buildShareUrl(sec, cats);
+      function saveStateInUrl(sec, cat) {{
+        const url = buildShareUrl(sec, cat);
         window.history.replaceState({{}}, '', url);
       }}
 
       function restoreStateFromUrl() {{
         const params = new URLSearchParams(window.location.search);
         const sec = sanitizeValue(params.get('s') || params.get('section'), sectionValues);
-        const catParam = params.get('c') || params.get('category');
-        const cats = normalizeCategorySelection(catParam ? catParam.split(',') : Array.from(categoryValues));
+        const cat = sanitizeValue(
+          normalizeCategoryValue(params.get('c') || params.get('category')),
+          categoryValues
+        );
         sectionFilter.value = sec;
-        setSelectedCategories(cats);
+        categoryFilter.value = cat;
         const li = params.get('li');
         trailInfoToggle.checked = li !== '0';
         distanceBandToggle.checked = params.get('db') === '1';
@@ -808,8 +780,8 @@ ORDER BY DESC(geof:latitude(?coord))
 
       async function shareCurrentState() {{
         const sec = sectionFilter.value;
-        const cats = getSelectedCategories();
-        const url = buildShareUrl(sec, cats);
+        const cat = categoryFilter.value;
+        const url = buildShareUrl(sec, cat);
         try {{
           if (navigator.share) {{
             await navigator.share({{ url }});
@@ -824,33 +796,31 @@ ORDER BY DESC(geof:latitude(?coord))
         }}
       }}
 
-      function filteredPois(sec, cats) {{
+      function filteredPois(sec, cat) {{
         const safeSec = sanitizeValue(sec, sectionValues);
-        const safeCats = normalizeCategorySelection(cats);
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         return poiMapData.filter((r) =>
           (safeSec === 'all' || r.section === safeSec) &&
-          categoryMatches(r.category, safeCats)
+          (safeCat === 'all' || r.category === safeCat)
         );
       }}
 
       function downloadSelectionJson() {{
         const sec = sectionFilter.value;
-        const cats = getSelectedCategories();
-        const selected = filteredPois(sec, cats);
+        const cat = categoryFilter.value;
+        const selected = filteredPois(sec, cat);
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
-        const normalizedCats = normalizeCategorySelection(cats);
-        const allCategoriesSelected = normalizedCats.length === categoryValues.size;
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const payload = {{
           generated_at: new Date().toISOString(),
           source: 'sat_poi_dashboard',
           filter: {{
             section: sanitizeValue(sec, sectionValues),
-            categories: normalizedCats,
-            category_summary: allCategoriesSelected ? 'all' : normalizedCats.join(','),
+            category: safeCat,
             show_trail_info: trailInfoToggle.checked,
             show_distance_band: distanceBandToggle.checked,
             distance_band_m: bandMeters,
-            label: stateLabel(sec, normalizedCats),
+            label: stateLabel(sec, safeCat),
           }},
           count: selected.length,
           items: selected,
@@ -858,7 +828,7 @@ ORDER BY DESC(geof:latitude(?coord))
         const blob = new Blob([JSON.stringify(payload, null, 2)], {{ type: 'application/json' }});
         const url = URL.createObjectURL(blob);
         const secPart = payload.filter.section === 'all' ? 'all' : payload.filter.section;
-        const catPart = allCategoriesSelected ? 'all' : normalizedCats.join('-');
+        const catPart = payload.filter.category === 'all' ? 'all' : payload.filter.category;
         const a = document.createElement('a');
         a.href = url;
         a.download = `sat-poi-selection-${{secPart}}-${{catPart}}.json`;
@@ -870,24 +840,24 @@ ORDER BY DESC(geof:latitude(?coord))
 
       function resetFilters() {{
         sectionFilter.value = 'all';
-        setSelectedCategories(Array.from(categoryValues));
+        categoryFilter.value = 'all';
         preserveMapView = false;
         applyFilters();
       }}
 
-      function renderMap(sec, cats) {{
+      function renderMap(sec, cat) {{
         markerLayer.clearLayers();
         sectionLayer.clearLayers();
         const showTrailInfo = trailInfoToggle.checked;
         const showDistanceBand = distanceBandToggle.checked;
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
-        const safeCats = normalizeCategorySelection(cats);
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const selectedSection = sec !== 'all'
           ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
         const filtered = poiMapData.filter((r) =>
           (sec === 'all' || r.section === sec) &&
-          categoryMatches(r.category, safeCats) &&
+          (safeCat === 'all' || r.category === safeCat) &&
           isFiniteCoord(r.lat) &&
           isFiniteCoord(r.lon)
         );
@@ -989,12 +959,12 @@ ORDER BY DESC(geof:latitude(?coord))
         }}
       }}
 
-      function renderSankey(sec, cats) {{
+      function renderSankey(sec, cat) {{
         if (typeof Plotly === 'undefined') return;
-        const safeCats = normalizeCategorySelection(cats);
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const filtered = poiFlow.filter((r) =>
           (sec === 'all' || r.section === sec) &&
-          categoryMatches(r.category, safeCats)
+          (safeCat === 'all' || r.category === safeCat)
         );
 
         const labels = [];
@@ -1130,14 +1100,14 @@ ORDER BY DESC(geof:latitude(?coord))
         return best;
       }}
 
-      function updateDistanceBandCount(sec, cats) {{
+      function updateDistanceBandCount(sec, cat) {{
         if (!distanceBandToggle.checked) {{
           distanceBandCount.style.display = 'none';
           distanceBandCount.textContent = '';
           return;
         }}
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
-        const selected = filteredPois(sec, cats).filter((r) => isFiniteCoord(r.lat) && isFiniteCoord(r.lon));
+        const selected = filteredPois(sec, cat).filter((r) => isFiniteCoord(r.lat) && isFiniteCoord(r.lon));
         let within = 0;
         selected.forEach((r) => {{
           const d = pointTrailDistanceMeters(r.lat, r.lon);
@@ -1155,18 +1125,17 @@ ORDER BY DESC(geof:latitude(?coord))
         map.fitBounds(trailBounds, {{ padding: [20, 20], maxZoom: 11 }});
         map.once('moveend', () => {{
           isProgrammaticMapMove = false;
-          saveStateInUrl(sectionFilter.value, getSelectedCategories());
+          saveStateInUrl(sectionFilter.value, categoryFilter.value);
           applyFilters();
         }});
       }}
 
       function applyFilters() {{
         const sec = sanitizeValue(sectionFilter.value, sectionValues);
-        const cats = getSelectedCategories();
-        const catKey = categorySelectionKey(cats);
+        const cat = sanitizeValue(normalizeCategoryValue(categoryFilter.value), categoryValues);
         sectionFilter.value = sec;
-        setSelectedCategories(cats);
-        const filterChanged = (lastSection !== null && (sec !== lastSection || catKey !== lastCategoryKey));
+        categoryFilter.value = cat;
+        const filterChanged = (lastSection !== null && (sec !== lastSection || cat !== lastCategory));
         if (filterChanged) {{
           preserveMapView = false;
         }}
@@ -1175,7 +1144,7 @@ ORDER BY DESC(geof:latitude(?coord))
         poiRows.forEach((row) => {{
           const rowSec = row.dataset.section;
           const rowCat = row.dataset.category;
-          const show = (sec === 'all' || rowSec === sec) && categoryMatches(rowCat, cats);
+          const show = (sec === 'all' || rowSec === sec) && (cat === 'all' || rowCat === cat);
           row.style.display = show ? '' : 'none';
           if (show) visible += 1;
         }});
@@ -1186,16 +1155,16 @@ ORDER BY DESC(geof:latitude(?coord))
         }});
 
         visibleCount.textContent = `Visar ${{visible}} av ${{totalPoiCount}} POI`;
-        saveStateInUrl(sec, cats);
-        renderSankey(sec, cats);
-        renderMap(sec, cats);
-        updateDistanceBandCount(sec, cats);
+        saveStateInUrl(sec, cat);
+        renderSankey(sec, cat);
+        renderMap(sec, cat);
+        updateDistanceBandCount(sec, cat);
         lastSection = sec;
-        lastCategoryKey = catKey;
+        lastCategory = cat;
       }}
 
       sectionFilter.addEventListener('change', applyFilters);
-      categoryCheckboxes.forEach((cb) => cb.addEventListener('change', applyFilters));
+      categoryFilter.addEventListener('change', applyFilters);
       trailInfoToggle.addEventListener('change', applyFilters);
       distanceBandToggle.addEventListener('change', applyFilters);
       distanceBandMeters.addEventListener('change', applyFilters);
@@ -1205,12 +1174,12 @@ ORDER BY DESC(geof:latitude(?coord))
       zoomTrailBtn.addEventListener('click', zoomToTrail);
       map.on('zoomend', () => {{
         if (!distanceBandToggle.checked) return;
-        renderMap(sectionFilter.value, getSelectedCategories());
+        renderMap(sectionFilter.value, categoryFilter.value);
       }});
       map.on('moveend', () => {{
         if (isProgrammaticMapMove) return;
         preserveMapView = true;
-        saveStateInUrl(sectionFilter.value, getSelectedCategories());
+        saveStateInUrl(sectionFilter.value, categoryFilter.value);
       }});
       restoreStateFromUrl();
       applyFilters();
