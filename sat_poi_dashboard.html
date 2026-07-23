@@ -21,11 +21,15 @@
     .filters { background:#fff; padding:14px 24px; border-bottom:1px solid #e2e8f0; display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }
     .filters label { display:block; font-size:.8rem; color:#555; margin-bottom:4px; font-weight:600; }
     .filters select { min-width:180px; padding:8px; border:1px solid #cbd5e1; border-radius:6px; }
+    .filters .hint { margin-top:4px; font-size:.75rem; color:#64748b; }
     .filters .actions { display:flex; gap:8px; align-items:center; }
     .filters button { padding:8px 12px; border:1px solid #1d4ed8; background:#1d4ed8; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }
     .filters button:hover { background:#1e40af; }
     .filters .toggle { display:flex; align-items:center; gap:6px; font-size:.9rem; color:#334155; }
     .filters .toggle input { width:16px; height:16px; }
+    .filters .distance-controls { display:flex; gap:8px; align-items:center; }
+    .filters .distance-controls select { min-width:90px; }
+    .filters .distance-count { font-size:.85rem; color:#334155; background:#f8fafc; border:1px solid #cbd5e1; border-radius:9999px; padding:5px 10px; }
     .filters .count { margin-left:auto; font-size:1rem; color:#0f172a; font-weight:700; background:#e0ecff; border:1px solid #93c5fd; padding:8px 12px; border-radius:8px; }
     .section { padding:20px 24px; }
     h2 { margin:0 0 12px; }
@@ -34,6 +38,9 @@
     .map-wrap { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:10px; }
     #poiMap { width:100%; height:520px; border-radius:6px; }
     .popup-thumb { width:140px; max-height:90px; object-fit:cover; border-radius:4px; display:block; margin-top:6px; }
+    .osm-tags { margin-top:6px; font-size:.82rem; }
+    .osm-tags-body { margin-top:6px; max-height:140px; overflow:auto; border:1px solid #e2e8f0; border-radius:6px; padding:6px; background:#f8fafc; }
+    .osm-tags-list { margin:0; padding-left:18px; }
     .poi-icon {
       width: 24px;
       height: 24px;
@@ -135,11 +142,24 @@
         <button id="shareBtn" type="button">Dela</button>
         <button id="downloadBtn" type="button">Ladda ned urval JSON</button>
         <button id="resetBtn" type="button">Återställ</button>
+        <button id="zoomTrailBtn" type="button">Zooma ut hela leden</button>
       </div>
       <label class="toggle" for="trailInfoToggle">
         <input type="checkbox" id="trailInfoToggle" checked>
         Visa ledinfo
       </label>
+      <div class="distance-controls">
+        <label class="toggle" for="distanceBandToggle">
+          <input type="checkbox" id="distanceBandToggle">
+          Visa avståndsremsa
+        </label>
+        <select id="distanceBandMeters" aria-label="Avstånd i meter">
+          <option value="100">100 m</option>
+          <option value="500" selected>500 m</option>
+          <option value="1000">1000 m</option>
+        </select>
+        <span id="distanceBandCount" class="distance-count" style="display:none"></span>
+      </div>
       <div class="count" id="visibleCount"></div>
     </div>
 
@@ -7851,6 +7871,8 @@
     </div>
 
     <div class="footer">
+      Version skapad: <strong>20260723 17:33</strong> |
+      <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       Källor: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data/trail.jsonld" target="_blank">trail.jsonld</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data/sections-index.json" target="_blank">sections-index.json</a> |
@@ -7864,9 +7886,13 @@
       const sectionFilter = document.getElementById('sectionFilter');
       const categoryFilter = document.getElementById('categoryFilter');
       const trailInfoToggle = document.getElementById('trailInfoToggle');
+      const distanceBandToggle = document.getElementById('distanceBandToggle');
+      const distanceBandMeters = document.getElementById('distanceBandMeters');
+      const distanceBandCount = document.getElementById('distanceBandCount');
       const shareBtn = document.getElementById('shareBtn');
       const downloadBtn = document.getElementById('downloadBtn');
       const resetBtn = document.getElementById('resetBtn');
+      const zoomTrailBtn = document.getElementById('zoomTrailBtn');
       const poiRows = Array.from(document.querySelectorAll('#poiTable tbody tr'));
       const sectionRows = Array.from(document.querySelectorAll('#sectionTable tbody tr'));
       const visibleCount = document.getElementById('visibleCount');
@@ -7882,8 +7908,20 @@
       let isProgrammaticMapMove = false;
       let lastSection = null;
       let lastCategory = null;
+      const osmTagCache = new Map();
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
+      const distanceBandLayer = L.geoJSON(trailGeoJson, {
+        interactive: false,
+        style: {
+          color: '#60a5fa',
+          opacity: 0.35,
+          fillOpacity: 0.22,
+          weight: 14,
+          lineCap: 'round',
+          lineJoin: 'round'
+        }
+      });
       const trailLayer = L.geoJSON(trailGeoJson, {
         style: {
           color: '#ef4444',
@@ -7898,16 +7936,39 @@
       }).addTo(map);
 
       function escapeHtml(text) {
-        return String(text || '')
-          .replaceAll('&', '&amp;')
-          .replaceAll('<', '&lt;')
-          .replaceAll('>', '&gt;')
-          .replaceAll('"', '&quot;')
-          .replaceAll("'", '&#039;');
+        return String(text || '').replace(/[&<>"']/g, (ch) => {
+          if (ch === '&') return '&amp;';
+          if (ch === '<') return '&lt;';
+          if (ch === '>') return '&gt;';
+          if (ch === '"') return '&quot;';
+          return '&#039;';
+        });
+      }
+
+      function isFiniteCoord(v) {
+        return typeof v === 'number' && Number.isFinite(v);
+      }
+
+      function normalizeBandMeters(raw) {
+        const n = Number(raw);
+        if (n === 100 || n === 500 || n === 1000) return n;
+        return 500;
+      }
+
+      function normalizeCategoryValue(rawValue) {
+        if (!rawValue) return 'all';
+        const parts = String(rawValue)
+          .split(',')
+          .map((v) => v.trim())
+          .filter(Boolean);
+        for (const part of parts) {
+          if (categoryValues.has(part)) return part;
+        }
+        return 'all';
       }
 
       function poiIconMeta(category) {
-        const c = (category || '').toLowerCase();
+        const c = String(category || '').toLowerCase();
         const table = {
           toilet: { emoji: '🚻', color: '#60a5fa', label: 'Toalett' },
           water: { emoji: '💧', color: '#38bdf8', label: 'Vatten' },
@@ -7929,11 +7990,61 @@
         return table[c] || { emoji: '📍', color: '#cbd5e1', label: category || 'POI' };
       }
 
-      function canonicalBaseUrl() {
+      function findOsmRef(sameAs) {
+        if (!Array.isArray(sameAs)) return null;
+        for (const ref of sameAs) {
+          if (typeof ref !== 'string' || !ref.startsWith('osm:')) continue;
+          const parts = ref.split(':');
+          if (parts.length !== 3) continue;
+          const type = parts[1];
+          const id = parts[2];
+          if (!['node', 'way', 'relation'].includes(type) || !id) continue;
+          return { type, id, key: `${type}/${id}` };
+        }
+        return null;
+      }
+
+      function renderOsmTagsHtml(tags) {
+        const entries = Object.entries(tags || {}).sort(([a], [b]) => a.localeCompare(b));
+        if (entries.length === 0) return '<span>Inga OSM-taggar hittades.</span>';
+        const items = entries
+          .map(([k, v]) => `<li><code>${escapeHtml(k)}</code>: ${escapeHtml(String(v))}</li>`)
+          .join('');
+        return `<ul class="osm-tags-list">${items}</ul>`;
+      }
+
+      async function loadOsmTags(ref, targetEl) {
+        if (!targetEl || !ref) return;
+        if (osmTagCache.has(ref.key)) {
+          targetEl.innerHTML = renderOsmTagsHtml(osmTagCache.get(ref.key));
+          return;
+        }
+        targetEl.textContent = 'Laddar OSM-taggar...';
+        const url = `https://api.openstreetmap.org/api/0.6/${ref.type}/${ref.id}.json`;
+        try {
+          const response = await fetch(url, { headers: { 'Accept': 'application/json' } });
+          if (!response.ok) {
+            targetEl.textContent = `Kunde inte hämta OSM-taggar (HTTP ${response.status}).`;
+            return;
+          }
+          const data = await response.json();
+          const tags = data?.elements?.[0]?.tags || {};
+          osmTagCache.set(ref.key, tags);
+          targetEl.innerHTML = renderOsmTagsHtml(tags);
+        } catch (err) {
+          targetEl.textContent = `Fel vid hämtning av OSM-taggar: ${err && err.message ? err.message : 'okänt fel'}`;
+        }
+      }
+
+      function canonicalShareBaseUrl() {
         if (window.location.protocol === 'file:') {
           return 'https://salgo60.github.io/sat-sync/sat_poi_dashboard.html';
         }
         return `${window.location.origin}${window.location.pathname}`;
+      }
+
+      function canonicalCurrentBaseUrl() {
+        return window.location.href.split('?')[0];
       }
 
       function sanitizeValue(value, allowed) {
@@ -7956,34 +8067,43 @@
         };
       }
 
-      function buildShareUrl(sec, cat) {
+      function buildShareUrl(sec, cat, baseUrl) {
         const safeSec = sanitizeValue(sec, sectionValues);
-        const safeCat = sanitizeValue(cat, categoryValues);
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const params = new URLSearchParams();
         if (safeSec !== 'all') params.set('s', safeSec);
         if (safeCat !== 'all') params.set('c', safeCat);
         if (!trailInfoToggle.checked) params.set('li', '0');
+        if (distanceBandToggle.checked) params.set('db', '1');
+        const bandMeters = normalizeBandMeters(distanceBandMeters.value);
+        if (bandMeters !== 500) params.set('dm', String(bandMeters));
         const m = currentMapState();
         params.set('lat', String(m.lat));
         params.set('lon', String(m.lon));
         params.set('z', String(m.z));
         const qs = params.toString();
-        return qs ? `${canonicalBaseUrl()}?${qs}` : canonicalBaseUrl();
+        const root = baseUrl || canonicalShareBaseUrl();
+        return qs ? `${root}?${qs}` : root;
       }
 
       function saveStateInUrl(sec, cat) {
-        const url = buildShareUrl(sec, cat);
+        const url = buildShareUrl(sec, cat, canonicalCurrentBaseUrl());
         window.history.replaceState({}, '', url);
       }
 
       function restoreStateFromUrl() {
         const params = new URLSearchParams(window.location.search);
         const sec = sanitizeValue(params.get('s') || params.get('section'), sectionValues);
-        const cat = sanitizeValue(params.get('c') || params.get('category'), categoryValues);
+        const cat = sanitizeValue(
+          normalizeCategoryValue(params.get('c') || params.get('category')),
+          categoryValues
+        );
         sectionFilter.value = sec;
         categoryFilter.value = cat;
         const li = params.get('li');
         trailInfoToggle.checked = li !== '0';
+        distanceBandToggle.checked = params.get('db') === '1';
+        distanceBandMeters.value = String(normalizeBandMeters(params.get('dm') || '500'));
 
         const lat = Number(params.get('lat'));
         const lon = Number(params.get('lon'));
@@ -8002,7 +8122,7 @@
       async function shareCurrentState() {
         const sec = sectionFilter.value;
         const cat = categoryFilter.value;
-        const url = buildShareUrl(sec, cat);
+        const url = buildShareUrl(sec, cat, canonicalShareBaseUrl());
         try {
           if (navigator.share) {
             await navigator.share({ url });
@@ -8019,7 +8139,7 @@
 
       function filteredPois(sec, cat) {
         const safeSec = sanitizeValue(sec, sectionValues);
-        const safeCat = sanitizeValue(cat, categoryValues);
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         return poiMapData.filter((r) =>
           (safeSec === 'all' || r.section === safeSec) &&
           (safeCat === 'all' || r.category === safeCat)
@@ -8030,14 +8150,18 @@
         const sec = sectionFilter.value;
         const cat = categoryFilter.value;
         const selected = filteredPois(sec, cat);
+        const bandMeters = normalizeBandMeters(distanceBandMeters.value);
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const payload = {
           generated_at: new Date().toISOString(),
           source: 'sat_poi_dashboard',
           filter: {
             section: sanitizeValue(sec, sectionValues),
-            category: sanitizeValue(cat, categoryValues),
+            category: safeCat,
             show_trail_info: trailInfoToggle.checked,
-            label: stateLabel(sec, cat),
+            show_distance_band: distanceBandToggle.checked,
+            distance_band_m: bandMeters,
+            label: stateLabel(sec, safeCat),
           },
           count: selected.length,
           items: selected,
@@ -8066,14 +8190,17 @@
         markerLayer.clearLayers();
         sectionLayer.clearLayers();
         const showTrailInfo = trailInfoToggle.checked;
+        const showDistanceBand = distanceBandToggle.checked;
+        const bandMeters = normalizeBandMeters(distanceBandMeters.value);
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const selectedSection = sec !== 'all'
-          ? sectionsIndex.find((s) => s.slug === sec && typeof s.lat === 'number' && typeof s.lon === 'number')
+          ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
         const filtered = poiMapData.filter((r) =>
           (sec === 'all' || r.section === sec) &&
-          (cat === 'all' || r.category === cat) &&
-          typeof r.lat === 'number' &&
-          typeof r.lon === 'number'
+          (safeCat === 'all' || r.category === safeCat) &&
+          isFiniteCoord(r.lat) &&
+          isFiniteCoord(r.lon)
         );
 
         const bounds = [];
@@ -8091,23 +8218,56 @@
           const imageHtml = r.image
             ? `<img class="popup-thumb" src="${escapeHtml(r.image)}" alt="thumbnail">`
             : '';
+          const osmRef = findOsmRef(r.same_as);
+          const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${osmRef.type}/${osmRef.id}` : null;
+          const osmTagsHtml = osmRef
+            ? `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body" data-osm-ref="${escapeHtml(osmRef.key)}">Öppna för att ladda…</div></details>`
+            : `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body">Ingen OSM-referens för objektet.</div></details>`;
+          const osmHistoryLink = osmHistoryUrl
+            ? `<div><a href="${osmHistoryUrl}" target="_blank">OSM Deep history</a></div>`
+            : '';
           marker.bindPopup(`
             <div style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${iconMeta.color}">${iconMeta.emoji}</span>${escapeHtml(r.name || r.id)}</strong><br>
               <small>Section: ${escapeHtml(r.section)} | Kategori: ${escapeHtml(r.category)}</small><br>
               <a href="${satUrl}" target="_blank">Öppna i SAT-kartan</a>
+              ${osmTagsHtml}
+              ${osmHistoryLink}
               ${imageHtml}
             </div>
           `);
+          marker.on('popupopen', (event) => {
+            if (!osmRef) return;
+            const root = event.popup.getElement();
+            const candidates = root ? Array.from(root.querySelectorAll('[data-osm-ref]')) : [];
+            const node = candidates.find((el) => el.getAttribute('data-osm-ref') === osmRef.key);
+            if (node) loadOsmTags(osmRef, node);
+          });
           marker.addTo(markerLayer);
           bounds.push([r.lat, r.lon]);
         });
+
+        if (showDistanceBand) {
+          const centerLat = map.getCenter().lat || 59.2;
+          const metersPerPixel = 156543.03392 * Math.cos(centerLat * Math.PI / 180) / Math.pow(2, map.getZoom());
+          const weight = Math.max(8, (2 * bandMeters) / Math.max(metersPerPixel, 0.01));
+          distanceBandLayer.setStyle({
+            weight,
+            opacity: 0.35,
+            fillOpacity: 0.22
+          });
+          if (!map.hasLayer(distanceBandLayer)) {
+            distanceBandLayer.addTo(map);
+          }
+        } else if (map.hasLayer(distanceBandLayer)) {
+          map.removeLayer(distanceBandLayer);
+        }
 
         if (showTrailInfo) {
           sectionsIndex
             .filter((s) => sec === 'all' || s.slug === sec)
             .forEach((s) => {
-              if (typeof s.lat !== 'number' || typeof s.lon !== 'number') return;
+              if (!isFiniteCoord(s.lat) || !isFiniteCoord(s.lon)) return;
               const label = s.title || s.slug || s.sat_id || 'Sektion';
               const satLink = s.sat_id
                 ? `https://map.stockholmarchipelagotrail.com/sv?${s.sat_id}`
@@ -8159,9 +8319,10 @@
 
       function renderSankey(sec, cat) {
         if (typeof Plotly === 'undefined') return;
+        const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const filtered = poiFlow.filter((r) =>
           (sec === 'all' || r.section === sec) &&
-          (cat === 'all' || r.category === cat)
+          (safeCat === 'all' || r.category === safeCat)
         );
 
         const labels = [];
@@ -8242,9 +8403,94 @@
         Plotly.react('sankeyChart', data, layout, {displayModeBar: false, responsive: true});
       }
 
+      function extractTrailLines() {
+        const lines = [];
+        (trailGeoJson.features || []).forEach((f) => {
+          const geom = f && f.geometry ? f.geometry : null;
+          if (!geom || !Array.isArray(geom.coordinates)) return;
+          if (geom.type === 'LineString') {
+            const line = geom.coordinates
+              .filter((c) => Array.isArray(c) && c.length >= 2)
+              .map((c) => [Number(c[1]), Number(c[0])])
+              .filter((c) => isFiniteCoord(c[0]) && isFiniteCoord(c[1]));
+            if (line.length >= 2) lines.push(line);
+          } else if (geom.type === 'MultiLineString') {
+            geom.coordinates.forEach((segment) => {
+              const line = (segment || [])
+                .filter((c) => Array.isArray(c) && c.length >= 2)
+                .map((c) => [Number(c[1]), Number(c[0])])
+                .filter((c) => isFiniteCoord(c[0]) && isFiniteCoord(c[1]));
+              if (line.length >= 2) lines.push(line);
+            });
+          }
+        });
+        return lines;
+      }
+
+      const trailLines = extractTrailLines();
+
+      function pointSegmentDistanceMeters(lat, lon, lat1, lon1, lat2, lon2) {
+        const meanLat = ((lat + lat1 + lat2) / 3) * Math.PI / 180;
+        const metersPerDegLat = 111132.92 - 559.82 * Math.cos(2 * meanLat) + 1.175 * Math.cos(4 * meanLat);
+        const metersPerDegLon = 111412.84 * Math.cos(meanLat) - 93.5 * Math.cos(3 * meanLat);
+        const x = (lon - lon1) * metersPerDegLon;
+        const y = (lat - lat1) * metersPerDegLat;
+        const dx = (lon2 - lon1) * metersPerDegLon;
+        const dy = (lat2 - lat1) * metersPerDegLat;
+        const len2 = dx * dx + dy * dy;
+        if (len2 <= 0.0001) return Math.hypot(x, y);
+        const t = Math.max(0, Math.min(1, (x * dx + y * dy) / len2));
+        const px = x - t * dx;
+        const py = y - t * dy;
+        return Math.hypot(px, py);
+      }
+
+      function pointTrailDistanceMeters(lat, lon) {
+        let best = Infinity;
+        trailLines.forEach((line) => {
+          for (let i = 1; i < line.length; i += 1) {
+            const a = line[i - 1];
+            const b = line[i];
+            const d = pointSegmentDistanceMeters(lat, lon, a[0], a[1], b[0], b[1]);
+            if (d < best) best = d;
+          }
+        });
+        return best;
+      }
+
+      function updateDistanceBandCount(sec, cat) {
+        if (!distanceBandToggle.checked) {
+          distanceBandCount.style.display = 'none';
+          distanceBandCount.textContent = '';
+          return;
+        }
+        const bandMeters = normalizeBandMeters(distanceBandMeters.value);
+        const selected = filteredPois(sec, cat).filter((r) => isFiniteCoord(r.lat) && isFiniteCoord(r.lon));
+        let within = 0;
+        selected.forEach((r) => {
+          const d = pointTrailDistanceMeters(r.lat, r.lon);
+          if (Number.isFinite(d) && d <= bandMeters) within += 1;
+        });
+        distanceBandCount.textContent = `${within} inom ${bandMeters} m`;
+        distanceBandCount.style.display = '';
+      }
+
+      function zoomToTrail() {
+        const trailBounds = trailLayer.getBounds();
+        if (!trailBounds.isValid()) return;
+        preserveMapView = true;
+        isProgrammaticMapMove = true;
+        map.fitBounds(trailBounds, { padding: [20, 20], maxZoom: 11 });
+        map.once('moveend', () => {
+          isProgrammaticMapMove = false;
+          saveStateInUrl(sectionFilter.value, categoryFilter.value);
+          applyFilters();
+        });
+      }
+
       function applyFilters() {
         const sec = sanitizeValue(sectionFilter.value, sectionValues);
-        const cat = sanitizeValue(categoryFilter.value, categoryValues);
+        const cat = sanitizeValue(normalizeCategoryValue(categoryFilter.value), categoryValues);
         sectionFilter.value = sec;
         categoryFilter.value = cat;
         const filterChanged = (lastSection !== null && (sec !== lastSection || cat !== lastCategory));
@@ -8270,6 +8516,7 @@
         saveStateInUrl(sec, cat);
         renderMap(sec, cat);
         renderSankey(sec, cat);
+        updateDistanceBandCount(sec, cat);
         lastSection = sec;
         lastCategory = cat;
       }
@@ -8277,9 +8524,19 @@
       sectionFilter.addEventListener('change', applyFilters);
       categoryFilter.addEventListener('change', applyFilters);
       trailInfoToggle.addEventListener('change', applyFilters);
+      distanceBandToggle.addEventListener('change', applyFilters);
+      distanceBandMeters.addEventListener('change', applyFilters);
       shareBtn.addEventListener('click', shareCurrentState);
       downloadBtn.addEventListener('click', downloadSelectionJson);
       resetBtn.addEventListener('click', resetFilters);
+      zoomTrailBtn.addEventListener('click', zoomToTrail);
+      map.on('zoomend', () => {
+        if (!distanceBandToggle.checked) return;
+        const prevPreserve = preserveMapView;
+        preserveMapView = true;
+        renderMap(sectionFilter.value, categoryFilter.value);
+        preserveMapView = prevPreserve;
+      });
       map.on('moveend', () => {
         if (isProgrammaticMapMove) return;
         preserveMapView = true;
