@@ -573,6 +573,7 @@ ORDER BY DESC(geof:latitude(?coord))
         <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>{generated_at}</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>{pr_html} &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
+        <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a>
       </div>
     </div>
@@ -698,6 +699,7 @@ ORDER BY DESC(geof:latitude(?coord))
       <a href="https://map.stockholmarchipelagotrail.com/data-sources" target="_blank">data-sources</a> |
       <a href="https://www.wikidata.org/wiki/Q131318799" target="_blank">Wikidata route</a> |
       <a href="whats_new.html">What's new</a> |
+      <a href="sat_todo_map.html">🗺️ TODO-karta</a> |
       <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringsförslag</a>
     </div>
   </div>
