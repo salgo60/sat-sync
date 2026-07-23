@@ -1361,6 +1361,7 @@ ORDER BY DESC(geof:latitude(?coord))
             : '';
           const osmRef = findOsmRef(r.same_as);
           const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${{osmRef.type}}/${{osmRef.id}}` : null;
+          const mapkiUrl = osmRef ? `https://osm.mapki.com/history/${{osmRef.type}}/${{osmRef.id}}` : null;
           const mapCompleteTheme = (function(cat) {{
             const map = {{
               toilet: 'toilets',
@@ -1388,6 +1389,9 @@ ORDER BY DESC(geof:latitude(?coord))
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${{osmHistoryUrl}}" target="_blank">OSM Deep history</a></div>`
             : '';
+          const mapkiLink = mapkiUrl
+            ? `<div><a href="${{mapkiUrl}}" target="_blank">📍 Mapki history</a></div>`
+            : '';
           const mapCompleteLink = mapCompleteUrl
             ? `<div><a href="${{mapCompleteUrl}}" target="_blank">✏️ MapComplete (${{mapCompleteTheme}})</a></div>`
             : '';
@@ -1401,6 +1405,7 @@ ORDER BY DESC(geof:latitude(?coord))
               <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a>
               ${{osmTagsHtml}}
               ${{osmHistoryLink}}
+              ${{mapkiLink}}
               ${{idEditorLink}}
               ${{mapCompleteLink}}
               ${{imageHtml}}
@@ -1451,6 +1456,7 @@ ORDER BY DESC(geof:latitude(?coord))
                   ${{s.wikidata_q ? `<br><small>📖 <a href="https://www.wikidata.org/wiki/${{escapeHtml(s.wikidata_q)}}" target="_blank">Wikidata (${{escapeHtml(s.wikidata_q)}})</a></small>` : ''}}
                   ${{s.osm_relation ? `<br><small>🗺️ <a href="https://www.openstreetmap.org/relation/${{escapeHtml(s.osm_relation)}}" target="_blank">OSM relation/${{escapeHtml(s.osm_relation)}}</a></small>` : ''}}
                   ${{s.osm_relation ? `<br><small>🕐 <a href="https://pewu.github.io/osm-history/#/relation/${{escapeHtml(s.osm_relation)}}" target="_blank">OSM Deep history</a></small>` : ''}}
+                  ${{s.osm_relation ? `<br><small>📍 <a href="https://osm.mapki.com/history/relation/${{escapeHtml(s.osm_relation)}}" target="_blank">Mapki history</a></small>` : ''}}
                   ${{s.osm_relation ? `<br><small>✏️ <a href="https://www.openstreetmap.org/edit?editor=id&relation=${{escapeHtml(s.osm_relation)}}#map=14/${{s.lat}}/${{s.lon}}" target="_blank">iD editor (OSM)</a></small>` : ''}}
                   ${{s.image ? `<img class="popup-thumb" src="${{escapeHtml(s.image)}}" alt="section thumbnail">` : ''}}
                 </div>

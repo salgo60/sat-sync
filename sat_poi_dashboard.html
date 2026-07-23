@@ -101,9 +101,9 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
       <div class="header-meta">
-        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 19:51</strong> &nbsp;|&nbsp;
+        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 20:01</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/21" target="_blank">PR #21</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/23" target="_blank">PR #23</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a>
       </div>
@@ -7933,7 +7933,7 @@
     </div>
 
     <div class="footer">
-      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 19:51</strong> |
+      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 20:01</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data/trail.jsonld" target="_blank">trail.jsonld</a> |
@@ -8604,6 +8604,7 @@
             : '';
           const osmRef = findOsmRef(r.same_as);
           const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${osmRef.type}/${osmRef.id}` : null;
+          const mapkiUrl = osmRef ? `https://osm.mapki.com/history/${osmRef.type}/${osmRef.id}` : null;
           const mapCompleteTheme = (function(cat) {
             const map = {
               toilet: 'toilets',
@@ -8631,6 +8632,9 @@
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${osmHistoryUrl}" target="_blank">OSM Deep history</a></div>`
             : '';
+          const mapkiLink = mapkiUrl
+            ? `<div><a href="${mapkiUrl}" target="_blank">📍 Mapki history</a></div>`
+            : '';
           const mapCompleteLink = mapCompleteUrl
             ? `<div><a href="${mapCompleteUrl}" target="_blank">✏️ MapComplete (${mapCompleteTheme})</a></div>`
             : '';
@@ -8644,6 +8648,7 @@
               <a href="${satUrl}" target="_blank">${escapeHtml(t('openSatMap'))}</a>
               ${osmTagsHtml}
               ${osmHistoryLink}
+              ${mapkiLink}
               ${idEditorLink}
               ${mapCompleteLink}
               ${imageHtml}
@@ -8694,6 +8699,7 @@
                   ${s.wikidata_q ? `<br><small>📖 <a href="https://www.wikidata.org/wiki/${escapeHtml(s.wikidata_q)}" target="_blank">Wikidata (${escapeHtml(s.wikidata_q)})</a></small>` : ''}
                   ${s.osm_relation ? `<br><small>🗺️ <a href="https://www.openstreetmap.org/relation/${escapeHtml(s.osm_relation)}" target="_blank">OSM relation/${escapeHtml(s.osm_relation)}</a></small>` : ''}
                   ${s.osm_relation ? `<br><small>🕐 <a href="https://pewu.github.io/osm-history/#/relation/${escapeHtml(s.osm_relation)}" target="_blank">OSM Deep history</a></small>` : ''}
+                  ${s.osm_relation ? `<br><small>📍 <a href="https://osm.mapki.com/history/relation/${escapeHtml(s.osm_relation)}" target="_blank">Mapki history</a></small>` : ''}
                   ${s.osm_relation ? `<br><small>✏️ <a href="https://www.openstreetmap.org/edit?editor=id&relation=${escapeHtml(s.osm_relation)}#map=14/${s.lat}/${s.lon}" target="_blank">iD editor (OSM)</a></small>` : ''}
                   ${s.image ? `<img class="popup-thumb" src="${escapeHtml(s.image)}" alt="section thumbnail">` : ''}
                 </div>
