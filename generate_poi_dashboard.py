@@ -417,6 +417,9 @@ ORDER BY DESC(geof:latitude(?coord))
     .filters {{ background:#fff; padding:14px 24px; border-bottom:1px solid #e2e8f0; display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }}
     .filters label {{ display:block; font-size:.8rem; color:#555; margin-bottom:4px; font-weight:600; }}
     .filters select {{ min-width:180px; padding:8px; border:1px solid #cbd5e1; border-radius:6px; }}
+    .filters .actions {{ display:flex; gap:8px; align-items:center; }}
+    .filters button {{ padding:8px 12px; border:1px solid #1d4ed8; background:#1d4ed8; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }}
+    .filters button:hover {{ background:#1e40af; }}
     .filters .count {{ margin-left:auto; font-size:.9rem; color:#555; }}
     .section {{ padding:20px 24px; }}
     h2 {{ margin:0 0 12px; }}
@@ -464,6 +467,10 @@ ORDER BY DESC(geof:latitude(?coord))
           <option value="all">Alla</option>
           {category_options}
         </select>
+      </div>
+      <div class="actions">
+        <button id="shareBtn" type="button">Dela</button>
+        <button id="resetBtn" type="button">Återställ</button>
       </div>
       <div class="count" id="visibleCount"></div>
     </div>
@@ -539,11 +546,14 @@ ORDER BY DESC(geof:latitude(?coord))
     (function() {{
       const sectionFilter = document.getElementById('sectionFilter');
       const categoryFilter = document.getElementById('categoryFilter');
+      const shareBtn = document.getElementById('shareBtn');
+      const resetBtn = document.getElementById('resetBtn');
       const poiRows = Array.from(document.querySelectorAll('#poiTable tbody tr'));
       const sectionRows = Array.from(document.querySelectorAll('#sectionTable tbody tr'));
       const visibleCount = document.getElementById('visibleCount');
       const poiFlow = {poi_flow_json};
       const poiMapData = {poi_map_json};
+      const totalPoiCount = poiMapData.length;
       const trailGeoJson = {trail_geojson_json};
       const sectionsIndex = {sections_index_json};
       const map = L.map('poiMap').setView([59.2, 18.5], 8);
@@ -569,6 +579,70 @@ ORDER BY DESC(geof:latitude(?coord))
           .replaceAll('>', '&gt;')
           .replaceAll('\"', '&quot;')
           .replaceAll(\"'\", '&#039;');
+      }}
+
+      function canonicalBaseUrl() {{
+        if (window.location.protocol === 'file:') {{
+          return 'https://salgo60.github.io/sat-sync/sat_poi_dashboard.html';
+        }}
+        return `${{window.location.origin}}${{window.location.pathname}}`;
+      }}
+
+      function stateLabel(sec, cat) {{
+        const secText = sec === 'all' ? 'Alla' : (sectionFilter.options[sectionFilter.selectedIndex]?.text || sec);
+        const catText = cat === 'all' ? 'Alla' : cat;
+        return `${{secText}} ${{catText}}`;
+      }}
+
+      function buildShareUrl(sec, cat) {{
+        const params = new URLSearchParams();
+        if (sec && sec !== 'all') params.set('s', sec);
+        if (cat && cat !== 'all') params.set('c', cat);
+        const qs = params.toString();
+        return qs ? `${{canonicalBaseUrl()}}?${{qs}}` : canonicalBaseUrl();
+      }}
+
+      function saveStateInUrl(sec, cat) {{
+        const url = buildShareUrl(sec, cat);
+        window.history.replaceState({{}}, '', url);
+      }}
+
+      function restoreStateFromUrl() {{
+        const params = new URLSearchParams(window.location.search);
+        const sec = params.get('s') || params.get('section');
+        const cat = params.get('c') || params.get('category');
+        if (sec && Array.from(sectionFilter.options).some(o => o.value === sec)) {{
+          sectionFilter.value = sec;
+        }}
+        if (cat && Array.from(categoryFilter.options).some(o => o.value === cat)) {{
+          categoryFilter.value = cat;
+        }}
+      }}
+
+      async function shareCurrentState() {{
+        const sec = sectionFilter.value;
+        const cat = categoryFilter.value;
+        const url = buildShareUrl(sec, cat);
+        const title = 'SAT POI Dashboard';
+        const text = stateLabel(sec, cat);
+        try {{
+          if (navigator.share) {{
+            await navigator.share({{ title, text, url }});
+          }} else if (navigator.clipboard && navigator.clipboard.writeText) {{
+            await navigator.clipboard.writeText(url);
+            alert(`Delningslänk kopierad:\\n${{url}}`);
+          }} else {{
+            prompt('Kopiera länken:', url);
+          }}
+        }} catch (_err) {{
+          // användaren avbröt delning eller api saknas
+        }}
+      }}
+
+      function resetFilters() {{
+        sectionFilter.value = 'all';
+        categoryFilter.value = 'all';
+        applyFilters();
       }}
 
       function renderMap(sec, cat) {{
@@ -748,13 +822,17 @@ ORDER BY DESC(geof:latitude(?coord))
           row.style.display = (sec === 'all' || rowSec === sec) ? '' : 'none';
         }});
 
-        visibleCount.textContent = `Visar ${{visible}} POI`;
+        visibleCount.textContent = `Visar ${{visible}} av ${{totalPoiCount}} POI`;
+        saveStateInUrl(sec, cat);
         renderMap(sec, cat);
         renderSankey(sec, cat);
       }}
 
       sectionFilter.addEventListener('change', applyFilters);
       categoryFilter.addEventListener('change', applyFilters);
+      shareBtn.addEventListener('click', shareCurrentState);
+      resetBtn.addEventListener('click', resetFilters);
+      restoreStateFromUrl();
       applyFilters();
     }})();
   </script>
