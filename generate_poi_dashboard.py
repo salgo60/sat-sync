@@ -1444,11 +1444,12 @@ ORDER BY DESC(geof:latitude(?coord))
           const idEditorLink = idEditorUrl
             ? `<div><a href="${{idEditorUrl}}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
-          // Wikimedia photo upload links
-          const wikishootmeUrl = (r.lat && r.lon)
+          // Wikimedia photo upload links — only shown when POI has no image yet
+          const missingImage = !r.image;
+          const wikishootmeUrl = (missingImage && r.lat && r.lon)
             ? `https://wikishootme.toolforge.org/#lat=${{r.lat}}&lng=${{r.lon}}&zoom=18`
             : null;
-          const commonsUploadUrl = wdRef
+          const commonsUploadUrl = (missingImage && wdRef)
             ? `https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wikidata&depicts=${{encodeURIComponent(wdRef)}}`
             : null;
           const wikishootmeLink = wikishootmeUrl
