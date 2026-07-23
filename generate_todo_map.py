@@ -309,8 +309,6 @@ html = f"""<!DOCTYPE html>
   // Fixed bbox covering the entire SAT trail (Arholma → Landsort)
   const TRAIL_BBOX = '17.6,58.65,19.4,59.95';
 
-  osmNotesLayer = L.layerGroup();
-
   const noteIcon = L.divIcon({{
     className: '',
     html: '<div style="width:20px;height:20px;border-radius:50%;background:#3b82f6;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:11px">💬</div>',
@@ -338,23 +336,12 @@ html = f"""<!DOCTYPE html>
         m.bindPopup(`<div class="note-popup"><strong>💬 OSM Note #${{noteId}}</strong><br>${{escapeHtml(text)}}<br><small>${{date}}</small><br><a href="https://www.openstreetmap.org/note/${{noteId}}" target="_blank">Öppna på OSM</a></div>`);
         osmNotesLayer.addLayer(m);
       }});
-      if (active.notes) osmNotesLayer.addTo(map);
       console.log(`OSM Notes: ${{features.length}} öppna notes laddade`);
     }} catch(e) {{ console.warn('OSM Notes error', e); }}
   }}
 
-  // ── Chips & filters ────────────────────────────────────────────────────────
-  function toggleChip(key) {{
-    active[key] = !active[key];
-    document.getElementById('chip-'+key).classList.toggle('off', !active[key]);
-    if (key === 'notes') {{
-      if (active.notes) {{ loadOsmNotes(); osmNotesLayer.addTo(map); }}
-      else map.removeLayer(osmNotesLayer);
-    }} else {{
-      renderMarkers();
-    }}
-    renderList();
-  }}
+  // Auto-load notes on start
+  loadOsmNotes();
 
   window.applyFilters = function() {{
     currentStage = stageFilter.value;
