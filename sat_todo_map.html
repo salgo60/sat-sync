@@ -69,7 +69,7 @@
   <div class="top-bar">
     <h1>🗺️ SAT TODO – Vad saknas?</h1>
     <div class="meta">
-      20260723 21:22 &nbsp;
+      20260723 21:49 &nbsp;
       <a href="sat_poi_dashboard.html">Dashboard</a>
     </div>
   </div>
@@ -234,6 +234,16 @@
     }
   }
 
+  function openIdWithCheckDate(idUrl) {
+    const today = new Date().toISOString().slice(0, 10);
+    const tagText = `check_date=${today}`;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(tagText).catch(() => {});
+    }
+    window.open(idUrl, '_blank', 'noopener');
+    return false;
+  }
+
   function buildPopup(p) {
     const tags = p.missing.map(tag => {
       const labels = {osm:'Saknar OSM', wikidata:'Saknar Wikidata', image:'Saknar bild'};
@@ -252,7 +262,7 @@
       <small style="color:#64748b">${escapeHtml(p.section)} · ${escapeHtml(p.category)}</small><br>
       <div style="margin:5px 0">${tags}</div>
       ${satMapUrl ? `<div><a href="${satMapUrl}" target="_blank">🗺️ SAT-kartan</a> · <a href="${satJsonUrl}" target="_blank">🧾 SAT JSON</a></div>` : ''}
-      ${osmUrl ? `<div><a href="${osmUrl}" target="_blank">🔗 OSM</a> · <a href="${idUrl}" target="_blank">✏️ iD editor</a></div>` : '<div style="color:#ef4444;font-size:11px">❌ Ingen OSM-länk</div>'}
+      ${osmUrl ? `<div><a href="${osmUrl}" target="_blank">🔗 OSM</a> · <a href="${idUrl}" target="_blank">✏️ iD editor</a></div><div><a href="${idUrl}" target="_blank" onclick="return openIdWithCheckDate(this.href)">🗓️ check_date=today (iD)</a></div>` : '<div style="color:#ef4444;font-size:11px">❌ Ingen OSM-länk</div>'}
       ${wdUrl  ? `<div><a href="${wdUrl}" target="_blank">📚 Wikidata</a></div>` : '<div style="color:#f59e0b;font-size:11px">❌ Ingen Wikidata-länk</div>'}
       ${p.website ? `<div><a href="${p.website}" target="_blank">🌐 Webbplats</a></div>` : ''}
       <div style="margin-top:6px;border-top:1px solid #e2e8f0;padding-top:5px">
