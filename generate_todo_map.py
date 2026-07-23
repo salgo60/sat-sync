@@ -284,6 +284,7 @@ html = f"""<!DOCTYPE html>
       const idUrl  = p.osm ? `https://www.openstreetmap.org/edit?editor=id&${{p.osm.replace('osm:','')}}#map=18/${{p.lat}}/${{p.lon}}` : null;
       const wdUrl  = p.wikidata ? `https://www.wikidata.org/wiki/${{p.wikidata.replace('wikidata:','')}}` : null;
       const newNoteUrl = `https://www.openstreetmap.org/note/new#map=18/${{p.lat}}/${{p.lon}}`;
+      const wikimapUrl = `https://wikimap.toolforge.org/?lat=${{p.lat}}&lon=${{p.lon}}&zoom=15&lang=en&wp=false`;
       m.bindPopup(`<div style="min-width:160px;font-size:13px">
         <strong>${{p.name}}</strong><br>
         <small style="color:#64748b">${{p.section}} · ${{p.category}}</small><br>
@@ -291,7 +292,10 @@ html = f"""<!DOCTYPE html>
         ${{osmUrl  ? `<div><a href="${{osmUrl}}" target="_blank">🔗 OSM</a> · <a href="${{idUrl}}" target="_blank">✏️ iD editor</a></div>` : '<div style="color:#ef4444;font-size:11px">❌ Ingen OSM-länk</div>'}}
         ${{wdUrl ? `<div><a href="${{wdUrl}}" target="_blank">📚 Wikidata</a></div>` : '<div style="color:#f59e0b;font-size:11px">❌ Ingen Wikidata-länk</div>'}}
         ${{p.website ? `<div><a href="${{p.website}}" target="_blank">🌐 Webbplats</a></div>` : ''}}
-        <div style="margin-top:6px;border-top:1px solid #e2e8f0;padding-top:5px"><a href="${{newNoteUrl}}" target="_blank">💬 Skapa OSM Note här</a></div>
+        <div style="margin-top:6px;border-top:1px solid #e2e8f0;padding-top:5px">
+          <div><a href="${{wikimapUrl}}" target="_blank">🗺️ Wikimap</a></div>
+          <div><a href="${{newNoteUrl}}" target="_blank">💬 Skapa OSM Note här</a></div>
+        </div>
       </div>`);
       markerLayer.addLayer(m);
     }});
