@@ -168,12 +168,6 @@ html = f"""<!DOCTYPE html>
     <select id="categoryFilter" onchange="applyFilters()">
       <option value="all">Alla kategorier</option>
     </select>
-    <div class="toggles">
-      <span class="chip osm" id="chip-osm" onclick="toggleChip('osm')" title="Saknar OSM-länk">OSM</span>
-      <span class="chip wd"  id="chip-wd"  onclick="toggleChip('wd')"  title="Saknar Wikidata-länk">WD</span>
-      <span class="chip img" id="chip-img" onclick="toggleChip('img')" title="Saknar bild">📷</span>
-      <span class="chip notes" id="chip-notes" onclick="toggleChip('notes')" title="OSM Notes">Notes</span>
-    </div>
     <button class="loc-btn" onclick="locateMe()">📍 Nära mig</button>
   </div>
 
@@ -194,13 +188,10 @@ html = f"""<!DOCTYPE html>
   const STAGE_STATS = {stage_stats_json};
 
   // State
-  const active = {{ osm: true, wd: true, img: true, notes: true }};
   let currentStage = 'all';
   let currentCategory = 'all';
   let locationMarker = null;
-  let osmNotesLayer = null;
   let osmNotesLoaded = false;
-  let poiMarkers = [];
 
   // ── Map setup ──────────────────────────────────────────────────────────────
   const map = L.map('map', {{ zoomControl: true }}).setView([59.3, 18.9], 8);
@@ -248,64 +239,78 @@ html = f"""<!DOCTYPE html>
     }});
   }}
 
-  // ── Render POI markers ─────────────────────────────────────────────────────
-  const markerLayer = L.layerGroup().addTo(map);
+  // ── Problem layers (one per issue type) ───────────────────────────────────
+  const layerMissingOsm = L.layerGroup().addTo(map);
+  const layerMissingWd  = L.layerGroup().addTo(map);
+  const layerMissingImg = L.layerGroup().addTo(map);
+  const osmNotesLayer   = L.layerGroup().addTo(map);
+
+  // Layer control — shown in map top-right
+  L.control.layers(null, {{
+    '❌ Saknar OSM-länk':    layerMissingOsm,
+    '📋 Saknar Wikidata':   layerMissingWd,
+    '📷 Saknar bild':       layerMissingImg,
+    '💬 OSM Notes':         osmNotesLayer,
+  }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
 
   function filteredPois() {{
     return ALL_POIS.filter(p => {{
       if (currentStage !== 'all' && p.section !== currentStage) return false;
       if (currentCategory !== 'all' && p.category !== currentCategory) return false;
-      const anyActive = active.osm || active.wd || active.img;
-      if (!anyActive) return false;
-      if (active.osm && p.missing.includes('osm'))      return true;
-      if (active.wd  && p.missing.includes('wikidata')) return true;
-      if (active.img && p.missing.includes('image'))    return true;
-      return false;
+      return true;
     }});
   }}
 
+  function buildPopup(p) {{
+    const tags = p.missing.map(tag => {{
+      const labels = {{osm:'Saknar OSM', wikidata:'Saknar Wikidata', image:'Saknar bild'}};
+      const colors = {{osm:'#ef4444', wikidata:'#f59e0b', image:'#8b5cf6'}};
+      return `<span style="background:${{colors[tag]||'#888'}};color:#fff;padding:1px 6px;border-radius:10px;font-size:11px;margin-right:3px">${{labels[tag]||tag}}</span>`;
+    }}).join('');
+    const osmUrl = p.osm ? `https://www.openstreetmap.org/${{p.osm.replace('osm:node:','node/').replace('osm:way:','way/').replace('osm:relation:','relation/')}}` : null;
+    const idUrl  = p.osm ? `https://www.openstreetmap.org/edit?editor=id&${{p.osm.replace('osm:','')}}#map=18/${{p.lat}}/${{p.lon}}` : null;
+    const wdUrl  = p.wikidata ? `https://www.wikidata.org/wiki/${{p.wikidata.replace('wikidata:','')}}` : null;
+    const satMapUrl = p.id ? `https://map.stockholmarchipelagotrail.com/?${{p.id}}` : null;
+    const satJsonUrl = p.id ? `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(p.id)}}` : null;
+    const newNoteUrl = `https://www.openstreetmap.org/note/new#map=18/${{p.lat}}/${{p.lon}}`;
+    const wikimapUrl = `https://wikimap.toolforge.org/?lat=${{p.lat}}&lon=${{p.lon}}&zoom=15&lang=en&wp=false&cluster=false`;
+    return `<div style="min-width:160px;font-size:13px">
+      <strong>${{escapeHtml(p.name)}}</strong><br>
+      <small style="color:#64748b">${{escapeHtml(p.section)}} · ${{escapeHtml(p.category)}}</small><br>
+      <div style="margin:5px 0">${{tags}}</div>
+      ${{satMapUrl ? `<div><a href="${{satMapUrl}}" target="_blank">🗺️ SAT-kartan</a> · <a href="${{satJsonUrl}}" target="_blank">🧾 SAT JSON</a></div>` : ''}}
+      ${{osmUrl ? `<div><a href="${{osmUrl}}" target="_blank">🔗 OSM</a> · <a href="${{idUrl}}" target="_blank">✏️ iD editor</a></div>` : '<div style="color:#ef4444;font-size:11px">❌ Ingen OSM-länk</div>'}}
+      ${{wdUrl  ? `<div><a href="${{wdUrl}}" target="_blank">📚 Wikidata</a></div>` : '<div style="color:#f59e0b;font-size:11px">❌ Ingen Wikidata-länk</div>'}}
+      ${{p.website ? `<div><a href="${{p.website}}" target="_blank">🌐 Webbplats</a></div>` : ''}}
+      <div style="margin-top:6px;border-top:1px solid #e2e8f0;padding-top:5px">
+        <div><a href="${{wikimapUrl}}" target="_blank">🗺️ Wikimap</a></div>
+        <div><a href="${{newNoteUrl}}" target="_blank">💬 Skapa OSM Note här</a></div>
+      </div>
+    </div>`;
+  }}
+
   function renderMarkers() {{
-    markerLayer.clearLayers();
+    layerMissingOsm.clearLayers();
+    layerMissingWd.clearLayers();
+    layerMissingImg.clearLayers();
     const fps = filteredPois();
     fps.forEach(p => {{
-      const icon = makeIcon(p.missing.filter(m => {{
-        if (m==='osm' && !active.osm) return false;
-        if (m==='wikidata' && !active.wd) return false;
-        if (m==='image' && !active.img) return false;
-        return true;
-      }}));
-      const m = L.marker([p.lat, p.lon], {{ icon }});
-      const tags = p.missing.map(tag => {{
-        const labels = {{osm:'Saknar OSM', wikidata:'Saknar Wikidata', image:'Saknar bild'}};
-        const colors = {{osm:'#ef4444', wikidata:'#f59e0b', image:'#8b5cf6'}};
-        return `<span style="background:${{colors[tag]||'#888'}};color:#fff;padding:1px 6px;border-radius:10px;font-size:11px;margin-right:3px">${{labels[tag]||tag}}</span>`;
-      }}).join('');
-      const osmUrl = p.osm ? `https://www.openstreetmap.org/${{p.osm.replace('osm:node:','node/').replace('osm:way:','way/').replace('osm:relation:','relation/')}}` : null;
-      const idUrl  = p.osm ? `https://www.openstreetmap.org/edit?editor=id&${{p.osm.replace('osm:','')}}#map=18/${{p.lat}}/${{p.lon}}` : null;
-      const wdUrl  = p.wikidata ? `https://www.wikidata.org/wiki/${{p.wikidata.replace('wikidata:','')}}` : null;
-      const newNoteUrl = `https://www.openstreetmap.org/note/new#map=18/${{p.lat}}/${{p.lon}}`;
-      const wikimapUrl = `https://wikimap.toolforge.org/?lat=${{p.lat}}&lon=${{p.lon}}&zoom=15&lang=en&wp=false`;
-      m.bindPopup(`<div style="min-width:160px;font-size:13px">
-        <strong>${{p.name}}</strong><br>
-        <small style="color:#64748b">${{p.section}} · ${{p.category}}</small><br>
-        <div style="margin:5px 0">${{tags}}</div>
-        ${{osmUrl  ? `<div><a href="${{osmUrl}}" target="_blank">🔗 OSM</a> · <a href="${{idUrl}}" target="_blank">✏️ iD editor</a></div>` : '<div style="color:#ef4444;font-size:11px">❌ Ingen OSM-länk</div>'}}
-        ${{wdUrl ? `<div><a href="${{wdUrl}}" target="_blank">📚 Wikidata</a></div>` : '<div style="color:#f59e0b;font-size:11px">❌ Ingen Wikidata-länk</div>'}}
-        ${{p.website ? `<div><a href="${{p.website}}" target="_blank">🌐 Webbplats</a></div>` : ''}}
-        <div style="margin-top:6px;border-top:1px solid #e2e8f0;padding-top:5px">
-          <div><a href="${{wikimapUrl}}" target="_blank">🗺️ Wikimap</a></div>
-          <div><a href="${{newNoteUrl}}" target="_blank">💬 Skapa OSM Note här</a></div>
-        </div>
-      </div>`);
-      markerLayer.addLayer(m);
+      const popup = buildPopup(p);
+      if (p.missing.includes('osm')) {{
+        L.marker([p.lat, p.lon], {{ icon: makeIcon(['osm']) }}).bindPopup(popup).addTo(layerMissingOsm);
+      }}
+      if (p.missing.includes('wikidata')) {{
+        L.marker([p.lat, p.lon], {{ icon: makeIcon(['wikidata']) }}).bindPopup(popup).addTo(layerMissingWd);
+      }}
+      if (p.missing.includes('image')) {{
+        L.marker([p.lat, p.lon], {{ icon: makeIcon(['image']) }}).bindPopup(popup).addTo(layerMissingImg);
+      }}
     }});
   }}
 
   // ── OSM Notes ─────────────────────────────────────────────────────────────
   // Fixed bbox covering the entire SAT trail (Arholma → Landsort)
   const TRAIL_BBOX = '17.6,58.65,19.4,59.95';
-
-  osmNotesLayer = L.layerGroup();
 
   const noteIcon = L.divIcon({{
     className: '',
@@ -334,23 +339,12 @@ html = f"""<!DOCTYPE html>
         m.bindPopup(`<div class="note-popup"><strong>💬 OSM Note #${{noteId}}</strong><br>${{escapeHtml(text)}}<br><small>${{date}}</small><br><a href="https://www.openstreetmap.org/note/${{noteId}}" target="_blank">Öppna på OSM</a></div>`);
         osmNotesLayer.addLayer(m);
       }});
-      if (active.notes) osmNotesLayer.addTo(map);
       console.log(`OSM Notes: ${{features.length}} öppna notes laddade`);
     }} catch(e) {{ console.warn('OSM Notes error', e); }}
   }}
 
-  // ── Chips & filters ────────────────────────────────────────────────────────
-  function toggleChip(key) {{
-    active[key] = !active[key];
-    document.getElementById('chip-'+key).classList.toggle('off', !active[key]);
-    if (key === 'notes') {{
-      if (active.notes) {{ loadOsmNotes(); osmNotesLayer.addTo(map); }}
-      else map.removeLayer(osmNotesLayer);
-    }} else {{
-      renderMarkers();
-    }}
-    renderList();
-  }}
+  // Auto-load notes on start
+  loadOsmNotes();
 
   window.applyFilters = function() {{
     currentStage = stageFilter.value;

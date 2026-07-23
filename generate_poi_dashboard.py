@@ -1467,6 +1467,12 @@ ORDER BY DESC(geof:latitude(?coord))
           const idEditorLink = idEditorUrl
             ? `<div><a href="${{idEditorUrl}}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
+          const osmNotesUrl = (r.lat && r.lon)
+            ? `https://www.openstreetmap.org/#map=18/${{r.lat}}/${{r.lon}}&layers=N`
+            : null;
+          const osmNotesLink = osmNotesUrl
+            ? `<div><a href="${{osmNotesUrl}}" target="_blank">💬 OSM Notes</a></div>`
+            : '';
           // Wikimedia photo upload links — only shown when POI has no image yet
           const missingImage = !r.image;
           const wikishootmeUrl = (missingImage && r.lat && r.lon)
@@ -1491,6 +1497,7 @@ ORDER BY DESC(geof:latitude(?coord))
               ${{mapkiLink}}
               ${{idEditorLink}}
               ${{mapCompleteLink}}
+              ${{osmNotesLink}}
               ${{wikishootmeLink || commonsUploadLink ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}}
               ${{wikishootmeLink}}
               ${{commonsUploadLink}}

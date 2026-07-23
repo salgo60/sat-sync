@@ -101,9 +101,9 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
       <div class="header-meta">
-        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 20:23</strong> &nbsp;|&nbsp;
+        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 20:40</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/28" target="_blank">PR #28</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/32" target="_blank">PR #32</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a>
@@ -7934,7 +7934,7 @@
     </div>
 
     <div class="footer">
-      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 20:23</strong> |
+      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 20:40</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data/trail.jsonld" target="_blank">trail.jsonld</a> |
@@ -8710,6 +8710,12 @@
           const idEditorLink = idEditorUrl
             ? `<div><a href="${idEditorUrl}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
+          const osmNotesUrl = (r.lat && r.lon)
+            ? `https://www.openstreetmap.org/#map=18/${r.lat}/${r.lon}&layers=N`
+            : null;
+          const osmNotesLink = osmNotesUrl
+            ? `<div><a href="${osmNotesUrl}" target="_blank">💬 OSM Notes</a></div>`
+            : '';
           // Wikimedia photo upload links — only shown when POI has no image yet
           const missingImage = !r.image;
           const wikishootmeUrl = (missingImage && r.lat && r.lon)
@@ -8734,6 +8740,7 @@
               ${mapkiLink}
               ${idEditorLink}
               ${mapCompleteLink}
+              ${osmNotesLink}
               ${wikishootmeLink || commonsUploadLink ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}
               ${wikishootmeLink}
               ${commonsUploadLink}
