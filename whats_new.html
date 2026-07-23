@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What's new — SAT POI Dashboard</title>
+  <meta name="description" content="Nya funktioner och förbättringar i SAT POI Dashboard – byggd med GitHub Copilot.">
+  <style>
+    body { margin: 0; padding: 32px 16px; background: #f8f8f8; font: 16px/1.6 -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; color: #32373c; }
+    main { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 40px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8a8f93; }
+    h1 { font-size: 28px; margin: 6px 0 4px; line-height: 1.2; }
+    .sub { font-size: 13px; color: #8a8f93; margin: 0 0 8px; }
+    .sub a { color: #c2356e; }
+    .entry { border-top: 1px solid #eee; padding-top: 20px; margin-top: 24px; }
+    .entry:first-of-type { border-top: 0; padding-top: 0; margin-top: 20px; }
+    .date { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #8a8f93; }
+    .pr-links { margin-top: 2px; margin-bottom: 6px; }
+    .pr-links a { font-size: 12px; color: #c2356e; text-decoration: none; margin-right: 8px; }
+    .pr-links a:hover { text-decoration: underline; }
+    h2 { font-size: 18px; margin: 4px 0 8px; }
+    p, li { color: #32373c; font-size: 15px; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    li { margin: 4px 0; }
+    a { color: #c2356e; }
+    footer { margin-top: 36px; font-size: 13px; color: #8a8f93; }
+    footer a { color: #c2356e; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">SAT POI Dashboard</div>
+  <h1>What's new</h1>
+  <p class="sub">
+    Nya funktioner och förbättringar – nyast först.
+    Alla ändringar via <a href="https://github.com/salgo60/sat-sync/pulls?q=is%3Apr" target="_blank">GitHub Pull Requests</a>.
+    <br><a href="sat_poi_dashboard.html">← Öppna dashboarden</a>
+  </p>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/14" target="_blank">PR #14</a>
+    </div>
+    <h2>MapComplete-länk och renare delningslänkar</h2>
+    <ul>
+      <li><strong>Redigera i MapComplete.</strong> Popup-fönstret för objekt med OSM-koppling får nu en ✏️-länk direkt till rätt MapComplete-tema — toalett öppnar <em>toilets</em>, dricksvattenkälla öppnar <em>drinking_water</em>, mat öppnar <em>food</em>, och så vidare.</li>
+      <li><strong>Renare URL vid delning.</strong> Språkparametern i delningslänkar skriver nu bara språkkoden: <code>lang=fa</code> istället för det missvisande <code>lang=swedish:fa</code>.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/14" target="_blank">PR #14</a>
+    </div>
+    <h2>24 språk, avståndsbandsfunktion och OSM-insikter</h2>
+    <ul>
+      <li><strong>24 språk.</strong> Välj språk i en grupperad lista – "Svenska språken" (sv, en, ar, fi, so, fa, ckb, ti, pl, tr, es) och "Turistspråken" (nb, nn, da, fi, de, nl, en, fr, es, it, zh, ja, pl, ru). All UI, kategorier och POI-namn lokaliseras.</li>
+      <li><strong>Avståndsbandsfunktion.</strong> Visa en buffertzon på 100, 500 eller 1 000 meter längs leden och se hur många POI som finns inom bandet.</li>
+      <li><strong>Zooma till hela leden.</strong> En knapp i kartan passar in hela ledens sträckning i vyn.</li>
+      <li><strong>OSM-taggar i popup.</strong> Klicka på ett objekt och expandera en kollapsbar sektion för att se alla live-hämtade OSM-taggar.</li>
+      <li><strong>OSM Deep history.</strong> Direkt länk till historiken för varje OSM-objekt via <a href="https://pewu.github.io/osm-history/#/" target="_blank">pewu OSM history</a>.</li>
+      <li><strong>Footer.</strong> Visar när dashboarden senast genererades och länk till GitHub-repot.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/13" target="_blank">PR #13</a>
+    </div>
+    <h2>Kategoriikoner, ledinfo-toggle och bugfixar</h2>
+    <ul>
+      <li><strong>Kategoriikoner.</strong> Varje objekttyp har ett eget emoji-ikon och färg i kartan och popup.</li>
+      <li><strong>Ledinfo-toggle.</strong> Slå på/av visning av ledens geometri på kartan.</li>
+      <li><strong>Kartan och Sankey-flödet</strong> uppdateras nu korrekt vid filtrering — en krasch vid lokalt <code>file://</code>-protokoll åtgärdades.</li>
+      <li><strong>Flödesordning.</strong> Sankey visar Kategori → Grupp → Etapp/ö.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/12" target="_blank">PR #12</a>
+    </div>
+    <h2>Delning, JSON-export och kartstate</h2>
+    <ul>
+      <li><strong>Delningsknapp.</strong> Kopierar en URL med aktuell filtrering och kartvy till urklipp.</li>
+      <li><strong>JSON-export.</strong> Ladda ner de filtrerade POI som JSON.</li>
+      <li><strong>"Öppna i SAT-kartan"</strong> länk i popup öppnar objektet direkt i den officiella SAT-kartan.</li>
+      <li><strong>Kartvy bevaras</strong> vid filtrering – ingen oönskad återcentrering.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/11" target="_blank">PR #11</a>
+      <a href="https://github.com/salgo60/sat-sync/pull/10" target="_blank">PR #10</a>
+    </div>
+    <h2>URL-state, återställning och POI-räknare</h2>
+    <ul>
+      <li><strong>URL-state.</strong> Aktivt etapp- och kategorifilter sparas i adressen – delbart och bokmärkbart.</li>
+      <li><strong>Återställningsknapp.</strong> Nollställer alla filter med ett klick.</li>
+      <li><strong>"Visar X av Y objekt"</strong> räknare uppdateras live vid filtrering.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/9" target="_blank">PR #9</a>
+      <a href="https://github.com/salgo60/sat-sync/pull/8" target="_blank">PR #8</a>
+    </div>
+    <h2>SAT POI Dashboard – första versionen</h2>
+    <ul>
+      <li><strong>Interaktiv karta</strong> med alla 679 POI längs Stockholms Skärgårdsled.</li>
+      <li><strong>Sankey-flödesdiagram</strong> visar relationen Kategori → Grupp → Etapp/ö.</li>
+      <li><strong>POI-tabell</strong> med namn, etapp, kategori och Wikidata-länk.</li>
+      <li><strong>Etappsöversikt</strong> med Wikidata- och OSM-täckning per etapp/ö.</li>
+      <li><strong>Filter</strong> för etapp/ö och objekttyp.</li>
+      <li><strong>Statistik:</strong> totalt antal POI, etapper, objekttyper och Wikidata-kopplade objekt.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/7" target="_blank">PR #7</a>
+      <a href="https://github.com/salgo60/sat-sync/pull/6" target="_blank">PR #6</a>
+      <a href="https://github.com/salgo60/sat-sync/pull/5" target="_blank">PR #5</a>
+    </div>
+    <h2>Äldre rapporter och datakvalitetsverktyg</h2>
+    <ul>
+      <li><strong>Roundtripping-rapport</strong> – identifierar möjliga rundtursutmaningar längs leden.</li>
+      <li><strong>POI concordance-rapport</strong> – korskontroll av Wikidata och OSM-data för ledens objekt.</li>
+      <li><strong>SAT Wikidata-förbättringar</strong> – verktyg för att förbättra Wikidata-täckning.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <a href="https://github.com/salgo60/sat-sync" target="_blank">github.com/salgo60/sat-sync</a> ·
+    <a href="https://github.com/salgo60/sat-sync/pulls?q=is%3Apr" target="_blank">Alla PR:er på GitHub</a> ·
+    <a href="sat_poi_dashboard.html">SAT POI Dashboard</a>
+  </footer>
+</main>
+</body>
+</html>
