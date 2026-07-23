@@ -394,6 +394,47 @@ ORDER BY DESC(geof:latitude(?coord))
             for _, _, sec in ordered_sections
         )
         category_options = "\n".join(f'<option value="{c}">{c}</option>' for c in sorted(categories))
+        swedish_languages = [
+            ("sv", "Swedish (Svenska)"),
+            ("en", "English"),
+            ("ar", "Arabic (العربية)"),
+            ("fi", "Finnish (Suomi)"),
+            ("so", "Somali (Soomaali)"),
+            ("fa", "Persian (فارسی)"),
+            ("ckb", "Kurdish (Sorani)"),
+            ("ti", "Tigrinya (ትግርኛ)"),
+            ("pl", "Polish (Polski)"),
+            ("tr", "Turkish (Türkçe)"),
+            ("es", "Spanish (Español)"),
+        ]
+        tourist_languages = [
+            ("nb", "Norwegian (Bokmål)"),
+            ("nn", "Norwegian (Nynorsk)"),
+            ("da", "Danish (Dansk)"),
+            ("fi", "Finnish (Suomi)"),
+            ("de", "German (Deutsch)"),
+            ("nl", "Dutch (Nederlands)"),
+            ("en", "English"),
+            ("fr", "French (Français)"),
+            ("es", "Spanish (Español)"),
+            ("it", "Italian (Italiano)"),
+            ("zh", "Chinese (中文)"),
+            ("ja", "Japanese (日本語)"),
+            ("pl", "Polish (Polski)"),
+            ("ru", "Russian (Русский)"),
+        ]
+        swedish_language_options = "\n".join(
+            f'<option value="swedish:{code}"{" selected" if code == "sv" else ""}>{label}</option>'
+            for code, label in swedish_languages
+        )
+        tourist_language_options = "\n".join(
+            f'<option value="tourist:{code}">{label}</option>'
+            for code, label in tourist_languages
+        )
+        language_options = (
+            f'<optgroup label="Svenska språken">\n{swedish_language_options}\n</optgroup>\n'
+            f'<optgroup label="Turistspråken">\n{tourist_language_options}\n</optgroup>'
+        )
         poi_flow_json = json.dumps(poi_flow_data, ensure_ascii=False)
         poi_map_json = json.dumps(poi_map_data, ensure_ascii=False)
         trail_geojson_json = json.dumps(trail_geojson, ensure_ascii=False)
@@ -422,6 +463,7 @@ ORDER BY DESC(geof:latitude(?coord))
     .filters {{ background:#fff; padding:14px 24px; border-bottom:1px solid #e2e8f0; display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }}
     .filters label {{ display:block; font-size:.8rem; color:#555; margin-bottom:4px; font-weight:600; }}
     .filters select {{ min-width:180px; padding:8px; border:1px solid #cbd5e1; border-radius:6px; }}
+    #languageFilter {{ min-width:300px; }}
     .filters .hint {{ margin-top:4px; font-size:.75rem; color:#64748b; }}
     .filters .actions {{ display:flex; gap:8px; align-items:center; }}
     .filters button {{ padding:8px 12px; border:1px solid #1d4ed8; background:#1d4ed8; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }}
@@ -479,29 +521,36 @@ ORDER BY DESC(geof:latitude(?coord))
 <body>
   <div class="container">
     <div class="header">
-      <h1>🧭 SAT POI Dashboard</h1>
-      <p>Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
+      <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
+      <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
     </div>
 
     <div class="stats">
-      <div class="card"><h3>Totalt POI</h3><div class="num">{len(pois)}</div></div>
-      <div class="card"><h3>Etapp/ö (sections)</h3><div class="num">{len(section_stats)}</div></div>
-      <div class="card"><h3>Objekttyper</h3><div class="num">{len(categories)}</div></div>
-      <div class="card"><h3>Wikidata-etapper</h3><div class="num">{len(stages)}</div></div>
+      <div class="card"><h3 id="statTotalLabel">Totalt POI</h3><div class="num">{len(pois)}</div></div>
+      <div class="card"><h3 id="statSectionsLabel">Etapp/ö (sections)</h3><div class="num">{len(section_stats)}</div></div>
+      <div class="card"><h3 id="statCategoriesLabel">Objekttyper</h3><div class="num">{len(categories)}</div></div>
+      <div class="card"><h3 id="statWikidataLabel">Wikidata-etapper</h3><div class="num">{len(stages)}</div></div>
     </div>
 
     <div class="filters">
       <div>
-        <label for="sectionFilter">Filtrera etapp/ö</label>
+        <label id="languageFilterLabel" for="languageFilter">Språk</label>
+        <select id="languageFilter">
+          {language_options}
+        </select>
+        <div id="languageHint" class="hint">Svenska språken och turistspråken är separerade i listan.</div>
+      </div>
+      <div>
+        <label id="sectionFilterLabel" for="sectionFilter">Filtrera etapp/ö</label>
         <select id="sectionFilter">
-          <option value="all">Alla</option>
+          <option value="all" id="sectionAllOption">Alla</option>
           {section_options}
         </select>
       </div>
       <div>
-        <label for="categoryFilter">Filtrera objekttyp</label>
+        <label id="categoryFilterLabel" for="categoryFilter">Filtrera objekttyp</label>
         <select id="categoryFilter">
-          <option value="all">Alla</option>
+          <option value="all" id="categoryAllOption">Alla</option>
           {category_options}
         </select>
       </div>
@@ -513,12 +562,12 @@ ORDER BY DESC(geof:latitude(?coord))
       </div>
       <label class="toggle" for="trailInfoToggle">
         <input type="checkbox" id="trailInfoToggle" checked>
-        Visa ledinfo
+        <span id="trailInfoToggleLabel">Visa ledinfo</span>
       </label>
       <div class="distance-controls">
         <label class="toggle" for="distanceBandToggle">
           <input type="checkbox" id="distanceBandToggle">
-          Visa avståndsremsa
+          <span id="distanceBandToggleLabel">Visa avståndsremsa</span>
         </label>
         <select id="distanceBandMeters" aria-label="Avstånd i meter">
           <option value="100">100 m</option>
@@ -531,14 +580,14 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="section">
-      <h2>Karta (aktuell filtrering)</h2>
+      <h2 id="mapSectionTitle">Karta (aktuell filtrering)</h2>
       <div class="map-wrap">
         <div id="poiMap"></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Alla POI</h2>
+      <h2 id="allPoiTitle">Alla POI</h2>
       <div class="table-wrap">
         <table id="poiTable">
           <thead>
@@ -561,14 +610,14 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="section">
-      <h2>Flöde: kategori → grupp → etapp/ö</h2>
+      <h2 id="flowTitle">Flöde: kategori → grupp → etapp/ö</h2>
       <div class="chart-wrap">
         <div id="sankeyChart"></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Etapp/ö-översikt</h2>
+      <h2 id="sectionOverviewTitle">Etapp/ö-översikt</h2>
       <div class="table-wrap">
         <table id="sectionTable">
           <thead>
@@ -589,9 +638,9 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="footer">
-      Version skapad: <strong>{generated_at}</strong> |
+      <span id="versionCreatedLabel">Version skapad</span>: <strong>{generated_at}</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
-      Källor: <a href="{POIS_URL}" target="_blank">pois.geojson</a> |
+      <span id="sourcesLabel">Källor</span>: <a href="{POIS_URL}" target="_blank">pois.geojson</a> |
       <a href="{TRAIL_URL}" target="_blank">trail.jsonld</a> |
       <a href="{SECTIONS_INDEX_URL}" target="_blank">sections-index.json</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data-sources" target="_blank">data-sources</a> |
@@ -601,6 +650,7 @@ ORDER BY DESC(geof:latitude(?coord))
 
   <script>
     (function() {{
+      const languageFilter = document.getElementById('languageFilter');
       const sectionFilter = document.getElementById('sectionFilter');
       const categoryFilter = document.getElementById('categoryFilter');
       const trailInfoToggle = document.getElementById('trailInfoToggle');
@@ -652,6 +702,157 @@ ORDER BY DESC(geof:latitude(?coord))
         maxZoom: 18,
         attribution: '&copy; OpenStreetMap'
       }}).addTo(map);
+
+      const i18n = {{
+        sv: {{
+          all: 'Alla',
+          headerSubtitle: 'Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp',
+          statTotalLabel: 'Totalt POI',
+          statSectionsLabel: 'Etapp/ö (sections)',
+          statCategoriesLabel: 'Objekttyper',
+          statWikidataLabel: 'Wikidata-etapper',
+          languageFilterLabel: 'Språk',
+          languageHint: 'Svenska språken och turistspråken är separerade i listan.',
+          sectionFilterLabel: 'Filtrera etapp/ö',
+          categoryFilterLabel: 'Filtrera objekttyp',
+          shareBtn: 'Dela',
+          downloadBtn: 'Ladda ned urval JSON',
+          resetBtn: 'Återställ',
+          zoomTrailBtn: 'Zooma ut hela leden',
+          trailInfoToggleLabel: 'Visa ledinfo',
+          distanceBandToggleLabel: 'Visa avståndsremsa',
+          mapSectionTitle: 'Karta (aktuell filtrering)',
+          allPoiTitle: 'Alla POI',
+          flowTitle: 'Flöde: kategori → grupp → etapp/ö',
+          sectionOverviewTitle: 'Etapp/ö-översikt',
+          versionCreatedLabel: 'Version skapad',
+          sourcesLabel: 'Källor',
+          visibleCount: 'Visar {{visible}} av {{total}} POI',
+          distanceCount: '{{within}} inom {{meters}} m',
+          section: 'Section',
+          category: 'Kategori',
+          openSatMap: 'Öppna i SAT-kartan',
+          osmTags: 'OSM-taggar',
+          noOsmTags: 'Inga OSM-taggar hittades.',
+          noOsmRef: 'Ingen OSM-referens för objektet.',
+          loadingOsmTags: 'Laddar OSM-taggar...',
+          cannotLoadOsmTags: 'Kunde inte hämta OSM-taggar (HTTP {{status}}).',
+          failedOsmTags: 'Fel vid hämtning av OSM-taggar: {{message}}',
+          copiedShareLink: 'Delningslänk kopierad:\\n{{url}}',
+          copyLinkPrompt: 'Kopiera länken:',
+          sankeyTitlePrefix: 'POI-flöde för',
+          sankeyAllStages: 'alla etapper',
+          sankeyStagePrefix: 'etapp'
+        }},
+        en: {{
+          all: 'All',
+          headerSubtitle: 'All objects in pois.geojson linked to stage/island (Wikidata), section and object type',
+          statTotalLabel: 'Total POI',
+          statSectionsLabel: 'Stage/island (sections)',
+          statCategoriesLabel: 'Object types',
+          statWikidataLabel: 'Wikidata stages',
+          languageFilterLabel: 'Language',
+          languageHint: 'Swedish-language set and tourist-language set are separated in the list.',
+          sectionFilterLabel: 'Filter by stage/island',
+          categoryFilterLabel: 'Filter by object type',
+          shareBtn: 'Share',
+          downloadBtn: 'Download selection JSON',
+          resetBtn: 'Reset',
+          zoomTrailBtn: 'Zoom out to whole trail',
+          trailInfoToggleLabel: 'Show trail info',
+          distanceBandToggleLabel: 'Show distance band',
+          mapSectionTitle: 'Map (current filter)',
+          allPoiTitle: 'All POI',
+          flowTitle: 'Flow: category → group → stage/island',
+          sectionOverviewTitle: 'Stage/island overview',
+          versionCreatedLabel: 'Version created',
+          sourcesLabel: 'Sources',
+          visibleCount: 'Showing {{visible}} of {{total}} POI',
+          distanceCount: '{{within}} within {{meters}} m',
+          section: 'Section',
+          category: 'Category',
+          openSatMap: 'Open in SAT map',
+          osmTags: 'OSM tags',
+          noOsmTags: 'No OSM tags found.',
+          noOsmRef: 'No OSM reference for this object.',
+          loadingOsmTags: 'Loading OSM tags...',
+          cannotLoadOsmTags: 'Could not load OSM tags (HTTP {{status}}).',
+          failedOsmTags: 'Error loading OSM tags: {{message}}',
+          copiedShareLink: 'Share link copied:\\n{{url}}',
+          copyLinkPrompt: 'Copy the link:',
+          sankeyTitlePrefix: 'POI flow for',
+          sankeyAllStages: 'all stages',
+          sankeyStagePrefix: 'stage'
+        }}
+      }};
+
+      function parseLangValue(value) {{
+        const raw = String(value || '');
+        if (!raw.includes(':')) {{
+          return {{ group: 'swedish', code: raw || 'sv' }};
+        }}
+        const parts = raw.split(':');
+        return {{
+          group: parts[0] || 'swedish',
+          code: parts[1] || 'sv'
+        }};
+      }}
+
+      function normalizeLangValue(rawValue) {{
+        const value = String(rawValue || '');
+        if (Array.from(languageFilter.options).some((o) => o.value === value)) return value;
+        const parsed = parseLangValue(value);
+        const byCode = Array.from(languageFilter.options).find((o) => parseLangValue(o.value).code === parsed.code);
+        if (byCode) return byCode.value;
+        return 'swedish:sv';
+      }}
+
+      function currentLangCode() {{
+        const code = parseLangValue(languageFilter.value).code;
+        return code === 'sv' ? 'sv' : 'en';
+      }}
+
+      function t(key, vars) {{
+        const lang = currentLangCode();
+        const text = (i18n[lang] && i18n[lang][key]) || i18n.en[key] || key;
+        if (!vars) return text;
+        return text.replace(/\\{{(\\w+)\\}}/g, (_m, name) => String(vars[name] ?? ''));
+      }}
+
+      function applyLanguage() {{
+        languageFilter.value = normalizeLangValue(languageFilter.value);
+        const bindings = {{
+          headerSubtitle: 'headerSubtitle',
+          statTotalLabel: 'statTotalLabel',
+          statSectionsLabel: 'statSectionsLabel',
+          statCategoriesLabel: 'statCategoriesLabel',
+          statWikidataLabel: 'statWikidataLabel',
+          languageFilterLabel: 'languageFilterLabel',
+          languageHint: 'languageHint',
+          sectionFilterLabel: 'sectionFilterLabel',
+          categoryFilterLabel: 'categoryFilterLabel',
+          shareBtn: 'shareBtn',
+          downloadBtn: 'downloadBtn',
+          resetBtn: 'resetBtn',
+          zoomTrailBtn: 'zoomTrailBtn',
+          trailInfoToggleLabel: 'trailInfoToggleLabel',
+          distanceBandToggleLabel: 'distanceBandToggleLabel',
+          mapSectionTitle: 'mapSectionTitle',
+          allPoiTitle: 'allPoiTitle',
+          flowTitle: 'flowTitle',
+          sectionOverviewTitle: 'sectionOverviewTitle',
+          versionCreatedLabel: 'versionCreatedLabel',
+          sourcesLabel: 'sourcesLabel'
+        }};
+        Object.entries(bindings).forEach(([id, key]) => {{
+          const el = document.getElementById(id);
+          if (el) el.textContent = t(key);
+        }});
+        const sectionAllOption = document.getElementById('sectionAllOption');
+        const categoryAllOption = document.getElementById('categoryAllOption');
+        if (sectionAllOption) sectionAllOption.textContent = t('all');
+        if (categoryAllOption) categoryAllOption.textContent = t('all');
+      }}
 
       function escapeHtml(text) {{
         return String(text || '').replace(/[&<>"']/g, (ch) => {{
@@ -724,7 +925,7 @@ ORDER BY DESC(geof:latitude(?coord))
 
       function renderOsmTagsHtml(tags) {{
         const entries = Object.entries(tags || {{}}).sort(([a], [b]) => a.localeCompare(b));
-        if (entries.length === 0) return '<span>Inga OSM-taggar hittades.</span>';
+        if (entries.length === 0) return `<span>${{t('noOsmTags')}}</span>`;
         const items = entries
           .map(([k, v]) => `<li><code>${{escapeHtml(k)}}</code>: ${{escapeHtml(String(v))}}</li>`)
           .join('');
@@ -737,12 +938,12 @@ ORDER BY DESC(geof:latitude(?coord))
           targetEl.innerHTML = renderOsmTagsHtml(osmTagCache.get(ref.key));
           return;
         }}
-        targetEl.textContent = 'Laddar OSM-taggar...';
+        targetEl.textContent = t('loadingOsmTags');
         const url = `https://api.openstreetmap.org/api/0.6/${{ref.type}}/${{ref.id}}.json`;
         try {{
           const response = await fetch(url, {{ headers: {{ 'Accept': 'application/json' }} }});
           if (!response.ok) {{
-            targetEl.textContent = `Kunde inte hämta OSM-taggar (HTTP ${{response.status}}).`;
+            targetEl.textContent = t('cannotLoadOsmTags', {{ status: response.status }});
             return;
           }}
           const data = await response.json();
@@ -750,7 +951,7 @@ ORDER BY DESC(geof:latitude(?coord))
           osmTagCache.set(ref.key, tags);
           targetEl.innerHTML = renderOsmTagsHtml(tags);
         }} catch (err) {{
-          targetEl.textContent = `Fel vid hämtning av OSM-taggar: ${{err && err.message ? err.message : 'okänt fel'}}`;
+          targetEl.textContent = t('failedOsmTags', {{ message: err && err.message ? err.message : 'unknown error' }});
         }}
       }}
 
@@ -771,8 +972,8 @@ ORDER BY DESC(geof:latitude(?coord))
       }}
 
       function stateLabel(sec, cat) {{
-        const secText = sec === 'all' ? 'Alla' : (sectionFilter.options[sectionFilter.selectedIndex]?.text || sec);
-        const catText = cat === 'all' ? 'Alla' : cat;
+        const secText = sec === 'all' ? t('all') : (sectionFilter.options[sectionFilter.selectedIndex]?.text || sec);
+        const catText = cat === 'all' ? t('all') : cat;
         return `${{secText}} ${{catText}}`;
       }}
 
@@ -788,9 +989,11 @@ ORDER BY DESC(geof:latitude(?coord))
       function buildShareUrl(sec, cat, baseUrl) {{
         const safeSec = sanitizeValue(sec, sectionValues);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
+        const safeLang = normalizeLangValue(languageFilter.value);
         const params = new URLSearchParams();
         if (safeSec !== 'all') params.set('s', safeSec);
         if (safeCat !== 'all') params.set('c', safeCat);
+        params.set('lang', safeLang);
         if (!trailInfoToggle.checked) params.set('li', '0');
         if (distanceBandToggle.checked) params.set('db', '1');
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
@@ -816,6 +1019,8 @@ ORDER BY DESC(geof:latitude(?coord))
           normalizeCategoryValue(params.get('c') || params.get('category')),
           categoryValues
         );
+        languageFilter.value = normalizeLangValue(params.get('lang') || 'swedish:sv');
+        applyLanguage();
         sectionFilter.value = sec;
         categoryFilter.value = cat;
         const li = params.get('li');
@@ -846,9 +1051,9 @@ ORDER BY DESC(geof:latitude(?coord))
             await navigator.share({{ url }});
           }} else if (navigator.clipboard && navigator.clipboard.writeText) {{
             await navigator.clipboard.writeText(url);
-            alert(`Delningslänk kopierad:\\n${{url}}`);
+            alert(t('copiedShareLink', {{ url }}));
           }} else {{
-            prompt('Kopiera länken:', url);
+            prompt(t('copyLinkPrompt'), url);
           }}
         }} catch (_err) {{
           // användaren avbröt delning eller api saknas
@@ -939,16 +1144,16 @@ ORDER BY DESC(geof:latitude(?coord))
           const osmRef = findOsmRef(r.same_as);
           const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${{osmRef.type}}/${{osmRef.id}}` : null;
           const osmTagsHtml = osmRef
-            ? `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">Öppna för att ladda…</div></details>`
-            : `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body">Ingen OSM-referens för objektet.</div></details>`;
+            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div></details>`
+            : `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body">${{escapeHtml(t('noOsmRef'))}}</div></details>`;
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${{osmHistoryUrl}}" target="_blank">OSM Deep history</a></div>`
             : '';
           marker.bindPopup(`
             <div style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(r.name || r.id)}}</strong><br>
-              <small>Section: ${{escapeHtml(r.section)}} | Kategori: ${{escapeHtml(r.category)}}</small><br>
-              <a href="${{satUrl}}" target="_blank">Öppna i SAT-kartan</a>
+              <small>${{escapeHtml(t('section'))}}: ${{escapeHtml(r.section)}} | ${{escapeHtml(t('category'))}}: ${{escapeHtml(r.category)}}</small><br>
+              <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a>
               ${{osmTagsHtml}}
               ${{osmHistoryLink}}
               ${{imageHtml}}
@@ -1112,9 +1317,9 @@ ORDER BY DESC(geof:latitude(?coord))
           }}
         }}];
 
-        const titlePart = sec === 'all' ? 'alla etapper' : `etapp: ${{sec}}`;
+        const titlePart = sec === 'all' ? t('sankeyAllStages') : `${{t('sankeyStagePrefix')}}: ${{sec}}`;
         const layout = {{
-          title: `POI-flöde för ${{titlePart}}`,
+          title: `${{t('sankeyTitlePrefix')}} ${{titlePart}}`,
           margin: {{ l: 20, r: 20, t: 40, b: 10 }},
           font: {{ size: 13 }}
         }};
@@ -1189,7 +1394,7 @@ ORDER BY DESC(geof:latitude(?coord))
           const d = pointTrailDistanceMeters(r.lat, r.lon);
           if (Number.isFinite(d) && d <= bandMeters) within += 1;
         }});
-        distanceBandCount.textContent = `${{within}} inom ${{bandMeters}} m`;
+        distanceBandCount.textContent = t('distanceCount', {{ within, meters: bandMeters }});
         distanceBandCount.style.display = '';
       }}
 
@@ -1230,7 +1435,8 @@ ORDER BY DESC(geof:latitude(?coord))
           row.style.display = (sec === 'all' || rowSec === sec) ? '' : 'none';
         }});
 
-        visibleCount.textContent = `Visar ${{visible}} av ${{totalPoiCount}} POI`;
+        applyLanguage();
+        visibleCount.textContent = t('visibleCount', {{ visible, total: totalPoiCount }});
         saveStateInUrl(sec, cat);
         renderMap(sec, cat);
         renderSankey(sec, cat);
@@ -1241,6 +1447,7 @@ ORDER BY DESC(geof:latitude(?coord))
 
       sectionFilter.addEventListener('change', applyFilters);
       categoryFilter.addEventListener('change', applyFilters);
+      languageFilter.addEventListener('change', applyFilters);
       trailInfoToggle.addEventListener('change', applyFilters);
       distanceBandToggle.addEventListener('change', applyFilters);
       distanceBandMeters.addEventListener('change', applyFilters);
