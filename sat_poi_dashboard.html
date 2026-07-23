@@ -7898,16 +7898,21 @@
       }).addTo(map);
 
       function escapeHtml(text) {
-        return String(text || '')
-          .replaceAll('&', '&amp;')
-          .replaceAll('<', '&lt;')
-          .replaceAll('>', '&gt;')
-          .replaceAll('"', '&quot;')
-          .replaceAll("'", '&#039;');
+        return String(text || '').replace(/[&<>"']/g, (ch) => {
+          if (ch === '&') return '&amp;';
+          if (ch === '<') return '&lt;';
+          if (ch === '>') return '&gt;';
+          if (ch === '"') return '&quot;';
+          return '&#039;';
+        });
+      }
+
+      function isFiniteCoord(v) {
+        return typeof v === 'number' && Number.isFinite(v);
       }
 
       function poiIconMeta(category) {
-        const c = (category || '').toLowerCase();
+        const c = String(category || '').toLowerCase();
         const table = {
           toilet: { emoji: '🚻', color: '#60a5fa', label: 'Toalett' },
           water: { emoji: '💧', color: '#38bdf8', label: 'Vatten' },
@@ -8067,13 +8072,13 @@
         sectionLayer.clearLayers();
         const showTrailInfo = trailInfoToggle.checked;
         const selectedSection = sec !== 'all'
-          ? sectionsIndex.find((s) => s.slug === sec && typeof s.lat === 'number' && typeof s.lon === 'number')
+          ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
         const filtered = poiMapData.filter((r) =>
           (sec === 'all' || r.section === sec) &&
           (cat === 'all' || r.category === cat) &&
-          typeof r.lat === 'number' &&
-          typeof r.lon === 'number'
+          isFiniteCoord(r.lat) &&
+          isFiniteCoord(r.lon)
         );
 
         const bounds = [];
@@ -8107,7 +8112,7 @@
           sectionsIndex
             .filter((s) => sec === 'all' || s.slug === sec)
             .forEach((s) => {
-              if (typeof s.lat !== 'number' || typeof s.lon !== 'number') return;
+              if (!isFiniteCoord(s.lat) || !isFiniteCoord(s.lon)) return;
               const label = s.title || s.slug || s.sat_id || 'Sektion';
               const satLink = s.sat_id
                 ? `https://map.stockholmarchipelagotrail.com/sv?${s.sat_id}`
@@ -8268,8 +8273,8 @@
 
         visibleCount.textContent = `Visar ${visible} av ${totalPoiCount} POI`;
         saveStateInUrl(sec, cat);
-        renderMap(sec, cat);
         renderSankey(sec, cat);
+        renderMap(sec, cat);
         lastSection = sec;
         lastCategory = cat;
       }
