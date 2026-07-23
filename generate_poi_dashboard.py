@@ -117,6 +117,7 @@ class Stage:
     lon: Optional[float]
     slug: str
     image: Optional[str] = None
+    osm_relation: Optional[str] = None
 
 
 class POIDashboardGenerator:
@@ -168,11 +169,12 @@ class POIDashboardGenerator:
     def fetch_stages(self) -> list[Stage]:
         print("📥 Hämtar etapper/öar från Wikidata (SPARQL)...")
         query = """
-SELECT ?item ?itemLabel ?coord ?image {
+SELECT ?item ?itemLabel ?coord ?image ?osm {
  ?item wdt:P361 wd:Q131318799 ;
        wdt:P31 wd:Q2143825 ;
        wdt:P625 ?coord .
  OPTIONAL { ?item wdt:P18 ?image . }
+ OPTIONAL { ?item wdt:P402 ?osm . }
  SERVICE wikibase:label {
   bd:serviceParam wikibase:language "sv,en" .
  }
@@ -188,6 +190,7 @@ ORDER BY DESC(geof:latitude(?coord))
             coord_wkt = b.get("coord", {}).get("value", "")
             lat, lon = parse_point_wkt(coord_wkt)
             p18_value = b.get("image", {}).get("value")
+            osm_relation = b.get("osm", {}).get("value") or None
             stages.append(
                 Stage(
                     q_id=q_id,
@@ -197,6 +200,7 @@ ORDER BY DESC(geof:latitude(?coord))
                     lon=lon,
                     slug=normalize_slug(label),
                     image=p18_to_thumbnail_url(p18_value),
+                    osm_relation=osm_relation,
                 )
             )
         print(f"  ✅ {len(stages)} etapper/öar")
@@ -243,6 +247,7 @@ ORDER BY DESC(geof:latitude(?coord))
                     "lon": lon,
                     "wikidata_q": stage.q_id if stage else None,
                     "image": stage.image if stage else None,
+                    "osm_relation": stage.osm_relation if stage else None,
                 }
             )
         print(f"  ✅ {len(sections)} sektioner")
@@ -1443,6 +1448,10 @@ ORDER BY DESC(geof:latitude(?coord))
                   <small><a href="${{satLink}}" target="_blank"><code>${{escapeHtml(s.sat_id || '')}}</code></a></small><br>
                   <small>distanceKm: <strong>${{escapeHtml(String(s.distance_km ?? '—'))}}</strong></small><br>
                   <small>difficulty: <strong>${{escapeHtml(String(s.difficulty ?? '—'))}}</strong></small>
+                  ${{s.wikidata_q ? `<br><small>📖 <a href="https://www.wikidata.org/wiki/${{escapeHtml(s.wikidata_q)}}" target="_blank">Wikidata (${{escapeHtml(s.wikidata_q)}})</a></small>` : ''}}
+                  ${{s.osm_relation ? `<br><small>🗺️ <a href="https://www.openstreetmap.org/relation/${{escapeHtml(s.osm_relation)}}" target="_blank">OSM relation/${{escapeHtml(s.osm_relation)}}</a></small>` : ''}}
+                  ${{s.osm_relation ? `<br><small>🕐 <a href="https://pewu.github.io/osm-history/#/relation/${{escapeHtml(s.osm_relation)}}" target="_blank">OSM Deep history</a></small>` : ''}}
+                  ${{s.osm_relation ? `<br><small>✏️ <a href="https://www.openstreetmap.org/edit?editor=id&relation=${{escapeHtml(s.osm_relation)}}#map=14/${{s.lat}}/${{s.lon}}" target="_blank">iD editor (OSM)</a></small>` : ''}}
                   ${{s.image ? `<img class="popup-thumb" src="${{escapeHtml(s.image)}}" alt="section thumbnail">` : ''}}
                 </div>
               `;
