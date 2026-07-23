@@ -732,6 +732,25 @@ ORDER BY DESC(geof:latitude(?coord))
       let lastSection = null;
       let lastCategory = null;
       const osmTagCache = new Map();
+
+      // Expected OSM tags per SAT category — used for gap analysis in popups
+      const EXPECTED_TAGS = {{
+        toilet:     ['fee', 'opening_hours', 'wheelchair', 'access'],
+        water:      ['drinking_water', 'access', 'seasonal'],
+        shelter:    ['shelter_type', 'capacity', 'access'],
+        firepit:    ['access', 'fireplace'],
+        beach:      ['access', 'surface', 'supervised'],
+        harbour:    ['mooring', 'fee', 'access'],
+        sauna:      ['fee', 'opening_hours', 'access'],
+        food:       ['cuisine', 'opening_hours', 'website', 'phone'],
+        shop:       ['opening_hours', 'website'],
+        lodging:    ['website', 'phone', 'rooms'],
+        rental:     ['fee', 'opening_hours'],
+        rowboat:    ['fee', 'access'],
+        viewpoint:  ['name', 'description'],
+        lighthouse: ['name', 'operator'],
+        attraction: ['name', 'description', 'website'],
+      }};
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
       const distanceBandLayer = L.geoJSON(trailGeoJson, {{
@@ -1144,10 +1163,13 @@ ORDER BY DESC(geof:latitude(?coord))
         return `<ul class="osm-tags-list">${{items}}</ul>`;
       }}
 
-      async function loadOsmTags(ref, targetEl) {{
+      async function loadOsmTags(ref, targetEl, category) {{
         if (!targetEl || !ref) return;
+        const missingEl = targetEl.closest('.popup-inner')?.querySelector('.missing-tags-body');
         if (osmTagCache.has(ref.key)) {{
-          targetEl.innerHTML = renderOsmTagsHtml(osmTagCache.get(ref.key));
+          const cached = osmTagCache.get(ref.key);
+          targetEl.innerHTML = renderOsmTagsHtml(cached);
+          renderMissingTags(cached, category, missingEl);
           return;
         }}
         targetEl.textContent = t('loadingOsmTags');
@@ -1162,8 +1184,21 @@ ORDER BY DESC(geof:latitude(?coord))
           const tags = data?.elements?.[0]?.tags || {{}};
           osmTagCache.set(ref.key, tags);
           targetEl.innerHTML = renderOsmTagsHtml(tags);
+          renderMissingTags(tags, category, missingEl);
         }} catch (err) {{
           targetEl.textContent = t('failedOsmTags', {{ message: err && err.message ? err.message : 'unknown error' }});
+        }}
+      }}
+
+      function renderMissingTags(tags, category, el) {{
+        if (!el || !category) return;
+        const expected = EXPECTED_TAGS[category.toLowerCase()] || [];
+        const missing = expected.filter(k => !(k in tags));
+        if (missing.length === 0) {{
+          el.innerHTML = '<span style="color:#16a34a">✅ Inga saknade taggar</span>';
+        }} else {{
+          const items = missing.map(k => `<code style="background:#fee2e2;padding:1px 4px;border-radius:3px;margin:2px">${{escapeHtml(k)}}</code>`).join(' ');
+          el.innerHTML = `<span style="color:#dc2626">⚠️ Saknas:</span> ${{items}}`;
         }}
       }}
 
@@ -1384,7 +1419,7 @@ ORDER BY DESC(geof:latitude(?coord))
             ? `https://www.openstreetmap.org/edit?editor=id&${{osmRef.type}}=${{osmRef.id}}#map=18/${{r.lat}}/${{r.lon}}`
             : null;
           const osmTagsHtml = osmRef
-            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div></details>`
+            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div></details>`
             : `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body">${{escapeHtml(t('noOsmRef'))}}</div></details>`;
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${{osmHistoryUrl}}" target="_blank">OSM Deep history</a></div>`
@@ -1399,7 +1434,7 @@ ORDER BY DESC(geof:latitude(?coord))
             ? `<div><a href="${{idEditorUrl}}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
           marker.bindPopup(`
-            <div style="min-width:180px">
+            <div class="popup-inner" style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(poiName)}}</strong><br>
               <small>${{escapeHtml(t('section'))}}: ${{escapeHtml(r.section)}} | ${{escapeHtml(t('category'))}}: ${{escapeHtml(poiCategoryLabel)}}</small><br>
               <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a>
@@ -1416,7 +1451,7 @@ ORDER BY DESC(geof:latitude(?coord))
             const root = event.popup.getElement();
             const candidates = root ? Array.from(root.querySelectorAll('[data-osm-ref]')) : [];
             const node = candidates.find((el) => el.getAttribute('data-osm-ref') === osmRef.key);
-            if (node) loadOsmTags(osmRef, node);
+            if (node) loadOsmTags(osmRef, node, r.category);
           }});
           marker.addTo(markerLayer);
           bounds.push([r.lat, r.lon]);
