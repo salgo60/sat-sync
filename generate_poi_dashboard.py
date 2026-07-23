@@ -357,7 +357,37 @@ ORDER BY DESC(geof:latitude(?coord))
             )
 
         sections = sorted(section_stats.keys())
-        section_options = "\n".join(f'<option value="{s}">{s}</option>' for s in sections)
+        section_display: dict[str, str] = {}
+        for sec in sections:
+            stage = self.match_stage_for_section(sec, stage_by_slug, stages)
+            if stage:
+                section_display[sec] = stage.label
+                continue
+            sec_meta = next((x for x in sections_index if x.get("slug") == sec), None)
+            if sec_meta and sec_meta.get("title"):
+                section_display[sec] = f"SAT {sec_meta['title']}"
+            else:
+                section_display[sec] = sec
+
+        # Sortera etapper Norr -> Söder enligt SPARQL-resultatet (stages är redan i den ordningen).
+        stage_order: dict[str, int] = {}
+        for idx, stage in enumerate(stages):
+            stage_order[stage.slug] = idx
+
+        ordered_sections = []
+        for sec in sections:
+            stage = self.match_stage_for_section(sec, stage_by_slug, stages)
+            if stage:
+                ordered_sections.append((0, stage_order.get(stage.slug, 9999), sec))
+            else:
+                # Fallback om section inte matchar Wikidata-etapp
+                ordered_sections.append((1, 9999, sec))
+        ordered_sections.sort(key=lambda x: (x[0], x[1], x[2]))
+
+        section_options = "\n".join(
+            f'<option value="{sec}">{section_display.get(sec, sec)}</option>'
+            for _, _, sec in ordered_sections
+        )
         category_options = "\n".join(f'<option value="{c}">{c}</option>' for c in sorted(categories))
         poi_flow_json = json.dumps(poi_flow_data, ensure_ascii=False)
         poi_map_json = json.dumps(poi_map_data, ensure_ascii=False)
