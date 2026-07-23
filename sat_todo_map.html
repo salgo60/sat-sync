@@ -73,7 +73,7 @@
   <div class="top-bar">
     <h1>🗺️ SAT TODO – Vad saknas?</h1>
     <div class="meta">
-      20260723 20:44 &nbsp;
+      20260723 20:49 &nbsp;
       <a href="sat_poi_dashboard.html">Dashboard</a>
     </div>
   </div>
@@ -192,12 +192,15 @@
     const osmUrl = p.osm ? `https://www.openstreetmap.org/${p.osm.replace('osm:node:','node/').replace('osm:way:','way/').replace('osm:relation:','relation/')}` : null;
     const idUrl  = p.osm ? `https://www.openstreetmap.org/edit?editor=id&${p.osm.replace('osm:','')}#map=18/${p.lat}/${p.lon}` : null;
     const wdUrl  = p.wikidata ? `https://www.wikidata.org/wiki/${p.wikidata.replace('wikidata:','')}` : null;
+    const satMapUrl = p.id ? `https://map.stockholmarchipelagotrail.com/?${p.id}` : null;
+    const satJsonUrl = p.id ? `https://map.stockholmarchipelagotrail.com/api/objects/${encodeURIComponent(p.id)}` : null;
     const newNoteUrl = `https://www.openstreetmap.org/note/new#map=18/${p.lat}/${p.lon}`;
     const wikimapUrl = `https://wikimap.toolforge.org/?lat=${p.lat}&lon=${p.lon}&zoom=15&lang=en&wp=false&cluster=false`;
     return `<div style="min-width:160px;font-size:13px">
       <strong>${escapeHtml(p.name)}</strong><br>
       <small style="color:#64748b">${escapeHtml(p.section)} · ${escapeHtml(p.category)}</small><br>
       <div style="margin:5px 0">${tags}</div>
+      ${satMapUrl ? `<div><a href="${satMapUrl}" target="_blank">🗺️ SAT-kartan</a> · <a href="${satJsonUrl}" target="_blank">🧾 SAT JSON</a></div>` : ''}
       ${osmUrl ? `<div><a href="${osmUrl}" target="_blank">🔗 OSM</a> · <a href="${idUrl}" target="_blank">✏️ iD editor</a></div>` : '<div style="color:#ef4444;font-size:11px">❌ Ingen OSM-länk</div>'}
       ${wdUrl  ? `<div><a href="${wdUrl}" target="_blank">📚 Wikidata</a></div>` : '<div style="color:#f59e0b;font-size:11px">❌ Ingen Wikidata-länk</div>'}
       ${p.website ? `<div><a href="${p.website}" target="_blank">🌐 Webbplats</a></div>` : ''}
