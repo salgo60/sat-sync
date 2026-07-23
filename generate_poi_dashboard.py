@@ -1154,6 +1154,16 @@ ORDER BY DESC(geof:latitude(?coord))
         return null;
       }}
 
+      function findWikidataRef(sameAs) {{
+        if (!Array.isArray(sameAs)) return null;
+        for (const ref of sameAs) {{
+          if (typeof ref === 'string' && ref.startsWith('wikidata:')) {{
+            return ref.split('wikidata:')[1];
+          }}
+        }}
+        return null;
+      }}
+
       function renderOsmTagsHtml(tags) {{
         const entries = Object.entries(tags || {{}}).sort(([a], [b]) => a.localeCompare(b));
         if (entries.length === 0) return `<span>${{t('noOsmTags')}}</span>`;
@@ -1395,6 +1405,7 @@ ORDER BY DESC(geof:latitude(?coord))
             ? `<img class="popup-thumb" src="${{escapeHtml(r.image)}}" alt="thumbnail">`
             : '';
           const osmRef = findOsmRef(r.same_as);
+          const wdRef = findWikidataRef(r.same_as);
           const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${{osmRef.type}}/${{osmRef.id}}` : null;
           const mapkiUrl = osmRef ? `https://osm.mapki.com/history/${{osmRef.type}}/${{osmRef.id}}` : null;
           const mapCompleteTheme = (function(cat) {{
@@ -1433,6 +1444,19 @@ ORDER BY DESC(geof:latitude(?coord))
           const idEditorLink = idEditorUrl
             ? `<div><a href="${{idEditorUrl}}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
+          // Wikimedia photo upload links
+          const wikishootmeUrl = (r.lat && r.lon)
+            ? `https://wikishootme.toolforge.org/#lat=${{r.lat}}&lng=${{r.lon}}&zoom=18`
+            : null;
+          const commonsUploadUrl = wdRef
+            ? `https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wikidata&depicts=${{encodeURIComponent(wdRef)}}`
+            : null;
+          const wikishootmeLink = wikishootmeUrl
+            ? `<div><a href="${{wikishootmeUrl}}" target="_blank">📷 WikiShootMe (saknar bild?)</a></div>`
+            : '';
+          const commonsUploadLink = commonsUploadUrl
+            ? `<div><a href="${{commonsUploadUrl}}" target="_blank">⬆️ Ladda upp bild till Commons</a></div>`
+            : '';
           marker.bindPopup(`
             <div class="popup-inner" style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(poiName)}}</strong><br>
@@ -1443,6 +1467,9 @@ ORDER BY DESC(geof:latitude(?coord))
               ${{mapkiLink}}
               ${{idEditorLink}}
               ${{mapCompleteLink}}
+              ${{wikishootmeLink || commonsUploadLink ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}}
+              ${{wikishootmeLink}}
+              ${{commonsUploadLink}}
               ${{imageHtml}}
             </div>
           `);

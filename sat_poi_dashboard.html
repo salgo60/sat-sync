@@ -101,9 +101,9 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
       <div class="header-meta">
-        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 20:07</strong> &nbsp;|&nbsp;
+        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 20:14</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/24" target="_blank">PR #24</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/25" target="_blank">PR #25</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a>
       </div>
@@ -7933,7 +7933,7 @@
     </div>
 
     <div class="footer">
-      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 20:07</strong> |
+      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 20:14</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data/trail.jsonld" target="_blank">trail.jsonld</a> |
@@ -8397,6 +8397,16 @@
         return null;
       }
 
+      function findWikidataRef(sameAs) {
+        if (!Array.isArray(sameAs)) return null;
+        for (const ref of sameAs) {
+          if (typeof ref === 'string' && ref.startsWith('wikidata:')) {
+            return ref.split('wikidata:')[1];
+          }
+        }
+        return null;
+      }
+
       function renderOsmTagsHtml(tags) {
         const entries = Object.entries(tags || {}).sort(([a], [b]) => a.localeCompare(b));
         if (entries.length === 0) return `<span>${t('noOsmTags')}</span>`;
@@ -8638,6 +8648,7 @@
             ? `<img class="popup-thumb" src="${escapeHtml(r.image)}" alt="thumbnail">`
             : '';
           const osmRef = findOsmRef(r.same_as);
+          const wdRef = findWikidataRef(r.same_as);
           const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${osmRef.type}/${osmRef.id}` : null;
           const mapkiUrl = osmRef ? `https://osm.mapki.com/history/${osmRef.type}/${osmRef.id}` : null;
           const mapCompleteTheme = (function(cat) {
@@ -8676,6 +8687,19 @@
           const idEditorLink = idEditorUrl
             ? `<div><a href="${idEditorUrl}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
+          // Wikimedia photo upload links
+          const wikishootmeUrl = (r.lat && r.lon)
+            ? `https://wikishootme.toolforge.org/#lat=${r.lat}&lng=${r.lon}&zoom=18`
+            : null;
+          const commonsUploadUrl = wdRef
+            ? `https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wikidata&depicts=${encodeURIComponent(wdRef)}`
+            : null;
+          const wikishootmeLink = wikishootmeUrl
+            ? `<div><a href="${wikishootmeUrl}" target="_blank">📷 WikiShootMe (saknar bild?)</a></div>`
+            : '';
+          const commonsUploadLink = commonsUploadUrl
+            ? `<div><a href="${commonsUploadUrl}" target="_blank">⬆️ Ladda upp bild till Commons</a></div>`
+            : '';
           marker.bindPopup(`
             <div class="popup-inner" style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${iconMeta.color}">${iconMeta.emoji}</span>${escapeHtml(poiName)}</strong><br>
@@ -8686,6 +8710,9 @@
               ${mapkiLink}
               ${idEditorLink}
               ${mapCompleteLink}
+              ${wikishootmeLink || commonsUploadLink ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}
+              ${wikishootmeLink}
+              ${commonsUploadLink}
               ${imageHtml}
             </div>
           `);
