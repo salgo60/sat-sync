@@ -220,13 +220,13 @@ html = f"""<!DOCTYPE html>
   // ── Stage + category filters ───────────────────────────────────────────────
   const stageFilter = document.getElementById('stageFilter');
   const categoryFilter = document.getElementById('categoryFilter');
-  const stages = [...new Set(ALL_POIS.map(p => p.section))].sort();
+  const stages = [...new Set(ALL_POIS.map(p => p.section).filter(Boolean))].sort();
   stages.forEach(s => {{
     const o = document.createElement('option');
     o.value = s; o.textContent = s.charAt(0).toUpperCase() + s.slice(1);
     stageFilter.appendChild(o);
   }});
-  const categories = [...new Set(ALL_POIS.map(p => p.category))].sort();
+  const categories = [...new Set(ALL_POIS.map(p => p.category).filter(Boolean))].sort();
   categories.forEach(c => {{
     const o = document.createElement('option');
     o.value = c; o.textContent = c.charAt(0).toUpperCase() + c.slice(1);
