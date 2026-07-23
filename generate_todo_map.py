@@ -165,6 +165,9 @@ html = f"""<!DOCTYPE html>
     <select id="stageFilter" onchange="applyFilters()">
       <option value="all">Alla etapper</option>
     </select>
+    <select id="categoryFilter" onchange="applyFilters()">
+      <option value="all">Alla kategorier</option>
+    </select>
     <div class="toggles">
       <span class="chip osm" id="chip-osm" onclick="toggleChip('osm')" title="Saknar OSM-länk">OSM</span>
       <span class="chip wd"  id="chip-wd"  onclick="toggleChip('wd')"  title="Saknar Wikidata-länk">WD</span>
@@ -191,8 +194,9 @@ html = f"""<!DOCTYPE html>
   const STAGE_STATS = {stage_stats_json};
 
   // State
-  const active = {{ osm: true, wd: false, img: false, notes: true }};
+  const active = {{ osm: true, wd: true, img: true, notes: true }};
   let currentStage = 'all';
+  let currentCategory = 'all';
   let locationMarker = null;
   let osmNotesLayer = null;
   let osmNotesLoaded = false;
@@ -213,13 +217,20 @@ html = f"""<!DOCTYPE html>
     if (tb.isValid()) map.fitBounds(tb, {{ padding: [20,20] }});
   }} catch(e) {{}}
 
-  // ── Stage filter ───────────────────────────────────────────────────────────
+  // ── Stage + category filters ───────────────────────────────────────────────
   const stageFilter = document.getElementById('stageFilter');
+  const categoryFilter = document.getElementById('categoryFilter');
   const stages = [...new Set(ALL_POIS.map(p => p.section))].sort();
   stages.forEach(s => {{
     const o = document.createElement('option');
     o.value = s; o.textContent = s.charAt(0).toUpperCase() + s.slice(1);
     stageFilter.appendChild(o);
+  }});
+  const categories = [...new Set(ALL_POIS.map(p => p.category))].sort();
+  categories.forEach(c => {{
+    const o = document.createElement('option');
+    o.value = c; o.textContent = c.charAt(0).toUpperCase() + c.slice(1);
+    categoryFilter.appendChild(o);
   }});
 
   // ── Icons ──────────────────────────────────────────────────────────────────
@@ -243,6 +254,7 @@ html = f"""<!DOCTYPE html>
   function filteredPois() {{
     return ALL_POIS.filter(p => {{
       if (currentStage !== 'all' && p.section !== currentStage) return false;
+      if (currentCategory !== 'all' && p.category !== currentCategory) return false;
       const anyActive = active.osm || active.wd || active.img;
       if (!anyActive) return false;
       if (active.osm && p.missing.includes('osm'))      return true;
@@ -271,6 +283,7 @@ html = f"""<!DOCTYPE html>
       const osmUrl = p.osm ? `https://www.openstreetmap.org/${{p.osm.replace('osm:node:','node/').replace('osm:way:','way/').replace('osm:relation:','relation/')}}` : null;
       const idUrl  = p.osm ? `https://www.openstreetmap.org/edit?editor=id&${{p.osm.replace('osm:','')}}#map=18/${{p.lat}}/${{p.lon}}` : null;
       const wdUrl  = p.wikidata ? `https://www.wikidata.org/wiki/${{p.wikidata.replace('wikidata:','')}}` : null;
+      const newNoteUrl = `https://www.openstreetmap.org/note/new#map=18/${{p.lat}}/${{p.lon}}`;
       m.bindPopup(`<div style="min-width:160px;font-size:13px">
         <strong>${{p.name}}</strong><br>
         <small style="color:#64748b">${{p.section}} · ${{p.category}}</small><br>
@@ -278,6 +291,7 @@ html = f"""<!DOCTYPE html>
         ${{osmUrl  ? `<div><a href="${{osmUrl}}" target="_blank">🔗 OSM</a> · <a href="${{idUrl}}" target="_blank">✏️ iD editor</a></div>` : '<div style="color:#ef4444;font-size:11px">❌ Ingen OSM-länk</div>'}}
         ${{wdUrl ? `<div><a href="${{wdUrl}}" target="_blank">📚 Wikidata</a></div>` : '<div style="color:#f59e0b;font-size:11px">❌ Ingen Wikidata-länk</div>'}}
         ${{p.website ? `<div><a href="${{p.website}}" target="_blank">🌐 Webbplats</a></div>` : ''}}
+        <div style="margin-top:6px;border-top:1px solid #e2e8f0;padding-top:5px"><a href="${{newNoteUrl}}" target="_blank">💬 Skapa OSM Note här</a></div>
       </div>`);
       markerLayer.addLayer(m);
     }});
@@ -331,6 +345,7 @@ html = f"""<!DOCTYPE html>
 
   window.applyFilters = function() {{
     currentStage = stageFilter.value;
+    currentCategory = categoryFilter.value;
     renderMarkers();
     renderList();
   }};
