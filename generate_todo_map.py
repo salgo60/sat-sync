@@ -59,6 +59,8 @@ for f in raw_pois:
         "wikidata": wd_ref,
         "image": bool(props.get("image")),
         "website": props.get("website",""),
+        "fixme": props.get("fixme",""),
+        "note": props.get("note",""),
         "missing": missing,
     })
 
@@ -117,19 +119,15 @@ html = f"""<!DOCTYPE html>
     #map {{ flex:1; min-height:0; }}
 
     /* List */
-    #list-view {{ flex:1; min-height:0; overflow-y:auto; display:none; }}
-    .stage-card {{ background:#fff; margin:8px 10px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.08); overflow:hidden; }}
-    .stage-head {{ padding:10px 14px; display:flex; align-items:center; gap:8px; cursor:pointer; }}
-    .stage-head h3 {{ margin:0; font-size:0.95rem; flex:1; text-transform:capitalize; }}
-    .badge {{ display:inline-flex; align-items:center; justify-content:center; border-radius:9999px; width:22px; height:22px; font-size:0.72rem; font-weight:700; }}
-    .badge.osm  {{ background:#fee2e2; color:#991b1b; }}
-    .badge.wd   {{ background:#fef3c7; color:#92400e; }}
-    .badge.img  {{ background:#ede9fe; color:#5b21b6; }}
-    .stage-body {{ display:none; border-top:1px solid #f1f5f9; }}
-    .poi-row {{ padding:8px 14px; border-bottom:1px solid #f1f5f9; font-size:0.82rem; display:flex; align-items:center; gap:6px; }}
-    .poi-row:last-child {{ border-bottom:none; }}
-    .poi-row .poi-name {{ flex:1; }}
-    .poi-row .missing-tags {{ display:flex; gap:4px; }}
+    #list-view {{ flex:1; min-height:0; overflow:auto; display:none; padding:8px 10px; }}
+    .todo-table-wrap {{ background:#fff; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,0.08); overflow:auto; }}
+    .todo-table {{ width:100%; border-collapse:collapse; font-size:0.8rem; min-width:860px; }}
+    .todo-table th, .todo-table td {{ border-bottom:1px solid #e2e8f0; padding:8px; text-align:left; vertical-align:top; }}
+    .todo-table th {{ position:sticky; top:0; background:#f8fafc; z-index:1; font-size:0.72rem; text-transform:uppercase; letter-spacing:.02em; color:#475569; }}
+    .todo-table tr:last-child td {{ border-bottom:none; }}
+    .todo-table .poi-name {{ font-weight:600; }}
+    .todo-table .missing-tags {{ display:flex; gap:4px; flex-wrap:wrap; }}
+    .muted {{ color:#94a3b8; }}
     .mini-chip {{ padding:2px 6px; border-radius:10px; font-size:0.68rem; font-weight:700; }}
     .mini-chip.osm {{ background:#fee2e2; color:#991b1b; }}
     .mini-chip.wd  {{ background:#fef3c7; color:#92400e; }}
@@ -186,6 +184,7 @@ html = f"""<!DOCTYPE html>
   const ALL_POIS = {pois_json};
   const TRAIL_GEOJSON = {trail_json};
   const STAGE_STATS = {stage_stats_json};
+  const OSM_TAG_CACHE = {{}};
 
   // State
   let currentStage = 'all';
@@ -259,6 +258,38 @@ html = f"""<!DOCTYPE html>
       if (currentCategory !== 'all' && p.category !== currentCategory) return false;
       return true;
     }});
+  }}
+
+  function parseOsmRef(osmRef) {{
+    if (!osmRef || !osmRef.startsWith('osm:')) return null;
+    const parts = osmRef.split(':');
+    if (parts.length !== 3) return null;
+    return {{ type: parts[1], id: parts[2] }};
+  }}
+
+  async function fetchOsmTags(osmRef) {{
+    if (!osmRef) return null;
+    if (Object.prototype.hasOwnProperty.call(OSM_TAG_CACHE, osmRef)) return OSM_TAG_CACHE[osmRef];
+    const parsed = parseOsmRef(osmRef);
+    if (!parsed) {{
+      OSM_TAG_CACHE[osmRef] = null;
+      return null;
+    }}
+    try {{
+      const url = `https://api.openstreetmap.org/api/0.6/${{parsed.type}}/${{parsed.id}}.json`;
+      const resp = await fetch(url);
+      if (!resp.ok) {{
+        OSM_TAG_CACHE[osmRef] = null;
+        return null;
+      }}
+      const data = await resp.json();
+      const tags = (data.elements && data.elements[0] && data.elements[0].tags) ? data.elements[0].tags : {{}};
+      OSM_TAG_CACHE[osmRef] = tags;
+      return tags;
+    }} catch (e) {{
+      OSM_TAG_CACHE[osmRef] = null;
+      return null;
+    }}
   }}
 
   function buildPopup(p) {{
@@ -391,51 +422,75 @@ html = f"""<!DOCTYPE html>
   // ── List view ─────────────────────────────────────────────────────────────
   function renderList() {{
     const container = document.getElementById('list-view');
-    const stageMap = {{}};
-    filteredPois().forEach(p => {{
-      if (!stageMap[p.section]) stageMap[p.section] = [];
-      stageMap[p.section].push(p);
-    }});
-    const stagesShown = Object.keys(stageMap).sort();
-    if (stagesShown.length === 0) {{
+    const rows = filteredPois().slice().sort((a, b) =>
+      (a.section || '').localeCompare(b.section || '') ||
+      (a.category || '').localeCompare(b.category || '') ||
+      (a.name || '').localeCompare(b.name || '')
+    );
+    if (rows.length === 0) {{
       container.innerHTML = '<p style="padding:20px;text-align:center;color:#64748b">Inga objekt matchar aktiva filter.</p>';
       return;
     }}
-    container.innerHTML = stagesShown.map(s => {{
-      const pois = stageMap[s];
-      const noOsm = pois.filter(p => p.missing.includes('osm')).length;
-      const noWd  = pois.filter(p => p.missing.includes('wikidata')).length;
-      const noImg = pois.filter(p => p.missing.includes('image')).length;
-      const rows = pois.map(p => {{
-        const chips = p.missing.map(m => {{
-          const labels = {{osm:'OSM', wikidata:'WD', image:'📷'}};
-          return `<span class="mini-chip ${{m==='wikidata'?'wd':m}}">${{labels[m]||m}}</span>`;
-        }}).join('');
-        return `<div class="poi-row">
-          <span class="poi-name">${{escapeHtml(p.name)}}</span>
-          <span class="missing-tags">${{chips}}</span>
-          <button class="poi-goto" onclick="gotoOnMap('${{s}}','map',${{p.lat}},${{p.lon}})" title="Visa på karta">📍</button>
-        </div>`;
-      }}).join('');
-      return `<div class="stage-card">
-        <div class="stage-head" onclick="toggleStageBody(this)">
-          <h3>${{s.charAt(0).toUpperCase()+s.slice(1)}}</h3>
-          ${{noOsm?`<span class="badge osm" title="Saknar OSM">${{noOsm}}</span>`:''}}</span>
-          ${{noWd ?`<span class="badge wd"  title="Saknar WD">${{noWd}}</span>`:''}}
-          ${{noImg?`<span class="badge img" title="Saknar bild">${{noImg}}</span>`:''}}
-          <span style="font-size:1rem">▾</span>
-        </div>
-        <div class="stage-body">${{rows}}</div>
-      </div>`;
-    }}).join('');
+    container.innerHTML = `<div class="todo-table-wrap"><table class="todo-table">
+      <thead>
+        <tr>
+          <th>Etapp</th>
+          <th>POI</th>
+          <th>Kategori</th>
+          <th>Saknas</th>
+          <th>fixme (OSM)</th>
+          <th>note (OSM)</th>
+          <th>check_date (OSM)</th>
+          <th>Länkar</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${{rows.map(p => {{
+          const chips = p.missing.map(m => {{
+            const labels = {{osm:'OSM', wikidata:'WD', image:'📷'}};
+            return `<span class="mini-chip ${{m==='wikidata'?'wd':m}}">${{labels[m]||m}}</span>`;
+          }}).join('');
+          const satMapUrl = p.id ? `https://map.stockholmarchipelagotrail.com/?${{p.id}}` : null;
+          const satJsonUrl = p.id ? `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(p.id)}}` : null;
+          return `<tr data-poi-key="${{encodeURIComponent(p.id || '')}}">
+            <td>${{escapeHtml(p.section || '')}}</td>
+            <td class="poi-name">${{escapeHtml(p.name || '(utan namn)')}}</td>
+            <td>${{escapeHtml(p.category || '')}}</td>
+            <td><span class="missing-tags">${{chips}}</span></td>
+            <td data-field="fixme">${{p.fixme ? escapeHtml(p.fixme) : '<span class="muted">—</span>'}}</td>
+            <td data-field="note">${{p.note ? escapeHtml(p.note) : '<span class="muted">—</span>'}}</td>
+            <td data-field="check_date"><span class="muted">—</span></td>
+            <td>
+              ${{satMapUrl ? `<a href="${{satMapUrl}}" target="_blank">SAT</a> · <a href="${{satJsonUrl}}" target="_blank">JSON</a> · ` : ''}}
+              <button class="poi-goto" onclick="gotoOnMap(${{p.lat}},${{p.lon}})" title="Visa på karta">📍</button>
+            </td>
+          </tr>`;
+        }}).join('')}}
+      </tbody>
+    </table></div>`;
+    hydrateListOsmTags(rows);
   }}
 
-  window.toggleStageBody = function(el) {{
-    const body = el.nextElementSibling;
-    body.style.display = body.style.display === 'block' ? 'none' : 'block';
-  }};
+  async function hydrateListOsmTags(rows) {{
+    const tasks = rows
+      .filter((p) => !!p.osm)
+      .map(async (p) => {{
+        const tags = await fetchOsmTags(p.osm);
+        if (!tags) return;
+        const key = encodeURIComponent(p.id || '');
+        const row = document.querySelector(`tr[data-poi-key="${{key}}"]`);
+        if (!row) return;
+        const fixmeText = tags.fixme || p.fixme || '';
+        const noteText = tags.note || p.note || '';
+        const checkDateText = tags.check_date || '';
+        row.querySelector('[data-field="fixme"]').innerHTML = fixmeText ? escapeHtml(fixmeText) : '<span class="muted">—</span>';
+        row.querySelector('[data-field="note"]').innerHTML = noteText ? escapeHtml(noteText) : '<span class="muted">—</span>';
+        row.querySelector('[data-field="check_date"]').innerHTML = checkDateText ? escapeHtml(checkDateText) : '<span class="muted">—</span>';
+      }});
+    await Promise.all(tasks);
+  }}
 
-  window.gotoOnMap = function(stage, tab, lat, lon) {{
+  window.gotoOnMap = function(lat, lon) {{
     showTab('map');
     map.setView([lat, lon], 16);
   }};
