@@ -735,21 +735,21 @@ ORDER BY DESC(geof:latitude(?coord))
 
       // Expected OSM tags per SAT category — used for gap analysis in popups
       const EXPECTED_TAGS = {{
-        toilet:     ['fee', 'opening_hours', 'wheelchair', 'access'],
-        water:      ['drinking_water', 'access', 'seasonal'],
-        shelter:    ['shelter_type', 'capacity', 'access'],
-        firepit:    ['access', 'fireplace'],
-        beach:      ['access', 'surface', 'supervised'],
-        harbour:    ['mooring', 'fee', 'access'],
-        sauna:      ['fee', 'opening_hours', 'access'],
-        food:       ['cuisine', 'opening_hours', 'website', 'phone'],
-        shop:       ['opening_hours', 'website'],
-        lodging:    ['website', 'phone', 'rooms'],
-        rental:     ['fee', 'opening_hours'],
-        rowboat:    ['fee', 'access'],
-        viewpoint:  ['name', 'description'],
-        lighthouse: ['name', 'operator'],
-        attraction: ['name', 'description', 'website'],
+        toilet:     ['fee', 'opening_hours', 'wheelchair', 'access', 'wikimedia_commons'],
+        water:      ['drinking_water', 'access', 'seasonal', 'wikimedia_commons'],
+        shelter:    ['shelter_type', 'capacity', 'access', 'wikimedia_commons'],
+        firepit:    ['access', 'fireplace', 'wikimedia_commons'],
+        beach:      ['access', 'surface', 'supervised', 'wikimedia_commons'],
+        harbour:    ['mooring', 'fee', 'access', 'wikimedia_commons'],
+        sauna:      ['fee', 'opening_hours', 'access', 'wikimedia_commons'],
+        food:       ['cuisine', 'opening_hours', 'website', 'phone', 'wikimedia_commons'],
+        shop:       ['opening_hours', 'website', 'wikimedia_commons'],
+        lodging:    ['website', 'phone', 'rooms', 'wikimedia_commons'],
+        rental:     ['fee', 'opening_hours', 'wikimedia_commons'],
+        rowboat:    ['fee', 'access', 'wikimedia_commons'],
+        viewpoint:  ['name', 'description', 'wikimedia_commons'],
+        lighthouse: ['name', 'operator', 'wikimedia_commons'],
+        attraction: ['name', 'description', 'website', 'wikimedia_commons'],
       }};
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
@@ -1176,10 +1176,12 @@ ORDER BY DESC(geof:latitude(?coord))
       async function loadOsmTags(ref, targetEl, category) {{
         if (!targetEl || !ref) return;
         const missingEl = targetEl.closest('.popup-inner')?.querySelector('.missing-tags-body');
+        const commonsThumbEl = targetEl.closest('.popup-inner')?.querySelector('.commons-thumb-body');
         if (osmTagCache.has(ref.key)) {{
           const cached = osmTagCache.get(ref.key);
           targetEl.innerHTML = renderOsmTagsHtml(cached);
           renderMissingTags(cached, category, missingEl);
+          loadCommonsThumb(cached['wikimedia_commons'], commonsThumbEl);
           return;
         }}
         targetEl.textContent = t('loadingOsmTags');
@@ -1195,9 +1197,28 @@ ORDER BY DESC(geof:latitude(?coord))
           osmTagCache.set(ref.key, tags);
           targetEl.innerHTML = renderOsmTagsHtml(tags);
           renderMissingTags(tags, category, missingEl);
+          loadCommonsThumb(tags['wikimedia_commons'], commonsThumbEl);
         }} catch (err) {{
           targetEl.textContent = t('failedOsmTags', {{ message: err && err.message ? err.message : 'unknown error' }});
         }}
+      }}
+
+      async function loadCommonsThumb(commonsValue, el) {{
+        if (!el || !commonsValue) return;
+        // Support File: or bare filename
+        const title = commonsValue.startsWith('File:') ? commonsValue : `File:${{commonsValue}}`;
+        try {{
+          const api = `https://commons.wikimedia.org/w/api.php?action=query&titles=${{encodeURIComponent(title)}}&prop=imageinfo&iiprop=url&iiurlwidth=280&format=json&origin=*`;
+          const resp = await fetch(api);
+          const data = await resp.json();
+          const pages = data?.query?.pages || {{}};
+          const page = Object.values(pages)[0];
+          const thumbUrl = page?.imageinfo?.[0]?.thumburl;
+          if (thumbUrl) {{
+            const fileUrl = `https://commons.wikimedia.org/wiki/${{encodeURIComponent(title)}}`;
+            el.innerHTML = `<a href="${{fileUrl}}" target="_blank"><img src="${{thumbUrl}}" style="max-width:100%;border-radius:6px;margin-top:4px" alt="Commons"></a><div style="font-size:.75rem;color:#555">📷 <a href="${{fileUrl}}" target="_blank">Wikimedia Commons</a></div>`;
+          }}
+        }} catch (_) {{}}
       }}
 
       function renderMissingTags(tags, category, el) {{
@@ -1430,7 +1451,7 @@ ORDER BY DESC(geof:latitude(?coord))
             ? `https://www.openstreetmap.org/edit?editor=id&${{osmRef.type}}=${{osmRef.id}}#map=18/${{r.lat}}/${{r.lon}}`
             : null;
           const osmTagsHtml = osmRef
-            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div></details>`
+            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div><div class="commons-thumb-body"></div></details>`
             : `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body">${{escapeHtml(t('noOsmRef'))}}</div></details>`;
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${{osmHistoryUrl}}" target="_blank">OSM Deep history</a></div>`
