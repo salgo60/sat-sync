@@ -14,6 +14,9 @@
     .header { background: linear-gradient(135deg,#2546a8,#1d2f6f); color:#fff; padding:24px; }
     .header h1 { margin:0 0 8px; }
     .header p { margin:0; opacity:.9; }
+    .header-meta { margin-top:10px; font-size:0.8rem; opacity:0.75; }
+    .header-meta a { color:#a8c4ff; text-decoration:none; }
+    .header-meta a:hover { text-decoration:underline; }
     .stats { display:grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap:12px; padding:16px 24px; background:#fff; border-bottom:1px solid #e2e8f0; }
     .card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:14px; }
     .card h3 { margin:0 0 6px; font-size:.8rem; text-transform: uppercase; color:#555; }
@@ -81,6 +84,11 @@
     <div class="header">
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
+      <div class="header-meta">
+        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 18:42</strong> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> &nbsp;|&nbsp;
+        <a href="whats_new.html">What's new</a>
+      </div>
     </div>
 
     <div class="stats">
@@ -7907,7 +7915,7 @@
     </div>
 
     <div class="footer">
-      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 18:39</strong> |
+      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 18:42</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data/trail.jsonld" target="_blank">trail.jsonld</a> |
