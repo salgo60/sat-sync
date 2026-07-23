@@ -14,6 +14,7 @@ import re
 import unicodedata
 import urllib.request
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Optional
 from urllib.parse import quote, urlencode
 
@@ -278,6 +279,7 @@ ORDER BY DESC(geof:latitude(?coord))
 
     def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict]) -> str:
         stage_by_slug = {s.slug: s for s in stages}
+        generated_at = datetime.now().strftime("%Y%m%d %H:%M")
 
         section_stats: dict[str, dict] = {}
         categories: set[str] = set()
@@ -437,6 +439,9 @@ ORDER BY DESC(geof:latitude(?coord))
     .map-wrap {{ background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:10px; }}
     #poiMap {{ width:100%; height:520px; border-radius:6px; }}
     .popup-thumb {{ width:140px; max-height:90px; object-fit:cover; border-radius:4px; display:block; margin-top:6px; }}
+    .osm-tags {{ margin-top:6px; font-size:.82rem; }}
+    .osm-tags-body {{ margin-top:6px; max-height:140px; overflow:auto; border:1px solid #e2e8f0; border-radius:6px; padding:6px; background:#f8fafc; }}
+    .osm-tags-list {{ margin:0; padding-left:18px; }}
     .poi-icon {{
       width: 24px;
       height: 24px;
@@ -584,6 +589,8 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="footer">
+      Version skapad: <strong>{generated_at}</strong> |
+      <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       Källor: <a href="{POIS_URL}" target="_blank">pois.geojson</a> |
       <a href="{TRAIL_URL}" target="_blank">trail.jsonld</a> |
       <a href="{SECTIONS_INDEX_URL}" target="_blank">sections-index.json</a> |
@@ -619,6 +626,7 @@ ORDER BY DESC(geof:latitude(?coord))
       let isProgrammaticMapMove = false;
       let lastSection = null;
       let lastCategory = null;
+      const osmTagCache = new Map();
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
       const distanceBandLayer = L.geoJSON(trailGeoJson, {{
@@ -698,6 +706,52 @@ ORDER BY DESC(geof:latitude(?coord))
           rowboat: {{ emoji: '🛶', color: '#fb7185', label: 'Roddbåt' }},
         }};
         return table[c] || {{ emoji: '📍', color: '#cbd5e1', label: category || 'POI' }};
+      }}
+
+      function findOsmRef(sameAs) {{
+        if (!Array.isArray(sameAs)) return null;
+        for (const ref of sameAs) {{
+          if (typeof ref !== 'string' || !ref.startsWith('osm:')) continue;
+          const parts = ref.split(':');
+          if (parts.length !== 3) continue;
+          const type = parts[1];
+          const id = parts[2];
+          if (!['node', 'way', 'relation'].includes(type) || !id) continue;
+          return {{ type, id, key: `${{type}}/${{id}}` }};
+        }}
+        return null;
+      }}
+
+      function renderOsmTagsHtml(tags) {{
+        const entries = Object.entries(tags || {{}}).sort(([a], [b]) => a.localeCompare(b));
+        if (entries.length === 0) return '<span>Inga OSM-taggar hittades.</span>';
+        const items = entries
+          .map(([k, v]) => `<li><code>${{escapeHtml(k)}}</code>: ${{escapeHtml(String(v))}}</li>`)
+          .join('');
+        return `<ul class="osm-tags-list">${{items}}</ul>`;
+      }}
+
+      async function loadOsmTags(ref, targetEl) {{
+        if (!targetEl || !ref) return;
+        if (osmTagCache.has(ref.key)) {{
+          targetEl.innerHTML = renderOsmTagsHtml(osmTagCache.get(ref.key));
+          return;
+        }}
+        targetEl.textContent = 'Laddar OSM-taggar...';
+        const url = `https://api.openstreetmap.org/api/0.6/${{ref.type}}/${{ref.id}}.json`;
+        try {{
+          const response = await fetch(url, {{ headers: {{ 'Accept': 'application/json' }} }});
+          if (!response.ok) {{
+            targetEl.textContent = `Kunde inte hämta OSM-taggar (HTTP ${{response.status}}).`;
+            return;
+          }}
+          const data = await response.json();
+          const tags = data?.elements?.[0]?.tags || {{}};
+          osmTagCache.set(ref.key, tags);
+          targetEl.innerHTML = renderOsmTagsHtml(tags);
+        }} catch (err) {{
+          targetEl.textContent = `Fel vid hämtning av OSM-taggar: ${{err && err.message ? err.message : 'okänt fel'}}`;
+        }}
       }}
 
       function canonicalShareBaseUrl() {{
@@ -882,14 +936,26 @@ ORDER BY DESC(geof:latitude(?coord))
           const imageHtml = r.image
             ? `<img class="popup-thumb" src="${{escapeHtml(r.image)}}" alt="thumbnail">`
             : '';
+          const osmRef = findOsmRef(r.same_as);
+          const osmTagsHtml = osmRef
+            ? `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">Öppna för att ladda…</div></details>`
+            : `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body">Ingen OSM-referens för objektet.</div></details>`;
           marker.bindPopup(`
             <div style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(r.name || r.id)}}</strong><br>
               <small>Section: ${{escapeHtml(r.section)}} | Kategori: ${{escapeHtml(r.category)}}</small><br>
               <a href="${{satUrl}}" target="_blank">Öppna i SAT-kartan</a>
+              ${{osmTagsHtml}}
               ${{imageHtml}}
             </div>
           `);
+          marker.on('popupopen', (event) => {{
+            if (!osmRef) return;
+            const root = event.popup.getElement();
+            const candidates = root ? Array.from(root.querySelectorAll('[data-osm-ref]')) : [];
+            const node = candidates.find((el) => el.getAttribute('data-osm-ref') === osmRef.key);
+            if (node) loadOsmTags(osmRef, node);
+          }});
           marker.addTo(markerLayer);
           bounds.push([r.lat, r.lon]);
         }});
@@ -1179,7 +1245,10 @@ ORDER BY DESC(geof:latitude(?coord))
       zoomTrailBtn.addEventListener('click', zoomToTrail);
       map.on('zoomend', () => {{
         if (!distanceBandToggle.checked) return;
+        const prevPreserve = preserveMapView;
+        preserveMapView = true;
         renderMap(sectionFilter.value, categoryFilter.value);
+        preserveMapView = prevPreserve;
       }});
       map.on('moveend', () => {{
         if (isProgrammaticMapMove) return;
