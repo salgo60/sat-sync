@@ -278,9 +278,29 @@ ORDER BY DESC(geof:latitude(?coord))
                 links.append(v)
         return "<br>".join(links) if links else "—"
 
+    @staticmethod
+    def fetch_latest_pr() -> tuple[int, str]:
+        """Hämta senaste merged PR-nummer och titel från GitHub API."""
+        try:
+            url = "https://api.github.com/repos/salgo60/sat-sync/pulls?state=closed&sort=updated&direction=desc&per_page=5"
+            req = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json", "User-Agent": "sat-sync-generator"})
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                prs = json.loads(resp.read())
+            for pr in prs:
+                if pr.get("merged_at"):
+                    return pr["number"], pr["title"]
+        except Exception:
+            pass
+        return 0, ""
+
     def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict]) -> str:
         stage_by_slug = {s.slug: s for s in stages}
         generated_at = datetime.now().strftime("%Y%m%d %H:%M")
+        latest_pr_num, latest_pr_title = self.fetch_latest_pr()
+        pr_html = (
+            f'&nbsp;|&nbsp;\n        <a href="https://github.com/salgo60/sat-sync/pull/{latest_pr_num}" target="_blank">PR #{latest_pr_num}</a>'
+            if latest_pr_num else ""
+        )
 
         section_stats: dict[str, dict] = {}
         categories: set[str] = set()
@@ -546,7 +566,7 @@ ORDER BY DESC(geof:latitude(?coord))
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
       <div class="header-meta">
         <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>{generated_at}</strong> &nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>{pr_html} &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a>
       </div>
