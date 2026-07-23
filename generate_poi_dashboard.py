@@ -709,6 +709,7 @@ ORDER BY DESC(geof:latitude(?coord))
       const i18n = {{
         sv: {{
           all: 'Alla',
+          headerTitle: '🧭 SAT POI Dashboard',
           headerSubtitle: 'Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp',
           statTotalLabel: 'Totalt POI',
           statSectionsLabel: 'Etapp/ö (sections)',
@@ -758,6 +759,7 @@ ORDER BY DESC(geof:latitude(?coord))
         }},
         en: {{
           all: 'All',
+          headerTitle: '🧭 SAT POI Dashboard',
           headerSubtitle: 'All objects in pois.geojson linked to stage/island (Wikidata), section and object type',
           statTotalLabel: 'Total POI',
           statSectionsLabel: 'Stage/island (sections)',
@@ -829,6 +831,28 @@ ORDER BY DESC(geof:latitude(?coord))
         ru: {{ all: 'Все', languageFilterLabel: 'Язык', sectionFilterLabel: 'Фильтр по этапу/острову', categoryFilterLabel: 'Фильтр по типу объекта', shareBtn: 'Поделиться', downloadBtn: 'Скачать JSON', resetBtn: 'Сбросить', zoomTrailBtn: 'Уменьшить до всего маршрута', trailInfoToggleLabel: 'Показать информацию о тропе', distanceBandToggleLabel: 'Показать полосу расстояния', mapSectionTitle: 'Карта (текущий фильтр)', allPoiTitle: 'Все POI', flowTitle: 'Поток: категория → группа → этап/остров', sectionOverviewTitle: 'Обзор этапов/островов', versionCreatedLabel: 'Версия создана', sourcesLabel: 'Источники', section: 'Секция', category: 'Категория', openSatMap: 'Открыть в карте SAT', thName: 'Название', thStage: 'Этап/остров', thFirstSeen: 'Первое обнаружение', thUpdated: 'Обновлено' }}
       }};
 
+      const i18nCoreRequested = {{
+        ar: {{ headerTitle:'🧭 لوحة SAT POI', headerSubtitle:'كل العناصر في pois.geojson المرتبطة بالمرحلة/الجزيرة (Wikidata) والقسم ونوع الكائن', statTotalLabel:'إجمالي POI', statSectionsLabel:'المرحلة/الجزيرة (الأقسام)', statCategoriesLabel:'أنواع الكائنات', statWikidataLabel:'مراحل ويكي بيانات', thName:'الاسم', thSection:'القسم' }},
+        fi: {{ headerTitle:'🧭 SAT POI -koontinäkymä', headerSubtitle:'Kaikki pois.geojson-objektit linkitettynä etappiin/saareen (Wikidata), osioon ja kohdelajiin', statTotalLabel:'POI yhteensä', statSectionsLabel:'Etappi/saari (osiot)', statCategoriesLabel:'Objektityypit', statWikidataLabel:'Wikidata-etapit', thName:'Nimi', thSection:'Osio' }},
+        so: {{ headerTitle:'🧭 SAT POI Dashboard', headerSubtitle:'Dhammaan walxaha ku jira pois.geojson oo ku xiran marxalad/jasiirad (Wikidata), qayb iyo nooca shayga', statTotalLabel:'Wadarta POI', statSectionsLabel:'Marxalad/jasiirad (qaybo)', statCategoriesLabel:'Noocyada shayga', statWikidataLabel:'Marxaladaha Wikidata', thName:'Magac', thSection:'Qayb' }},
+        fa: {{ headerTitle:'🧭 داشبورد SAT POI', headerSubtitle:'همه اشیاء در pois.geojson مرتبط با مرحله/جزیره (Wikidata)، بخش و نوع شیء', statTotalLabel:'مجموع POI', statSectionsLabel:'مرحله/جزیره (بخش‌ها)', statCategoriesLabel:'نوع اشیاء', statWikidataLabel:'مراحل ویکی‌داده', thName:'نام', thSection:'بخش' }},
+        ckb: {{ headerTitle:'🧭 داشبۆردی SAT POI', headerSubtitle:'هەموو ئۆبجێکتەکانی pois.geojson بەستراون بە قۆناغ/دوورگە (Wikidata)، بەش و جۆری شت', statTotalLabel:'کۆی POI', statSectionsLabel:'قۆناغ/دوورگە (بەشەکان)', statCategoriesLabel:'جۆرەکانی شت', statWikidataLabel:'قۆناغەکانی Wikidata', thName:'ناو', thSection:'بەش' }},
+        ti: {{ headerTitle:'🧭 SAT POI Dashboard', headerSubtitle:'ኩሎም ኣብ pois.geojson ዘለዉ ኣቕሑ ምስ ደረጃ/ደሴት (Wikidata)፣ ክፍሊን ዓይነት ኣቕሓን ዝተኣሳሰሩ', statTotalLabel:'ጠቕላላ POI', statSectionsLabel:'ደረጃ/ደሴት (ክፍልታት)', statCategoriesLabel:'ዓይነታት ኣቕሓ', statWikidataLabel:'Wikidata ደረጃታት', thName:'ስም', thSection:'ክፍሊ' }},
+        pl: {{ headerTitle:'🧭 Panel SAT POI', headerSubtitle:'Wszystkie obiekty w pois.geojson powiązane z etapem/wyspą (Wikidata), sekcją i typem obiektu', statTotalLabel:'Łącznie POI', statSectionsLabel:'Etap/wyspa (sekcje)', statCategoriesLabel:'Typy obiektów', statWikidataLabel:'Etapy Wikidata', thName:'Nazwa', thSection:'Sekcja' }},
+        tr: {{ headerTitle:'🧭 SAT POI Gösterge Paneli', headerSubtitle:'pois.geojson içindeki tüm nesneler etap/ada (Wikidata), bölüm ve nesne türü ile bağlantılı', statTotalLabel:'Toplam POI', statSectionsLabel:'Etap/ada (bölümler)', statCategoriesLabel:'Nesne türleri', statWikidataLabel:'Wikidata etapları', thName:'Ad', thSection:'Bölüm' }},
+        es: {{ headerTitle:'🧭 Panel SAT POI', headerSubtitle:'Todos los objetos en pois.geojson vinculados a etapa/isla (Wikidata), sección y tipo de objeto', statTotalLabel:'POI totales', statSectionsLabel:'Etapa/isla (secciones)', statCategoriesLabel:'Tipos de objeto', statWikidataLabel:'Etapas Wikidata', thName:'Nombre', thSection:'Sección' }},
+        nb: {{ headerTitle:'🧭 SAT POI-dashbord', headerSubtitle:'Alle objekter i pois.geojson koblet til etappe/øy (Wikidata), seksjon og objekttype', statTotalLabel:'Totalt POI', statSectionsLabel:'Etappe/øy (seksjoner)', statCategoriesLabel:'Objekttyper', statWikidataLabel:'Wikidata-etapper', thName:'Navn', thSection:'Seksjon' }},
+        nn: {{ headerTitle:'🧭 SAT POI-dashbord', headerSubtitle:'Alle objekt i pois.geojson knytte til etappe/øy (Wikidata), seksjon og objekttype', statTotalLabel:'Totalt POI', statSectionsLabel:'Etappe/øy (seksjonar)', statCategoriesLabel:'Objekttypar', statWikidataLabel:'Wikidata-etappar', thName:'Namn', thSection:'Seksjon' }},
+        da: {{ headerTitle:'🧭 SAT POI-dashboard', headerSubtitle:'Alle objekter i pois.geojson koblet til etape/ø (Wikidata), sektion og objekttype', statTotalLabel:'Total POI', statSectionsLabel:'Etape/ø (sektioner)', statCategoriesLabel:'Objekttyper', statWikidataLabel:'Wikidata-etaper', thName:'Navn', thSection:'Sektion' }},
+        de: {{ headerTitle:'🧭 SAT POI-Dashboard', headerSubtitle:'Alle Objekte in pois.geojson, verknüpft mit Etappe/Insel (Wikidata), Abschnitt und Objekttyp', statTotalLabel:'POI gesamt', statSectionsLabel:'Etappe/Insel (Abschnitte)', statCategoriesLabel:'Objekttypen', statWikidataLabel:'Wikidata-Etappen', thName:'Name', thSection:'Abschnitt' }},
+        nl: {{ headerTitle:'🧭 SAT POI-dashboard', headerSubtitle:'Alle objecten in pois.geojson gekoppeld aan etappe/eiland (Wikidata), sectie en objecttype', statTotalLabel:'Totaal POI', statSectionsLabel:'Etappe/eiland (secties)', statCategoriesLabel:'Objecttypen', statWikidataLabel:'Wikidata-etappes', thName:'Naam', thSection:'Sectie' }},
+        fr: {{ headerTitle:'🧭 Tableau de bord SAT POI', headerSubtitle:'Tous les objets de pois.geojson liés à une étape/île (Wikidata), une section et un type d’objet', statTotalLabel:'POI total', statSectionsLabel:'Étape/île (sections)', statCategoriesLabel:'Types d’objet', statWikidataLabel:'Étapes Wikidata', thName:'Nom', thSection:'Section' }},
+        it: {{ headerTitle:'🧭 Dashboard SAT POI', headerSubtitle:'Tutti gli oggetti in pois.geojson collegati a tappa/isola (Wikidata), sezione e tipo di oggetto', statTotalLabel:'POI totali', statSectionsLabel:'Tappa/isola (sezioni)', statCategoriesLabel:'Tipi di oggetto', statWikidataLabel:'Tappe Wikidata', thName:'Nome', thSection:'Sezione' }},
+        zh: {{ headerTitle:'🧭 SAT POI 仪表盘', headerSubtitle:'pois.geojson 中所有对象，关联到路段/岛屿（Wikidata）、区段和对象类型', statTotalLabel:'POI 总数', statSectionsLabel:'路段/岛屿（区段）', statCategoriesLabel:'对象类型', statWikidataLabel:'Wikidata 路段', thName:'名称', thSection:'区段' }},
+        ja: {{ headerTitle:'🧭 SAT POI ダッシュボード', headerSubtitle:'pois.geojson 内の全オブジェクト（区間/島・Wikidata・セクション・オブジェクト種別に関連）', statTotalLabel:'POI 合計', statSectionsLabel:'区間/島（セクション）', statCategoriesLabel:'オブジェクト種別', statWikidataLabel:'Wikidata 区間', thName:'名称', thSection:'セクション' }},
+        ru: {{ headerTitle:'🧭 Панель SAT POI', headerSubtitle:'Все объекты в pois.geojson, связанные с этапом/островом (Wikidata), секцией и типом объекта', statTotalLabel:'Всего POI', statSectionsLabel:'Этап/остров (секции)', statCategoriesLabel:'Типы объектов', statWikidataLabel:'Этапы Wikidata', thName:'Название', thSection:'Секция' }}
+      }};
+
       const categoryLabels = {{
         sv: {{ toilet:'Toalett', water:'Vatten', shower:'Dusch', firepit:'Eldplats', beach:'Badplats', harbour:'Hamn', food:'Mat', lodging:'Boende', shelter:'Vindskydd', sauna:'Bastu', shop:'Butik', rental:'Uthyrning', attraction:'Sevärdhet', viewpoint:'Utsikt', lighthouse:'Fyr', rowboat:'Roddbåt' }},
         en: {{ toilet:'Toilet', water:'Water', shower:'Shower', firepit:'Firepit', beach:'Beach', harbour:'Harbour', food:'Food', lodging:'Lodging', shelter:'Shelter', sauna:'Sauna', shop:'Shop', rental:'Rental', attraction:'Attraction', viewpoint:'Viewpoint', lighthouse:'Lighthouse', rowboat:'Rowboat' }},
@@ -893,7 +917,7 @@ ORDER BY DESC(geof:latitude(?coord))
         const lang = currentLangCode();
         const langPack = lang === 'sv'
           ? i18n.sv
-          : {{ ...i18n.en, ...(i18nExtended[lang] || {{}}) }};
+          : {{ ...i18n.en, ...(i18nExtended[lang] || {{}}), ...(i18nCoreRequested[lang] || {{}}) }};
         const text = langPack[key] || i18n.en[key] || key;
         if (!vars) return text;
         return text.replace(/\\{{(\\w+)\\}}/g, (_m, name) => String(vars[name] ?? ''));
@@ -937,6 +961,7 @@ ORDER BY DESC(geof:latitude(?coord))
       function applyLanguage() {{
         languageFilter.value = normalizeLangValue(languageFilter.value);
         const bindings = {{
+          headerTitle: 'headerTitle',
           headerSubtitle: 'headerSubtitle',
           statTotalLabel: 'statTotalLabel',
           statSectionsLabel: 'statSectionsLabel',
@@ -959,7 +984,7 @@ ORDER BY DESC(geof:latitude(?coord))
           versionCreatedLabel: 'versionCreatedLabel',
           sourcesLabel: 'sourcesLabel',
           thName: 'thName',
-          thSection: 'thSection',
+          thSection: 'section',
           thCategory: 'thCategory',
           thStage: 'thStage',
           thFirstSeen: 'thFirstSeen',
