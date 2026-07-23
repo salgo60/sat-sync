@@ -1143,10 +1143,11 @@ ORDER BY DESC(geof:latitude(?coord))
         const safeSec = sanitizeValue(sec, sectionValues);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const safeLang = normalizeLangValue(languageFilter.value);
+        const safeLangCode = parseLangValue(safeLang).code;
         const params = new URLSearchParams();
         if (safeSec !== 'all') params.set('s', safeSec);
         if (safeCat !== 'all') params.set('c', safeCat);
-        params.set('lang', safeLang);
+        params.set('lang', safeLangCode);
         if (!trailInfoToggle.checked) params.set('li', '0');
         if (distanceBandToggle.checked) params.set('db', '1');
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);

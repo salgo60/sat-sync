@@ -7907,7 +7907,7 @@
     </div>
 
     <div class="footer">
-      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 18:03</strong> |
+      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 18:30</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data/trail.jsonld" target="_blank">trail.jsonld</a> |
@@ -8410,10 +8410,11 @@
         const safeSec = sanitizeValue(sec, sectionValues);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const safeLang = normalizeLangValue(languageFilter.value);
+        const safeLangCode = parseLangValue(safeLang).code;
         const params = new URLSearchParams();
         if (safeSec !== 'all') params.set('s', safeSec);
         if (safeCat !== 'all') params.set('c', safeCat);
-        params.set('lang', safeLang);
+        params.set('lang', safeLangCode);
         if (!trailInfoToggle.checked) params.set('li', '0');
         if (distanceBandToggle.checked) params.set('db', '1');
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
