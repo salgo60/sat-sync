@@ -73,7 +73,7 @@
   <div class="top-bar">
     <h1>🗺️ SAT TODO – Vad saknas?</h1>
     <div class="meta">
-      20260723 20:32 &nbsp;
+      20260723 20:35 &nbsp;
       <a href="sat_poi_dashboard.html">Dashboard</a>
     </div>
   </div>
@@ -224,6 +224,9 @@
   }
 
   // ── OSM Notes ─────────────────────────────────────────────────────────────
+  // Fixed bbox covering the entire SAT trail (Arholma → Landsort)
+  const TRAIL_BBOX = '17.6,58.65,19.4,59.95';
+
   osmNotesLayer = L.layerGroup();
 
   const noteIcon = L.divIcon({
@@ -236,23 +239,25 @@
     if (osmNotesLoaded) return;
     osmNotesLoaded = true;
     try {
-      const bounds = map.getBounds().pad(0.1);
-      const bbox = `${bounds.getWest()},${bounds.getSouth()},${bounds.getEast()},${bounds.getNorth()}`;
-      const url = `https://api.openstreetmap.org/api/0.6/notes.json?bbox=${bbox}&limit=200&closed=0`;
+      // Fetch all open notes for the whole trail area in one request
+      const url = `https://api.openstreetmap.org/api/0.6/notes.json?bbox=${TRAIL_BBOX}&limit=500&closed=0`;
       const resp = await fetch(url);
       const data = await resp.json();
       osmNotesLayer.clearLayers();
-      (data.features || []).forEach(f => {
+      const features = data.features || [];
+      features.forEach(f => {
         const [lon, lat] = f.geometry.coordinates;
         const comments = f.properties.comments || [];
         const first = comments[0] || {};
         const text = first.text || '(ingen text)';
         const date = (first.date || '').slice(0,10);
+        const noteId = f.properties.id;
         const m = L.marker([lat, lon], { icon: noteIcon });
-        m.bindPopup(`<div class="note-popup"><strong>💬 OSM Note</strong>${escapeHtml(text)}<br><small>${date}</small><br><a href="https://www.openstreetmap.org/note/${f.properties.id}" target="_blank">Öppna på OSM</a></div>`);
+        m.bindPopup(`<div class="note-popup"><strong>💬 OSM Note #${noteId}</strong><br>${escapeHtml(text)}<br><small>${date}</small><br><a href="https://www.openstreetmap.org/note/${noteId}" target="_blank">Öppna på OSM</a></div>`);
         osmNotesLayer.addLayer(m);
       });
       if (active.notes) osmNotesLayer.addTo(map);
+      console.log(`OSM Notes: ${features.length} öppna notes laddade`);
     } catch(e) { console.warn('OSM Notes error', e); }
   }
 
