@@ -1196,8 +1196,11 @@ ORDER BY DESC(geof:latitude(?coord))
       }}
 
       function saveStateInUrl(sec, cat) {{
-        const url = buildShareUrl(sec, cat, canonicalCurrentBaseUrl());
-        window.history.replaceState({{}}, '', url);
+        if (window.location.protocol === 'file:') return;
+        try {{
+          const url = buildShareUrl(sec, cat, canonicalCurrentBaseUrl());
+          window.history.replaceState({{}}, '', url);
+        }} catch(e) {{}}
       }}
 
       function restoreStateFromUrl() {{
