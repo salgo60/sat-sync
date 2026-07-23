@@ -25,6 +25,7 @@ class IssueRecord:
     name: Optional[str] = None
     updated_at: Optional[str] = None
     first_seen: Optional[str] = None
+    section: Optional[str] = None
     # Wikidata
     wikidata_q: Optional[str] = None
     wikidata_label: Optional[str] = None
@@ -102,6 +103,7 @@ class IssuesReportGenerator:
                     "updated_at": p.get("updatedAt"),
                     "first_seen": p.get("firstSeen"),
                     "name":       p.get("name"),
+                    "section":    p.get("section"),
                 }
         print(f"  ✅ Metadata för {len(meta)} POI:er")
         return meta
@@ -196,6 +198,7 @@ SELECT ?item ?itemLabel ?value WHERE {
                     name=meta.get("name") or wd_info.get("label"),
                     updated_at=meta.get("updated_at"),
                     first_seen=meta.get("first_seen"),
+                    section=meta.get("section"),
                     wikidata_q=q_id,
                     wikidata_label=wd_info.get("label"),
                     wikidata_p14545_ok=False,
@@ -219,6 +222,7 @@ SELECT ?item ?itemLabel ?value WHERE {
                     name=meta.get("name"),
                     updated_at=meta.get("updated_at"),
                     first_seen=meta.get("first_seen"),
+                    section=meta.get("section"),
                     osm_type=osm_type,
                     osm_numeric_id=osm_num,
                     osm_ref_ok=False,
@@ -293,12 +297,14 @@ SELECT ?item ?itemLabel ?value WHERE {
                 back_cell = '<span class="tag-deleted">🗑️ Ej i postpass</span>' if r.osm_deleted else '<span class="badge-warn">⚠️ Saknar ref:sat</span>'
 
         row_class = "row-deleted" if r.is_deleted else "row-issue"
+        section_value = r.section or "okänd"
         return f"""
-      <tr class="{row_class}">
+      <tr class="{row_class}" data-section="{section_value}" data-source="{r.source_type}" data-issue="{r.issue_type}">
         <td>{idx}</td>
         <td>{ext_cell}</td>
         <td>{self._sat_links(r.sat_id)}</td>
         <td>{r.source_type}</td>
+        <td>{section_value}</td>
         <td>{back_cell}</td>
         <td data-val="{r.first_seen or ''}">{r.first_seen or '—'}</td>
         <td data-val="{r.updated_at or ''}">{r.updated_at or '—'}</td>
@@ -306,13 +312,19 @@ SELECT ?item ?itemLabel ?value WHERE {
       </tr>"""
 
     def generate_html(self, deleted: list, missing_ref: list, generated_at: str) -> str:
+        all_issues = deleted + missing_ref
+        sections = sorted({(r.section or "okänd") for r in all_issues})
+        section_options = "\n".join(
+            f'<option value="{s}">{s}</option>' for s in sections
+        )
+
         # Borttagna objekt-sektion
         del_rows = "\n".join(self._issue_row(i+1, r, "deleted") for i, r in enumerate(deleted))
-        del_rows_html = del_rows or "<tr><td colspan='8' class='empty'>Inga borttagna objekt ✅</td></tr>"
+        del_rows_html = del_rows or "<tr><td colspan='9' class='empty'>Inga borttagna objekt ✅</td></tr>"
 
         # Saknade backreferenser-sektion
         miss_rows = "\n".join(self._issue_row(i+1, r, "missing") for i, r in enumerate(missing_ref))
-        miss_rows_html = miss_rows or "<tr><td colspan='8' class='empty'>Inga saknade backreferenser ✅</td></tr>"
+        miss_rows_html = miss_rows or "<tr><td colspan='9' class='empty'>Inga saknade backreferenser ✅</td></tr>"
 
         table_headers = """
           <tr>
@@ -320,6 +332,7 @@ SELECT ?item ?itemLabel ?value WHERE {
             <th>Extern ID</th>
             <th>SAT ID</th>
             <th>Källa</th>
+            <th>Etapp/Ö</th>
             <th>Problem</th>
             <th>Första sedd</th>
             <th>Uppdaterad</th>
@@ -350,6 +363,11 @@ SELECT ?item ?itemLabel ?value WHERE {
     .section{{padding:24px}}
     .section h2{{margin-bottom:12px;display:flex;align-items:center;gap:10px}}
     .section p.desc{{color:#666;font-size:.92em;margin-bottom:16px}}
+    .filters{{padding:20px 24px;background:#fff;border-top:1px solid #e9ecef;border-bottom:1px solid #e9ecef;display:flex;flex-wrap:wrap;gap:12px;align-items:end}}
+    .filter-group{{display:flex;flex-direction:column;gap:6px}}
+    .filter-group label{{font-size:.85em;color:#666;font-weight:600}}
+    .filter-group select{{padding:8px 10px;border:1px solid #d0d7de;border-radius:6px;background:#fff;min-width:180px}}
+    .filter-note{{font-size:.85em;color:#666}}
     .table-wrap{{overflow-x:auto;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}}
     table{{width:100%;border-collapse:collapse;font-size:.84em}}
     thead{{background:#f8f9fa;border-bottom:2px solid #c0392b;position:sticky;top:0;z-index:10}}
@@ -410,6 +428,33 @@ SELECT ?item ?itemLabel ?value WHERE {
     </div>
   </div>
 
+  <div class="filters">
+    <div class="filter-group">
+      <label for="section-filter">Filtrera etapp/ö</label>
+      <select id="section-filter">
+        <option value="all">Alla</option>
+        {section_options}
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="source-filter">Filtrera källa</label>
+      <select id="source-filter">
+        <option value="all">Alla</option>
+        <option value="osm">OSM</option>
+        <option value="wikidata">Wikidata</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="issue-filter">Filtrera problemtyp</label>
+      <select id="issue-filter">
+        <option value="all">Alla</option>
+        <option value="deleted">Borttagna objekt</option>
+        <option value="missing_ref">Saknar backreferens</option>
+      </select>
+    </div>
+    <div class="filter-note" id="filter-count"></div>
+  </div>
+
   <!-- SEKTION 1: Borttagna objekt -->
   <div class="section section-deleted">
     <h2>🗑️ Borttagna objekt ({len(deleted)} st)</h2>
@@ -450,6 +495,35 @@ SELECT ?item ?itemLabel ?value WHERE {
 
 <script>
 (function() {{
+  const filterEls = {{
+    section: document.getElementById('section-filter'),
+    source: document.getElementById('source-filter'),
+    issue: document.getElementById('issue-filter'),
+    count: document.getElementById('filter-count'),
+  }};
+
+  function applyFilters() {{
+    const sectionVal = filterEls.section.value;
+    const sourceVal = filterEls.source.value;
+    const issueVal = filterEls.issue.value;
+    const rows = document.querySelectorAll('#tbl-deleted tbody tr, #tbl-missing tbody tr');
+    let visible = 0;
+
+    rows.forEach((row) => {{
+      if (row.classList.contains('empty')) return;
+      const rowSection = row.dataset.section || 'okänd';
+      const rowSource = row.dataset.source || '';
+      const rowIssue = row.dataset.issue || '';
+      const show =
+        (sectionVal === 'all' || rowSection === sectionVal) &&
+        (sourceVal === 'all' || rowSource === sourceVal) &&
+        (issueVal === 'all' || rowIssue === issueVal);
+      row.style.display = show ? '' : 'none';
+      if (show) visible += 1;
+    }});
+    filterEls.count.textContent = `Visar ${{visible}} poster`;
+  }}
+
   function makeTableSortable(tblId) {{
     const tbl = document.getElementById(tblId);
     if (!tbl) return;
@@ -477,6 +551,10 @@ SELECT ?item ?itemLabel ?value WHERE {
   }}
   makeTableSortable('tbl-deleted');
   makeTableSortable('tbl-missing');
+  filterEls.section.addEventListener('change', applyFilters);
+  filterEls.source.addEventListener('change', applyFilters);
+  filterEls.issue.addEventListener('change', applyFilters);
+  applyFilters();
 }})();
 </script>
 </body>
@@ -493,6 +571,7 @@ SELECT ?item ?itemLabel ?value WHERE {
             "sat_api_url": f"https://map.stockholmarchipelagotrail.com/api/objects/{r.sat_id}",
             "source_type": r.source_type,
             "issue_type": r.issue_type,
+            "section": r.section,
             "name": r.name,
             "first_seen": r.first_seen,
             "updated_at": r.updated_at,
