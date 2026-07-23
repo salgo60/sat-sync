@@ -1299,11 +1299,32 @@ ORDER BY DESC(geof:latitude(?coord))
             : '';
           const osmRef = findOsmRef(r.same_as);
           const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${{osmRef.type}}/${{osmRef.id}}` : null;
+          const mapCompleteTheme = (function(cat) {{
+            const map = {{
+              toilet: 'toilets',
+              water: 'drinking_water',
+              firepit: 'fireplace',
+              food: 'food',
+              shop: 'shops',
+              sauna: 'sauna',
+              lighthouse: 'lighthouses',
+              rental: 'bicycle_rental',
+              attraction: 'nature',
+              viewpoint: 'nature'
+            }};
+            return map[cat] || null;
+          }})(r.category);
+          const mapCompleteUrl = (osmRef && mapCompleteTheme)
+            ? `https://mapcomplete.org/${{mapCompleteTheme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{osmRef.type}}/${{osmRef.id}}`
+            : null;
           const osmTagsHtml = osmRef
             ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div></details>`
             : `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body">${{escapeHtml(t('noOsmRef'))}}</div></details>`;
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${{osmHistoryUrl}}" target="_blank">OSM Deep history</a></div>`
+            : '';
+          const mapCompleteLink = mapCompleteUrl
+            ? `<div><a href="${{mapCompleteUrl}}" target="_blank">✏️ MapComplete (${{mapCompleteTheme}})</a></div>`
             : '';
           marker.bindPopup(`
             <div style="min-width:180px">
@@ -1312,6 +1333,7 @@ ORDER BY DESC(geof:latitude(?coord))
               <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a>
               ${{osmTagsHtml}}
               ${{osmHistoryLink}}
+              ${{mapCompleteLink}}
               ${{imageHtml}}
             </div>
           `);
