@@ -191,6 +191,7 @@ html = f"""<!DOCTYPE html>
   let currentCategory = 'all';
   let locationMarker = null;
   let osmNotesLoaded = false;
+  let renderVersion = 0;
 
   // ── Map setup ──────────────────────────────────────────────────────────────
   const map = L.map('map', {{ zoomControl: true }}).setView([59.3, 18.9], 8);
@@ -238,19 +239,40 @@ html = f"""<!DOCTYPE html>
     }});
   }}
 
+  function makeTagIcon(bg, label) {{
+    return L.divIcon({{
+      className: '',
+      html: `<div style="width:22px;height:22px;border-radius:50%;background:${{bg}};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff">${{label}}</div>`,
+      iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-12]
+    }});
+  }}
+
+  const wheelchairIcon = makeTagIcon('#16a34a', '♿');
+  const missingWheelchairIcon = makeTagIcon('#64748b', '?');
+
   // ── Problem layers (one per issue type) ───────────────────────────────────
   const layerMissingOsm = L.layerGroup().addTo(map);
   const layerMissingWd  = L.layerGroup().addTo(map);
   const layerMissingImg = L.layerGroup().addTo(map);
   const osmNotesLayer   = L.layerGroup().addTo(map);
+  const layerWheelchair = L.layerGroup();
+  const layerMissingWheelchair = L.layerGroup();
 
   // Layer control — shown in map top-right
   L.control.layers(null, {{
     '❌ Saknar OSM-länk':    layerMissingOsm,
     '📋 Saknar Wikidata':   layerMissingWd,
     '📷 Saknar bild':       layerMissingImg,
+    '♿ Wheelchair':         layerWheelchair,
+    '◻️ Saknar Wheelchair': layerMissingWheelchair,
     '💬 OSM Notes':         osmNotesLayer,
   }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
+
+  map.on('overlayadd', (ev) => {{
+    if (ev.layer === layerWheelchair || ev.layer === layerMissingWheelchair) {{
+      renderMarkers();
+    }}
+  }});
 
   function filteredPois() {{
     return ALL_POIS.filter(p => {{
@@ -321,9 +343,12 @@ html = f"""<!DOCTYPE html>
   }}
 
   function renderMarkers() {{
+    const currentRender = ++renderVersion;
     layerMissingOsm.clearLayers();
     layerMissingWd.clearLayers();
     layerMissingImg.clearLayers();
+    layerWheelchair.clearLayers();
+    layerMissingWheelchair.clearLayers();
     const fps = filteredPois();
     fps.forEach(p => {{
       const popup = buildPopup(p);
@@ -337,6 +362,26 @@ html = f"""<!DOCTYPE html>
         L.marker([p.lat, p.lon], {{ icon: makeIcon(['image']) }}).bindPopup(popup).addTo(layerMissingImg);
       }}
     }});
+    if (map.hasLayer(layerWheelchair) || map.hasLayer(layerMissingWheelchair)) {{
+      renderWheelchairLayers(fps, currentRender);
+    }}
+  }}
+
+  async function renderWheelchairLayers(pois, currentRender) {{
+    const tasks = pois
+      .filter((p) => !!p.osm)
+      .map(async (p) => {{
+        const tags = await fetchOsmTags(p.osm);
+        if (currentRender !== renderVersion) return;
+        if (!tags) return;
+        const popup = buildPopup(p);
+        if (Object.prototype.hasOwnProperty.call(tags, 'wheelchair')) {{
+          L.marker([p.lat, p.lon], {{ icon: wheelchairIcon }}).bindPopup(popup).addTo(layerWheelchair);
+        }} else {{
+          L.marker([p.lat, p.lon], {{ icon: missingWheelchairIcon }}).bindPopup(popup).addTo(layerMissingWheelchair);
+        }}
+      }});
+    await Promise.all(tasks);
   }}
 
   // ── OSM Notes ─────────────────────────────────────────────────────────────
