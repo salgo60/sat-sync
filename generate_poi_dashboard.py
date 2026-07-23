@@ -937,15 +937,20 @@ ORDER BY DESC(geof:latitude(?coord))
             ? `<img class="popup-thumb" src="${{escapeHtml(r.image)}}" alt="thumbnail">`
             : '';
           const osmRef = findOsmRef(r.same_as);
+          const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${{osmRef.type}}/${{osmRef.id}}` : null;
           const osmTagsHtml = osmRef
             ? `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">Öppna för att ladda…</div></details>`
             : `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body">Ingen OSM-referens för objektet.</div></details>`;
+          const osmHistoryLink = osmHistoryUrl
+            ? `<div><a href="${{osmHistoryUrl}}" target="_blank">OSM Deep history</a></div>`
+            : '';
           marker.bindPopup(`
             <div style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(r.name || r.id)}}</strong><br>
               <small>Section: ${{escapeHtml(r.section)}} | Kategori: ${{escapeHtml(r.category)}}</small><br>
               <a href="${{satUrl}}" target="_blank">Öppna i SAT-kartan</a>
               ${{osmTagsHtml}}
+              ${{osmHistoryLink}}
               ${{imageHtml}}
             </div>
           `);
