@@ -101,9 +101,9 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
       <div class="header-meta">
-        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 20:40</strong> &nbsp;|&nbsp;
+        <span id="versionCreatedLabelHdr">Version skapad</span>: <strong>20260723 21:34</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/32" target="_blank">PR #32</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/33" target="_blank">PR #33</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a>
@@ -7934,7 +7934,7 @@
     </div>
 
     <div class="footer">
-      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 20:40</strong> |
+      <span id="versionCreatedLabel">Version skapad</span>: <strong>20260723 21:34</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data/trail.jsonld" target="_blank">trail.jsonld</a> |
@@ -8667,6 +8667,7 @@
           });
           const marker = L.marker([r.lat, r.lon], { icon });
           const satUrl = `https://map.stockholmarchipelagotrail.com/sv?id=${encodeURIComponent(r.id)}`;
+          const satJsonUrl = `https://map.stockholmarchipelagotrail.com/api/objects/${encodeURIComponent(r.id)}`;
           const imageHtml = r.image
             ? `<img class="popup-thumb" src="${escapeHtml(r.image)}" alt="thumbnail">`
             : '';
@@ -8734,7 +8735,8 @@
             <div class="popup-inner" style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${iconMeta.color}">${iconMeta.emoji}</span>${escapeHtml(poiName)}</strong><br>
               <small>${escapeHtml(t('section'))}: ${escapeHtml(r.section)} | ${escapeHtml(t('category'))}: ${escapeHtml(poiCategoryLabel)}</small><br>
-              <a href="${satUrl}" target="_blank">${escapeHtml(t('openSatMap'))}</a>
+              <a href="${satUrl}" target="_blank">${escapeHtml(t('openSatMap'))}</a> /
+              <a href="${satJsonUrl}" target="_blank">json</a>
               ${osmTagsHtml}
               ${osmHistoryLink}
               ${mapkiLink}

@@ -1424,6 +1424,7 @@ ORDER BY DESC(geof:latitude(?coord))
           }});
           const marker = L.marker([r.lat, r.lon], {{ icon }});
           const satUrl = `https://map.stockholmarchipelagotrail.com/sv?id=${{encodeURIComponent(r.id)}}`;
+          const satJsonUrl = `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(r.id)}}`;
           const imageHtml = r.image
             ? `<img class="popup-thumb" src="${{escapeHtml(r.image)}}" alt="thumbnail">`
             : '';
@@ -1491,7 +1492,8 @@ ORDER BY DESC(geof:latitude(?coord))
             <div class="popup-inner" style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(poiName)}}</strong><br>
               <small>${{escapeHtml(t('section'))}}: ${{escapeHtml(r.section)}} | ${{escapeHtml(t('category'))}}: ${{escapeHtml(poiCategoryLabel)}}</small><br>
-              <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a>
+              <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a> /
+              <a href="${{satJsonUrl}}" target="_blank">json</a>
               ${{osmTagsHtml}}
               ${{osmHistoryLink}}
               ${{mapkiLink}}
