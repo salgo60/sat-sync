@@ -1166,6 +1166,16 @@ ORDER BY DESC(geof:latitude(?coord))
         return null;
       }}
 
+      function openIdWithCheckDate(idUrl) {{
+        const today = new Date().toISOString().slice(0, 10);
+        const tagText = `check_date=${{today}}`;
+        if (navigator.clipboard && navigator.clipboard.writeText) {{
+          navigator.clipboard.writeText(tagText).catch(() => {{}});
+        }}
+        window.open(idUrl, '_blank', 'noopener');
+        return false;
+      }}
+
       function renderOsmTagsHtml(tags) {{
         const entries = Object.entries(tags || {{}}).sort(([a], [b]) => a.localeCompare(b));
         if (entries.length === 0) return `<span>${{t('noOsmTags')}}</span>`;
@@ -1424,6 +1434,7 @@ ORDER BY DESC(geof:latitude(?coord))
           }});
           const marker = L.marker([r.lat, r.lon], {{ icon }});
           const satUrl = `https://map.stockholmarchipelagotrail.com/sv?id=${{encodeURIComponent(r.id)}}`;
+          const satJsonUrl = `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(r.id)}}`;
           const imageHtml = r.image
             ? `<img class="popup-thumb" src="${{escapeHtml(r.image)}}" alt="thumbnail">`
             : '';
@@ -1467,6 +1478,9 @@ ORDER BY DESC(geof:latitude(?coord))
           const idEditorLink = idEditorUrl
             ? `<div><a href="${{idEditorUrl}}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
+          const idCheckDateLink = idEditorUrl
+            ? `<div><a href="${{idEditorUrl}}" target="_blank" onclick="return openIdWithCheckDate(this.href)">🗓️ check_date=today (iD)</a></div>`
+            : '';
           const osmNotesUrl = (r.lat && r.lon)
             ? `https://www.openstreetmap.org/#map=18/${{r.lat}}/${{r.lon}}&layers=N`
             : null;
@@ -1491,11 +1505,13 @@ ORDER BY DESC(geof:latitude(?coord))
             <div class="popup-inner" style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(poiName)}}</strong><br>
               <small>${{escapeHtml(t('section'))}}: ${{escapeHtml(r.section)}} | ${{escapeHtml(t('category'))}}: ${{escapeHtml(poiCategoryLabel)}}</small><br>
-              <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a>
+              <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a> /
+              <a href="${{satJsonUrl}}" target="_blank">json</a>
               ${{osmTagsHtml}}
               ${{osmHistoryLink}}
               ${{mapkiLink}}
               ${{idEditorLink}}
+              ${{idCheckDateLink}}
               ${{mapCompleteLink}}
               ${{osmNotesLink}}
               ${{wikishootmeLink || commonsUploadLink ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}}
@@ -1551,6 +1567,7 @@ ORDER BY DESC(geof:latitude(?coord))
                   ${{s.osm_relation ? `<br><small>🕐 <a href="https://pewu.github.io/osm-history/#/relation/${{escapeHtml(s.osm_relation)}}" target="_blank">OSM Deep history</a></small>` : ''}}
                   ${{s.osm_relation ? `<br><small>📍 <a href="https://osm.mapki.com/history/relation/${{escapeHtml(s.osm_relation)}}" target="_blank">Mapki history</a></small>` : ''}}
                   ${{s.osm_relation ? `<br><small>✏️ <a href="https://www.openstreetmap.org/edit?editor=id&relation=${{escapeHtml(s.osm_relation)}}#map=14/${{s.lat}}/${{s.lon}}" target="_blank">iD editor (OSM)</a></small>` : ''}}
+                  ${{s.osm_relation ? `<br><small>🗓️ <a href="https://www.openstreetmap.org/edit?editor=id&relation=${{escapeHtml(s.osm_relation)}}#map=14/${{s.lat}}/${{s.lon}}" target="_blank" onclick="return openIdWithCheckDate(this.href)">check_date=today (iD)</a></small>` : ''}}
                   ${{s.image ? `<img class="popup-thumb" src="${{escapeHtml(s.image)}}" alt="section thumbnail">` : ''}}
                 </div>
               `;
