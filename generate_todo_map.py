@@ -436,6 +436,7 @@ html = f"""<!DOCTYPE html>
         <tr>
           <th>Etapp</th>
           <th>POI</th>
+          <th>OSM name</th>
           <th>Kategori</th>
           <th>Saknas</th>
           <th>fixme (OSM)</th>
@@ -455,6 +456,7 @@ html = f"""<!DOCTYPE html>
           return `<tr data-poi-key="${{encodeURIComponent(p.id || '')}}">
             <td>${{escapeHtml(p.section || '')}}</td>
             <td class="poi-name">${{escapeHtml(p.name || '(utan namn)')}}</td>
+            <td data-field="osm_name"><span class="muted">—</span></td>
             <td>${{escapeHtml(p.category || '')}}</td>
             <td><span class="missing-tags">${{chips}}</span></td>
             <td data-field="fixme">${{p.fixme ? escapeHtml(p.fixme) : '<span class="muted">—</span>'}}</td>
@@ -483,6 +485,8 @@ html = f"""<!DOCTYPE html>
         const fixmeText = tags.fixme || p.fixme || '';
         const noteText = tags.note || p.note || '';
         const checkDateText = tags.check_date || '';
+        const osmNameText = tags.name || '';
+        row.querySelector('[data-field="osm_name"]').innerHTML = osmNameText ? escapeHtml(osmNameText) : '<span class="muted">—</span>';
         row.querySelector('[data-field="fixme"]').innerHTML = fixmeText ? escapeHtml(fixmeText) : '<span class="muted">—</span>';
         row.querySelector('[data-field="note"]').innerHTML = noteText ? escapeHtml(noteText) : '<span class="muted">—</span>';
         row.querySelector('[data-field="check_date"]').innerHTML = checkDateText ? escapeHtml(checkDateText) : '<span class="muted">—</span>';
