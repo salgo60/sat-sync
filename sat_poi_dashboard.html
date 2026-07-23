@@ -26,6 +26,9 @@
     .filters button:hover { background:#1e40af; }
     .filters .toggle { display:flex; align-items:center; gap:6px; font-size:.9rem; color:#334155; }
     .filters .toggle input { width:16px; height:16px; }
+    .filters .distance-controls { display:flex; gap:8px; align-items:center; }
+    .filters .distance-controls select { min-width:90px; }
+    .filters .distance-count { font-size:.85rem; color:#334155; background:#f8fafc; border:1px solid #cbd5e1; border-radius:9999px; padding:5px 10px; }
     .filters .count { margin-left:auto; font-size:1rem; color:#0f172a; font-weight:700; background:#e0ecff; border:1px solid #93c5fd; padding:8px 12px; border-radius:8px; }
     .section { padding:20px 24px; }
     h2 { margin:0 0 12px; }
@@ -135,11 +138,24 @@
         <button id="shareBtn" type="button">Dela</button>
         <button id="downloadBtn" type="button">Ladda ned urval JSON</button>
         <button id="resetBtn" type="button">Återställ</button>
+        <button id="zoomTrailBtn" type="button">Zooma ut hela leden</button>
       </div>
       <label class="toggle" for="trailInfoToggle">
         <input type="checkbox" id="trailInfoToggle" checked>
         Visa ledinfo
       </label>
+      <div class="distance-controls">
+        <label class="toggle" for="distanceBandToggle">
+          <input type="checkbox" id="distanceBandToggle">
+          Visa avståndsremsa
+        </label>
+        <select id="distanceBandMeters" aria-label="Avstånd i meter">
+          <option value="100">100 m</option>
+          <option value="500" selected>500 m</option>
+          <option value="1000">1000 m</option>
+        </select>
+        <span id="distanceBandCount" class="distance-count" style="display:none"></span>
+      </div>
       <div class="count" id="visibleCount"></div>
     </div>
 
@@ -7864,9 +7880,13 @@
       const sectionFilter = document.getElementById('sectionFilter');
       const categoryFilter = document.getElementById('categoryFilter');
       const trailInfoToggle = document.getElementById('trailInfoToggle');
+      const distanceBandToggle = document.getElementById('distanceBandToggle');
+      const distanceBandMeters = document.getElementById('distanceBandMeters');
+      const distanceBandCount = document.getElementById('distanceBandCount');
       const shareBtn = document.getElementById('shareBtn');
       const downloadBtn = document.getElementById('downloadBtn');
       const resetBtn = document.getElementById('resetBtn');
+      const zoomTrailBtn = document.getElementById('zoomTrailBtn');
       const poiRows = Array.from(document.querySelectorAll('#poiTable tbody tr'));
       const sectionRows = Array.from(document.querySelectorAll('#sectionTable tbody tr'));
       const visibleCount = document.getElementById('visibleCount');
@@ -7884,6 +7904,17 @@
       let lastCategory = null;
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
+      const distanceBandLayer = L.geoJSON(trailGeoJson, {
+        interactive: false,
+        style: {
+          color: '#60a5fa',
+          opacity: 0.35,
+          fillOpacity: 0.22,
+          weight: 14,
+          lineCap: 'round',
+          lineJoin: 'round'
+        }
+      });
       const trailLayer = L.geoJSON(trailGeoJson, {
         style: {
           color: '#ef4444',
@@ -7909,6 +7940,12 @@
 
       function isFiniteCoord(v) {
         return typeof v === 'number' && Number.isFinite(v);
+      }
+
+      function normalizeBandMeters(raw) {
+        const n = Number(raw);
+        if (n === 100 || n === 500 || n === 1000) return n;
+        return 500;
       }
 
       function poiIconMeta(category) {
@@ -7968,6 +8005,9 @@
         if (safeSec !== 'all') params.set('s', safeSec);
         if (safeCat !== 'all') params.set('c', safeCat);
         if (!trailInfoToggle.checked) params.set('li', '0');
+        if (distanceBandToggle.checked) params.set('db', '1');
+        const bandMeters = normalizeBandMeters(distanceBandMeters.value);
+        if (bandMeters !== 500) params.set('dm', String(bandMeters));
         const m = currentMapState();
         params.set('lat', String(m.lat));
         params.set('lon', String(m.lon));
@@ -7989,6 +8029,8 @@
         categoryFilter.value = cat;
         const li = params.get('li');
         trailInfoToggle.checked = li !== '0';
+        distanceBandToggle.checked = params.get('db') === '1';
+        distanceBandMeters.value = String(normalizeBandMeters(params.get('dm') || '500'));
 
         const lat = Number(params.get('lat'));
         const lon = Number(params.get('lon'));
@@ -8035,6 +8077,7 @@
         const sec = sectionFilter.value;
         const cat = categoryFilter.value;
         const selected = filteredPois(sec, cat);
+        const bandMeters = normalizeBandMeters(distanceBandMeters.value);
         const payload = {
           generated_at: new Date().toISOString(),
           source: 'sat_poi_dashboard',
@@ -8042,6 +8085,8 @@
             section: sanitizeValue(sec, sectionValues),
             category: sanitizeValue(cat, categoryValues),
             show_trail_info: trailInfoToggle.checked,
+            show_distance_band: distanceBandToggle.checked,
+            distance_band_m: bandMeters,
             label: stateLabel(sec, cat),
           },
           count: selected.length,
@@ -8071,6 +8116,8 @@
         markerLayer.clearLayers();
         sectionLayer.clearLayers();
         const showTrailInfo = trailInfoToggle.checked;
+        const showDistanceBand = distanceBandToggle.checked;
+        const bandMeters = normalizeBandMeters(distanceBandMeters.value);
         const selectedSection = sec !== 'all'
           ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
@@ -8107,6 +8154,22 @@
           marker.addTo(markerLayer);
           bounds.push([r.lat, r.lon]);
         });
+
+        if (showDistanceBand) {
+          const centerLat = map.getCenter().lat || 59.2;
+          const metersPerPixel = 156543.03392 * Math.cos(centerLat * Math.PI / 180) / Math.pow(2, map.getZoom());
+          const weight = Math.max(8, (2 * bandMeters) / Math.max(metersPerPixel, 0.01));
+          distanceBandLayer.setStyle({
+            weight,
+            opacity: 0.35,
+            fillOpacity: 0.22
+          });
+          if (!map.hasLayer(distanceBandLayer)) {
+            distanceBandLayer.addTo(map);
+          }
+        } else if (map.hasLayer(distanceBandLayer)) {
+          map.removeLayer(distanceBandLayer);
+        }
 
         if (showTrailInfo) {
           sectionsIndex
@@ -8247,6 +8310,91 @@
         Plotly.react('sankeyChart', data, layout, {displayModeBar: false, responsive: true});
       }
 
+      function extractTrailLines() {
+        const lines = [];
+        (trailGeoJson.features || []).forEach((f) => {
+          const geom = f && f.geometry ? f.geometry : null;
+          if (!geom || !Array.isArray(geom.coordinates)) return;
+          if (geom.type === 'LineString') {
+            const line = geom.coordinates
+              .filter((c) => Array.isArray(c) && c.length >= 2)
+              .map((c) => [Number(c[1]), Number(c[0])])
+              .filter((c) => isFiniteCoord(c[0]) && isFiniteCoord(c[1]));
+            if (line.length >= 2) lines.push(line);
+          } else if (geom.type === 'MultiLineString') {
+            geom.coordinates.forEach((segment) => {
+              const line = (segment || [])
+                .filter((c) => Array.isArray(c) && c.length >= 2)
+                .map((c) => [Number(c[1]), Number(c[0])])
+                .filter((c) => isFiniteCoord(c[0]) && isFiniteCoord(c[1]));
+              if (line.length >= 2) lines.push(line);
+            });
+          }
+        });
+        return lines;
+      }
+
+      const trailLines = extractTrailLines();
+
+      function pointSegmentDistanceMeters(lat, lon, lat1, lon1, lat2, lon2) {
+        const meanLat = ((lat + lat1 + lat2) / 3) * Math.PI / 180;
+        const metersPerDegLat = 111132.92 - 559.82 * Math.cos(2 * meanLat) + 1.175 * Math.cos(4 * meanLat);
+        const metersPerDegLon = 111412.84 * Math.cos(meanLat) - 93.5 * Math.cos(3 * meanLat);
+        const x = (lon - lon1) * metersPerDegLon;
+        const y = (lat - lat1) * metersPerDegLat;
+        const dx = (lon2 - lon1) * metersPerDegLon;
+        const dy = (lat2 - lat1) * metersPerDegLat;
+        const len2 = dx * dx + dy * dy;
+        if (len2 <= 0.0001) return Math.hypot(x, y);
+        const t = Math.max(0, Math.min(1, (x * dx + y * dy) / len2));
+        const px = x - t * dx;
+        const py = y - t * dy;
+        return Math.hypot(px, py);
+      }
+
+      function pointTrailDistanceMeters(lat, lon) {
+        let best = Infinity;
+        trailLines.forEach((line) => {
+          for (let i = 1; i < line.length; i += 1) {
+            const a = line[i - 1];
+            const b = line[i];
+            const d = pointSegmentDistanceMeters(lat, lon, a[0], a[1], b[0], b[1]);
+            if (d < best) best = d;
+          }
+        });
+        return best;
+      }
+
+      function updateDistanceBandCount(sec, cat) {
+        if (!distanceBandToggle.checked) {
+          distanceBandCount.style.display = 'none';
+          distanceBandCount.textContent = '';
+          return;
+        }
+        const bandMeters = normalizeBandMeters(distanceBandMeters.value);
+        const selected = filteredPois(sec, cat).filter((r) => isFiniteCoord(r.lat) && isFiniteCoord(r.lon));
+        let within = 0;
+        selected.forEach((r) => {
+          const d = pointTrailDistanceMeters(r.lat, r.lon);
+          if (Number.isFinite(d) && d <= bandMeters) within += 1;
+        });
+        distanceBandCount.textContent = `${within} inom ${bandMeters} m`;
+        distanceBandCount.style.display = '';
+      }
+
+      function zoomToTrail() {
+        const trailBounds = trailLayer.getBounds();
+        if (!trailBounds.isValid()) return;
+        preserveMapView = true;
+        isProgrammaticMapMove = true;
+        map.fitBounds(trailBounds, { padding: [20, 20], maxZoom: 11 });
+        map.once('moveend', () => {
+          isProgrammaticMapMove = false;
+          saveStateInUrl(sectionFilter.value, categoryFilter.value);
+          applyFilters();
+        });
+      }
+
       function applyFilters() {
         const sec = sanitizeValue(sectionFilter.value, sectionValues);
         const cat = sanitizeValue(categoryFilter.value, categoryValues);
@@ -8275,6 +8423,7 @@
         saveStateInUrl(sec, cat);
         renderSankey(sec, cat);
         renderMap(sec, cat);
+        updateDistanceBandCount(sec, cat);
         lastSection = sec;
         lastCategory = cat;
       }
@@ -8282,9 +8431,16 @@
       sectionFilter.addEventListener('change', applyFilters);
       categoryFilter.addEventListener('change', applyFilters);
       trailInfoToggle.addEventListener('change', applyFilters);
+      distanceBandToggle.addEventListener('change', applyFilters);
+      distanceBandMeters.addEventListener('change', applyFilters);
       shareBtn.addEventListener('click', shareCurrentState);
       downloadBtn.addEventListener('click', downloadSelectionJson);
       resetBtn.addEventListener('click', resetFilters);
+      zoomTrailBtn.addEventListener('click', zoomToTrail);
+      map.on('zoomend', () => {
+        if (!distanceBandToggle.checked) return;
+        renderMap(sectionFilter.value, categoryFilter.value);
+      });
       map.on('moveend', () => {
         if (isProgrammaticMapMove) return;
         preserveMapView = true;
