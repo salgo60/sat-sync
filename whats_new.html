@@ -40,13 +40,35 @@
   <div class="entry">
     <div class="date">Juli 2026</div>
     <div class="pr-links">
-      <a href="https://github.com/salgo60/sat-sync/pull/15" target="_blank">PR #15</a>
+      <a href="https://github.com/salgo60/sat-sync/pull/18" target="_blank">PR #18</a>
     </div>
-    <h2>iD-editor, förbättringslista och mobilanpassning</h2>
+    <h2>Buggfix: franskt apostrof bröt JavaScript</h2>
     <ul>
-      <li><strong>iD editor i popup.</strong> Klicka på ett OSM-kopplat objekt och öppna direkt i OpenStreetMaps inbyggda iD-editor, centrerat på rätt plats med rätt zoom.</li>
-      <li><strong>💡 Förbättringsförslag.</strong> Länk i header och footer som öppnar ett förifyllt GitHub Issue-formulär – föreslå en ny funktion utan att behöva skriva manuellt.</li>
-      <li><strong>Mobilanpassning.</strong> Filter, karta och tabell anpassar sig nu för skärmar ≤640 px – fullbreddiga dropdowns, komprimerade filter, kortare karta.</li>
+      <li><strong>Franskt UI fungerar nu.</strong> Raka apostrofer i franska UI-strängar (<em>type d'objet</em>, <em>Vue d'ensemble</em>, <em>Suggestion d'amélioration</em>) bröt JavaScript-parsningen och laddade ett tomt interface. Ersatta med korrekt Unicode-tecken (U+2019).</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/17" target="_blank">PR #17</a>
+    </div>
+    <h2>Buggfix: karta och Sankey kraschade vid lokal fil</h2>
+    <ul>
+      <li><strong>Fungerar nu lokalt.</strong> När dashboarden öppnades som <code>file://</code> (t.ex. direkt från disk i Edge/Chrome) kastade <code>history.replaceState()</code> ett tyst undantag som stoppade all JavaScript – karta och Sankey-flöde laddades aldrig. Fixat med ett tidigt protokolltest.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/16" target="_blank">PR #16</a>
+    </div>
+    <h2>Översatta headerlänkar, MapComplete-fallback och namnbyte</h2>
+    <ul>
+      <li><strong>Header-meta översätts.</strong> "Version skapad", "What's new" och "💡 Förbättringsförslag" i header och footer bytte nu språk korrekt vid alla 21 språk (tidigare stod de alltid på svenska).</li>
+      <li><strong>MapComplete för alla POI.</strong> Alla OSM-kopplade objekt får nu en MapComplete-länk – även kategorier utan specifikt tema faller tillbaka på <em>nature</em>.</li>
+      <li><strong>Namnbyte.</strong> "Förbättringslista" → "Förbättringsförslag" i header, footer och What's new-sidan.</li>
     </ul>
   </div>
 
@@ -55,18 +77,15 @@
     <div class="pr-links">
       <a href="https://github.com/salgo60/sat-sync/pull/15" target="_blank">PR #15</a>
     </div>
-    <h2>What's new-sida och header-metadata</h2>
+    <h2>iD-editor, förbättringsförslag, mobilanpassning och What's new</h2>
     <ul>
+      <li><strong>iD editor i popup.</strong> Klicka på ett OSM-kopplat objekt och öppna direkt i OpenStreetMaps inbyggda iD-editor, centrerat på rätt plats med rätt zoom.</li>
+      <li><strong>MapComplete-länk.</strong> Popup visar ✏️-länk till rätt MapComplete-tema per objekttyp (toalett → <em>toilets</em>, vatten → <em>drinking_water</em>, mat → <em>food</em>, m.fl.).</li>
+      <li><strong>💡 Förbättringsförslag.</strong> Länk i header och footer som öppnar ett förifyllt GitHub Issue-formulär.</li>
+      <li><strong>Mobilanpassning.</strong> Filter, karta och tabell anpassar sig nu för skärmar ≤640 px – fullbreddiga dropdowns, komprimerade filter, kortare karta.</li>
       <li><strong>Denna sida.</strong> Versionslogg med funktioner per release, länkad från dashboardens header och footer.</li>
       <li><strong>Header-metadata.</strong> Version, GitHub-länk och What's new visas diskret direkt under titeln i headern.</li>
-      <li><strong>MapComplete-länk.</strong> Popup visar ✏️-länk till rätt MapComplete-tema per objekttyp (toalett → <em>toilets</em>, vatten → <em>drinking_water</em>, mat → <em>food</em>, m.fl.).</li>
       <li><strong>Renare URL.</strong> Delningslänkar visar nu <code>lang=fa</code> istället för <code>lang=swedish:fa</code>.</li>
-    </ul>
-  </div>
-
-    <ul>
-      <li><strong>Redigera i MapComplete.</strong> Popup-fönstret för objekt med OSM-koppling får nu en ✏️-länk direkt till rätt MapComplete-tema — toalett öppnar <em>toilets</em>, dricksvattenkälla öppnar <em>drinking_water</em>, mat öppnar <em>food</em>, och så vidare.</li>
-      <li><strong>Renare URL vid delning.</strong> Språkparametern i delningslänkar skriver nu bara språkkoden: <code>lang=fa</code> istället för det missvisande <code>lang=swedish:fa</code>.</li>
     </ul>
   </div>
 
