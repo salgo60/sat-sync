@@ -150,6 +150,7 @@ class POIDashboardGenerator:
                 {
                     "id": props.get("id"),
                     "name": props.get("name"),
+                    "name_localized": props.get("nameLocalized") or {},
                     "section": props.get("section"),
                     "category": props.get("category"),
                     "updated_at": props.get("updatedAt"),
@@ -296,6 +297,7 @@ ORDER BY DESC(geof:latitude(?coord))
                 {
                     "id": p.get("id"),
                     "name": p.get("name"),
+                    "name_localized": p.get("name_localized") or {},
                     "section": sec,
                     "category": cat,
                     "same_as": p.get("same_as") or [],
@@ -348,7 +350,7 @@ ORDER BY DESC(geof:latitude(?coord))
             sat_id = p.get("id") or "—"
             poi_rows.append(
                 f"""
-        <tr data-section="{sec}" data-category="{cat}">
+        <tr data-section="{sec}" data-category="{cat}" data-poi-id="{sat_id}">
           <td><a href="https://map.stockholmarchipelagotrail.com/?{sat_id}" target="_blank"><code>{sat_id}</code></a></td>
           <td>{p.get("name") or "—"}</td>
           <td>{sec}</td>
@@ -393,7 +395,48 @@ ORDER BY DESC(geof:latitude(?coord))
             f'<option value="{sec}">{section_display.get(sec, sec)}</option>'
             for _, _, sec in ordered_sections
         )
-        category_options = "\n".join(f'<option value="{c}">{c}</option>' for c in sorted(categories))
+        category_options = "\n".join(f'<option value="{c}" data-category="{c}">{c}</option>' for c in sorted(categories))
+        swedish_languages = [
+            ("sv", "Swedish (Svenska)"),
+            ("en", "English"),
+            ("ar", "Arabic (العربية)"),
+            ("fi", "Finnish (Suomi)"),
+            ("so", "Somali (Soomaali)"),
+            ("fa", "Persian (فارسی)"),
+            ("ckb", "Kurdish (Sorani)"),
+            ("ti", "Tigrinya (ትግርኛ)"),
+            ("pl", "Polish (Polski)"),
+            ("tr", "Turkish (Türkçe)"),
+            ("es", "Spanish (Español)"),
+        ]
+        tourist_languages = [
+            ("nb", "Norwegian (Bokmål)"),
+            ("nn", "Norwegian (Nynorsk)"),
+            ("da", "Danish (Dansk)"),
+            ("fi", "Finnish (Suomi)"),
+            ("de", "German (Deutsch)"),
+            ("nl", "Dutch (Nederlands)"),
+            ("en", "English"),
+            ("fr", "French (Français)"),
+            ("es", "Spanish (Español)"),
+            ("it", "Italian (Italiano)"),
+            ("zh", "Chinese (中文)"),
+            ("ja", "Japanese (日本語)"),
+            ("pl", "Polish (Polski)"),
+            ("ru", "Russian (Русский)"),
+        ]
+        swedish_language_options = "\n".join(
+            f'<option value="swedish:{code}"{" selected" if code == "sv" else ""}>{label}</option>'
+            for code, label in swedish_languages
+        )
+        tourist_language_options = "\n".join(
+            f'<option value="tourist:{code}">{label}</option>'
+            for code, label in tourist_languages
+        )
+        language_options = (
+            f'<optgroup label="Svenska språken">\n{swedish_language_options}\n</optgroup>\n'
+            f'<optgroup label="Turistspråken">\n{tourist_language_options}\n</optgroup>'
+        )
         poi_flow_json = json.dumps(poi_flow_data, ensure_ascii=False)
         poi_map_json = json.dumps(poi_map_data, ensure_ascii=False)
         trail_geojson_json = json.dumps(trail_geojson, ensure_ascii=False)
@@ -422,6 +465,7 @@ ORDER BY DESC(geof:latitude(?coord))
     .filters {{ background:#fff; padding:14px 24px; border-bottom:1px solid #e2e8f0; display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }}
     .filters label {{ display:block; font-size:.8rem; color:#555; margin-bottom:4px; font-weight:600; }}
     .filters select {{ min-width:180px; padding:8px; border:1px solid #cbd5e1; border-radius:6px; }}
+    #languageFilter {{ min-width:300px; }}
     .filters .hint {{ margin-top:4px; font-size:.75rem; color:#64748b; }}
     .filters .actions {{ display:flex; gap:8px; align-items:center; }}
     .filters button {{ padding:8px 12px; border:1px solid #1d4ed8; background:#1d4ed8; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }}
@@ -479,29 +523,36 @@ ORDER BY DESC(geof:latitude(?coord))
 <body>
   <div class="container">
     <div class="header">
-      <h1>🧭 SAT POI Dashboard</h1>
-      <p>Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
+      <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
+      <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
     </div>
 
     <div class="stats">
-      <div class="card"><h3>Totalt POI</h3><div class="num">{len(pois)}</div></div>
-      <div class="card"><h3>Etapp/ö (sections)</h3><div class="num">{len(section_stats)}</div></div>
-      <div class="card"><h3>Objekttyper</h3><div class="num">{len(categories)}</div></div>
-      <div class="card"><h3>Wikidata-etapper</h3><div class="num">{len(stages)}</div></div>
+      <div class="card"><h3 id="statTotalLabel">Totalt POI</h3><div class="num">{len(pois)}</div></div>
+      <div class="card"><h3 id="statSectionsLabel">Etapp/ö (sections)</h3><div class="num">{len(section_stats)}</div></div>
+      <div class="card"><h3 id="statCategoriesLabel">Objekttyper</h3><div class="num">{len(categories)}</div></div>
+      <div class="card"><h3 id="statWikidataLabel">Wikidata-etapper</h3><div class="num">{len(stages)}</div></div>
     </div>
 
     <div class="filters">
       <div>
-        <label for="sectionFilter">Filtrera etapp/ö</label>
+        <label id="languageFilterLabel" for="languageFilter">Språk</label>
+        <select id="languageFilter">
+          {language_options}
+        </select>
+        <div id="languageHint" class="hint">Svenska språken och turistspråken är separerade i listan.</div>
+      </div>
+      <div>
+        <label id="sectionFilterLabel" for="sectionFilter">Filtrera etapp/ö</label>
         <select id="sectionFilter">
-          <option value="all">Alla</option>
+          <option value="all" id="sectionAllOption">Alla</option>
           {section_options}
         </select>
       </div>
       <div>
-        <label for="categoryFilter">Filtrera objekttyp</label>
+        <label id="categoryFilterLabel" for="categoryFilter">Filtrera objekttyp</label>
         <select id="categoryFilter">
-          <option value="all">Alla</option>
+          <option value="all" id="categoryAllOption">Alla</option>
           {category_options}
         </select>
       </div>
@@ -513,12 +564,12 @@ ORDER BY DESC(geof:latitude(?coord))
       </div>
       <label class="toggle" for="trailInfoToggle">
         <input type="checkbox" id="trailInfoToggle" checked>
-        Visa ledinfo
+        <span id="trailInfoToggleLabel">Visa ledinfo</span>
       </label>
       <div class="distance-controls">
         <label class="toggle" for="distanceBandToggle">
           <input type="checkbox" id="distanceBandToggle">
-          Visa avståndsremsa
+          <span id="distanceBandToggleLabel">Visa avståndsremsa</span>
         </label>
         <select id="distanceBandMeters" aria-label="Avstånd i meter">
           <option value="100">100 m</option>
@@ -531,26 +582,26 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="section">
-      <h2>Karta (aktuell filtrering)</h2>
+      <h2 id="mapSectionTitle">Karta (aktuell filtrering)</h2>
       <div class="map-wrap">
         <div id="poiMap"></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Alla POI</h2>
+      <h2 id="allPoiTitle">Alla POI</h2>
       <div class="table-wrap">
         <table id="poiTable">
           <thead>
             <tr>
-              <th>SAT ID</th>
-              <th>Namn</th>
-              <th>Section</th>
-              <th>Kategori</th>
-              <th>Etapp/ö</th>
+              <th id="thSatId">SAT ID</th>
+              <th id="thName">Namn</th>
+              <th id="thSection">Section</th>
+              <th id="thCategory">Kategori</th>
+              <th id="thStage">Etapp/ö</th>
               <th>sameAs</th>
-              <th>Första sedd</th>
-              <th>Uppdaterad</th>
+              <th id="thFirstSeen">Första sedd</th>
+              <th id="thUpdated">Uppdaterad</th>
             </tr>
           </thead>
           <tbody>
@@ -561,24 +612,24 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="section">
-      <h2>Flöde: kategori → grupp → etapp/ö</h2>
+      <h2 id="flowTitle">Flöde: kategori → grupp → etapp/ö</h2>
       <div class="chart-wrap">
         <div id="sankeyChart"></div>
       </div>
     </div>
 
     <div class="section">
-      <h2>Etapp/ö-översikt</h2>
+      <h2 id="sectionOverviewTitle">Etapp/ö-översikt</h2>
       <div class="table-wrap">
         <table id="sectionTable">
           <thead>
             <tr>
-              <th>Section</th>
-              <th>Wikidata etapp/ö</th>
+              <th id="thSectionOverviewSection">Section</th>
+              <th id="thSectionOverviewWikidata">Wikidata etapp/ö</th>
               <th>POI</th>
-              <th>Med Wikidata-länk</th>
-              <th>Med OSM-länk</th>
-              <th>Toppkategorier</th>
+              <th id="thSectionOverviewWithWikidata">Med Wikidata-länk</th>
+              <th id="thSectionOverviewWithOsm">Med OSM-länk</th>
+              <th id="thSectionOverviewTopCategories">Toppkategorier</th>
             </tr>
           </thead>
           <tbody>
@@ -589,9 +640,9 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="footer">
-      Version skapad: <strong>{generated_at}</strong> |
+      <span id="versionCreatedLabel">Version skapad</span>: <strong>{generated_at}</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
-      Källor: <a href="{POIS_URL}" target="_blank">pois.geojson</a> |
+      <span id="sourcesLabel">Källor</span>: <a href="{POIS_URL}" target="_blank">pois.geojson</a> |
       <a href="{TRAIL_URL}" target="_blank">trail.jsonld</a> |
       <a href="{SECTIONS_INDEX_URL}" target="_blank">sections-index.json</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data-sources" target="_blank">data-sources</a> |
@@ -601,6 +652,7 @@ ORDER BY DESC(geof:latitude(?coord))
 
   <script>
     (function() {{
+      const languageFilter = document.getElementById('languageFilter');
       const sectionFilter = document.getElementById('sectionFilter');
       const categoryFilter = document.getElementById('categoryFilter');
       const trailInfoToggle = document.getElementById('trailInfoToggle');
@@ -616,6 +668,7 @@ ORDER BY DESC(geof:latitude(?coord))
       const visibleCount = document.getElementById('visibleCount');
       const poiFlow = {poi_flow_json};
       const poiMapData = {poi_map_json};
+      const poiById = new Map(poiMapData.filter((p) => !!p.id).map((p) => [p.id, p]));
       const totalPoiCount = poiMapData.length;
       const sectionValues = new Set(Array.from(sectionFilter.options).map(o => o.value));
       const categoryValues = new Set(Array.from(categoryFilter.options).map(o => o.value));
@@ -652,6 +705,307 @@ ORDER BY DESC(geof:latitude(?coord))
         maxZoom: 18,
         attribution: '&copy; OpenStreetMap'
       }}).addTo(map);
+
+      const i18n = {{
+        sv: {{
+          all: 'Alla',
+          headerTitle: '🧭 SAT POI Dashboard',
+          headerSubtitle: 'Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp',
+          statTotalLabel: 'Totalt POI',
+          statSectionsLabel: 'Etapp/ö (sections)',
+          statCategoriesLabel: 'Objekttyper',
+          statWikidataLabel: 'Wikidata-etapper',
+          languageFilterLabel: 'Språk',
+          languageHint: 'Svenska språken och turistspråken är separerade i listan.',
+          sectionFilterLabel: 'Filtrera etapp/ö',
+          categoryFilterLabel: 'Filtrera objekttyp',
+          shareBtn: 'Dela',
+          downloadBtn: 'Ladda ned urval JSON',
+          resetBtn: 'Återställ',
+          zoomTrailBtn: 'Zooma ut hela leden',
+          trailInfoToggleLabel: 'Visa ledinfo',
+          distanceBandToggleLabel: 'Visa avståndsremsa',
+          mapSectionTitle: 'Karta (aktuell filtrering)',
+          allPoiTitle: 'Alla POI',
+          flowTitle: 'Flöde: kategori → grupp → etapp/ö',
+          sectionOverviewTitle: 'Etapp/ö-översikt',
+          thName: 'Namn',
+          thSection: 'Section',
+          thCategory: 'Kategori',
+          thStage: 'Etapp/ö',
+          thFirstSeen: 'Första sedd',
+          thUpdated: 'Uppdaterad',
+          thSectionOverviewWithWikidata: 'Med Wikidata-länk',
+          thSectionOverviewWithOsm: 'Med OSM-länk',
+          thSectionOverviewTopCategories: 'Toppkategorier',
+          versionCreatedLabel: 'Version skapad',
+          sourcesLabel: 'Källor',
+          visibleCount: 'Visar {{visible}} av {{total}} POI',
+          distanceCount: '{{within}} inom {{meters}} m',
+          section: 'Section',
+          category: 'Kategori',
+          openSatMap: 'Öppna i SAT-kartan',
+          osmTags: 'OSM-taggar',
+          noOsmTags: 'Inga OSM-taggar hittades.',
+          noOsmRef: 'Ingen OSM-referens för objektet.',
+          loadingOsmTags: 'Laddar OSM-taggar...',
+          cannotLoadOsmTags: 'Kunde inte hämta OSM-taggar (HTTP {{status}}).',
+          failedOsmTags: 'Fel vid hämtning av OSM-taggar: {{message}}',
+          copiedShareLink: 'Delningslänk kopierad:\\n{{url}}',
+          copyLinkPrompt: 'Kopiera länken:',
+          sankeyTitlePrefix: 'POI-flöde för',
+          sankeyAllStages: 'alla etapper',
+          sankeyStagePrefix: 'etapp'
+        }},
+        en: {{
+          all: 'All',
+          headerTitle: '🧭 SAT POI Dashboard',
+          headerSubtitle: 'All objects in pois.geojson linked to stage/island (Wikidata), section and object type',
+          statTotalLabel: 'Total POI',
+          statSectionsLabel: 'Stage/island (sections)',
+          statCategoriesLabel: 'Object types',
+          statWikidataLabel: 'Wikidata stages',
+          languageFilterLabel: 'Language',
+          languageHint: 'Swedish-language set and tourist-language set are separated in the list.',
+          sectionFilterLabel: 'Filter by stage/island',
+          categoryFilterLabel: 'Filter by object type',
+          shareBtn: 'Share',
+          downloadBtn: 'Download selection JSON',
+          resetBtn: 'Reset',
+          zoomTrailBtn: 'Zoom out to whole trail',
+          trailInfoToggleLabel: 'Show trail info',
+          distanceBandToggleLabel: 'Show distance band',
+          mapSectionTitle: 'Map (current filter)',
+          allPoiTitle: 'All POI',
+          flowTitle: 'Flow: category → group → stage/island',
+          sectionOverviewTitle: 'Stage/island overview',
+          thName: 'Name',
+          thSection: 'Section',
+          thCategory: 'Category',
+          thStage: 'Stage/island',
+          thFirstSeen: 'First seen',
+          thUpdated: 'Updated',
+          thSectionOverviewWithWikidata: 'With Wikidata link',
+          thSectionOverviewWithOsm: 'With OSM link',
+          thSectionOverviewTopCategories: 'Top categories',
+          versionCreatedLabel: 'Version created',
+          sourcesLabel: 'Sources',
+          visibleCount: 'Showing {{visible}} of {{total}} POI',
+          distanceCount: '{{within}} within {{meters}} m',
+          section: 'Section',
+          category: 'Category',
+          openSatMap: 'Open in SAT map',
+          osmTags: 'OSM tags',
+          noOsmTags: 'No OSM tags found.',
+          noOsmRef: 'No OSM reference for this object.',
+          loadingOsmTags: 'Loading OSM tags...',
+          cannotLoadOsmTags: 'Could not load OSM tags (HTTP {{status}}).',
+          failedOsmTags: 'Error loading OSM tags: {{message}}',
+          copiedShareLink: 'Share link copied:\\n{{url}}',
+          copyLinkPrompt: 'Copy the link:',
+          sankeyTitlePrefix: 'POI flow for',
+          sankeyAllStages: 'all stages',
+          sankeyStagePrefix: 'stage'
+        }}
+      }};
+
+      const i18nExtended = {{
+        ar: {{ all: 'الكل', languageFilterLabel: 'اللغة', sectionFilterLabel: 'تصفية حسب المرحلة/الجزيرة', categoryFilterLabel: 'تصفية حسب نوع الكائن', shareBtn: 'مشاركة', downloadBtn: 'تنزيل JSON', resetBtn: 'إعادة تعيين', zoomTrailBtn: 'تصغير إلى كامل المسار', trailInfoToggleLabel: 'إظهار معلومات المسار', distanceBandToggleLabel: 'إظهار نطاق المسافة', mapSectionTitle: 'الخريطة (التصفية الحالية)', allPoiTitle: 'كل نقاط الاهتمام', flowTitle: 'التدفق: الفئة → المجموعة → المرحلة/الجزيرة', sectionOverviewTitle: 'نظرة عامة على المراحل/الجزر', versionCreatedLabel: 'تم إنشاء النسخة', sourcesLabel: 'المصادر', section: 'القسم', category: 'الفئة', openSatMap: 'افتح في خريطة SAT', thName: 'الاسم', thStage: 'المرحلة/الجزيرة', thFirstSeen: 'أول ظهور', thUpdated: 'محدّث' }},
+        fi: {{ all: 'Kaikki', languageFilterLabel: 'Kieli', sectionFilterLabel: 'Suodata etapin/saaren mukaan', categoryFilterLabel: 'Suodata kohdelajin mukaan', shareBtn: 'Jaa', downloadBtn: 'Lataa JSON-valinta', resetBtn: 'Nollaa', zoomTrailBtn: 'Zoomaa koko reitille', trailInfoToggleLabel: 'Näytä reittitiedot', distanceBandToggleLabel: 'Näytä etäisyysvyöhyke', mapSectionTitle: 'Kartta (nykyinen suodatus)', allPoiTitle: 'Kaikki POI:t', flowTitle: 'Virta: kategoria → ryhmä → etappi/saari', sectionOverviewTitle: 'Etappi-/saariyhteenveto', versionCreatedLabel: 'Versio luotu', sourcesLabel: 'Lähteet', section: 'Osio', category: 'Kategoria', openSatMap: 'Avaa SAT-kartassa', thName: 'Nimi', thStage: 'Etappi/saari', thFirstSeen: 'Ensimmäinen havainto', thUpdated: 'Päivitetty' }},
+        so: {{ all: 'Dhammaan', languageFilterLabel: 'Luqad', sectionFilterLabel: 'Ku shaandhee marxalad/jasiirad', categoryFilterLabel: 'Ku shaandhee nooca shayga', shareBtn: 'Wadaag', downloadBtn: 'Soo dejiso JSON', resetBtn: 'Dib u deji', zoomTrailBtn: 'Ka fogee jidka oo dhan', trailInfoToggleLabel: 'Muuji xogta jidka', distanceBandToggleLabel: 'Muuji xadka masaafada', mapSectionTitle: 'Khariidad (shaandhaynta hadda)', allPoiTitle: 'Dhammaan POI', flowTitle: 'Socod: nooc → koox → marxalad/jasiirad', sectionOverviewTitle: 'Dulmar marxalad/jasiirad', versionCreatedLabel: 'Nooca la sameeyay', sourcesLabel: 'Ilaha', section: 'Qayb', category: 'Nooc', openSatMap: 'Ka fur khariidadda SAT' }},
+        fa: {{ all: 'همه', languageFilterLabel: 'زبان', sectionFilterLabel: 'فیلتر بر اساس مرحله/جزیره', categoryFilterLabel: 'فیلتر بر اساس نوع شیء', shareBtn: 'اشتراک‌گذاری', downloadBtn: 'دانلود JSON', resetBtn: 'بازنشانی', zoomTrailBtn: 'بزرگ‌نمایی روی کل مسیر', trailInfoToggleLabel: 'نمایش اطلاعات مسیر', distanceBandToggleLabel: 'نمایش نوار فاصله', mapSectionTitle: 'نقشه (فیلتر فعلی)', allPoiTitle: 'همه POIها', flowTitle: 'جریان: دسته‌بندی → گروه → مرحله/جزیره', sectionOverviewTitle: 'نمای کلی مرحله/جزیره', versionCreatedLabel: 'نسخه ایجاد شد', sourcesLabel: 'منابع', section: 'بخش', category: 'دسته‌بندی', openSatMap: 'باز کردن در نقشه SAT' }},
+        ckb: {{ all: 'هەموو', languageFilterLabel: 'زمان', sectionFilterLabel: 'پاڵاوتن بە پێی قۆناغ/دوورگە', categoryFilterLabel: 'پاڵاوتن بە پێی جۆری شت', shareBtn: 'هاوبەشکردن', downloadBtn: 'داگرتنی JSON', resetBtn: 'ڕێکخستنەوە', zoomTrailBtn: 'زوم دەرەوە بۆ تەواوی ڕێگا', trailInfoToggleLabel: 'پیشاندانی زانیاری ڕێگا', distanceBandToggleLabel: 'پیشاندانی شریتی دووری', mapSectionTitle: 'نەخشە (پاڵاوتنی ئێستا)', allPoiTitle: 'هەموو POI', flowTitle: 'ڕەوت: پۆل → گروپ → قۆناغ/دوورگە', sectionOverviewTitle: 'پوختەی قۆناغ/دوورگە', versionCreatedLabel: 'وەشان دروستکرا', sourcesLabel: 'سەرچاوەکان', section: 'بەش', category: 'پۆل' }},
+        ti: {{ all: 'ኩሉ', languageFilterLabel: 'ቋንቋ', sectionFilterLabel: 'ብደረጃ/ደሴት ምረጽ', categoryFilterLabel: 'ብዓይነት ነገር ምረጽ', shareBtn: 'ኣካፍል', downloadBtn: 'JSON ኣውርድ', resetBtn: 'ዳግም ምድላው', zoomTrailBtn: 'ናብ ኩሉ መንገዲ ኣውጽእ', trailInfoToggleLabel: 'ሓበሬታ መንገዲ ኣርኢ', distanceBandToggleLabel: 'ርሕቀት ክልል ኣርኢ', mapSectionTitle: 'ካርታ (ሕጂ ማጣርያ)', allPoiTitle: 'ኩሉ POI', flowTitle: 'ፍሰት: ምድብ → ጉጅለ → ደረጃ/ደሴት', sectionOverviewTitle: 'ሓፈሻዊ ደረጃ/ደሴት', versionCreatedLabel: 'ስሪት ተፈጢሩ', sourcesLabel: 'ምንጮች', section: 'ክፍሊ', category: 'ምድብ' }},
+        pl: {{ all: 'Wszystkie', languageFilterLabel: 'Język', sectionFilterLabel: 'Filtruj wg etapu/wyspy', categoryFilterLabel: 'Filtruj wg typu obiektu', shareBtn: 'Udostępnij', downloadBtn: 'Pobierz JSON', resetBtn: 'Resetuj', zoomTrailBtn: 'Oddal na cały szlak', trailInfoToggleLabel: 'Pokaż informacje o szlaku', distanceBandToggleLabel: 'Pokaż pas odległości', mapSectionTitle: 'Mapa (bieżący filtr)', allPoiTitle: 'Wszystkie POI', flowTitle: 'Przepływ: kategoria → grupa → etap/wyspa', sectionOverviewTitle: 'Przegląd etapów/wysp', versionCreatedLabel: 'Wersja utworzona', sourcesLabel: 'Źródła', section: 'Sekcja', category: 'Kategoria', openSatMap: 'Otwórz w mapie SAT', thName: 'Nazwa', thStage: 'Etap/wyspa', thFirstSeen: 'Pierwsze wykrycie', thUpdated: 'Zaktualizowano' }},
+        tr: {{ all: 'Tümü', languageFilterLabel: 'Dil', sectionFilterLabel: 'Etap/adaya göre filtrele', categoryFilterLabel: 'Nesne türüne göre filtrele', shareBtn: 'Paylaş', downloadBtn: 'JSON indir', resetBtn: 'Sıfırla', zoomTrailBtn: 'Tüm rotaya uzaklaş', trailInfoToggleLabel: 'Rota bilgisini göster', distanceBandToggleLabel: 'Mesafe bandını göster', mapSectionTitle: 'Harita (mevcut filtre)', allPoiTitle: 'Tüm POI', flowTitle: 'Akış: kategori → grup → etap/ada', sectionOverviewTitle: 'Etap/ada özeti', versionCreatedLabel: 'Sürüm oluşturuldu', sourcesLabel: 'Kaynaklar', section: 'Bölüm', category: 'Kategori', openSatMap: 'SAT haritasında aç', thName: 'Ad', thStage: 'Etap/ada', thFirstSeen: 'İlk görülen', thUpdated: 'Güncellendi' }},
+        es: {{ all: 'Todos', languageFilterLabel: 'Idioma', sectionFilterLabel: 'Filtrar por etapa/isla', categoryFilterLabel: 'Filtrar por tipo de objeto', shareBtn: 'Compartir', downloadBtn: 'Descargar JSON', resetBtn: 'Restablecer', zoomTrailBtn: 'Alejar a todo el sendero', trailInfoToggleLabel: 'Mostrar info del sendero', distanceBandToggleLabel: 'Mostrar banda de distancia', mapSectionTitle: 'Mapa (filtro actual)', allPoiTitle: 'Todos los POI', flowTitle: 'Flujo: categoría → grupo → etapa/isla', sectionOverviewTitle: 'Resumen de etapas/islas', versionCreatedLabel: 'Versión creada', sourcesLabel: 'Fuentes', section: 'Sección', category: 'Categoría', openSatMap: 'Abrir en mapa SAT', thName: 'Nombre', thStage: 'Etapa/isla', thFirstSeen: 'Primera vez visto', thUpdated: 'Actualizado' }},
+        nb: {{ all: 'Alle', languageFilterLabel: 'Språk', sectionFilterLabel: 'Filtrer etter etappe/øy', categoryFilterLabel: 'Filtrer etter objekttype', shareBtn: 'Del', downloadBtn: 'Last ned JSON', resetBtn: 'Tilbakestill', zoomTrailBtn: 'Zoom ut til hele leden', trailInfoToggleLabel: 'Vis ledinfo', distanceBandToggleLabel: 'Vis avstandsbånd', mapSectionTitle: 'Kart (nåværende filter)', allPoiTitle: 'Alle POI', flowTitle: 'Flyt: kategori → gruppe → etappe/øy', sectionOverviewTitle: 'Oversikt etappe/øy', versionCreatedLabel: 'Versjon opprettet', sourcesLabel: 'Kilder', section: 'Seksjon', category: 'Kategori', openSatMap: 'Åpne i SAT-kart', thName: 'Navn', thStage: 'Etappe/øy', thFirstSeen: 'Først sett', thUpdated: 'Oppdatert' }},
+        nn: {{ all: 'Alle', languageFilterLabel: 'Språk', sectionFilterLabel: 'Filtrer etter etappe/øy', categoryFilterLabel: 'Filtrer etter objekttype', shareBtn: 'Del', downloadBtn: 'Last ned JSON', resetBtn: 'Tilbakestill', zoomTrailBtn: 'Zoom ut til heile leden', trailInfoToggleLabel: 'Vis leddinfo', distanceBandToggleLabel: 'Vis avstandsbånd', mapSectionTitle: 'Kart (gjeldande filter)', allPoiTitle: 'Alle POI', flowTitle: 'Flyt: kategori → gruppe → etappe/øy', sectionOverviewTitle: 'Oversikt etappe/øy', versionCreatedLabel: 'Versjon oppretta', sourcesLabel: 'Kjelder', section: 'Seksjon', category: 'Kategori', openSatMap: 'Opne i SAT-kart' }},
+        da: {{ all: 'Alle', languageFilterLabel: 'Sprog', sectionFilterLabel: 'Filtrer efter etape/ø', categoryFilterLabel: 'Filtrer efter objekttype', shareBtn: 'Del', downloadBtn: 'Download JSON', resetBtn: 'Nulstil', zoomTrailBtn: 'Zoom ud til hele stien', trailInfoToggleLabel: 'Vis stiinfo', distanceBandToggleLabel: 'Vis afstandsbånd', mapSectionTitle: 'Kort (aktuelt filter)', allPoiTitle: 'Alle POI', flowTitle: 'Flow: kategori → gruppe → etape/ø', sectionOverviewTitle: 'Oversigt etape/ø', versionCreatedLabel: 'Version oprettet', sourcesLabel: 'Kilder', section: 'Sektion', category: 'Kategori', openSatMap: 'Åbn i SAT-kort' }},
+        de: {{ all: 'Alle', languageFilterLabel: 'Sprache', sectionFilterLabel: 'Nach Etappe/Insel filtern', categoryFilterLabel: 'Nach Objekttyp filtern', shareBtn: 'Teilen', downloadBtn: 'Auswahl als JSON herunterladen', resetBtn: 'Zurücksetzen', zoomTrailBtn: 'Auf gesamten Trail zoomen', trailInfoToggleLabel: 'Trail-Info anzeigen', distanceBandToggleLabel: 'Entfernungsband anzeigen', mapSectionTitle: 'Karte (aktueller Filter)', allPoiTitle: 'Alle POI', flowTitle: 'Fluss: Kategorie → Gruppe → Etappe/Insel', sectionOverviewTitle: 'Etappen-/Inselübersicht', versionCreatedLabel: 'Version erstellt', sourcesLabel: 'Quellen', section: 'Abschnitt', category: 'Kategorie', openSatMap: 'In SAT-Karte öffnen', thName: 'Name', thStage: 'Etappe/Insel', thFirstSeen: 'Erstmals gesehen', thUpdated: 'Aktualisiert' }},
+        nl: {{ all: 'Alle', languageFilterLabel: 'Taal', sectionFilterLabel: 'Filter op etappe/eiland', categoryFilterLabel: 'Filter op objecttype', shareBtn: 'Delen', downloadBtn: 'Selectie JSON downloaden', resetBtn: 'Resetten', zoomTrailBtn: 'Uitzoomen naar hele route', trailInfoToggleLabel: 'Route-info tonen', distanceBandToggleLabel: 'Afstandsband tonen', mapSectionTitle: 'Kaart (huidige filter)', allPoiTitle: 'Alle POI', flowTitle: 'Stroom: categorie → groep → etappe/eiland', sectionOverviewTitle: 'Overzicht etappe/eiland', versionCreatedLabel: 'Versie gemaakt', sourcesLabel: 'Bronnen', section: 'Sectie', category: 'Categorie', openSatMap: 'Openen in SAT-kaart' }},
+        fr: {{ all: 'Tous', languageFilterLabel: 'Langue', sectionFilterLabel: 'Filtrer par étape/île', categoryFilterLabel: 'Filtrer par type d’objet', shareBtn: 'Partager', downloadBtn: 'Télécharger JSON', resetBtn: 'Réinitialiser', zoomTrailBtn: 'Dézoomer sur tout le sentier', trailInfoToggleLabel: 'Afficher infos du sentier', distanceBandToggleLabel: 'Afficher la bande de distance', mapSectionTitle: 'Carte (filtre actuel)', allPoiTitle: 'Tous les POI', flowTitle: 'Flux : catégorie → groupe → étape/île', sectionOverviewTitle: 'Vue d’ensemble étape/île', versionCreatedLabel: 'Version créée', sourcesLabel: 'Sources', section: 'Section', category: 'Catégorie', openSatMap: 'Ouvrir dans la carte SAT', thName: 'Nom', thStage: 'Étape/île', thFirstSeen: 'Vu pour la première fois', thUpdated: 'Mis à jour' }},
+        it: {{ all: 'Tutti', languageFilterLabel: 'Lingua', sectionFilterLabel: 'Filtra per tappa/isola', categoryFilterLabel: 'Filtra per tipo oggetto', shareBtn: 'Condividi', downloadBtn: 'Scarica JSON selezione', resetBtn: 'Reimposta', zoomTrailBtn: 'Zoom out su tutto il percorso', trailInfoToggleLabel: 'Mostra info sentiero', distanceBandToggleLabel: 'Mostra fascia distanza', mapSectionTitle: 'Mappa (filtro corrente)', allPoiTitle: 'Tutti i POI', flowTitle: 'Flusso: categoria → gruppo → tappa/isola', sectionOverviewTitle: 'Panoramica tappa/isola', versionCreatedLabel: 'Versione creata', sourcesLabel: 'Fonti', section: 'Sezione', category: 'Categoria', openSatMap: 'Apri nella mappa SAT' }},
+        zh: {{ all: '全部', languageFilterLabel: '语言', sectionFilterLabel: '按路段/岛屿筛选', categoryFilterLabel: '按对象类型筛选', shareBtn: '分享', downloadBtn: '下载 JSON', resetBtn: '重置', zoomTrailBtn: '缩放到整条步道', trailInfoToggleLabel: '显示步道信息', distanceBandToggleLabel: '显示距离带', mapSectionTitle: '地图（当前筛选）', allPoiTitle: '全部 POI', flowTitle: '流向：类别 → 分组 → 路段/岛屿', sectionOverviewTitle: '路段/岛屿概览', versionCreatedLabel: '版本创建时间', sourcesLabel: '来源', section: '区段', category: '类别', openSatMap: '在 SAT 地图中打开', thName: '名称', thStage: '路段/岛屿', thFirstSeen: '首次发现', thUpdated: '已更新' }},
+        ja: {{ all: 'すべて', languageFilterLabel: '言語', sectionFilterLabel: '区間/島で絞り込み', categoryFilterLabel: 'オブジェクト種別で絞り込み', shareBtn: '共有', downloadBtn: 'JSONをダウンロード', resetBtn: 'リセット', zoomTrailBtn: 'トレイル全体にズームアウト', trailInfoToggleLabel: 'トレイル情報を表示', distanceBandToggleLabel: '距離バンドを表示', mapSectionTitle: '地図（現在のフィルター）', allPoiTitle: 'すべての POI', flowTitle: 'フロー：カテゴリ → グループ → 区間/島', sectionOverviewTitle: '区間/島の概要', versionCreatedLabel: '作成バージョン', sourcesLabel: 'ソース', section: 'セクション', category: 'カテゴリ', openSatMap: 'SATマップで開く', thName: '名称', thStage: '区間/島', thFirstSeen: '初回確認', thUpdated: '更新日' }},
+        ru: {{ all: 'Все', languageFilterLabel: 'Язык', sectionFilterLabel: 'Фильтр по этапу/острову', categoryFilterLabel: 'Фильтр по типу объекта', shareBtn: 'Поделиться', downloadBtn: 'Скачать JSON', resetBtn: 'Сбросить', zoomTrailBtn: 'Уменьшить до всего маршрута', trailInfoToggleLabel: 'Показать информацию о тропе', distanceBandToggleLabel: 'Показать полосу расстояния', mapSectionTitle: 'Карта (текущий фильтр)', allPoiTitle: 'Все POI', flowTitle: 'Поток: категория → группа → этап/остров', sectionOverviewTitle: 'Обзор этапов/островов', versionCreatedLabel: 'Версия создана', sourcesLabel: 'Источники', section: 'Секция', category: 'Категория', openSatMap: 'Открыть в карте SAT', thName: 'Название', thStage: 'Этап/остров', thFirstSeen: 'Первое обнаружение', thUpdated: 'Обновлено' }}
+      }};
+
+      const i18nCoreRequested = {{
+        ar: {{ headerTitle:'🧭 لوحة SAT POI', headerSubtitle:'كل العناصر في pois.geojson المرتبطة بالمرحلة/الجزيرة (Wikidata) والقسم ونوع الكائن', statTotalLabel:'إجمالي POI', statSectionsLabel:'المرحلة/الجزيرة (الأقسام)', statCategoriesLabel:'أنواع الكائنات', statWikidataLabel:'مراحل ويكي بيانات', thName:'الاسم', thSection:'القسم' }},
+        fi: {{ headerTitle:'🧭 SAT POI -koontinäkymä', headerSubtitle:'Kaikki pois.geojson-objektit linkitettynä etappiin/saareen (Wikidata), osioon ja kohdelajiin', statTotalLabel:'POI yhteensä', statSectionsLabel:'Etappi/saari (osiot)', statCategoriesLabel:'Objektityypit', statWikidataLabel:'Wikidata-etapit', thName:'Nimi', thSection:'Osio' }},
+        so: {{ headerTitle:'🧭 SAT POI Dashboard', headerSubtitle:'Dhammaan walxaha ku jira pois.geojson oo ku xiran marxalad/jasiirad (Wikidata), qayb iyo nooca shayga', statTotalLabel:'Wadarta POI', statSectionsLabel:'Marxalad/jasiirad (qaybo)', statCategoriesLabel:'Noocyada shayga', statWikidataLabel:'Marxaladaha Wikidata', thName:'Magac', thSection:'Qayb' }},
+        fa: {{ headerTitle:'🧭 داشبورد SAT POI', headerSubtitle:'همه اشیاء در pois.geojson مرتبط با مرحله/جزیره (Wikidata)، بخش و نوع شیء', statTotalLabel:'مجموع POI', statSectionsLabel:'مرحله/جزیره (بخش‌ها)', statCategoriesLabel:'نوع اشیاء', statWikidataLabel:'مراحل ویکی‌داده', thName:'نام', thSection:'بخش' }},
+        ckb: {{ headerTitle:'🧭 داشبۆردی SAT POI', headerSubtitle:'هەموو ئۆبجێکتەکانی pois.geojson بەستراون بە قۆناغ/دوورگە (Wikidata)، بەش و جۆری شت', statTotalLabel:'کۆی POI', statSectionsLabel:'قۆناغ/دوورگە (بەشەکان)', statCategoriesLabel:'جۆرەکانی شت', statWikidataLabel:'قۆناغەکانی Wikidata', thName:'ناو', thSection:'بەش' }},
+        ti: {{ headerTitle:'🧭 SAT POI Dashboard', headerSubtitle:'ኩሎም ኣብ pois.geojson ዘለዉ ኣቕሑ ምስ ደረጃ/ደሴት (Wikidata)፣ ክፍሊን ዓይነት ኣቕሓን ዝተኣሳሰሩ', statTotalLabel:'ጠቕላላ POI', statSectionsLabel:'ደረጃ/ደሴት (ክፍልታት)', statCategoriesLabel:'ዓይነታት ኣቕሓ', statWikidataLabel:'Wikidata ደረጃታት', thName:'ስም', thSection:'ክፍሊ' }},
+        pl: {{ headerTitle:'🧭 Panel SAT POI', headerSubtitle:'Wszystkie obiekty w pois.geojson powiązane z etapem/wyspą (Wikidata), sekcją i typem obiektu', statTotalLabel:'Łącznie POI', statSectionsLabel:'Etap/wyspa (sekcje)', statCategoriesLabel:'Typy obiektów', statWikidataLabel:'Etapy Wikidata', thName:'Nazwa', thSection:'Sekcja' }},
+        tr: {{ headerTitle:'🧭 SAT POI Gösterge Paneli', headerSubtitle:'pois.geojson içindeki tüm nesneler etap/ada (Wikidata), bölüm ve nesne türü ile bağlantılı', statTotalLabel:'Toplam POI', statSectionsLabel:'Etap/ada (bölümler)', statCategoriesLabel:'Nesne türleri', statWikidataLabel:'Wikidata etapları', thName:'Ad', thSection:'Bölüm' }},
+        es: {{ headerTitle:'🧭 Panel SAT POI', headerSubtitle:'Todos los objetos en pois.geojson vinculados a etapa/isla (Wikidata), sección y tipo de objeto', statTotalLabel:'POI totales', statSectionsLabel:'Etapa/isla (secciones)', statCategoriesLabel:'Tipos de objeto', statWikidataLabel:'Etapas Wikidata', thName:'Nombre', thSection:'Sección' }},
+        nb: {{ headerTitle:'🧭 SAT POI-dashbord', headerSubtitle:'Alle objekter i pois.geojson koblet til etappe/øy (Wikidata), seksjon og objekttype', statTotalLabel:'Totalt POI', statSectionsLabel:'Etappe/øy (seksjoner)', statCategoriesLabel:'Objekttyper', statWikidataLabel:'Wikidata-etapper', thName:'Navn', thSection:'Seksjon' }},
+        nn: {{ headerTitle:'🧭 SAT POI-dashbord', headerSubtitle:'Alle objekt i pois.geojson knytte til etappe/øy (Wikidata), seksjon og objekttype', statTotalLabel:'Totalt POI', statSectionsLabel:'Etappe/øy (seksjonar)', statCategoriesLabel:'Objekttypar', statWikidataLabel:'Wikidata-etappar', thName:'Namn', thSection:'Seksjon' }},
+        da: {{ headerTitle:'🧭 SAT POI-dashboard', headerSubtitle:'Alle objekter i pois.geojson koblet til etape/ø (Wikidata), sektion og objekttype', statTotalLabel:'Total POI', statSectionsLabel:'Etape/ø (sektioner)', statCategoriesLabel:'Objekttyper', statWikidataLabel:'Wikidata-etaper', thName:'Navn', thSection:'Sektion' }},
+        de: {{ headerTitle:'🧭 SAT POI-Dashboard', headerSubtitle:'Alle Objekte in pois.geojson, verknüpft mit Etappe/Insel (Wikidata), Abschnitt und Objekttyp', statTotalLabel:'POI gesamt', statSectionsLabel:'Etappe/Insel (Abschnitte)', statCategoriesLabel:'Objekttypen', statWikidataLabel:'Wikidata-Etappen', thName:'Name', thSection:'Abschnitt' }},
+        nl: {{ headerTitle:'🧭 SAT POI-dashboard', headerSubtitle:'Alle objecten in pois.geojson gekoppeld aan etappe/eiland (Wikidata), sectie en objecttype', statTotalLabel:'Totaal POI', statSectionsLabel:'Etappe/eiland (secties)', statCategoriesLabel:'Objecttypen', statWikidataLabel:'Wikidata-etappes', thName:'Naam', thSection:'Sectie' }},
+        fr: {{ headerTitle:'🧭 Tableau de bord SAT POI', headerSubtitle:'Tous les objets de pois.geojson liés à une étape/île (Wikidata), une section et un type d’objet', statTotalLabel:'POI total', statSectionsLabel:'Étape/île (sections)', statCategoriesLabel:'Types d’objet', statWikidataLabel:'Étapes Wikidata', thName:'Nom', thSection:'Section' }},
+        it: {{ headerTitle:'🧭 Dashboard SAT POI', headerSubtitle:'Tutti gli oggetti in pois.geojson collegati a tappa/isola (Wikidata), sezione e tipo di oggetto', statTotalLabel:'POI totali', statSectionsLabel:'Tappa/isola (sezioni)', statCategoriesLabel:'Tipi di oggetto', statWikidataLabel:'Tappe Wikidata', thName:'Nome', thSection:'Sezione' }},
+        zh: {{ headerTitle:'🧭 SAT POI 仪表盘', headerSubtitle:'pois.geojson 中所有对象，关联到路段/岛屿（Wikidata）、区段和对象类型', statTotalLabel:'POI 总数', statSectionsLabel:'路段/岛屿（区段）', statCategoriesLabel:'对象类型', statWikidataLabel:'Wikidata 路段', thName:'名称', thSection:'区段' }},
+        ja: {{ headerTitle:'🧭 SAT POI ダッシュボード', headerSubtitle:'pois.geojson 内の全オブジェクト（区間/島・Wikidata・セクション・オブジェクト種別に関連）', statTotalLabel:'POI 合計', statSectionsLabel:'区間/島（セクション）', statCategoriesLabel:'オブジェクト種別', statWikidataLabel:'Wikidata 区間', thName:'名称', thSection:'セクション' }},
+        ru: {{ headerTitle:'🧭 Панель SAT POI', headerSubtitle:'Все объекты в pois.geojson, связанные с этапом/островом (Wikidata), секцией и типом объекта', statTotalLabel:'Всего POI', statSectionsLabel:'Этап/остров (секции)', statCategoriesLabel:'Типы объектов', statWikidataLabel:'Этапы Wikidata', thName:'Название', thSection:'Секция' }}
+      }};
+
+      const categoryLabels = {{
+        sv: {{ toilet:'Toalett', water:'Vatten', shower:'Dusch', firepit:'Eldplats', beach:'Badplats', harbour:'Hamn', food:'Mat', lodging:'Boende', shelter:'Vindskydd', sauna:'Bastu', shop:'Butik', rental:'Uthyrning', attraction:'Sevärdhet', viewpoint:'Utsikt', lighthouse:'Fyr', rowboat:'Roddbåt' }},
+        en: {{ toilet:'Toilet', water:'Water', shower:'Shower', firepit:'Firepit', beach:'Beach', harbour:'Harbour', food:'Food', lodging:'Lodging', shelter:'Shelter', sauna:'Sauna', shop:'Shop', rental:'Rental', attraction:'Attraction', viewpoint:'Viewpoint', lighthouse:'Lighthouse', rowboat:'Rowboat' }},
+        de: {{ toilet:'Toilette', water:'Wasser', shower:'Dusche', firepit:'Feuerstelle', beach:'Strand', harbour:'Hafen', food:'Essen', lodging:'Unterkunft', shelter:'Schutzhütte', sauna:'Sauna', shop:'Geschäft', rental:'Verleih', attraction:'Sehenswürdigkeit', viewpoint:'Aussichtspunkt', lighthouse:'Leuchtturm', rowboat:'Ruderboot' }},
+        fr: {{ toilet:'Toilettes', water:'Eau', shower:'Douche', firepit:'Foyer', beach:'Plage', harbour:'Port', food:'Nourriture', lodging:'Hébergement', shelter:'Abri', sauna:'Sauna', shop:'Boutique', rental:'Location', attraction:'Attraction', viewpoint:'Point de vue', lighthouse:'Phare', rowboat:'Barque' }},
+        es: {{ toilet:'Baño', water:'Agua', shower:'Ducha', firepit:'Hoguera', beach:'Playa', harbour:'Puerto', food:'Comida', lodging:'Alojamiento', shelter:'Refugio', sauna:'Sauna', shop:'Tienda', rental:'Alquiler', attraction:'Atracción', viewpoint:'Mirador', lighthouse:'Faro', rowboat:'Bote de remos' }},
+        it: {{ toilet:'Toilette', water:'Acqua', shower:'Doccia', firepit:'Focolare', beach:'Spiaggia', harbour:'Porto', food:'Cibo', lodging:'Alloggio', shelter:'Rifugio', sauna:'Sauna', shop:'Negozio', rental:'Noleggio', attraction:'Attrazione', viewpoint:'Punto panoramico', lighthouse:'Faro', rowboat:'Barca a remi' }},
+        fi: {{ toilet:'WC', water:'Vesi', shower:'Suihku', firepit:'Nuotiopaikka', beach:'Ranta', harbour:'Satama', food:'Ruoka', lodging:'Majoitus', shelter:'Laavu', sauna:'Sauna', shop:'Kauppa', rental:'Vuokraus', attraction:'Nähtävyys', viewpoint:'Näköalapaikka', lighthouse:'Majakka', rowboat:'Soutuvene' }},
+        pl: {{ toilet:'Toaleta', water:'Woda', shower:'Prysznic', firepit:'Miejsce ogniskowe', beach:'Plaża', harbour:'Port', food:'Jedzenie', lodging:'Nocleg', shelter:'Schronienie', sauna:'Sauna', shop:'Sklep', rental:'Wypożyczalnia', attraction:'Atrakcja', viewpoint:'Punkt widokowy', lighthouse:'Latarnia', rowboat:'Łódź wiosłowa' }},
+        tr: {{ toilet:'Tuvalet', water:'Su', shower:'Duş', firepit:'Ateş yeri', beach:'Plaj', harbour:'Liman', food:'Yemek', lodging:'Konaklama', shelter:'Sığınak', sauna:'Sauna', shop:'Mağaza', rental:'Kiralama', attraction:'Gezilecek yer', viewpoint:'Seyir noktası', lighthouse:'Deniz feneri', rowboat:'Kürekli tekne' }},
+        ru: {{ toilet:'Туалет', water:'Вода', shower:'Душ', firepit:'Костровище', beach:'Пляж', harbour:'Гавань', food:'Еда', lodging:'Проживание', shelter:'Укрытие', sauna:'Сауна', shop:'Магазин', rental:'Прокат', attraction:'Достопримечательность', viewpoint:'Смотровая точка', lighthouse:'Маяк', rowboat:'Гребная лодка' }},
+        nl: {{ toilet:'Toilet', water:'Water', shower:'Douche', firepit:'Vuurplaats', beach:'Strand', harbour:'Haven', food:'Eten', lodging:'Verblijf', shelter:'Schuilplaats', sauna:'Sauna', shop:'Winkel', rental:'Verhuur', attraction:'Attractie', viewpoint:'Uitzichtpunt', lighthouse:'Vuurtoren', rowboat:'Roeiboot' }},
+        da: {{ toilet:'Toilet', water:'Vand', shower:'Bruser', firepit:'Bålplads', beach:'Strand', harbour:'Havn', food:'Mad', lodging:'Overnatning', shelter:'Shelter', sauna:'Sauna', shop:'Butik', rental:'Udlejning', attraction:'Seværdighed', viewpoint:'Udsigtspunkt', lighthouse:'Fyr', rowboat:'Robåd' }},
+        nb: {{ toilet:'Toalett', water:'Vann', shower:'Dusj', firepit:'Bålplass', beach:'Strand', harbour:'Havn', food:'Mat', lodging:'Overnatting', shelter:'Gapahuk', sauna:'Badstue', shop:'Butikk', rental:'Utleie', attraction:'Severdighet', viewpoint:'Utsiktspunkt', lighthouse:'Fyr', rowboat:'Robåt' }},
+        nn: {{ toilet:'Toalett', water:'Vatn', shower:'Dusj', firepit:'Bålplass', beach:'Strand', harbour:'Hamn', food:'Mat', lodging:'Overnatting', shelter:'Gapahuk', sauna:'Badstove', shop:'Butikk', rental:'Utleige', attraction:'Severdsemd', viewpoint:'Utsynspunkt', lighthouse:'Fyr', rowboat:'Robåt' }},
+        zh: {{ toilet:'厕所', water:'饮用水', shower:'淋浴', firepit:'篝火点', beach:'海滩', harbour:'港口', food:'餐饮', lodging:'住宿', shelter:'庇护所', sauna:'桑拿', shop:'商店', rental:'租赁', attraction:'景点', viewpoint:'观景点', lighthouse:'灯塔', rowboat:'划艇' }},
+        ja: {{ toilet:'トイレ', water:'水', shower:'シャワー', firepit:'焚き火場', beach:'ビーチ', harbour:'港', food:'食事', lodging:'宿泊', shelter:'シェルター', sauna:'サウナ', shop:'ショップ', rental:'レンタル', attraction:'見どころ', viewpoint:'展望地点', lighthouse:'灯台', rowboat:'手こぎボート' }},
+        ar: {{ toilet:'مرحاض', water:'ماء', shower:'دش', firepit:'موقد نار', beach:'شاطئ', harbour:'ميناء', food:'طعام', lodging:'إقامة', shelter:'مأوى', sauna:'ساونا', shop:'متجر', rental:'تأجير', attraction:'معلم', viewpoint:'نقطة مشاهدة', lighthouse:'منارة', rowboat:'قارب تجديف' }},
+        fa: {{ toilet:'سرویس بهداشتی', water:'آب', shower:'دوش', firepit:'محل آتش', beach:'ساحل', harbour:'بندر', food:'غذا', lodging:'اقامت', shelter:'پناهگاه', sauna:'سونا', shop:'فروشگاه', rental:'اجاره', attraction:'جاذبه', viewpoint:'نقطه دید', lighthouse:'فانوس دریایی', rowboat:'قایق پارویی' }},
+        so: {{ toilet:'Musqul', water:'Biyo', shower:'Qubays', firepit:'Goob dab', beach:'Xeeb', harbour:'Deked', food:'Cunto', lodging:'Hoy', shelter:'Hoyga', sauna:'Sauna', shop:'Dukaan', rental:'Kireyn', attraction:'Goob dalxiis', viewpoint:'Goob aragti', lighthouse:'Faro', rowboat:'Doon yar' }},
+        ckb: {{ toilet:'توالێت', water:'ئاو', shower:'دوش', firepit:'شوێنی ئاگر', beach:'کەناراو', harbour:'بەندر', food:'خواردن', lodging:'مانەوە', shelter:'پەناگە', sauna:'ساونا', shop:'فرۆشگا', rental:'کرێ', attraction:'شوێنی سەرنجڕاکێش', viewpoint:'شوێنی بینین', lighthouse:'فانۆس', rowboat:'بەلەم' }},
+        ti: {{ toilet:'መጸዳጃ', water:'ማይ', shower:'ሻወር', firepit:'ቦታ ሓዊ', beach:'ዳርቻ', harbour:'ወደብ', food:'ምግቢ', lodging:'ማረፊያ', shelter:'መጽለሊ', sauna:'ሳውና', shop:'ድኳን', rental:'ክራይ', attraction:'መስሕብ', viewpoint:'ቦታ ርእይቶ', lighthouse:'መብራህቲ ባሕሪ', rowboat:'ጀልባ ሓዊስ' }}
+      }};
+
+      const groupLabels = {{
+        sv: {{ Facilities:'Faciliteter', Food:'Mat', Accommodation:'Boende', Shop:'Butik', Rental:'Uthyrning', Attraction:'Sevärdhet', Other:'Övrigt' }},
+        en: {{ Facilities:'Facilities', Food:'Food', Accommodation:'Accommodation', Shop:'Shop', Rental:'Rental', Attraction:'Attraction', Other:'Other' }},
+        de: {{ Facilities:'Service', Food:'Mat', Accommodation:'Boende', Shop:'Butik', Rental:'Uthyrning', Attraction:'Sevärdhet', Other:'Övrigt' }},
+        fr: {{ Facilities:'Services', Food:'Restauration', Accommodation:'Hébergement', Shop:'Boutique', Rental:'Location', Attraction:'Attraction', Other:'Autres' }},
+        es: {{ Facilities:'Servicios', Food:'Comida', Accommodation:'Alojamiento', Shop:'Tienda', Rental:'Alquiler', Attraction:'Atracción', Other:'Otros' }}
+      }};
+
+      function parseLangValue(value) {{
+        const raw = String(value || '');
+        if (!raw.includes(':')) {{
+          return {{ group: 'swedish', code: raw || 'sv' }};
+        }}
+        const parts = raw.split(':');
+        return {{
+          group: parts[0] || 'swedish',
+          code: parts[1] || 'sv'
+        }};
+      }}
+
+      function normalizeLangValue(rawValue) {{
+        const value = String(rawValue || '');
+        if (Array.from(languageFilter.options).some((o) => o.value === value)) return value;
+        const parsed = parseLangValue(value);
+        const byCode = Array.from(languageFilter.options).find((o) => parseLangValue(o.value).code === parsed.code);
+        if (byCode) return byCode.value;
+        return 'swedish:sv';
+      }}
+
+      function currentLangCode() {{
+        const code = parseLangValue(languageFilter.value).code;
+        if (code === 'zh-CN') return 'zh';
+        if (code === 'zh') return 'zh';
+        return code;
+      }}
+
+      function t(key, vars) {{
+        const lang = currentLangCode();
+        const langPack = lang === 'sv'
+          ? i18n.sv
+          : {{ ...i18n.en, ...(i18nExtended[lang] || {{}}), ...(i18nCoreRequested[lang] || {{}}) }};
+        const text = langPack[key] || i18n.en[key] || key;
+        if (!vars) return text;
+        return text.replace(/\\{{(\\w+)\\}}/g, (_m, name) => String(vars[name] ?? ''));
+      }}
+
+      function localizedCategory(rawCategory) {{
+        const lang = currentLangCode();
+        const table = categoryLabels[lang] || categoryLabels.en;
+        return table[rawCategory] || rawCategory;
+      }}
+
+      function localizedGroup(rawGroup) {{
+        const lang = currentLangCode();
+        const table = groupLabels[lang] || groupLabels.en;
+        return table[rawGroup] || rawGroup;
+      }}
+
+      function localizedPoiName(poi) {{
+        if (!poi) return '—';
+        const lang = currentLangCode();
+        const localized = poi.name_localized || {{}};
+        return localized[lang] || localized.en || localized.sv || poi.name || poi.id || '—';
+      }}
+
+      function updateLocalizedPoiRows() {{
+        poiRows.forEach((row) => {{
+          const poiId = row.dataset.poiId;
+          if (!poiId || !poiById.has(poiId)) return;
+          const poi = poiById.get(poiId);
+          const nameCell = row.children[1];
+          const categoryCell = row.children[3];
+          if (nameCell) nameCell.textContent = localizedPoiName(poi);
+          if (categoryCell) categoryCell.textContent = localizedCategory(poi.category || '');
+        }});
+        Array.from(categoryFilter.options).forEach((opt) => {{
+          if (opt.value === 'all') return;
+          opt.textContent = localizedCategory(opt.value);
+        }});
+      }}
+
+      function applyLanguage() {{
+        languageFilter.value = normalizeLangValue(languageFilter.value);
+        const bindings = {{
+          headerTitle: 'headerTitle',
+          headerSubtitle: 'headerSubtitle',
+          statTotalLabel: 'statTotalLabel',
+          statSectionsLabel: 'statSectionsLabel',
+          statCategoriesLabel: 'statCategoriesLabel',
+          statWikidataLabel: 'statWikidataLabel',
+          languageFilterLabel: 'languageFilterLabel',
+          languageHint: 'languageHint',
+          sectionFilterLabel: 'sectionFilterLabel',
+          categoryFilterLabel: 'categoryFilterLabel',
+          shareBtn: 'shareBtn',
+          downloadBtn: 'downloadBtn',
+          resetBtn: 'resetBtn',
+          zoomTrailBtn: 'zoomTrailBtn',
+          trailInfoToggleLabel: 'trailInfoToggleLabel',
+          distanceBandToggleLabel: 'distanceBandToggleLabel',
+          mapSectionTitle: 'mapSectionTitle',
+          allPoiTitle: 'allPoiTitle',
+          flowTitle: 'flowTitle',
+          sectionOverviewTitle: 'sectionOverviewTitle',
+          versionCreatedLabel: 'versionCreatedLabel',
+          sourcesLabel: 'sourcesLabel',
+          thName: 'thName',
+          thSection: 'section',
+          thCategory: 'thCategory',
+          thStage: 'thStage',
+          thFirstSeen: 'thFirstSeen',
+          thUpdated: 'thUpdated',
+          thSectionOverviewSection: 'thSection',
+          thSectionOverviewWikidata: 'statWikidataLabel',
+          thSectionOverviewWithWikidata: 'thSectionOverviewWithWikidata',
+          thSectionOverviewWithOsm: 'thSectionOverviewWithOsm',
+          thSectionOverviewTopCategories: 'thSectionOverviewTopCategories'
+        }};
+        Object.entries(bindings).forEach(([id, key]) => {{
+          const el = document.getElementById(id);
+          if (el) el.textContent = t(key);
+        }});
+        const sectionAllOption = document.getElementById('sectionAllOption');
+        const categoryAllOption = document.getElementById('categoryAllOption');
+        if (sectionAllOption) sectionAllOption.textContent = t('all');
+        if (categoryAllOption) categoryAllOption.textContent = t('all');
+        updateLocalizedPoiRows();
+        document.documentElement.lang = currentLangCode();
+      }}
 
       function escapeHtml(text) {{
         return String(text || '').replace(/[&<>"']/g, (ch) => {{
@@ -724,7 +1078,7 @@ ORDER BY DESC(geof:latitude(?coord))
 
       function renderOsmTagsHtml(tags) {{
         const entries = Object.entries(tags || {{}}).sort(([a], [b]) => a.localeCompare(b));
-        if (entries.length === 0) return '<span>Inga OSM-taggar hittades.</span>';
+        if (entries.length === 0) return `<span>${{t('noOsmTags')}}</span>`;
         const items = entries
           .map(([k, v]) => `<li><code>${{escapeHtml(k)}}</code>: ${{escapeHtml(String(v))}}</li>`)
           .join('');
@@ -737,12 +1091,12 @@ ORDER BY DESC(geof:latitude(?coord))
           targetEl.innerHTML = renderOsmTagsHtml(osmTagCache.get(ref.key));
           return;
         }}
-        targetEl.textContent = 'Laddar OSM-taggar...';
+        targetEl.textContent = t('loadingOsmTags');
         const url = `https://api.openstreetmap.org/api/0.6/${{ref.type}}/${{ref.id}}.json`;
         try {{
           const response = await fetch(url, {{ headers: {{ 'Accept': 'application/json' }} }});
           if (!response.ok) {{
-            targetEl.textContent = `Kunde inte hämta OSM-taggar (HTTP ${{response.status}}).`;
+            targetEl.textContent = t('cannotLoadOsmTags', {{ status: response.status }});
             return;
           }}
           const data = await response.json();
@@ -750,7 +1104,7 @@ ORDER BY DESC(geof:latitude(?coord))
           osmTagCache.set(ref.key, tags);
           targetEl.innerHTML = renderOsmTagsHtml(tags);
         }} catch (err) {{
-          targetEl.textContent = `Fel vid hämtning av OSM-taggar: ${{err && err.message ? err.message : 'okänt fel'}}`;
+          targetEl.textContent = t('failedOsmTags', {{ message: err && err.message ? err.message : 'unknown error' }});
         }}
       }}
 
@@ -771,8 +1125,8 @@ ORDER BY DESC(geof:latitude(?coord))
       }}
 
       function stateLabel(sec, cat) {{
-        const secText = sec === 'all' ? 'Alla' : (sectionFilter.options[sectionFilter.selectedIndex]?.text || sec);
-        const catText = cat === 'all' ? 'Alla' : cat;
+        const secText = sec === 'all' ? t('all') : (sectionFilter.options[sectionFilter.selectedIndex]?.text || sec);
+        const catText = cat === 'all' ? t('all') : cat;
         return `${{secText}} ${{catText}}`;
       }}
 
@@ -788,9 +1142,12 @@ ORDER BY DESC(geof:latitude(?coord))
       function buildShareUrl(sec, cat, baseUrl) {{
         const safeSec = sanitizeValue(sec, sectionValues);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
+        const safeLang = normalizeLangValue(languageFilter.value);
+        const safeLangCode = parseLangValue(safeLang).code;
         const params = new URLSearchParams();
         if (safeSec !== 'all') params.set('s', safeSec);
         if (safeCat !== 'all') params.set('c', safeCat);
+        params.set('lang', safeLangCode);
         if (!trailInfoToggle.checked) params.set('li', '0');
         if (distanceBandToggle.checked) params.set('db', '1');
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
@@ -816,6 +1173,8 @@ ORDER BY DESC(geof:latitude(?coord))
           normalizeCategoryValue(params.get('c') || params.get('category')),
           categoryValues
         );
+        languageFilter.value = normalizeLangValue(params.get('lang') || 'swedish:sv');
+        applyLanguage();
         sectionFilter.value = sec;
         categoryFilter.value = cat;
         const li = params.get('li');
@@ -846,9 +1205,9 @@ ORDER BY DESC(geof:latitude(?coord))
             await navigator.share({{ url }});
           }} else if (navigator.clipboard && navigator.clipboard.writeText) {{
             await navigator.clipboard.writeText(url);
-            alert(`Delningslänk kopierad:\\n${{url}}`);
+            alert(t('copiedShareLink', {{ url }}));
           }} else {{
-            prompt('Kopiera länken:', url);
+            prompt(t('copyLinkPrompt'), url);
           }}
         }} catch (_err) {{
           // användaren avbröt delning eller api saknas
@@ -924,6 +1283,8 @@ ORDER BY DESC(geof:latitude(?coord))
         const bounds = [];
         filtered.forEach((r) => {{
           const iconMeta = poiIconMeta(r.category);
+          const poiName = localizedPoiName(r);
+          const poiCategoryLabel = localizedCategory(r.category || '');
           const icon = L.divIcon({{
             className: '',
             html: `<div class="poi-icon" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</div>`,
@@ -939,16 +1300,16 @@ ORDER BY DESC(geof:latitude(?coord))
           const osmRef = findOsmRef(r.same_as);
           const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${{osmRef.type}}/${{osmRef.id}}` : null;
           const osmTagsHtml = osmRef
-            ? `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">Öppna för att ladda…</div></details>`
-            : `<details class="osm-tags"><summary>OSM-taggar</summary><div class="osm-tags-body">Ingen OSM-referens för objektet.</div></details>`;
+            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div></details>`
+            : `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body">${{escapeHtml(t('noOsmRef'))}}</div></details>`;
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${{osmHistoryUrl}}" target="_blank">OSM Deep history</a></div>`
             : '';
           marker.bindPopup(`
             <div style="min-width:180px">
-              <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(r.name || r.id)}}</strong><br>
-              <small>Section: ${{escapeHtml(r.section)}} | Kategori: ${{escapeHtml(r.category)}}</small><br>
-              <a href="${{satUrl}}" target="_blank">Öppna i SAT-kartan</a>
+              <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(poiName)}}</strong><br>
+              <small>${{escapeHtml(t('section'))}}: ${{escapeHtml(r.section)}} | ${{escapeHtml(t('category'))}}: ${{escapeHtml(poiCategoryLabel)}}</small><br>
+              <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a>
               ${{osmTagsHtml}}
               ${{osmHistoryLink}}
               ${{imageHtml}}
@@ -1093,6 +1454,11 @@ ORDER BY DESC(geof:latitude(?coord))
           if (label.startsWith("SAT ")) return "rgba(180, 180, 180, 0.9)";
           return "rgba(210, 210, 210, 0.9)";
         }});
+        const displayLabels = labels.map((label) => {{
+          if (groupColors[label]) return localizedGroup(label);
+          if (label.startsWith("SAT ")) return label;
+          return localizedCategory(label);
+        }});
 
         const data = [{{
           type: "sankey",
@@ -1101,7 +1467,7 @@ ORDER BY DESC(geof:latitude(?coord))
             pad: 10,
             thickness: 20,
             line: {{ color: "rgba(70,70,70,.35)", width: 1 }},
-            label: labels,
+            label: displayLabels,
             color: nodeColor
           }},
           link: {{
@@ -1112,9 +1478,9 @@ ORDER BY DESC(geof:latitude(?coord))
           }}
         }}];
 
-        const titlePart = sec === 'all' ? 'alla etapper' : `etapp: ${{sec}}`;
+        const titlePart = sec === 'all' ? t('sankeyAllStages') : `${{t('sankeyStagePrefix')}}: ${{sec}}`;
         const layout = {{
-          title: `POI-flöde för ${{titlePart}}`,
+          title: `${{t('sankeyTitlePrefix')}} ${{titlePart}}`,
           margin: {{ l: 20, r: 20, t: 40, b: 10 }},
           font: {{ size: 13 }}
         }};
@@ -1189,7 +1555,7 @@ ORDER BY DESC(geof:latitude(?coord))
           const d = pointTrailDistanceMeters(r.lat, r.lon);
           if (Number.isFinite(d) && d <= bandMeters) within += 1;
         }});
-        distanceBandCount.textContent = `${{within}} inom ${{bandMeters}} m`;
+        distanceBandCount.textContent = t('distanceCount', {{ within, meters: bandMeters }});
         distanceBandCount.style.display = '';
       }}
 
@@ -1230,7 +1596,8 @@ ORDER BY DESC(geof:latitude(?coord))
           row.style.display = (sec === 'all' || rowSec === sec) ? '' : 'none';
         }});
 
-        visibleCount.textContent = `Visar ${{visible}} av ${{totalPoiCount}} POI`;
+        applyLanguage();
+        visibleCount.textContent = t('visibleCount', {{ visible, total: totalPoiCount }});
         saveStateInUrl(sec, cat);
         renderMap(sec, cat);
         renderSankey(sec, cat);
@@ -1241,6 +1608,7 @@ ORDER BY DESC(geof:latitude(?coord))
 
       sectionFilter.addEventListener('change', applyFilters);
       categoryFilter.addEventListener('change', applyFilters);
+      languageFilter.addEventListener('change', applyFilters);
       trailInfoToggle.addEventListener('change', applyFilters);
       distanceBandToggle.addEventListener('change', applyFilters);
       distanceBandMeters.addEventListener('change', applyFilters);
