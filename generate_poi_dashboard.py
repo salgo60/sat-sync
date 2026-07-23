@@ -578,7 +578,7 @@ ORDER BY DESC(geof:latitude(?coord))
       <div class="header-meta">
         <span id="versionCreatedLabelHdr">Senast genererad</span>: <strong>{generated_at}</strong> &nbsp;|&nbsp;
         <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>{pois_fetched_at}</strong> &nbsp;|&nbsp;
-        <span id="poisGeneratedAtLabelHdr">POI generatedAt</span>: <strong>{pois_source_generated_at}</strong> &nbsp;|&nbsp;
+        <a id="poisGeneratedAtLabelHdr" href="{POIS_URL}" target="_blank">SAT POI</a>: <strong>{pois_source_generated_at}</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>{pr_html} &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
@@ -701,7 +701,7 @@ ORDER BY DESC(geof:latitude(?coord))
     <div class="footer">
       <span id="versionCreatedLabel">Senast genererad</span>: <strong>{generated_at}</strong> |
       <span id="poisFetchedLabel">POI hämtad</span>: <strong>{pois_fetched_at}</strong> |
-      <span id="poisGeneratedAtLabel">POI generatedAt</span>: <strong>{pois_source_generated_at}</strong> |
+      <a id="poisGeneratedAtLabel" href="{POIS_URL}" target="_blank">SAT POI</a>: <strong>{pois_source_generated_at}</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="{POIS_URL}" target="_blank">pois.geojson</a> |
       <a href="{TRAIL_URL}" target="_blank">trail.jsonld</a> |
@@ -823,7 +823,7 @@ ORDER BY DESC(geof:latitude(?coord))
           thSectionOverviewTopCategories: 'Toppkategorier',
           versionCreatedLabel: 'Senast genererad',
           poisFetchedLabel: 'POI hämtad',
-          poisGeneratedAtLabel: 'POI generatedAt',
+          poisGeneratedAtLabel: 'SAT POI',
           sourcesLabel: 'Källor',
           visibleCount: 'Visar {{visible}} av {{total}} POI',
           distanceCount: '{{within}} inom {{meters}} m',
@@ -877,7 +877,7 @@ ORDER BY DESC(geof:latitude(?coord))
           thSectionOverviewTopCategories: 'Top categories',
           versionCreatedLabel: 'Last generated',
           poisFetchedLabel: 'POI fetched',
-          poisGeneratedAtLabel: 'POI generatedAt',
+          poisGeneratedAtLabel: 'SAT POI',
           sourcesLabel: 'Sources',
           visibleCount: 'Showing {{visible}} of {{total}} POI',
           distanceCount: '{{within}} within {{meters}} m',
