@@ -391,7 +391,10 @@ ORDER BY DESC(geof:latitude(?coord))
             f'<option value="{sec}">{section_display.get(sec, sec)}</option>'
             for _, _, sec in ordered_sections
         )
-        category_options = "\n".join(f'<option value="{c}">{c}</option>' for c in sorted(categories))
+        category_checkboxes = "\n".join(
+            f'<label class="category-item"><input type="checkbox" name="categoryFilter" value="{c}" checked> {c}</label>'
+            for c in sorted(categories)
+        )
         poi_flow_json = json.dumps(poi_flow_data, ensure_ascii=False)
         poi_map_json = json.dumps(poi_map_data, ensure_ascii=False)
         trail_geojson_json = json.dumps(trail_geojson, ensure_ascii=False)
@@ -420,7 +423,9 @@ ORDER BY DESC(geof:latitude(?coord))
     .filters {{ background:#fff; padding:14px 24px; border-bottom:1px solid #e2e8f0; display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }}
     .filters label {{ display:block; font-size:.8rem; color:#555; margin-bottom:4px; font-weight:600; }}
     .filters select {{ min-width:180px; padding:8px; border:1px solid #cbd5e1; border-radius:6px; }}
-    .filters select[multiple] {{ min-width:230px; min-height:160px; }}
+    .filters .category-checklist {{ min-width:230px; max-height:180px; overflow:auto; border:1px solid #cbd5e1; border-radius:8px; padding:8px 10px; background:#fff; }}
+    .filters .category-item {{ display:flex; align-items:center; gap:8px; font-size:.95rem; color:#0f172a; margin:4px 0; }}
+    .filters .category-item input {{ width:16px; height:16px; }}
     .filters .hint {{ margin-top:4px; font-size:.75rem; color:#64748b; }}
     .filters .actions {{ display:flex; gap:8px; align-items:center; }}
     .filters button {{ padding:8px 12px; border:1px solid #1d4ed8; background:#1d4ed8; color:#fff; border-radius:6px; cursor:pointer; font-weight:600; }}
@@ -496,9 +501,9 @@ ORDER BY DESC(geof:latitude(?coord))
       </div>
       <div>
         <label for="categoryFilter">Filtrera objekttyp</label>
-        <select id="categoryFilter" multiple size="8">
-          {category_options}
-        </select>
+        <div id="categoryFilter" class="category-checklist">
+          {category_checkboxes}
+        </div>
         <div class="hint">Flerval: välj en eller flera kategorier</div>
       </div>
       <div class="actions">
@@ -597,6 +602,7 @@ ORDER BY DESC(geof:latitude(?coord))
     (function() {{
       const sectionFilter = document.getElementById('sectionFilter');
       const categoryFilter = document.getElementById('categoryFilter');
+      const categoryCheckboxes = Array.from(categoryFilter.querySelectorAll('input[name="categoryFilter"]'));
       const trailInfoToggle = document.getElementById('trailInfoToggle');
       const distanceBandToggle = document.getElementById('distanceBandToggle');
       const distanceBandMeters = document.getElementById('distanceBandMeters');
@@ -612,7 +618,7 @@ ORDER BY DESC(geof:latitude(?coord))
       const poiMapData = {poi_map_json};
       const totalPoiCount = poiMapData.length;
       const sectionValues = new Set(Array.from(sectionFilter.options).map(o => o.value));
-      const categoryValues = new Set(Array.from(categoryFilter.options).map(o => o.value));
+      const categoryValues = new Set(categoryCheckboxes.map((cb) => cb.value));
       const trailGeoJson = {trail_geojson_json};
       const sectionsIndex = {sections_index_json};
       const map = L.map('poiMap').setView([59.2, 18.5], 8);
@@ -682,15 +688,13 @@ ORDER BY DESC(geof:latitude(?coord))
 
       function setSelectedCategories(values) {{
         const selected = new Set(normalizeCategorySelection(values));
-        Array.from(categoryFilter.options).forEach((opt) => {{
-          opt.selected = selected.has(opt.value);
+        categoryCheckboxes.forEach((cb) => {{
+          cb.checked = selected.has(cb.value);
         }});
       }}
 
       function getSelectedCategories() {{
-        return normalizeCategorySelection(
-          Array.from(categoryFilter.selectedOptions || []).map((o) => o.value)
-        );
+        return normalizeCategorySelection(categoryCheckboxes.filter((cb) => cb.checked).map((cb) => cb.value));
       }}
 
       function categorySelectionKey(values) {{
@@ -1191,7 +1195,7 @@ ORDER BY DESC(geof:latitude(?coord))
       }}
 
       sectionFilter.addEventListener('change', applyFilters);
-      categoryFilter.addEventListener('change', applyFilters);
+      categoryCheckboxes.forEach((cb) => cb.addEventListener('change', applyFilters));
       trailInfoToggle.addEventListener('change', applyFilters);
       distanceBandToggle.addEventListener('change', applyFilters);
       distanceBandMeters.addEventListener('change', applyFilters);
