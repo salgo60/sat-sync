@@ -185,7 +185,7 @@ html = f"""<!DOCTYPE html>
   const TRAIL_GEOJSON = {trail_json};
   const STAGE_STATS = {stage_stats_json};
   const OSM_TAG_CACHE = {{}};
-  const WD_SAT_CACHE = {{}};
+  const WD_ENTITY_CACHE = {{}};
 
   // State
   let currentStage = 'all';
@@ -252,7 +252,9 @@ html = f"""<!DOCTYPE html>
 
   const wheelchairIcon = makeTagIcon('#16a34a', '♿');
   const missingWheelchairIcon = makeTagIcon('#64748b', '?');
-  const inconsistencyIcon = makeTagIcon('#dc2626', '!');
+  const inconsistencyPoiIcon = makeTagIcon('#dc2626', '!');
+  const inconsistencyOsmWdIcon = makeTagIcon('#f97316', 'W');
+  const inconsistencyWdOsmIcon = makeTagIcon('#2563eb', 'O');
 
   // ── Problem layers (one per issue type) ───────────────────────────────────
   const layerMissingOsm = L.layerGroup().addTo(map);
@@ -261,14 +263,19 @@ html = f"""<!DOCTYPE html>
   const osmNotesLayer   = L.layerGroup().addTo(map);
   const layerWheelchair = L.layerGroup();
   const layerMissingWheelchair = L.layerGroup();
-  const layerInconsistency = L.layerGroup();
+  const layerInconsistencyPoi = L.layerGroup();
+  const layerInconsistencyOsmMissingWd = L.layerGroup();
+  const layerInconsistencyWdMissingOsm = L.layerGroup();
   const layerByKey = {{
     osm: layerMissingOsm,
     wd: layerMissingWd,
     img: layerMissingImg,
     wc: layerWheelchair,
     mwc: layerMissingWheelchair,
-    inc: layerInconsistency,
+    inc: layerInconsistencyPoi,
+    incpoi: layerInconsistencyPoi,
+    incosm: layerInconsistencyOsmMissingWd,
+    incwd: layerInconsistencyWdMissingOsm,
     notes: osmNotesLayer,
   }};
 
@@ -279,12 +286,20 @@ html = f"""<!DOCTYPE html>
     '📷 Saknar bild':       layerMissingImg,
     '♿ Wheelchair':         layerWheelchair,
     '◻️ Saknar Wheelchair': layerMissingWheelchair,
-    '⚠️ Inkonsekvens':      layerInconsistency,
+    'Inkonsekvens POI': layerInconsistencyPoi,
+    'Inkonsekvens OSM saknar koppling WD': layerInconsistencyOsmMissingWd,
+    'Inkonsekvens WD saknar koppling OSM': layerInconsistencyWdMissingOsm,
     '💬 OSM Notes':         osmNotesLayer,
   }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
 
   map.on('overlayadd', (ev) => {{
-    if (ev.layer === layerWheelchair || ev.layer === layerMissingWheelchair || ev.layer === layerInconsistency) {{
+    if (
+      ev.layer === layerWheelchair ||
+      ev.layer === layerMissingWheelchair ||
+      ev.layer === layerInconsistencyPoi ||
+      ev.layer === layerInconsistencyOsmMissingWd ||
+      ev.layer === layerInconsistencyWdMissingOsm
+    ) {{
       renderMarkers();
     }}
     saveStateInUrl();
@@ -432,28 +447,42 @@ html = f"""<!DOCTYPE html>
     }});
   }}
 
-  async function fetchWikidataSatRefs(wdRef) {{
+  async function fetchWikidataEntity(wdRef) {{
     const qid = parseWikidataRef(wdRef);
-    if (!qid) return [];
-    if (Object.prototype.hasOwnProperty.call(WD_SAT_CACHE, qid)) return WD_SAT_CACHE[qid];
+    if (!qid) return null;
+    if (Object.prototype.hasOwnProperty.call(WD_ENTITY_CACHE, qid)) return WD_ENTITY_CACHE[qid];
     try {{
       const url = `https://www.wikidata.org/wiki/Special:EntityData/${{qid}}.json`;
       const resp = await fetch(url);
       if (!resp.ok) {{
-        WD_SAT_CACHE[qid] = [];
-        return [];
+        WD_ENTITY_CACHE[qid] = null;
+        return null;
       }}
       const data = await resp.json();
-      const claims = data?.entities?.[qid]?.claims?.P14545 || [];
-      const refs = claims
-        .map((c) => c?.mainsnak?.datavalue?.value)
-        .filter((v) => typeof v === 'string' && v.trim());
-      WD_SAT_CACHE[qid] = refs;
-      return refs;
+      const entity = data?.entities?.[qid] || null;
+      WD_ENTITY_CACHE[qid] = entity;
+      return entity;
     }} catch (_e) {{
-      WD_SAT_CACHE[qid] = [];
-      return [];
+      WD_ENTITY_CACHE[qid] = null;
+      return null;
     }}
+  }}
+
+  function wikidataSatRefs(entity) {{
+    const claims = entity?.claims?.P14545 || [];
+    return claims
+      .map((c) => c?.mainsnak?.datavalue?.value)
+      .filter((v) => typeof v === 'string' && v.trim());
+  }}
+
+  function hasWikidataOsmBacklink(entity, osmRef) {{
+    const parsed = parseOsmRef(osmRef);
+    if (!entity || !parsed) return false;
+    const propByType = {{ node: 'P11693', way: 'P10689', relation: 'P402' }};
+    const prop = propByType[parsed.type];
+    if (!prop) return false;
+    const claims = entity?.claims?.[prop] || [];
+    return claims.some((c) => String(c?.mainsnak?.datavalue?.value || '') === String(parsed.id));
   }}
 
   function openIdWithCheckDate(idUrl) {{
@@ -481,7 +510,7 @@ html = f"""<!DOCTYPE html>
     const wikimapUrl = `https://wikimap.toolforge.org/?lat=${{p.lat}}&lon=${{p.lon}}&zoom=15&lang=en&wp=false&cluster=false`;
     const inconsistencyHtml = inconsistencyInfo
       ? `<details style="margin-top:6px"><summary>⚠️ Inkonsekvens-kontroll</summary><div style="font-size:12px;margin-top:4px">${{inconsistencyInfo}}</div></details>`
-      : `<details style="margin-top:6px"><summary>⚠️ Inkonsekvens-kontroll</summary><div style="font-size:12px;margin-top:4px">Kontroll: 1) finns SAT-ID i Wikidata P14545, 2) finns OSM-taggen <code>ref:stockholmarchipelagotrail</code>. Lagret “⚠️ Inkonsekvens” visar objekt där 1 är sant men 2 saknas.</div></details>`;
+      : `<details style="margin-top:6px"><summary>⚠️ Inkonsekvens-kontroll</summary><div style="font-size:12px;margin-top:4px">Kontroller: <br>1) Inkonsekvens POI: Wikidata P14545 har SAT-ID men OSM saknar <code>ref:stockholmarchipelagotrail</code>.<br>2) Inkonsekvens OSM saknar koppling WD: OSM saknar/avviker i taggen <code>wikidata</code>.<br>3) Inkonsekvens WD saknar koppling OSM: Wikidata saknar OSM-ID (node/way/relation) tillbaka till objektet.</div></details>`;
     return `<div style="min-width:160px;font-size:13px">
       <strong>${{escapeHtml(p.name)}}</strong><br>
       <small style="color:#64748b">${{escapeHtml(p.section)}} · ${{escapeHtml(p.category)}}</small><br>
@@ -505,7 +534,9 @@ html = f"""<!DOCTYPE html>
     layerMissingImg.clearLayers();
     layerWheelchair.clearLayers();
     layerMissingWheelchair.clearLayers();
-    layerInconsistency.clearLayers();
+    layerInconsistencyPoi.clearLayers();
+    layerInconsistencyOsmMissingWd.clearLayers();
+    layerInconsistencyWdMissingOsm.clearLayers();
     const fps = filteredPois();
     fps.forEach(p => {{
       const popup = buildPopup(p);
@@ -522,8 +553,12 @@ html = f"""<!DOCTYPE html>
     if (map.hasLayer(layerWheelchair) || map.hasLayer(layerMissingWheelchair)) {{
       renderWheelchairLayers(fps, currentRender);
     }}
-    if (map.hasLayer(layerInconsistency)) {{
-      renderInconsistencyLayer(fps, currentRender);
+    if (
+      map.hasLayer(layerInconsistencyPoi) ||
+      map.hasLayer(layerInconsistencyOsmMissingWd) ||
+      map.hasLayer(layerInconsistencyWdMissingOsm)
+    ) {{
+      renderInconsistencyLayers(fps, currentRender);
     }}
   }}
 
@@ -544,26 +579,56 @@ html = f"""<!DOCTYPE html>
     await Promise.all(tasks);
   }}
 
-  async function renderInconsistencyLayer(pois, currentRender) {{
+  async function renderInconsistencyLayers(pois, currentRender) {{
+    const showPoi = map.hasLayer(layerInconsistencyPoi);
+    const showOsmMissingWd = map.hasLayer(layerInconsistencyOsmMissingWd);
+    const showWdMissingOsm = map.hasLayer(layerInconsistencyWdMissingOsm);
     const tasks = pois
       .filter((p) => !!p.osm && !!p.wikidata)
       .map(async (p) => {{
-        const [tags, satRefs] = await Promise.all([
+        const [tags, wdEntity] = await Promise.all([
           fetchOsmTags(p.osm),
-          fetchWikidataSatRefs(p.wikidata),
+          fetchWikidataEntity(p.wikidata),
         ]);
         if (currentRender !== renderVersion) return;
-        if (!tags) return;
+        if (!tags || !wdEntity) return;
+        const satRefs = wikidataSatRefs(wdEntity);
+        const expectedQid = parseWikidataRef(p.wikidata);
         const wdHasSat = satIdMatches(satRefs, p.id);
         const osmRefSat = String(tags['ref:stockholmarchipelagotrail'] || '').trim();
         const osmMissingSatRef = !osmRefSat;
-        if (!(wdHasSat && osmMissingSatRef)) return;
-        const detail = [
-          `Wikidata P14545 innehåller SAT-ID (<code>${{escapeHtml(p.id)}}</code>): <strong>ja</strong>`,
-          `OSM tag <code>ref:stockholmarchipelagotrail</code>: <strong>saknas</strong>`,
-        ].join('<br>');
-        const popup = buildPopup(p, detail);
-        L.marker([p.lat, p.lon], {{ icon: inconsistencyIcon }}).bindPopup(popup).addTo(layerInconsistency);
+
+        if (showPoi && wdHasSat && osmMissingSatRef) {{
+          const detail = [
+            `Wikidata P14545 innehåller SAT-ID (<code>${{escapeHtml(p.id)}}</code>): <strong>ja</strong>`,
+            `OSM tag <code>ref:stockholmarchipelagotrail</code>: <strong>saknas</strong>`,
+          ].join('<br>');
+          const popup = buildPopup(p, detail);
+          L.marker([p.lat, p.lon], {{ icon: inconsistencyPoiIcon }}).bindPopup(popup).addTo(layerInconsistencyPoi);
+        }}
+
+        const osmWikidataTag = String(tags.wikidata || '').trim();
+        const osmHasMatchingWd = !!expectedQid && osmWikidataTag === expectedQid;
+        if (showOsmMissingWd && !osmHasMatchingWd) {{
+          const detail = [
+            `Förväntad OSM tag <code>wikidata</code>: <code>${{escapeHtml(expectedQid || 'okänd')}}</code>`,
+            `Nuvarande OSM <code>wikidata</code>: <strong>${{escapeHtml(osmWikidataTag || 'saknas')}}</strong>`,
+          ].join('<br>');
+          const popup = buildPopup(p, detail);
+          L.marker([p.lat, p.lon], {{ icon: inconsistencyOsmWdIcon }}).bindPopup(popup).addTo(layerInconsistencyOsmMissingWd);
+        }}
+
+        const wdHasOsm = hasWikidataOsmBacklink(wdEntity, p.osm);
+        if (showWdMissingOsm && !wdHasOsm) {{
+          const osmParsed = parseOsmRef(p.osm);
+          const expectedProp = osmParsed?.type === 'node' ? 'P11693' : (osmParsed?.type === 'way' ? 'P10689' : (osmParsed?.type === 'relation' ? 'P402' : 'OSM-ID'));
+          const detail = [
+            `Wikidata saknar OSM-backlink för objektet <code>${{escapeHtml(p.osm)}}</code>`,
+            `Förväntad egenskap i Wikidata: <strong>${{escapeHtml(expectedProp)}}</strong>`,
+          ].join('<br>');
+          const popup = buildPopup(p, detail);
+          L.marker([p.lat, p.lon], {{ icon: inconsistencyWdOsmIcon }}).bindPopup(popup).addTo(layerInconsistencyWdMissingOsm);
+        }}
       }});
     await Promise.all(tasks);
   }}
