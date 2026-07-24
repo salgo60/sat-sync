@@ -2,8 +2,8 @@ name: Regenerate SAT POI Dashboard
 
 on:
   schedule:
-    # Körs varje dag kl 04:00 UTC (06:00 svensk sommartid)
-    - cron: "0 4 * * *"
+    # Körs varje dag kl 04:17 UTC (06:17 svensk sommartid)
+    - cron: "17 4 * * *"
   workflow_dispatch:  # Tillåter manuell körning från GitHub UI
 
 jobs:
