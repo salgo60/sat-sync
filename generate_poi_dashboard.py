@@ -576,7 +576,6 @@ ORDER BY DESC(geof:latitude(?coord))
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
       <div class="header-meta">
-        <span id="versionCreatedLabelHdr">Senast genererad</span>: <strong>{generated_at}</strong> &nbsp;|&nbsp;
         <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>{pois_fetched_at}</strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="{POIS_URL}" target="_blank">SAT POI</a>: <strong>{pois_source_generated_at}</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>{pr_html} &nbsp;|&nbsp;
@@ -699,7 +698,6 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="footer">
-      <span id="versionCreatedLabel">Senast genererad</span>: <strong>{generated_at}</strong> |
       <span id="poisFetchedLabel">POI hämtad</span>: <strong>{pois_fetched_at}</strong> |
       <a id="poisGeneratedAtLabel" href="{POIS_URL}" target="_blank">SAT POI</a>: <strong>{pois_source_generated_at}</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
