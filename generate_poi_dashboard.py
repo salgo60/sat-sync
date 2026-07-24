@@ -581,7 +581,8 @@ ORDER BY DESC(geof:latitude(?coord))
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>{pr_html} &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a>
+        <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a> &nbsp;|&nbsp;
+        <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a>
       </div>
     </div>
 
@@ -708,7 +709,8 @@ ORDER BY DESC(geof:latitude(?coord))
       <a href="https://www.wikidata.org/wiki/Q131318799" target="_blank">Wikidata route</a> |
       <a href="whats_new.html">What's new</a> |
       <a href="sat_todo_map.html">🗺️ TODO-karta</a> |
-      <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringsförslag</a>
+      <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringsförslag</a> |
+      <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkFtr">📈 Datakvalitet över tid</span></a>
     </div>
   </div>
 
@@ -942,6 +944,30 @@ ORDER BY DESC(geof:latitude(?coord))
         ru: {{ headerTitle:'🧭 Панель SAT POI', headerSubtitle:'Все объекты в pois.geojson, связанные с этапом/островом (Wikidata), секцией и типом объекта', statTotalLabel:'Всего POI', statSectionsLabel:'Этап/остров (секции)', statCategoriesLabel:'Типы объектов', statWikidataLabel:'Этапы Wikidata', thName:'Название', thSection:'Секция' }}
       }};
 
+      const qualityHistoryLabels = {{
+        sv: '📈 Datakvalitet över tid',
+        en: '📈 Data quality over time',
+        ar: '📈 جودة البيانات عبر الزمن',
+        fi: '📈 Datan laatu ajan yli',
+        so: '📈 Tayada xogta waqti ka dib',
+        fa: '📈 کیفیت داده در گذر زمان',
+        ckb: '📈 کوالێتی داتا بە تێپەڕبوونی کات',
+        ti: '📈 ጥራይ ዳታ ብዘመን',
+        pl: '📈 Jakość danych w czasie',
+        tr: '📈 Zaman içinde veri kalitesi',
+        es: '📈 Calidad de datos a lo largo del tiempo',
+        nb: '📈 Datakvalitet over tid',
+        nn: '📈 Datakvalitet over tid',
+        da: '📈 Datakvalitet over tid',
+        de: '📈 Datenqualität über die Zeit',
+        nl: '📈 Datakwaliteit in de tijd',
+        fr: '📈 Qualité des données dans le temps',
+        it: '📈 Qualità dei dati nel tempo',
+        zh: '📈 数据质量随时间变化',
+        ja: '📈 時系列のデータ品質',
+        ru: '📈 Качество данных во времени'
+      }};
+
       const categoryLabels = {{
         sv: {{ toilet:'Toalett', water:'Vatten', shower:'Dusch', firepit:'Eldplats', beach:'Badplats', harbour:'Hamn', food:'Mat', lodging:'Boende', shelter:'Vindskydd', sauna:'Bastu', shop:'Butik', rental:'Uthyrning', attraction:'Sevärdhet', viewpoint:'Utsikt', lighthouse:'Fyr', rowboat:'Roddbåt' }},
         en: {{ toilet:'Toilet', water:'Water', shower:'Shower', firepit:'Firepit', beach:'Beach', harbour:'Harbour', food:'Food', lodging:'Lodging', shelter:'Shelter', sauna:'Sauna', shop:'Shop', rental:'Rental', attraction:'Attraction', viewpoint:'Viewpoint', lighthouse:'Lighthouse', rowboat:'Rowboat' }},
@@ -1094,6 +1120,15 @@ ORDER BY DESC(geof:latitude(?coord))
         Object.entries(bindings).forEach(([id, key]) => {{
           const el = document.getElementById(id);
           if (el) el.textContent = t(key);
+        }});
+        const qualityLabel = qualityHistoryLabels[currentLangCode()] || qualityHistoryLabels.en;
+        const qualityUrl = `sat_poi_quality_history.html?lang=${{encodeURIComponent(currentLangCode())}}`;
+        const qualityHdr = document.getElementById('qualityHistoryLinkHdr');
+        const qualityFtr = document.getElementById('qualityHistoryLinkFtr');
+        if (qualityHdr) qualityHdr.textContent = qualityLabel;
+        if (qualityFtr) qualityFtr.textContent = qualityLabel;
+        document.querySelectorAll('a[data-quality-history-href]').forEach((link) => {{
+          link.setAttribute('href', qualityUrl);
         }});
         const sectionAllOption = document.getElementById('sectionAllOption');
         const categoryAllOption = document.getElementById('categoryAllOption');
