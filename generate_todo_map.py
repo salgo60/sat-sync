@@ -185,6 +185,7 @@ html = f"""<!DOCTYPE html>
   const TRAIL_GEOJSON = {trail_json};
   const STAGE_STATS = {stage_stats_json};
   const OSM_TAG_CACHE = {{}};
+  const WD_SAT_CACHE = {{}};
 
   // State
   let currentStage = 'all';
@@ -251,6 +252,7 @@ html = f"""<!DOCTYPE html>
 
   const wheelchairIcon = makeTagIcon('#16a34a', '♿');
   const missingWheelchairIcon = makeTagIcon('#64748b', '?');
+  const inconsistencyIcon = makeTagIcon('#dc2626', '!');
 
   // ── Problem layers (one per issue type) ───────────────────────────────────
   const layerMissingOsm = L.layerGroup().addTo(map);
@@ -259,12 +261,14 @@ html = f"""<!DOCTYPE html>
   const osmNotesLayer   = L.layerGroup().addTo(map);
   const layerWheelchair = L.layerGroup();
   const layerMissingWheelchair = L.layerGroup();
+  const layerInconsistency = L.layerGroup();
   const layerByKey = {{
     osm: layerMissingOsm,
     wd: layerMissingWd,
     img: layerMissingImg,
     wc: layerWheelchair,
     mwc: layerMissingWheelchair,
+    inc: layerInconsistency,
     notes: osmNotesLayer,
   }};
 
@@ -275,11 +279,12 @@ html = f"""<!DOCTYPE html>
     '📷 Saknar bild':       layerMissingImg,
     '♿ Wheelchair':         layerWheelchair,
     '◻️ Saknar Wheelchair': layerMissingWheelchair,
+    '⚠️ Inkonsekvens':      layerInconsistency,
     '💬 OSM Notes':         osmNotesLayer,
   }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
 
   map.on('overlayadd', (ev) => {{
-    if (ev.layer === layerWheelchair || ev.layer === layerMissingWheelchair) {{
+    if (ev.layer === layerWheelchair || ev.layer === layerMissingWheelchair || ev.layer === layerInconsistency) {{
       renderMarkers();
     }}
     saveStateInUrl();
@@ -401,6 +406,56 @@ html = f"""<!DOCTYPE html>
     }}
   }}
 
+  function parseWikidataRef(wdRef) {{
+    if (!wdRef) return null;
+    const raw = String(wdRef);
+    if (raw.startsWith('wikidata:')) return raw.slice('wikidata:'.length);
+    if (raw.startsWith('Q')) return raw;
+    return null;
+  }}
+
+  function normalizeSatId(v) {{
+    return String(v || '')
+      .trim()
+      .toLowerCase()
+      .replace(/^https?:\\/\\/map\\.stockholmarchipelagotrail\\.com\\/?\\?/i, '')
+      .replace(/^https?:\\/\\/map\\.stockholmarchipelagotrail\\.com\\/api\\/objects\\//i, '')
+      .replace(/^sat%3apoi%3a/i, 'sat:poi:');
+  }}
+
+  function satIdMatches(values, satId) {{
+    const want = normalizeSatId(satId);
+    const short = want.replace(/^sat:poi:/, '');
+    return values.some((v) => {{
+      const n = normalizeSatId(v);
+      return n === want || n.endsWith(short) || n.includes(want);
+    }});
+  }}
+
+  async function fetchWikidataSatRefs(wdRef) {{
+    const qid = parseWikidataRef(wdRef);
+    if (!qid) return [];
+    if (Object.prototype.hasOwnProperty.call(WD_SAT_CACHE, qid)) return WD_SAT_CACHE[qid];
+    try {{
+      const url = `https://www.wikidata.org/wiki/Special:EntityData/${{qid}}.json`;
+      const resp = await fetch(url);
+      if (!resp.ok) {{
+        WD_SAT_CACHE[qid] = [];
+        return [];
+      }}
+      const data = await resp.json();
+      const claims = data?.entities?.[qid]?.claims?.P14545 || [];
+      const refs = claims
+        .map((c) => c?.mainsnak?.datavalue?.value)
+        .filter((v) => typeof v === 'string' && v.trim());
+      WD_SAT_CACHE[qid] = refs;
+      return refs;
+    }} catch (_e) {{
+      WD_SAT_CACHE[qid] = [];
+      return [];
+    }}
+  }}
+
   function openIdWithCheckDate(idUrl) {{
     const today = new Date().toISOString().slice(0, 10);
     const tagText = `check_date=${{today}}`;
@@ -411,7 +466,7 @@ html = f"""<!DOCTYPE html>
     return false;
   }}
 
-  function buildPopup(p) {{
+  function buildPopup(p, inconsistencyInfo = null) {{
     const tags = p.missing.map(tag => {{
       const labels = {{osm:'Saknar OSM', wikidata:'Saknar Wikidata', image:'Saknar bild'}};
       const colors = {{osm:'#ef4444', wikidata:'#f59e0b', image:'#8b5cf6'}};
@@ -424,6 +479,9 @@ html = f"""<!DOCTYPE html>
     const satJsonUrl = p.id ? `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(p.id)}}` : null;
     const newNoteUrl = `https://www.openstreetmap.org/note/new#map=18/${{p.lat}}/${{p.lon}}`;
     const wikimapUrl = `https://wikimap.toolforge.org/?lat=${{p.lat}}&lon=${{p.lon}}&zoom=15&lang=en&wp=false&cluster=false`;
+    const inconsistencyHtml = inconsistencyInfo
+      ? `<details style="margin-top:6px"><summary>⚠️ Inkonsekvens-kontroll</summary><div style="font-size:12px;margin-top:4px">${{inconsistencyInfo}}</div></details>`
+      : `<details style="margin-top:6px"><summary>⚠️ Inkonsekvens-kontroll</summary><div style="font-size:12px;margin-top:4px">Kontroll: 1) finns SAT-ID i Wikidata P14545, 2) finns OSM-taggen <code>ref:stockholmarchipelagotrail</code>. Lagret “⚠️ Inkonsekvens” visar objekt där 1 är sant men 2 saknas.</div></details>`;
     return `<div style="min-width:160px;font-size:13px">
       <strong>${{escapeHtml(p.name)}}</strong><br>
       <small style="color:#64748b">${{escapeHtml(p.section)}} · ${{escapeHtml(p.category)}}</small><br>
@@ -436,6 +494,7 @@ html = f"""<!DOCTYPE html>
         <div><a href="${{wikimapUrl}}" target="_blank">🗺️ Wikimap</a></div>
         <div><a href="${{newNoteUrl}}" target="_blank">💬 Skapa OSM Note här</a></div>
       </div>
+      ${{inconsistencyHtml}}
     </div>`;
   }}
 
@@ -446,6 +505,7 @@ html = f"""<!DOCTYPE html>
     layerMissingImg.clearLayers();
     layerWheelchair.clearLayers();
     layerMissingWheelchair.clearLayers();
+    layerInconsistency.clearLayers();
     const fps = filteredPois();
     fps.forEach(p => {{
       const popup = buildPopup(p);
@@ -462,6 +522,9 @@ html = f"""<!DOCTYPE html>
     if (map.hasLayer(layerWheelchair) || map.hasLayer(layerMissingWheelchair)) {{
       renderWheelchairLayers(fps, currentRender);
     }}
+    if (map.hasLayer(layerInconsistency)) {{
+      renderInconsistencyLayer(fps, currentRender);
+    }}
   }}
 
   async function renderWheelchairLayers(pois, currentRender) {{
@@ -477,6 +540,30 @@ html = f"""<!DOCTYPE html>
         }} else {{
           L.marker([p.lat, p.lon], {{ icon: missingWheelchairIcon }}).bindPopup(popup).addTo(layerMissingWheelchair);
         }}
+      }});
+    await Promise.all(tasks);
+  }}
+
+  async function renderInconsistencyLayer(pois, currentRender) {{
+    const tasks = pois
+      .filter((p) => !!p.osm && !!p.wikidata)
+      .map(async (p) => {{
+        const [tags, satRefs] = await Promise.all([
+          fetchOsmTags(p.osm),
+          fetchWikidataSatRefs(p.wikidata),
+        ]);
+        if (currentRender !== renderVersion) return;
+        if (!tags) return;
+        const wdHasSat = satIdMatches(satRefs, p.id);
+        const osmRefSat = String(tags['ref:stockholmarchipelagotrail'] || '').trim();
+        const osmMissingSatRef = !osmRefSat;
+        if (!(wdHasSat && osmMissingSatRef)) return;
+        const detail = [
+          `Wikidata P14545 innehåller SAT-ID (<code>${{escapeHtml(p.id)}}</code>): <strong>ja</strong>`,
+          `OSM tag <code>ref:stockholmarchipelagotrail</code>: <strong>saknas</strong>`,
+        ].join('<br>');
+        const popup = buildPopup(p, detail);
+        L.marker([p.lat, p.lon], {{ icon: inconsistencyIcon }}).bindPopup(popup).addTo(layerInconsistency);
       }});
     await Promise.all(tasks);
   }}
