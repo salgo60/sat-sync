@@ -309,7 +309,6 @@ html = f"""<!DOCTYPE html>
 
   function saveStateInUrl() {{
     if (isRestoringState) return;
-    if (window.location.protocol === 'file:') return;
     const c = map.getCenter();
     const z = map.getZoom();
     const params = new URLSearchParams();
@@ -320,12 +319,22 @@ html = f"""<!DOCTYPE html>
     params.set('lon', c.lng.toFixed(6));
     params.set('z', String(z));
     params.set('layers', getActiveLayerKeys().join(','));
-    const next = `${{window.location.pathname}}?${{params.toString()}}`;
+    const stateStr = params.toString();
+    if (window.location.protocol === 'file:') {{
+      if (window.location.hash.slice(1) !== stateStr) {{
+        window.location.hash = stateStr;
+      }}
+      return;
+    }}
+    const next = `${{window.location.pathname}}?${{stateStr}}`;
     window.history.replaceState({{}}, '', next);
   }}
 
   function applyStateFromUrl() {{
-    const params = new URLSearchParams(window.location.search);
+    let params = new URLSearchParams(window.location.search);
+    if ([...params.keys()].length === 0 && window.location.hash.length > 1) {{
+      params = new URLSearchParams(window.location.hash.slice(1));
+    }}
     if ([...params.keys()].length === 0) return;
     isRestoringState = true;
     const stage = params.get('stage') || 'all';
