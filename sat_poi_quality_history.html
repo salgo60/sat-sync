@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAT POI — Datakvalitet över tid</title>
+  <style>
+    body { margin: 0; padding: 32px 16px; background: #f8f8f8; font: 16px/1.6 -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; color: #32373c; }
+    main { max-width: 760px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 40px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8a8f93; }
+    h1 { font-size: 28px; margin: 6px 0 8px; line-height: 1.2; }
+    p { margin: 8px 0; }
+    ul { margin: 10px 0 0; padding-left: 20px; }
+    li { margin: 5px 0; }
+    .sub { color: #8a8f93; font-size: 14px; }
+    .note { margin-top: 20px; padding: 14px 16px; border-radius: 10px; background: #f5f7ff; color: #334155; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-top: 18px; }
+    .card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 12px; background: #fff; }
+    .card .label { font-size: 12px; color: #6b7280; }
+    .card .num { font-size: 22px; font-weight: 700; line-height: 1.1; margin-top: 4px; }
+    h2 { font-size: 20px; margin: 24px 0 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { border-bottom: 1px solid #eee; padding: 8px 6px; text-align: left; font-size: 14px; }
+    th { color: #6b7280; font-weight: 600; }
+    details { margin-top: 18px; }
+    details summary { cursor: pointer; font-weight: 600; color: #334155; }
+    .table-scroll { overflow-x: auto; }
+    a { color: #c2356e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">SAT POI</div>
+  <h1 id="pageTitle">📈 Datakvalitet över tid</h1>
+  <p class="sub" id="pageSubtitle">Historik för hur POI-data utvecklas i antal och kvalitet.</p>
+  <p id="pageIntro">Här kommer snapshots att sparas när <code>metadata.generatedAt</code> i <code>pois.geojson</code> ändras.</p>
+  <ul>
+    <li id="metric1">Antal POI per objekttyp</li>
+    <li id="metric2">Andel med OSM- och Wikidata-koppling</li>
+    <li id="metric3">Taggtäckning per typ (t.ex. wheelchair, fee, image, wikimedia_commons, wikipedia, payment:*)</li>
+  </ul>
+  <div class="note" id="pageNote">Sidan visar ramverket först. Tidsserier fylls på när nya SAT-versioner publiceras.</div>
+  <div class="note" id="historyBox" style="display:none"></div>
+  <div class="note" id="historyEmpty" style="display:none"></div>
+  <div id="statsPanel" style="display:none">
+    <div class="stats">
+      <div class="card"><div class="label" id="kpiVersionLabel">Version</div><div class="num" id="kpiVersion">—</div></div>
+      <div class="card"><div class="label" id="kpiTotalLabel">Antal POI</div><div class="num" id="kpiTotal">—</div></div>
+      <div class="card"><div class="label" id="kpiOsmLabel">Med OSM-länk</div><div class="num" id="kpiOsm">—</div></div>
+      <div class="card"><div class="label" id="kpiWdLabel">Med Wikidata-länk</div><div class="num" id="kpiWd">—</div></div>
+    </div>
+
+    <h2 id="fieldsTitle">Fälttäckning</h2>
+    <table>
+      <thead>
+        <tr><th id="thField">Fält</th><th id="thCount">Antal</th><th id="thPercent">Andel</th></tr>
+      </thead>
+      <tbody id="fieldCoverageBody"></tbody>
+    </table>
+
+    <h2 id="categoriesTitle">Objekttyper</h2>
+    <table>
+      <thead>
+        <tr><th id="thCategory">Kategori</th><th id="thCategoryCount">Antal</th></tr>
+      </thead>
+      <tbody id="categoriesBody"></tbody>
+    </table>
+
+    <details id="sectionCoverageDetails">
+      <summary id="sectionCoverageSummary">Visa procent per SAT section</summary>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th id="thSecSection">Section</th>
+              <th id="thSecTotal">POI</th>
+              <th id="thSecOsm">OSM %</th>
+              <th id="thSecWd">Wikidata %</th>
+              <th id="thSecWheelchair">Wheelchair %</th>
+              <th id="thSecPhone">Phone %</th>
+              <th id="thSecMenu">Menu %</th>
+              <th id="thSecSocial">Social media %</th>
+              <th id="thSecFacebook">Facebook %</th>
+              <th id="thSecInstagram">Instagram %</th>
+            </tr>
+          </thead>
+          <tbody id="sectionCoverageBody"></tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+  <p style="margin-top:20px">
+    <a id="backDashboard" href="sat_poi_dashboard.html">← Till dashboard</a>
+    ·
+    <a id="backWhatsNew" href="whats_new.html">What's new</a>
+  </p>
+</main>
+
+<script src="sat_poi_quality_history_data.js"></script>
+<script>
+  (function () {
+    const tr = {
+      sv: {
+        pageTitle: '📈 Datakvalitet över tid',
+        pageSubtitle: 'Historik för hur POI-data utvecklas i antal och kvalitet.',
+        pageIntro: 'Här kommer snapshots att sparas när metadata.generatedAt i pois.geojson ändras.',
+        metric1: 'Antal POI per objekttyp',
+        metric2: 'Andel med OSM- och Wikidata-koppling',
+        metric3: 'Taggtäckning per typ (t.ex. wheelchair, fee, image, wikimedia_commons, wikipedia, payment:*)',
+        pageNote: 'Sidan visar ramverket först. Tidsserier fylls på när nya SAT-versioner publiceras.',
+        backDashboard: '← Till dashboard',
+        backWhatsNew: "What's new",
+        historyTitle: 'Senaste snapshot',
+        historyVersion: 'Version',
+        historyGeneratedAt: 'SAT generatedAt',
+        historyCapturedAt: 'Sparad',
+        historyTotal: 'Antal POI',
+        historyOsm: 'Med OSM-länk',
+        historyWd: 'Med Wikidata-länk',
+        historyEmpty: 'Ingen snapshot ännu. Kör generate_poi_quality_history.py för att skapa version 1.',
+        fieldsTitle: 'Fälttäckning',
+        categoriesTitle: 'Objekttyper',
+        thField: 'Fält',
+        thCount: 'Antal',
+        thPercent: 'Andel',
+        thCategory: 'Kategori',
+        thCategoryCount: 'Antal'
+        ,
+        sectionCoverageSummary: 'Visa procent per SAT section',
+        thSecSection: 'Section',
+        thSecTotal: 'POI',
+        thSecOsm: 'OSM %',
+        thSecWd: 'Wikidata %',
+        thSecWheelchair: 'Wheelchair %',
+        thSecPhone: 'Phone %',
+        thSecMenu: 'Menu %',
+        thSecSocial: 'Social media %',
+        thSecFacebook: 'Facebook %',
+        thSecInstagram: 'Instagram %'
+      },
+      en: {
+        pageTitle: '📈 Data quality over time',
+        pageSubtitle: 'History of how POI data evolves in volume and quality.',
+        pageIntro: 'Snapshots will be stored whenever metadata.generatedAt changes in pois.geojson.',
+        metric1: 'POI count per object type',
+        metric2: 'Share with OSM and Wikidata links',
+        metric3: 'Tag coverage per type (e.g. wheelchair, fee, image, wikimedia_commons, wikipedia, payment:*)',
+        pageNote: 'This page starts with the framework. Time series will appear as new SAT versions are published.',
+        backDashboard: '← Back to dashboard',
+        backWhatsNew: "What's new",
+        historyTitle: 'Latest snapshot',
+        historyVersion: 'Version',
+        historyGeneratedAt: 'SAT generatedAt',
+        historyCapturedAt: 'Captured',
+        historyTotal: 'POI count',
+        historyOsm: 'With OSM link',
+        historyWd: 'With Wikidata link',
+        historyEmpty: 'No snapshot yet. Run generate_poi_quality_history.py to create version 1.',
+        fieldsTitle: 'Field coverage',
+        categoriesTitle: 'Object types',
+        thField: 'Field',
+        thCount: 'Count',
+        thPercent: 'Share',
+        thCategory: 'Category',
+        thCategoryCount: 'Count',
+        sectionCoverageSummary: 'Show percentages per SAT section',
+        thSecSection: 'Section',
+        thSecTotal: 'POI',
+        thSecOsm: 'OSM %',
+        thSecWd: 'Wikidata %',
+        thSecWheelchair: 'Wheelchair %',
+        thSecPhone: 'Phone %',
+        thSecMenu: 'Menu %',
+        thSecSocial: 'Social media %',
+        thSecFacebook: 'Facebook %',
+        thSecInstagram: 'Instagram %'
+      }
+    };
+
+    const localizedTitles = {
+      ar: '📈 جودة البيانات عبر الزمن',
+      fi: '📈 Datan laatu ajan yli',
+      so: '📈 Tayada xogta waqti ka dib',
+      fa: '📈 کیفیت داده در گذر زمان',
+      ckb: '📈 کوالێتی داتا بە تێپەڕبوونی کات',
+      ti: '📈 ጥራይ ዳታ ብዘመን',
+      pl: '📈 Jakość danych w czasie',
+      tr: '📈 Zaman içinde veri kalitesi',
+      es: '📈 Calidad de datos a lo largo del tiempo',
+      nb: '📈 Datakvalitet over tid',
+      nn: '📈 Datakvalitet over tid',
+      da: '📈 Datakvalitet over tid',
+      de: '📈 Datenqualität über die Zeit',
+      nl: '📈 Datakwaliteit in de tijd',
+      fr: '📈 Qualité des données dans le temps',
+      it: '📈 Qualità dei dati nel tempo',
+      zh: '📈 数据质量随时间变化',
+      ja: '📈 時系列のデータ品質',
+      ru: '📈 Качество данных во времени'
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const lang = (params.get('lang') || 'sv').toLowerCase();
+    const pack = tr[lang] || tr.en;
+
+    ['pageTitle', 'pageSubtitle', 'pageIntro', 'metric1', 'metric2', 'metric3', 'pageNote', 'backDashboard', 'backWhatsNew'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el || !pack[id]) return;
+      el.textContent = pack[id];
+    });
+
+    if (localizedTitles[lang]) {
+      document.getElementById('pageTitle').textContent = localizedTitles[lang];
+      document.title = localizedTitles[lang].replace('📈 ', 'SAT POI — ');
+    } else {
+      document.title = pack.pageTitle.replace('📈 ', 'SAT POI — ');
+    }
+
+    document.documentElement.lang = lang;
+    const suffix = `?lang=${encodeURIComponent(lang)}`;
+    document.getElementById('backDashboard').setAttribute('href', `sat_poi_dashboard.html${suffix}`);
+    document.getElementById('backWhatsNew').setAttribute('href', `whats_new.html${suffix}`);
+
+    ['kpiVersionLabel', 'kpiTotalLabel', 'kpiOsmLabel', 'kpiWdLabel', 'fieldsTitle', 'categoriesTitle', 'thField', 'thCount', 'thPercent', 'thCategory', 'thCategoryCount', 'sectionCoverageSummary', 'thSecSection', 'thSecTotal', 'thSecOsm', 'thSecWd', 'thSecWheelchair', 'thSecPhone', 'thSecMenu', 'thSecSocial', 'thSecFacebook', 'thSecInstagram'].forEach((id) => {
+      const map = {
+        kpiVersionLabel: 'historyVersion',
+        kpiTotalLabel: 'historyTotal',
+        kpiOsmLabel: 'historyOsm',
+        kpiWdLabel: 'historyWd',
+        fieldsTitle: 'fieldsTitle',
+        categoriesTitle: 'categoriesTitle',
+        thField: 'thField',
+        thCount: 'thCount',
+        thPercent: 'thPercent',
+        thCategory: 'thCategory',
+        thCategoryCount: 'thCategoryCount',
+        sectionCoverageSummary: 'sectionCoverageSummary',
+        thSecSection: 'thSecSection',
+        thSecTotal: 'thSecTotal',
+        thSecOsm: 'thSecOsm',
+        thSecWd: 'thSecWd',
+        thSecWheelchair: 'thSecWheelchair',
+        thSecPhone: 'thSecPhone',
+        thSecMenu: 'thSecMenu',
+        thSecSocial: 'thSecSocial',
+        thSecFacebook: 'thSecFacebook',
+        thSecInstagram: 'thSecInstagram'
+      };
+      const el = document.getElementById(id);
+      if (el && pack[map[id]]) el.textContent = pack[map[id]];
+    });
+
+    function renderStats(latest) {
+      document.getElementById('statsPanel').style.display = 'block';
+      document.getElementById('kpiVersion').textContent = latest.version ?? '—';
+      document.getElementById('kpiTotal').textContent = latest.totalPoi ?? '—';
+      document.getElementById('kpiOsm').textContent = `${latest.linkCoverage?.osm?.count ?? 0} (${latest.linkCoverage?.osm?.percent ?? 0}%)`;
+      document.getElementById('kpiWd').textContent = `${latest.linkCoverage?.wikidata?.count ?? 0} (${latest.linkCoverage?.wikidata?.percent ?? 0}%)`;
+
+      const fieldBody = document.getElementById('fieldCoverageBody');
+      const fields = latest.fieldCoverage || {};
+      const fieldLabels = {
+        wheelchair: 'Wheelchair',
+        fee: 'Fee',
+        image: 'Image',
+        website: 'Website',
+        phone: 'Phone number',
+        menu: 'Menu',
+        social_media: 'Social media',
+        facebook: 'Facebook',
+        instagram: 'Instagram',
+        address: 'Address',
+        internet_access: 'Internet access',
+        passBuyUrl: 'Pass buy URL',
+        passSells: 'Pass sold here',
+        passStamps: 'Pass stamping'
+      };
+      fieldBody.innerHTML = Object.entries(fields)
+        .sort((a, b) => (b[1]?.count || 0) - (a[1]?.count || 0))
+        .map(([key, val]) => `<tr><td>${fieldLabels[key] || key}</td><td>${val?.count ?? 0}</td><td>${val?.percent ?? 0}%</td></tr>`)
+        .join('');
+
+      const categoriesBody = document.getElementById('categoriesBody');
+      const categories = Array.isArray(latest.categories) ? latest.categories : [];
+      categoriesBody.innerHTML = categories
+        .map((row) => `<tr><td>${row.category ?? ''}</td><td>${row.count ?? 0}</td></tr>`)
+        .join('');
+
+      const sectionBody = document.getElementById('sectionCoverageBody');
+      const sections = Array.isArray(latest.sectionCoverage) ? latest.sectionCoverage : [];
+      sectionBody.innerHTML = sections
+        .map((row) => {
+          const f = row.fieldCoverage || {};
+          return `<tr>
+            <td>${row.section ?? ''}</td>
+            <td>${row.totalPoi ?? 0}</td>
+            <td>${row.linkCoverage?.osm?.percent ?? 0}%</td>
+            <td>${row.linkCoverage?.wikidata?.percent ?? 0}%</td>
+            <td>${f.wheelchair?.percent ?? 0}%</td>
+            <td>${f.phone?.percent ?? 0}%</td>
+            <td>${f.menu?.percent ?? 0}%</td>
+            <td>${f.social_media?.percent ?? 0}%</td>
+            <td>${f.facebook?.percent ?? 0}%</td>
+            <td>${f.instagram?.percent ?? 0}%</td>
+          </tr>`;
+        })
+        .join('');
+    }
+
+    const historyBox = document.getElementById('historyBox');
+    const historyEmpty = document.getElementById('historyEmpty');
+    const preloaded = window.SAT_POI_QUALITY_HISTORY;
+    if (preloaded && Array.isArray(preloaded.versions) && preloaded.versions.length) {
+      const latest = preloaded.versions[preloaded.versions.length - 1];
+      historyBox.style.display = 'block';
+      historyBox.innerHTML = `
+        <strong>${pack.historyTitle}</strong><br>
+        ${pack.historyVersion}: <strong>${latest.version}</strong><br>
+        ${pack.historyGeneratedAt}: <strong>${latest.generatedAt}</strong><br>
+        ${pack.historyCapturedAt}: <strong>${latest.capturedAt}</strong><br>
+        ${pack.historyTotal}: <strong>${latest.totalPoi}</strong>
+      `;
+      renderStats(latest);
+      return;
+    }
+
+    fetch('sat_poi_quality_history.json', { cache: 'no-store' })
+      .then((res) => {
+        if (!res.ok) throw new Error(String(res.status));
+        return res.json();
+      })
+      .then((data) => {
+        const versions = Array.isArray(data.versions) ? data.versions : [];
+        if (!versions.length) throw new Error('empty');
+        const latest = versions[versions.length - 1];
+        historyBox.style.display = 'block';
+        historyBox.innerHTML = `
+          <strong>${pack.historyTitle}</strong><br>
+          ${pack.historyVersion}: <strong>${latest.version}</strong><br>
+          ${pack.historyGeneratedAt}: <strong>${latest.generatedAt}</strong><br>
+          ${pack.historyCapturedAt}: <strong>${latest.capturedAt}</strong><br>
+          ${pack.historyTotal}: <strong>${latest.totalPoi}</strong>
+        `;
+        renderStats(latest);
+      })
+      .catch(() => {
+        historyEmpty.style.display = 'block';
+        historyEmpty.textContent = pack.historyEmpty;
+      });
+  })();
+</script>
+</body>
+</html>
