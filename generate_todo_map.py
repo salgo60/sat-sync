@@ -192,6 +192,8 @@ html = f"""<!DOCTYPE html>
   let locationMarker = null;
   let osmNotesLoaded = false;
   let renderVersion = 0;
+  let initialTab = 'map';
+  let isRestoringState = false;
 
   // ── Map setup ──────────────────────────────────────────────────────────────
   const map = L.map('map', {{ zoomControl: true }}).setView([59.3, 18.9], 8);
@@ -257,6 +259,14 @@ html = f"""<!DOCTYPE html>
   const osmNotesLayer   = L.layerGroup().addTo(map);
   const layerWheelchair = L.layerGroup();
   const layerMissingWheelchair = L.layerGroup();
+  const layerByKey = {{
+    osm: layerMissingOsm,
+    wd: layerMissingWd,
+    img: layerMissingImg,
+    wc: layerWheelchair,
+    mwc: layerMissingWheelchair,
+    notes: osmNotesLayer,
+  }};
 
   // Layer control — shown in map top-right
   L.control.layers(null, {{
@@ -272,7 +282,84 @@ html = f"""<!DOCTYPE html>
     if (ev.layer === layerWheelchair || ev.layer === layerMissingWheelchair) {{
       renderMarkers();
     }}
+    saveStateInUrl();
   }});
+  map.on('overlayremove', saveStateInUrl);
+  map.on('moveend', saveStateInUrl);
+
+  function optionExists(selectEl, value) {{
+    return Array.from(selectEl.options).some((o) => o.value === value);
+  }}
+
+  function getActiveLayerKeys() {{
+    return Object.entries(layerByKey)
+      .filter(([, layer]) => map.hasLayer(layer))
+      .map(([key]) => key);
+  }}
+
+  function applyLayerState(keys) {{
+    const set = new Set(keys);
+    Object.entries(layerByKey).forEach(([key, layer]) => {{
+      const shouldBeOn = set.has(key);
+      const isOn = map.hasLayer(layer);
+      if (shouldBeOn && !isOn) map.addLayer(layer);
+      if (!shouldBeOn && isOn) map.removeLayer(layer);
+    }});
+  }}
+
+  function saveStateInUrl() {{
+    if (isRestoringState) return;
+    const c = map.getCenter();
+    const z = map.getZoom();
+    const params = new URLSearchParams();
+    params.set('stage', currentStage || 'all');
+    params.set('category', currentCategory || 'all');
+    params.set('tab', document.getElementById('tab-list').classList.contains('active') ? 'list' : 'map');
+    params.set('lat', c.lat.toFixed(6));
+    params.set('lon', c.lng.toFixed(6));
+    params.set('z', String(z));
+    params.set('layers', getActiveLayerKeys().join(','));
+    const stateStr = params.toString();
+    if (window.location.protocol === 'file:') {{
+      if (window.location.hash.slice(1) !== stateStr) {{
+        window.location.hash = stateStr;
+      }}
+      return;
+    }}
+    const next = `${{window.location.pathname}}?${{stateStr}}`;
+    window.history.replaceState({{}}, '', next);
+  }}
+
+  function applyStateFromUrl() {{
+    let params = new URLSearchParams(window.location.search);
+    if ([...params.keys()].length === 0 && window.location.hash.length > 1) {{
+      params = new URLSearchParams(window.location.hash.slice(1));
+    }}
+    if ([...params.keys()].length === 0) return;
+    isRestoringState = true;
+    const stage = params.get('stage') || 'all';
+    const category = params.get('category') || 'all';
+    const tab = params.get('tab') || 'map';
+    const lat = Number(params.get('lat'));
+    const lon = Number(params.get('lon'));
+    const z = Number(params.get('z'));
+    const layers = (params.get('layers') || '').split(',').map(s => s.trim()).filter(Boolean);
+
+    if (optionExists(stageFilter, stage)) {{
+      stageFilter.value = stage;
+      currentStage = stage;
+    }}
+    if (optionExists(categoryFilter, category)) {{
+      categoryFilter.value = category;
+      currentCategory = category;
+    }}
+    if (Number.isFinite(lat) && Number.isFinite(lon) && Number.isFinite(z)) {{
+      map.setView([lat, lon], z);
+    }}
+    if (layers.length > 0) applyLayerState(layers);
+    if (tab === 'list' || tab === 'map') initialTab = tab;
+    isRestoringState = false;
+  }}
 
   function filteredPois() {{
     return ALL_POIS.filter(p => {{
@@ -437,6 +524,7 @@ html = f"""<!DOCTYPE html>
     currentCategory = categoryFilter.value;
     renderMarkers();
     renderList();
+    saveStateInUrl();
   }};
 
   // ── Geolocation ───────────────────────────────────────────────────────────
@@ -460,6 +548,7 @@ html = f"""<!DOCTYPE html>
         currentStage = nearest;
         renderMarkers();
         renderList();
+        saveStateInUrl();
       }}
     }}, err => alert('Kunde inte hämta position: ' + err.message));
   }};
@@ -472,6 +561,7 @@ html = f"""<!DOCTYPE html>
     document.getElementById('tab-list').classList.toggle('active', tab==='list');
     if (tab==='map') map.invalidateSize();
     if (tab==='list') renderList();
+    saveStateInUrl();
   }};
 
   // ── List view ─────────────────────────────────────────────────────────────
@@ -552,6 +642,7 @@ html = f"""<!DOCTYPE html>
   window.gotoOnMap = function(lat, lon) {{
     showTab('map');
     map.setView([lat, lon], 16);
+    saveStateInUrl();
   }};
 
   function escapeHtml(s) {{
@@ -559,8 +650,11 @@ html = f"""<!DOCTYPE html>
   }}
 
   // ── Init ──────────────────────────────────────────────────────────────────
+  applyStateFromUrl();
   renderMarkers();
   loadOsmNotes();
+  showTab(initialTab);
+  saveStateInUrl();
 }})();
 </script>
 </body>
