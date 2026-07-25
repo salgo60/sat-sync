@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Generate sat_todo_map.html — mobile-friendly TODO map for SAT POI data gaps."""
 
-import json, urllib.request, datetime
+import json, urllib.request, urllib.parse, datetime, re
 
 POIS_URL   = "https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson"
 TRAIL_URL  = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
 SECTIONS_URL = "https://map.stockholmarchipelagotrail.com/data/sections-index.json"
 AED_URL    = "https://map.stockholmarchipelagotrail.com/api/aed"
+PIERS_URL  = "https://map.stockholmarchipelagotrail.com/data/piers-identity.json"
 OUTPUT     = "sat_todo_map.html"
 
 HEADERS = {"User-Agent": "sat-sync/todo-map 1.0"}
@@ -15,6 +16,43 @@ def fetch(url):
     req = urllib.request.Request(url, headers=HEADERS)
     with urllib.request.urlopen(req) as r:
         return json.load(r)
+
+def parse_wkt_point(value):
+    m = re.match(r"Point\(([-0-9.]+)\s+([-0-9.]+)\)", str(value or ""))
+    if not m:
+        return None, None
+    lon = float(m.group(1))
+    lat = float(m.group(2))
+    return lat, lon
+
+def fetch_wikidata_pier_data(sat_ids):
+    if not sat_ids:
+        return {}
+    values = " ".join(f"\"{s}\"" for s in sat_ids if s)
+    query = f"""
+SELECT ?satId ?item ?itemLabel ?coord WHERE {{
+  VALUES ?satId {{ {values} }}
+  ?item wdt:P14545 ?satId .
+  OPTIONAL {{ ?item wdt:P625 ?coord . }}
+  SERVICE wikibase:label {{ bd:serviceParam wikibase:language "sv,en". }}
+}}
+"""
+    url = "https://query.wikidata.org/sparql?query=" + urllib.parse.quote(query) + "&format=json"
+    data = fetch(url)
+    out = {}
+    for b in data.get("results", {}).get("bindings", []):
+        sat_id = b.get("satId", {}).get("value", "")
+        item_url = b.get("item", {}).get("value", "")
+        qid = item_url.rsplit("/", 1)[-1] if item_url else ""
+        label = b.get("itemLabel", {}).get("value", "")
+        lat, lon = parse_wkt_point(b.get("coord", {}).get("value", ""))
+        out[sat_id] = {
+            "qid": qid,
+            "label": label,
+            "lat": lat,
+            "lon": lon,
+        }
+    return out
 
 print("📥 Hämtar POI...")
 raw_pois = fetch(POIS_URL)["features"]
@@ -54,6 +92,47 @@ for f in aed_features:
         "street": addr.get("street", ""),
         "city": addr.get("city", ""),
     })
+
+print("📥 Hämtar piers identity...")
+try:
+    piers_identity = fetch(PIERS_URL)
+    print(f"  ✅ {len(piers_identity)} piers-poster")
+except Exception as e:
+    print(f"  ⚠️ Piers identity fel: {e}")
+    piers_identity = {}
+
+piers_data = []
+missing_pier_sat_ids = []
+if piers_identity:
+    print("📥 Hämtar piers-koordinater från Wikidata...")
+    try:
+        sat_ids = sorted({(v or {}).get("satId", "") for v in piers_identity.values() if (v or {}).get("satId", "")})
+        wd_by_sat_id = fetch_wikidata_pier_data(sat_ids)
+    except Exception as e:
+        print(f"  ⚠️ Wikidata pier-koordinater fel: {e}")
+        wd_by_sat_id = {}
+
+    for uid, v in piers_identity.items():
+        sat_id = (v or {}).get("satId", "")
+        wd = wd_by_sat_id.get(sat_id)
+        if not wd or wd.get("lat") is None or wd.get("lon") is None:
+            missing_pier_sat_ids.append(sat_id or f"uid:{uid}")
+            continue
+        gtfs = ((v or {}).get("concordances") or {}).get("gtfs") or []
+        piers_data.append({
+            "uid": uid,
+            "satId": sat_id,
+            "name": (v or {}).get("name", ""),
+            "slug": (v or {}).get("slug", ""),
+            "gtfsCount": len(gtfs),
+            "wikidataQid": wd.get("qid", ""),
+            "wikidataLabel": wd.get("label", ""),
+            "lat": wd.get("lat"),
+            "lon": wd.get("lon"),
+        })
+    print(f"  ✅ {len(piers_data)} piers med koordinater")
+    if missing_pier_sat_ids:
+        print(f"  ⚠️ {len(missing_pier_sat_ids)} piers saknar koordinater i Wikidata")
 
 generated_at = datetime.datetime.now().strftime("%Y%m%d %H:%M")
 
@@ -105,6 +184,8 @@ pois_json        = json.dumps(pois,        ensure_ascii=False)
 trail_json       = json.dumps(trail_geojson, ensure_ascii=False)
 stage_stats_json = json.dumps(dict(stage_stats), ensure_ascii=False)
 aed_json         = json.dumps(aed_data,    ensure_ascii=False)
+piers_json       = json.dumps(piers_data,  ensure_ascii=False)
+missing_piers_json = json.dumps(sorted(missing_pier_sat_ids), ensure_ascii=False)
 
 html = f"""<!DOCTYPE html>
 <html lang="sv">
@@ -214,6 +295,8 @@ html = f"""<!DOCTYPE html>
   const TRAIL_GEOJSON = {trail_json};
   const STAGE_STATS = {stage_stats_json};
   const AED_POINTS = {aed_json};
+  const PIER_POINTS = {piers_json};
+  const MISSING_PIER_SAT_IDS = {missing_piers_json};
   const OSM_TAG_CACHE = {{}};
   const WD_ENTITY_CACHE = {{}};
 
@@ -237,6 +320,7 @@ html = f"""<!DOCTYPE html>
       layerIncWdOsm: 'Inkonsekvens WD saknar koppling OSM',
       layerNotes: '\U0001f4ac OSM Notes',
       layerAed: '\U0001f9e1 Hj\xe4rtstartare (AED)',
+      layerPiers: '\u26f4 Bryggor (piers)',
       missingWd: 'Saknar Wikidata',
       missingImg: 'Saknar bild',
       satMap: '\U0001f5fe SAT-kartan',
@@ -285,6 +369,7 @@ html = f"""<!DOCTYPE html>
       layerIncWdOsm: 'Inconsistency WD missing OSM link',
       layerNotes: '\U0001f4ac OSM Notes',
       layerAed: '\U0001f9e1 Defibrillator (AED)',
+      layerPiers: '\u26f4 Piers',
       missingWd: 'Missing Wikidata',
       missingImg: 'Missing image',
       satMap: '\U0001f5fe SAT map',
@@ -422,6 +507,7 @@ html = f"""<!DOCTYPE html>
   const layerInconsistencyOsmMissingWd = L.layerGroup();
   const layerInconsistencyWdMissingOsm = L.layerGroup();
   const layerAed = L.layerGroup();
+  const layerPiers = L.layerGroup();
   const layerByKey = {{
     osm: layerMissingOsm,
     wd: layerMissingWd,
@@ -434,6 +520,7 @@ html = f"""<!DOCTYPE html>
     incwd: layerInconsistencyWdMissingOsm,
     notes: osmNotesLayer,
     aed: layerAed,
+    piers: layerPiers,
   }};
 
   // Layer control — shown in map top-right
@@ -451,6 +538,7 @@ html = f"""<!DOCTYPE html>
       [t('layerIncWdOsm')]:     layerInconsistencyWdMissingOsm,
       [t('layerNotes')]:        osmNotesLayer,
       [t('layerAed')]:          layerAed,
+      [t('layerPiers')]:        layerPiers,
     }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
   }}
 
@@ -861,7 +949,45 @@ html = f"""<!DOCTYPE html>
     }});
     console.log(`AED: ${{AED_POINTS.length}} laddade`);
   }}
-  map.on('overlayadd', (ev) => {{ if (ev.layer === layerAed) loadAed(); }});
+
+  const pierIcon = L.divIcon({{
+    className: '',
+    html: '<div style="width:22px;height:22px;border-radius:50%;background:#0ea5e9;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:12px">⛴️</div>',
+    iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-13]
+  }});
+  let piersLoaded = false;
+  function loadPiers() {{
+    if (piersLoaded) return;
+    piersLoaded = true;
+    layerPiers.clearLayers();
+    PIER_POINTS.forEach((p) => {{
+      const lat = p.lat;
+      const lon = p.lon;
+      const wdUrl = p.wikidataQid ? `https://www.wikidata.org/wiki/${{p.wikidataQid}}` : null;
+      const mapkiUrl = `https://mapki.com/map/#16/${{lat}}/${{lon}}`;
+      const m = L.marker([lat, lon], {{ icon: pierIcon }});
+      m.bindPopup(`<div style="font-size:13px;min-width:180px">
+        <strong>⛴️ ${{escapeHtml(p.name || p.slug || p.satId)}}</strong><br>
+        <small style="color:#64748b">${{escapeHtml(p.satId || '')}}</small>
+        ${{p.slug ? `<div>slug: <code>${{escapeHtml(p.slug)}}</code></div>` : ''}}
+        ${{p.gtfsCount ? `<div>GTFS: ${{p.gtfsCount}}</div>` : ''}}
+        ${{wdUrl ? `<div><a href="${{wdUrl}}" target="_blank">📚 Wikidata</a>${{p.wikidataLabel ? ` · ${{escapeHtml(p.wikidataLabel)}}` : ''}}</div>` : ''}}
+        <div style="margin-top:5px;border-top:1px solid #e2e8f0;padding-top:4px;font-size:11px;color:#64748b">
+          <a href="${{mapkiUrl}}" target="_blank">📍 Mapki history</a>
+        </div>
+      </div>`);
+      layerPiers.addLayer(m);
+    }});
+    console.log(`Piers: ${{PIER_POINTS.length}} med koordinater från Wikidata`);
+    if (MISSING_PIER_SAT_IDS.length > 0) {{
+      console.warn(`Piers utan Wikidata-koordinater (${{MISSING_PIER_SAT_IDS.length}}):`, MISSING_PIER_SAT_IDS);
+    }}
+  }}
+
+  map.on('overlayadd', (ev) => {{
+    if (ev.layer === layerAed) loadAed();
+    if (ev.layer === layerPiers) loadPiers();
+  }});
 
   window.applyFilters = function() {{
     currentStage = stageFilter.value;
