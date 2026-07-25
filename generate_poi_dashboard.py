@@ -600,6 +600,7 @@ ORDER BY DESC(geof:latitude(?coord))
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>{pr_html} &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
+        <a data-todo-list-href href="sat_todo_list.html"><span id="todoListLinkHdr">✅ TODO-lista</span></a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a> &nbsp;|&nbsp;
         <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a> &nbsp;|&nbsp;
         <a href="sat_about.html"><span id="aboutLinkHdr">ℹ️ About</span></a>
@@ -731,6 +732,7 @@ ORDER BY DESC(geof:latitude(?coord))
       <a href="https://www.wikidata.org/wiki/Q131318799" target="_blank">Wikidata route</a> |
       <a href="whats_new.html">What's new</a> |
       <a href="sat_todo_map.html">🗺️ TODO-karta</a> |
+      <a data-todo-list-href href="sat_todo_list.html"><span id="todoListLinkFtr">✅ TODO-lista</span></a> |
       <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringsförslag</a> |
       <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkFtr">📈 Datakvalitet över tid</span></a> |
       <a href="sat_about.html"><span id="aboutLinkFtr">ℹ️ About</span></a>
@@ -865,6 +867,7 @@ ORDER BY DESC(geof:latitude(?coord))
           sankeyAllStages: 'alla etapper',
           sankeyStagePrefix: 'etapp',
           whatsNewLink: "What's new",
+          todoListLink: '✅ TODO-lista',
           improvementsLink: '💡 Förbättringsförslag'
         }},
         en: {{
@@ -919,6 +922,7 @@ ORDER BY DESC(geof:latitude(?coord))
           sankeyAllStages: 'all stages',
           sankeyStagePrefix: 'stage',
           whatsNewLink: "What's new",
+          todoListLink: '✅ TODO list',
           improvementsLink: '💡 Improvement suggestion'
         }}
       }};
@@ -1138,6 +1142,8 @@ ORDER BY DESC(geof:latitude(?coord))
           poisFetchedLabelHdr: 'poisFetchedLabel',
           poisGeneratedAtLabelHdr: 'poisGeneratedAtLabel',
           whatsNewLink: 'whatsNewLink',
+          todoListLinkHdr: 'todoListLink',
+          todoListLinkFtr: 'todoListLink',
           improvementsLink: 'improvementsLink'
         }};
         Object.entries(bindings).forEach(([id, key]) => {{
@@ -1161,6 +1167,10 @@ ORDER BY DESC(geof:latitude(?coord))
         if (aboutFtr) aboutFtr.textContent = aboutLabel;
         document.querySelectorAll('a[href="sat_about.html"]').forEach((link) => {{
           link.setAttribute('href', aboutUrl);
+        }});
+        const todoListUrl = `sat_todo_list.html?lang=${{encodeURIComponent(currentLangCode())}}`;
+        document.querySelectorAll('a[data-todo-list-href]').forEach((link) => {{
+          link.setAttribute('href', todoListUrl);
         }});
         const sectionAllOption = document.getElementById('sectionAllOption');
         const categoryAllOption = document.getElementById('categoryAllOption');

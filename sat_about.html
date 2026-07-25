@@ -49,6 +49,7 @@
   <div class="header-meta">
     <a href="sat_poi_dashboard.html" id="nav-dashboard">🧭 Dashboard</a> &nbsp;|&nbsp;
     <a href="sat_todo_map.html" id="nav-todo">🗺️ TODO-karta</a> &nbsp;|&nbsp;
+    <a href="sat_todo_list.html" id="nav-todo-list">✅ TODO-lista</a> &nbsp;|&nbsp;
     <a href="sat_poi_quality_history.html" id="nav-quality">📈 Datakvalitet</a> &nbsp;|&nbsp;
     <a href="whats_new.html" id="nav-whatsnew">What's new</a> &nbsp;|&nbsp;
     <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub</a>
@@ -78,6 +79,11 @@
         <div class="icon">🗺️</div>
         <h3 id="card-todo-title">TODO-karta</h3>
         <p id="card-todo-desc">Interaktiv karta som visar vad som saknas: OSM-koppling, Wikidata, bild, wheelchair-tagg samt inkonsekvenser mellan källorna.</p>
+      </a>
+      <a class="tool-card" href="sat_todo_list.html">
+        <div class="icon">✅</div>
+        <h3 id="card-todo-list-title">TODO-lista</h3>
+        <p id="card-todo-list-desc">Uppgiftslista för fältarbete med filter per ö och objekttyp, checkboxar och export (JSON/CSV/Markdown).</p>
       </a>
       <a class="tool-card" href="sat_poi_quality_history.html">
         <div class="icon">📈</div>
@@ -145,8 +151,9 @@
     <ul>
       <li id="sec-how-li1"><strong>generate_poi_dashboard.py</strong> — hämtar pois.geojson, Wikidata SPARQL och bygger sat_poi_dashboard.html</li>
       <li id="sec-how-li2"><strong>generate_todo_map.py</strong> — bygger den interaktiva Leaflet-kartan sat_todo_map.html</li>
-      <li id="sec-how-li3"><strong>generate_poi_quality_history.py</strong> — sparar ett snapshot av datakvaliteten när pois.geojson uppdateras</li>
-      <li id="sec-how-li4"><strong>generate_about.py</strong> — genererar den här sidan</li>
+      <li id="sec-how-li3"><strong>generate_todo_list.py</strong> — bygger en filtrerbar TODO-lista med checkboxar och export i sat_todo_list.html</li>
+      <li id="sec-how-li4"><strong>generate_poi_quality_history.py</strong> — sparar ett snapshot av datakvaliteten när pois.geojson uppdateras</li>
+      <li id="sec-how-li5"><strong>generate_about.py</strong> — genererar den här sidan</li>
     </ul>
     <p id="sec-how-p2">Alla sidor har stöd för sv/en-språkbyte. Flerspråksstöd i dashboarden täcker 20+ språk via inbyggda i18n-ordlistor.</p>
   </section>
@@ -172,7 +179,7 @@
 </main>
 
 <div class="footer">
-  <span id="footer-gen">Genererad</span>: 2026-07-25 11:51 UTC &nbsp;|&nbsp;
+  <span id="footer-gen">Genererad</span>: 2026-07-25 14:58 UTC &nbsp;|&nbsp;
   <a href="https://github.com/salgo60/sat-sync" target="_blank">salgo60/sat-sync</a>
 </div>
 
@@ -183,7 +190,7 @@
       pageTitle: 'ℹ️ Om SAT POI-verktygen',
       h1: 'ℹ️ Om SAT POI-verktygen',
       subtitle: 'Dokumentation och bakgrund för Stockholm Archipelago Trail POI-verktyg',
-      navDashboard: '🧭 Dashboard', navTodo: '🗺️ TODO-karta',
+      navDashboard: '🧭 Dashboard', navTodo: '🗺️ TODO-karta', navTodoList: '✅ TODO-lista',
       navQuality: '📈 Datakvalitet', navWhatsnew: "What's new",
       langBtn: 'English',
       secWhatTitle: '🧭 Vad är det här?',
@@ -194,6 +201,8 @@
       cardDashboardDesc: 'Översiktstabell över alla 679 POI med OSM- och Wikidata-kopplingar, filtrerbar per etapp, kategori och språk.',
       cardTodoTitle: 'TODO-karta',
       cardTodoDesc: 'Interaktiv karta som visar vad som saknas: OSM-koppling, Wikidata, bild, wheelchair-tagg samt inkonsekvenser mellan källorna.',
+      cardTodoListTitle: 'TODO-lista',
+      cardTodoListDesc: 'Uppgiftslista för fältarbete med filter per ö och objekttyp, checkboxar och export (JSON/CSV/Markdown).',
       cardQualityTitle: 'Datakvalitet över tid',
       cardQualityDesc: 'Historisk vy av datakvaliteten per snapshot av pois.geojson — täckning per fält, kategori och etapp.',
       cardWhatsnewTitle: "What's new",
@@ -209,8 +218,9 @@
       secHowP1: 'Verktygen är helt statiska HTML-sidor som genereras av Python-skript (<code>generate_*.py</code>) och publiceras via <strong>GitHub Pages</strong> i repot <a href="https://github.com/salgo60/sat-sync" target="_blank">salgo60/sat-sync</a>.',
       secHowLi1: '<strong>generate_poi_dashboard.py</strong> — hämtar pois.geojson, Wikidata SPARQL och bygger sat_poi_dashboard.html',
       secHowLi2: '<strong>generate_todo_map.py</strong> — bygger den interaktiva Leaflet-kartan sat_todo_map.html',
-      secHowLi3: '<strong>generate_poi_quality_history.py</strong> — sparar ett snapshot av datakvaliteten när pois.geojson uppdateras',
-      secHowLi4: '<strong>generate_about.py</strong> — genererar den här sidan',
+      secHowLi3: '<strong>generate_todo_list.py</strong> — bygger en filtrerbar TODO-lista med checkboxar och export i sat_todo_list.html',
+      secHowLi4: '<strong>generate_poi_quality_history.py</strong> — sparar ett snapshot av datakvaliteten när pois.geojson uppdateras',
+      secHowLi5: '<strong>generate_about.py</strong> — genererar den här sidan',
       secHowP2: 'Alla sidor har stöd för sv/en-språkbyte. Flerspråksstöd i dashboarden täcker 20+ språk via inbyggda i18n-ordlistor.',
       secContribTitle: '🤝 Bidra',
       secContribP1: 'Alla förbättringsförslag, buggrapporter och pull requests välkomnas på GitHub:',
@@ -226,7 +236,7 @@
       pageTitle: 'ℹ️ About the SAT POI tools',
       h1: 'ℹ️ About the SAT POI tools',
       subtitle: 'Documentation and background for the Stockholm Archipelago Trail POI toolset',
-      navDashboard: '🧭 Dashboard', navTodo: '🗺️ TODO map',
+      navDashboard: '🧭 Dashboard', navTodo: '🗺️ TODO map', navTodoList: '✅ TODO list',
       navQuality: '📈 Data quality', navWhatsnew: "What's new",
       langBtn: 'Svenska',
       secWhatTitle: '🧭 What is this?',
@@ -237,6 +247,8 @@
       cardDashboardDesc: 'Overview table of all 679 POIs with OSM and Wikidata links, filterable by stage, category and language.',
       cardTodoTitle: 'TODO map',
       cardTodoDesc: 'Interactive map showing what is missing: OSM link, Wikidata, image, wheelchair tag, and inconsistencies between sources.',
+      cardTodoListTitle: 'TODO list',
+      cardTodoListDesc: 'Task list for field work with island/type filters, checkboxes, and export (JSON/CSV/Markdown).',
       cardQualityTitle: 'Data quality over time',
       cardQualityDesc: 'Historical view of data quality per pois.geojson snapshot — coverage per field, category and stage.',
       cardWhatsnewTitle: "What's new",
@@ -252,8 +264,9 @@
       secHowP1: 'The tools are fully static HTML pages generated by Python scripts (<code>generate_*.py</code>) and published via <strong>GitHub Pages</strong> in the repo <a href="https://github.com/salgo60/sat-sync" target="_blank">salgo60/sat-sync</a>.',
       secHowLi1: '<strong>generate_poi_dashboard.py</strong> — fetches pois.geojson, Wikidata SPARQL and builds sat_poi_dashboard.html',
       secHowLi2: '<strong>generate_todo_map.py</strong> — builds the interactive Leaflet map sat_todo_map.html',
-      secHowLi3: '<strong>generate_poi_quality_history.py</strong> — saves a data quality snapshot when pois.geojson is updated',
-      secHowLi4: '<strong>generate_about.py</strong> — generates this page',
+      secHowLi3: '<strong>generate_todo_list.py</strong> — builds a filterable TODO list with checkboxes and export in sat_todo_list.html',
+      secHowLi4: '<strong>generate_poi_quality_history.py</strong> — saves a data quality snapshot when pois.geojson is updated',
+      secHowLi5: '<strong>generate_about.py</strong> — generates this page',
       secHowP2: 'All pages support sv/en language switching. The dashboard supports 20+ languages via built-in i18n dictionaries.',
       secContribTitle: '🤝 Contribute',
       secContribP1: 'All suggestions, bug reports and pull requests are welcome on GitHub:',
@@ -272,32 +285,33 @@
   if (urlParams.get('lang') === 'en') lang = 'en';
 
   const ids = [
-    'page-h1','page-subtitle','nav-dashboard','nav-todo','nav-quality','nav-whatsnew','lang-btn',
+    'page-h1','page-subtitle','nav-dashboard','nav-todo','nav-todo-list','nav-quality','nav-whatsnew','lang-btn',
     'sec-what-title','sec-what-p1','sec-what-p2','sec-tools-title',
-    'card-dashboard-title','card-dashboard-desc','card-todo-title','card-todo-desc',
+    'card-dashboard-title','card-dashboard-desc','card-todo-title','card-todo-desc','card-todo-list-title','card-todo-list-desc',
     'card-quality-title','card-quality-desc','card-whatsnew-title','card-whatsnew-desc',
     'sec-sources-title','th-source','th-what','th-url',
     'src-sat','src-osm','src-wd','src-trail','src-aed','src-piers',
-    'sec-how-title','sec-how-p1','sec-how-li1','sec-how-li2','sec-how-li3','sec-how-li4','sec-how-p2',
+    'sec-how-title','sec-how-p1','sec-how-li1','sec-how-li2','sec-how-li3','sec-how-li4','sec-how-li5','sec-how-p2',
     'sec-contrib-title','sec-contrib-p1','link-issue','link-issues','link-prs','sec-contrib-p2',
     'sec-license-title','sec-license-p','footer-gen',
   ];
 
   const idToKey = {
     'page-h1':'h1','page-subtitle':'subtitle',
-    'nav-dashboard':'navDashboard','nav-todo':'navTodo','nav-quality':'navQuality','nav-whatsnew':'navWhatsnew',
+    'nav-dashboard':'navDashboard','nav-todo':'navTodo','nav-todo-list':'navTodoList','nav-quality':'navQuality','nav-whatsnew':'navWhatsnew',
     'lang-btn':'langBtn',
     'sec-what-title':'secWhatTitle','sec-what-p1':'secWhatP1','sec-what-p2':'secWhatP2',
     'sec-tools-title':'secToolsTitle',
     'card-dashboard-title':'cardDashboardTitle','card-dashboard-desc':'cardDashboardDesc',
     'card-todo-title':'cardTodoTitle','card-todo-desc':'cardTodoDesc',
+    'card-todo-list-title':'cardTodoListTitle','card-todo-list-desc':'cardTodoListDesc',
     'card-quality-title':'cardQualityTitle','card-quality-desc':'cardQualityDesc',
     'card-whatsnew-title':'cardWhatsnewTitle','card-whatsnew-desc':'cardWhatsnewDesc',
     'sec-sources-title':'secSourcesTitle','th-source':'thSource','th-what':'thWhat','th-url':'thUrl',
     'src-sat':'srcSat','src-osm':'srcOsm','src-wd':'srcWd','src-trail':'srcTrail',
     'src-aed':'srcAed','src-piers':'srcPiers',
     'sec-how-title':'secHowTitle','sec-how-p1':'secHowP1',
-    'sec-how-li1':'secHowLi1','sec-how-li2':'secHowLi2','sec-how-li3':'secHowLi3','sec-how-li4':'secHowLi4',
+    'sec-how-li1':'secHowLi1','sec-how-li2':'secHowLi2','sec-how-li3':'secHowLi3','sec-how-li4':'secHowLi4','sec-how-li5':'secHowLi5',
     'sec-how-p2':'secHowP2',
     'sec-contrib-title':'secContribTitle','sec-contrib-p1':'secContribP1',
     'link-issue':'linkIssue','link-issues':'linkIssues','link-prs':'linkPrs',
@@ -318,7 +332,7 @@
       if (d[key] !== undefined) el.innerHTML = d[key];
     });
     // Update nav href lang params
-    [['nav-dashboard','sat_poi_dashboard.html'],['nav-todo','sat_todo_map.html'],
+    [['nav-dashboard','sat_poi_dashboard.html'],['nav-todo','sat_todo_map.html'],['nav-todo-list','sat_todo_list.html'],
      ['nav-quality','sat_poi_quality_history.html'],['nav-whatsnew','whats_new.html']].forEach(([id, base]) => {
       const el = document.getElementById(id);
       if (el && el.closest) {
