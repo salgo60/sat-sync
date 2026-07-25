@@ -69,7 +69,7 @@
   <div class="top-bar">
     <h1 id="top-title">🗺️ SAT TODO – Vad saknas?</h1>
     <div class="meta">
-      20260725 08:53 &nbsp;
+      20260725 09:03 &nbsp;
       <a href="sat_poi_dashboard.html" id="top-dashboard-link">Dashboard</a>
     </div>
     <button id="lang-toggle" onclick="toggleLang()" style="margin-left:8px;padding:4px 10px;background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.5);border-radius:6px;font-size:0.75rem;font-weight:600;cursor:pointer">English</button>
@@ -134,7 +134,8 @@
       satJson: '🧾 SAT JSON',
       osmLink: '🔗 OSM',
       idEditor: '✏️ iD editor',
-      checkDateToday: '🗓️ check_date=today (iD)',
+      deepHistory: '🕰️ OSM Deep history',
+      mapkiHistory: '📍 Mapki history',
       noOsmLink: '❌ Ingen OSM-länk',
       noWdLink: '❌ Ingen Wikidata-länk',
       wikidataLink: '📚 Wikidata',
@@ -181,7 +182,8 @@
       satJson: '🧾 SAT JSON',
       osmLink: '🔗 OSM',
       idEditor: '✏️ iD editor',
-      checkDateToday: '🗓️ check_date=today (iD)',
+      deepHistory: '🕰️ OSM Deep history',
+      mapkiHistory: '📍 Mapki history',
       noOsmLink: '❌ No OSM link',
       noWdLink: '❌ No Wikidata link',
       wikidataLink: '📚 Wikidata',
@@ -536,16 +538,6 @@
     return claims.some((c) => String(c?.mainsnak?.datavalue?.value || '') === String(parsed.id));
   }
 
-  function openIdWithCheckDate(idUrl) {
-    const today = new Date().toISOString().slice(0, 10);
-    const tagText = `check_date=${today}`;
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(tagText).catch(() => {});
-    }
-    window.open(idUrl, '_blank', 'noopener');
-    return false;
-  }
-
   function buildPopup(p, inconsistencyInfo = null) {
     const tags = p.missing.map(tag => {
       const labels = {osm: t('missingOsm'), wikidata: t('missingWd'), image: t('missingImg')};
@@ -554,6 +546,10 @@
     }).join('');
     const osmUrl = p.osm ? `https://www.openstreetmap.org/${p.osm.replace('osm:node:','node/').replace('osm:way:','way/').replace('osm:relation:','relation/')}` : null;
     const idUrl  = p.osm ? `https://www.openstreetmap.org/edit?editor=id&${p.osm.replace('osm:','')}#map=18/${p.lat}/${p.lon}` : null;
+    const osmType = p.osm ? p.osm.replace('osm:','').split(':')[0] : null;
+    const osmId   = p.osm ? p.osm.replace('osm:','').split(':')[1] : null;
+    const deepHistoryUrl = osmType && osmId ? `https://osmlab.github.io/osm-deep-history/#/${osmType}/${osmId}` : null;
+    const mapkiUrl = `https://mapki.com/map/#15/${p.lat}/${p.lon}`;
     const wdUrl  = p.wikidata ? `https://www.wikidata.org/wiki/${p.wikidata.replace('wikidata:','')}` : null;
     const satMapUrl = p.id ? `https://map.stockholmarchipelagotrail.com/?${p.id}` : null;
     const satJsonUrl = p.id ? `https://map.stockholmarchipelagotrail.com/api/objects/${encodeURIComponent(p.id)}` : null;
@@ -567,7 +563,9 @@
       <small style="color:#64748b">${escapeHtml(p.section)} · ${escapeHtml(p.category)}</small><br>
       <div style="margin:5px 0">${tags}</div>
       ${satMapUrl ? `<div><a href="${satMapUrl}" target="_blank">${t('satMap')}</a> · <a href="${satJsonUrl}" target="_blank">${t('satJson')}</a></div>` : ''}
-      ${osmUrl ? `<div><a href="${osmUrl}" target="_blank">${t('osmLink')}</a> · <a href="${idUrl}" target="_blank">${t('idEditor')}</a></div><div><a href="${idUrl}" target="_blank" onclick="return openIdWithCheckDate(this.href)">${t('checkDateToday')}</a></div>` : `<div style="color:#ef4444;font-size:11px">${t('noOsmLink')}</div>`}
+      ${osmUrl ? `<div><a href="${osmUrl}" target="_blank">${t('osmLink')}</a> · <a href="${idUrl}" target="_blank">${t('idEditor')}</a></div>` : `<div style="color:#ef4444;font-size:11px">${t('noOsmLink')}</div>`}
+      ${deepHistoryUrl ? `<div><a href="${deepHistoryUrl}" target="_blank">${t('deepHistory')}</a></div>` : ''}
+      <div><a href="${mapkiUrl}" target="_blank">${t('mapkiHistory')}</a></div>
       ${wdUrl  ? `<div><a href="${wdUrl}" target="_blank">${t('wikidataLink')}</a></div>` : `<div style="color:#f59e0b;font-size:11px">${t('noWdLink')}</div>`}
       ${p.website ? `<div><a href="${p.website}" target="_blank">${t('website')}</a></div>` : ''}
       <div style="margin-top:6px;border-top:1px solid #e2e8f0;padding-top:5px">
