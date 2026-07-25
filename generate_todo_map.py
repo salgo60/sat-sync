@@ -58,6 +58,50 @@ SELECT ?satId ?item ?itemLabel ?coord WHERE {{
         }
     return out
 
+
+def fetch_osm_refs_for_sat_ids(sat_ids: list[str]) -> dict[str, dict]:
+    """Resolve SAT IDs to OSM objects via ref:stockholmarchipelagotrail."""
+    sat_ids = [s for s in sat_ids if s]
+    if not sat_ids:
+        return {}
+
+    # Escape regex metacharacters and match exact SAT ID values.
+    pattern = "|".join(re.escape(s) for s in sorted(set(sat_ids)))
+    overpass_query = f"""
+[out:json][timeout:50];
+(
+  node["ref:stockholmarchipelagotrail"~"^({pattern})$"];
+  way["ref:stockholmarchipelagotrail"~"^({pattern})$"];
+  relation["ref:stockholmarchipelagotrail"~"^({pattern})$"];
+);
+out tags;
+"""
+    url = "https://overpass-api.de/api/interpreter"
+    req = urllib.request.Request(
+        url,
+        data=overpass_query.encode("utf-8"),
+        headers={"User-Agent": "sat-sync/todo-map 1.0", "Content-Type": "application/x-www-form-urlencoded"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=60) as r:
+        payload = json.load(r)
+
+    elements = payload.get("elements", []) if isinstance(payload, dict) else []
+    out: dict[str, dict] = {}
+    priority = {"relation": 0, "way": 1, "node": 2}
+    for el in elements:
+        tags = el.get("tags") or {}
+        sat_id = str(tags.get("ref:stockholmarchipelagotrail") or "").strip()
+        osm_type = str(el.get("type") or "")
+        osm_id = el.get("id")
+        if not sat_id or osm_type not in priority or not osm_id:
+            continue
+        candidate = {"type": osm_type, "id": str(osm_id)}
+        existing = out.get(sat_id)
+        if not existing or priority[candidate["type"]] < priority[existing["type"]]:
+            out[sat_id] = candidate
+    return out
+
 def fetch_commons_geotagged(root_category: str) -> list[dict]:
     """Fetch all geotagged files from a Commons category tree (depth=1 subcats + root)."""
     def api_get(params: dict, retries: int = 3) -> dict:
@@ -366,6 +410,13 @@ if piers_identity:
     except Exception as e:
         print(f"  ⚠️ Wikidata pier-koordinater fel: {e}")
         wd_by_sat_id = {}
+    try:
+        print("📥 Hämtar piers OSM-referenser...")
+        osm_by_sat_id = fetch_osm_refs_for_sat_ids(sat_ids)
+        print(f"  ✅ {len(osm_by_sat_id)} piers med OSM-objekt")
+    except Exception as e:
+        print(f"  ⚠️ Piers OSM-referenser fel: {e}")
+        osm_by_sat_id = {}
 
     for uid, v in piers_identity.items():
         sat_id = (v or {}).get("satId", "")
@@ -374,6 +425,7 @@ if piers_identity:
             missing_pier_sat_ids.append(sat_id or f"uid:{uid}")
             continue
         gtfs = ((v or {}).get("concordances") or {}).get("gtfs") or []
+        osm_ref = osm_by_sat_id.get(sat_id, {})
         piers_data.append({
             "uid": uid,
             "satId": sat_id,
@@ -382,6 +434,8 @@ if piers_identity:
             "gtfsCount": len(gtfs),
             "wikidataQid": wd.get("qid", ""),
             "wikidataLabel": wd.get("label", ""),
+            "osmType": osm_ref.get("type", ""),
+            "osmId": osm_ref.get("id", ""),
             "lat": wd.get("lat"),
             "lon": wd.get("lon"),
         })
@@ -1305,7 +1359,10 @@ html = f"""<!DOCTYPE html>
       const lon = p.lon;
       const wdUrl = p.wikidataQid ? `https://www.wikidata.org/wiki/${{p.wikidataQid}}` : null;
       const satUrl = p.satId ? `https://map.stockholmarchipelagotrail.com/?${{encodeURIComponent(p.satId)}}` : null;
-      const mapkiUrl = `https://mapki.com/map/#16/${{lat}}/${{lon}}`;
+      const osmUrl = (p.osmType && p.osmId) ? `https://www.openstreetmap.org/${{p.osmType}}/${{p.osmId}}` : null;
+      const mapkiUrl = (p.osmType && p.osmId)
+        ? `https://osm.mapki.com/history/${{p.osmType}}/${{p.osmId}}`
+        : `https://mapki.com/map/#16/${{lat}}/${{lon}}`;
       const m = L.marker([lat, lon], {{ icon: pierIcon }});
       m.bindPopup(`<div style="font-size:13px;min-width:180px">
         <strong>⛴️ ${{escapeHtml(p.name || p.slug || p.satId)}}</strong><br>
@@ -1313,6 +1370,7 @@ html = f"""<!DOCTYPE html>
         ${{p.slug ? `<div>slug: <code>${{escapeHtml(p.slug)}}</code></div>` : ''}}
         ${{p.gtfsCount ? `<div>GTFS: ${{p.gtfsCount}}</div>` : ''}}
         ${{wdUrl ? `<div><a href="${{wdUrl}}" target="_blank">📚 Wikidata</a>${{p.wikidataLabel ? ` · ${{escapeHtml(p.wikidataLabel)}}` : ''}}</div>` : ''}}
+        ${{osmUrl ? `<div><a href="${{osmUrl}}" target="_blank">🗺️ OSM ${{escapeHtml(p.osmType)}}/${{escapeHtml(p.osmId)}}</a></div>` : ''}}
         <div style="margin-top:5px;border-top:1px solid #e2e8f0;padding-top:4px;font-size:11px;color:#64748b">
           <a href="${{mapkiUrl}}" target="_blank">📍 Mapki history</a>
         </div>
