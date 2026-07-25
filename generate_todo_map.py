@@ -711,7 +711,7 @@ html = f"""<!DOCTYPE html>
     document.getElementById('loc-btn').textContent = t('nearMe');
     document.getElementById('lang-toggle').textContent = t('langToggle');
     rebuildLayerControl();
-    if (document.getElementById('list-view').style.display !== 'none') renderList();
+    if (document.getElementById('tab-list').classList.contains('active')) renderList();
   }}
 
   window.toggleLang = function() {{
@@ -874,6 +874,11 @@ html = f"""<!DOCTYPE html>
       if (shouldBeOn && !isOn) map.addLayer(layer);
       if (!shouldBeOn && isOn) map.removeLayer(layer);
     }});
+    // Ensure lazy layers are populated when enabled via URL state on first load.
+    if (map.hasLayer(layerAed)) loadAed();
+    if (map.hasLayer(layerPiers)) loadPiers();
+    if (map.hasLayer(layerCommons)) loadCommons();
+    if (map.hasLayer(layerMapillary)) loadMapillary();
   }}
 
   function saveStateInUrl() {{
