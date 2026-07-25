@@ -1328,6 +1328,7 @@ html = f"""<!DOCTYPE html>
   }});
   let commonsLoaded = false;
   const commonsInfoCache = {{}};
+  const commonsHiddenCategoryCache = {{}};
 
   function formatCommonsDate(raw) {{
     if (!raw) return '';
@@ -1346,16 +1347,67 @@ html = f"""<!DOCTYPE html>
     return String(html || '').replace(/href="\\/\\//g, 'href="https://');
   }}
 
-  function categoriesToHtml(cats) {{
-    if (!cats || !cats.length) return '';
-    const title = lang === 'en' ? 'Categories' : 'Kategorier';
-    const links = cats.map(c =>
+  function categoryLinksHtml(cats) {{
+    return cats.map(c =>
       `<a href="https://commons.wikimedia.org/wiki/Category:${{encodeURIComponent(c)}}" target="_blank">${{escapeHtml(c)}}</a>`
     ).join(' · ');
-    return `<details style="margin-top:4px">
-      <summary style="cursor:pointer; user-select:none">🏷️ ${{title}} (${{cats.length}})</summary>
-      <div style="margin-top:4px; max-height:120px; overflow:auto; line-height:1.4">${{links}}</div>
+  }}
+
+  function categoriesToHtml(visibleCats, hiddenCats = []) {{
+    const visible = visibleCats || [];
+    const hidden = hiddenCats || [];
+    const total = visible.length + hidden.length;
+    if (total === 0) return '';
+    const title = lang === 'en' ? 'Categories' : 'Kategorier';
+    const hiddenTitle = lang === 'en' ? 'Hidden categories' : 'Dolda kategorier';
+    const visibleSection = `<details style="margin-top:4px">
+      <summary style="cursor:pointer; user-select:none">🏷️ ${{title}} (${{visible.length}})</summary>
+      <div style="margin-top:4px; max-height:120px; overflow:auto; line-height:1.4">${{categoryLinksHtml(visible)}}</div>
     </details>`;
+    if (!hidden.length) return visibleSection;
+    const hiddenSection = `<hr style="border:0;border-top:1px solid #e2e8f0;margin:8px 0 6px">
+      <details>
+        <summary style="cursor:pointer; user-select:none">🫥 ${{hiddenTitle}} (${{hidden.length}})</summary>
+        <div style="margin-top:4px; max-height:90px; overflow:auto; line-height:1.4">${{categoryLinksHtml(hidden)}}</div>
+      </details>`;
+    return visibleSection + hiddenSection;
+  }}
+
+  async function splitCommonsCategories(cats) {{
+    const all = (cats || []).filter(Boolean);
+    if (!all.length) return {{ visible: [], hidden: [] }};
+    const unknown = all.filter((c) => !Object.prototype.hasOwnProperty.call(commonsHiddenCategoryCache, c));
+    if (unknown.length) {{
+      try {{
+        const titles = unknown.map((c) => `Category:${{c}}`).join('|');
+        const params = new URLSearchParams({{
+          action: 'query',
+          titles,
+          prop: 'categoryinfo',
+          format: 'json',
+          origin: '*',
+        }});
+        const res = await fetch(`https://commons.wikimedia.org/w/api.php?${{params.toString()}}`);
+        const data = await res.json();
+        const pages = data?.query?.pages || {{}};
+        Object.values(pages).forEach((p) => {{
+          const rawTitle = String(p?.title || '');
+          const key = rawTitle.startsWith('Category:') ? rawTitle.slice('Category:'.length) : rawTitle;
+          const ci = p?.categoryinfo || {{}};
+          commonsHiddenCategoryCache[key] = Object.prototype.hasOwnProperty.call(ci, 'hidden');
+        }});
+      }} catch (_e) {{
+        unknown.forEach((c) => {{
+          if (!Object.prototype.hasOwnProperty.call(commonsHiddenCategoryCache, c)) commonsHiddenCategoryCache[c] = false;
+        }});
+      }}
+    }}
+    const visible = [];
+    const hidden = [];
+    all.forEach((c) => {{
+      (commonsHiddenCategoryCache[c] ? hidden : visible).push(c);
+    }});
+    return {{ visible, hidden }};
   }}
 
   async function fetchCommonsImageInfo(fileTitle) {{
@@ -1438,7 +1490,7 @@ html = f"""<!DOCTYPE html>
       const midHtml = p.mid
         ? `<div><a href="https://commons.wikimedia.org/entity/M${{p.mid}}" target="_blank">M${{p.mid}}</a> · <a href="https://commons.wikimedia.org/entity/M${{p.mid}}.json" target="_blank">JSON</a></div>`
         : '';
-      const catsHtml = `<div id="${{catsId}}" style="margin-top:4px">${{categoriesToHtml(p.cats || [])}}</div>`;
+      const catsHtml = `<div id="${{catsId}}" style="margin-top:4px">${{categoriesToHtml(p.cats || [], [])}}</div>`;
 
       const popupContent = `<div style="font-size:13px;min-width:200px;max-width:240px">
         ${{thumbHtml}}
@@ -1468,6 +1520,13 @@ html = f"""<!DOCTYPE html>
           }}
         }}
 
+        const catsEl = document.getElementById(catsId);
+        if (catsEl && !catsEl.dataset.classified && (p.cats || []).length) {{
+          catsEl.dataset.classified = '1';
+          const split = await splitCommonsCategories(p.cats || []);
+          catsEl.innerHTML = categoriesToHtml(split.visible, split.hidden);
+        }}
+
         const needMoreInfo = !p.thumb || !p.date || !p.artist || !(p.cats || []).length;
         if (!needMoreInfo) return;
 
@@ -1493,8 +1552,12 @@ html = f"""<!DOCTYPE html>
         }}
         if (!(p.cats || []).length && (info.cats || []).length) {{
           p.cats = info.cats;
-          const catsEl = document.getElementById(catsId);
-          if (catsEl) catsEl.innerHTML = categoriesToHtml(p.cats || []);
+          const split = await splitCommonsCategories(p.cats || []);
+          const catsEl2 = document.getElementById(catsId);
+          if (catsEl2) {{
+            catsEl2.dataset.classified = '1';
+            catsEl2.innerHTML = categoriesToHtml(split.visible, split.hidden);
+          }}
         }}
       }});
 
