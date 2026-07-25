@@ -101,10 +101,10 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-25 15:37</strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-25 16:07</strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-20 07:52</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/60" target="_blank">PR #60</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/62" target="_blank">PR #62</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a> &nbsp;|&nbsp;
@@ -7937,7 +7937,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-25 15:37</strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-25 16:07</strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-20 07:52</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
@@ -8467,16 +8467,6 @@
         return null;
       }
 
-      function openIdWithCheckDate(idUrl) {
-        const today = new Date().toISOString().slice(0, 10);
-        const tagText = `check_date=${today}`;
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(tagText).catch(() => {});
-        }
-        window.open(idUrl, '_blank', 'noopener');
-        return false;
-      }
-
       function renderOsmTagsHtml(tags) {
         const entries = Object.entries(tags || {}).sort(([a], [b]) => a.localeCompare(b));
         if (entries.length === 0) return `<span>${t('noOsmTags')}</span>`;
@@ -8779,9 +8769,6 @@
           const idEditorLink = idEditorUrl
             ? `<div><a href="${idEditorUrl}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
-          const idCheckDateLink = idEditorUrl
-            ? `<div><a href="${idEditorUrl}" target="_blank" onclick="return openIdWithCheckDate(this.href)">🗓️ check_date=today (iD)</a></div>`
-            : '';
           const osmNotesUrl = (r.lat && r.lon)
             ? `https://www.openstreetmap.org/#map=18/${r.lat}/${r.lon}&layers=N`
             : null;
@@ -8812,7 +8799,6 @@
               ${osmHistoryLink}
               ${mapkiLink}
               ${idEditorLink}
-              ${idCheckDateLink}
               ${mapCompleteLink}
               ${osmNotesLink}
               ${wikishootmeLink || commonsUploadLink ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}
@@ -8868,7 +8854,6 @@
                   ${s.osm_relation ? `<br><small>🕐 <a href="https://pewu.github.io/osm-history/#/relation/${escapeHtml(s.osm_relation)}" target="_blank">OSM Deep history</a></small>` : ''}
                   ${s.osm_relation ? `<br><small>📍 <a href="https://osm.mapki.com/history/relation/${escapeHtml(s.osm_relation)}" target="_blank">Mapki history</a></small>` : ''}
                   ${s.osm_relation ? `<br><small>✏️ <a href="https://www.openstreetmap.org/edit?editor=id&relation=${escapeHtml(s.osm_relation)}#map=14/${s.lat}/${s.lon}" target="_blank">iD editor (OSM)</a></small>` : ''}
-                  ${s.osm_relation ? `<br><small>🗓️ <a href="https://www.openstreetmap.org/edit?editor=id&relation=${escapeHtml(s.osm_relation)}#map=14/${s.lat}/${s.lon}" target="_blank" onclick="return openIdWithCheckDate(this.href)">check_date=today (iD)</a></small>` : ''}
                   ${s.image ? `<img class="popup-thumb" src="${escapeHtml(s.image)}" alt="section thumbnail">` : ''}
                 </div>
               `;
