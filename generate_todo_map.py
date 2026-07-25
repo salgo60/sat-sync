@@ -106,7 +106,8 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
                 "gcmtype": "file",
                 "gcmlimit": "500",
                 "prop": "coordinates|imageinfo",
-                "iiprop": "url|thumburl",
+                "iiprop": "url|thumburl|extmetadata",
+                "iiextmetadatalanguage": "sv",
                 "iiurlwidth": "200",
             }
             params.update(cont2)
@@ -123,6 +124,11 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
                 mid = page.get("pageid")
                 ii = (page.get("imageinfo") or [{}])[0]
                 thumb = ii.get("thumburl") or ii.get("url") or ""
+                em = ii.get("extmetadata") or {}
+                date_raw = (em.get("DateTimeOriginal") or em.get("DateTime") or {}).get("value", "")
+                artist_html = (em.get("Artist") or {}).get("value", "")
+                cats_raw = (em.get("Categories") or {}).get("value", "")
+                cats = [c2.strip() for c2 in cats_raw.split("|") if c2.strip()] if cats_raw else []
                 page_url = "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(title.replace(" ", "_"))
                 photos.append({
                     "lat": c["lat"],
@@ -131,7 +137,9 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
                     "thumb": thumb,
                     "url": page_url,
                     "mid": mid,
-                    "cat": cat,
+                    "date": date_raw,
+                    "artist": artist_html,
+                    "cats": cats,
                 })
             if "continue" not in data:
                 break
@@ -1091,30 +1099,96 @@ html = f"""<!DOCTYPE html>
     iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-13]
   }});
   let commonsLoaded = false;
+
+  // Fetch depicts (P180) from SDC and resolve Wikidata labels
+  async function fetchDepicts(mid) {{
+    try {{
+      const sdcUrl = `https://commons.wikimedia.org/w/api.php?action=wbgetentities&ids=M${{mid}}&props=statements&format=json&origin=*`;
+      const sdcRes = await fetch(sdcUrl);
+      const sdcData = await sdcRes.json();
+      const stmts = (sdcData.entities[`M${{mid}}`] || {{}}).statements || {{}};
+      const p180 = stmts['P180'] || [];
+      if (!p180.length) return [];
+      const qids = p180.map(s => s.mainsnak?.datavalue?.value?.id).filter(Boolean);
+      if (!qids.length) return [];
+      const labelsUrl = `https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${{qids.join('|')}}&props=labels&languages=sv|en&format=json&origin=*`;
+      const labelsRes = await fetch(labelsUrl);
+      const labelsData = await labelsRes.json();
+      return qids.map(qid => {{
+        const ent = labelsData.entities[qid] || {{}};
+        const label = (ent.labels?.sv || ent.labels?.en || {{}}).value || qid;
+        return {{ qid, label }};
+      }});
+    }} catch (e) {{
+      return [];
+    }}
+  }}
+
   function loadCommons() {{
     if (commonsLoaded) return;
     commonsLoaded = true;
     layerCommons.clearLayers();
     COMMONS_PHOTOS.forEach((p) => {{
       const m = L.marker([p.lat, p.lon], {{ icon: commonsIcon }});
+
+      // Format date: "2025-03-30 16:46:06" → "30 mars 2025, 16:46"
+      let dateStr = '';
+      if (p.date) {{
+        try {{
+          const d = new Date(p.date.replace(' ', 'T'));
+          dateStr = d.toLocaleString(lang === 'en' ? 'en-SE' : 'sv-SE', {{
+            year: 'numeric', month: 'long', day: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+          }});
+        }} catch(e) {{ dateStr = p.date; }}
+      }}
+
       const thumbHtml = p.thumb
-        ? `<div style="margin-bottom:6px"><a href="${{p.url}}" target="_blank"><img src="${{p.thumb}}" style="max-width:200px;border-radius:4px;display:block"></a></div>`
+        ? `<a href="${{p.url}}" target="_blank"><img src="${{p.thumb}}" style="max-width:220px;border-radius:4px;display:block;margin-bottom:6px"></a>`
         : '';
+      const dateHtml = dateStr
+        ? `<div>🗓️ ${{escapeHtml(dateStr)}}</div>` : '';
+      const artistHtml = p.artist
+        ? `<div>👤 ${{p.artist.replace(/href="\\/\\//g, 'href="https://')}}</div>` : '';
       const midHtml = p.mid
-        ? `<div style="margin-top:4px">
-            <a href="https://commons.wikimedia.org/entity/M${{p.mid}}" target="_blank">M${{p.mid}}</a>
-            &nbsp;·&nbsp;
-            <a href="https://commons.wikimedia.org/entity/M${{p.mid}}.json" target="_blank">JSON</a>
-           </div>`
+        ? `<div><a href="https://commons.wikimedia.org/entity/M${{p.mid}}" target="_blank">M${{p.mid}}</a> · <a href="https://commons.wikimedia.org/entity/M${{p.mid}}.json" target="_blank">JSON</a></div>`
         : '';
-      m.bindPopup(`<div style="font-size:13px;min-width:180px">
+      const catsHtml = (p.cats || []).length
+        ? `<div style="margin-top:4px">🏷️ ` + p.cats.map(c =>
+            `<a href="https://commons.wikimedia.org/wiki/Category:${{encodeURIComponent(c)}}" target="_blank">${{escapeHtml(c)}}</a>`
+          ).join(' · ') + `</div>`
+        : '';
+      const depictsId = `depicts-${{p.mid}}`;
+
+      const popupContent = `<div style="font-size:13px;min-width:200px;max-width:240px">
         ${{thumbHtml}}
         <strong>📷 ${{escapeHtml(p.title)}}</strong>
-        <div style="margin-top:5px;font-size:11px;color:#64748b">
-          <a href="${{p.url}}" target="_blank">🔗 Wikimedia Commons</a>
+        <div style="margin-top:5px;line-height:1.6">
+          ${{dateHtml}}
+          ${{artistHtml}}
+          <div><a href="${{p.url}}" target="_blank">🔗 Wikimedia Commons</a></div>
           ${{midHtml}}
+          <div id="${{depictsId}}" style="margin-top:4px;color:#64748b">⏳ Hämtar depicts…</div>
+          ${{catsHtml}}
         </div>
-      </div>`);
+      </div>`;
+
+      m.bindPopup(popupContent, {{ maxWidth: 260 }});
+      m.on('popupopen', async () => {{
+        const el = document.getElementById(depictsId);
+        if (!el || el.dataset.loaded) return;
+        el.dataset.loaded = '1';
+        const depicts = await fetchDepicts(p.mid);
+        if (!el) return;
+        if (!depicts.length) {{
+          el.textContent = '';
+          return;
+        }}
+        el.innerHTML = '🎨 ' + depicts.map(d =>
+          `<a href="https://www.wikidata.org/wiki/${{d.qid}}" target="_blank">${{escapeHtml(d.label)}}</a>`
+        ).join(' · ');
+      }});
+
       layerCommons.addLayer(m);
     }});
     console.log(`Commons: ${{COMMONS_PHOTOS.length}} foton laddade`);
