@@ -1525,8 +1525,7 @@ html = f"""<!DOCTYPE html>
       const artistHtml = `<div id="${{artistId}}">` + (p.artist ? `👤 ${{normalizeCommonsHtml(p.artist)}}` : '') + `</div>`;
       const midHtml = p.mid
         ? `<hr style="border:0;border-top:1px solid #e2e8f0;margin:8px 0 6px">
-           <div style="font-weight:600">SDC MediaInfo ID</div>
-           <div style="font-size:11px;color:#64748b;margin:2px 0 4px">
+           <div style="font-weight:600">
              <a href="https://commons.wikimedia.org/wiki/Commons:Structured_data" target="_blank">SDC</a> ·
              <a href="https://www.mediawiki.org/wiki/Extension:WikibaseMediaInfo#MediaInfo_Entity" target="_blank">MediaInfo ID</a>
            </div>
