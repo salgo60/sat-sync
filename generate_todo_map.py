@@ -76,15 +76,32 @@ def fetch_osm_refs_for_sat_ids(sat_ids: list[str]) -> dict[str, dict]:
 );
 out tags;
 """
-    url = "https://overpass-api.de/api/interpreter"
-    req = urllib.request.Request(
-        url,
-        data=overpass_query.encode("utf-8"),
-        headers={"User-Agent": "sat-sync/todo-map 1.0", "Content-Type": "application/x-www-form-urlencoded"},
-        method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=60) as r:
-        payload = json.load(r)
+    endpoints = [
+        "https://overpass-api.de/api/interpreter",
+        "https://overpass.kumi.systems/api/interpreter",
+        "https://overpass.openstreetmap.ru/api/interpreter",
+    ]
+    payload = None
+    last_error = None
+    for endpoint in endpoints:
+        req = urllib.request.Request(
+            endpoint,
+            data=overpass_query.encode("utf-8"),
+            headers={"User-Agent": "sat-sync/todo-map 1.0", "Content-Type": "application/x-www-form-urlencoded"},
+            method="POST",
+        )
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(req, timeout=75) as r:
+                    payload = json.load(r)
+                break
+            except Exception as e:
+                last_error = e
+                time.sleep(1.2 * (attempt + 1))
+        if payload is not None:
+            break
+    if payload is None:
+        raise RuntimeError(f"Kunde inte hämta OSM-referenser från Overpass: {last_error}")
 
     elements = payload.get("elements", []) if isinstance(payload, dict) else []
     out: dict[str, dict] = {}
