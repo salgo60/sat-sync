@@ -120,6 +120,7 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
                 if title in seen_titles:
                     continue
                 seen_titles.add(title)
+                mid = page.get("pageid")
                 ii = (page.get("imageinfo") or [{}])[0]
                 thumb = ii.get("thumburl") or ii.get("url") or ""
                 page_url = "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(title.replace(" ", "_"))
@@ -129,6 +130,7 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
                     "title": title[len("File:"):] if title.startswith("File:") else title,
                     "thumb": thumb,
                     "url": page_url,
+                    "mid": mid,
                     "cat": cat,
                 })
             if "continue" not in data:
@@ -1096,13 +1098,21 @@ html = f"""<!DOCTYPE html>
     COMMONS_PHOTOS.forEach((p) => {{
       const m = L.marker([p.lat, p.lon], {{ icon: commonsIcon }});
       const thumbHtml = p.thumb
-        ? `<div style="margin-bottom:5px"><a href="${{p.url}}" target="_blank"><img src="${{p.thumb}}" style="max-width:180px;border-radius:4px;display:block"></a></div>`
+        ? `<div style="margin-bottom:6px"><a href="${{p.url}}" target="_blank"><img src="${{p.thumb}}" style="max-width:200px;border-radius:4px;display:block"></a></div>`
+        : '';
+      const midHtml = p.mid
+        ? `<div style="margin-top:4px">
+            <a href="https://commons.wikimedia.org/entity/M${{p.mid}}" target="_blank">M${{p.mid}}</a>
+            &nbsp;·&nbsp;
+            <a href="https://commons.wikimedia.org/entity/M${{p.mid}}.json" target="_blank">JSON</a>
+           </div>`
         : '';
       m.bindPopup(`<div style="font-size:13px;min-width:180px">
         ${{thumbHtml}}
-        <strong>📷 ${{escapeHtml(p.title)}}</strong><br>
+        <strong>📷 ${{escapeHtml(p.title)}}</strong>
         <div style="margin-top:5px;font-size:11px;color:#64748b">
           <a href="${{p.url}}" target="_blank">🔗 Wikimedia Commons</a>
+          ${{midHtml}}
         </div>
       </div>`);
       layerCommons.addLayer(m);
