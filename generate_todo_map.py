@@ -1263,9 +1263,14 @@ html = f"""<!DOCTYPE html>
 
   function categoriesToHtml(cats) {{
     if (!cats || !cats.length) return '';
-    return '🏷️ ' + cats.map(c =>
+    const title = lang === 'en' ? 'Categories' : 'Kategorier';
+    const links = cats.map(c =>
       `<a href="https://commons.wikimedia.org/wiki/Category:${{encodeURIComponent(c)}}" target="_blank">${{escapeHtml(c)}}</a>`
     ).join(' · ');
+    return `<details style="margin-top:4px">
+      <summary style="cursor:pointer; user-select:none">🏷️ ${{title}} (${{cats.length}})</summary>
+      <div style="margin-top:4px; max-height:120px; overflow:auto; line-height:1.4">${{links}}</div>
+    </details>`;
   }}
 
   async function fetchCommonsImageInfo(fileTitle) {{
