@@ -469,6 +469,7 @@ def build_page() -> str:
       copiedMarkdown: 'Markdown-checklista kopierad.',
       copiedFallback: 'Kunde inte kopiera automatiskt. Kopiera manuellt:',
       missingCustomText: 'Skriv en uppgiftstext först.',
+      defaultOsmNotesTask: 'Gå igenom öppna OSM Notes på ön',
       noPoi: '—'
     },
     en: {
@@ -515,6 +516,7 @@ def build_page() -> str:
       copiedMarkdown: 'Markdown checklist copied.',
       copiedFallback: 'Could not auto-copy. Copy manually:',
       missingCustomText: 'Enter a task first.',
+      defaultOsmNotesTask: 'Review open OSM Notes on island',
       noPoi: '—'
     }
   };
@@ -542,6 +544,11 @@ def build_page() -> str:
   const exportCsvBtn = document.getElementById('exportCsvBtn');
   const copyMdBtn = document.getElementById('copyMdBtn');
   const clearDoneBtn = document.getElementById('clearDoneBtn');
+  const sectionNotesLinkBySection = new Map(
+    BASE_TASKS
+      .filter((task) => task.type === 'osm_notes' && task.section && task.links && task.links.notes)
+      .map((task) => [task.section, task.links.notes])
+  );
 
   let checked = loadJson(CHECKED_KEY, {});
   let customTasks = loadJson(CUSTOM_KEY, []);
@@ -755,24 +762,28 @@ def build_page() -> str:
   }
 
   function addCustomTask() {
+    const selectedType = customType.value || 'custom';
     const text = (customText.value || '').trim();
-    if (!text) {
+    const resolvedText = text || (selectedType === 'osm_notes' ? t('defaultOsmNotesTask') : '');
+    if (!resolvedText) {
       alert(t('missingCustomText'));
       return;
     }
     const section = customSection.value || 'unknown';
     const sectionItem = SECTIONS.find((s) => s.value === section);
+    const notesLink = selectedType === 'osm_notes' ? (sectionNotesLinkBySection.get(section) || '') : '';
+    const categoryValue = selectedType === 'osm_notes' ? 'island' : 'custom';
     const task = {
       id: `custom:${Date.now()}:${Math.random().toString(36).slice(2, 8)}`,
-      type: customType.value || 'custom',
+      type: selectedType,
       section,
       sectionLabel: sectionItem ? sectionItem.label : section,
-      category: 'custom',
+      category: categoryValue,
       poiId: '',
       poiName: (customPoi.value || '').trim(),
-      taskTextSv: text,
-      taskTextEn: text,
-      links: { sat: '', osm: '', id: '', notes: '' }
+      taskTextSv: resolvedText,
+      taskTextEn: resolvedText,
+      links: { sat: '', osm: '', id: '', notes: notesLink }
     };
     customTasks.push(task);
     saveJson(CUSTOM_KEY, customTasks);
