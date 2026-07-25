@@ -183,6 +183,100 @@ def _iter_geojson_coords(node):
         for part in node:
             yield from _iter_geojson_coords(part)
 
+def _mapillary_fetch_json(url: str, retries: int = 3) -> dict:
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=15) as r:
+                return json.load(r)
+        except Exception:
+            if attempt == retries - 1:
+                return {"data": []}
+            time.sleep(0.6 * (attempt + 1))
+    return {"data": []}
+
+def _mapillary_item(item: dict) -> dict | None:
+    image_id = str(item.get("id", ""))
+    geom = item.get("computed_geometry") or {}
+    pt = geom.get("coordinates") or []
+    if not image_id or len(pt) < 2:
+        return None
+    creator = (item.get("creator") or {}).get("username", "")
+    return {
+        "id": image_id,
+        "lat": pt[1],
+        "lon": pt[0],
+        "capturedAt": item.get("captured_at"),
+        "thumb": item.get("thumb_1024_url", ""),
+        "creator": creator,
+        "url": f"https://www.mapillary.com/app/?pKey={image_id}",
+    }
+
+def merge_mapillary_images(*groups: list[dict]) -> list[dict]:
+    by_id: dict[str, dict] = {}
+    for group in groups:
+        for item in group:
+            image_id = str(item.get("id", ""))
+            if not image_id:
+                continue
+            if image_id not in by_id:
+                by_id[image_id] = item
+    return list(by_id.values())
+
+def section_bbox_from_pois(raw_pois: list[dict], section_name: str):
+    name = section_name.lower().strip()
+    pts = []
+    for f in raw_pois:
+        p = f.get("properties") or {}
+        sec = str(p.get("section") or "").lower().strip()
+        if sec != name:
+            continue
+        coords = (f.get("geometry") or {}).get("coordinates") or []
+        if len(coords) < 2:
+            continue
+        pts.append((coords[1], coords[0]))  # lat, lon
+    if not pts:
+        return None
+    lats = [lat for lat, _ in pts]
+    lons = [lon for _, lon in pts]
+    return (min(lons), min(lats), max(lons), max(lats))
+
+def fetch_mapillary_images_in_bbox_grid(token: str, bbox: tuple[float, float, float, float], padding: float = 0.01, tile_size: float = 0.04) -> list[dict]:
+    min_lon, min_lat, max_lon, max_lat = bbox
+    min_lon -= padding
+    min_lat -= padding
+    max_lon += padding
+    max_lat += padding
+
+    images: list[dict] = []
+    lat = min_lat
+    tile_index = 0
+    while lat < max_lat:
+        lon = min_lon
+        while lon < max_lon:
+            tile_index += 1
+            tile_bbox = f"{lon},{lat},{min(lon + tile_size, max_lon)},{min(lat + tile_size, max_lat)}"
+            params = {
+                "access_token": token,
+                "fields": "id,captured_at,computed_geometry,thumb_1024_url,creator",
+                "bbox": tile_bbox,
+                "limit": "200",
+            }
+            url = MAPILLARY_API + "?" + urllib.parse.urlencode(params)
+            page_count = 0
+            while url and page_count < 8:
+                data = _mapillary_fetch_json(url)
+                for raw in data.get("data", []):
+                    parsed = _mapillary_item(raw)
+                    if parsed:
+                        images.append(parsed)
+                url = (data.get("paging") or {}).get("next")
+                page_count += 1
+                time.sleep(0.15)
+            lon += tile_size
+        lat += tile_size
+    return merge_mapillary_images(images)
+
 def fetch_mapillary_images_near_trail(trail_geojson, token: str, max_boxes: int = 20) -> list[dict]:
     if not token:
         return []
@@ -194,7 +288,7 @@ def fetch_mapillary_images_near_trail(trail_geojson, token: str, max_boxes: int 
     if coords[-1] not in sampled:
         sampled.append(coords[-1])
 
-    images_by_id: dict[str, dict] = {}
+    images: list[dict] = []
     for i, (lat, lon) in enumerate(sampled, start=1):
         d = 0.02  # bbox area = 0.0016 (under 0.010 API limit)
         bbox = f"{lon-d},{lat-d},{lon+d},{lat+d}"
@@ -202,43 +296,18 @@ def fetch_mapillary_images_near_trail(trail_geojson, token: str, max_boxes: int 
             "access_token": token,
             "fields": "id,captured_at,computed_geometry,thumb_1024_url,creator",
             "bbox": bbox,
-            "limit": "40",
+            "limit": "120",
         }
         url = MAPILLARY_API + "?" + urllib.parse.urlencode(params)
-        data = None
-        for attempt in range(2):
-            try:
-                req = urllib.request.Request(url, headers=HEADERS)
-                with urllib.request.urlopen(req, timeout=12) as r:
-                    data = json.load(r)
-                break
-            except Exception:
-                if attempt == 0:
-                    time.sleep(0.5)
-                else:
-                    data = {"data": []}
+        data = _mapillary_fetch_json(url)
         for item in data.get("data", []):
-            image_id = str(item.get("id", ""))
-            geom = item.get("computed_geometry") or {}
-            pt = geom.get("coordinates") or []
-            if not image_id or len(pt) < 2:
-                continue
-            if image_id in images_by_id:
-                continue
-            creator = (item.get("creator") or {}).get("username", "")
-            images_by_id[image_id] = {
-                "id": image_id,
-                "lat": pt[1],
-                "lon": pt[0],
-                "capturedAt": item.get("captured_at"),
-                "thumb": item.get("thumb_1024_url", ""),
-                "creator": creator,
-                "url": f"https://www.mapillary.com/app/?pKey={image_id}",
-            }
+            parsed = _mapillary_item(item)
+            if parsed:
+                images.append(parsed)
         if i % 10 == 0:
             print(f"  … Mapillary-rutor: {i}/{len(sampled)}", end="\r", flush=True)
         time.sleep(0.15)
-    return list(images_by_id.values())
+    return merge_mapillary_images(images)
 
 print("📥 Hämtar POI...")
 raw_pois = fetch(POIS_URL)["features"]
@@ -333,7 +402,18 @@ if MAPILLARY_TOKEN:
     print("📥 Hämtar Mapillary-bilder nära leden...")
     try:
         mapillary_data = fetch_mapillary_images_near_trail(trail_geojson, MAPILLARY_TOKEN)
-        print(f"  ✅ {len(mapillary_data)} Mapillary-bilder")
+        print(f"  ✅ {len(mapillary_data)} Mapillary-bilder nära leden")
+
+        landsort_bbox = section_bbox_from_pois(raw_pois, "landsort")
+        if landsort_bbox:
+            print("📥 Kompletterar Mapillary kring Landsort...")
+            landsort_images = fetch_mapillary_images_in_bbox_grid(MAPILLARY_TOKEN, landsort_bbox)
+            before = len(mapillary_data)
+            mapillary_data = merge_mapillary_images(mapillary_data, landsort_images)
+            added = len(mapillary_data) - before
+            print(f"  ✅ Landsort: +{added} (totalt {len(mapillary_data)})")
+        else:
+            print("  ⚠️ Landsort-sektion hittades inte i POI-data")
     except Exception as e:
         print(f"  ⚠️ Mapillary fel: {e}")
 else:
