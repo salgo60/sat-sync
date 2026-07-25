@@ -207,7 +207,7 @@ html = f"""<!DOCTYPE html>
       layerIncOsmWd: 'Inkonsekvens OSM saknar koppling WD',
       layerIncWdOsm: 'Inkonsekvens WD saknar koppling OSM',
       layerNotes: '\U0001f4ac OSM Notes',
-      missingOsm: 'Saknar OSM',
+      layerAed: '\U0001f9e1 Hj\xe4rtstartare (AED)',
       missingWd: 'Saknar Wikidata',
       missingImg: 'Saknar bild',
       satMap: '\U0001f5fe SAT-kartan',
@@ -255,7 +255,7 @@ html = f"""<!DOCTYPE html>
       layerIncOsmWd: 'Inconsistency OSM missing WD link',
       layerIncWdOsm: 'Inconsistency WD missing OSM link',
       layerNotes: '\U0001f4ac OSM Notes',
-      missingOsm: 'Missing OSM',
+      layerAed: '\U0001f9e1 Defibrillator (AED)',
       missingWd: 'Missing Wikidata',
       missingImg: 'Missing image',
       satMap: '\U0001f5fe SAT map',
@@ -392,6 +392,7 @@ html = f"""<!DOCTYPE html>
   const layerInconsistencyPoi = L.layerGroup();
   const layerInconsistencyOsmMissingWd = L.layerGroup();
   const layerInconsistencyWdMissingOsm = L.layerGroup();
+  const layerAed = L.layerGroup();
   const layerByKey = {{
     osm: layerMissingOsm,
     wd: layerMissingWd,
@@ -403,6 +404,7 @@ html = f"""<!DOCTYPE html>
     incosm: layerInconsistencyOsmMissingWd,
     incwd: layerInconsistencyWdMissingOsm,
     notes: osmNotesLayer,
+    aed: layerAed,
   }};
 
   // Layer control — shown in map top-right
@@ -419,6 +421,7 @@ html = f"""<!DOCTYPE html>
       [t('layerIncOsmWd')]:     layerInconsistencyOsmMissingWd,
       [t('layerIncWdOsm')]:     layerInconsistencyWdMissingOsm,
       [t('layerNotes')]:        osmNotesLayer,
+      [t('layerAed')]:          layerAed,
     }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
   }}
 
@@ -799,6 +802,41 @@ html = f"""<!DOCTYPE html>
 
   // Auto-load notes on start
   loadOsmNotes();
+
+  // ── AED layer ─────────────────────────────────────────────────────────────
+  const aedIcon = L.divIcon({{
+    className: '',
+    html: '<div style="width:22px;height:22px;border-radius:50%;background:#dc2626;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:13px">🧡</div>',
+    iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-13]
+  }});
+  let aedLoaded = false;
+  async function loadAed() {{
+    if (aedLoaded) return;
+    aedLoaded = true;
+    try {{
+      const resp = await fetch('https://map.stockholmarchipelagotrail.com/api/aed');
+      const data = await resp.json();
+      layerAed.clearLayers();
+      (data.features || []).forEach(f => {{
+        const [lon, lat] = f.geometry.coordinates;
+        const p = f.properties;
+        const addr = p.address ? [p.address.street, p.address.city].filter(Boolean).join(', ') : '';
+        const m = L.marker([lat, lon], {{ icon: aedIcon }});
+        m.bindPopup(`<div style="font-size:13px;min-width:150px">
+          <strong>🧡 ${{escapeHtml(p.name || 'AED')}}</strong><br>
+          ${{p.owner ? `<small style="color:#64748b">${{escapeHtml(p.owner)}}</small><br>` : ''}}
+          ${{addr ? `<div style="margin-top:4px">${{escapeHtml(addr)}}</div>` : ''}}
+          ${{p.opening_hours ? `<div>🕐 ${{escapeHtml(p.opening_hours)}}</div>` : ''}}
+          <div style="margin-top:5px;border-top:1px solid #e2e8f0;padding-top:4px;font-size:11px;color:#64748b">
+            <a href="https://www.openstreetmap.org/note/new#map=18/${{lat}}/${{lon}}" target="_blank">💬 OSM Note</a>
+          </div>
+        </div>`);
+        layerAed.addLayer(m);
+      }});
+      console.log(`AED: ${{(data.features||[]).length}} laddade`);
+    }} catch(e) {{ console.warn('AED load error', e); }}
+  }}
+  map.on('overlayadd', (ev) => {{ if (ev.layer === layerAed) loadAed(); }});
 
   window.applyFilters = function() {{
     currentStage = stageFilter.value;

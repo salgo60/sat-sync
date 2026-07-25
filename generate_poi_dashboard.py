@@ -707,6 +707,8 @@ ORDER BY DESC(geof:latitude(?coord))
       <a href="{TRAIL_URL}" target="_blank">trail.jsonld</a> |
       <a href="{SECTIONS_INDEX_URL}" target="_blank">sections-index.json</a> |
       <a href="https://map.stockholmarchipelagotrail.com/data-sources" target="_blank">data-sources</a> |
+      <a href="https://map.stockholmarchipelagotrail.com/api/aed" target="_blank">api/aed</a> |
+      <a href="https://map.stockholmarchipelagotrail.com/data/piers-identity.json" target="_blank">piers-identity.json</a> |
       <a href="https://www.wikidata.org/wiki/Q131318799" target="_blank">Wikidata route</a> |
       <a href="whats_new.html">What's new</a> |
       <a href="sat_todo_map.html">🗺️ TODO-karta</a> |
