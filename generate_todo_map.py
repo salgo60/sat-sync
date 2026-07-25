@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate sat_todo_map.html — mobile-friendly TODO map for SAT POI data gaps."""
 
-import json, urllib.request, urllib.parse, datetime, re, time
+import json, urllib.request, urllib.parse, datetime, re, time, os
 
 POIS_URL   = "https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson"
 TRAIL_URL  = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
@@ -10,6 +10,8 @@ AED_URL    = "https://map.stockholmarchipelagotrail.com/api/aed"
 PIERS_URL  = "https://map.stockholmarchipelagotrail.com/data/piers-identity.json"
 COMMONS_CATEGORY = "Stockholm_Archipelago_Trail"
 COMMONS_API  = "https://commons.wikimedia.org/w/api.php"
+MAPILLARY_API = "https://graph.mapillary.com/images"
+MAPILLARY_TOKEN = os.getenv("MAPILLARY_TOKEN", "").strip()
 OUTPUT     = "sat_todo_map.html"
 
 HEADERS = {"User-Agent": "sat-sync/todo-map 1.0"}
@@ -160,6 +162,84 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
             cont2 = data["continue"]
     return list(photos_by_title.values())
 
+def _iter_geojson_coords(node):
+    if isinstance(node, dict):
+        node_type = node.get("type")
+        if node_type == "FeatureCollection":
+            for f in node.get("features", []):
+                yield from _iter_geojson_coords(f)
+            return
+        if node_type == "Feature":
+            yield from _iter_geojson_coords(node.get("geometry", {}))
+            return
+        coords = node.get("coordinates")
+        if coords is not None:
+            yield from _iter_geojson_coords(coords)
+            return
+    if isinstance(node, list):
+        if len(node) >= 2 and isinstance(node[0], (int, float)) and isinstance(node[1], (int, float)):
+            yield float(node[1]), float(node[0])  # lat, lon
+            return
+        for part in node:
+            yield from _iter_geojson_coords(part)
+
+def fetch_mapillary_images_near_trail(trail_geojson, token: str, max_boxes: int = 20) -> list[dict]:
+    if not token:
+        return []
+    coords = list(_iter_geojson_coords(trail_geojson))
+    if not coords:
+        return []
+    step = max(1, len(coords) // max_boxes)
+    sampled = coords[::step]
+    if coords[-1] not in sampled:
+        sampled.append(coords[-1])
+
+    images_by_id: dict[str, dict] = {}
+    for i, (lat, lon) in enumerate(sampled, start=1):
+        d = 0.02  # bbox area = 0.0016 (under 0.010 API limit)
+        bbox = f"{lon-d},{lat-d},{lon+d},{lat+d}"
+        params = {
+            "access_token": token,
+            "fields": "id,captured_at,computed_geometry,thumb_1024_url,creator",
+            "bbox": bbox,
+            "limit": "40",
+        }
+        url = MAPILLARY_API + "?" + urllib.parse.urlencode(params)
+        data = None
+        for attempt in range(2):
+            try:
+                req = urllib.request.Request(url, headers=HEADERS)
+                with urllib.request.urlopen(req, timeout=12) as r:
+                    data = json.load(r)
+                break
+            except Exception:
+                if attempt == 0:
+                    time.sleep(0.5)
+                else:
+                    data = {"data": []}
+        for item in data.get("data", []):
+            image_id = str(item.get("id", ""))
+            geom = item.get("computed_geometry") or {}
+            pt = geom.get("coordinates") or []
+            if not image_id or len(pt) < 2:
+                continue
+            if image_id in images_by_id:
+                continue
+            creator = (item.get("creator") or {}).get("username", "")
+            images_by_id[image_id] = {
+                "id": image_id,
+                "lat": pt[1],
+                "lon": pt[0],
+                "capturedAt": item.get("captured_at"),
+                "thumb": item.get("thumb_1024_url", ""),
+                "creator": creator,
+                "url": f"https://www.mapillary.com/app/?pKey={image_id}",
+            }
+        if i % 10 == 0:
+            print(f"  … Mapillary-rutor: {i}/{len(sampled)}", end="\r", flush=True)
+        time.sleep(0.15)
+    return list(images_by_id.values())
+
 print("📥 Hämtar POI...")
 raw_pois = fetch(POIS_URL)["features"]
 print(f"  ✅ {len(raw_pois)} POI")
@@ -248,6 +328,17 @@ except Exception as e:
     print(f"  ⚠️ Commons fel: {e}")
     commons_data = []
 
+mapillary_data = []
+if MAPILLARY_TOKEN:
+    print("📥 Hämtar Mapillary-bilder nära leden...")
+    try:
+        mapillary_data = fetch_mapillary_images_near_trail(trail_geojson, MAPILLARY_TOKEN)
+        print(f"  ✅ {len(mapillary_data)} Mapillary-bilder")
+    except Exception as e:
+        print(f"  ⚠️ Mapillary fel: {e}")
+else:
+    print("  ℹ️ Mapillary hoppas över (ingen MAPILLARY_TOKEN satt)")
+
 generated_at = datetime.datetime.now().strftime("%Y%m%d %H:%M")
 
 # Build POI list with missing-data flags
@@ -301,6 +392,7 @@ aed_json         = json.dumps(aed_data,    ensure_ascii=False)
 piers_json       = json.dumps(piers_data,  ensure_ascii=False)
 missing_piers_json = json.dumps(sorted(missing_pier_sat_ids), ensure_ascii=False)
 commons_json     = json.dumps(commons_data, ensure_ascii=False)
+mapillary_json   = json.dumps(mapillary_data, ensure_ascii=False)
 
 html = f"""<!DOCTYPE html>
 <html lang="sv">
@@ -413,6 +505,7 @@ html = f"""<!DOCTYPE html>
   const PIER_POINTS = {piers_json};
   const MISSING_PIER_SAT_IDS = {missing_piers_json};
   const COMMONS_PHOTOS = {commons_json};
+  const MAPILLARY_IMAGES = {mapillary_json};
   const OSM_TAG_CACHE = {{}};
   const WD_ENTITY_CACHE = {{}};
 
@@ -438,6 +531,7 @@ html = f"""<!DOCTYPE html>
       layerAed: '\U0001f9e1 Hj\xe4rtstartare (AED)',
       layerPiers: '\u26f4 Bryggor (piers)',
       layerCommons: '\U0001f4f7 Commons-foton',
+      layerMapillary: '\U0001f4f8 Mapillary-bilder',
       missingWd: 'Saknar Wikidata',
       missingImg: 'Saknar bild',
       satMap: '\U0001f5fe SAT-kartan',
@@ -488,6 +582,7 @@ html = f"""<!DOCTYPE html>
       layerAed: '\U0001f9e1 Defibrillator (AED)',
       layerPiers: '\u26f4 Piers',
       layerCommons: '\U0001f4f7 Commons photos',
+      layerMapillary: '\U0001f4f8 Mapillary images',
       missingWd: 'Missing Wikidata',
       missingImg: 'Missing image',
       satMap: '\U0001f5fe SAT map',
@@ -627,6 +722,7 @@ html = f"""<!DOCTYPE html>
   const layerAed = L.layerGroup();
   const layerPiers = L.layerGroup();
   const layerCommons = L.layerGroup();
+  const layerMapillary = L.layerGroup();
   const layerByKey = {{
     osm: layerMissingOsm,
     wd: layerMissingWd,
@@ -641,6 +737,7 @@ html = f"""<!DOCTYPE html>
     aed: layerAed,
     piers: layerPiers,
     commons: layerCommons,
+    mly: layerMapillary,
   }};
 
   // Layer control — shown in map top-right
@@ -660,6 +757,7 @@ html = f"""<!DOCTYPE html>
       [t('layerAed')]:          layerAed,
       [t('layerPiers')]:        layerPiers,
       [t('layerCommons')]:      layerCommons,
+      [t('layerMapillary')]:    layerMapillary,
     }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
   }}
 
@@ -1106,6 +1204,37 @@ html = f"""<!DOCTYPE html>
     }}
   }}
 
+  // ── Mapillary layer ────────────────────────────────────────────────────────
+  const mapillaryIcon = L.divIcon({{
+    className: '',
+    html: '<div style="width:22px;height:22px;border-radius:50%;background:#059669;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:12px">📸</div>',
+    iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-13]
+  }});
+  let mapillaryLoaded = false;
+  function loadMapillary() {{
+    if (mapillaryLoaded) return;
+    mapillaryLoaded = true;
+    layerMapillary.clearLayers();
+    MAPILLARY_IMAGES.forEach((p) => {{
+      const lat = p.lat;
+      const lon = p.lon;
+      const captured = p.capturedAt
+        ? new Date(p.capturedAt).toLocaleString(lang === 'en' ? 'en-SE' : 'sv-SE')
+        : '';
+      const creatorUrl = p.creator ? `https://www.mapillary.com/app/user/${{encodeURIComponent(p.creator)}}` : '';
+      const m = L.marker([lat, lon], {{ icon: mapillaryIcon }});
+      m.bindPopup(`<div style="font-size:13px;min-width:190px;max-width:240px">
+        ${{p.thumb ? `<a href="${{p.url}}" target="_blank"><img src="${{p.thumb}}" style="max-width:220px;border-radius:4px;display:block;margin-bottom:6px"></a>` : ''}}
+        <strong>📸 Mapillary</strong>
+        ${{captured ? `<div>🗓️ ${{escapeHtml(captured)}}</div>` : ''}}
+        ${{p.creator ? `<div>👤 <a href="${{creatorUrl}}" target="_blank">${{escapeHtml(p.creator)}}</a></div>` : ''}}
+        <div><a href="${{p.url}}" target="_blank">🔗 Mapillary</a></div>
+      </div>`);
+      layerMapillary.addLayer(m);
+    }});
+    console.log(`Mapillary: ${{MAPILLARY_IMAGES.length}} bilder laddade`);
+  }}
+
   // ── Wikimedia Commons photos layer ────────────────────────────────────────
   const commonsIcon = L.divIcon({{
     className: '',
@@ -1287,6 +1416,7 @@ html = f"""<!DOCTYPE html>
   map.on('overlayadd', (ev) => {{
     if (ev.layer === layerAed) loadAed();
     if (ev.layer === layerPiers) loadPiers();
+    if (ev.layer === layerMapillary) loadMapillary();
     if (ev.layer === layerCommons) loadCommons();
   }});
 
