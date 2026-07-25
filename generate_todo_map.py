@@ -91,9 +91,9 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
             break
         cont = data["continue"]
 
-    # 2. For each category, fetch files with coordinates + thumbnail
-    seen_titles: set[str] = set()
-    photos: list[dict] = []
+    # 2. For each category, fetch files with coordinates + metadata.
+    # The same file often appears in many categories; keep the richest metadata seen.
+    photos_by_title: dict[str, dict] = {}
     for i, cat in enumerate(categories):
         time.sleep(1.0)  # Commons API: 1 req/sec to avoid 429
         print(f"  [{i+1}/{len(categories)}] {cat[:50]}", end="\r", flush=True)
@@ -118,9 +118,6 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
                     continue
                 c = coords_list[0]
                 title = page.get("title", "")
-                if title in seen_titles:
-                    continue
-                seen_titles.add(title)
                 mid = page.get("pageid")
                 ii = (page.get("imageinfo") or [{}])[0]
                 thumb = ii.get("thumburl") or ii.get("url") or ""
@@ -130,7 +127,7 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
                 cats_raw = (em.get("Categories") or {}).get("value", "")
                 cats = [c2.strip() for c2 in cats_raw.split("|") if c2.strip()] if cats_raw else []
                 page_url = "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(title.replace(" ", "_"))
-                photos.append({
+                candidate = {
                     "lat": c["lat"],
                     "lon": c["lon"],
                     "title": title[len("File:"):] if title.startswith("File:") else title,
@@ -140,11 +137,28 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
                     "date": date_raw,
                     "artist": artist_html,
                     "cats": cats,
-                })
+                }
+
+                existing = photos_by_title.get(title)
+                if not existing:
+                    photos_by_title[title] = candidate
+                    continue
+
+                # Merge in richer values from later category hits.
+                if (not existing.get("thumb")) and candidate.get("thumb"):
+                    existing["thumb"] = candidate["thumb"]
+                if (not existing.get("date")) and candidate.get("date"):
+                    existing["date"] = candidate["date"]
+                if (not existing.get("artist")) and candidate.get("artist"):
+                    existing["artist"] = candidate["artist"]
+                if len(existing.get("cats", [])) < len(candidate.get("cats", [])):
+                    existing["cats"] = candidate["cats"]
+                if (not existing.get("mid")) and candidate.get("mid"):
+                    existing["mid"] = candidate["mid"]
             if "continue" not in data:
                 break
             cont2 = data["continue"]
-    return photos
+    return list(photos_by_title.values())
 
 print("📥 Hämtar POI...")
 raw_pois = fetch(POIS_URL)["features"]
@@ -1099,6 +1113,65 @@ html = f"""<!DOCTYPE html>
     iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-13]
   }});
   let commonsLoaded = false;
+  const commonsInfoCache = {{}};
+
+  function formatCommonsDate(raw) {{
+    if (!raw) return '';
+    try {{
+      const d = new Date(raw.replace(' ', 'T'));
+      return d.toLocaleString(lang === 'en' ? 'en-SE' : 'sv-SE', {{
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      }});
+    }} catch (e) {{
+      return raw;
+    }}
+  }}
+
+  function normalizeCommonsHtml(html) {{
+    return String(html || '').replace(/href="\\/\\//g, 'href="https://');
+  }}
+
+  function categoriesToHtml(cats) {{
+    if (!cats || !cats.length) return '';
+    return '🏷️ ' + cats.map(c =>
+      `<a href="https://commons.wikimedia.org/wiki/Category:${{encodeURIComponent(c)}}" target="_blank">${{escapeHtml(c)}}</a>`
+    ).join(' · ');
+  }}
+
+  async function fetchCommonsImageInfo(fileTitle) {{
+    if (!fileTitle) return null;
+    if (commonsInfoCache[fileTitle]) return commonsInfoCache[fileTitle];
+    try {{
+      const params = new URLSearchParams({{
+        action: 'query',
+        titles: fileTitle.startsWith('File:') ? fileTitle : `File:${{fileTitle}}`,
+        prop: 'imageinfo',
+        iiprop: 'url|thumburl|extmetadata',
+        iiextmetadatalanguage: 'sv',
+        iiurlwidth: '250',
+        format: 'json',
+        origin: '*',
+      }});
+      const res = await fetch(`https://commons.wikimedia.org/w/api.php?${{params.toString()}}`);
+      const data = await res.json();
+      const pages = data?.query?.pages || {{}};
+      const page = Object.values(pages)[0] || {{}};
+      const ii = (page.imageinfo || [{{}}])[0];
+      const em = ii.extmetadata || {{}};
+      const catsRaw = (em.Categories || {{}}).value || '';
+      const info = {{
+        thumb: ii.thumburl || ii.url || '',
+        date: (em.DateTimeOriginal || em.DateTime || {{}}).value || '',
+        artist: (em.Artist || {{}}).value || '',
+        cats: catsRaw ? catsRaw.split('|').map(c => c.trim()).filter(Boolean) : [],
+      }};
+      commonsInfoCache[fileTitle] = info;
+      return info;
+    }} catch (e) {{
+      return null;
+    }}
+  }}
 
   // Fetch depicts (P180) from SDC and resolve Wikidata labels
   async function fetchDepicts(mid) {{
@@ -1128,37 +1201,25 @@ html = f"""<!DOCTYPE html>
     if (commonsLoaded) return;
     commonsLoaded = true;
     layerCommons.clearLayers();
-    COMMONS_PHOTOS.forEach((p) => {{
+    COMMONS_PHOTOS.forEach((p, idx) => {{
       const m = L.marker([p.lat, p.lon], {{ icon: commonsIcon }});
+      const popupKey = `${{p.mid || 0}}-${{idx}}`;
+      const thumbId = `commons-thumb-${{popupKey}}`;
+      const dateId = `commons-date-${{popupKey}}`;
+      const artistId = `commons-artist-${{popupKey}}`;
+      const catsId = `commons-cats-${{popupKey}}`;
+      const depictsId = `depicts-${{popupKey}}`;
 
-      // Format date: "2025-03-30 16:46:06" → "30 mars 2025, 16:46"
-      let dateStr = '';
-      if (p.date) {{
-        try {{
-          const d = new Date(p.date.replace(' ', 'T'));
-          dateStr = d.toLocaleString(lang === 'en' ? 'en-SE' : 'sv-SE', {{
-            year: 'numeric', month: 'long', day: 'numeric',
-            hour: '2-digit', minute: '2-digit'
-          }});
-        }} catch(e) {{ dateStr = p.date; }}
-      }}
-
-      const thumbHtml = p.thumb
+      const dateStr = formatCommonsDate(p.date);
+      const thumbHtml = `<div id="${{thumbId}}">` + (p.thumb
         ? `<a href="${{p.url}}" target="_blank"><img src="${{p.thumb}}" style="max-width:220px;border-radius:4px;display:block;margin-bottom:6px"></a>`
-        : '';
-      const dateHtml = dateStr
-        ? `<div>🗓️ ${{escapeHtml(dateStr)}}</div>` : '';
-      const artistHtml = p.artist
-        ? `<div>👤 ${{p.artist.replace(/href="\\/\\//g, 'href="https://')}}</div>` : '';
+        : '') + `</div>`;
+      const dateHtml = `<div id="${{dateId}}">` + (dateStr ? `🗓️ ${{escapeHtml(dateStr)}}` : '') + `</div>`;
+      const artistHtml = `<div id="${{artistId}}">` + (p.artist ? `👤 ${{normalizeCommonsHtml(p.artist)}}` : '') + `</div>`;
       const midHtml = p.mid
         ? `<div><a href="https://commons.wikimedia.org/entity/M${{p.mid}}" target="_blank">M${{p.mid}}</a> · <a href="https://commons.wikimedia.org/entity/M${{p.mid}}.json" target="_blank">JSON</a></div>`
         : '';
-      const catsHtml = (p.cats || []).length
-        ? `<div style="margin-top:4px">🏷️ ` + p.cats.map(c =>
-            `<a href="https://commons.wikimedia.org/wiki/Category:${{encodeURIComponent(c)}}" target="_blank">${{escapeHtml(c)}}</a>`
-          ).join(' · ') + `</div>`
-        : '';
-      const depictsId = `depicts-${{p.mid}}`;
+      const catsHtml = `<div id="${{catsId}}" style="margin-top:4px">${{categoriesToHtml(p.cats || [])}}</div>`;
 
       const popupContent = `<div style="font-size:13px;min-width:200px;max-width:240px">
         ${{thumbHtml}}
@@ -1175,18 +1236,47 @@ html = f"""<!DOCTYPE html>
 
       m.bindPopup(popupContent, {{ maxWidth: 260 }});
       m.on('popupopen', async () => {{
-        const el = document.getElementById(depictsId);
-        if (!el || el.dataset.loaded) return;
-        el.dataset.loaded = '1';
-        const depicts = await fetchDepicts(p.mid);
-        if (!el) return;
-        if (!depicts.length) {{
-          el.textContent = '';
-          return;
+        const depictsEl = document.getElementById(depictsId);
+        if (depictsEl && !depictsEl.dataset.loaded && p.mid) {{
+          depictsEl.dataset.loaded = '1';
+          const depicts = await fetchDepicts(p.mid);
+          if (depicts && depicts.length) {{
+            depictsEl.innerHTML = '🎨 ' + depicts.map(d =>
+              `<a href="https://www.wikidata.org/wiki/${{d.qid}}" target="_blank">${{escapeHtml(d.label)}}</a>`
+            ).join(' · ');
+          }} else {{
+            depictsEl.textContent = '';
+          }}
         }}
-        el.innerHTML = '🎨 ' + depicts.map(d =>
-          `<a href="https://www.wikidata.org/wiki/${{d.qid}}" target="_blank">${{escapeHtml(d.label)}}</a>`
-        ).join(' · ');
+
+        const needMoreInfo = !p.thumb || !p.date || !p.artist || !(p.cats || []).length;
+        if (!needMoreInfo) return;
+
+        const info = await fetchCommonsImageInfo(p.title);
+        if (!info) return;
+
+        if (!p.thumb && info.thumb) {{
+          p.thumb = info.thumb;
+          const thumbEl = document.getElementById(thumbId);
+          if (thumbEl) {{
+            thumbEl.innerHTML = `<a href="${{p.url}}" target="_blank"><img src="${{p.thumb}}" style="max-width:220px;border-radius:4px;display:block;margin-bottom:6px"></a>`;
+          }}
+        }}
+        if (!p.date && info.date) {{
+          p.date = info.date;
+          const dateEl = document.getElementById(dateId);
+          if (dateEl) dateEl.innerHTML = `🗓️ ${{escapeHtml(formatCommonsDate(p.date))}}`;
+        }}
+        if (!p.artist && info.artist) {{
+          p.artist = info.artist;
+          const artistEl = document.getElementById(artistId);
+          if (artistEl) artistEl.innerHTML = `👤 ${{normalizeCommonsHtml(p.artist)}}`;
+        }}
+        if (!(p.cats || []).length && (info.cats || []).length) {{
+          p.cats = info.cats;
+          const catsEl = document.getElementById(catsId);
+          if (catsEl) catsEl.innerHTML = categoriesToHtml(p.cats || []);
+        }}
       }});
 
       layerCommons.addLayer(m);
