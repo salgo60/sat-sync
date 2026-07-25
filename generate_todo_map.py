@@ -612,6 +612,7 @@ html = f"""<!DOCTYPE html>
       layerPiers: '\u26f4 Bryggor (piers)',
       layerCommons: '\U0001f4f7 Commons-foton',
       layerMapillary: '\U0001f4f8 Mapillary-bilder',
+      deselectAllLayers: 'Avmarkera alla lager',
       missingWd: 'Saknar Wikidata',
       missingImg: 'Saknar bild',
       satMap: '\U0001f5fe SAT-kartan',
@@ -663,6 +664,7 @@ html = f"""<!DOCTYPE html>
       layerPiers: '\u26f4 Piers',
       layerCommons: '\U0001f4f7 Commons photos',
       layerMapillary: '\U0001f4f8 Mapillary images',
+      deselectAllLayers: 'Deselect all layers',
       missingWd: 'Missing Wikidata',
       missingImg: 'Missing image',
       satMap: '\U0001f5fe SAT map',
@@ -822,6 +824,13 @@ html = f"""<!DOCTYPE html>
 
   // Layer control — shown in map top-right
   let layerControl = null;
+  function deselectAllLayers() {{
+    Object.values(layerByKey).forEach((layer) => {{
+      if (map.hasLayer(layer)) map.removeLayer(layer);
+    }});
+    saveStateInUrl();
+  }}
+
   function rebuildLayerControl() {{
     if (layerControl) layerControl.remove();
     layerControl = L.control.layers(null, {{
@@ -839,6 +848,33 @@ html = f"""<!DOCTYPE html>
       [t('layerCommons')]:      layerCommons,
       [t('layerMapillary')]:    layerMapillary,
     }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
+
+    const container = layerControl.getContainer();
+    if (container) {{
+      const actionWrap = document.createElement('div');
+      actionWrap.style.padding = '6px 8px 8px';
+      actionWrap.style.borderTop = '1px solid #e2e8f0';
+      actionWrap.style.background = '#fff';
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = t('deselectAllLayers');
+      btn.style.width = '100%';
+      btn.style.fontSize = '12px';
+      btn.style.padding = '5px 8px';
+      btn.style.border = '1px solid #cbd5e1';
+      btn.style.borderRadius = '6px';
+      btn.style.background = '#f8fafc';
+      btn.style.cursor = 'pointer';
+      btn.onclick = (ev) => {{
+        ev.preventDefault();
+        ev.stopPropagation();
+        deselectAllLayers();
+      }};
+      actionWrap.appendChild(btn);
+      container.appendChild(actionWrap);
+      L.DomEvent.disableClickPropagation(actionWrap);
+      L.DomEvent.disableScrollPropagation(actionWrap);
+    }}
   }}
 
   map.on('overlayadd', (ev) => {{
