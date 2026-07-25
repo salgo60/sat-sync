@@ -25,6 +25,25 @@ TRAIL_URL = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
 SECTIONS_INDEX_URL = "https://map.stockholmarchipelagotrail.com/data/sections-index.json"
 
 
+def format_timestamp(value: Optional[str]) -> str:
+    """Normalisera tidsstämplar till YYYY-MM-DD HH:MM för visning."""
+    if not value:
+        return "—"
+    text = str(value).strip()
+    if not text:
+        return "—"
+    for fmt in ("%Y%m%d %H:%M", "%Y-%m-%d %H:%M"):
+        try:
+            return datetime.strptime(text, fmt).strftime("%Y-%m-%d %H:%M")
+        except ValueError:
+            pass
+    try:
+        iso = text.replace("Z", "+00:00")
+        return datetime.fromisoformat(iso).strftime("%Y-%m-%d %H:%M")
+    except ValueError:
+        return text
+
+
 def category_group(category: str) -> str:
     """Mappa detaljkategori till bred grupp för visualisering."""
     c = (category or "unknown").lower()
@@ -305,8 +324,8 @@ ORDER BY DESC(geof:latitude(?coord))
     def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict]) -> str:
         stage_by_slug = {s.slug: s for s in stages}
         generated_at = datetime.now().strftime("%Y%m%d %H:%M")
-        pois_fetched_at = self.pois_fetched_at or generated_at
-        pois_source_generated_at = self.pois_source_generated_at or "—"
+        pois_fetched_at = format_timestamp(self.pois_fetched_at or generated_at)
+        pois_source_generated_at = format_timestamp(self.pois_source_generated_at)
         latest_pr_num, latest_pr_title = self.fetch_latest_pr()
         pr_html = (
             f'&nbsp;|&nbsp;\n        <a href="https://github.com/salgo60/sat-sync/pull/{latest_pr_num}" target="_blank">PR #{latest_pr_num}</a>'
