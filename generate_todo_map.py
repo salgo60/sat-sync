@@ -6,6 +6,7 @@ import json, urllib.request, datetime
 POIS_URL   = "https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson"
 TRAIL_URL  = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
 SECTIONS_URL = "https://map.stockholmarchipelagotrail.com/data/sections-index.json"
+AED_URL    = "https://map.stockholmarchipelagotrail.com/api/aed"
 OUTPUT     = "sat_todo_map.html"
 
 HEADERS = {"User-Agent": "sat-sync/todo-map 1.0"}
@@ -27,6 +28,32 @@ print("  ✅ Ledgeometri hämtad")
 print("📥 Hämtar sections...")
 sections_index = fetch(SECTIONS_URL)
 print(f"  ✅ {len(sections_index)} sektioner")
+
+print("📥 Hämtar AED...")
+try:
+    aed_raw = fetch(AED_URL)
+    aed_features = aed_raw.get("features", [])
+    print(f"  ✅ {len(aed_features)} AED-platser")
+except Exception as e:
+    print(f"  ⚠️ AED fel: {e}")
+    aed_features = []
+
+aed_data = []
+for f in aed_features:
+    geom = f.get("geometry") or {}
+    coords = geom.get("coordinates") or []
+    if len(coords) < 2:
+        continue
+    p = f.get("properties") or {}
+    addr = p.get("address") or {}
+    aed_data.append({
+        "lat": coords[1], "lon": coords[0],
+        "name": p.get("name", "AED"),
+        "owner": p.get("owner", ""),
+        "opening_hours": p.get("opening_hours", ""),
+        "street": addr.get("street", ""),
+        "city": addr.get("city", ""),
+    })
 
 generated_at = datetime.datetime.now().strftime("%Y%m%d %H:%M")
 
@@ -77,6 +104,7 @@ for p in pois:
 pois_json        = json.dumps(pois,        ensure_ascii=False)
 trail_json       = json.dumps(trail_geojson, ensure_ascii=False)
 stage_stats_json = json.dumps(dict(stage_stats), ensure_ascii=False)
+aed_json         = json.dumps(aed_data,    ensure_ascii=False)
 
 html = f"""<!DOCTYPE html>
 <html lang="sv">
@@ -185,6 +213,7 @@ html = f"""<!DOCTYPE html>
   const ALL_POIS = {pois_json};
   const TRAIL_GEOJSON = {trail_json};
   const STAGE_STATS = {stage_stats_json};
+  const AED_POINTS = {aed_json};
   const OSM_TAG_CACHE = {{}};
   const WD_ENTITY_CACHE = {{}};
 
@@ -810,31 +839,27 @@ html = f"""<!DOCTYPE html>
     iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-13]
   }});
   let aedLoaded = false;
-  async function loadAed() {{
+  function loadAed() {{
     if (aedLoaded) return;
     aedLoaded = true;
-    try {{
-      const resp = await fetch('https://map.stockholmarchipelagotrail.com/api/aed');
-      const data = await resp.json();
-      layerAed.clearLayers();
-      (data.features || []).forEach(f => {{
-        const [lon, lat] = f.geometry.coordinates;
-        const p = f.properties;
-        const addr = p.address ? [p.address.street, p.address.city].filter(Boolean).join(', ') : '';
-        const m = L.marker([lat, lon], {{ icon: aedIcon }});
-        m.bindPopup(`<div style="font-size:13px;min-width:150px">
-          <strong>🧡 ${{escapeHtml(p.name || 'AED')}}</strong><br>
-          ${{p.owner ? `<small style="color:#64748b">${{escapeHtml(p.owner)}}</small><br>` : ''}}
-          ${{addr ? `<div style="margin-top:4px">${{escapeHtml(addr)}}</div>` : ''}}
-          ${{p.opening_hours ? `<div>🕐 ${{escapeHtml(p.opening_hours)}}</div>` : ''}}
-          <div style="margin-top:5px;border-top:1px solid #e2e8f0;padding-top:4px;font-size:11px;color:#64748b">
-            <a href="https://www.openstreetmap.org/note/new#map=18/${{lat}}/${{lon}}" target="_blank">💬 OSM Note</a>
-          </div>
-        </div>`);
-        layerAed.addLayer(m);
-      }});
-      console.log(`AED: ${{(data.features||[]).length}} laddade`);
-    }} catch(e) {{ console.warn('AED load error', e); }}
+    layerAed.clearLayers();
+    AED_POINTS.forEach((p) => {{
+      const lat = p.lat;
+      const lon = p.lon;
+      const addr = [p.street, p.city].filter(Boolean).join(', ');
+      const m = L.marker([lat, lon], {{ icon: aedIcon }});
+      m.bindPopup(`<div style="font-size:13px;min-width:150px">
+        <strong>🧡 ${{escapeHtml(p.name || 'AED')}}</strong><br>
+        ${{p.owner ? `<small style="color:#64748b">${{escapeHtml(p.owner)}}</small><br>` : ''}}
+        ${{addr ? `<div style="margin-top:4px">${{escapeHtml(addr)}}</div>` : ''}}
+        ${{p.opening_hours ? `<div>🕐 ${{escapeHtml(p.opening_hours)}}</div>` : ''}}
+        <div style="margin-top:5px;border-top:1px solid #e2e8f0;padding-top:4px;font-size:11px;color:#64748b">
+          <a href="https://www.openstreetmap.org/note/new#map=18/${{lat}}/${{lon}}" target="_blank">💬 OSM Note</a>
+        </div>
+      </div>`);
+      layerAed.addLayer(m);
+    }});
+    console.log(`AED: ${{AED_POINTS.length}} laddade`);
   }}
   map.on('overlayadd', (ev) => {{ if (ev.layer === layerAed) loadAed(); }});
 
