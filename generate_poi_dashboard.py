@@ -582,7 +582,8 @@ ORDER BY DESC(geof:latitude(?coord))
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a> &nbsp;|&nbsp;
-        <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a>
+        <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a> &nbsp;|&nbsp;
+        <a href="sat_about.html"><span id="aboutLinkHdr">ℹ️ About</span></a>
       </div>
     </div>
 
@@ -710,7 +711,8 @@ ORDER BY DESC(geof:latitude(?coord))
       <a href="whats_new.html">What's new</a> |
       <a href="sat_todo_map.html">🗺️ TODO-karta</a> |
       <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringsförslag</a> |
-      <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkFtr">📈 Datakvalitet över tid</span></a>
+      <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkFtr">📈 Datakvalitet över tid</span></a> |
+      <a href="sat_about.html"><span id="aboutLinkFtr">ℹ️ About</span></a>
     </div>
   </div>
 
@@ -1129,6 +1131,15 @@ ORDER BY DESC(geof:latitude(?coord))
         if (qualityFtr) qualityFtr.textContent = qualityLabel;
         document.querySelectorAll('a[data-quality-history-href]').forEach((link) => {{
           link.setAttribute('href', qualityUrl);
+        }});
+        const aboutUrl = `sat_about.html?lang=${{encodeURIComponent(currentLangCode())}}`;
+        const aboutHdr = document.getElementById('aboutLinkHdr');
+        const aboutFtr = document.getElementById('aboutLinkFtr');
+        const aboutLabel = currentLangCode() === 'sv' ? 'ℹ️ Om verktygen' : 'ℹ️ About';
+        if (aboutHdr) aboutHdr.textContent = aboutLabel;
+        if (aboutFtr) aboutFtr.textContent = aboutLabel;
+        document.querySelectorAll('a[href="sat_about.html"]').forEach((link) => {{
+          link.setAttribute('href', aboutUrl);
         }});
         const sectionAllOption = document.getElementById('sectionAllOption');
         const categoryAllOption = document.getElementById('categoryAllOption');
