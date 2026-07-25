@@ -83,7 +83,7 @@ html = f"""<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>SAT TODO – Vad saknas?</title>
+  <title id="page-title-el">SAT TODO – Vad saknas?</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
@@ -147,11 +147,12 @@ html = f"""<!DOCTYPE html>
 <div id="app">
 
   <div class="top-bar">
-    <h1>🗺️ SAT TODO – Vad saknas?</h1>
+    <h1 id="top-title">🗺️ SAT TODO – Vad saknas?</h1>
     <div class="meta">
       {generated_at} &nbsp;
-      <a href="sat_poi_dashboard.html">Dashboard</a>
+      <a href="sat_poi_dashboard.html" id="top-dashboard-link">Dashboard</a>
     </div>
+    <button id="lang-toggle" onclick="toggleLang()" style="margin-left:8px;padding:4px 10px;background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.5);border-radius:6px;font-size:0.75rem;font-weight:600;cursor:pointer">English</button>
   </div>
 
   <div class="tabs">
@@ -161,12 +162,12 @@ html = f"""<!DOCTYPE html>
 
   <div class="filter-bar">
     <select id="stageFilter" onchange="applyFilters()">
-      <option value="all">Alla etapper</option>
+      <option value="all" id="stage-all-opt">Alla etapper</option>
     </select>
     <select id="categoryFilter" onchange="applyFilters()">
-      <option value="all">Alla kategorier</option>
+      <option value="all" id="cat-all-opt">Alla kategorier</option>
     </select>
-    <button class="loc-btn" onclick="locateMe()">📍 Nära mig</button>
+    <button class="loc-btn" id="loc-btn" onclick="locateMe()">📍 Nära mig</button>
   </div>
 
   <div id="map"></div>
@@ -186,6 +187,129 @@ html = f"""<!DOCTYPE html>
   const STAGE_STATS = {stage_stats_json};
   const OSM_TAG_CACHE = {{}};
   const WD_ENTITY_CACHE = {{}};
+
+  // ── i18n ──────────────────────────────────────────────────────────────────
+  const i18n = {{
+    sv: {{
+      title: 'SAT TODO \u2013 Vad saknas?',
+      tabMap: '\U0001f5fe Karta',
+      tabList: '\U0001f4cb Lista',
+      allStages: 'Alla etapper',
+      allCategories: 'Alla kategorier',
+      nearMe: '\U0001f4cd N\xe4ra mig',
+      langToggle: 'English',
+      layerMissingOsm: '\u274c Saknar OSM-l\xe4nk',
+      layerMissingWd: '\U0001f4cb Saknar Wikidata',
+      layerMissingImg: '\U0001f4f7 Saknar bild',
+      layerWheelchair: '\u267f Wheelchair',
+      layerMissingWheelchair: '\u25fb\ufe0f Saknar Wheelchair',
+      layerIncPoi: 'Inkonsekvens POI',
+      layerIncOsmWd: 'Inkonsekvens OSM saknar koppling WD',
+      layerIncWdOsm: 'Inkonsekvens WD saknar koppling OSM',
+      layerNotes: '\U0001f4ac OSM Notes',
+      missingOsm: 'Saknar OSM',
+      missingWd: 'Saknar Wikidata',
+      missingImg: 'Saknar bild',
+      satMap: '\U0001f5fe SAT-kartan',
+      satJson: '\U0001f9fe SAT JSON',
+      osmLink: '\U0001f517 OSM',
+      idEditor: '\u270f\ufe0f iD editor',
+      checkDateToday: '\U0001f5d3\ufe0f check_date=today (iD)',
+      noOsmLink: '\u274c Ingen OSM-l\xe4nk',
+      noWdLink: '\u274c Ingen Wikidata-l\xe4nk',
+      wikidataLink: '\U0001f4da Wikidata',
+      website: '\U0001f310 Webbplats',
+      wikimap: '\U0001f5fe Wikimap',
+      createNote: '\U0001f4ac Skapa OSM Note h\xe4r',
+      incCheck: '\u26a0\ufe0f Inkonsekvens-kontroll',
+      incDesc1: 'Inkonsekvens POI: Wikidata P14545 har SAT-ID men OSM saknar <code>ref:stockholmarchipelagotrail</code>.',
+      incDesc2: 'Inkonsekvens OSM saknar koppling WD: OSM saknar/avviker i taggen <code>wikidata</code>.',
+      incDesc3: 'Inkonsekvens WD saknar koppling OSM: Wikidata saknar OSM-ID (node/way/relation) tillbaka till objektet.',
+      controls: 'Kontroller:',
+      noObjects: 'Inga objekt matchar aktiva filter.',
+      thStage: 'Etapp', thPoi: 'POI', thOsmName: 'OSM name', thCategory: 'Kategori',
+      thMissing: 'Saknas', thFixme: 'fixme (OSM)', thNote: 'note (OSM)',
+      thCheckDate: 'check_date (OSM)', thLinks: 'L\xe4nkar',
+      noName: '(utan namn)', showOnMap: 'Visa p\xe5 karta',
+      yourPosition: '\U0001f4cd Din position',
+      geoNotSupported: 'Geolocation st\xf6ds inte i din webbl\xe4sare.',
+      geoError: 'Kunde inte h\xe4mta position: ',
+      openOnOsm: '\xd6ppna p\xe5 OSM',
+      noText: '(ingen text)',
+    }},
+    en: {{
+      title: 'SAT TODO \u2013 What\u2019s missing?',
+      tabMap: '\U0001f5fe Map',
+      tabList: '\U0001f4cb List',
+      allStages: 'All stages',
+      allCategories: 'All categories',
+      nearMe: '\U0001f4cd Near me',
+      langToggle: 'Svenska',
+      layerMissingOsm: '\u274c Missing OSM link',
+      layerMissingWd: '\U0001f4cb Missing Wikidata',
+      layerMissingImg: '\U0001f4f7 Missing image',
+      layerWheelchair: '\u267f Wheelchair',
+      layerMissingWheelchair: '\u25fb\ufe0f Missing Wheelchair',
+      layerIncPoi: 'Inconsistency POI',
+      layerIncOsmWd: 'Inconsistency OSM missing WD link',
+      layerIncWdOsm: 'Inconsistency WD missing OSM link',
+      layerNotes: '\U0001f4ac OSM Notes',
+      missingOsm: 'Missing OSM',
+      missingWd: 'Missing Wikidata',
+      missingImg: 'Missing image',
+      satMap: '\U0001f5fe SAT map',
+      satJson: '\U0001f9fe SAT JSON',
+      osmLink: '\U0001f517 OSM',
+      idEditor: '\u270f\ufe0f iD editor',
+      checkDateToday: '\U0001f5d3\ufe0f check_date=today (iD)',
+      noOsmLink: '\u274c No OSM link',
+      noWdLink: '\u274c No Wikidata link',
+      wikidataLink: '\U0001f4da Wikidata',
+      website: '\U0001f310 Website',
+      wikimap: '\U0001f5fe Wikimap',
+      createNote: '\U0001f4ac Create OSM Note here',
+      incCheck: '\u26a0\ufe0f Inconsistency check',
+      incDesc1: 'Inconsistency POI: Wikidata P14545 has SAT ID but OSM is missing <code>ref:stockholmarchipelagotrail</code>.',
+      incDesc2: 'Inconsistency OSM missing WD link: OSM is missing or wrong in the <code>wikidata</code> tag.',
+      incDesc3: 'Inconsistency WD missing OSM link: Wikidata is missing OSM ID (node/way/relation) back to the object.',
+      controls: 'Checks:',
+      noObjects: 'No objects match the active filters.',
+      thStage: 'Stage', thPoi: 'POI', thOsmName: 'OSM name', thCategory: 'Category',
+      thMissing: 'Missing', thFixme: 'fixme (OSM)', thNote: 'note (OSM)',
+      thCheckDate: 'check_date (OSM)', thLinks: 'Links',
+      noName: '(no name)', showOnMap: 'Show on map',
+      yourPosition: '\U0001f4cd Your position',
+      geoNotSupported: 'Geolocation not supported in your browser.',
+      geoError: 'Could not get location: ',
+      openOnOsm: 'Open on OSM',
+      noText: '(no text)',
+    }},
+  }};
+
+  let lang = 'sv';
+  function t(k) {{ return (i18n[lang] || i18n.sv)[k] || k; }}
+
+  function applyLanguage() {{
+    document.documentElement.lang = lang;
+    document.title = t('title');
+    document.getElementById('page-title-el').textContent = t('title');
+    const top = document.getElementById('top-title');
+    if (top) top.textContent = '\U0001f5fe ' + t('title');
+    document.getElementById('tab-map').textContent = t('tabMap');
+    document.getElementById('tab-list').textContent = t('tabList');
+    document.getElementById('stage-all-opt').textContent = t('allStages');
+    document.getElementById('cat-all-opt').textContent = t('allCategories');
+    document.getElementById('loc-btn').textContent = t('nearMe');
+    document.getElementById('lang-toggle').textContent = t('langToggle');
+    rebuildLayerControl();
+    if (document.getElementById('list-view').style.display !== 'none') renderList();
+  }}
+
+  window.toggleLang = function() {{
+    lang = lang === 'sv' ? 'en' : 'sv';
+    applyLanguage();
+    saveStateInUrl();
+  }};
 
   // State
   let currentStage = 'all';
@@ -280,17 +404,21 @@ html = f"""<!DOCTYPE html>
   }};
 
   // Layer control — shown in map top-right
-  L.control.layers(null, {{
-    '❌ Saknar OSM-länk':    layerMissingOsm,
-    '📋 Saknar Wikidata':   layerMissingWd,
-    '📷 Saknar bild':       layerMissingImg,
-    '♿ Wheelchair':         layerWheelchair,
-    '◻️ Saknar Wheelchair': layerMissingWheelchair,
-    'Inkonsekvens POI': layerInconsistencyPoi,
-    'Inkonsekvens OSM saknar koppling WD': layerInconsistencyOsmMissingWd,
-    'Inkonsekvens WD saknar koppling OSM': layerInconsistencyWdMissingOsm,
-    '💬 OSM Notes':         osmNotesLayer,
-  }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
+  let layerControl = null;
+  function rebuildLayerControl() {{
+    if (layerControl) layerControl.remove();
+    layerControl = L.control.layers(null, {{
+      [t('layerMissingOsm')]:   layerMissingOsm,
+      [t('layerMissingWd')]:    layerMissingWd,
+      [t('layerMissingImg')]:   layerMissingImg,
+      [t('layerWheelchair')]:   layerWheelchair,
+      [t('layerMissingWheelchair')]: layerMissingWheelchair,
+      [t('layerIncPoi')]:       layerInconsistencyPoi,
+      [t('layerIncOsmWd')]:     layerInconsistencyOsmMissingWd,
+      [t('layerIncWdOsm')]:     layerInconsistencyWdMissingOsm,
+      [t('layerNotes')]:        osmNotesLayer,
+    }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
+  }}
 
   map.on('overlayadd', (ev) => {{
     if (
@@ -339,6 +467,7 @@ html = f"""<!DOCTYPE html>
     params.set('lon', c.lng.toFixed(6));
     params.set('z', String(z));
     params.set('layers', getActiveLayerKeys().join(','));
+    if (lang !== 'sv') params.set('lang', lang);
     const stateStr = params.toString();
     if (window.location.protocol === 'file:') {{
       if (window.location.hash.slice(1) !== stateStr) {{
@@ -364,6 +493,8 @@ html = f"""<!DOCTYPE html>
     const lon = Number(params.get('lon'));
     const z = Number(params.get('z'));
     const layers = (params.get('layers') || '').split(',').map(s => s.trim()).filter(Boolean);
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'sv') lang = urlLang;
 
     if (optionExists(stageFilter, stage)) {{
       stageFilter.value = stage;
@@ -497,7 +628,7 @@ html = f"""<!DOCTYPE html>
 
   function buildPopup(p, inconsistencyInfo = null) {{
     const tags = p.missing.map(tag => {{
-      const labels = {{osm:'Saknar OSM', wikidata:'Saknar Wikidata', image:'Saknar bild'}};
+      const labels = {{osm: t('missingOsm'), wikidata: t('missingWd'), image: t('missingImg')}};
       const colors = {{osm:'#ef4444', wikidata:'#f59e0b', image:'#8b5cf6'}};
       return `<span style="background:${{colors[tag]||'#888'}};color:#fff;padding:1px 6px;border-radius:10px;font-size:11px;margin-right:3px">${{labels[tag]||tag}}</span>`;
     }}).join('');
@@ -509,19 +640,19 @@ html = f"""<!DOCTYPE html>
     const newNoteUrl = `https://www.openstreetmap.org/note/new#map=18/${{p.lat}}/${{p.lon}}`;
     const wikimapUrl = `https://wikimap.toolforge.org/?lat=${{p.lat}}&lon=${{p.lon}}&zoom=15&lang=en&wp=false&cluster=false`;
     const inconsistencyHtml = inconsistencyInfo
-      ? `<details style="margin-top:6px"><summary>⚠️ Inkonsekvens-kontroll</summary><div style="font-size:12px;margin-top:4px">${{inconsistencyInfo}}</div></details>`
-      : `<details style="margin-top:6px"><summary>⚠️ Inkonsekvens-kontroll</summary><div style="font-size:12px;margin-top:4px">Kontroller: <br>1) Inkonsekvens POI: Wikidata P14545 har SAT-ID men OSM saknar <code>ref:stockholmarchipelagotrail</code>.<br>2) Inkonsekvens OSM saknar koppling WD: OSM saknar/avviker i taggen <code>wikidata</code>.<br>3) Inkonsekvens WD saknar koppling OSM: Wikidata saknar OSM-ID (node/way/relation) tillbaka till objektet.</div></details>`;
+      ? `<details style="margin-top:6px"><summary>${{t('incCheck')}}</summary><div style="font-size:12px;margin-top:4px">${{inconsistencyInfo}}</div></details>`
+      : `<details style="margin-top:6px"><summary>${{t('incCheck')}}</summary><div style="font-size:12px;margin-top:4px">${{t('controls')}}<br>1) ${{t('incDesc1')}}<br>2) ${{t('incDesc2')}}<br>3) ${{t('incDesc3')}}</div></details>`;
     return `<div style="min-width:160px;font-size:13px">
       <strong>${{escapeHtml(p.name)}}</strong><br>
       <small style="color:#64748b">${{escapeHtml(p.section)}} · ${{escapeHtml(p.category)}}</small><br>
       <div style="margin:5px 0">${{tags}}</div>
-      ${{satMapUrl ? `<div><a href="${{satMapUrl}}" target="_blank">🗺️ SAT-kartan</a> · <a href="${{satJsonUrl}}" target="_blank">🧾 SAT JSON</a></div>` : ''}}
-      ${{osmUrl ? `<div><a href="${{osmUrl}}" target="_blank">🔗 OSM</a> · <a href="${{idUrl}}" target="_blank">✏️ iD editor</a></div><div><a href="${{idUrl}}" target="_blank" onclick="return openIdWithCheckDate(this.href)">🗓️ check_date=today (iD)</a></div>` : '<div style="color:#ef4444;font-size:11px">❌ Ingen OSM-länk</div>'}}
-      ${{wdUrl  ? `<div><a href="${{wdUrl}}" target="_blank">📚 Wikidata</a></div>` : '<div style="color:#f59e0b;font-size:11px">❌ Ingen Wikidata-länk</div>'}}
-      ${{p.website ? `<div><a href="${{p.website}}" target="_blank">🌐 Webbplats</a></div>` : ''}}
+      ${{satMapUrl ? `<div><a href="${{satMapUrl}}" target="_blank">${{t('satMap')}}</a> · <a href="${{satJsonUrl}}" target="_blank">${{t('satJson')}}</a></div>` : ''}}
+      ${{osmUrl ? `<div><a href="${{osmUrl}}" target="_blank">${{t('osmLink')}}</a> · <a href="${{idUrl}}" target="_blank">${{t('idEditor')}}</a></div><div><a href="${{idUrl}}" target="_blank" onclick="return openIdWithCheckDate(this.href)">${{t('checkDateToday')}}</a></div>` : `<div style="color:#ef4444;font-size:11px">${{t('noOsmLink')}}</div>`}}
+      ${{wdUrl  ? `<div><a href="${{wdUrl}}" target="_blank">${{t('wikidataLink')}}</a></div>` : `<div style="color:#f59e0b;font-size:11px">${{t('noWdLink')}}</div>`}}
+      ${{p.website ? `<div><a href="${{p.website}}" target="_blank">${{t('website')}}</a></div>` : ''}}
       <div style="margin-top:6px;border-top:1px solid #e2e8f0;padding-top:5px">
-        <div><a href="${{wikimapUrl}}" target="_blank">🗺️ Wikimap</a></div>
-        <div><a href="${{newNoteUrl}}" target="_blank">💬 Skapa OSM Note här</a></div>
+        <div><a href="${{wikimapUrl}}" target="_blank">${{t('wikimap')}}</a></div>
+        <div><a href="${{newNoteUrl}}" target="_blank">${{t('createNote')}}</a></div>
       </div>
       ${{inconsistencyHtml}}
     </div>`;
@@ -657,11 +788,11 @@ html = f"""<!DOCTYPE html>
         const [lon, lat] = f.geometry.coordinates;
         const comments = f.properties.comments || [];
         const first = comments[0] || {{}};
-        const text = first.text || '(ingen text)';
+        const text = first.text || t('noText');
         const date = (first.date || '').slice(0,10);
         const noteId = f.properties.id;
         const m = L.marker([lat, lon], {{ icon: noteIcon }});
-        m.bindPopup(`<div class="note-popup"><strong>💬 OSM Note #${{noteId}}</strong><br>${{escapeHtml(text)}}<br><small>${{date}}</small><br><a href="https://www.openstreetmap.org/note/${{noteId}}" target="_blank">Öppna på OSM</a></div>`);
+        m.bindPopup(`<div class="note-popup"><strong>💬 OSM Note #${{noteId}}</strong><br>${{escapeHtml(text)}}<br><small>${{date}}</small><br><a href="https://www.openstreetmap.org/note/${{noteId}}" target="_blank">${{t('openOnOsm')}}</a></div>`);
         osmNotesLayer.addLayer(m);
       }});
       console.log(`OSM Notes: ${{features.length}} öppna notes laddade`);
@@ -681,13 +812,13 @@ html = f"""<!DOCTYPE html>
 
   // ── Geolocation ───────────────────────────────────────────────────────────
   window.locateMe = function() {{
-    if (!navigator.geolocation) {{ alert('Geolocation stöds inte i din webbläsare.'); return; }}
+    if (!navigator.geolocation) {{ alert(t('geoNotSupported')); return; }}
     navigator.geolocation.getCurrentPosition(pos => {{
       const {{ latitude: lat, longitude: lon }} = pos.coords;
       if (locationMarker) map.removeLayer(locationMarker);
       locationMarker = L.circleMarker([lat, lon], {{
         radius: 8, fillColor:'#0f766e', color:'#fff', weight:2, fillOpacity:1
-      }}).addTo(map).bindPopup('📍 Din position').openPopup();
+      }}).addTo(map).bindPopup(t('yourPosition')).openPopup();
       map.setView([lat, lon], 13);
       // Find nearest stage
       let nearest = null, minDist = Infinity;
@@ -702,7 +833,7 @@ html = f"""<!DOCTYPE html>
         renderList();
         saveStateInUrl();
       }}
-    }}, err => alert('Kunde inte hämta position: ' + err.message));
+    }}, err => alert(t('geoError') + err.message));
   }};
 
   // ── Tab switching ─────────────────────────────────────────────────────────
@@ -725,21 +856,21 @@ html = f"""<!DOCTYPE html>
       (a.name || '').localeCompare(b.name || '')
     );
     if (rows.length === 0) {{
-      container.innerHTML = '<p style="padding:20px;text-align:center;color:#64748b">Inga objekt matchar aktiva filter.</p>';
+      container.innerHTML = `<p style="padding:20px;text-align:center;color:#64748b">${{t('noObjects')}}</p>`;
       return;
     }}
     container.innerHTML = `<div class="todo-table-wrap"><table class="todo-table">
       <thead>
         <tr>
-          <th>Etapp</th>
-          <th>POI</th>
-          <th>OSM name</th>
-          <th>Kategori</th>
-          <th>Saknas</th>
-          <th>fixme (OSM)</th>
-          <th>note (OSM)</th>
-          <th>check_date (OSM)</th>
-          <th>Länkar</th>
+          <th>${{t('thStage')}}</th>
+          <th>${{t('thPoi')}}</th>
+          <th>${{t('thOsmName')}}</th>
+          <th>${{t('thCategory')}}</th>
+          <th>${{t('thMissing')}}</th>
+          <th>${{t('thFixme')}}</th>
+          <th>${{t('thNote')}}</th>
+          <th>${{t('thCheckDate')}}</th>
+          <th>${{t('thLinks')}}</th>
         </tr>
       </thead>
       <tbody>
@@ -752,7 +883,7 @@ html = f"""<!DOCTYPE html>
           const satJsonUrl = p.id ? `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(p.id)}}` : null;
           return `<tr data-poi-key="${{encodeURIComponent(p.id || '')}}">
             <td>${{escapeHtml(p.section || '')}}</td>
-            <td class="poi-name">${{escapeHtml(p.name || '(utan namn)')}}</td>
+            <td class="poi-name">${{escapeHtml(p.name || t('noName'))}}</td>
             <td data-field="osm_name"><span class="muted">—</span></td>
             <td>${{escapeHtml(p.category || '')}}</td>
             <td><span class="missing-tags">${{chips}}</span></td>
@@ -761,7 +892,7 @@ html = f"""<!DOCTYPE html>
             <td data-field="check_date"><span class="muted">—</span></td>
             <td>
               ${{satMapUrl ? `<a href="${{satMapUrl}}" target="_blank">SAT</a> · <a href="${{satJsonUrl}}" target="_blank">JSON</a> · ` : ''}}
-              <button class="poi-goto" onclick="gotoOnMap(${{p.lat}},${{p.lon}})" title="Visa på karta">📍</button>
+              <button class="poi-goto" onclick="gotoOnMap(${{p.lat}},${{p.lon}})" title="${{t('showOnMap')}}">📍</button>
             </td>
           </tr>`;
         }}).join('')}}
@@ -803,6 +934,7 @@ html = f"""<!DOCTYPE html>
 
   // ── Init ──────────────────────────────────────────────────────────────────
   applyStateFromUrl();
+  applyLanguage();
   renderMarkers();
   loadOsmNotes();
   showTab(initialTab);
