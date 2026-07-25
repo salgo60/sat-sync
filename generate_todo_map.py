@@ -964,11 +964,12 @@ html = f"""<!DOCTYPE html>
       const lat = p.lat;
       const lon = p.lon;
       const wdUrl = p.wikidataQid ? `https://www.wikidata.org/wiki/${{p.wikidataQid}}` : null;
+      const satUrl = p.satId ? `https://map.stockholmarchipelagotrail.com/?${{encodeURIComponent(p.satId)}}` : null;
       const mapkiUrl = `https://mapki.com/map/#16/${{lat}}/${{lon}}`;
       const m = L.marker([lat, lon], {{ icon: pierIcon }});
       m.bindPopup(`<div style="font-size:13px;min-width:180px">
         <strong>⛴️ ${{escapeHtml(p.name || p.slug || p.satId)}}</strong><br>
-        <small style="color:#64748b">${{escapeHtml(p.satId || '')}}</small>
+        <small style="color:#64748b">${{satUrl ? `<a href="${{satUrl}}" target="_blank">${{escapeHtml(p.satId || '')}}</a>` : escapeHtml(p.satId || '')}}</small>
         ${{p.slug ? `<div>slug: <code>${{escapeHtml(p.slug)}}</code></div>` : ''}}
         ${{p.gtfsCount ? `<div>GTFS: ${{p.gtfsCount}}</div>` : ''}}
         ${{wdUrl ? `<div><a href="${{wdUrl}}" target="_blank">📚 Wikidata</a>${{p.wikidataLabel ? ` · ${{escapeHtml(p.wikidataLabel)}}` : ''}}</div>` : ''}}
