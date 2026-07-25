@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Generate sat_todo_map.html — mobile-friendly TODO map for SAT POI data gaps."""
 
-import json, urllib.request, urllib.parse, datetime, re
+import json, urllib.request, urllib.parse, datetime, re, time
 
 POIS_URL   = "https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson"
 TRAIL_URL  = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
 SECTIONS_URL = "https://map.stockholmarchipelagotrail.com/data/sections-index.json"
 AED_URL    = "https://map.stockholmarchipelagotrail.com/api/aed"
 PIERS_URL  = "https://map.stockholmarchipelagotrail.com/data/piers-identity.json"
+COMMONS_CATEGORY = "Stockholm_Archipelago_Trail"
+COMMONS_API  = "https://commons.wikimedia.org/w/api.php"
 OUTPUT     = "sat_todo_map.html"
 
 HEADERS = {"User-Agent": "sat-sync/todo-map 1.0"}
@@ -53,6 +55,86 @@ SELECT ?satId ?item ?itemLabel ?coord WHERE {{
             "lon": lon,
         }
     return out
+
+def fetch_commons_geotagged(root_category: str) -> list[dict]:
+    """Fetch all geotagged files from a Commons category tree (depth=1 subcats + root)."""
+    def api_get(params: dict, retries: int = 3) -> dict:
+        params["format"] = "json"
+        url = COMMONS_API + "?" + urllib.parse.urlencode(params)
+        req = urllib.request.Request(url, headers={"User-Agent": "sat-sync/todo-map 1.0 (https://github.com/salgo60/sat-sync)"})
+        for attempt in range(retries):
+            try:
+                with urllib.request.urlopen(req, timeout=20) as r:
+                    return json.load(r)
+            except urllib.error.HTTPError as e:
+                if e.code == 429:
+                    wait = 2 ** (attempt + 1)
+                    print(f"  ⏳ 429 rate-limit, väntar {wait}s...")
+                    time.sleep(wait)
+                else:
+                    raise
+        raise RuntimeError(f"Commons API misslyckades efter {retries} försök")
+
+    # 1. Collect all categories to scan: root + direct subcategories
+    categories = [root_category]
+    cont = {}
+    while True:
+        params = {"action": "query", "list": "categorymembers",
+                  "cmtitle": f"Category:{root_category}", "cmtype": "subcat",
+                  "cmlimit": "500"}
+        params.update(cont)
+        data = api_get(params)
+        for m in data["query"]["categorymembers"]:
+            title = m["title"]  # "Category:SAT Sandhamn"
+            categories.append(title[len("Category:"):])
+        if "continue" not in data:
+            break
+        cont = data["continue"]
+
+    # 2. For each category, fetch files with coordinates + thumbnail
+    seen_titles: set[str] = set()
+    photos: list[dict] = []
+    for i, cat in enumerate(categories):
+        time.sleep(1.0)  # Commons API: 1 req/sec to avoid 429
+        print(f"  [{i+1}/{len(categories)}] {cat[:50]}", end="\r", flush=True)
+        cont2 = {}
+        while True:
+            params = {
+                "action": "query",
+                "generator": "categorymembers",
+                "gcmtitle": f"Category:{cat}",
+                "gcmtype": "file",
+                "gcmlimit": "500",
+                "prop": "coordinates|imageinfo",
+                "iiprop": "url|thumburl",
+                "iiurlwidth": "200",
+            }
+            params.update(cont2)
+            data = api_get(params)
+            for page in (data.get("query") or {}).get("pages", {}).values():
+                coords_list = page.get("coordinates") or []
+                if not coords_list:
+                    continue
+                c = coords_list[0]
+                title = page.get("title", "")
+                if title in seen_titles:
+                    continue
+                seen_titles.add(title)
+                ii = (page.get("imageinfo") or [{}])[0]
+                thumb = ii.get("thumburl") or ii.get("url") or ""
+                page_url = "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(title.replace(" ", "_"))
+                photos.append({
+                    "lat": c["lat"],
+                    "lon": c["lon"],
+                    "title": title[len("File:"):] if title.startswith("File:") else title,
+                    "thumb": thumb,
+                    "url": page_url,
+                    "cat": cat,
+                })
+            if "continue" not in data:
+                break
+            cont2 = data["continue"]
+    return photos
 
 print("📥 Hämtar POI...")
 raw_pois = fetch(POIS_URL)["features"]
@@ -134,6 +216,14 @@ if piers_identity:
     if missing_pier_sat_ids:
         print(f"  ⚠️ {len(missing_pier_sat_ids)} piers saknar koordinater i Wikidata")
 
+print("📥 Hämtar Commons-foton (geotaggade)...")
+try:
+    commons_data = fetch_commons_geotagged(COMMONS_CATEGORY)
+    print(f"  ✅ {len(commons_data)} geotaggade Commons-foton")
+except Exception as e:
+    print(f"  ⚠️ Commons fel: {e}")
+    commons_data = []
+
 generated_at = datetime.datetime.now().strftime("%Y%m%d %H:%M")
 
 # Build POI list with missing-data flags
@@ -186,6 +276,7 @@ stage_stats_json = json.dumps(dict(stage_stats), ensure_ascii=False)
 aed_json         = json.dumps(aed_data,    ensure_ascii=False)
 piers_json       = json.dumps(piers_data,  ensure_ascii=False)
 missing_piers_json = json.dumps(sorted(missing_pier_sat_ids), ensure_ascii=False)
+commons_json     = json.dumps(commons_data, ensure_ascii=False)
 
 html = f"""<!DOCTYPE html>
 <html lang="sv">
@@ -297,6 +388,7 @@ html = f"""<!DOCTYPE html>
   const AED_POINTS = {aed_json};
   const PIER_POINTS = {piers_json};
   const MISSING_PIER_SAT_IDS = {missing_piers_json};
+  const COMMONS_PHOTOS = {commons_json};
   const OSM_TAG_CACHE = {{}};
   const WD_ENTITY_CACHE = {{}};
 
@@ -321,6 +413,7 @@ html = f"""<!DOCTYPE html>
       layerNotes: '\U0001f4ac OSM Notes',
       layerAed: '\U0001f9e1 Hj\xe4rtstartare (AED)',
       layerPiers: '\u26f4 Bryggor (piers)',
+      layerCommons: '\U0001f4f7 Commons-foton',
       missingWd: 'Saknar Wikidata',
       missingImg: 'Saknar bild',
       satMap: '\U0001f5fe SAT-kartan',
@@ -370,6 +463,7 @@ html = f"""<!DOCTYPE html>
       layerNotes: '\U0001f4ac OSM Notes',
       layerAed: '\U0001f9e1 Defibrillator (AED)',
       layerPiers: '\u26f4 Piers',
+      layerCommons: '\U0001f4f7 Commons photos',
       missingWd: 'Missing Wikidata',
       missingImg: 'Missing image',
       satMap: '\U0001f5fe SAT map',
@@ -508,6 +602,7 @@ html = f"""<!DOCTYPE html>
   const layerInconsistencyWdMissingOsm = L.layerGroup();
   const layerAed = L.layerGroup();
   const layerPiers = L.layerGroup();
+  const layerCommons = L.layerGroup();
   const layerByKey = {{
     osm: layerMissingOsm,
     wd: layerMissingWd,
@@ -521,6 +616,7 @@ html = f"""<!DOCTYPE html>
     notes: osmNotesLayer,
     aed: layerAed,
     piers: layerPiers,
+    commons: layerCommons,
   }};
 
   // Layer control — shown in map top-right
@@ -539,6 +635,7 @@ html = f"""<!DOCTYPE html>
       [t('layerNotes')]:        osmNotesLayer,
       [t('layerAed')]:          layerAed,
       [t('layerPiers')]:        layerPiers,
+      [t('layerCommons')]:      layerCommons,
     }}, {{ collapsed: false, position: 'topright' }}).addTo(map);
   }}
 
@@ -985,9 +1082,38 @@ html = f"""<!DOCTYPE html>
     }}
   }}
 
+  // ── Wikimedia Commons photos layer ────────────────────────────────────────
+  const commonsIcon = L.divIcon({{
+    className: '',
+    html: '<div style="width:22px;height:22px;border-radius:50%;background:#3b5ba5;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:13px">📷</div>',
+    iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-13]
+  }});
+  let commonsLoaded = false;
+  function loadCommons() {{
+    if (commonsLoaded) return;
+    commonsLoaded = true;
+    layerCommons.clearLayers();
+    COMMONS_PHOTOS.forEach((p) => {{
+      const m = L.marker([p.lat, p.lon], {{ icon: commonsIcon }});
+      const thumbHtml = p.thumb
+        ? `<div style="margin-bottom:5px"><a href="${{p.url}}" target="_blank"><img src="${{p.thumb}}" style="max-width:180px;border-radius:4px;display:block"></a></div>`
+        : '';
+      m.bindPopup(`<div style="font-size:13px;min-width:180px">
+        ${{thumbHtml}}
+        <strong>📷 ${{escapeHtml(p.title)}}</strong><br>
+        <div style="margin-top:5px;font-size:11px;color:#64748b">
+          <a href="${{p.url}}" target="_blank">🔗 Wikimedia Commons</a>
+        </div>
+      </div>`);
+      layerCommons.addLayer(m);
+    }});
+    console.log(`Commons: ${{COMMONS_PHOTOS.length}} foton laddade`);
+  }}
+
   map.on('overlayadd', (ev) => {{
     if (ev.layer === layerAed) loadAed();
     if (ev.layer === layerPiers) loadPiers();
+    if (ev.layer === layerCommons) loadCommons();
   }});
 
   window.applyFilters = function() {{
