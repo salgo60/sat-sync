@@ -1524,7 +1524,13 @@ html = f"""<!DOCTYPE html>
       const dateHtml = `<div id="${{dateId}}">` + (dateStr ? `🗓️ ${{escapeHtml(dateStr)}}` : '') + `</div>`;
       const artistHtml = `<div id="${{artistId}}">` + (p.artist ? `👤 ${{normalizeCommonsHtml(p.artist)}}` : '') + `</div>`;
       const midHtml = p.mid
-        ? `<div><a href="https://commons.wikimedia.org/entity/M${{p.mid}}" target="_blank">M${{p.mid}}</a> · <a href="https://commons.wikimedia.org/entity/M${{p.mid}}.json" target="_blank">JSON</a></div>`
+        ? `<hr style="border:0;border-top:1px solid #e2e8f0;margin:8px 0 6px">
+           <div style="font-weight:600">SDC MediaInfo ID</div>
+           <div style="font-size:11px;color:#64748b;margin:2px 0 4px">
+             <a href="https://commons.wikimedia.org/wiki/Commons:Structured_data" target="_blank">SDC</a> ·
+             <a href="https://www.mediawiki.org/wiki/Extension:WikibaseMediaInfo#MediaInfo_Entity" target="_blank">MediaInfo ID</a>
+           </div>
+           <div><a href="https://commons.wikimedia.org/entity/M${{p.mid}}" target="_blank">M${{p.mid}}</a> · <a href="https://commons.wikimedia.org/entity/M${{p.mid}}.json" target="_blank">JSON</a></div>`
         : '';
       const catsHtml = `<div id="${{catsId}}" style="margin-top:4px">${{categoriesToHtml(p.cats || [], [])}}</div>`;
 
