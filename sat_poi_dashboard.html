@@ -101,12 +101,13 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-25 16:07</strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-25 16:58</strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-20 07:52</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/62" target="_blank">PR #62</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/63" target="_blank">PR #63</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
+        <a data-todo-list-href href="sat_todo_list.html"><span id="todoListLinkHdr">✅ TODO-lista</span></a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a> &nbsp;|&nbsp;
         <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a> &nbsp;|&nbsp;
         <a href="sat_about.html"><span id="aboutLinkHdr">ℹ️ About</span></a>
@@ -7937,7 +7938,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-25 16:07</strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-25 16:58</strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-20 07:52</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
@@ -7949,6 +7950,7 @@
       <a href="https://www.wikidata.org/wiki/Q131318799" target="_blank">Wikidata route</a> |
       <a href="whats_new.html">What's new</a> |
       <a href="sat_todo_map.html">🗺️ TODO-karta</a> |
+      <a data-todo-list-href href="sat_todo_list.html"><span id="todoListLinkFtr">✅ TODO-lista</span></a> |
       <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringsförslag</a> |
       <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkFtr">📈 Datakvalitet över tid</span></a> |
       <a href="sat_about.html"><span id="aboutLinkFtr">ℹ️ About</span></a>
@@ -8083,6 +8085,7 @@
           sankeyAllStages: 'alla etapper',
           sankeyStagePrefix: 'etapp',
           whatsNewLink: "What's new",
+          todoListLink: '✅ TODO-lista',
           improvementsLink: '💡 Förbättringsförslag'
         },
         en: {
@@ -8137,6 +8140,7 @@
           sankeyAllStages: 'all stages',
           sankeyStagePrefix: 'stage',
           whatsNewLink: "What's new",
+          todoListLink: '✅ TODO list',
           improvementsLink: '💡 Improvement suggestion'
         }
       };
@@ -8356,6 +8360,8 @@
           poisFetchedLabelHdr: 'poisFetchedLabel',
           poisGeneratedAtLabelHdr: 'poisGeneratedAtLabel',
           whatsNewLink: 'whatsNewLink',
+          todoListLinkHdr: 'todoListLink',
+          todoListLinkFtr: 'todoListLink',
           improvementsLink: 'improvementsLink'
         };
         Object.entries(bindings).forEach(([id, key]) => {
@@ -8379,6 +8385,10 @@
         if (aboutFtr) aboutFtr.textContent = aboutLabel;
         document.querySelectorAll('a[href="sat_about.html"]').forEach((link) => {
           link.setAttribute('href', aboutUrl);
+        });
+        const todoListUrl = `sat_todo_list.html?lang=${encodeURIComponent(currentLangCode())}`;
+        document.querySelectorAll('a[data-todo-list-href]').forEach((link) => {
+          link.setAttribute('href', todoListUrl);
         });
         const sectionAllOption = document.getElementById('sectionAllOption');
         const categoryAllOption = document.getElementById('categoryAllOption');
