@@ -693,7 +693,7 @@ ORDER BY DESC(geof:latitude(?coord))
         </select>
       </div>
       <div>
-        <label id="organisationFilterLabel" for="organisationFilter">Organisation</label>
+        <label id="organisationFilterLabel" for="organisationFilter">Organisation (Work in progress)</label>
         <select id="organisationFilter">
           <option value="all" id="organisationAllOption">Alla organisationer</option>
         </select>

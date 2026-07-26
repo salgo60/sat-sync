@@ -404,7 +404,7 @@ def build_page() -> str:
         <select id="categoryFilter"></select>
       </div>
       <div>
-        <label id="organisationFilterLabel" for="organisationFilter">Organisation</label>
+        <label id="organisationFilterLabel" for="organisationFilter">Organisation (Work in progress)</label>
         <select id="organisationFilter"></select>
       </div>
       <div>
@@ -525,7 +525,7 @@ def build_page() -> str:
       thCategory: 'Kategori',
       thTask: 'Uppgift',
       thLinks: 'Länkar',
-      organisationFilterLabel: 'Organisation',
+      organisationFilterLabel: 'Organisation (Work in progress)',
       allOrganisations: 'Alla organisationer',
       customTitle: 'Lägg till egen uppgift',
       customSectionLabel: 'Ö / section',
@@ -575,7 +575,7 @@ def build_page() -> str:
       thCategory: 'Category',
       thTask: 'Task',
       thLinks: 'Links',
-      organisationFilterLabel: 'Organisation',
+      organisationFilterLabel: 'Organisation (Work in progress)',
       allOrganisations: 'All organisations',
       customTitle: 'Add custom task',
       customSectionLabel: 'Island / section',
