@@ -14,6 +14,10 @@
         "wikidata": {
           "count": 324,
           "percent": 47.72
+        },
+        "operator": {
+          "count": 102,
+          "percent": 15.02
         }
       },
       "fieldCoverage": {
@@ -86,6 +90,10 @@
             "wikidata": {
               "count": 37,
               "percent": 52.86
+            },
+            "operator": {
+              "count": 8,
+              "percent": 11.43
             }
           },
           "fieldCoverage": {
@@ -158,6 +166,10 @@
             "wikidata": {
               "count": 24,
               "percent": 36.92
+            },
+            "operator": {
+              "count": 9,
+              "percent": 13.85
             }
           },
           "fieldCoverage": {
@@ -230,6 +242,10 @@
             "wikidata": {
               "count": 20,
               "percent": 31.75
+            },
+            "operator": {
+              "count": 21,
+              "percent": 33.33
             }
           },
           "fieldCoverage": {
@@ -302,6 +318,10 @@
             "wikidata": {
               "count": 22,
               "percent": 40.0
+            },
+            "operator": {
+              "count": 2,
+              "percent": 3.64
             }
           },
           "fieldCoverage": {
@@ -374,6 +394,10 @@
             "wikidata": {
               "count": 23,
               "percent": 42.59
+            },
+            "operator": {
+              "count": 5,
+              "percent": 9.26
             }
           },
           "fieldCoverage": {
@@ -446,6 +470,10 @@
             "wikidata": {
               "count": 30,
               "percent": 60.0
+            },
+            "operator": {
+              "count": 15,
+              "percent": 30.0
             }
           },
           "fieldCoverage": {
@@ -518,6 +546,10 @@
             "wikidata": {
               "count": 18,
               "percent": 39.13
+            },
+            "operator": {
+              "count": 5,
+              "percent": 10.87
             }
           },
           "fieldCoverage": {
@@ -590,6 +622,10 @@
             "wikidata": {
               "count": 28,
               "percent": 66.67
+            },
+            "operator": {
+              "count": 2,
+              "percent": 4.76
             }
           },
           "fieldCoverage": {
@@ -662,6 +698,10 @@
             "wikidata": {
               "count": 23,
               "percent": 62.16
+            },
+            "operator": {
+              "count": 3,
+              "percent": 8.11
             }
           },
           "fieldCoverage": {
@@ -734,6 +774,10 @@
             "wikidata": {
               "count": 5,
               "percent": 17.86
+            },
+            "operator": {
+              "count": 8,
+              "percent": 28.57
             }
           },
           "fieldCoverage": {
@@ -806,6 +850,10 @@
             "wikidata": {
               "count": 10,
               "percent": 35.71
+            },
+            "operator": {
+              "count": 2,
+              "percent": 7.14
             }
           },
           "fieldCoverage": {
@@ -878,6 +926,10 @@
             "wikidata": {
               "count": 13,
               "percent": 54.17
+            },
+            "operator": {
+              "count": 4,
+              "percent": 16.67
             }
           },
           "fieldCoverage": {
@@ -950,6 +1002,10 @@
             "wikidata": {
               "count": 17,
               "percent": 73.91
+            },
+            "operator": {
+              "count": 2,
+              "percent": 8.7
             }
           },
           "fieldCoverage": {
@@ -1022,6 +1078,10 @@
             "wikidata": {
               "count": 10,
               "percent": 47.62
+            },
+            "operator": {
+              "count": 3,
+              "percent": 14.29
             }
           },
           "fieldCoverage": {
@@ -1092,6 +1152,10 @@
               "percent": 65.0
             },
             "wikidata": {
+              "count": 7,
+              "percent": 35.0
+            },
+            "operator": {
               "count": 7,
               "percent": 35.0
             }
@@ -1166,6 +1230,10 @@
             "wikidata": {
               "count": 11,
               "percent": 57.89
+            },
+            "operator": {
+              "count": 4,
+              "percent": 21.05
             }
           },
           "fieldCoverage": {
@@ -1238,6 +1306,10 @@
             "wikidata": {
               "count": 10,
               "percent": 76.92
+            },
+            "operator": {
+              "count": 1,
+              "percent": 7.69
             }
           },
           "fieldCoverage": {
@@ -1310,6 +1382,10 @@
             "wikidata": {
               "count": 9,
               "percent": 81.82
+            },
+            "operator": {
+              "count": 1,
+              "percent": 9.09
             }
           },
           "fieldCoverage": {
@@ -1382,6 +1458,10 @@
             "wikidata": {
               "count": 6,
               "percent": 66.67
+            },
+            "operator": {
+              "count": 0,
+              "percent": 0.0
             }
           },
           "fieldCoverage": {
@@ -1454,6 +1534,10 @@
             "wikidata": {
               "count": 1,
               "percent": 100.0
+            },
+            "operator": {
+              "count": 0,
+              "percent": 0.0
             }
           },
           "fieldCoverage": {

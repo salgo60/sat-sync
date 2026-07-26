@@ -24,6 +24,8 @@ WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 TRAIL_URL = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
 SECTIONS_INDEX_URL = "https://map.stockholmarchipelagotrail.com/data/sections-index.json"
 
+HEADERS = {"User-Agent": "sat-sync-generator/1.0 (+https://github.com/salgo60/sat-sync)"}
+
 
 def format_timestamp(value: Optional[str]) -> str:
     """Normalisera tidsstämplar till YYYY-MM-DD HH:MM för visning."""
@@ -66,6 +68,50 @@ def category_group(category: str) -> str:
         "rowboat": "Rental",
     }
     return mapping.get(c, "Other")
+
+
+def extract_osm_ref(same_as: list[str]) -> Optional[dict]:
+    """Extract OSM type/id from sameAs list (openstreetmap.org/node/123 etc)."""
+    if not same_as:
+        return None
+    for item in same_as:
+        if not isinstance(item, str):
+            continue
+        parts = item.split("/")
+        if len(parts) < 2:
+            continue
+        osm_type, osm_id = parts[-2], parts[-1]
+        if osm_type not in {"node", "way", "relation"} or not osm_id:
+            continue
+        return {"type": osm_type, "id": osm_id, "key": f"{osm_type}/{osm_id}"}
+    return None
+
+
+def fetch_osm_operator(osm_ref: dict) -> Optional[dict]:
+    """Fetch operator/brand info from OSM API for given element."""
+    if not osm_ref or not osm_ref.get("type") or not osm_ref.get("id"):
+        return None
+    try:
+        url = f"https://api.openstreetmap.org/api/0.6/{osm_ref['type']}/{osm_ref['id']}.json"
+        req = urllib.request.Request(url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        el = (data.get("elements") or [{}])[0]
+        tags = el.get("tags", {})
+        
+        # Try operator first, then brand
+        operator = tags.get("operator", "")
+        operator_wd = tags.get("operator:wikidata", "")
+        brand = tags.get("brand", "")
+        brand_wd = tags.get("brand:wikidata", "")
+        
+        if operator or operator_wd:
+            return {"name": operator or operator_wd, "wikidata": operator_wd or None}
+        elif brand or brand_wd:
+            return {"name": brand or brand_wd, "wikidata": brand_wd or None}
+    except Exception:
+        pass
+    return None
 
 
 def normalize_slug(value: str) -> str:
@@ -343,6 +389,13 @@ ORDER BY DESC(geof:latitude(?coord))
             group = category_group(cat)
             categories.add(cat)
             poi_flow_data.append({"section": sec, "category": cat, "group": group})
+            
+            # Fetch operator data from OSM if available
+            operator_info = None
+            osm_ref = extract_osm_ref(p.get("same_as") or [])
+            if osm_ref:
+                operator_info = fetch_osm_operator(osm_ref)
+            
             poi_map_data.append(
                 {
                     "id": p.get("id"),
@@ -356,6 +409,8 @@ ORDER BY DESC(geof:latitude(?coord))
                     "lat": p.get("lat"),
                     "lon": p.get("lon"),
                     "image": p.get("image"),
+                    "operator": operator_info.get("name") if operator_info else None,
+                    "operator_wikidata": operator_info.get("wikidata") if operator_info else None,
                 }
             )
             if sec not in section_stats:
@@ -390,22 +445,28 @@ ORDER BY DESC(geof:latitude(?coord))
             )
 
         poi_rows = []
-        for p in pois:
+        for p in poi_map_data:
             sec = p.get("section") or "okänd"
             cat = p.get("category") or "okänd"
-            stage = self.match_stage_for_section(sec, stage_by_slug, stages)
-            stage_cell = "—"
-            if stage:
-                stage_cell = f'<a href="https://www.wikidata.org/wiki/{stage.q_id}" target="_blank">{stage.label}</a>'
             sat_id = p.get("id") or "—"
+            
+            # Build operator cell with Wikidata link if available
+            operator_cell = "—"
+            if p.get("operator"):
+                op = p["operator"]
+                if p.get("operator_wikidata"):
+                    operator_cell = f'<a href="https://www.wikidata.org/wiki/{p["operator_wikidata"]}" target="_blank">{op}</a>'
+                else:
+                    operator_cell = op
+            
             poi_rows.append(
                 f"""
-        <tr data-section="{sec}" data-category="{cat}" data-poi-id="{sat_id}">
+        <tr data-section="{sec}" data-category="{cat}" data-poi-id="{sat_id}" data-operator="{p.get('operator') or ''}">
           <td><a href="https://map.stockholmarchipelagotrail.com/?{sat_id}" target="_blank"><code>{sat_id}</code></a></td>
           <td>{p.get("name") or "—"}</td>
           <td>{sec}</td>
           <td>{cat}</td>
-          <td>{stage_cell}</td>
+          <td>{operator_cell}</td>
           <td>{self.same_as_links(p.get("same_as") or [])}</td>
           <td>{p.get("first_seen") or "—"}</td>
           <td>{p.get("updated_at") or "—"}</td>
@@ -570,6 +631,8 @@ ORDER BY DESC(geof:latitude(?coord))
     code {{ background:#eef2f7; padding:2px 5px; border-radius:4px; }}
     a {{ color:#1d4ed8; text-decoration:none; }}
     a:hover {{ text-decoration:underline; }}
+    th.sortable {{ cursor:pointer; user-select:none; }}
+    th.sortable:hover {{ background:#eef2f7; }}
     .footer {{ padding:20px 24px; font-size:.85rem; color:#666; text-align:center; }}
     @media (max-width: 640px) {{
       .header {{ padding:16px; }}
@@ -593,7 +656,7 @@ ORDER BY DESC(geof:latitude(?coord))
   <div class="container">
     <div class="header">
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
-      <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp</p>
+      <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
         <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>{pois_fetched_at}</strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="{POIS_URL}" target="_blank">SAT POI</a>: <strong>{pois_source_generated_at}</strong> &nbsp;|&nbsp;
@@ -627,6 +690,12 @@ ORDER BY DESC(geof:latitude(?coord))
         <select id="sectionFilter">
           <option value="all" id="sectionAllOption">Alla</option>
           {section_options}
+        </select>
+      </div>
+      <div>
+        <label id="organisationFilterLabel" for="organisationFilter">Organisation</label>
+        <select id="organisationFilter">
+          <option value="all" id="organisationAllOption">Alla organisationer</option>
         </select>
       </div>
       <div>
@@ -674,14 +743,14 @@ ORDER BY DESC(geof:latitude(?coord))
         <table id="poiTable">
           <thead>
             <tr>
-              <th id="thSatId">SAT ID</th>
-              <th id="thName">Namn</th>
-              <th id="thSection">Section</th>
-              <th id="thCategory">Kategori</th>
-              <th id="thStage">Etapp/ö</th>
+              <th id="thSatId" class="sortable" onclick="sortTable('poiTable',0)">SAT ID</th>
+              <th id="thName" class="sortable" onclick="sortTable('poiTable',1)">Namn</th>
+              <th id="thSection" class="sortable" onclick="sortTable('poiTable',2)">Section</th>
+              <th id="thCategory" class="sortable" onclick="sortTable('poiTable',3)">Kategori</th>
+              <th id="thOrganisation" class="sortable" onclick="sortTable('poiTable',4)">Organisation</th>
               <th>sameAs</th>
-              <th id="thFirstSeen">Första sedd</th>
-              <th id="thUpdated">Uppdaterad</th>
+              <th id="thFirstSeen" class="sortable" onclick="sortTable('poiTable',6)">Första sedd</th>
+              <th id="thUpdated" class="sortable" onclick="sortTable('poiTable',7)">Uppdaterad</th>
             </tr>
           </thead>
           <tbody>
@@ -743,32 +812,70 @@ ORDER BY DESC(geof:latitude(?coord))
     (function() {{
       const languageFilter = document.getElementById('languageFilter');
       const sectionFilter = document.getElementById('sectionFilter');
-      const categoryFilter = document.getElementById('categoryFilter');
-      const trailInfoToggle = document.getElementById('trailInfoToggle');
-      const distanceBandToggle = document.getElementById('distanceBandToggle');
-      const distanceBandMeters = document.getElementById('distanceBandMeters');
-      const distanceBandCount = document.getElementById('distanceBandCount');
-      const shareBtn = document.getElementById('shareBtn');
-      const downloadBtn = document.getElementById('downloadBtn');
-      const resetBtn = document.getElementById('resetBtn');
-      const zoomTrailBtn = document.getElementById('zoomTrailBtn');
-      const poiRows = Array.from(document.querySelectorAll('#poiTable tbody tr'));
-      const sectionRows = Array.from(document.querySelectorAll('#sectionTable tbody tr'));
-      const visibleCount = document.getElementById('visibleCount');
-      const poiFlow = {poi_flow_json};
-      const poiMapData = {poi_map_json};
-      const poiById = new Map(poiMapData.filter((p) => !!p.id).map((p) => [p.id, p]));
-      const totalPoiCount = poiMapData.length;
-      const sectionValues = new Set(Array.from(sectionFilter.options).map(o => o.value));
-      const categoryValues = new Set(Array.from(categoryFilter.options).map(o => o.value));
-      const trailGeoJson = {trail_geojson_json};
-      const sectionsIndex = {sections_index_json};
-      const map = L.map('poiMap').setView([59.2, 18.5], 8);
-      let preserveMapView = false;
-      let isProgrammaticMapMove = false;
-      let lastSection = null;
-      let lastCategory = null;
-      const osmTagCache = new Map();
+  const organisationFilter = document.getElementById('organisationFilter');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const trailInfoToggle = document.getElementById('trailInfoToggle');
+  const distanceBandToggle = document.getElementById('distanceBandToggle');
+  const distanceBandMeters = document.getElementById('distanceBandMeters');
+  const distanceBandCount = document.getElementById('distanceBandCount');
+  const shareBtn = document.getElementById('shareBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const zoomTrailBtn = document.getElementById('zoomTrailBtn');
+  const poiRows = Array.from(document.querySelectorAll('#poiTable tbody tr'));
+  const sectionRows = Array.from(document.querySelectorAll('#sectionTable tbody tr'));
+  const visibleCount = document.getElementById('visibleCount');
+  const poiFlow = {poi_flow_json};
+  const poiMapData = {poi_map_json};
+  const poiById = new Map(poiMapData.filter((p) => !!p.id).map((p) => [p.id, p]));
+  const totalPoiCount = poiMapData.length;
+  const sectionValues = new Set(Array.from(sectionFilter.options).map(o => o.value));
+  const organisationValues = new Set();
+  const categoryValues = new Set(Array.from(categoryFilter.options).map(o => o.value));
+  const trailGeoJson = {trail_geojson_json};
+  const sectionsIndex = {sections_index_json};
+  const map = L.map('poiMap').setView([59.2, 18.5], 8);
+  let preserveMapView = false;
+  let isProgrammaticMapMove = false;
+  let lastSection = null;
+  let lastOrganisation = null;
+  let lastCategory = null;
+  const osmTagCache = new Map();
+
+  // Collect all unique organisations
+  poiMapData.forEach(p => {{
+    if (p.operator) organisationValues.add(p.operator);
+  }});
+  const sortedOrganisations = Array.from(organisationValues).sort();
+  sortedOrganisations.forEach(org => {{
+    const opt = document.createElement('option');
+    opt.value = org;
+    opt.textContent = org;
+    organisationFilter.appendChild(opt);
+  }});
+
+  // Table sorting function
+  function sortTable(tableId, colIndex) {{
+    const table = document.getElementById(tableId);
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    let isAscending = !tbody.dataset.sortAsc;
+        
+    rows.sort((a, b) => {{
+      const aVal = (a.cells[colIndex]?.textContent || '').trim();
+      const bVal = (b.cells[colIndex]?.textContent || '').trim();
+      const cmp = aVal.localeCompare(bVal, 'sv');
+      return isAscending ? cmp : -cmp;
+    }});
+        
+    rows.forEach(row => tbody.appendChild(row));
+    tbody.dataset.sortAsc = isAscending;
+        
+    // Update header appearance
+    Array.from(table.querySelectorAll('th.sortable')).forEach((th, idx) => {{
+      th.style.fontWeight = idx === colIndex ? 'bold' : 'normal';
+    }});
+  }}
 
       // Expected OSM tags per SAT category — used for gap analysis in popups
       const EXPECTED_TAGS = {{
@@ -1863,10 +1970,11 @@ ORDER BY DESC(geof:latitude(?coord))
 
       function applyFilters() {{
         const sec = sanitizeValue(sectionFilter.value, sectionValues);
+        const org = organisationFilter.value;
         const cat = sanitizeValue(normalizeCategoryValue(categoryFilter.value), categoryValues);
         sectionFilter.value = sec;
         categoryFilter.value = cat;
-        const filterChanged = (lastSection !== null && (sec !== lastSection || cat !== lastCategory));
+        const filterChanged = (lastSection !== null && (sec !== lastSection || cat !== lastCategory || org !== lastOrganisation));
         if (filterChanged) {{
           preserveMapView = false;
         }}
@@ -1874,8 +1982,11 @@ ORDER BY DESC(geof:latitude(?coord))
 
         poiRows.forEach((row) => {{
           const rowSec = row.dataset.section;
+          const rowOrg = row.dataset.operator || '';
           const rowCat = row.dataset.category;
-          const show = (sec === 'all' || rowSec === sec) && (cat === 'all' || rowCat === cat);
+          const show = (sec === 'all' || rowSec === sec) && 
+                      (org === 'all' || rowOrg === org) &&
+                      (cat === 'all' || rowCat === cat);
           row.style.display = show ? '' : 'none';
           if (show) visible += 1;
         }});
@@ -1887,15 +1998,17 @@ ORDER BY DESC(geof:latitude(?coord))
 
         applyLanguage();
         visibleCount.textContent = t('visibleCount', {{ visible, total: totalPoiCount }});
-        saveStateInUrl(sec, cat);
-        renderMap(sec, cat);
-        renderSankey(sec, cat);
-        updateDistanceBandCount(sec, cat);
+        saveStateInUrl(sec, org, cat);
+        renderMap(sec, org, cat);
+        renderSankey(sec, org, cat);
+        updateDistanceBandCount(sec, org, cat);
         lastSection = sec;
+        lastOrganisation = org;
         lastCategory = cat;
       }}
 
       sectionFilter.addEventListener('change', applyFilters);
+      organisationFilter.addEventListener('change', applyFilters);
       categoryFilter.addEventListener('change', applyFilters);
       languageFilter.addEventListener('change', applyFilters);
       trailInfoToggle.addEventListener('change', applyFilters);

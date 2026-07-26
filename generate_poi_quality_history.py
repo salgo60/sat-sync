@@ -10,12 +10,14 @@ import urllib.request
 from collections import Counter
 from datetime import datetime, UTC
 from pathlib import Path
+from typing import Optional
 
 
 POIS_URL = "https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson"
 OUTPUT_FILE = Path("sat_poi_quality_history.json")
 DATA_JS_FILE = Path("sat_poi_quality_history_data.js")
 USER_AGENT = "SAT-Sync/1.0 (+https://stockholmarchipelagotrail.com; salgo60@msn.com)"
+HEADERS = {"User-Agent": "sat-sync-generator/1.0 (+https://github.com/salgo60/sat-sync)"}
 FIELD_ALIASES = {
     "wheelchair": ["wheelchair"],
     "fee": ["fee", "charge"],
@@ -78,6 +80,52 @@ def has_any_value(properties: dict, aliases: list[str]) -> bool:
     return False
 
 
+def extract_osm_ref(same_as: list) -> Optional[tuple[str, int]]:
+    """Extract OSM type (node/way/relation) and ID from sameAs.
+    Handles both osm:type:id format and openstreetmap.org URLs.
+    Returns (type, id) or None if not found."""
+    if not same_as:
+        return None
+    for ref in same_as:
+        if isinstance(ref, str):
+            # Handle osm:node:123456 format
+            if ref.startswith("osm:"):
+                parts = ref.split(":")
+                if len(parts) == 3:
+                    osm_type = parts[1]
+                    try:
+                        osm_id = int(parts[2])
+                        if osm_type in ("node", "way", "relation"):
+                            return (osm_type, osm_id)
+                    except ValueError:
+                        pass
+            # Handle openstreetmap.org/node/123456 format
+            elif "openstreetmap.org" in ref:
+                parts = ref.split("/")
+                if len(parts) >= 2:
+                    osm_type = parts[-2]
+                    try:
+                        osm_id = int(parts[-1])
+                        if osm_type in ("node", "way", "relation"):
+                            return (osm_type, osm_id)
+                    except (ValueError, IndexError):
+                        pass
+    return None
+
+
+def fetch_osm_operator(osm_type: str, osm_id: int) -> Optional[str]:
+    """Fetch operator or brand tag from OSM API."""
+    try:
+        url = f"https://api.openstreetmap.org/api/0.6/{osm_type}/{osm_id}.json"
+        req = urllib.request.Request(url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            tags = data.get("elements", [{}])[0].get("tags", {})
+            return tags.get("operator") or tags.get("brand")
+    except Exception:
+        return None
+
+
 def load_existing_history() -> dict:
     if not OUTPUT_FILE.exists():
         return {"source": POIS_URL, "versions": []}
@@ -100,10 +148,12 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
     category_counter = Counter()
     with_osm = 0
     with_wikidata = 0
+    with_operator = 0
     field_counter = Counter()
     section_totals = Counter()
     section_osm = Counter()
     section_wikidata = Counter()
+    section_operator = Counter()
     section_field_counter = {}
 
     for feature in features:
@@ -118,6 +168,16 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
         if same_as_prefix_count(props, "wikidata:") > 0 or has_value(props.get("wikidata")):
             with_wikidata += 1
             section_wikidata[section] += 1
+
+        # Check operator from OSM tags
+        same_as = props.get("sameAs") or []
+        osm_ref = extract_osm_ref(same_as)
+        operator = None
+        if osm_ref:
+            operator = fetch_osm_operator(osm_ref[0], osm_ref[1])
+        if has_value(operator):
+            with_operator += 1
+            section_operator[section] += 1
 
         if section not in section_field_counter:
             section_field_counter[section] = Counter()
@@ -162,6 +222,10 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
                         "count": section_wikidata[section],
                         "percent": percentage(section_wikidata[section], total),
                     },
+                    "operator": {
+                        "count": section_operator[section],
+                        "percent": percentage(section_operator[section], total),
+                    },
                 },
                 "fieldCoverage": row_fields,
             }
@@ -175,6 +239,7 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
         "linkCoverage": {
             "osm": {"count": with_osm, "percent": percentage(with_osm, total_poi)},
             "wikidata": {"count": with_wikidata, "percent": percentage(with_wikidata, total_poi)},
+            "operator": {"count": with_operator, "percent": percentage(with_operator, total_poi)},
         },
         "fieldCoverage": field_coverage,
         "sectionCoverage": section_coverage,
