@@ -185,7 +185,32 @@ def build_page() -> str:
         ),
     )
     all_categories = sorted({p["category"] for p in pois})
-    all_operators = sorted({p["operator"]["name"] for p in pois if p["operator"]} or {"(unknown)"})
+    
+    # Predefined known organisations
+    known_organisations = {
+        'Skärgårdsstiftelsen',
+        'Stockholm Archipelago Trail',
+        'Waxholmsbolaget',
+        'Haninge kommun',
+        'Norrtälje kommun',
+        'Värmdö kommun',
+        'Österåkers kommun',
+        'Nynäshamns kommun',
+        'Arholma Nord',
+        'Grinda Wärdshus',
+        'STF Finnhamn vandrarhem',
+        'STF Möja vandrarhem',
+        'Svedtiljas',
+        'Vandrarhem Bull-August gård',
+        'Naturvårdsverket',
+        'Länsstyrelsen Stockholms län',
+    }
+    
+    # Collect operators from data
+    data_operators = {p["operator"]["name"] for p in pois if p["operator"]} or {"(unknown)"}
+    
+    # Combine known organisations with data operators
+    all_operators = sorted(known_organisations | data_operators)
 
     tasks: list[dict] = []
     for p in pois:

@@ -842,15 +842,43 @@ ORDER BY DESC(geof:latitude(?coord))
   let lastCategory = null;
   const osmTagCache = new Map();
 
-  // Collect all unique organisations
+  // Predefined organisations with Wikidata links
+  const knownOrganisations = {{
+    'Skärgårdsstiftelsen': 'Q10670989',
+    'Stockholm Archipelago Trail': 'Q131318799',
+    'Waxholmsbolaget': 'Q7975717',
+    'Haninge kommun': 'Q113692',
+    'Norrtälje kommun': 'Q214048',
+    'Värmdö kommun': 'Q493841',
+    'Österåkers kommun': 'Q117728',
+    'Nynäshamns kommun': 'Q505090',
+    'Arholma Nord': 'Q134676671',
+    'Grinda Wärdshus': 'Q133502889',
+    'STF Finnhamn vandrarhem': 'Q133829736',
+    'STF Möja vandrarhem': 'Q133812552',
+    'Svedtiljas': 'Q134572369',
+    'Vandrarhem Bull-August gård': 'Q135110019',
+    'Naturvårdsverket': 'Q2976522',
+    'Länsstyrelsen Stockholms län': 'Q22269305',
+  }};
+
+  // Collect all unique organisations from data
   poiMapData.forEach(p => {{
     if (p.operator) organisationValues.add(p.operator);
   }});
-  const sortedOrganisations = Array.from(organisationValues).sort();
+
+  // Combine known organisations and data organisations, sorted by group
+  const allOrganisations = new Set([
+    ...Object.keys(knownOrganisations),
+    ...Array.from(organisationValues)
+  ]);
+  const sortedOrganisations = Array.from(allOrganisations).sort();
+  
   sortedOrganisations.forEach(org => {{
     const opt = document.createElement('option');
     opt.value = org;
-    opt.textContent = org;
+    const wd = knownOrganisations[org];
+    opt.textContent = wd ? org + ' (' + wd + ')' : org;
     organisationFilter.appendChild(opt);
   }});
 

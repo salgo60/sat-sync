@@ -103,7 +103,7 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-26 10:08</strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-26 11:34</strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-20 07:52</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/pull/69" target="_blank">PR #69</a> &nbsp;|&nbsp;
@@ -7946,7 +7946,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-26 10:08</strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-26 11:34</strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-20 07:52</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
@@ -7999,15 +7999,43 @@
   let lastCategory = null;
   const osmTagCache = new Map();
 
-  // Collect all unique organisations
+  // Predefined organisations with Wikidata links
+  const knownOrganisations = {
+    'Skärgårdsstiftelsen': 'Q10670989',
+    'Stockholm Archipelago Trail': 'Q131318799',
+    'Waxholmsbolaget': 'Q7975717',
+    'Haninge kommun': 'Q113692',
+    'Norrtälje kommun': 'Q214048',
+    'Värmdö kommun': 'Q493841',
+    'Österåkers kommun': 'Q117728',
+    'Nynäshamns kommun': 'Q505090',
+    'Arholma Nord': 'Q134676671',
+    'Grinda Wärdshus': 'Q133502889',
+    'STF Finnhamn vandrarhem': 'Q133829736',
+    'STF Möja vandrarhem': 'Q133812552',
+    'Svedtiljas': 'Q134572369',
+    'Vandrarhem Bull-August gård': 'Q135110019',
+    'Naturvårdsverket': 'Q2976522',
+    'Länsstyrelsen Stockholms län': 'Q22269305',
+  };
+
+  // Collect all unique organisations from data
   poiMapData.forEach(p => {
     if (p.operator) organisationValues.add(p.operator);
   });
-  const sortedOrganisations = Array.from(organisationValues).sort();
+
+  // Combine known organisations and data organisations, sorted by group
+  const allOrganisations = new Set([
+    ...Object.keys(knownOrganisations),
+    ...Array.from(organisationValues)
+  ]);
+  const sortedOrganisations = Array.from(allOrganisations).sort();
+  
   sortedOrganisations.forEach(org => {
     const opt = document.createElement('option');
     opt.value = org;
-    opt.textContent = org;
+    const wd = knownOrganisations[org];
+    opt.textContent = wd ? org + ' (' + wd + ')' : org;
     organisationFilter.appendChild(opt);
   });
 
