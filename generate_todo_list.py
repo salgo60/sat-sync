@@ -62,6 +62,28 @@ def extract_osm_ref(same_as: list[str]) -> Optional[dict]:
     return None
 
 
+def fetch_osm_operator(osm_ref: dict) -> Optional[dict]:
+    """Fetch operator info from OSM API for given element."""
+    if not osm_ref or not osm_ref.get("type") or not osm_ref.get("id"):
+        return None
+    try:
+        url = f"https://api.openstreetmap.org/api/0.6/{osm_ref['type']}/{osm_ref['id']}.json"
+        req = urllib.request.Request(url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        el = (data.get("elements") or [{}])[0]
+        operator = el.get("tags", {}).get("operator", "")
+        operator_wd = el.get("tags", {}).get("operator:wikidata", "")
+        if operator or operator_wd:
+            return {
+                "name": operator or operator_wd,
+                "wikidata": operator_wd or None,
+            }
+    except Exception:
+        pass
+    return None
+
+
 def fetch_open_notes_count(min_lat: float, min_lon: float, max_lat: float, max_lon: float) -> Optional[int]:
     params = urllib.parse.urlencode(
         {
@@ -98,6 +120,7 @@ def build_page() -> str:
         lon, lat = coords[0], coords[1]
         section = str(props.get("section") or "").strip() or "unknown"
         osm_ref = extract_osm_ref(props.get("sameAs") or [])
+        operator_info = fetch_osm_operator(osm_ref) if osm_ref else None
         poi = {
             "id": props.get("id") or "",
             "name": props.get("name") or "",
@@ -108,6 +131,7 @@ def build_page() -> str:
             "lat": lat,
             "lon": lon,
             "osm_ref": osm_ref,
+            "operator": operator_info,
         }
         pois.append(poi)
 
@@ -147,6 +171,7 @@ def build_page() -> str:
         ),
     )
     all_categories = sorted({p["category"] for p in pois})
+    all_operators = sorted({p["operator"]["name"] for p in pois if p["operator"]} or {"(unknown)"})
 
     tasks: list[dict] = []
     for p in pois:
@@ -160,6 +185,8 @@ def build_page() -> str:
             if osm_ref
             else ""
         )
+        operator_name = p["operator"]["name"] if p["operator"] else "(unknown)"
+        operator_wd = p["operator"].get("wikidata") if p["operator"] else None
 
         if not p["image"]:
             tasks.append(
@@ -171,6 +198,8 @@ def build_page() -> str:
                     "category": p["category"],
                     "poiId": p["id"],
                     "poiName": p["name"] or p["id"],
+                    "operator": operator_name,
+                    "operatorWikidata": operator_wd,
                     "taskTextSv": "Ta/uppdatera bild och ladda upp till Commons",
                     "taskTextEn": "Take/update photo and upload to Commons",
                     "links": {"sat": sat_url, "osm": osm_url, "id": id_url, "notes": ""},
@@ -187,6 +216,8 @@ def build_page() -> str:
                     "category": p["category"],
                     "poiId": p["id"],
                     "poiName": p["name"] or p["id"],
+                    "operator": operator_name,
+                    "operatorWikidata": operator_wd,
                     "taskTextSv": "Kontrollera öppettider och uppdatera OSM/SAT vid behov",
                     "taskTextEn": "Check opening hours and update OSM/SAT if needed",
                     "links": {"sat": sat_url, "osm": osm_url, "id": id_url, "notes": ""},
@@ -203,6 +234,8 @@ def build_page() -> str:
                     "category": p["category"],
                     "poiId": p["id"],
                     "poiName": p["name"] or p["id"],
+                    "operator": operator_name,
+                    "operatorWikidata": operator_wd,
                     "taskTextSv": "Lägg till eller verifiera wheelchair-tag i OSM",
                     "taskTextEn": "Add or verify wheelchair tag in OSM",
                     "links": {"sat": sat_url, "osm": osm_url, "id": id_url, "notes": ""},
@@ -253,6 +286,7 @@ def build_page() -> str:
     tasks_json = json.dumps(tasks, ensure_ascii=False)
     sections_json = json.dumps([{"value": s, "label": section_label(s)} for s in all_sections], ensure_ascii=False)
     categories_json = json.dumps(all_categories, ensure_ascii=False)
+    operators_json = json.dumps(all_operators, ensure_ascii=False)
     generated_at_json = json.dumps(generated_at, ensure_ascii=False)
 
     template = """<!DOCTYPE html>
@@ -331,6 +365,10 @@ def build_page() -> str:
         <select id="categoryFilter"></select>
       </div>
       <div>
+        <label id="operatorFilterLabel" for="operatorFilter">Operatör</label>
+        <select id="operatorFilter"></select>
+      </div>
+      <div>
         <label id="typeFilterLabel" for="typeFilter">Uppgiftstyp</label>
         <select id="typeFilter"></select>
       </div>
@@ -358,6 +396,7 @@ def build_page() -> str:
             <th id="thSection">Ö</th>
             <th id="thType">Typ</th>
             <th id="thPoi">POI</th>
+            <th id="thOperator">Operatör</th>
             <th id="thCategory">Kategori</th>
             <th id="thTask">Uppgift</th>
             <th id="thLinks">Länkar</th>
@@ -404,6 +443,7 @@ def build_page() -> str:
   const BASE_TASKS = __TASKS_JSON__;
   const SECTIONS = __SECTIONS_JSON__;
   const CATEGORIES = __CATEGORIES_JSON__;
+  const OPERATORS = __OPERATORS_JSON__;
   const GENERATED_AT = __GENERATED_AT_JSON__;
   const CHECKED_KEY = 'satTodoListCheckedV1';
   const CUSTOM_KEY = 'satTodoListCustomV1';
@@ -442,9 +482,12 @@ def build_page() -> str:
       thSection: 'Ö',
       thType: 'Typ',
       thPoi: 'POI',
+      thOperator: 'Operatör',
       thCategory: 'Kategori',
       thTask: 'Uppgift',
       thLinks: 'Länkar',
+      operatorFilterLabel: 'Operatör',
+      allOperators: 'Alla operatörer',
       customTitle: 'Lägg till egen uppgift',
       customSectionLabel: 'Ö / section',
       customTypeLabel: 'Typ',
@@ -489,9 +532,12 @@ def build_page() -> str:
       thSection: 'Island',
       thType: 'Type',
       thPoi: 'POI',
+      thOperator: 'Operator',
       thCategory: 'Category',
       thTask: 'Task',
       thLinks: 'Links',
+      operatorFilterLabel: 'Operator',
+      allOperators: 'All operators',
       customTitle: 'Add custom task',
       customSectionLabel: 'Island / section',
       customTypeLabel: 'Type',
@@ -527,6 +573,7 @@ def build_page() -> str:
 
   const sectionFilter = document.getElementById('sectionFilter');
   const categoryFilter = document.getElementById('categoryFilter');
+  const operatorFilter = document.getElementById('operatorFilter');
   const typeFilter = document.getElementById('typeFilter');
   const showMode = document.getElementById('showMode');
   const taskBody = document.getElementById('taskBody');
@@ -601,8 +648,8 @@ def build_page() -> str:
   function applyLangToUi() {
     const ids = [
       'title','subtitle','generatedLabel','navQuality','navAbout','sectionFilterLabel',
-      'categoryFilterLabel','typeFilterLabel','showModeLabel','showModeOpen','showModeAll',
-      'showModeDone','thSection','thType','thPoi','thCategory','thTask','thLinks',
+      'categoryFilterLabel','operatorFilterLabel','typeFilterLabel','showModeLabel','showModeOpen','showModeAll',
+      'showModeDone','thSection','thType','thPoi','thOperator','thCategory','thTask','thLinks',
       'customTitle','customSectionLabel','customTypeLabel','customTextLabel','customPoiLabel',
       'customHint','exportJsonBtn','exportCsvBtn','copyMdBtn','clearDoneBtn','addCustomBtn'
     ];
@@ -632,6 +679,9 @@ def build_page() -> str:
     categoryFilter.innerHTML = `<option value="all">${escapeHtml(t('allCategories'))}</option>` +
       CATEGORIES.map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
 
+    operatorFilter.innerHTML = `<option value="all">${escapeHtml(t('allOperators'))}</option>` +
+      OPERATORS.map((op) => `<option value="${escapeHtml(op)}">${escapeHtml(op)}</option>`).join('');
+
     const typeOptions = TYPE_ORDER.map((type) => `<option value="${type}">${escapeHtml(taskTypeLabel(type))}</option>`).join('');
     typeFilter.innerHTML = `<option value="all">${escapeHtml(t('allTypes'))}</option>${typeOptions}`;
     customType.innerHTML = typeOptions;
@@ -641,6 +691,7 @@ def build_page() -> str:
     return {
       section: sectionFilter.value || 'all',
       category: categoryFilter.value || 'all',
+      operator: operatorFilter.value || 'all',
       type: typeFilter.value || 'all',
       mode: showMode.value || 'open'
     };
@@ -651,6 +702,7 @@ def build_page() -> str:
     return getAllTasks().filter((task) => {
       if (filters.section !== 'all' && task.section !== filters.section) return false;
       if (filters.category !== 'all' && task.category !== filters.category) return false;
+      if (filters.operator !== 'all' && task.operator !== filters.operator) return false;
       if (filters.type !== 'all' && task.type !== filters.type) return false;
       const isDone = !!checked[task.id];
       if (filters.mode === 'open' && isDone) return false;
@@ -662,7 +714,7 @@ def build_page() -> str:
   function renderTable() {
     const rows = filteredTasks();
     if (!rows.length) {
-      taskBody.innerHTML = `<tr><td colspan="7" class="small">${escapeHtml(t('empty'))}</td></tr>`;
+      taskBody.innerHTML = `<tr><td colspan="8" class="small">${escapeHtml(t('empty'))}</td></tr>`;
       stats.textContent = t('stats', { visible: 0, total: getAllTasks().length });
       return;
     }
@@ -676,12 +728,16 @@ def build_page() -> str:
       const poiText = task.poiId
         ? `<code>${escapeHtml(task.poiId)}</code><br><span class="small">${escapeHtml(task.poiName || '')}</span>`
         : `<span class="small">${escapeHtml(t('islandLevel'))}</span>`;
+      const operatorCell = task.operatorWikidata 
+        ? `<a href="https://www.wikidata.org/wiki/${task.operatorWikidata}" target="_blank" title="${escapeHtml(task.operator)}">${escapeHtml(task.operator)}</a>`
+        : (task.operator && task.operator !== '(unknown)' ? escapeHtml(task.operator) : '<span class="small" style="color:#ccc;">—</span>');
       return `
         <tr class="${isDone ? 'done' : ''}">
           <td class="checkbox-cell"><input type="checkbox" data-task-id="${escapeHtml(task.id)}" ${isDone ? 'checked' : ''}></td>
           <td>${escapeHtml(task.sectionLabel || task.section)}</td>
           <td><span class="chip">${escapeHtml(taskTypeLabel(task.type))}</span></td>
           <td>${poiText}</td>
+          <td>${operatorCell}</td>
           <td>${task.category === 'island' ? escapeHtml(t('islandLevel')) : escapeHtml(task.category || t('noPoi'))}</td>
           <td class="task-text">${escapeHtml(localizedTaskText(task))}</td>
           <td class="links">${links.join(' ') || '<span class="small">—</span>'}</td>
@@ -805,6 +861,7 @@ def build_page() -> str:
     const f = currentFilters();
     if (f.section === 'all') url.searchParams.delete('section'); else url.searchParams.set('section', f.section);
     if (f.category === 'all') url.searchParams.delete('category'); else url.searchParams.set('category', f.category);
+    if (f.operator === 'all') url.searchParams.delete('operator'); else url.searchParams.set('operator', f.operator);
     if (f.type === 'all') url.searchParams.delete('type'); else url.searchParams.set('type', f.type);
     if (f.mode === 'open') url.searchParams.delete('mode'); else url.searchParams.set('mode', f.mode);
     if (lang === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
@@ -815,10 +872,12 @@ def build_page() -> str:
     const p = new URLSearchParams(window.location.search);
     const sec = p.get('section');
     const cat = p.get('category');
+    const op = p.get('operator');
     const type = p.get('type');
     const mode = p.get('mode');
     if (sec) sectionFilter.value = sec;
     if (cat) categoryFilter.value = cat;
+    if (op) operatorFilter.value = op;
     if (type) typeFilter.value = type;
     if (mode && ['open','all','done'].includes(mode)) showMode.value = mode;
   }
@@ -833,7 +892,7 @@ def build_page() -> str:
   applyLangToUi();
   renderTable();
 
-  [sectionFilter, categoryFilter, typeFilter, showMode].forEach((el) => el.addEventListener('change', rerender));
+  [sectionFilter, categoryFilter, operatorFilter, typeFilter, showMode].forEach((el) => el.addEventListener('change', rerender));
   addCustomBtn.addEventListener('click', addCustomTask);
   exportJsonBtn.addEventListener('click', exportJson);
   exportCsvBtn.addEventListener('click', exportCsv);
@@ -858,6 +917,7 @@ def build_page() -> str:
         template.replace("__TASKS_JSON__", tasks_json)
         .replace("__SECTIONS_JSON__", sections_json)
         .replace("__CATEGORIES_JSON__", categories_json)
+        .replace("__OPERATORS_JSON__", operators_json)
         .replace("__GENERATED_AT_JSON__", generated_at_json)
     )
 
