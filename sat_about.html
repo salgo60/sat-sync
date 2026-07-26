@@ -101,6 +101,7 @@
   <!-- ── Data sources ───────────────────────────────────────────────────── -->
   <section>
     <h2 id="sec-sources-title">📡 Datakällor</h2>
+    <p><strong>🎯 SSOT (Single Source of Truth) Initiativ:</strong> Vi etablerar OpenStreetMap som auktoritativ källa för operatör-data, med Wikidata för persistenta identifierare. Se <a href="SSOT_OPERATOR_STATUS.md" target="_blank">SSOT Operator Status</a> för aktuell täckning och roadmap.</p>
     <table class="source-table">
       <thead>
         <tr>
@@ -117,12 +118,12 @@
         </tr>
         <tr>
           <td><span class="badge">OSM</span></td>
-          <td id="src-osm">Taggar per objekt (name, wheelchair, fixme, check_date, wikidata, …) hämtade live via Overpass API</td>
-          <td><a href="https://overpass-api.de/" target="_blank">overpass-api.de</a></td>
+          <td id="src-osm">Taggar per objekt (name, wheelchair, fixme, check_date, wikidata, operator, operator:wikidata, brand, brand:wikidata, …) hämtade live via API</td>
+          <td><a href="https://api.openstreetmap.org/" target="_blank">api.openstreetmap.org</a></td>
         </tr>
         <tr>
           <td><span class="badge">Wikidata</span></td>
-          <td id="src-wd">Entitetsdata (P14545 SAT-ID, P402 OSM-ID, bilder, …) hämtad via SPARQL + Wikidata REST API</td>
+          <td id="src-wd">Entitetsdata (P14545 SAT-ID, P402 OSM-ID, bilder, organisationsinfo, …) hämtad via SPARQL + Wikidata REST API</td>
           <td><a href="https://query.wikidata.org/" target="_blank">query.wikidata.org</a></td>
         </tr>
         <tr>

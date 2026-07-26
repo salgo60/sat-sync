@@ -32,6 +32,17 @@ Most of the time there is **no communication at all**. Occasionally, contributor
 
 SAT Sync supports this ecosystem by helping contributors discover differences that deserve human attention.
 
+### 🎯 SSOT Initiative
+
+We are establishing **OpenStreetMap as the Single Source of Truth (SSOT)** for operator data, with Wikidata providing persistent identifiers. See [SSOT Operator Status Report](SSOT_OPERATOR_STATUS.md) for current coverage and roadmap.
+
+**Current Status (599 SAT POIs):**
+- 🟢 17% have operator tags
+- 🟡 9% linked to Wikidata
+- 🔴 83% missing operator data
+
+**Help us crowdsource:** Pick any POI from the [TODO-list with Organisation filter](https://salgo60.github.io/sat-sync/sat_todo_list.html?lang=sv&category=&operator=Skärgårdsstiftelsen) or start with [Issue #73](https://github.com/salgo60/sat-sync/issues/73) which has clickable OSM edit links.
+
 ---
 
 ## Design principles
