@@ -1572,19 +1572,22 @@ ORDER BY DESC(geof:latitude(?coord))
         }}
       }}
 
-      function filteredPois(sec, cat) {{
+      function filteredPois(sec, cat, org = 'all') {{
         const safeSec = sanitizeValue(sec, sectionValues);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
+        const safeOrg = org && org !== 'all' ? org : 'all';
         return poiMapData.filter((r) =>
           (safeSec === 'all' || r.section === safeSec) &&
-          (safeCat === 'all' || r.category === safeCat)
+          (safeCat === 'all' || r.category === safeCat) &&
+          (safeOrg === 'all' || (r.operator === safeOrg))
         );
       }}
 
       function downloadSelectionJson() {{
         const sec = sectionFilter.value;
+        const org = organisationFilter.value;
         const cat = categoryFilter.value;
-        const selected = filteredPois(sec, cat);
+        const selected = filteredPois(sec, cat, org);
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const payload = {{
@@ -1621,18 +1624,20 @@ ORDER BY DESC(geof:latitude(?coord))
         applyFilters();
       }}
 
-      function renderMap(sec, cat) {{
+      function renderMap(sec, org, cat) {{
         markerLayer.clearLayers();
         sectionLayer.clearLayers();
         const showTrailInfo = trailInfoToggle.checked;
         const showDistanceBand = distanceBandToggle.checked;
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
+        const safeOrg = org && org !== 'all' ? org : 'all';
         const selectedSection = sec !== 'all'
           ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
         const filtered = poiMapData.filter((r) =>
           (sec === 'all' || r.section === sec) &&
+          (safeOrg === 'all' || (r.operator === safeOrg)) &&
           (safeCat === 'all' || r.category === safeCat) &&
           isFiniteCoord(r.lat) &&
           isFiniteCoord(r.lon)
@@ -1966,14 +1971,14 @@ ORDER BY DESC(geof:latitude(?coord))
         return best;
       }}
 
-      function updateDistanceBandCount(sec, cat) {{
+      function updateDistanceBandCount(sec, org, cat) {{
         if (!distanceBandToggle.checked) {{
           distanceBandCount.style.display = 'none';
           distanceBandCount.textContent = '';
           return;
         }}
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
-        const selected = filteredPois(sec, cat).filter((r) => isFiniteCoord(r.lat) && isFiniteCoord(r.lon));
+        const selected = filteredPois(sec, cat, org).filter((r) => isFiniteCoord(r.lat) && isFiniteCoord(r.lon));
         let within = 0;
         selected.forEach((r) => {{
           const d = pointTrailDistanceMeters(r.lat, r.lon);
@@ -2050,7 +2055,7 @@ ORDER BY DESC(geof:latitude(?coord))
         if (!distanceBandToggle.checked) return;
         const prevPreserve = preserveMapView;
         preserveMapView = true;
-        renderMap(sectionFilter.value, categoryFilter.value);
+        renderMap(sectionFilter.value, organisationFilter.value, categoryFilter.value);
         preserveMapView = prevPreserve;
       }});
       map.on('moveend', () => {{

@@ -149,6 +149,7 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
     with_osm = 0
     with_wikidata = 0
     with_operator = 0
+    operator_counter = Counter()
     field_counter = Counter()
     section_totals = Counter()
     section_osm = Counter()
@@ -178,6 +179,7 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
         if has_value(operator):
             with_operator += 1
             section_operator[section] += 1
+            operator_counter[operator] += 1
 
         if section not in section_field_counter:
             section_field_counter[section] = Counter()
@@ -190,6 +192,12 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
     categories = [
         {"category": category, "count": count}
         for category, count in sorted(category_counter.items(), key=lambda x: (-x[1], x[0]))
+    ]
+
+    # Operator distribution (top 20 by count)
+    operator_distribution = [
+        {"operator": op, "count": count}
+        for op, count in sorted(operator_counter.items(), key=lambda x: (-x[1], x[0]))[:20]
     ]
 
     field_coverage = {}
@@ -243,6 +251,7 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
         },
         "fieldCoverage": field_coverage,
         "sectionCoverage": section_coverage,
+        "operatorDistribution": operator_distribution,
         "categories": categories,
     }
 
