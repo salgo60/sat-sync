@@ -63,7 +63,7 @@ def extract_osm_ref(same_as: list[str]) -> Optional[dict]:
 
 
 def fetch_osm_operator(osm_ref: dict) -> Optional[dict]:
-    """Fetch operator info from OSM API for given element."""
+    """Fetch operator/brand info from OSM API for given element."""
     if not osm_ref or not osm_ref.get("type") or not osm_ref.get("id"):
         return None
     try:
@@ -72,12 +72,26 @@ def fetch_osm_operator(osm_ref: dict) -> Optional[dict]:
         with urllib.request.urlopen(req, timeout=15) as r:
             data = json.loads(r.read().decode("utf-8"))
         el = (data.get("elements") or [{}])[0]
-        operator = el.get("tags", {}).get("operator", "")
-        operator_wd = el.get("tags", {}).get("operator:wikidata", "")
+        tags = el.get("tags", {})
+        
+        # Try operator first, then brand
+        operator = tags.get("operator", "")
+        operator_wd = tags.get("operator:wikidata", "")
+        brand = tags.get("brand", "")
+        brand_wd = tags.get("brand:wikidata", "")
+        
+        # Prefer operator if present, otherwise use brand
         if operator or operator_wd:
             return {
                 "name": operator or operator_wd,
                 "wikidata": operator_wd or None,
+                "type": "operator",
+            }
+        elif brand or brand_wd:
+            return {
+                "name": brand or brand_wd,
+                "wikidata": brand_wd or None,
+                "type": "brand",
             }
     except Exception:
         pass
@@ -365,8 +379,8 @@ def build_page() -> str:
         <select id="categoryFilter"></select>
       </div>
       <div>
-        <label id="operatorFilterLabel" for="operatorFilter">Operatör</label>
-        <select id="operatorFilter"></select>
+        <label id="organisationFilterLabel" for="organisationFilter">Organisation</label>
+        <select id="organisationFilter"></select>
       </div>
       <div>
         <label id="typeFilterLabel" for="typeFilter">Uppgiftstyp</label>
@@ -396,7 +410,7 @@ def build_page() -> str:
             <th id="thSection">Ö</th>
             <th id="thType">Typ</th>
             <th id="thPoi">POI</th>
-            <th id="thOperator">Operatör</th>
+            <th id="thOrganisation">Organisation</th>
             <th id="thCategory">Kategori</th>
             <th id="thTask">Uppgift</th>
             <th id="thLinks">Länkar</th>
@@ -482,12 +496,12 @@ def build_page() -> str:
       thSection: 'Ö',
       thType: 'Typ',
       thPoi: 'POI',
-      thOperator: 'Operatör',
+      thOrganisation: 'Organisation',
       thCategory: 'Kategori',
       thTask: 'Uppgift',
       thLinks: 'Länkar',
-      operatorFilterLabel: 'Operatör',
-      allOperators: 'Alla operatörer',
+      organisationFilterLabel: 'Organisation',
+      allOrganisations: 'Alla organisationer',
       customTitle: 'Lägg till egen uppgift',
       customSectionLabel: 'Ö / section',
       customTypeLabel: 'Typ',
@@ -532,12 +546,12 @@ def build_page() -> str:
       thSection: 'Island',
       thType: 'Type',
       thPoi: 'POI',
-      thOperator: 'Operator',
+      thOrganisation: 'Organisation',
       thCategory: 'Category',
       thTask: 'Task',
       thLinks: 'Links',
-      operatorFilterLabel: 'Operator',
-      allOperators: 'All operators',
+      organisationFilterLabel: 'Organisation',
+      allOrganisations: 'All organisations',
       customTitle: 'Add custom task',
       customSectionLabel: 'Island / section',
       customTypeLabel: 'Type',
