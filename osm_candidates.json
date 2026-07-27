@@ -18,7 +18,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13987968301"
+        "osmId": "node:13987968301",
+        "lat": 59.7745378,
+        "lon": 19.0817945
       }
     },
     {
@@ -38,7 +40,9 @@
         "operator": "Lidö Värdshus",
         "website": "https://lidovardshus.com/glamping",
         "phone": "",
-        "osmId": "node:13992967045"
+        "osmId": "node:13992967045",
+        "lat": 59.7696518,
+        "lon": 19.0804796
       }
     },
     {
@@ -58,7 +62,9 @@
         "operator": "Lidö Värdshus",
         "website": "https://lidovardshus.com/glamping",
         "phone": "",
-        "osmId": "node:13992967046"
+        "osmId": "node:13992967046",
+        "lat": 59.7716945,
+        "lon": 19.0773664
       }
     },
     {
@@ -78,7 +84,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925256442"
+        "osmId": "node:13925256442",
+        "lat": 59.7859945,
+        "lon": 19.0872953
       }
     },
     {
@@ -98,7 +106,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925250663"
+        "osmId": "node:13925250663",
+        "lat": 59.7870827,
+        "lon": 19.1018666
       }
     },
     {
@@ -118,7 +128,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:5745003236"
+        "osmId": "node:5745003236",
+        "lat": 59.862053,
+        "lon": 19.1227381
       }
     },
     {
@@ -126,29 +138,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          19.1078696,
-          59.8511476
-        ]
-      },
-      "properties": {
-        "id": "osm:13068560201",
-        "name": "OSM 13068560201",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13068560201"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           19.1082075,
           59.8479714
         ]
@@ -161,7 +150,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925221954"
+        "osmId": "node:13925221954",
+        "lat": 59.8479714,
+        "lon": 19.1082075
       }
     },
     {
@@ -181,7 +172,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:800808700"
+        "osmId": "node:800808700",
+        "lat": 59.844967,
+        "lon": 19.121391
       }
     },
     {
@@ -189,49 +182,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          19.1099171,
-          59.845716
-        ]
-      },
-      "properties": {
-        "id": "osm:13068655901",
-        "name": "OSM 13068655901",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13068655901"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.1120021,
-          59.8397255
-        ]
-      },
-      "properties": {
-        "id": "osm:13909289123",
-        "name": "OSM 13909289123",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909289123"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           19.1057512,
           59.8404195
         ]
@@ -244,7 +194,9 @@
         "operator": "",
         "website": "https://www.hjartstartarregistret.se/#/54560",
         "phone": "",
-        "osmId": "node:13069095802"
+        "osmId": "node:13069095802",
+        "lat": 59.8404195,
+        "lon": 19.1057512
       }
     },
     {
@@ -264,7 +216,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925035435"
+        "osmId": "node:13925035435",
+        "lat": 59.8621209,
+        "lon": 19.1321099
       }
     },
     {
@@ -284,7 +238,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925322125"
+        "osmId": "node:13925322125",
+        "lat": 59.6637109,
+        "lon": 18.937639
       }
     },
     {
@@ -292,49 +248,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          18.9082393,
-          59.65694
-        ]
-      },
-      "properties": {
-        "id": "osm:13906349301",
-        "name": "OSM 13906349301",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "+46 70 725 03 50",
-        "osmId": "node:13906349301"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9162044,
-          59.6589997
-        ]
-      },
-      "properties": {
-        "id": "osm:13945729201",
-        "name": "OSM 13945729201",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13945729201"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           18.9339021,
           59.6616427
         ]
@@ -347,7 +260,9 @@
         "operator": "",
         "website": "https://app.raa.se/open/fornsok/lamning/0a28d8d8-29d2-48d0-80fc-1e05b881adc2",
         "phone": "",
-        "osmId": "node:12896559427"
+        "osmId": "node:12896559427",
+        "lat": 59.6616427,
+        "lon": 18.9339021
       }
     },
     {
@@ -355,49 +270,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          18.9229314,
-          59.6627367
-        ]
-      },
-      "properties": {
-        "id": "osm:13909156301",
-        "name": "OSM 13909156301",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909156301"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.8275947,
-          59.5970772
-        ]
-      },
-      "properties": {
-        "id": "osm:13945706401",
-        "name": "OSM 13945706401",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13945706401"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           18.8128854,
           59.4796519
         ]
@@ -410,7 +282,9 @@
         "operator": "",
         "website": "https://openaedmap.org/sv/#map=17.75/59.479652/18.812885&node_id=12836972901",
         "phone": "",
-        "osmId": "node:12836972901"
+        "osmId": "node:12836972901",
+        "lat": 59.4796519,
+        "lon": 18.8128854
       }
     },
     {
@@ -430,7 +304,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Vandrarhemmet",
         "phone": "",
-        "osmId": "node:11148146209"
+        "osmId": "node:11148146209",
+        "lat": 59.4798324,
+        "lon": 18.8233038
       }
     },
     {
@@ -450,7 +326,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:9964716260"
+        "osmId": "node:9964716260",
+        "lat": 59.4799106,
+        "lon": 18.8210472
       }
     },
     {
@@ -470,7 +348,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:4964697340"
+        "osmId": "node:4964697340",
+        "lat": 59.4832502,
+        "lon": 18.8154941
       }
     },
     {
@@ -490,7 +370,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:5749262789"
+        "osmId": "node:5749262789",
+        "lat": 59.4847144,
+        "lon": 18.8123806
       }
     },
     {
@@ -510,7 +392,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925952606"
+        "osmId": "node:13925952606",
+        "lat": 59.4723351,
+        "lon": 18.7872823
       }
     },
     {
@@ -530,7 +414,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925857327"
+        "osmId": "node:13925857327",
+        "lat": 59.4793048,
+        "lon": 18.7952584
       }
     },
     {
@@ -550,7 +436,9 @@
         "operator": "",
         "website": "https://finnhamn.se/boende/",
         "phone": "",
-        "osmId": "node:14003020658"
+        "osmId": "node:14003020658",
+        "lat": 59.4820208,
+        "lon": 18.8110582
       }
     },
     {
@@ -570,7 +458,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Vindskydd-Talludden",
         "phone": "",
-        "osmId": "node:11148075050"
+        "osmId": "node:11148075050",
+        "lat": 59.4740585,
+        "lon": 18.8121962
       }
     },
     {
@@ -590,7 +480,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Lammuddens-vindskydd",
         "phone": "",
-        "osmId": "node:12736629495"
+        "osmId": "node:12736629495",
+        "lat": 59.4742518,
+        "lon": 18.8077588
       }
     },
     {
@@ -598,69 +490,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          18.7517758,
-          59.466092
-        ]
-      },
-      "properties": {
-        "id": "osm:13906338701",
-        "name": "OSM 13906338701",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13906338701"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.8546671,
-          59.4281682
-        ]
-      },
-      "properties": {
-        "id": "osm:13945689201",
-        "name": "OSM 13945689201",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13945689201"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.874021,
-          59.4037138
-        ]
-      },
-      "properties": {
-        "id": "osm:13909066697",
-        "name": "OSM 13909066697",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909066697"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           18.8873061,
           59.4106093
         ]
@@ -673,7 +502,9 @@
         "operator": "Möja Dansbana",
         "website": "https://mojadansbana.se/om-moja-bio/",
         "phone": "",
-        "osmId": "node:13943852950"
+        "osmId": "node:13943852950",
+        "lat": 59.4106093,
+        "lon": 18.8873061
       }
     },
     {
@@ -693,7 +524,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:12089216143"
+        "osmId": "node:12089216143",
+        "lat": 59.406367,
+        "lon": 18.8832525
       }
     },
     {
@@ -701,49 +534,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          18.9223884,
-          59.2763614
-        ]
-      },
-      "properties": {
-        "id": "osm:13909393401",
-        "name": "OSM 13909393401",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "TrouvilleföreningenHjärtstartaren",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909393401"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9286327,
-          59.2796492
-        ]
-      },
-      "properties": {
-        "id": "osm:13909384901",
-        "name": "OSM 13909384901",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909384901"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           18.9056407,
           59.2891247
         ]
@@ -756,7 +546,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:12805766201"
+        "osmId": "node:12805766201",
+        "lat": 59.2891247,
+        "lon": 18.9056407
       }
     },
     {
@@ -776,7 +568,9 @@
         "operator": "",
         "website": "https://rotter.se/gsi/384795",
         "phone": "",
-        "osmId": "node:13160006196"
+        "osmId": "node:13160006196",
+        "lat": 59.2885832,
+        "lon": 18.9059366
       }
     },
     {
@@ -796,7 +590,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:11153211515"
+        "osmId": "node:11153211515",
+        "lat": 59.2868548,
+        "lon": 18.9152824
       }
     },
     {
@@ -816,7 +612,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13930058601"
+        "osmId": "node:13930058601",
+        "lat": 59.2879984,
+        "lon": 18.9187596
       }
     },
     {
@@ -836,7 +634,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:12805751201"
+        "osmId": "node:12805751201",
+        "lat": 59.2842719,
+        "lon": 18.9200905
       }
     },
     {
@@ -856,7 +656,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:10657352922"
+        "osmId": "node:10657352922",
+        "lat": 59.2858695,
+        "lon": 18.9219268
       }
     },
     {
@@ -876,7 +678,9 @@
         "operator": "Neptuni Orden",
         "website": "https://neptuniorden.myclub.se/menu/pages/23025",
         "phone": "",
-        "osmId": "node:13947244421"
+        "osmId": "node:13947244421",
+        "lat": 59.2856701,
+        "lon": 18.922658
       }
     },
     {
@@ -896,7 +700,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:7056186809"
+        "osmId": "node:7056186809",
+        "lat": 59.289482,
+        "lon": 18.9147532
       }
     },
     {
@@ -916,7 +722,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:12805742901"
+        "osmId": "node:12805742901",
+        "lat": 59.2894617,
+        "lon": 18.9146089
       }
     },
     {
@@ -924,49 +732,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          18.7835078,
-          59.2682988
-        ]
-      },
-      "properties": {
-        "id": "osm:13909377401",
-        "name": "OSM 13909377401",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "Viktor Falk Jimenez",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909377401"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.7600905,
-          59.2786808
-        ]
-      },
-      "properties": {
-        "id": "osm:13909115801",
-        "name": "OSM 13909115801",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909115801"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           18.5485543,
           59.4090281
         ]
@@ -979,7 +744,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:4239095072"
+        "osmId": "node:4239095072",
+        "lat": 59.4090281,
+        "lon": 18.5485543
       }
     },
     {
@@ -999,7 +766,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Grinda-sodra-bryggan",
         "phone": "",
-        "osmId": "node:2285331215"
+        "osmId": "node:2285331215",
+        "lat": 59.4077305,
+        "lon": 18.5550121
       }
     },
     {
@@ -1019,7 +788,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13144299619"
+        "osmId": "node:13144299619",
+        "lat": 59.4136044,
+        "lon": 18.5691836
       }
     },
     {
@@ -1039,7 +810,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Grinda-Klubbudden",
         "phone": "",
-        "osmId": "node:863394672"
+        "osmId": "node:863394672",
+        "lat": 59.4063316,
+        "lon": 18.5748343
       }
     },
     {
@@ -1059,7 +832,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:863394760"
+        "osmId": "node:863394760",
+        "lat": 59.4051491,
+        "lon": 18.5792942
       }
     },
     {
@@ -1079,7 +854,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13144410779"
+        "osmId": "node:13144410779",
+        "lat": 59.4057576,
+        "lon": 18.5765727
       }
     },
     {
@@ -1087,29 +864,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          18.6771714,
-          59.4575978
-        ]
-      },
-      "properties": {
-        "id": "osm:13063733001",
-        "name": "OSM 13063733001",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13063733001"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           18.3735095,
           59.0344638
         ]
@@ -1122,7 +876,9 @@
         "operator": "",
         "website": "https://orno.se/resa-pa-orno/",
         "phone": "",
-        "osmId": "node:14004499739"
+        "osmId": "node:14004499739",
+        "lat": 59.0344638,
+        "lon": 18.3735095
       }
     },
     {
@@ -1130,29 +886,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          18.3893523,
-          59.0743513
-        ]
-      },
-      "properties": {
-        "id": "osm:7996790135",
-        "name": "OSM 7996790135",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "Mörbyfjärdens idrottsförening (MIF)",
-        "website": "",
-        "phone": "",
-        "osmId": "node:7996790135"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           18.4780537,
           59.1212496
         ]
@@ -1165,7 +898,9 @@
         "operator": "",
         "website": "https://www.hamnkartan.se/hamnar/orno-huvud",
         "phone": "",
-        "osmId": "node:12903206306"
+        "osmId": "node:12903206306",
+        "lat": 59.1212496,
+        "lon": 18.4780537
       }
     },
     {
@@ -1185,7 +920,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:12809240302"
+        "osmId": "node:12809240302",
+        "lat": 59.1111874,
+        "lon": 18.4783911
       }
     },
     {
@@ -1205,7 +942,9 @@
         "operator": "",
         "website": "https://orno.se/resa-pa-orno/",
         "phone": "",
-        "osmId": "node:12908913865"
+        "osmId": "node:12908913865",
+        "lat": 59.0520458,
+        "lon": 18.4327052
       }
     },
     {
@@ -1225,7 +964,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:12809454601"
+        "osmId": "node:12809454601",
+        "lat": 59.0519324,
+        "lon": 18.4316764
       }
     },
     {
@@ -1245,7 +986,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13984056801"
+        "osmId": "node:13984056801",
+        "lat": 59.0367563,
+        "lon": 18.5191879
       }
     },
     {
@@ -1265,7 +1008,9 @@
         "operator": "",
         "website": "https://www.explorearchipelago.com/sv/sthlm/sodra-skargarden/fjardlang",
         "phone": "",
-        "osmId": "node:12912985261"
+        "osmId": "node:12912985261",
+        "lat": 59.0583451,
+        "lon": 18.5375921
       }
     },
     {
@@ -1285,7 +1030,9 @@
         "operator": "",
         "website": "https://www.explorearchipelago.com/sv/sthlm/sodra-skargarden/fjardlang",
         "phone": "",
-        "osmId": "node:12913004658"
+        "osmId": "node:12913004658",
+        "lat": 59.044629,
+        "lon": 18.5121006
       }
     },
     {
@@ -1305,7 +1052,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:2550380437"
+        "osmId": "node:2550380437",
+        "lat": 59.0524121,
+        "lon": 18.5188358
       }
     },
     {
@@ -1325,7 +1074,9 @@
         "operator": "",
         "website": "https://www.explorearchipelago.com/sv/sthlm/sodra-skargarden/fjardlang",
         "phone": "",
-        "osmId": "node:12912946927"
+        "osmId": "node:12912946927",
+        "lat": 59.0490091,
+        "lon": 18.5199264
       }
     },
     {
@@ -1345,7 +1096,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13053318662"
+        "osmId": "node:13053318662",
+        "lat": 58.9771001,
+        "lon": 18.3615007
       }
     },
     {
@@ -1365,7 +1118,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:5866457027"
+        "osmId": "node:5866457027",
+        "lat": 58.9745116,
+        "lon": 18.3386368
       }
     },
     {
@@ -1385,7 +1140,9 @@
         "operator": "Stockholm Archipelago Trail",
         "website": "https://stockholmarchipelagotrail.com/section/uto/",
         "phone": "",
-        "osmId": "node:13760262385"
+        "osmId": "node:13760262385",
+        "lat": 58.9720221,
+        "lon": 18.338384
       }
     },
     {
@@ -1405,7 +1162,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13116509993"
+        "osmId": "node:13116509993",
+        "lat": 58.970209,
+        "lon": 18.3264739
       }
     },
     {
@@ -1425,7 +1184,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:9141418273"
+        "osmId": "node:9141418273",
+        "lat": 58.9701772,
+        "lon": 18.3263001
       }
     },
     {
@@ -1445,7 +1206,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:11942878776"
+        "osmId": "node:11942878776",
+        "lat": 58.9698077,
+        "lon": 18.3277645
       }
     },
     {
@@ -1465,7 +1228,9 @@
         "operator": "",
         "website": "https://www.batshaket.se/fiskladan.htm",
         "phone": "+46 8 501 57 673",
-        "osmId": "node:13931854965"
+        "osmId": "node:13931854965",
+        "lat": 58.9699194,
+        "lon": 18.324817
       }
     },
     {
@@ -1485,7 +1250,9 @@
         "operator": "Neptuni Orden",
         "website": "https://neptuniorden.myclub.se/menu/pages/23025",
         "phone": "",
-        "osmId": "node:13947774319"
+        "osmId": "node:13947774319",
+        "lat": 58.9700329,
+        "lon": 18.3258728
       }
     },
     {
@@ -1505,7 +1272,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13116509991"
+        "osmId": "node:13116509991",
+        "lat": 58.9701612,
+        "lon": 18.3260712
       }
     },
     {
@@ -1525,7 +1294,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13116509992"
+        "osmId": "node:13116509992",
+        "lat": 58.9701524,
+        "lon": 18.325813
       }
     },
     {
@@ -1545,7 +1316,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-3",
         "phone": "",
-        "osmId": "node:12740540028"
+        "osmId": "node:12740540028",
+        "lat": 58.9667891,
+        "lon": 18.318486
       }
     },
     {
@@ -1565,7 +1338,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-2",
         "phone": "",
-        "osmId": "node:12740404960"
+        "osmId": "node:12740404960",
+        "lat": 58.9664013,
+        "lon": 18.3184676
       }
     },
     {
@@ -1585,7 +1360,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats",
         "phone": "",
-        "osmId": "node:12874566169"
+        "osmId": "node:12874566169",
+        "lat": 58.9666868,
+        "lon": 18.3178422
       }
     },
     {
@@ -1605,7 +1382,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-1",
         "phone": "",
-        "osmId": "node:12740398797"
+        "osmId": "node:12740398797",
+        "lat": 58.9658969,
+        "lon": 18.3175987
       }
     },
     {
@@ -1625,7 +1404,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Grillplats-vid-Angbatsbryggan",
         "phone": "",
-        "osmId": "node:12782610013"
+        "osmId": "node:12782610013",
+        "lat": 58.8808876,
+        "lon": 18.1102653
       }
     },
     {
@@ -1645,7 +1426,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13037718201"
+        "osmId": "node:13037718201",
+        "lat": 58.8793957,
+        "lon": 18.1132306
       }
     },
     {
@@ -1665,7 +1448,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925508657"
+        "osmId": "node:13925508657",
+        "lat": 58.8810217,
+        "lon": 18.1379285
       }
     },
     {
@@ -1685,7 +1470,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Grillplats-Storasand",
         "phone": "",
-        "osmId": "node:12748117658"
+        "osmId": "node:12748117658",
+        "lat": 58.8771247,
+        "lon": 18.1337692
       }
     },
     {
@@ -1705,7 +1492,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Nordvastra-Nattaro-vid-Naturhamnen",
         "phone": "",
-        "osmId": "node:13076091033"
+        "osmId": "node:13076091033",
+        "lat": 58.8881435,
+        "lon": 18.1369205
       }
     },
     {
@@ -1725,7 +1514,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:4900324409"
+        "osmId": "node:4900324409",
+        "lat": 58.8883601,
+        "lon": 18.1380687
       }
     },
     {
@@ -1745,7 +1536,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Skarsand-1-2",
         "phone": "",
-        "osmId": "node:12865440356"
+        "osmId": "node:12865440356",
+        "lat": 58.8840996,
+        "lon": 18.1368937
       }
     },
     {
@@ -1765,7 +1558,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Nattaro-vandrarhem-Ostemar",
         "phone": "",
-        "osmId": "node:12778243911"
+        "osmId": "node:12778243911",
+        "lat": 58.8857001,
+        "lon": 18.1344191
       }
     },
     {
@@ -1785,7 +1580,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:12849416935"
+        "osmId": "node:12849416935",
+        "lat": 58.8884955,
+        "lon": 18.1297723
       }
     },
     {
@@ -1805,7 +1602,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:7817708463"
+        "osmId": "node:7817708463",
+        "lat": 58.9050962,
+        "lon": 18.1498573
       }
     },
     {
@@ -1825,7 +1624,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925511367"
+        "osmId": "node:13925511367",
+        "lat": 58.9046207,
+        "lon": 18.2043207
       }
     },
     {
@@ -1845,7 +1646,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Sodra-Storsand-Alo",
         "phone": "",
-        "osmId": "node:12738887791"
+        "osmId": "node:12738887791",
+        "lat": 58.9083475,
+        "lon": 18.2176604
       }
     },
     {
@@ -1865,7 +1668,9 @@
         "operator": "",
         "website": "https://barklandet.webnode.se/",
         "phone": "+46 70 468 01 04",
-        "osmId": "node:13931862152"
+        "osmId": "node:13931862152",
+        "lat": 58.9246915,
+        "lon": 18.2080249
       }
     },
     {
@@ -1885,7 +1690,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925452748"
+        "osmId": "node:13925452748",
+        "lat": 58.9233077,
+        "lon": 18.1950262
       }
     },
     {
@@ -1905,7 +1712,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13943229014"
+        "osmId": "node:13943229014",
+        "lat": 58.935572,
+        "lon": 18.1795441
       }
     },
     {
@@ -1925,7 +1734,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:4930945229"
+        "osmId": "node:4930945229",
+        "lat": 58.9248173,
+        "lon": 18.1673927
       }
     },
     {
@@ -1945,7 +1756,9 @@
         "operator": "Rånö Brygga",
         "website": "https://rano.se/stugor/",
         "phone": "",
-        "osmId": "node:4936508702"
+        "osmId": "node:4936508702",
+        "lat": 58.9199732,
+        "lon": 18.176822
       }
     },
     {
@@ -1965,7 +1778,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Knicksand-Rano",
         "phone": "",
-        "osmId": "node:12722789034"
+        "osmId": "node:12722789034",
+        "lat": 58.9175606,
+        "lon": 18.165392
       }
     },
     {
@@ -1985,7 +1800,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Knicksand-enkel-grillplats",
         "phone": "",
-        "osmId": "node:12722789033"
+        "osmId": "node:12722789033",
+        "lat": 58.9176613,
+        "lon": 18.1658649
       }
     },
     {
@@ -2005,7 +1822,9 @@
         "operator": "",
         "website": "https://grillplatser.nu/Grillplats/Visa/Knicksand-Rano-1",
         "phone": "",
-        "osmId": "node:12722761765"
+        "osmId": "node:12722761765",
+        "lat": 58.9177557,
+        "lon": 18.1650835
       }
     },
     {
@@ -2025,7 +1844,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925865298"
+        "osmId": "node:13925865298",
+        "lat": 58.772729,
+        "lon": 17.8582422
       }
     },
     {
@@ -2045,7 +1866,9 @@
         "operator": "",
         "website": "https://www.svenskagasthamnar.se/stockholms-skargard/landsort-norrhamnen/",
         "phone": "",
-        "osmId": "node:2942213742"
+        "osmId": "node:2942213742",
+        "lat": 58.7686066,
+        "lon": 17.8570696
       }
     },
     {
@@ -2065,7 +1888,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:9724390439"
+        "osmId": "node:9724390439",
+        "lat": 58.7688497,
+        "lon": 17.858491
       }
     },
     {
@@ -2085,7 +1910,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925871486"
+        "osmId": "node:13925871486",
+        "lat": 58.7695949,
+        "lon": 17.862722
       }
     },
     {
@@ -2105,7 +1932,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:6696813633"
+        "osmId": "node:6696813633",
+        "lat": 58.7696228,
+        "lon": 17.8640075
       }
     },
     {
@@ -2125,7 +1954,9 @@
         "operator": "Batteri Landsort",
         "website": "",
         "phone": "",
-        "osmId": "node:13105360460"
+        "osmId": "node:13105360460",
+        "lat": 58.7648879,
+        "lon": 17.8637612
       }
     },
     {
@@ -2145,7 +1976,9 @@
         "operator": "Neptuni Orden",
         "website": "https://neptuniorden.myclub.se/menu/pages/23025",
         "phone": "",
-        "osmId": "node:14003129088"
+        "osmId": "node:14003129088",
+        "lat": 58.7428212,
+        "lon": 17.8655417
       }
     },
     {
@@ -2165,7 +1998,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:12691618938"
+        "osmId": "node:12691618938",
+        "lat": 58.7440228,
+        "lon": 17.8656048
       }
     },
     {
@@ -2185,7 +2020,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:12942128203"
+        "osmId": "node:12942128203",
+        "lat": 58.7449558,
+        "lon": 17.8645753
       }
     },
     {
@@ -2205,7 +2042,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13925849375"
+        "osmId": "node:13925849375",
+        "lat": 58.7376833,
+        "lon": 17.8655104
       }
     },
     {
@@ -2225,7 +2064,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:2544129249"
+        "osmId": "node:2544129249",
+        "lat": 59.4138197,
+        "lon": 18.5569143
       }
     },
     {
@@ -2245,7 +2086,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:14022481833"
+        "osmId": "node:14022481833",
+        "lat": 59.4407768,
+        "lon": 18.9194495
       }
     },
     {
@@ -2265,7 +2108,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:6652974964"
+        "osmId": "node:6652974964",
+        "lat": 59.372713,
+        "lon": 18.6993887
       }
     },
     {
@@ -2285,7 +2130,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:14019326401"
+        "osmId": "node:14019326401",
+        "lat": 59.3725204,
+        "lon": 18.6985152
       }
     },
     {
@@ -2305,7 +2152,9 @@
         "operator": "Neptuni Orden",
         "website": "https://neptuniorden.myclub.se/menu/pages/23025",
         "phone": "",
-        "osmId": "node:13947777395"
+        "osmId": "node:13947777395",
+        "lat": 59.4426185,
+        "lon": 18.9209597
       }
     },
     {
@@ -2325,7 +2174,9 @@
         "operator": "",
         "website": "https://www.mojahallen.se/",
         "phone": "",
-        "osmId": "node:14028221359"
+        "osmId": "node:14028221359",
+        "lat": 59.4110437,
+        "lon": 18.8909845
       }
     },
     {
@@ -2333,29 +2184,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          18.8910457,
-          59.4110762
-        ]
-      },
-      "properties": {
-        "id": "osm:14020231001",
-        "name": "OSM 14020231001",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:14020231001"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           18.8965491,
           59.4114483
         ]
@@ -2368,7 +2196,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:5860556435"
+        "osmId": "node:5860556435",
+        "lat": 59.4114483,
+        "lon": 18.8965491
       }
     },
     {
@@ -2388,7 +2218,9 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:8880718355"
+        "osmId": "node:8880718355",
+        "lat": 59.4143714,
+        "lon": 18.5563696
       }
     },
     {
@@ -2396,29 +2228,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-<<<<<<< HEAD
-=======
-          18.9195244,
-          59.4409752
-        ]
-      },
-      "properties": {
-        "id": "osm:14022468501",
-        "name": "OSM 14022468501",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:14022468501"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
->>>>>>> origin/main
           18.4394994,
           59.0452442
         ]
@@ -2431,7 +2240,9 @@
         "operator": "",
         "website": "https://orno.se/service-upplevelser/att-gora/lervassastigen/",
         "phone": "",
-        "osmId": "node:14030422960"
+        "osmId": "node:14030422960",
+        "lat": 59.0452442,
+        "lon": 18.4394994
       }
     },
     {
@@ -2451,7 +2262,9 @@
         "operator": "",
         "website": "https://krydderi.nu/",
         "phone": "+46736556699",
-        "osmId": "node:14031421382"
+        "osmId": "node:14031421382",
+        "lat": 59.4353373,
+        "lon": 18.9168895
       }
     },
     {
@@ -2471,7 +2284,9 @@
         "operator": "",
         "website": "https://www.utogasthamn.se/uto-cykeluthyrning/",
         "phone": "",
-        "osmId": "node:14038610020"
+        "osmId": "node:14038610020",
+        "lat": 58.9195164,
+        "lon": 18.1932281
       }
     },
     {
@@ -2491,5426 +2306,128 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:13983383701"
+        "osmId": "node:13983383701",
+        "lat": 59.0362881,
+        "lon": 18.5127864
       }
     },
     {
       "type": "Feature",
       "geometry": {
-        "type": "MultiPolygon",
+        "type": "Point",
         "coordinates": [
-          [
-            [
-              [
-                19.0887268,
-                59.837175
-              ],
-              [
-                19.0887527,
-                59.8370229
-              ],
-              [
-                19.0888112,
-                59.83668
-              ],
-              [
-                19.0888051,
-                59.8363393
-              ],
-              [
-                19.0888035,
-                59.8362498
-              ],
-              [
-                19.0889365,
-                59.8360681
-              ],
-              [
-                19.0890132,
-                59.8359235
-              ],
-              [
-                19.0891582,
-                59.8356503
-              ],
-              [
-                19.0895935,
-                59.8353637
-              ],
-              [
-                19.0895803,
-                59.8350203
-              ],
-              [
-                19.0900574,
-                59.8348239
-              ],
-              [
-                19.0898254,
-                59.8345583
-              ],
-              [
-                19.0896944,
-                59.8345135
-              ],
-              [
-                19.0895038,
-                59.8344484
-              ],
-              [
-                19.0894774,
-                59.8340059
-              ],
-              [
-                19.0892892,
-                59.8338894
-              ],
-              [
-                19.0893304,
-                59.8336775
-              ],
-              [
-                19.0893876,
-                59.8335173
-              ],
-              [
-                19.0894251,
-                59.8334125
-              ],
-              [
-                19.0894761,
-                59.8332696
-              ],
-              [
-                19.0892725,
-                59.8329956
-              ],
-              [
-                19.0894407,
-                59.8328209
-              ],
-              [
-                19.0894414,
-                59.8328115
-              ],
-              [
-                19.0894739,
-                59.8323669
-              ],
-              [
-                19.0892224,
-                59.831742
-              ],
-              [
-                19.0893679,
-                59.8314937
-              ],
-              [
-                19.0895783,
-                59.8312022
-              ],
-              [
-                19.0899393,
-                59.8309677
-              ],
-              [
-                19.0899927,
-                59.8308035
-              ],
-              [
-                19.0903984,
-                59.8307806
-              ],
-              [
-                19.0905616,
-                59.8306818
-              ],
-              [
-                19.0903269,
-                59.8306244
-              ],
-              [
-                19.0904955,
-                59.8303961
-              ],
-              [
-                19.0903743,
-                59.8302921
-              ],
-              [
-                19.090427,
-                59.8301164
-              ],
-              [
-                19.0908318,
-                59.8303239
-              ],
-              [
-                19.0906988,
-                59.8307113
-              ],
-              [
-                19.0905621,
-                59.8308229
-              ],
-              [
-                19.0907267,
-                59.8309783
-              ],
-              [
-                19.0907949,
-                59.8310192
-              ],
-              [
-                19.0909745,
-                59.8311162
-              ],
-              [
-                19.0911178,
-                59.8311501
-              ],
-              [
-                19.0921192,
-                59.8311074
-              ],
-              [
-                19.092294,
-                59.830956
-              ],
-              [
-                19.0929349,
-                59.8306039
-              ],
-              [
-                19.0937793,
-                59.8306202
-              ],
-              [
-                19.0941919,
-                59.8303589
-              ],
-              [
-                19.0942777,
-                59.8303212
-              ],
-              [
-                19.0946371,
-                59.8301298
-              ],
-              [
-                19.0948678,
-                59.8299977
-              ],
-              [
-                19.0950609,
-                59.829941
-              ],
-              [
-                19.095136,
-                59.8299006
-              ],
-              [
-                19.0952701,
-                59.8297982
-              ],
-              [
-                19.0952701,
-                59.8297415
-              ],
-              [
-                19.0953453,
-                59.8295744
-              ],
-              [
-                19.0953453,
-                59.8295447
-              ],
-              [
-                19.0954257,
-                59.8293991
-              ],
-              [
-                19.0954901,
-                59.8293506
-              ],
-              [
-                19.0955223,
-                59.8292967
-              ],
-              [
-                19.0956618,
-                59.8292077
-              ],
-              [
-                19.0956778,
-                59.829143
-              ],
-              [
-                19.0956671,
-                59.8291242
-              ],
-              [
-                19.0954847,
-                59.8290379
-              ],
-              [
-                19.0954955,
-                59.828992
-              ],
-              [
-                19.0955652,
-                59.8290055
-              ],
-              [
-                19.0956242,
-                59.8290082
-              ],
-              [
-                19.0957261,
-                59.828992
-              ],
-              [
-                19.0957637,
-                59.8289786
-              ],
-              [
-                19.0958227,
-                59.8289408
-              ],
-              [
-                19.0958334,
-                59.8288033
-              ],
-              [
-                19.0958763,
-                59.8287575
-              ],
-              [
-                19.0958763,
-                59.8287117
-              ],
-              [
-                19.095871,
-                59.8286173
-              ],
-              [
-                19.0958978,
-                59.8285607
-              ],
-              [
-                19.0959622,
-                59.828531
-              ],
-              [
-                19.0960694,
-                59.8285094
-              ],
-              [
-                19.0961821,
-                59.8284825
-              ],
-              [
-                19.0962948,
-                59.8284798
-              ],
-              [
-                19.0964557,
-                59.8284771
-              ],
-              [
-                19.096563,
-                59.8284609
-              ],
-              [
-                19.0967078,
-                59.8284016
-              ],
-              [
-                19.0967185,
-                59.828345
-              ],
-              [
-                19.0965308,
-                59.828283
-              ],
-              [
-                19.0964235,
-                59.8282668
-              ],
-              [
-                19.0963269,
-                59.8282344
-              ],
-              [
-                19.0962036,
-                59.8281697
-              ],
-              [
-                19.0961445,
-                59.8280996
-              ],
-              [
-                19.0959836,
-                59.8280268
-              ],
-              [
-                19.095871,
-                59.8279675
-              ],
-              [
-                19.0958334,
-                59.8278812
-              ],
-              [
-                19.0958334,
-                59.8278111
-              ],
-              [
-                19.095812,
-                59.8277761
-              ],
-              [
-                19.0957422,
-                59.8277653
-              ],
-              [
-                19.0956135,
-                59.8278031
-              ],
-              [
-                19.0955974,
-                59.827795
-              ],
-              [
-                19.095592,
-                59.8277896
-              ],
-              [
-                19.095592,
-                59.8277518
-              ],
-              [
-                19.095533,
-                59.8277006
-              ],
-              [
-                19.0954043,
-                59.827644
-              ],
-              [
-                19.095297,
-                59.8276305
-              ],
-              [
-                19.0949644,
-                59.8275631
-              ],
-              [
-                19.0949322,
-                59.8275281
-              ],
-              [
-                19.0949268,
-                59.8275011
-              ],
-              [
-                19.0950073,
-                59.8274633
-              ],
-              [
-                19.0950127,
-                59.8274445
-              ],
-              [
-                19.0948625,
-                59.8273393
-              ],
-              [
-                19.0948571,
-                59.8273312
-              ],
-              [
-                19.0948571,
-                59.8273285
-              ],
-              [
-                19.0946211,
-                59.8273258
-              ],
-              [
-                19.0945513,
-                59.8273016
-              ],
-              [
-                19.0944923,
-                59.827253
-              ],
-              [
-                19.0943367,
-                59.8271856
-              ],
-              [
-                19.0943046,
-                59.8271047
-              ],
-              [
-                19.094267,
-                59.8270859
-              ],
-              [
-                19.0941597,
-                59.8270697
-              ],
-              [
-                19.0940792,
-                59.8270293
-              ],
-              [
-                19.0940578,
-                59.8269214
-              ],
-              [
-                19.0941973,
-                59.8266895
-              ],
-              [
-                19.0941973,
-                59.8266734
-              ],
-              [
-                19.0942241,
-                59.8266248
-              ],
-              [
-                19.0943046,
-                59.8265817
-              ],
-              [
-                19.0944011,
-                59.8265574
-              ],
-              [
-                19.0944494,
-                59.8265197
-              ],
-              [
-                19.0944226,
-                59.8264523
-              ],
-              [
-                19.0944011,
-                59.8264091
-              ],
-              [
-                19.0944226,
-                59.8263687
-              ],
-              [
-                19.0945299,
-                59.8263174
-              ],
-              [
-                19.0946854,
-                59.8262689
-              ],
-              [
-                19.0947981,
-                59.8262581
-              ],
-              [
-                19.0948678,
-                59.8261718
-              ],
-              [
-                19.0950556,
-                59.8261179
-              ],
-              [
-                19.0951253,
-                59.826037
-              ],
-              [
-                19.0952058,
-                59.8259696
-              ],
-              [
-                19.095238,
-                59.825886
-              ],
-              [
-                19.0953828,
-                59.825851
-              ],
-              [
-                19.0955491,
-                59.8257782
-              ],
-              [
-                19.0953989,
-                59.825735
-              ],
-              [
-                19.0953667,
-                59.8257027
-              ],
-              [
-                19.0955813,
-                59.8256946
-              ],
-              [
-                19.0956725,
-                59.8257162
-              ],
-              [
-                19.0958388,
-                59.8257108
-              ],
-              [
-                19.0959032,
-                59.8257296
-              ],
-              [
-                19.0959514,
-                59.8258051
-              ],
-              [
-                19.0964771,
-                59.8258833
-              ],
-              [
-                19.0965791,
-                59.8259076
-              ],
-              [
-                19.0968527,
-                59.8259481
-              ],
-              [
-                19.0968795,
-                59.8259588
-              ],
-              [
-                19.0970833,
-                59.8259777
-              ],
-              [
-                19.097137,
-                59.8259993
-              ],
-              [
-                19.097373,
-                59.8260209
-              ],
-              [
-                19.0975876,
-                59.8260613
-              ],
-              [
-                19.097668,
-                59.8260937
-              ],
-              [
-                19.0978826,
-                59.8261503
-              ],
-              [
-                19.0980757,
-                59.8261826
-              ],
-              [
-                19.0982313,
-                59.8262824
-              ],
-              [
-                19.098242,
-                59.8263013
-              ],
-              [
-                19.0982474,
-                59.8263498
-              ],
-              [
-                19.0982689,
-                59.8264064
-              ],
-              [
-                19.0984298,
-                59.826463
-              ],
-              [
-                19.0985264,
-                59.8265089
-              ],
-              [
-                19.0986926,
-                59.8265224
-              ],
-              [
-                19.0988053,
-                59.8265278
-              ],
-              [
-                19.0990252,
-                59.8265601
-              ],
-              [
-                19.0990628,
-                59.8265736
-              ],
-              [
-                19.0991218,
-                59.8266059
-              ],
-              [
-                19.0992827,
-                59.8267219
-              ],
-              [
-                19.0993793,
-                59.8268136
-              ],
-              [
-                19.0995295,
-                59.8270346
-              ],
-              [
-                19.0996421,
-                59.8271641
-              ],
-              [
-                19.099669,
-                59.827218
-              ],
-              [
-                19.0997154,
-                59.8274454
-              ],
-              [
-                19.0997709,
-                59.8276763
-              ],
-              [
-                19.0997602,
-                59.8277033
-              ],
-              [
-                19.099728,
-                59.8277572
-              ],
-              [
-                19.099728,
-                59.8278058
-              ],
-              [
-                19.0997119,
-                59.8278192
-              ],
-              [
-                19.0996582,
-                59.827954
-              ],
-              [
-                19.0995992,
-                59.8279837
-              ],
-              [
-                19.0994705,
-                59.8280538
-              ],
-              [
-                19.0993149,
-                59.8281104
-              ],
-              [
-                19.0992291,
-                59.828132
-              ],
-              [
-                19.0989662,
-                59.8281994
-              ],
-              [
-                19.0987946,
-                59.8282156
-              ],
-              [
-                19.0986819,
-                59.8282398
-              ],
-              [
-                19.098639,
-                59.8282803
-              ],
-              [
-                19.0986184,
-                59.8282999
-              ],
-              [
-                19.0987509,
-                59.8285369
-              ],
-              [
-                19.0983835,
-                59.8285335
-              ],
-              [
-                19.0982528,
-                59.8285256
-              ],
-              [
-                19.0980972,
-                59.8285742
-              ],
-              [
-                19.0980811,
-                59.8285742
-              ],
-              [
-                19.0979738,
-                59.8285849
-              ],
-              [
-                19.097947,
-                59.828593
-              ],
-              [
-                19.0978236,
-                59.8287036
-              ],
-              [
-                19.0977807,
-                59.8287251
-              ],
-              [
-                19.0977592,
-                59.8287467
-              ],
-              [
-                19.0977163,
-                59.8288357
-              ],
-              [
-                19.0975232,
-                59.828895
-              ],
-              [
-                19.0975017,
-                59.8291134
-              ],
-              [
-                19.0975125,
-                59.8291457
-              ],
-              [
-                19.0975393,
-                59.8291754
-              ],
-              [
-                19.0976412,
-                59.8292347
-              ],
-              [
-                19.0978182,
-                59.8293102
-              ],
-              [
-                19.0979041,
-                59.8293371
-              ],
-              [
-                19.0979685,
-                59.829383
-              ],
-              [
-                19.0979953,
-                59.8294234
-              ],
-              [
-                19.0981616,
-                59.8295501
-              ],
-              [
-                19.0983547,
-                59.829658
-              ],
-              [
-                19.0983708,
-                59.8296903
-              ],
-              [
-                19.0983332,
-                59.8297415
-              ],
-              [
-                19.0983279,
-                59.8297712
-              ],
-              [
-                19.098403,
-                59.8298763
-              ],
-              [
-                19.0984244,
-                59.8299303
-              ],
-              [
-                19.0984888,
-                59.8299761
-              ],
-              [
-                19.0986283,
-                59.8301999
-              ],
-              [
-                19.0986605,
-                59.8302322
-              ],
-              [
-                19.0988053,
-                59.8304479
-              ],
-              [
-                19.0988053,
-                59.830491
-              ],
-              [
-                19.0987463,
-                59.8305692
-              ],
-              [
-                19.0987195,
-                59.830731
-              ],
-              [
-                19.0986926,
-                59.8307579
-              ],
-              [
-                19.0986819,
-                59.8307876
-              ],
-              [
-                19.0986819,
-                59.83089
-              ],
-              [
-                19.0986605,
-                59.830952
-              ],
-              [
-                19.0986605,
-                59.8310599
-              ],
-              [
-                19.0986336,
-                59.8311407
-              ],
-              [
-                19.098639,
-                59.8311893
-              ],
-              [
-                19.098639,
-                59.8312351
-              ],
-              [
-                19.0985424,
-                59.8313295
-              ],
-              [
-                19.0985103,
-                59.8317257
-              ],
-              [
-                19.0985371,
-                59.8317608
-              ],
-              [
-                19.0985693,
-                59.8318902
-              ],
-              [
-                19.0985585,
-                59.8319953
-              ],
-              [
-                19.098639,
-                59.8321193
-              ],
-              [
-                19.098639,
-                59.8321813
-              ],
-              [
-                19.0987248,
-                59.8323916
-              ],
-              [
-                19.0987999,
-                59.8324752
-              ],
-              [
-                19.0990789,
-                59.8325722
-              ],
-              [
-                19.099154,
-                59.8326181
-              ],
-              [
-                19.0992452,
-                59.8326531
-              ],
-              [
-                19.0995563,
-                59.8327987
-              ],
-              [
-                19.0995349,
-                59.8328957
-              ],
-              [
-                19.0995456,
-                59.8329254
-              ],
-              [
-                19.0995617,
-                59.8329254
-              ],
-              [
-                19.0996153,
-                59.8329119
-              ],
-              [
-                19.0997012,
-                59.8328688
-              ],
-              [
-                19.0997763,
-                59.8327987
-              ],
-              [
-                19.0998514,
-                59.8327717
-              ],
-              [
-                19.0999318,
-                59.8327717
-              ],
-              [
-                19.1000284,
-                59.8327879
-              ],
-              [
-                19.1000338,
-                59.8328526
-              ],
-              [
-                19.1000498,
-                59.8328742
-              ],
-              [
-                19.1000767,
-                59.832893
-              ],
-              [
-                19.1000767,
-                59.8330521
-              ],
-              [
-                19.1000659,
-                59.8332003
-              ],
-              [
-                19.1000928,
-                59.8332893
-              ],
-              [
-                19.1000981,
-                59.8334537
-              ],
-              [
-                19.1001732,
-                59.8335589
-              ],
-              [
-                19.1002322,
-                59.8336182
-              ],
-              [
-                19.1002859,
-                59.8337314
-              ],
-              [
-                19.1003127,
-                59.8337934
-              ],
-              [
-                19.1003503,
-                59.8338473
-              ],
-              [
-                19.1003288,
-                59.8339282
-              ],
-              [
-                19.1002161,
-                59.8340522
-              ],
-              [
-                19.1002,
-                59.8341169
-              ],
-              [
-                19.1002,
-                59.8341789
-              ],
-              [
-                19.1002752,
-                59.8342786
-              ],
-              [
-                19.1004039,
-                59.8343379
-              ],
-              [
-                19.1004093,
-                59.8343676
-              ],
-              [
-                19.1004307,
-                59.8344188
-              ],
-              [
-                19.1004093,
-                59.8345805
-              ],
-              [
-                19.10042,
-                59.8346991
-              ],
-              [
-                19.1004736,
-                59.8350064
-              ],
-              [
-                19.1005005,
-                59.8350522
-              ],
-              [
-                19.1005273,
-                59.8350792
-              ],
-              [
-                19.1005756,
-                59.8351331
-              ],
-              [
-                19.1006131,
-                59.8352086
-              ],
-              [
-                19.1006238,
-                59.8352328
-              ],
-              [
-                19.1006721,
-                59.8353434
-              ],
-              [
-                19.1007526,
-                59.8354054
-              ],
-              [
-                19.1008223,
-                59.8354431
-              ],
-              [
-                19.1009403,
-                59.8355509
-              ],
-              [
-                19.1010101,
-                59.8356048
-              ],
-              [
-                19.1011871,
-                59.8356722
-              ],
-              [
-                19.1012461,
-                59.835683
-              ],
-              [
-                19.1015572,
-                59.8356722
-              ],
-              [
-                19.1016484,
-                59.8356507
-              ],
-              [
-                19.1018898,
-                59.8355078
-              ],
-              [
-                19.1019703,
-                59.8353461
-              ],
-              [
-                19.1019488,
-                59.8351682
-              ],
-              [
-                19.1019649,
-                59.8351089
-              ],
-              [
-                19.1020079,
-                59.8350442
-              ],
-              [
-                19.1020079,
-                59.8350226
-              ],
-              [
-                19.1020561,
-                59.8349606
-              ],
-              [
-                19.1020561,
-                59.8345347
-              ],
-              [
-                19.1020776,
-                59.8344646
-              ],
-              [
-                19.1020991,
-                59.8344107
-              ],
-              [
-                19.102142,
-                59.8343379
-              ],
-              [
-                19.102142,
-                59.8342921
-              ],
-              [
-                19.1021044,
-                59.8341977
-              ],
-              [
-                19.102024,
-                59.8341384
-              ],
-              [
-                19.1018684,
-                59.8340656
-              ],
-              [
-                19.1017289,
-                59.8339686
-              ],
-              [
-                19.1016055,
-                59.8338311
-              ],
-              [
-                19.1015841,
-                59.8337826
-              ],
-              [
-                19.1016002,
-                59.8337368
-              ],
-              [
-                19.1017772,
-                59.8336451
-              ],
-              [
-                19.1018362,
-                59.8335616
-              ],
-              [
-                19.1016806,
-                59.8333351
-              ],
-              [
-                19.1016109,
-                59.8333028
-              ],
-              [
-                19.1015358,
-                59.8332273
-              ],
-              [
-                19.1015358,
-                59.8331141
-              ],
-              [
-                19.1015358,
-                59.8330413
-              ],
-              [
-                19.1015894,
-                59.8329523
-              ],
-              [
-                19.1015358,
-                59.8328661
-              ],
-              [
-                19.1013909,
-                59.8327474
-              ],
-              [
-                19.1013856,
-                59.8325318
-              ],
-              [
-                19.1014285,
-                59.8324347
-              ],
-              [
-                19.1014017,
-                59.8323808
-              ],
-              [
-                19.10145,
-                59.8322353
-              ],
-              [
-                19.1014661,
-                59.8321517
-              ],
-              [
-                19.1013749,
-                59.8319899
-              ],
-              [
-                19.1013641,
-                59.8318848
-              ],
-              [
-                19.1013534,
-                59.8318255
-              ],
-              [
-                19.1012998,
-                59.8317177
-              ],
-              [
-                19.1010637,
-                59.8315775
-              ],
-              [
-                19.1009886,
-                59.8315209
-              ],
-              [
-                19.1009511,
-                59.8313672
-              ],
-              [
-                19.1009886,
-                59.8312162
-              ],
-              [
-                19.1010047,
-                59.8311138
-              ],
-              [
-                19.1010423,
-                59.8310572
-              ],
-              [
-                19.1012193,
-                59.8308954
-              ],
-              [
-                19.1012193,
-                59.8305881
-              ],
-              [
-                19.1012086,
-                59.8304937
-              ],
-              [
-                19.1012676,
-                59.8303239
-              ],
-              [
-                19.101348,
-                59.8302511
-              ],
-              [
-                19.1014285,
-                59.8301055
-              ],
-              [
-                19.1015572,
-                59.8300004
-              ],
-              [
-                19.1016055,
-                59.8299384
-              ],
-              [
-                19.1016377,
-                59.8298763
-              ],
-              [
-                19.1016431,
-                59.8297982
-              ],
-              [
-                19.101804,
-                59.8297496
-              ],
-              [
-                19.1018684,
-                59.8297227
-              ],
-              [
-                19.1019381,
-                59.82972
-              ],
-              [
-                19.10204,
-                59.8297415
-              ],
-              [
-                19.1022063,
-                59.8297604
-              ],
-              [
-                19.1022332,
-                59.829782
-              ],
-              [
-                19.1022385,
-                59.8298089
-              ],
-              [
-                19.1022439,
-                59.8298763
-              ],
-              [
-                19.1023673,
-                59.8299734
-              ],
-              [
-                19.1024907,
-                59.8301001
-              ],
-              [
-                19.1025228,
-                59.8302888
-              ],
-              [
-                19.1025819,
-                59.830332
-              ],
-              [
-                19.1026194,
-                59.8305018
-              ],
-              [
-                19.1026355,
-                59.830518
-              ],
-              [
-                19.1027052,
-                59.8305342
-              ],
-              [
-                19.1027428,
-                59.830553
-              ],
-              [
-                19.1028823,
-                59.830677
-              ],
-              [
-                19.1029198,
-                59.8307202
-              ],
-              [
-                19.1030164,
-                59.8309116
-              ],
-              [
-                19.1030056,
-                59.8311542
-              ],
-              [
-                19.1029681,
-                59.8313295
-              ],
-              [
-                19.1029037,
-                59.8314238
-              ],
-              [
-                19.1029091,
-                59.8315613
-              ],
-              [
-                19.102952,
-                59.8316017
-              ],
-              [
-                19.1029842,
-                59.8317095
-              ],
-              [
-                19.1030432,
-                59.8317446
-              ],
-              [
-                19.1031612,
-                59.8318201
-              ],
-              [
-                19.1032578,
-                59.8318632
-              ],
-              [
-                19.1033168,
-                59.8318902
-              ],
-              [
-                19.1034992,
-                59.8319118
-              ],
-              [
-                19.1036816,
-                59.8319118
-              ],
-              [
-                19.1039122,
-                59.8318929
-              ],
-              [
-                19.1041483,
-                59.8318848
-              ],
-              [
-                19.1043414,
-                59.8318605
-              ],
-              [
-                19.104572,
-                59.8318444
-              ],
-              [
-                19.1046257,
-                59.8318578
-              ],
-              [
-                19.104674,
-                59.8319064
-              ],
-              [
-                19.1047813,
-                59.8319522
-              ],
-              [
-                19.1048778,
-                59.8319765
-              ],
-              [
-                19.105028,
-                59.8320358
-              ],
-              [
-                19.1051997,
-                59.8321328
-              ],
-              [
-                19.1053982,
-                59.8322218
-              ],
-              [
-                19.1054518,
-                59.8322622
-              ],
-              [
-                19.1055859,
-                59.8324267
-              ],
-              [
-                19.1057737,
-                59.8325587
-              ],
-              [
-                19.1058595,
-                59.832672
-              ],
-              [
-                19.1059453,
-                59.832769
-              ],
-              [
-                19.1061009,
-                59.8328176
-              ],
-              [
-                19.1063423,
-                59.8328418
-              ],
-              [
-                19.1063799,
-                59.8328371
-              ],
-              [
-                19.1065944,
-                59.8328041
-              ],
-              [
-                19.1066964,
-                59.8327717
-              ],
-              [
-                19.1067876,
-                59.8326908
-              ],
-              [
-                19.1068519,
-                59.8325803
-              ],
-              [
-                19.1068466,
-                59.8324374
-              ],
-              [
-                19.1067446,
-                59.8322973
-              ],
-              [
-                19.1067178,
-                59.8322811
-              ],
-              [
-                19.1065408,
-                59.8322245
-              ],
-              [
-                19.1065032,
-                59.8321382
-              ],
-              [
-                19.1064657,
-                59.8321193
-              ],
-              [
-                19.1064496,
-                59.8320951
-              ],
-              [
-                19.1065032,
-                59.8319468
-              ],
-              [
-                19.1065301,
-                59.8319091
-              ],
-              [
-                19.1065301,
-                59.8318713
-              ],
-              [
-                19.1064657,
-                59.8317904
-              ],
-              [
-                19.1063369,
-                59.8316799
-              ],
-              [
-                19.1061438,
-                59.8315316
-              ],
-              [
-                19.105999,
-                59.8314508
-              ],
-              [
-                19.1058756,
-                59.8313537
-              ],
-              [
-                19.10572,
-                59.8311515
-              ],
-              [
-                19.10572,
-                59.8309844
-              ],
-              [
-                19.1056825,
-                59.8309278
-              ],
-              [
-                19.1055806,
-                59.8308307
-              ],
-              [
-                19.1055108,
-                59.8307903
-              ],
-              [
-                19.1053177,
-                59.830704
-              ],
-              [
-                19.105028,
-                59.8306312
-              ],
-              [
-                19.1048188,
-                59.8305072
-              ],
-              [
-                19.1047598,
-                59.8304533
-              ],
-              [
-                19.1046901,
-                59.8303212
-              ],
-              [
-                19.1046042,
-                59.8301864
-              ],
-              [
-                19.1046042,
-                59.8301702
-              ],
-              [
-                19.104556,
-                59.8300947
-              ],
-              [
-                19.1044862,
-                59.8300327
-              ],
-              [
-                19.1044755,
-                59.8299788
-              ],
-              [
-                19.1044594,
-                59.8297362
-              ],
-              [
-                19.1044165,
-                59.8296229
-              ],
-              [
-                19.1044111,
-                59.829569
-              ],
-              [
-                19.104454,
-                59.8292536
-              ],
-              [
-                19.1045506,
-                59.829108
-              ],
-              [
-                19.1045452,
-                59.8290217
-              ],
-              [
-                19.104674,
-                59.8288788
-              ],
-              [
-                19.1048295,
-                59.8287764
-              ],
-              [
-                19.1048778,
-                59.8286685
-              ],
-              [
-                19.1050334,
-                59.8285634
-              ],
-              [
-                19.1051729,
-                59.8284987
-              ],
-              [
-                19.1052104,
-                59.8284582
-              ],
-              [
-                19.1052051,
-                59.8284286
-              ],
-              [
-                19.1051782,
-                59.8284124
-              ],
-              [
-                19.1051782,
-                59.828407
-              ],
-              [
-                19.105189,
-                59.8283962
-              ],
-              [
-                19.1052104,
-                59.8283423
-              ],
-              [
-                19.1053713,
-                59.8282992
-              ],
-              [
-                19.1055967,
-                59.8282506
-              ],
-              [
-                19.1059024,
-                59.8282183
-              ],
-              [
-                19.1061224,
-                59.8282264
-              ],
-              [
-                19.1061492,
-                59.8282695
-              ],
-              [
-                19.1062565,
-                59.8282857
-              ],
-              [
-                19.1063423,
-                59.828345
-              ],
-              [
-                19.1064871,
-                59.8283746
-              ],
-              [
-                19.1066695,
-                59.82838
-              ],
-              [
-                19.1068251,
-                59.8283692
-              ],
-              [
-                19.1069163,
-                59.8283261
-              ],
-              [
-                19.1069539,
-                59.8282695
-              ],
-              [
-                19.1069485,
-                59.8282156
-              ],
-              [
-                19.1067983,
-                59.8279621
-              ],
-              [
-                19.1066695,
-                59.8278974
-              ],
-              [
-                19.1066481,
-                59.8278974
-              ],
-              [
-                19.1065676,
-                59.8279136
-              ],
-              [
-                19.1065408,
-                59.8279136
-              ],
-              [
-                19.1065354,
-                59.8279109
-              ],
-              [
-                19.1064818,
-                59.8278974
-              ],
-              [
-                19.1064871,
-                59.8278947
-              ],
-              [
-                19.1064979,
-                59.8278947
-              ],
-              [
-                19.1065301,
-                59.8278893
-              ],
-              [
-                19.1065676,
-                59.8278732
-              ],
-              [
-                19.106573,
-                59.8278732
-              ],
-              [
-                19.1065891,
-                59.8277572
-              ],
-              [
-                19.1066642,
-                59.8276979
-              ],
-              [
-                19.1066803,
-                59.8276979
-              ],
-              [
-                19.1067125,
-                59.827706
-              ],
-              [
-                19.1068144,
-                59.8277761
-              ],
-              [
-                19.1068734,
-                59.8277842
-              ],
-              [
-                19.1069324,
-                59.8277842
-              ],
-              [
-                19.1069592,
-                59.8277707
-              ],
-              [
-                19.1069324,
-                59.8276602
-              ],
-              [
-                19.1068251,
-                59.8275577
-              ],
-              [
-                19.1068144,
-                59.8275173
-              ],
-              [
-                19.1068251,
-                59.8275173
-              ],
-              [
-                19.1068519,
-                59.8275227
-              ],
-              [
-                19.1068787,
-                59.8275361
-              ],
-              [
-                19.1068895,
-                59.8275388
-              ],
-              [
-                19.1069324,
-                59.8275604
-              ],
-              [
-                19.1069807,
-                59.8275685
-              ],
-              [
-                19.1069807,
-                59.8275604
-              ],
-              [
-                19.1069699,
-                59.8275469
-              ],
-              [
-                19.1069646,
-                59.8275442
-              ],
-              [
-                19.1068144,
-                59.8273339
-              ],
-              [
-                19.1067285,
-                59.827245
-              ],
-              [
-                19.1066588,
-                59.8272288
-              ],
-              [
-                19.1065086,
-                59.8272288
-              ],
-              [
-                19.1063745,
-                59.8272476
-              ],
-              [
-                19.1063584,
-                59.827245
-              ],
-              [
-                19.1062672,
-                59.8271668
-              ],
-              [
-                19.1062672,
-                59.8271398
-              ],
-              [
-                19.1064979,
-                59.8271101
-              ],
-              [
-                19.1065622,
-                59.8270724
-              ],
-              [
-                19.1065676,
-                59.8270481
-              ],
-              [
-                19.1065998,
-                59.8270077
-              ],
-              [
-                19.106632,
-                59.8270023
-              ],
-              [
-                19.1067071,
-                59.8270158
-              ],
-              [
-                19.1067071,
-                59.8270266
-              ],
-              [
-                19.1067446,
-                59.8270481
-              ],
-              [
-                19.1067768,
-                59.8270562
-              ],
-              [
-                19.1067983,
-                59.8270535
-              ],
-              [
-                19.1067929,
-                59.8270131
-              ],
-              [
-                19.1067607,
-                59.8269861
-              ],
-              [
-                19.1067554,
-                59.8269484
-              ],
-              [
-                19.1067607,
-                59.8269376
-              ],
-              [
-                19.1067876,
-                59.8269241
-              ],
-              [
-                19.1068412,
-                59.826916
-              ],
-              [
-                19.1068734,
-                59.8269025
-              ],
-              [
-                19.1068734,
-                59.8268864
-              ],
-              [
-                19.1068251,
-                59.8268486
-              ],
-              [
-                19.1067715,
-                59.8268351
-              ],
-              [
-                19.1066856,
-                59.8268351
-              ],
-              [
-                19.1065569,
-                59.8268702
-              ],
-              [
-                19.1065462,
-                59.8268675
-              ],
-              [
-                19.1065354,
-                59.8268405
-              ],
-              [
-                19.1065408,
-                59.8268163
-              ],
-              [
-                19.1065998,
-                59.8267677
-              ],
-              [
-                19.1067715,
-                59.8267165
-              ],
-              [
-                19.1068787,
-                59.826703
-              ],
-              [
-                19.1069378,
-                59.8266734
-              ],
-              [
-                19.1069485,
-                59.8266626
-              ],
-              [
-                19.1071255,
-                59.8265871
-              ],
-              [
-                19.1073025,
-                59.8265493
-              ],
-              [
-                19.1075815,
-                59.8265574
-              ],
-              [
-                19.1078497,
-                59.826517
-              ],
-              [
-                19.1080643,
-                59.8265251
-              ],
-              [
-                19.1082413,
-                59.8264792
-              ],
-              [
-                19.1082467,
-                59.8264765
-              ],
-              [
-                19.1081608,
-                59.826366
-              ],
-              [
-                19.1080589,
-                59.8262662
-              ],
-              [
-                19.1080482,
-                59.8262393
-              ],
-              [
-                19.1080321,
-                59.8260209
-              ],
-              [
-                19.1079624,
-                59.8259481
-              ],
-              [
-                19.1078604,
-                59.8259049
-              ],
-              [
-                19.107839,
-                59.8258699
-              ],
-              [
-                19.1078551,
-                59.8257971
-              ],
-              [
-                19.1078765,
-                59.8257782
-              ],
-              [
-                19.107898,
-                59.8257701
-              ],
-              [
-                19.1081555,
-                59.8257485
-              ],
-              [
-                19.1082413,
-                59.8257782
-              ],
-              [
-                19.1082628,
-                59.8257971
-              ],
-              [
-                19.1083003,
-                59.8258105
-              ],
-              [
-                19.1083218,
-                59.8258132
-              ],
-              [
-                19.1084988,
-                59.8257593
-              ],
-              [
-                19.1084988,
-                59.8257216
-              ],
-              [
-                19.1084881,
-                59.8257054
-              ],
-              [
-                19.1084183,
-                59.8256622
-              ],
-              [
-                19.1084344,
-                59.825638
-              ],
-              [
-                19.1084613,
-                59.8256245
-              ],
-              [
-                19.1085954,
-                59.825638
-              ],
-              [
-                19.1086383,
-                59.8256568
-              ],
-              [
-                19.1086866,
-                59.825789
-              ],
-              [
-                19.1086919,
-                59.8259561
-              ],
-              [
-                19.1087241,
-                59.8260505
-              ],
-              [
-                19.1087938,
-                59.8261772
-              ],
-              [
-                19.108928,
-                59.8262689
-              ],
-              [
-                19.1089011,
-                59.8263255
-              ],
-              [
-                19.1086758,
-                59.8264496
-              ],
-              [
-                19.1086342,
-                59.8264915
-              ],
-              [
-                19.1086222,
-                59.8265035
-              ],
-              [
-                19.1087617,
-                59.8266814
-              ],
-              [
-                19.1088689,
-                59.8267219
-              ],
-              [
-                19.1091157,
-                59.8268702
-              ],
-              [
-                19.1091854,
-                59.8269915
-              ],
-              [
-                19.1092176,
-                59.8270185
-              ],
-              [
-                19.1092498,
-                59.8270805
-              ],
-              [
-                19.1093732,
-                59.8271722
-              ],
-              [
-                19.1093732,
-                59.8272746
-              ],
-              [
-                19.1093947,
-                59.8273258
-              ],
-              [
-                19.1094268,
-                59.8273555
-              ],
-              [
-                19.1094161,
-                59.8273663
-              ],
-              [
-                19.1094161,
-                59.827466
-              ],
-              [
-                19.1093571,
-                59.8274984
-              ],
-              [
-                19.1092981,
-                59.8276548
-              ],
-              [
-                19.1093839,
-                59.8276844
-              ],
-              [
-                19.1093947,
-                59.8277545
-              ],
-              [
-                19.1095771,
-                59.8278058
-              ],
-              [
-                19.1095771,
-                59.8278246
-              ],
-              [
-                19.1095556,
-                59.8278327
-              ],
-              [
-                19.1094322,
-                59.8278381
-              ],
-              [
-                19.1092766,
-                59.8278246
-              ],
-              [
-                19.1091908,
-                59.8278732
-              ],
-              [
-                19.1091157,
-                59.8278732
-              ],
-              [
-                19.1090621,
-                59.827857
-              ],
-              [
-                19.1089601,
-                59.8278516
-              ],
-              [
-                19.1088689,
-                59.8278651
-              ],
-              [
-                19.1088475,
-                59.8278759
-              ],
-              [
-                19.1088421,
-                59.8278866
-              ],
-              [
-                19.1088529,
-                59.8279055
-              ],
-              [
-                19.1088529,
-                59.8279567
-              ],
-              [
-                19.1088636,
-                59.8279594
-              ],
-              [
-                19.1088743,
-                59.8280053
-              ],
-              [
-                19.108885,
-                59.8280161
-              ],
-              [
-                19.1088475,
-                59.8280161
-              ],
-              [
-                19.1088689,
-                59.8280376
-              ],
-              [
-                19.1088743,
-                59.8280511
-              ],
-              [
-                19.1088368,
-                59.8280511
-              ],
-              [
-                19.1087831,
-                59.82807
-              ],
-              [
-                19.1087724,
-                59.8280808
-              ],
-              [
-                19.1087831,
-                59.8280915
-              ],
-              [
-                19.1088192,
-                59.828098
-              ],
-              [
-                19.1088582,
-                59.828105
-              ],
-              [
-                19.1089977,
-                59.8281563
-              ],
-              [
-                19.109046,
-                59.828194
-              ],
-              [
-                19.1089977,
-                59.8281994
-              ],
-              [
-                19.1089923,
-                59.8282156
-              ],
-              [
-                19.1089977,
-                59.8282371
-              ],
-              [
-                19.1090245,
-                59.8282371
-              ],
-              [
-                19.109046,
-                59.8282479
-              ],
-              [
-                19.1090674,
-                59.8282668
-              ],
-              [
-                19.1090996,
-                59.8282749
-              ],
-              [
-                19.1091694,
-                59.8282857
-              ],
-              [
-                19.1092284,
-                59.8283018
-              ],
-              [
-                19.1092176,
-                59.8283288
-              ],
-              [
-                19.1091586,
-                59.8283585
-              ],
-              [
-                19.1091157,
-                59.8283989
-              ],
-              [
-                19.1090567,
-                59.8284447
-              ],
-              [
-                19.1090352,
-                59.828496
-              ],
-              [
-                19.1090501,
-                59.8285184
-              ],
-              [
-                19.1091372,
-                59.8286901
-              ],
-              [
-                19.1092606,
-                59.8287575
-              ],
-              [
-                19.1092713,
-                59.8287871
-              ],
-              [
-                19.1093196,
-                59.8287521
-              ],
-              [
-                19.1093678,
-                59.8287575
-              ],
-              [
-                19.1093625,
-                59.8287521
-              ],
-              [
-                19.1093839,
-                59.8287305
-              ],
-              [
-                19.1094268,
-                59.8287386
-              ],
-              [
-                19.1094429,
-                59.8287818
-              ],
-              [
-                19.1094161,
-                59.8288141
-              ],
-              [
-                19.1094912,
-                59.8288545
-              ],
-              [
-                19.109518,
-                59.8288842
-              ],
-              [
-                19.109518,
-                59.8289974
-              ],
-              [
-                19.1095556,
-                59.8290244
-              ],
-              [
-                19.109797,
-                59.8290756
-              ],
-              [
-                19.1098936,
-                59.829108
-              ],
-              [
-                19.1100116,
-                59.8292104
-              ],
-              [
-                19.1100598,
-                59.8293048
-              ],
-              [
-                19.1100813,
-                59.8294477
-              ],
-              [
-                19.1100169,
-                59.8296121
-              ],
-              [
-                19.1099955,
-                59.8298575
-              ],
-              [
-                19.1099526,
-                59.8298575
-              ],
-              [
-                19.1099365,
-                59.8298683
-              ],
-              [
-                19.1098989,
-                59.829879
-              ],
-              [
-                19.1098667,
-                59.8299006
-              ],
-              [
-                19.1098667,
-                59.8299168
-              ],
-              [
-                19.1097219,
-                59.8300246
-              ],
-              [
-                19.1096897,
-                59.8301028
-              ],
-              [
-                19.1096522,
-                59.8301298
-              ],
-              [
-                19.1096522,
-                59.8301945
-              ],
-              [
-                19.1096843,
-                59.8302349
-              ],
-              [
-                19.109679,
-                59.8303023
-              ],
-              [
-                19.109856,
-                59.8304021
-              ],
-              [
-                19.1098614,
-                59.8304209
-              ],
-              [
-                19.1099847,
-                59.830491
-              ],
-              [
-                19.1101725,
-                59.8305746
-              ],
-              [
-                19.1102101,
-                59.830615
-              ],
-              [
-                19.1102154,
-                59.830642
-              ],
-              [
-                19.110135,
-                59.830731
-              ],
-              [
-                19.110092,
-                59.8307417
-              ],
-              [
-                19.1101028,
-                59.8307795
-              ],
-              [
-                19.1100867,
-                59.8308415
-              ],
-              [
-                19.1099526,
-                59.8310194
-              ],
-              [
-                19.1099365,
-                59.8310733
-              ],
-              [
-                19.1099633,
-                59.8311273
-              ],
-              [
-                19.1098292,
-                59.8312755
-              ],
-              [
-                19.1097112,
-                59.8313187
-              ],
-              [
-                19.1095717,
-                59.831351
-              ],
-              [
-                19.1093786,
-                59.8314642
-              ],
-              [
-                19.109164,
-                59.8318093
-              ],
-              [
-                19.1091103,
-                59.8318201
-              ],
-              [
-                19.1091533,
-                59.8320789
-              ],
-              [
-                19.1091533,
-                59.8322191
-              ],
-              [
-                19.1091211,
-                59.8323485
-              ],
-              [
-                19.1091211,
-                59.8324347
-              ],
-              [
-                19.1091533,
-                59.8325803
-              ],
-              [
-                19.1092069,
-                59.8326396
-              ],
-              [
-                19.1093786,
-                59.8326881
-              ],
-              [
-                19.1094215,
-                59.8326935
-              ],
-              [
-                19.1094537,
-                59.8327205
-              ],
-              [
-                19.1094859,
-                59.8327259
-              ],
-              [
-                19.1097648,
-                59.8327205
-              ],
-              [
-                19.1098936,
-                59.8326881
-              ],
-              [
-                19.1099257,
-                59.8326342
-              ],
-              [
-                19.1099579,
-                59.8326127
-              ],
-              [
-                19.1100008,
-                59.8325426
-              ],
-              [
-                19.1101296,
-                59.8324994
-              ],
-              [
-                19.110151,
-                59.8324725
-              ],
-              [
-                19.110151,
-                59.8324617
-              ],
-              [
-                19.1102905,
-                59.8324024
-              ],
-              [
-                19.1104407,
-                59.83237
-              ],
-              [
-                19.110548,
-                59.8323754
-              ],
-              [
-                19.1106231,
-                59.8324725
-              ],
-              [
-                19.1106875,
-                59.8325264
-              ],
-              [
-                19.1107411,
-                59.8326181
-              ],
-              [
-                19.1107948,
-                59.8326288
-              ],
-              [
-                19.1108377,
-                59.832645
-              ],
-              [
-                19.1110737,
-                59.8326504
-              ],
-              [
-                19.1110737,
-                59.8325695
-              ],
-              [
-                19.111181,
-                59.832521
-              ],
-              [
-                19.1114921,
-                59.8325102
-              ],
-              [
-                19.1116853,
-                59.8325641
-              ],
-              [
-                19.1118677,
-                59.8327313
-              ],
-              [
-                19.1117926,
-                59.8327528
-              ],
-              [
-                19.1117818,
-                59.8329146
-              ],
-              [
-                19.1117926,
-                59.8329254
-              ],
-              [
-                19.1118033,
-                59.8329254
-              ],
-              [
-                19.1120286,
-                59.8329793
-              ],
-              [
-                19.112093,
-                59.8330278
-              ],
-              [
-                19.1121252,
-                59.8330979
-              ],
-              [
-                19.1121144,
-                59.8331249
-              ],
-              [
-                19.1121359,
-                59.8331572
-              ],
-              [
-                19.1121359,
-                59.8332489
-              ],
-              [
-                19.1121144,
-                59.8332866
-              ],
-              [
-                19.1121144,
-                59.8333459
-              ],
-              [
-                19.1122539,
-                59.8333998
-              ],
-              [
-                19.112329,
-                59.8334429
-              ],
-              [
-                19.1123505,
-                59.8335346
-              ],
-              [
-                19.112329,
-                59.833637
-              ],
-              [
-                19.1123397,
-                59.8337395
-              ],
-              [
-                19.112447,
-                59.8338743
-              ],
-              [
-                19.1125972,
-                59.8339659
-              ],
-              [
-                19.1127152,
-                59.8340198
-              ],
-              [
-                19.112844,
-                59.83416
-              ],
-              [
-                19.1129513,
-                59.8342516
-              ],
-              [
-                19.1130371,
-                59.8343541
-              ],
-              [
-                19.1131873,
-                59.8345536
-              ],
-              [
-                19.1131658,
-                59.8345643
-              ],
-              [
-                19.1131229,
-                59.8346021
-              ],
-              [
-                19.1131229,
-                59.8346452
-              ],
-              [
-                19.1130693,
-                59.8346614
-              ],
-              [
-                19.1128654,
-                59.8347638
-              ],
-              [
-                19.1128654,
-                59.8348177
-              ],
-              [
-                19.1128976,
-                59.8349417
-              ],
-              [
-                19.1128654,
-                59.8350495
-              ],
-              [
-                19.1128762,
-                59.8350657
-              ],
-              [
-                19.1128547,
-                59.8350927
-              ],
-              [
-                19.1128011,
-                59.8351089
-              ],
-              [
-                19.1127367,
-                59.8351574
-              ],
-              [
-                19.112726,
-                59.8352436
-              ],
-              [
-                19.1127152,
-                59.835249
-              ],
-              [
-                19.1126079,
-                59.8352544
-              ],
-              [
-                19.1124577,
-                59.8352275
-              ],
-              [
-                19.1123826,
-                59.8352005
-              ],
-              [
-                19.1122324,
-                59.8351682
-              ],
-              [
-                19.1121144,
-                59.8351035
-              ],
-              [
-                19.1118247,
-                59.8351035
-              ],
-              [
-                19.1117711,
-                59.8351466
-              ],
-              [
-                19.1115136,
-                59.8352328
-              ],
-              [
-                19.1113849,
-                59.8352598
-              ],
-              [
-                19.1112025,
-                59.8353245
-              ],
-              [
-                19.1111274,
-                59.8353622
-              ],
-              [
-                19.1110737,
-                59.8354161
-              ],
-              [
-                19.1109986,
-                59.8355401
-              ],
-              [
-                19.1109986,
-                59.8355994
-              ],
-              [
-                19.1110952,
-                59.835772
-              ],
-              [
-                19.1111917,
-                59.8358636
-              ],
-              [
-                19.1113527,
-                59.8359499
-              ],
-              [
-                19.1115673,
-                59.8360469
-              ],
-              [
-                19.1116316,
-                59.8361008
-              ],
-              [
-                19.1116531,
-                59.8361008
-              ],
-              [
-                19.112093,
-                59.8362679
-              ],
-              [
-                19.11227,
-                59.8363394
-              ],
-              [
-                19.1126455,
-                59.8364499
-              ],
-              [
-                19.112793,
-                59.8365186
-              ],
-              [
-                19.1128172,
-                59.8365496
-              ],
-              [
-                19.1128815,
-                59.8365846
-              ],
-              [
-                19.1128976,
-                59.8366237
-              ],
-              [
-                19.1129191,
-                59.8367747
-              ],
-              [
-                19.112962,
-                59.8368448
-              ],
-              [
-                19.1131122,
-                59.8369364
-              ],
-              [
-                19.1132731,
-                59.8370119
-              ],
-              [
-                19.1133482,
-                59.8371197
-              ],
-              [
-                19.1136594,
-                59.8373623
-              ],
-              [
-                19.113713,
-                59.8374377
-              ],
-              [
-                19.1138632,
-                59.8376588
-              ],
-              [
-                19.1140027,
-                59.8377666
-              ],
-              [
-                19.11411,
-                59.8378259
-              ],
-              [
-                19.1143675,
-                59.8379337
-              ],
-              [
-                19.1146035,
-                59.8381385
-              ],
-              [
-                19.1146893,
-                59.8382625
-              ],
-              [
-                19.1147537,
-                59.8383218
-              ],
-              [
-                19.1147966,
-                59.8384188
-              ],
-              [
-                19.114979,
-                59.8386291
-              ],
-              [
-                19.1151614,
-                59.8387477
-              ],
-              [
-                19.1153116,
-                59.8388124
-              ],
-              [
-                19.1155369,
-                59.8388501
-              ],
-              [
-                19.1157515,
-                59.838904
-              ],
-              [
-                19.1159124,
-                59.8389849
-              ],
-              [
-                19.1160656,
-                59.839091
-              ],
-              [
-                19.1164893,
-                59.8396266
-              ],
-              [
-                19.1165826,
-                59.8397445
-              ],
-              [
-                19.116663,
-                59.8397833
-              ],
-              [
-                19.117288,
-                59.8400851
-              ],
-              [
-                19.1180273,
-                59.8403026
-              ],
-              [
-                19.1180165,
-                59.8407247
-              ],
-              [
-                19.1184367,
-                59.8409023
-              ],
-              [
-                19.1185586,
-                59.8411146
-              ],
-              [
-                19.1189814,
-                59.8412623
-              ],
-              [
-                19.1191138,
-                59.8413086
-              ],
-              [
-                19.1194437,
-                59.8415107
-              ],
-              [
-                19.1195202,
-                59.8417041
-              ],
-              [
-                19.1197122,
-                59.8417377
-              ],
-              [
-                19.1199929,
-                59.8419371
-              ],
-              [
-                19.1200512,
-                59.8419785
-              ],
-              [
-                19.1200681,
-                59.8419905
-              ],
-              [
-                19.1203323,
-                59.8421781
-              ],
-              [
-                19.1206158,
-                59.8424157
-              ],
-              [
-                19.1209023,
-                59.8426558
-              ],
-              [
-                19.1210549,
-                59.8428367
-              ],
-              [
-                19.1210755,
-                59.8428667
-              ],
-              [
-                19.1209075,
-                59.8430371
-              ],
-              [
-                19.1206376,
-                59.8431314
-              ],
-              [
-                19.120402,
-                59.8431744
-              ],
-              [
-                19.1202479,
-                59.843247
-              ],
-              [
-                19.1199801,
-                59.8433962
-              ],
-              [
-                19.1200176,
-                59.8436111
-              ],
-              [
-                19.1200879,
-                59.8436441
-              ],
-              [
-                19.1205464,
-                59.8438596
-              ],
-              [
-                19.12076,
-                59.84396
-              ],
-              [
-                19.12125,
-                59.84422
-              ],
-              [
-                19.1216744,
-                59.8447504
-              ],
-              [
-                19.1218819,
-                59.8451317
-              ],
-              [
-                19.1216447,
-                59.8456099
-              ],
-              [
-                19.1216705,
-                59.8458672
-              ],
-              [
-                19.1216765,
-                59.8459261
-              ],
-              [
-                19.1216932,
-                59.8460927
-              ],
-              [
-                19.122506,
-                59.8462503
-              ],
-              [
-                19.1235533,
-                59.8463473
-              ],
-              [
-                19.1238747,
-                59.8461218
-              ],
-              [
-                19.123932,
-                59.8460816
-              ],
-              [
-                19.1240244,
-                59.8458945
-              ],
-              [
-                19.1242081,
-                59.8455224
-              ],
-              [
-                19.1242346,
-                59.8454688
-              ],
-              [
-                19.1246434,
-                59.8448718
-              ],
-              [
-                19.1248936,
-                59.8445286
-              ],
-              [
-                19.1254989,
-                59.8441188
-              ],
-              [
-                19.1262062,
-                59.8438813
-              ],
-              [
-                19.1268675,
-                59.8436106
-              ],
-              [
-                19.1273989,
-                59.8433361
-              ],
-              [
-                19.1277189,
-                59.8431505
-              ],
-              [
-                19.127997,
-                59.8430099
-              ],
-              [
-                19.1281443,
-                59.8428787
-              ],
-              [
-                19.1282821,
-                59.8428389
-              ],
-              [
-                19.1284045,
-                59.8429186
-              ],
-              [
-                19.1285716,
-                59.8430161
-              ],
-              [
-                19.1288418,
-                59.8430697
-              ],
-              [
-                19.1292462,
-                59.8430882
-              ],
-              [
-                19.1296651,
-                59.8429959
-              ],
-              [
-                19.1302254,
-                59.8431757
-              ],
-              [
-                19.1308391,
-                59.8433289
-              ],
-              [
-                19.1314536,
-                59.843567
-              ],
-              [
-                19.13196,
-                59.84386
-              ],
-              [
-                19.1321201,
-                59.8440353
-              ],
-              [
-                19.1323781,
-                59.8441923
-              ],
-              [
-                19.1328502,
-                59.8443253
-              ],
-              [
-                19.1332381,
-                59.8444819
-              ],
-              [
-                19.1337083,
-                59.8447617
-              ],
-              [
-                19.1343675,
-                59.8450456
-              ],
-              [
-                19.1346398,
-                59.8451923
-              ],
-              [
-                19.1349053,
-                59.8453792
-              ],
-              [
-                19.1353232,
-                59.8454655
-              ],
-              [
-                19.1357937,
-                59.8455794
-              ],
-              [
-                19.136089,
-                59.8456839
-              ],
-              [
-                19.1363129,
-                59.8458088
-              ],
-              [
-                19.136567,
-                59.845994
-              ],
-              [
-                19.1369899,
-                59.8461771
-              ],
-              [
-                19.1373298,
-                59.8464407
-              ],
-              [
-                19.1373094,
-                59.8466204
-              ],
-              [
-                19.1372383,
-                59.846728
-              ],
-              [
-                19.137315,
-                59.8468509
-              ],
-              [
-                19.1375583,
-                59.8468992
-              ],
-              [
-                19.1379402,
-                59.8468599
-              ],
-              [
-                19.1379472,
-                59.84702
-              ],
-              [
-                19.1382479,
-                59.8471907
-              ],
-              [
-                19.1381403,
-                59.847335
-              ],
-              [
-                19.1385309,
-                59.8476586
-              ],
-              [
-                19.1386615,
-                59.8478573
-              ],
-              [
-                19.138835,
-                59.8479456
-              ],
-              [
-                19.1393484,
-                59.8484194
-              ],
-              [
-                19.1397365,
-                59.8487686
-              ],
-              [
-                19.1400278,
-                59.8491868
-              ],
-              [
-                19.1400265,
-                59.8493634
-              ],
-              [
-                19.1394283,
-                59.8496287
-              ],
-              [
-                19.1389463,
-                59.850018
-              ],
-              [
-                19.1387253,
-                59.8500995
-              ],
-              [
-                19.138481,
-                59.8501634
-              ],
-              [
-                19.1385496,
-                59.8504567
-              ],
-              [
-                19.1388889,
-                59.8506147
-              ],
-              [
-                19.1390818,
-                59.850758
-              ],
-              [
-                19.1391931,
-                59.8508407
-              ],
-              [
-                19.1393672,
-                59.8511269
-              ],
-              [
-                19.1393497,
-                59.8514616
-              ],
-              [
-                19.1397448,
-                59.8518682
-              ],
-              [
-                19.1401362,
-                59.8524905
-              ],
-              [
-                19.1402223,
-                59.8528137
-              ],
-              [
-                19.1401112,
-                59.85317
-              ],
-              [
-                19.1404765,
-                59.8535412
-              ],
-              [
-                19.1402773,
-                59.8536517
-              ],
-              [
-                19.1404144,
-                59.8537561
-              ],
-              [
-                19.140605,
-                59.8542103
-              ],
-              [
-                19.1405134,
-                59.8542231
-              ],
-              [
-                19.1401529,
-                59.8541882
-              ],
-              [
-                19.140104,
-                59.8543048
-              ],
-              [
-                19.1402022,
-                59.8544088
-              ],
-              [
-                19.1402212,
-                59.8545486
-              ],
-              [
-                19.1397199,
-                59.8546434
-              ],
-              [
-                19.1395831,
-                59.854781
-              ],
-              [
-                19.1396166,
-                59.8549368
-              ],
-              [
-                19.1400466,
-                59.8551275
-              ],
-              [
-                19.1404051,
-                59.855409
-              ],
-              [
-                19.1404873,
-                59.8555931
-              ],
-              [
-                19.1407276,
-                59.8556622
-              ],
-              [
-                19.1406858,
-                59.8558951
-              ],
-              [
-                19.1404326,
-                59.8559414
-              ],
-              [
-                19.1404319,
-                59.8560511
-              ],
-              [
-                19.1402974,
-                59.8561338
-              ],
-              [
-                19.1401359,
-                59.8561974
-              ],
-              [
-                19.1398441,
-                59.8562384
-              ],
-              [
-                19.1402233,
-                59.8563766
-              ],
-              [
-                19.1401421,
-                59.8564991
-              ],
-              [
-                19.1398299,
-                59.8564156
-              ],
-              [
-                19.1394452,
-                59.8563843
-              ],
-              [
-                19.1394404,
-                59.8565699
-              ],
-              [
-                19.1396595,
-                59.8568249
-              ],
-              [
-                19.1402102,
-                59.8573016
-              ],
-              [
-                19.1404293,
-                59.8574391
-              ],
-              [
-                19.1408354,
-                59.8576613
-              ],
-              [
-                19.1410857,
-                59.8578778
-              ],
-              [
-                19.141215,
-                59.8583058
-              ],
-              [
-                19.1409703,
-                59.8584328
-              ],
-              [
-                19.1414655,
-                59.8587055
-              ],
-              [
-                19.1415446,
-                59.8588768
-              ],
-              [
-                19.1412509,
-                59.8588794
-              ],
-              [
-                19.1412276,
-                59.858987
-              ],
-              [
-                19.1410733,
-                59.8590381
-              ],
-              [
-                19.1411817,
-                59.8592541
-              ],
-              [
-                19.1410932,
-                59.8593296
-              ],
-              [
-                19.1411238,
-                59.8595318
-              ],
-              [
-                19.1409875,
-                59.8596162
-              ],
-              [
-                19.141021,
-                59.8597466
-              ],
-              [
-                19.1412378,
-                59.859723
-              ],
-              [
-                19.1412766,
-                59.8598626
-              ],
-              [
-                19.1412673,
-                59.8600153
-              ],
-              [
-                19.1415315,
-                59.8600681
-              ],
-              [
-                19.1415599,
-                59.8602009
-              ],
-              [
-                19.1413043,
-                59.8602848
-              ],
-              [
-                19.1414494,
-                59.8604468
-              ],
-              [
-                19.1417455,
-                59.8606701
-              ],
-              [
-                19.1421285,
-                59.8608201
-              ],
-              [
-                19.1421226,
-                59.8609766
-              ],
-              [
-                19.1418466,
-                59.8610356
-              ],
-              [
-                19.1416481,
-                59.8610443
-              ],
-              [
-                19.1414647,
-                59.8609555
-              ],
-              [
-                19.1412651,
-                59.8610852
-              ],
-              [
-                19.1412292,
-                59.8612981
-              ],
-              [
-                19.1415001,
-                59.8613452
-              ],
-              [
-                19.1416892,
-                59.8616124
-              ],
-              [
-                19.142158,
-                59.8617885
-              ],
-              [
-                19.1421462,
-                59.8619932
-              ],
-              [
-                19.1422506,
-                59.8621834
-              ],
-              [
-                19.1423541,
-                59.8624006
-              ],
-              [
-                19.1420188,
-                59.8624999
-              ],
-              [
-                19.1417163,
-                59.8624319
-              ],
-              [
-                19.1413976,
-                59.8627048
-              ],
-              [
-                19.1409886,
-                59.8626401
-              ],
-              [
-                19.1406326,
-                59.8627956
-              ],
-              [
-                19.1404232,
-                59.8627293
-              ],
-              [
-                19.1399691,
-                59.8628198
-              ],
-              [
-                19.1393825,
-                59.8627062
-              ],
-              [
-                19.1390826,
-                59.8623384
-              ],
-              [
-                19.1388782,
-                59.8619216
-              ],
-              [
-                19.1384888,
-                59.862248
-              ],
-              [
-                19.1380789,
-                59.8620672
-              ],
-              [
-                19.1379317,
-                59.862155
-              ],
-              [
-                19.1377294,
-                59.8621829
-              ],
-              [
-                19.1378,
-                59.86239
-              ],
-              [
-                19.1377337,
-                59.8625751
-              ],
-              [
-                19.1377337,
-                59.8628233
-              ],
-              [
-                19.1374346,
-                59.8629603
-              ],
-              [
-                19.1371468,
-                59.8631739
-              ],
-              [
-                19.1367121,
-                59.8628841
-              ],
-              [
-                19.1365173,
-                59.8629611
-              ],
-              [
-                19.1364205,
-                59.863088
-              ],
-              [
-                19.1363459,
-                59.8633181
-              ],
-              [
-                19.1364884,
-                59.8635562
-              ],
-              [
-                19.1365299,
-                59.864204
-              ],
-              [
-                19.1364197,
-                59.8648402
-              ],
-              [
-                19.135879,
-                59.8653514
-              ],
-              [
-                19.1355224,
-                59.8654156
-              ],
-              [
-                19.1346952,
-                59.8650709
-              ],
-              [
-                19.1343619,
-                59.8655611
-              ],
-              [
-                19.13407,
-                59.86514
-              ],
-              [
-                19.1332159,
-                59.8649582
-              ],
-              [
-                19.1329272,
-                59.8647637
-              ],
-              [
-                19.1328307,
-                59.8645589
-              ],
-              [
-                19.1328039,
-                59.8645078
-              ],
-              [
-                19.1325222,
-                59.8643295
-              ],
-              [
-                19.1325161,
-                59.8642787
-              ],
-              [
-                19.1324556,
-                59.8642592
-              ],
-              [
-                19.1324284,
-                59.8642336
-              ],
-              [
-                19.1323714,
-                59.8642029
-              ],
-              [
-                19.1323583,
-                59.8641403
-              ],
-              [
-                19.1323721,
-                59.8641048
-              ],
-              [
-                19.1323752,
-                59.8640428
-              ],
-              [
-                19.132369,
-                59.8640159
-              ],
-              [
-                19.1324001,
-                59.8639967
-              ],
-              [
-                19.1325919,
-                59.8639319
-              ],
-              [
-                19.1326156,
-                59.8638666
-              ],
-              [
-                19.132628,
-                59.8638449
-              ],
-              [
-                19.1332142,
-                59.8633316
-              ],
-              [
-                19.1332797,
-                59.8632681
-              ],
-              [
-                19.13343,
-                59.86308
-              ],
-              [
-                19.13293,
-                59.86281
-              ],
-              [
-                19.13271,
-                59.8623
-              ],
-              [
-                19.1319525,
-                59.8621724
-              ],
-              [
-                19.1309996,
-                59.8625223
-              ],
-              [
-                19.13013,
-                59.86278
-              ],
-              [
-                19.1297025,
-                59.8629801
-              ],
-              [
-                19.1298205,
-                59.8631468
-              ],
-              [
-                19.129606,
-                59.8632901
-              ],
-              [
-                19.1291451,
-                59.8633084
-              ],
-              [
-                19.1286495,
-                59.8632538
-              ],
-              [
-                19.1286387,
-                59.8634892
-              ],
-              [
-                19.1283056,
-                59.8636559
-              ],
-              [
-                19.1279323,
-                59.8631328
-              ],
-              [
-                19.1275669,
-                59.8630189
-              ],
-              [
-                19.1273668,
-                59.8630717
-              ],
-              [
-                19.1269114,
-                59.8631091
-              ],
-              [
-                19.1265069,
-                59.8629384
-              ],
-              [
-                19.1268218,
-                59.8627299
-              ],
-              [
-                19.1263369,
-                59.8625516
-              ],
-              [
-                19.12555,
-                59.86259
-              ],
-              [
-                19.1252527,
-                59.8623768
-              ],
-              [
-                19.1245575,
-                59.8616954
-              ],
-              [
-                19.1241713,
-                59.8615785
-              ],
-              [
-                19.1238333,
-                59.8616248
-              ],
-              [
-                19.1238204,
-                59.8619618
-              ],
-              [
-                19.1239017,
-                59.8622741
-              ],
-              [
-                19.1239129,
-                59.8623172
-              ],
-              [
-                19.1237278,
-                59.8624329
-              ],
-              [
-                19.1236187,
-                59.8625077
-              ],
-              [
-                19.1235651,
-                59.8626122
-              ],
-              [
-                19.1234075,
-                59.8628452
-              ],
-              [
-                19.123713,
-                59.8630272
-              ],
-              [
-                19.1242791,
-                59.8629998
-              ],
-              [
-                19.1245371,
-                59.8633101
-              ],
-              [
-                19.1244899,
-                59.863581
-              ],
-              [
-                19.1242018,
-                59.8639586
-              ],
-              [
-                19.1239218,
-                59.8641237
-              ],
-              [
-                19.1228446,
-                59.8639346
-              ],
-              [
-                19.1226478,
-                59.8634929
-              ],
-              [
-                19.1223125,
-                59.8629018
-              ],
-              [
-                19.1227859,
-                59.8626878
-              ],
-              [
-                19.1234417,
-                59.8626047
-              ],
-              [
-                19.1234911,
-                59.8625058
-              ],
-              [
-                19.1228586,
-                59.8623125
-              ],
-              [
-                19.1219981,
-                59.8620687
-              ],
-              [
-                19.1213587,
-                59.8616973
-              ],
-              [
-                19.12104,
-                59.86137
-              ],
-              [
-                19.1205068,
-                59.8611338
-              ],
-              [
-                19.119987,
-                59.8608033
-              ],
-              [
-                19.1193953,
-                59.8605819
-              ],
-              [
-                19.119,
-                59.8601238
-              ],
-              [
-                19.1184163,
-                59.8595813
-              ],
-              [
-                19.1181443,
-                59.8591107
-              ],
-              [
-                19.1172619,
-                59.8593607
-              ],
-              [
-                19.1168172,
-                59.8596333
-              ],
-              [
-                19.1166246,
-                59.8602401
-              ],
-              [
-                19.1162105,
-                59.8603713
-              ],
-              [
-                19.1155844,
-                59.8605984
-              ],
-              [
-                19.1146902,
-                59.8607236
-              ],
-              [
-                19.1139553,
-                59.8606783
-              ],
-              [
-                19.11372,
-                59.8605
-              ],
-              [
-                19.1137026,
-                59.8600634
-              ],
-              [
-                19.1134532,
-                59.8597485
-              ],
-              [
-                19.1131495,
-                59.8595872
-              ],
-              [
-                19.1128282,
-                59.859417
-              ],
-              [
-                19.1128963,
-                59.8592195
-              ],
-              [
-                19.112575,
-                59.859094
-              ],
-              [
-                19.1119645,
-                59.8592257
-              ],
-              [
-                19.1114334,
-                59.859104
-              ],
-              [
-                19.1114131,
-                59.8593173
-              ],
-              [
-                19.1111754,
-                59.8594566
-              ],
-              [
-                19.1108487,
-                59.859404
-              ],
-              [
-                19.1101481,
-                59.8591269
-              ],
-              [
-                19.1100189,
-                59.8588211
-              ],
-              [
-                19.1098445,
-                59.8587613
-              ],
-              [
-                19.10948,
-                59.85904
-              ],
-              [
-                19.1091611,
-                59.8588839
-              ],
-              [
-                19.1089615,
-                59.8586116
-              ],
-              [
-                19.1088102,
-                59.8580615
-              ],
-              [
-                19.1094406,
-                59.8575704
-              ],
-              [
-                19.1093145,
-                59.8573399
-              ],
-              [
-                19.1092657,
-                59.856977
-              ],
-              [
-                19.1095355,
-                59.856748
-              ],
-              [
-                19.1089798,
-                59.8566462
-              ],
-              [
-                19.1084616,
-                59.8568105
-              ],
-              [
-                19.1082733,
-                59.8567857
-              ],
-              [
-                19.1078822,
-                59.8565428
-              ],
-              [
-                19.1076349,
-                59.8563523
-              ],
-              [
-                19.1076472,
-                59.8561311
-              ],
-              [
-                19.1080662,
-                59.8559885
-              ],
-              [
-                19.1087397,
-                59.856136
-              ],
-              [
-                19.1089347,
-                59.8559819
-              ],
-              [
-                19.1087797,
-                59.8559707
-              ],
-              [
-                19.1086279,
-                59.8558417
-              ],
-              [
-                19.1084087,
-                59.855907
-              ],
-              [
-                19.108284,
-                59.8558593
-              ],
-              [
-                19.108288,
-                59.855671
-              ],
-              [
-                19.108453,
-                59.8555517
-              ],
-              [
-                19.1087499,
-                59.8554744
-              ],
-              [
-                19.1086544,
-                59.8553368
-              ],
-              [
-                19.1089524,
-                59.855178
-              ],
-              [
-                19.10948,
-                59.8551176
-              ],
-              [
-                19.1097064,
-                59.8553544
-              ],
-              [
-                19.1098893,
-                59.8552481
-              ],
-              [
-                19.1101264,
-                59.8549707
-              ],
-              [
-                19.1106607,
-                59.8545763
-              ],
-              [
-                19.1111647,
-                59.8542708
-              ],
-              [
-                19.1113758,
-                59.8541107
-              ],
-              [
-                19.1115278,
-                59.8539955
-              ],
-              [
-                19.1118682,
-                59.8538166
-              ],
-              [
-                19.1121571,
-                59.8536015
-              ],
-              [
-                19.1118181,
-                59.8531105
-              ],
-              [
-                19.1113769,
-                59.8529868
-              ],
-              [
-                19.1108357,
-                59.8530138
-              ],
-              [
-                19.1111116,
-                59.8531807
-              ],
-              [
-                19.111239,
-                59.8533624
-              ],
-              [
-                19.1108393,
-                59.8534382
-              ],
-              [
-                19.1105145,
-                59.8534757
-              ],
-              [
-                19.1105293,
-                59.8530436
-              ],
-              [
-                19.1102836,
-                59.85307
-              ],
-              [
-                19.11012,
-                59.8531713
-              ],
-              [
-                19.1099952,
-                59.853333
-              ],
-              [
-                19.1098609,
-                59.8534486
-              ],
-              [
-                19.1095817,
-                59.8534871
-              ],
-              [
-                19.1092757,
-                59.8535038
-              ],
-              [
-                19.109388,
-                59.8533938
-              ],
-              [
-                19.109263,
-                59.8532855
-              ],
-              [
-                19.109012,
-                59.8529398
-              ],
-              [
-                19.1085757,
-                59.8524738
-              ],
-              [
-                19.1085587,
-                59.8522326
-              ],
-              [
-                19.1083151,
-                59.8521197
-              ],
-              [
-                19.108056,
-                59.8518341
-              ],
-              [
-                19.1082304,
-                59.8516916
-              ],
-              [
-                19.1080995,
-                59.8515236
-              ],
-              [
-                19.1078784,
-                59.8513612
-              ],
-              [
-                19.1077329,
-                59.8513152
-              ],
-              [
-                19.1075537,
-                59.8512735
-              ],
-              [
-                19.1075235,
-                59.8512417
-              ],
-              [
-                19.107497,
-                59.8512128
-              ],
-              [
-                19.1081349,
-                59.8510331
-              ],
-              [
-                19.1082108,
-                59.8510069
-              ],
-              [
-                19.1083397,
-                59.8511179
-              ],
-              [
-                19.1086987,
-                59.8510342
-              ],
-              [
-                19.108954,
-                59.8509391
-              ],
-              [
-                19.1092019,
-                59.8507519
-              ],
-              [
-                19.1089808,
-                59.8505608
-              ],
-              [
-                19.1087534,
-                59.8505048
-              ],
-              [
-                19.1084181,
-                59.8503275
-              ],
-              [
-                19.108108,
-                59.8501489
-              ],
-              [
-                19.1078071,
-                59.8499969
-              ],
-              [
-                19.1076741,
-                59.8498415
-              ],
-              [
-                19.1075528,
-                59.8496542
-              ],
-              [
-                19.1074606,
-                59.8494279
-              ],
-              [
-                19.1072787,
-                59.849198
-              ],
-              [
-                19.1071065,
-                59.8487734
-              ],
-              [
-                19.1070706,
-                59.8484848
-              ],
-              [
-                19.1067957,
-                59.8478338
-              ],
-              [
-                19.1067361,
-                59.8475742
-              ],
-              [
-                19.1062681,
-                59.8474175
-              ],
-              [
-                19.1055857,
-                59.8467938
-              ],
-              [
-                19.1054862,
-                59.8466796
-              ],
-              [
-                19.1045592,
-                59.8464479
-              ],
-              [
-                19.1039512,
-                59.8462841
-              ],
-              [
-                19.1034083,
-                59.8462249
-              ],
-              [
-                19.1032485,
-                59.8458543
-              ],
-              [
-                19.1031419,
-                59.8456071
-              ],
-              [
-                19.1027048,
-                59.8454676
-              ],
-              [
-                19.102462,
-                59.8447435
-              ],
-              [
-                19.1024805,
-                59.8441389
-              ],
-              [
-                19.1024863,
-                59.8439514
-              ],
-              [
-                19.102409,
-                59.8437585
-              ],
-              [
-                19.1024847,
-                59.8435075
-              ],
-              [
-                19.1026825,
-                59.8431068
-              ],
-              [
-                19.1025682,
-                59.8427963
-              ],
-              [
-                19.1025157,
-                59.8426538
-              ],
-              [
-                19.1017785,
-                59.8421559
-              ],
-              [
-                19.1017322,
-                59.8418756
-              ],
-              [
-                19.1013136,
-                59.8417404
-              ],
-              [
-                19.1012415,
-                59.8411972
-              ],
-              [
-                19.1013388,
-                59.8409058
-              ],
-              [
-                19.1014139,
-                59.840744
-              ],
-              [
-                19.1013523,
-                59.8406154
-              ],
-              [
-                19.101088,
-                59.8405503
-              ],
-              [
-                19.1011229,
-                59.8403697
-              ],
-              [
-                19.1010871,
-                59.8402375
-              ],
-              [
-                19.101057,
-                59.8401265
-              ],
-              [
-                19.1005892,
-                59.8396784
-              ],
-              [
-                19.1001457,
-                59.8395538
-              ],
-              [
-                19.0999157,
-                59.8392938
-              ],
-              [
-                19.0994164,
-                59.8392892
-              ],
-              [
-                19.0986649,
-                59.8396528
-              ],
-              [
-                19.0977711,
-                59.8401508
-              ],
-              [
-                19.0979054,
-                59.8404842
-              ],
-              [
-                19.0977432,
-                59.8406567
-              ],
-              [
-                19.097485,
-                59.840817
-              ],
-              [
-                19.0973165,
-                59.840907
-              ],
-              [
-                19.0972382,
-                59.8409
-              ],
-              [
-                19.0971372,
-                59.8408908
-              ],
-              [
-                19.0969472,
-                59.8409269
-              ],
-              [
-                19.0968253,
-                59.8410115
-              ],
-              [
-                19.0967622,
-                59.8409913
-              ],
-              [
-                19.0966238,
-                59.8406725
-              ],
-              [
-                19.0964855,
-                59.840587
-              ],
-              [
-                19.0959182,
-                59.8407204
-              ],
-              [
-                19.0958469,
-                59.8406523
-              ],
-              [
-                19.0959588,
-                59.8404545
-              ],
-              [
-                19.09554,
-                59.84027
-              ],
-              [
-                19.0955531,
-                59.8401054
-              ],
-              [
-                19.0951341,
-                59.8400575
-              ],
-              [
-                19.0945531,
-                59.8397013
-              ],
-              [
-                19.0939039,
-                59.8393034
-              ],
-              [
-                19.0933792,
-                59.8390077
-              ],
-              [
-                19.0932269,
-                59.8389308
-              ],
-              [
-                19.0927326,
-                59.8386813
-              ],
-              [
-                19.0924603,
-                59.8385438
-              ],
-              [
-                19.0916587,
-                59.8385447
-              ],
-              [
-                19.0913509,
-                59.8387175
-              ],
-              [
-                19.0909848,
-                59.8388973
-              ],
-              [
-                19.0903669,
-                59.8383305
-              ],
-              [
-                19.09008,
-                59.83789
-              ],
-              [
-                19.0897901,
-                59.8378222
-              ],
-              [
-                19.08882,
-                59.83761
-              ],
-              [
-                19.0887757,
-                59.8373086
-              ],
-              [
-                19.0887268,
-                59.837175
-              ]
-            ]
-          ],
-          [
-            [
-              [
-                19.0924697,
-                59.842119
-              ],
-              [
-                19.0932288,
-                59.841835
-              ],
-              [
-                19.0941545,
-                59.8415615
-              ],
-              [
-                19.0948856,
-                59.8418167
-              ],
-              [
-                19.0957932,
-                59.8416766
-              ],
-              [
-                19.0959018,
-                59.8416598
-              ],
-              [
-                19.0961172,
-                59.8415033
-              ],
-              [
-                19.0965581,
-                59.8414837
-              ],
-              [
-                19.0966369,
-                59.8414178
-              ],
-              [
-                19.0966101,
-                59.8412857
-              ],
-              [
-                19.0964116,
-                59.8411159
-              ],
-              [
-                19.0964505,
-                59.8410483
-              ],
-              [
-                19.0970036,
-                59.8412123
-              ],
-              [
-                19.0972707,
-                59.8412764
-              ],
-              [
-                19.0975137,
-                59.8411214
-              ],
-              [
-                19.097338,
-                59.8411034
-              ],
-              [
-                19.0972197,
-                59.841071
-              ],
-              [
-                19.0972125,
-                59.8409863
-              ],
-              [
-                19.0972915,
-                59.8409858
-              ],
-              [
-                19.0974671,
-                59.8409845
-              ],
-              [
-                19.097944,
-                59.84088
-              ],
-              [
-                19.0981735,
-                59.8408512
-              ],
-              [
-                19.0984029,
-                59.8407611
-              ],
-              [
-                19.0986073,
-                59.8406837
-              ],
-              [
-                19.0987227,
-                59.8406832
-              ],
-              [
-                19.0993122,
-                59.8410495
-              ],
-              [
-                19.0990865,
-                59.84182
-              ],
-              [
-                19.0989757,
-                59.8423538
-              ],
-              [
-                19.0990343,
-                59.8428335
-              ],
-              [
-                19.0979133,
-                59.8433576
-              ],
-              [
-                19.098058,
-                59.8441082
-              ],
-              [
-                19.0978922,
-                59.8443141
-              ],
-              [
-                19.0977902,
-                59.844682
-              ],
-              [
-                19.0978761,
-                59.844779
-              ],
-              [
-                19.0977795,
-                59.8448652
-              ],
-              [
-                19.0976629,
-                59.8453261
-              ],
-              [
-                19.0971556,
-                59.845431
-              ],
-              [
-                19.0970285,
-                59.8454702
-              ],
-              [
-                19.0970634,
-                59.8456508
-              ],
-              [
-                19.0969145,
-                59.8457528
-              ],
-              [
-                19.0967549,
-                59.8456979
-              ],
-              [
-                19.0968622,
-                59.8454473
-              ],
-              [
-                19.0966852,
-                59.8453207
-              ],
-              [
-                19.0966583,
-                59.8451441
-              ],
-              [
-                19.0965464,
-                59.8449034
-              ],
-              [
-                19.0966657,
-                59.8442305
-              ],
-              [
-                19.0965993,
-                59.843949
-              ],
-              [
-                19.0961487,
-                59.8439571
-              ],
-              [
-                19.0956846,
-                59.8439174
-              ],
-              [
-                19.0955543,
-                59.8436494
-              ],
-              [
-                19.0957221,
-                59.8435561
-              ],
-              [
-                19.0962608,
-                59.8438573
-              ],
-              [
-                19.0964706,
-                59.8439059
-              ],
-              [
-                19.0965938,
-                59.8438837
-              ],
-              [
-                19.0969876,
-                59.8434651
-              ],
-              [
-                19.0964738,
-                59.8433198
-              ],
-              [
-                19.096641,
-                59.8430441
-              ],
-              [
-                19.0967628,
-                59.8426652
-              ],
-              [
-                19.0963852,
-                59.8425984
-              ],
-              [
-                19.0967193,
-                59.842177
-              ],
-              [
-                19.0963873,
-                59.8422454
-              ],
-              [
-                19.0958356,
-                59.8429795
-              ],
-              [
-                19.0951375,
-                59.8430099
-              ],
-              [
-                19.0948427,
-                59.8430594
-              ],
-              [
-                19.0946491,
-                59.8432997
-              ],
-              [
-                19.0943625,
-                59.8435468
-              ],
-              [
-                19.09408,
-                59.84357
-              ],
-              [
-                19.0939439,
-                59.8434956
-              ],
-              [
-                19.0940566,
-                59.8433581
-              ],
-              [
-                19.0939332,
-                59.8432261
-              ],
-              [
-                19.0938232,
-                59.8429726
-              ],
-              [
-                19.0936382,
-                59.8429431
-              ],
-              [
-                19.0934084,
-                59.8429518
-              ],
-              [
-                19.093209,
-                59.8428623
-              ],
-              [
-                19.0930642,
-                59.8427087
-              ],
-              [
-                19.0929193,
-                59.8427141
-              ],
-              [
-                19.0926726,
-                59.8427841
-              ],
-              [
-                19.0924735,
-                59.8426788
-              ],
-              [
-                19.0924697,
-                59.842119
-              ]
-            ]
-          ],
-          [
-            [
-              [
-                19.12896,
-                59.8652401
-              ],
-              [
-                19.1291097,
-                59.8648574
-              ],
-              [
-                19.1297605,
-                59.864443
-              ],
-              [
-                19.1298996,
-                59.8644379
-              ],
-              [
-                19.1301155,
-                59.8645712
-              ],
-              [
-                19.1302738,
-                59.8645981
-              ],
-              [
-                19.130381,
-                59.8646506
-              ],
-              [
-                19.1308692,
-                59.8649173
-              ],
-              [
-                19.1308585,
-                59.8650196
-              ],
-              [
-                19.1308397,
-                59.8651448
-              ],
-              [
-                19.1308022,
-                59.8653414
-              ],
-              [
-                19.1314405,
-                59.8652849
-              ],
-              [
-                19.1315693,
-                59.8653306
-              ],
-              [
-                19.1314298,
-                59.8653912
-              ],
-              [
-                19.1317141,
-                59.8654034
-              ],
-              [
-                19.1318509,
-                59.8652876
-              ],
-              [
-                19.1317893,
-                59.8655115
-              ],
-              [
-                19.1323644,
-                59.8655479
-              ],
-              [
-                19.13249,
-                59.86614
-              ],
-              [
-                19.1323682,
-                59.8662644
-              ],
-              [
-                19.1321503,
-                59.8663575
-              ],
-              [
-                19.1317596,
-                59.8664555
-              ],
-              [
-                19.1314626,
-                59.8664486
-              ],
-              [
-                19.1312,
-                59.86638
-              ],
-              [
-                19.1309447,
-                59.8661955
-              ],
-              [
-                19.13099,
-                59.86561
-              ],
-              [
-                19.1305386,
-                59.8655052
-              ],
-              [
-                19.1302795,
-                59.8656122
-              ],
-              [
-                19.1296328,
-                59.865747
-              ],
-              [
-                19.12946,
-                59.86571
-              ],
-              [
-                19.12896,
-                59.8652401
-              ]
-            ]
-          ]
+          18.8870493,
+          59.4070248
+        ]
+      },
+      "properties": {
+        "id": "osm:227774456",
+        "name": "Möja järnväg",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:227774456",
+        "lat": 59.4070248,
+        "lon": 18.8870493
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.216567,
+          58.9406652
+        ]
+      },
+      "properties": {
+        "id": "osm:511936203",
+        "name": "Ryssundet",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:511936203",
+        "lat": 58.9406652,
+        "lon": 18.216567
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0799685,
+          59.77201178
+        ]
+      },
+      "properties": {
+        "id": "osm:1389899659",
+        "name": "Lidö utegym",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1389899659",
+        "lat": 59.77201178,
+        "lon": 19.0799685
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.112221984615385,
+          59.85162681538462
+        ]
+      },
+      "properties": {
+        "id": "osm:465662321",
+        "name": "Arholmagården",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "byalaget på Arholma",
+        "website": "",
+        "phone": "",
+        "osmId": "way:465662321",
+        "lat": 59.85162681538462,
+        "lon": 19.112221984615385
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.10662174,
+          59.84712254
+        ]
+      },
+      "properties": {
+        "id": "osm:473046134",
+        "name": "Arholma Lotsplats",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://lotsarnastockholm.se/index.php/arholma-lotsplats/",
+        "phone": "",
+        "osmId": "way:473046134",
+        "lat": 59.84712254,
+        "lon": 19.10662174
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.110219192096775,
+          59.83848294306452
         ]
       },
       "properties": {
@@ -7921,14 +2438,1112 @@
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:6930812"
+        "osmId": "way:6930812",
+        "lat": 59.83848294306452,
+        "lon": 19.110219192096775
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.91166806,
+          59.65817244
+        ]
+      },
+      "properties": {
+        "id": "osm:388325219",
+        "name": "OSM 388325219",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:388325219",
+        "lat": 59.65817244,
+        "lon": 18.91166806
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.915354020000002,
+          59.66144316
+        ]
+      },
+      "properties": {
+        "id": "osm:388325263",
+        "name": "Villa Romanov",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:388325263",
+        "lat": 59.66144316,
+        "lon": 18.915354020000002
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.91624902,
+          59.66101543999999
+        ]
+      },
+      "properties": {
+        "id": "osm:388325411",
+        "name": "Furusunds museipaviljong",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.furusund.se/museipaviljongen-2/",
+        "phone": "",
+        "osmId": "way:388325411",
+        "lat": 59.66101543999999,
+        "lon": 18.91624902
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.834147549504337,
+          59.605638589591074
+        ]
+      },
+      "properties": {
+        "id": "osm:19451276",
+        "name": "Yxlan",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:19451276",
+        "lat": 59.605638589591074,
+        "lon": 18.834147549504337
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.83432656,
+          59.60795062
+        ]
+      },
+      "properties": {
+        "id": "osm:1389909894",
+        "name": "Hamnvikens utegym",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1389909894",
+        "lat": 59.60795062,
+        "lon": 18.83432656
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.81607327503526,
+          59.47964149026798
+        ]
+      },
+      "properties": {
+        "id": "osm:14477930",
+        "name": "Stora Jolpan",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:14477930",
+        "lat": 59.47964149026798,
+        "lon": 18.81607327503526
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.820971985714287,
+          59.47991644285714
+        ]
+      },
+      "properties": {
+        "id": "osm:1305399445",
+        "name": "Utegym Finnhamn",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1305399445",
+        "lat": 59.47991644285714,
+        "lon": 18.820971985714287
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.766515433484162,
+          59.474078296304675
+        ]
+      },
+      "properties": {
+        "id": "osm:25045412",
+        "name": "Ingmarsö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:25045412",
+        "lat": 59.474078296304675,
+        "lon": 18.766515433484162
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.760443577777778,
+          59.46946758888888
+        ]
+      },
+      "properties": {
+        "id": "osm:1193228226",
+        "name": "Lurkan",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.ingmarso.se/vi-p%C3%A5-%C3%B6n",
+        "phone": "",
+        "osmId": "way:1193228226",
+        "lat": 59.46946758888888,
+        "lon": 18.760443577777778
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.915515607142854,
+          59.28325855897436
+        ]
+      },
+      "properties": {
+        "id": "osm:24811650",
+        "name": "Sandön",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:24811650",
+        "lat": 59.28325855897436,
+        "lon": 18.915515607142854
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.78131881172177,
+          59.27991266328897
+        ]
+      },
+      "properties": {
+        "id": "osm:7145257",
+        "name": "Runmarö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:7145257",
+        "lat": 59.27991266328897,
+        "lon": 18.78131881172177
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.55889808,
+          59.418937099999994
+        ]
+      },
+      "properties": {
+        "id": "osm:1435205689",
+        "name": "OSM 1435205689",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1435205689",
+        "lat": 59.418937099999994,
+        "lon": 18.55889808
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.65494736,
+          59.43919962
+        ]
+      },
+      "properties": {
+        "id": "osm:958701083",
+        "name": "Hembygdsgård Svartsö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:958701083",
+        "lat": 59.43919962,
+        "lon": 18.65494736
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.69072788755245,
+          59.45067911482517
+        ]
+      },
+      "properties": {
+        "id": "osm:12893696",
+        "name": "Svartsö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:12893696",
+        "lat": 59.45067911482517,
+        "lon": 18.69072788755245
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.429700580000002,
+          59.050946079999996
+        ]
+      },
+      "properties": {
+        "id": "osm:227699562",
+        "name": "Ornö skola",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://ornoskola.haninge.se//",
+        "phone": "",
+        "osmId": "way:227699562",
+        "lat": 59.050946079999996,
+        "lon": 18.429700580000002
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.527825659036985,
+          59.04741357076065
+        ]
+      },
+      "properties": {
+        "id": "osm:24846389",
+        "name": "Fjärdlång",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:24846389",
+        "lat": 59.04741357076065,
+        "lon": 18.527825659036985
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.693636592806513,
+          59.187842987004466
+        ]
+      },
+      "properties": {
+        "id": "osm:4173351",
+        "name": "Nämdö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:4173351",
+        "lat": 59.187842987004466,
+        "lon": 18.693636592806513
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.333070499999998,
+          58.97206988000001
+        ]
+      },
+      "properties": {
+        "id": "osm:316767178",
+        "name": "OSM 316767178",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.hembygd.se/shf/plats/24770",
+        "phone": "",
+        "osmId": "way:316767178",
+        "lat": 58.97206988000001,
+        "lon": 18.333070499999998
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.294516016666666,
+          58.9574445
+        ]
+      },
+      "properties": {
+        "id": "osm:322949033",
+        "name": "Spränga bryggas väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:322949033",
+        "lat": 58.9574445,
+        "lon": 18.294516016666666
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.275661059999997,
+          58.95072646
+        ]
+      },
+      "properties": {
+        "id": "osm:322949078",
+        "name": "Villa Söderängen",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://villasoderangen.se/",
+        "phone": "",
+        "osmId": "way:322949078",
+        "lat": 58.95072646,
+        "lon": 18.275661059999997
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.312869881554462,
+          58.95009559937055
+        ]
+      },
+      "properties": {
+        "id": "osm:6315443",
+        "name": "Utö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:6315443",
+        "lat": 58.95009559937055,
+        "lon": 18.312869881554462
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.329296276,
+          58.96609526
+        ]
+      },
+      "properties": {
+        "id": "osm:229110297",
+        "name": "Storgruvan",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.hembygd.se/uto/besoksmal-pa-uto/uto-gruvor",
+        "phone": "",
+        "osmId": "way:229110297",
+        "lat": 58.96609526,
+        "lon": 18.329296276
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.116575099709582,
+          58.87325577821878
+        ]
+      },
+      "properties": {
+        "id": "osm:11478794",
+        "name": "Nåttarö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:11478794",
+        "lat": 58.87325577821878,
+        "lon": 18.116575099709582
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.11064108,
+          58.8810704
+        ]
+      },
+      "properties": {
+        "id": "osm:186188151",
+        "name": "Nåttarös bryggas väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:186188151",
+        "lat": 58.8810704,
+        "lon": 18.11064108
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.11317544,
+          58.879367179999996
+        ]
+      },
+      "properties": {
+        "id": "osm:186188152",
+        "name": "Nåttarö expedition",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "website": "",
+        "phone": "",
+        "osmId": "way:186188152",
+        "lat": 58.879367179999996,
+        "lon": 18.11317544
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2051989915878,
+          58.91240976288118
+        ]
+      },
+      "properties": {
+        "id": "osm:10694823",
+        "name": "Ålö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:10694823",
+        "lat": 58.91240976288118,
+        "lon": 18.2051989915878
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.171073418714286,
+          58.924016282500006
+        ]
+      },
+      "properties": {
+        "id": "osm:11678328",
+        "name": "Rånö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:11678328",
+        "lat": 58.924016282500006,
+        "lon": 18.171073418714286
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.20851879285714,
+          58.92473617857143
+        ]
+      },
+      "properties": {
+        "id": "osm:322949097",
+        "name": "Ålö gård",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://barklandet.webnode.se/",
+        "phone": "",
+        "osmId": "way:322949097",
+        "lat": 58.92473617857143,
+        "lon": 18.20851879285714
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1983372,
+          58.93617388
+        ]
+      },
+      "properties": {
+        "id": "osm:1391084660",
+        "name": "Rånö gård gäststuga",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.stugknuten.com/sv/stuga/34992",
+        "phone": "",
+        "osmId": "way:1391084660",
+        "lat": 58.93617388,
+        "lon": 18.1983372
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.19868162,
+          58.9360425
+        ]
+      },
+      "properties": {
+        "id": "osm:1391084662",
+        "name": "Rånö gård",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://skargardsguiding.se/sodra-skargarden/rano/",
+        "phone": "",
+        "osmId": "way:1391084662",
+        "lat": 58.9360425,
+        "lon": 18.19868162
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.19634014,
+          58.93711402
+        ]
+      },
+      "properties": {
+        "id": "osm:223271139",
+        "name": "Wibomska villan",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://ranoseglarlager.nu/",
+        "phone": "",
+        "osmId": "way:223271139",
+        "lat": 58.93711402,
+        "lon": 18.19634014
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.86536573846154,
+          58.74227389230769
+        ]
+      },
+      "properties": {
+        "id": "osm:1449298611",
+        "name": "Pegelhuset",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://visitlandsort.se/maritima-kulturarvet/skargardssamhallet-landsort/pegelhuset/",
+        "phone": "",
+        "osmId": "way:1449298611",
+        "lat": 58.74227389230769,
+        "lon": 17.86536573846154
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.86528974,
+          58.740516920000005
+        ]
+      },
+      "properties": {
+        "id": "osm:383557299",
+        "name": "Fyrmästarbostaden",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:383557299",
+        "lat": 58.740516920000005,
+        "lon": 17.86528974
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.86554356,
+          58.74105836
+        ]
+      },
+      "properties": {
+        "id": "osm:383557276",
+        "name": "Bagarstugan",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://app.raa.se/open/bebyggelse/bebyggelseobjekt/50b2227e-a336-4c3d-8cbb-4deedc89b671",
+        "phone": "",
+        "osmId": "way:383557276",
+        "lat": 58.74105836,
+        "lon": 17.86554356
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.41481794130343,
+          59.05762874540838
+        ]
+      },
+      "properties": {
+        "id": "osm:3030279",
+        "name": "Ornö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:3030279",
+        "lat": 59.05762874540838,
+        "lon": 18.41481794130343
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5531146,
+          59.40759197999999
+        ]
+      },
+      "properties": {
+        "id": "osm:219372725",
+        "name": "OSM 219372725",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:219372725",
+        "lat": 59.40759197999999,
+        "lon": 18.5531146
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.55362456,
+          59.40765288
+        ]
+      },
+      "properties": {
+        "id": "osm:1425904357",
+        "name": "OSM 1425904357",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1425904357",
+        "lat": 59.40765288,
+        "lon": 18.55362456
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.55981780901597,
+          59.412835469113865
+        ]
+      },
+      "properties": {
+        "id": "osm:2663146",
+        "name": "Grinda",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:2663146",
+        "lat": 59.412835469113865,
+        "lon": 18.55981780901597
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.431624,
+          59.05188926000001
+        ]
+      },
+      "properties": {
+        "id": "osm:1533863291",
+        "name": "Björkösunds Fisk",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "Anders Jansson",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1533863291",
+        "lat": 59.05188926000001,
+        "lon": 18.431624
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.895299107416268,
+          59.4209495264055
+        ]
+      },
+      "properties": {
+        "id": "osm:8346534",
+        "name": "Möja",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:8346534",
+        "lat": 59.4209495264055,
+        "lon": 18.895299107416268
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.92037838,
+          59.44250644
+        ]
+      },
+      "properties": {
+        "id": "osm:1540858829",
+        "name": "Finnhamns väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1540858829",
+        "lat": 59.44250644,
+        "lon": 18.92037838
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.92031438,
+          59.44247378
+        ]
+      },
+      "properties": {
+        "id": "osm:1540858830",
+        "name": "Finnhamns väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1540858830",
+        "lat": 59.44247378,
+        "lon": 18.92031438
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.887293436363635,
+          59.4105523
+        ]
+      },
+      "properties": {
+        "id": "osm:226055517",
+        "name": "Dansbanan",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://mojadansbana.se",
+        "phone": "",
+        "osmId": "way:226055517",
+        "lat": 59.4105523,
+        "lon": 18.887293436363635
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.891892014285713,
+          59.4160886
+        ]
+      },
+      "properties": {
+        "id": "osm:1540959335",
+        "name": "Johan Sundman på Möjas strutsfarm",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1540959335",
+        "lat": 59.4160886,
+        "lon": 18.891892014285713
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.916550516666668,
+          59.44066568333333
+        ]
+      },
+      "properties": {
+        "id": "osm:1530406934",
+        "name": "Sofies Finaste",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1530406934",
+        "lat": 59.44066568333333,
+        "lon": 18.916550516666668
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.55449398,
+          59.41544416000001
+        ]
+      },
+      "properties": {
+        "id": "osm:1541011648",
+        "name": "Grinda uthyrning av kajaker och sup",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.svenskagasthamnar.se/stockholms-skargard/grinda",
+        "phone": "",
+        "osmId": "way:1541011648",
+        "lat": 59.41544416000001,
+        "lon": 18.55449398
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.821164966666668,
+          59.48063663333333
+        ]
+      },
+      "properties": {
+        "id": "osm:1305399446",
+        "name": "Finnhamns Hundrastgård",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://finnhamn.se/aktiviteter/",
+        "phone": "",
+        "osmId": "way:1305399446",
+        "lat": 59.48063663333333,
+        "lon": 18.821164966666668
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.86588126006744,
+          58.75342187360308
+        ]
+      },
+      "properties": {
+        "id": "osm:6462670",
+        "name": "Öja",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:6462670",
+        "lat": 58.75342187360308,
+        "lon": 17.86588126006744
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.914746879026218,
+          59.66232724232209
+        ]
+      },
+      "properties": {
+        "id": "osm:8109379",
+        "name": "Furusund",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:8109379",
+        "lat": 59.66232724232209,
+        "lon": 18.914746879026218
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.826509583333333,
+          59.4827184
+        ]
+      },
+      "properties": {
+        "id": "osm:1379277501",
+        "name": "Finnhamns väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1379277501",
+        "lat": 59.4827184,
+        "lon": 18.826509583333333
       }
     }
   ],
-<<<<<<< HEAD
-  "count": 106,
-=======
-  "count": 124,
->>>>>>> origin/main
+  "count": 161,
   "source": "OSM (PostPass) - ref:stockholmarchipelagotrail (untracked only)"
 }

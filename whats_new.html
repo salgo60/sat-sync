@@ -40,7 +40,22 @@
   <div class="entry">
     <div class="date">Juli 2026</div>
     <div class="pr-links">
-      <a href="https://github.com/salgo60/sat-sync/pull/78" target="_blank">PR #78</a>
+      <a href="https://github.com/salgo60/sat-sync/pull/80" target="_blank">PR #80</a>
+    </div>
+    <h2>🔧 Underhåll: Centroid-beräkning för way/relation OSM-kandidater</h2>
+    <ul>
+      <li><strong>Rotorsak hittad.</strong> PostPass returnerar <code>MultiPolygon</code>/<code>MultiLineString</code>-geometrier för ways och relations — inte punkter. Koordinatkontrollen misslyckades på dessa.</li>
+      <li><strong>Centroid beräknas nu</strong> för alla geometrityper: Point, Polygon, MultiPolygon, LineString, MultiLineString.</li>
+      <li><strong>Korrekt osm_type.</strong> <code>osmId</code> sätts till <code>way:xxx</code> eller <code>node:xxx</code> baserat på geometrityp (inte hårdkodat <code>node:</code>).</li>
+      <li><strong>OSM kandidater: 106 → 161</strong> (0 objekt skippas nu p.g.a. koordinatfel).</li>
+      <li><strong>Merge-konflikt löst</strong> i <code>convert_osm_raw_candidates.py</code>.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/79" target="_blank">PR #79</a>
     </div>
     <h2>🚑 Filtrera shr:-objekt från OSM kandidater</h2>
     <ul>
