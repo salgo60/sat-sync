@@ -19,16 +19,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generera dashboard + TODO-lista
+      - name: Generera dashboard + TODO-lista + TODO-karta
+        env:
+          MAPILLARY_TOKEN: ${{ secrets.MAPILLARY_TOKEN }}
         run: |
           python3 generate_poi_dashboard.py
           python3 generate_todo_list.py
+          python3 generate_todo_map.py
 
       - name: Commita om filen ändrats
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add sat_poi_dashboard.html sat_todo_list.html
+          git add sat_poi_dashboard.html sat_todo_list.html sat_todo_map.html commons_cache.json mapillary_cache.json
           if git diff --cached --quiet; then
             echo "Ingen förändring – hoppar över commit"
           else

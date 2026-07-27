@@ -13,8 +13,24 @@ COMMONS_API  = "https://commons.wikimedia.org/w/api.php"
 MAPILLARY_API = "https://graph.mapillary.com/images"
 MAPILLARY_TOKEN = os.getenv("MAPILLARY_TOKEN", "").strip()
 OUTPUT     = "sat_todo_map.html"
+COMMONS_CACHE   = "commons_cache.json"
+MAPILLARY_CACHE = "mapillary_cache.json"
 
 HEADERS = {"User-Agent": "sat-sync/todo-map 1.0"}
+
+
+def _load_json_cache(path: str) -> list | None:
+    """Return parsed JSON list from *path*, or None if the file does not exist."""
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
+    return None
+
+
+def _save_json_cache(path: str, data: list) -> None:
+    """Write *data* as JSON to *path*."""
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, ensure_ascii=False, indent=2)
 
 def fetch(url):
     req = urllib.request.Request(url, headers=HEADERS)
@@ -460,17 +476,28 @@ if piers_identity:
     if missing_pier_sat_ids:
         print(f"  ⚠️ {len(missing_pier_sat_ids)} piers saknar koordinater i Wikidata")
 
-print("📥 Hämtar Commons-foton (geotaggade)...")
-try:
-    commons_data = fetch_commons_geotagged(COMMONS_CATEGORY)
-    print(f"  ✅ {len(commons_data)} geotaggade Commons-foton")
-except Exception as e:
-    print(f"  ⚠️ Commons fel: {e}")
-    commons_data = []
+_commons_cached = _load_json_cache(COMMONS_CACHE)
+if _commons_cached is not None:
+    commons_data = _commons_cached
+    print(f"📦 Commons-foton laddade från lokal cache ({len(commons_data)} foton)")
+else:
+    print("📥 Hämtar Commons-foton (geotaggade)...")
+    try:
+        commons_data = fetch_commons_geotagged(COMMONS_CATEGORY)
+        print(f"  ✅ {len(commons_data)} geotaggade Commons-foton")
+        _save_json_cache(COMMONS_CACHE, commons_data)
+        print(f"  💾 Cache sparad → {COMMONS_CACHE}")
+    except Exception as e:
+        print(f"  ⚠️ Commons fel: {e}")
+        commons_data = []
 
-mapillary_data = []
-if MAPILLARY_TOKEN:
+_mapillary_cached = _load_json_cache(MAPILLARY_CACHE)
+if _mapillary_cached is not None:
+    mapillary_data = _mapillary_cached
+    print(f"📦 Mapillary-bilder laddade från lokal cache ({len(mapillary_data)} bilder)")
+elif MAPILLARY_TOKEN:
     print("📥 Hämtar Mapillary-bilder nära leden...")
+    mapillary_data = []
     try:
         mapillary_data = fetch_mapillary_images_near_trail(trail_geojson, MAPILLARY_TOKEN)
         print(f"  ✅ {len(mapillary_data)} Mapillary-bilder nära leden")
@@ -485,10 +512,14 @@ if MAPILLARY_TOKEN:
             print(f"  ✅ Landsort: +{added} (totalt {len(mapillary_data)})")
         else:
             print("  ⚠️ Landsort-sektion hittades inte i POI-data")
+
+        _save_json_cache(MAPILLARY_CACHE, mapillary_data)
+        print(f"  💾 Cache sparad → {MAPILLARY_CACHE}")
     except Exception as e:
         print(f"  ⚠️ Mapillary fel: {e}")
 else:
-    print("  ℹ️ Mapillary hoppas över (ingen MAPILLARY_TOKEN satt)")
+    mapillary_data = []
+    print("  ℹ️ Mapillary hoppas över (ingen cache och ingen MAPILLARY_TOKEN satt)")
 
 generated_at = datetime.datetime.now().strftime("%Y%m%d %H:%M")
 
@@ -605,6 +636,15 @@ html = f"""<!DOCTYPE html>
     .note-popup {{ font-size:0.82rem; max-width:200px; }}
     .note-popup strong {{ display:block; margin-bottom:4px; }}
 
+    /* Stats bar */
+    #stats-bar {{ background:#f8fafc; border-bottom:1px solid #e2e8f0; padding:5px 12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; flex-shrink:0; font-size:0.75rem; }}
+    .stat-pill {{ display:inline-flex; align-items:center; gap:4px; padding:3px 9px; border-radius:12px; font-weight:600; white-space:nowrap; }}
+    .stat-pill.total  {{ background:#e0f2fe; color:#0369a1; }}
+    .stat-pill.osm    {{ background:#fee2e2; color:#991b1b; }}
+    .stat-pill.wd     {{ background:#fef3c7; color:#92400e; }}
+    .stat-pill.img    {{ background:#ede9fe; color:#5b21b6; }}
+    .stat-pill.ok     {{ background:#dcfce7; color:#166534; }}
+
     /* footer */
     .page-footer {{ background:#fff; border-top:1px solid #e2e8f0; padding:8px 14px; font-size:0.72rem; color:#94a3b8; text-align:center; flex-shrink:0; }}
     .page-footer a {{ color:#0f766e; }}
@@ -639,6 +679,7 @@ html = f"""<!DOCTYPE html>
 
   <div id="map"></div>
   <div id="list-view"></div>
+  <div id="stats-bar"></div>
 
   <div class="page-footer">
     <a href="sat_poi_dashboard.html">SAT POI Dashboard</a> ·
@@ -713,6 +754,11 @@ html = f"""<!DOCTYPE html>
       geoError: 'Kunde inte h\xe4mta position: ',
       openOnOsm: '\xd6ppna p\xe5 OSM',
       noText: '(ingen text)',
+      statTotal: 'POI totalt',
+      statMissingOsm: 'Saknar OSM',
+      statMissingWd: 'Saknar Wikidata',
+      statMissingImg: 'Saknar bild',
+      statComplete: 'Komplett',
     }},
     en: {{
       title: 'SAT TODO \u2013 What\u2019s missing?',
@@ -765,6 +811,11 @@ html = f"""<!DOCTYPE html>
       geoError: 'Could not get location: ',
       openOnOsm: 'Open on OSM',
       noText: '(no text)',
+      statTotal: 'Total POIs',
+      statMissingOsm: 'Missing OSM',
+      statMissingWd: 'Missing Wikidata',
+      statMissingImg: 'Missing image',
+      statComplete: 'Complete',
     }},
   }};
 
@@ -790,6 +841,7 @@ html = f"""<!DOCTYPE html>
   window.toggleLang = function() {{
     lang = lang === 'sv' ? 'en' : 'sv';
     applyLanguage();
+    updateStatsBar();
     saveStateInUrl();
   }};
 
@@ -1689,11 +1741,46 @@ html = f"""<!DOCTYPE html>
     if (ev.layer === layerCommons) loadCommons();
   }});
 
+  // ── Stats bar ─────────────────────────────────────────────────────────────
+  function updateStatsBar() {{
+    const bar = document.getElementById('stats-bar');
+    if (!bar) return;
+
+    // Aggregate stats for the current stage selection
+    let total = 0, noOsm = 0, noWd = 0, noImg = 0;
+    if (currentStage === 'all') {{
+      Object.values(STAGE_STATS).forEach(s => {{
+        total += s.total  || 0;
+        noOsm += s.no_osm || 0;
+        noWd  += s.no_wd  || 0;
+        noImg += s.no_img || 0;
+      }});
+    }} else {{
+      const s = STAGE_STATS[currentStage] || {{}};
+      total = s.total  || 0;
+      noOsm = s.no_osm || 0;
+      noWd  = s.no_wd  || 0;
+      noImg = s.no_img || 0;
+    }}
+
+    const complete = total - Math.max(noOsm, noWd, noImg);
+    const pct = total > 0 ? Math.round(complete / total * 100) : 100;
+
+    bar.innerHTML = `
+      <span class="stat-pill total">📍 ${{t('statTotal')}}: ${{total}}</span>
+      ${{noOsm  ? `<span class="stat-pill osm">❌ ${{t('statMissingOsm')}}: ${{noOsm}}</span>`  : ''}}
+      ${{noWd   ? `<span class="stat-pill wd">📋 ${{t('statMissingWd')}}: ${{noWd}}</span>`    : ''}}
+      ${{noImg  ? `<span class="stat-pill img">📷 ${{t('statMissingImg')}}: ${{noImg}}</span>` : ''}}
+      <span class="stat-pill ok">✅ ${{t('statComplete')}}: ${{pct}}%</span>
+    `;
+  }}
+
   window.applyFilters = function() {{
     currentStage = stageFilter.value;
     currentCategory = categoryFilter.value;
     renderMarkers();
     renderList();
+    updateStatsBar();
     saveStateInUrl();
   }};
 
@@ -1824,6 +1911,7 @@ html = f"""<!DOCTYPE html>
   applyLanguage();
   renderMarkers();
   loadOsmNotes();
+  updateStatsBar();
   showTab(initialTab);
   saveStateInUrl();
 }})();
