@@ -426,42 +426,6 @@ ORDER BY DESC(geof:latitude(?coord))
             if any(x.startswith("osm:") for x in same_as):
                 section_stats[sec]["with_osm"] += 1
 
-        # Add OSM candidates to poi_map_data
-        if osm_candidates:
-            for osm in osm_candidates:
-                geo = osm.get("geometry") or {}
-                coords = geo.get("coordinates") or [0, 0]
-                lon, lat = coords[0], coords[1]
-                props = osm.get("properties") or {}
-                sec = props.get("section") or "unknown"
-                cat = props.get("category") or "Övrigt"
-                categories.add(cat)
-                osm_id = props.get("osmId", "")
-                osm_name = props.get("name", f"OSM {osm_id.split(':')[-1] if ':' in osm_id else osm_id}")
-                
-                poi_map_data.append({
-                    "id": props.get("id"),
-                    "name": osm_name,
-                    "name_localized": {},
-                    "section": sec,
-                    "category": cat,
-                    "same_as": [],
-                    "osmId": osm_id,
-                    "first_seen": None,
-                    "updated_at": None,
-                    "lat": lat,
-                    "lon": lon,
-                    "image": None,
-                    "operator": props.get("operator") or None,
-                    "operator_wikidata": None,
-                    "is_osm_candidate": True,
-                })
-                if sec not in section_stats:
-                    section_stats[sec] = {"count": 0, "categories": {}, "with_wd": 0, "with_osm": 0}
-                section_stats[sec]["count"] += 1
-                section_stats[sec]["categories"][cat] = section_stats[sec]["categories"].get(cat, 0) + 1
-                section_stats[sec]["with_osm"] += 1
-
         section_rows = []
         for sec, st in sorted(section_stats.items(), key=lambda x: x[0]):
             stage = self.match_stage_for_section(sec, stage_by_slug, stages)
@@ -595,14 +559,24 @@ ORDER BY DESC(geof:latitude(?coord))
         if osm_candidates:
             for p in osm_candidates:
                 props = p.get("properties", {})
+                osm_id = props.get("osmId", "")
+                raw_name = props.get("name", "")
+                # Better display name: use stored name or fall back to OSM type+id
+                osm_name = raw_name if raw_name and not raw_name.startswith("OSM ") else f"OSM {osm_id}"
                 osm_candidate_data.append({
                     "id": props.get("id"),
-                    "name": props.get("name"),
+                    "name": osm_name,
                     "section": props.get("section") or "okänd",
                     "category": props.get("category") or "Övrigt",
                     "operator": props.get("operator"),
                     "lat": p.get("geometry", {}).get("coordinates", [None, None])[1],
                     "lon": p.get("geometry", {}).get("coordinates", [None, None])[0],
+                    "osmId": osm_id,
+                    "same_as": [],
+                    "name_localized": {},
+                    "image": None,
+                    "operator_wikidata": None,
+                    "is_osm_candidate": True,
                 })
         
         osm_candidate_json = json.dumps(osm_candidate_data, ensure_ascii=False)
@@ -886,7 +860,8 @@ ORDER BY DESC(geof:latitude(?coord))
   const downloadBtn = document.getElementById('downloadBtn');
   const resetBtn = document.getElementById('resetBtn');
   const zoomTrailBtn = document.getElementById('zoomTrailBtn');
-  const poiRows = Array.from(document.querySelectorAll('#poiTable tbody tr'));
+  // poiRows is dynamic — always read from DOM (rebuilt on source switch)
+  function getPoiRows() {{ return Array.from(document.querySelectorAll('#poiTable tbody tr')); }}
   const sectionRows = Array.from(document.querySelectorAll('#sectionTable tbody tr'));
   const visibleCount = document.getElementById('visibleCount');
   const poiFlow = {poi_flow_json};
@@ -922,7 +897,50 @@ ORDER BY DESC(geof:latitude(?coord))
         statCard.querySelector('.num').textContent = totalPoiCount;
       }}
       
+      // Rebuild table rows for the new data source
+      rebuildPoiTable(poiMapData, currentDataSource === 'osm');
+      
       applyFilters();
+    }});
+  }}
+
+  function rebuildPoiTable(data, isOsmSource) {{
+    const tbody = document.querySelector('#poiTable tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    data.forEach((p) => {{
+      const sec = p.section || 'okänd';
+      const cat = p.category || 'okänd';
+      const id = p.id || '—';
+      const name = p.name || '—';
+      const operator = p.operator || '—';
+      const tr = document.createElement('tr');
+      tr.dataset.section = sec;
+      tr.dataset.category = cat;
+      tr.dataset.poiId = id;
+      tr.dataset.operator = p.operator || '';
+      
+      let idCell;
+      if (isOsmSource && p.osmId) {{
+        const parts = p.osmId.split(':');
+        const osmUrl = `https://www.openstreetmap.org/${{parts[0]}}/${{parts[1]}}`;
+        idCell = `<a href="${{osmUrl}}" target="_blank"><code>${{escapeHtml(p.osmId)}}</code></a>`;
+      }} else {{
+        const satUrl = `https://map.stockholmarchipelagotrail.com/?${{encodeURIComponent(id)}}`;
+        idCell = `<a href="${{satUrl}}" target="_blank"><code>${{escapeHtml(id)}}</code></a>`;
+      }}
+      
+      tr.innerHTML = `
+        <td>${{idCell}}</td>
+        <td>${{escapeHtml(name)}}</td>
+        <td>${{escapeHtml(sec)}}</td>
+        <td>${{escapeHtml(cat)}}</td>
+        <td>${{escapeHtml(operator)}}</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+      `;
+      tbody.appendChild(tr);
     }});
   }}
 
@@ -1304,7 +1322,7 @@ ORDER BY DESC(geof:latitude(?coord))
       }}
 
       function updateLocalizedPoiRows() {{
-        poiRows.forEach((row) => {{
+        getPoiRows().forEach((row) => {{
           const poiId = row.dataset.poiId;
           if (!poiId || !poiById.has(poiId)) return;
           const poi = poiById.get(poiId);
@@ -2097,7 +2115,7 @@ ORDER BY DESC(geof:latitude(?coord))
         }}
         let visible = 0;
 
-        poiRows.forEach((row) => {{
+        getPoiRows().forEach((row) => {{
           const rowSec = row.dataset.section;
           const rowOrg = row.dataset.operator || '';
           const rowCat = row.dataset.category;
