@@ -371,7 +371,7 @@
       [t('layerPiers')]:        layerPiers,
       [t('layerCommons')]:      layerCommons,
       [t('layerMapillary')]:    layerMapillary,
-    }, { collapsed: false, position: 'topright' }).addTo(map);
+    }, { collapsed: window.innerWidth < 768, position: 'topright' }).addTo(map);
 
     const container = layerControl.getContainer();
     if (container) {
