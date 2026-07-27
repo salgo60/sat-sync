@@ -8944,6 +8944,12 @@
             : '';
           const osmRef = findOsmRef(r.same_as);
           const wdRef = findWikidataRef(r.same_as);
+          // For OSM candidates, derive osmRef from osmId field
+          const candidateOsmRef = (isOsmCandidate && r.osmId) ? (function() {
+            const parts = r.osmId.split(':');
+            return parts.length === 2 ? {type: parts[0], id: parts[1], key: r.osmId} : null;
+          })() : null;
+          const effectiveOsmRef = osmRef || candidateOsmRef;
           const osmHistoryUrl = effectiveOsmRef ? `https://pewu.github.io/osm-history/#/${effectiveOsmRef.type}/${effectiveOsmRef.id}` : null;
           const mapkiUrl = effectiveOsmRef ? `https://osm.mapki.com/history/${effectiveOsmRef.type}/${effectiveOsmRef.id}` : null;
           const mapCompleteTheme = (function(cat) {
@@ -8967,12 +8973,6 @@
           const idEditorUrl = effectiveOsmRef
             ? `https://www.openstreetmap.org/edit?editor=id&${effectiveOsmRef.type}=${effectiveOsmRef.id}#map=18/${r.lat}/${r.lon}`
             : null;
-          // For OSM candidates, derive osmRef from osmId field
-          const candidateOsmRef = (isOsmCandidate && r.osmId) ? (function() {
-            const parts = r.osmId.split(':');
-            return parts.length === 2 ? {type: parts[0], id: parts[1], key: r.osmId} : null;
-          })() : null;
-          const effectiveOsmRef = osmRef || candidateOsmRef;
           const osmTagsHtml = effectiveOsmRef
             ? `<details class="osm-tags"><summary>${escapeHtml(t('osmTags'))}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${escapeHtml(effectiveOsmRef.key)}">${escapeHtml(t('loadingOsmTags'))}</div><div class="commons-thumb-body"></div></details>`
             : `<details class="osm-tags"><summary>${escapeHtml(t('osmTags'))}</summary><div class="osm-tags-body">${escapeHtml(t('noOsmRef'))}</div></details>`;
