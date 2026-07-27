@@ -636,6 +636,15 @@ html = f"""<!DOCTYPE html>
     .note-popup {{ font-size:0.82rem; max-width:200px; }}
     .note-popup strong {{ display:block; margin-bottom:4px; }}
 
+    /* Stats bar */
+    #stats-bar {{ background:#f8fafc; border-bottom:1px solid #e2e8f0; padding:5px 12px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; flex-shrink:0; font-size:0.75rem; }}
+    .stat-pill {{ display:inline-flex; align-items:center; gap:4px; padding:3px 9px; border-radius:12px; font-weight:600; white-space:nowrap; }}
+    .stat-pill.total  {{ background:#e0f2fe; color:#0369a1; }}
+    .stat-pill.osm    {{ background:#fee2e2; color:#991b1b; }}
+    .stat-pill.wd     {{ background:#fef3c7; color:#92400e; }}
+    .stat-pill.img    {{ background:#ede9fe; color:#5b21b6; }}
+    .stat-pill.ok     {{ background:#dcfce7; color:#166534; }}
+
     /* footer */
     .page-footer {{ background:#fff; border-top:1px solid #e2e8f0; padding:8px 14px; font-size:0.72rem; color:#94a3b8; text-align:center; flex-shrink:0; }}
     .page-footer a {{ color:#0f766e; }}
@@ -670,6 +679,7 @@ html = f"""<!DOCTYPE html>
 
   <div id="map"></div>
   <div id="list-view"></div>
+  <div id="stats-bar"></div>
 
   <div class="page-footer">
     <a href="sat_poi_dashboard.html">SAT POI Dashboard</a> ·
@@ -744,6 +754,11 @@ html = f"""<!DOCTYPE html>
       geoError: 'Kunde inte h\xe4mta position: ',
       openOnOsm: '\xd6ppna p\xe5 OSM',
       noText: '(ingen text)',
+      statTotal: 'POI totalt',
+      statMissingOsm: 'Saknar OSM',
+      statMissingWd: 'Saknar Wikidata',
+      statMissingImg: 'Saknar bild',
+      statComplete: 'Komplett',
     }},
     en: {{
       title: 'SAT TODO \u2013 What\u2019s missing?',
@@ -796,6 +811,11 @@ html = f"""<!DOCTYPE html>
       geoError: 'Could not get location: ',
       openOnOsm: 'Open on OSM',
       noText: '(no text)',
+      statTotal: 'Total POIs',
+      statMissingOsm: 'Missing OSM',
+      statMissingWd: 'Missing Wikidata',
+      statMissingImg: 'Missing image',
+      statComplete: 'Complete',
     }},
   }};
 
@@ -821,6 +841,7 @@ html = f"""<!DOCTYPE html>
   window.toggleLang = function() {{
     lang = lang === 'sv' ? 'en' : 'sv';
     applyLanguage();
+    updateStatsBar();
     saveStateInUrl();
   }};
 
@@ -1720,11 +1741,46 @@ html = f"""<!DOCTYPE html>
     if (ev.layer === layerCommons) loadCommons();
   }});
 
+  // ── Stats bar ─────────────────────────────────────────────────────────────
+  function updateStatsBar() {{
+    const bar = document.getElementById('stats-bar');
+    if (!bar) return;
+
+    // Aggregate stats for the current stage selection
+    let total = 0, noOsm = 0, noWd = 0, noImg = 0;
+    if (currentStage === 'all') {{
+      Object.values(STAGE_STATS).forEach(s => {{
+        total += s.total  || 0;
+        noOsm += s.no_osm || 0;
+        noWd  += s.no_wd  || 0;
+        noImg += s.no_img || 0;
+      }});
+    }} else {{
+      const s = STAGE_STATS[currentStage] || {{}};
+      total = s.total  || 0;
+      noOsm = s.no_osm || 0;
+      noWd  = s.no_wd  || 0;
+      noImg = s.no_img || 0;
+    }}
+
+    const complete = total - Math.max(noOsm, noWd, noImg);
+    const pct = total > 0 ? Math.round(complete / total * 100) : 100;
+
+    bar.innerHTML = `
+      <span class="stat-pill total">📍 ${{t('statTotal')}}: ${{total}}</span>
+      ${{noOsm  ? `<span class="stat-pill osm">❌ ${{t('statMissingOsm')}}: ${{noOsm}}</span>`  : ''}}
+      ${{noWd   ? `<span class="stat-pill wd">📋 ${{t('statMissingWd')}}: ${{noWd}}</span>`    : ''}}
+      ${{noImg  ? `<span class="stat-pill img">📷 ${{t('statMissingImg')}}: ${{noImg}}</span>` : ''}}
+      <span class="stat-pill ok">✅ ${{t('statComplete')}}: ${{pct}}%</span>
+    `;
+  }}
+
   window.applyFilters = function() {{
     currentStage = stageFilter.value;
     currentCategory = categoryFilter.value;
     renderMarkers();
     renderList();
+    updateStatsBar();
     saveStateInUrl();
   }};
 
@@ -1855,6 +1911,7 @@ html = f"""<!DOCTYPE html>
   applyLanguage();
   renderMarkers();
   loadOsmNotes();
+  updateStatsBar();
   showTab(initialTab);
   saveStateInUrl();
 }})();
