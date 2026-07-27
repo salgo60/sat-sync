@@ -701,7 +701,7 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="stats">
-      <div class="card"><h3 id="statTotalLabel">Totalt POI</h3><div class="num">{len(pois)}</div></div>
+      <div class="card"><h3 id="statTotalLabel">Totalt POI</h3><div class="num" id="statTotalNum">{len(poi_map_data)}</div></div>
       <div class="card"><h3 id="statSectionsLabel">Etapp/ö (sections)</h3><div class="num">{len(section_stats)}</div></div>
       <div class="card"><h3 id="statCategoriesLabel">Objekttyper</h3><div class="num">{len(categories)}</div></div>
       <div class="card"><h3 id="statWikidataLabel">Wikidata-etapper</h3><div class="num">{len(stages)}</div></div>
@@ -711,8 +711,8 @@ ORDER BY DESC(geof:latitude(?coord))
       <div>
         <label id="dataSourceLabel" for="dataSourceFilter">Datakälla</label>
         <select id="dataSourceFilter">
-          <option value="sat">SAT POI (Standarddata) - 679</option>
-          <option value="osm">OSM kandidater - 647</option>
+          <option value="sat">SAT POI (Standarddata) - {len(poi_map_data)}</option>
+          <option value="osm">OSM kandidater - {len(osm_candidate_data)}</option>
         </select>
       </div>
       <div>
@@ -891,11 +891,9 @@ ORDER BY DESC(geof:latitude(?coord))
       poiMapData = currentDataSource === 'osm' ? osmCandidateMapData : satPoiMapData;
       totalPoiCount = poiMapData.length;
       
-      // Update header stat
-      const statCard = document.querySelector('[id="statTotalLabel"]')?.parentElement;
-      if (statCard) {{
-        statCard.querySelector('.num').textContent = totalPoiCount;
-      }}
+      // Update header stat card
+      const statNum = document.getElementById('statTotalNum');
+      if (statNum) statNum.textContent = totalPoiCount;
       
       // Rebuild table rows for the new data source
       rebuildPoiTable(poiMapData, currentDataSource === 'osm');

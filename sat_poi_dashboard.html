@@ -103,7 +103,7 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-27 13:18</strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-27 13:29</strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-27 08:07</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/pull/76" target="_blank">PR #76</a> &nbsp;|&nbsp;
@@ -117,7 +117,7 @@
     </div>
 
     <div class="stats">
-      <div class="card"><h3 id="statTotalLabel">Totalt POI</h3><div class="num">683</div></div>
+      <div class="card"><h3 id="statTotalLabel">Totalt POI</h3><div class="num" id="statTotalNum">683</div></div>
       <div class="card"><h3 id="statSectionsLabel">Etapp/ö (sections)</h3><div class="num">20</div></div>
       <div class="card"><h3 id="statCategoriesLabel">Objekttyper</h3><div class="num">16</div></div>
       <div class="card"><h3 id="statWikidataLabel">Wikidata-etapper</h3><div class="num">21</div></div>
@@ -127,8 +127,8 @@
       <div>
         <label id="dataSourceLabel" for="dataSourceFilter">Datakälla</label>
         <select id="dataSourceFilter">
-          <option value="sat">SAT POI (Standarddata) - 679</option>
-          <option value="osm">OSM kandidater - 647</option>
+          <option value="sat">SAT POI (Standarddata) - 683</option>
+          <option value="osm">OSM kandidater - 124</option>
         </select>
       </div>
       <div>
@@ -7997,7 +7997,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-27 13:18</strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-27 13:29</strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-27 08:07</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
@@ -8062,11 +8062,9 @@
       poiMapData = currentDataSource === 'osm' ? osmCandidateMapData : satPoiMapData;
       totalPoiCount = poiMapData.length;
       
-      // Update header stat
-      const statCard = document.querySelector('[id="statTotalLabel"]')?.parentElement;
-      if (statCard) {
-        statCard.querySelector('.num').textContent = totalPoiCount;
-      }
+      // Update header stat card
+      const statNum = document.getElementById('statTotalNum');
+      if (statNum) statNum.textContent = totalPoiCount;
       
       // Rebuild table rows for the new data source
       rebuildPoiTable(poiMapData, currentDataSource === 'osm');
