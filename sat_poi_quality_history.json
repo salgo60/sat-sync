@@ -1600,6 +1600,88 @@
           }
         }
       ],
+      "operatorDistribution": [
+        {
+          "operator": "Skärgårdsstiftelsen",
+          "count": 44
+        },
+        {
+          "operator": "Svenska Turistföreningen",
+          "count": 6
+        },
+        {
+          "operator": "Arholma Nord",
+          "count": 4
+        },
+        {
+          "operator": "Arholma Handel",
+          "count": 3
+        },
+        {
+          "operator": "Möja konsumtionsförening",
+          "count": 3
+        },
+        {
+          "operator": "Nåttarö gård och resort",
+          "count": 3
+        },
+        {
+          "operator": "Grinda Wärdshus AB",
+          "count": 2
+        },
+        {
+          "operator": "Mörbyfjärdens idrottsförening",
+          "count": 2
+        },
+        {
+          "operator": "Stockholm Archipelago trail",
+          "count": 2
+        },
+        {
+          "operator": "Utö Gästhamn",
+          "count": 2
+        },
+        {
+          "operator": "Utö Värdshus",
+          "count": 2
+        },
+        {
+          "operator": "Arholma Dansbana",
+          "count": 1
+        },
+        {
+          "operator": "B&B Hotels",
+          "count": 1
+        },
+        {
+          "operator": "Bull August Vandrahem",
+          "count": 1
+        },
+        {
+          "operator": "Bull Augustvandrarhem",
+          "count": 1
+        },
+        {
+          "operator": "Båtshaket",
+          "count": 1
+        },
+        {
+          "operator": "Café Norrhamn",
+          "count": 1
+        },
+        {
+          "operator": "Furusunds Hamnkrog",
+          "count": 1
+        },
+        {
+          "operator": "Hotell Furusund AB",
+          "count": 1
+        },
+        {
+          "operator": "ICA Nära",
+          "count": 1
+        }
+      ],
       "categories": [
         {
           "category": "toilet",
@@ -1665,7 +1747,52 @@
           "category": "rowboat",
           "count": 2
         }
-      ]
+      ],
+      "osmComparison": {
+        "dataSource": "osm",
+        "snapshot_at": "2026-07-27T06:31:11.033905Z",
+        "totalOsmElements": 703,
+        "satPoiInOsm": {
+          "count": 501,
+          "percent": 73.8
+        },
+        "matchedWithValidSatPoi": {
+          "count": 0,
+          "percent": 0.0
+        },
+        "fieldCoverage": {
+          "wheelchair": {
+            "count": 122,
+            "percent": 17.4,
+            "gaps_vs_sat": 0
+          },
+          "fee": {
+            "count": 127,
+            "percent": 18.1,
+            "gaps_vs_sat": 0
+          },
+          "image": {
+            "count": 510,
+            "percent": 72.5,
+            "gaps_vs_sat": 0
+          },
+          "website": {
+            "count": 280,
+            "percent": 39.8,
+            "gaps_vs_sat": 0
+          },
+          "phone": {
+            "count": 71,
+            "percent": 10.1,
+            "gaps_vs_sat": 0
+          },
+          "operator": {
+            "count": 103,
+            "percent": 14.7,
+            "gaps_vs_sat": 0
+          }
+        }
+      }
     }
   ]
 }

@@ -1,0 +1,7187 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8236406,
+          59.4795282
+        ]
+      },
+      "properties": {
+        "id": "y2cyg",
+        "name": "STF Finnhamns Vandrarhem",
+        "category": "lodging",
+        "section": "finnhamn",
+        "operator": "Svenska Turistföreningen",
+        "wikidata": "Q133829736",
+        "website": "https://www.svenskaturistforeningen.se/boende/stf-finnhamns-vandrarhem/",
+        "phone": "+46 8 542 462 12",
+        "osmId": "node:268908517"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8243604,
+          59.4826984
+        ]
+      },
+      "properties": {
+        "id": "n6mfb",
+        "name": "Finnhamm Lanthandel",
+        "category": "shop",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134006996",
+        "website": "https://finnhamn.se/ata/",
+        "phone": "+46 8 542 462 12",
+        "osmId": "node:268910308"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8249831,
+          59.4825572
+        ]
+      },
+      "properties": {
+        "id": "w3rmg",
+        "name": "Finnhamns café-krog",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134461930",
+        "website": "https://www.facebook.com/finnhamnskrog",
+        "phone": "+46 8 542 464 04",
+        "osmId": "node:268910309"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.351334,
+          59.4035631
+        ]
+      },
+      "properties": {
+        "id": "6ak54",
+        "name": "Vaxholms Turistbyrå",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:364724362"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3246867,
+          58.9702108
+        ]
+      },
+      "properties": {
+        "id": "sjwtd",
+        "name": "Hamnboden",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q140053969",
+        "website": "https://www.utogasthamn.se",
+        "phone": "+46850157450",
+        "osmId": "node:424073481"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2828106,
+          58.9546592
+        ]
+      },
+      "properties": {
+        "id": "9rwwe",
+        "name": "Utö bykrog",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134443436",
+        "website": "https://utöbykrogen.se",
+        "phone": "+46739079628",
+        "osmId": "node:435190209"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6570458,
+          59.4380116
+        ]
+      },
+      "properties": {
+        "id": "ftdh5",
+        "name": "Svartsö Lanthandel",
+        "category": "shop",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134529240",
+        "website": "",
+        "phone": "",
+        "osmId": "node:436368336"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.798439,
+          59.4810389
+        ]
+      },
+      "properties": {
+        "id": "n83ax",
+        "name": "Båtluffarbåtarna",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133884655",
+        "website": "",
+        "phone": "",
+        "osmId": "node:473209671"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8044916,
+          59.4820695
+        ]
+      },
+      "properties": {
+        "id": "2szbh",
+        "name": "Båtluffarbåtarna",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133884655",
+        "website": "",
+        "phone": "",
+        "osmId": "node:473209678"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8900521,
+          59.4089569
+        ]
+      },
+      "properties": {
+        "id": "ca4g2",
+        "name": "Vårdkasen",
+        "category": "viewpoint",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "http://www.moja.nu/vardkasen-ur-boken-om-moja",
+        "phone": "",
+        "osmId": "node:683821642"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9141812,
+          59.2897678
+        ]
+      },
+      "properties": {
+        "id": "dht6w",
+        "name": "Sandhamns bageri",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134713953",
+        "website": "https://www.sandhamnsbageriet.com/",
+        "phone": "",
+        "osmId": "node:794630735"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9146302,
+          59.2884716
+        ]
+      },
+      "properties": {
+        "id": "5wbha",
+        "name": "Tempo Sandhamn Westerberg",
+        "category": "shop",
+        "section": "unknown",
+        "operator": "Tempo",
+        "wikidata": "Q134465290",
+        "website": "https://www.tempo.se/butiker/tempo-sandhamn-westerberg/",
+        "phone": "",
+        "osmId": "node:794630737"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9143792,
+          59.2885549
+        ]
+      },
+      "properties": {
+        "id": "8bqsq",
+        "name": "Dykarbaren",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135226164",
+        "website": "https://www.dykarbaren.se/",
+        "phone": "",
+        "osmId": "node:794630742"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9146817,
+          59.2893885
+        ]
+      },
+      "properties": {
+        "id": "enxxz",
+        "name": "Sandhamns värdshus",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:794630763"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9143148,
+          59.2894963
+        ]
+      },
+      "properties": {
+        "id": "agrak",
+        "name": "Sandhamns värdshus",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://sandhamns-vardshus.se",
+        "phone": "+46 8 571530 51",
+        "osmId": "node:794630768"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.661298,
+          59.4391246
+        ]
+      },
+      "properties": {
+        "id": "embmb",
+        "name": "Svartsö Krog",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134583669",
+        "website": "http://svartsokrog.se",
+        "phone": "+46 8 542 472 55",
+        "osmId": "node:822527382"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6927895,
+          59.4534325
+        ]
+      },
+      "properties": {
+        "id": "f6vsy",
+        "name": "Dricksvatten",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:822563176"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5596033,
+          59.4166726
+        ]
+      },
+      "properties": {
+        "id": "mxxwb",
+        "name": "Dricksvattenpump Grinda Tältplats",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:863394662"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5577696,
+          59.4176326
+        ]
+      },
+      "properties": {
+        "id": "t6rmc",
+        "name": "Unknown (t6rmc)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q121361560",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Grinda-taltplats-vastra-1-1",
+        "phone": "",
+        "osmId": "node:863394725"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5566686,
+          59.4138931
+        ]
+      },
+      "properties": {
+        "id": "x5n34",
+        "name": "Framfickan",
+        "category": "food",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q134711795",
+        "website": "https://grinda.se/mat-fest/framfickan/",
+        "phone": "+46 8 542 49 491",
+        "osmId": "node:863394727"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5593289,
+          59.4175895
+        ]
+      },
+      "properties": {
+        "id": "hr6cm",
+        "name": "Hulda",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:863394740"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5587252,
+          59.4174664
+        ]
+      },
+      "properties": {
+        "id": "qkzkf",
+        "name": "Jenny",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:863394751"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5549403,
+          59.4079202
+        ]
+      },
+      "properties": {
+        "id": "5t7sg",
+        "name": "Linn",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:863394827"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5557316,
+          59.4142223
+        ]
+      },
+      "properties": {
+        "id": "e4tfh",
+        "name": "Gästhamn",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q135972992",
+        "website": "https://www.dockspot.com/sv/docks/110-grinda",
+        "phone": "",
+        "osmId": "node:863394993"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5645856,
+          59.4069579
+        ]
+      },
+      "properties": {
+        "id": "s5w7y",
+        "name": "Elsa",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:863423228"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5579106,
+          59.4118287
+        ]
+      },
+      "properties": {
+        "id": "36hxc",
+        "name": "Misse",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:863423239"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5598906,
+          59.4076043
+        ]
+      },
+      "properties": {
+        "id": "nc7p6",
+        "name": "Sara",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:863423311"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.558404,
+          59.4077348
+        ]
+      },
+      "properties": {
+        "id": "c2qvj",
+        "name": "Unknown (c2qvj)",
+        "category": "shower",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:863423353"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9188518,
+          59.287969
+        ]
+      },
+      "properties": {
+        "id": "69m8t",
+        "name": "Sandhamns Hotell",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134572952",
+        "website": "https://www.sandhamn.com/en/mat-och-dryck",
+        "phone": "",
+        "osmId": "node:864356451"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9139905,
+          59.2891297
+        ]
+      },
+      "properties": {
+        "id": "nmey8",
+        "name": "Strindbergsgården",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q63615597",
+        "website": "",
+        "phone": "",
+        "osmId": "node:864623405"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7004986,
+          59.1849565
+        ]
+      },
+      "properties": {
+        "id": "3qh4s",
+        "name": "Nämdö bageri och pizzeria",
+        "category": "food",
+        "section": "uto",
+        "operator": "",
+        "wikidata": "Q133827327",
+        "website": "https://xn--nmdskrgrden-l8aeq3w.se/utbud-aktiviteter/bageri-namdo",
+        "phone": "",
+        "osmId": "node:936554827"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7427297,
+          59.2084123
+        ]
+      },
+      "properties": {
+        "id": "tjg85",
+        "name": "Nämdö böte",
+        "category": "viewpoint",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q140263571",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1315254172"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9019994,
+          59.4126354
+        ]
+      },
+      "properties": {
+        "id": "jtevx",
+        "name": "Stora Möja",
+        "category": "lighthouse",
+        "section": "orno",
+        "operator": "",
+        "wikidata": "Q33190920",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1350571499"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1818048,
+          58.9349753
+        ]
+      },
+      "properties": {
+        "id": "b7nxb",
+        "name": "Dricksvatten Rånöhamn",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1392309442"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1766695,
+          58.919809
+        ]
+      },
+      "properties": {
+        "id": "78qas",
+        "name": "Rånö Livs",
+        "category": "shop",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134529646",
+        "website": "https://rano.se/affar",
+        "phone": "",
+        "osmId": "node:1392325247"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8173199,
+          59.4764245
+        ]
+      },
+      "properties": {
+        "id": "33teb",
+        "name": "Unknown (33teb)",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1401738704"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8176987,
+          59.4759501
+        ]
+      },
+      "properties": {
+        "id": "maha6",
+        "name": "Toaletter Södra Tältplatsen Finnhamn",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1401739421"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8238701,
+          59.4767596
+        ]
+      },
+      "properties": {
+        "id": "g2kca",
+        "name": "Unknown (g2kca)",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1401993169"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1927005,
+          58.9193914
+        ]
+      },
+      "properties": {
+        "id": "s4wt8",
+        "name": "Båtshaket",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134589221",
+        "website": "https://www.batshaket.se/",
+        "phone": "",
+        "osmId": "node:1412248135"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2180385,
+          58.9101949
+        ]
+      },
+      "properties": {
+        "id": "8y9p9",
+        "name": "Unknown (8y9p9)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1412263117"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2769512,
+          58.953444
+        ]
+      },
+      "properties": {
+        "id": "gt7g7",
+        "name": "Motorcycle Museum",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.uto.se/kultur/",
+        "phone": "+46 70 638 43 44",
+        "osmId": "node:1412276022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8279041,
+          59.4777961
+        ]
+      },
+      "properties": {
+        "id": "h584q",
+        "name": "Unknown (h584q)",
+        "category": "viewpoint",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q135901204",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1414776582"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8238824,
+          59.4809393
+        ]
+      },
+      "properties": {
+        "id": "8283n",
+        "name": "Vandrarhemsviken Gästhamn",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.hamnkartan.se/hamnar/vandrarhemsviken-gasthamn",
+        "phone": "",
+        "osmId": "node:1414776607"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.809944,
+          59.4812989
+        ]
+      },
+      "properties": {
+        "id": "g4v79",
+        "name": "Unknown (g4v79)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1414776609"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.826047,
+          59.4816255
+        ]
+      },
+      "properties": {
+        "id": "x2v58",
+        "name": "Krogbryggan",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1414776627"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5548518,
+          59.4074561
+        ]
+      },
+      "properties": {
+        "id": "eswrg",
+        "name": "Unknown (eswrg)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1414841720"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5736913,
+          59.4103484
+        ]
+      },
+      "properties": {
+        "id": "43wdx",
+        "name": "Lilla utsikten",
+        "category": "viewpoint",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1414841722"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5619706,
+          59.4177402
+        ]
+      },
+      "properties": {
+        "id": "7tqqb",
+        "name": "Unknown (7tqqb)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1414841723"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3378874,
+          58.9743628
+        ]
+      },
+      "properties": {
+        "id": "xa7dh",
+        "name": "Outpost of Utö Värdshus",
+        "category": "shelter",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:1415205380"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7431385,
+          59.2758802
+        ]
+      },
+      "properties": {
+        "id": "e2sqb",
+        "name": "Svängen",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134589066",
+        "website": "https://svangenrunmaro.se",
+        "phone": "+46 73 443 92 84",
+        "osmId": "node:2208326930"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7431089,
+          59.2751185
+        ]
+      },
+      "properties": {
+        "id": "dcm2b",
+        "name": "Låttas bageri & café",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134588307",
+        "website": "https://www.runmaro.se/handla",
+        "phone": "+46761044768",
+        "osmId": "node:2208328978"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5199205,
+          59.0498483
+        ]
+      },
+      "properties": {
+        "id": "3spb7",
+        "name": "Unknown (3spb7)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2225378750"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.575362,
+          59.4062234
+        ]
+      },
+      "properties": {
+        "id": "77hss",
+        "name": "Unknown (77hss)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2285332792"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5575935,
+          59.4172239
+        ]
+      },
+      "properties": {
+        "id": "6n6hj",
+        "name": "Unknown (6n6hj)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2285332799"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4316491,
+          59.0517625
+        ]
+      },
+      "properties": {
+        "id": "xhjt5",
+        "name": "Ornö krog",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134693218",
+        "website": "https://www.facebook.com/profile.php?id=61591792161799",
+        "phone": "+46 8 50156000",
+        "osmId": "node:2295166432"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8870841,
+          59.4065703
+        ]
+      },
+      "properties": {
+        "id": "379e4",
+        "name": "Möja Turistförening",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q136337707",
+        "website": "https://visitmoja.se/",
+        "phone": "",
+        "osmId": "node:2349013040"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5653312,
+          59.4068724
+        ]
+      },
+      "properties": {
+        "id": "zwe2s",
+        "name": "Unknown (zwe2s)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Sea-Lodge",
+        "phone": "",
+        "osmId": "node:2358865054"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4322964,
+          59.0518994
+        ]
+      },
+      "properties": {
+        "id": "5tjm9",
+        "name": "Gittans café",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135152644",
+        "website": "https://www.orno.se/ata-bo/resturang-cafe/",
+        "phone": "",
+        "osmId": "node:2363203164"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3395867,
+          58.9611425
+        ]
+      },
+      "properties": {
+        "id": "m49wz",
+        "name": "Unknown (m49wz)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2451364941"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9170226,
+          59.2879099
+        ]
+      },
+      "properties": {
+        "id": "mfg28",
+        "name": "Unknown (mfg28)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2495934893"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5116261,
+          59.0306645
+        ]
+      },
+      "properties": {
+        "id": "6mn5j",
+        "name": "Unknown (6mn5j)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "c",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2550378583"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5199278,
+          59.0319915
+        ]
+      },
+      "properties": {
+        "id": "ys2ep",
+        "name": "Unknown (ys2ep)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2550378600"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5148586,
+          59.0369429
+        ]
+      },
+      "properties": {
+        "id": "ma2dr",
+        "name": "Fjärdlång tältplats",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133993942",
+        "website": "https://www.visitfjardlang.se/",
+        "phone": "",
+        "osmId": "node:2550378999"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.522849,
+          59.0470481
+        ]
+      },
+      "properties": {
+        "id": "9m7wv",
+        "name": "Unknown (9m7wv)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2550380413"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.804356,
+          59.4805799
+        ]
+      },
+      "properties": {
+        "id": "g8v3q",
+        "name": "Unknown (g8v3q)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2908785465"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8133917,
+          59.4834928
+        ]
+      },
+      "properties": {
+        "id": "xfvs9",
+        "name": "Unknown (xfvs9)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2908785488"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8138852,
+          59.4837829
+        ]
+      },
+      "properties": {
+        "id": "zmcn4",
+        "name": "Unknown (zmcn4)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2908787775"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8125524,
+          59.4809824
+        ]
+      },
+      "properties": {
+        "id": "8ft7b",
+        "name": "Unknown (8ft7b)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2908787815"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5127313,
+          59.0362849
+        ]
+      },
+      "properties": {
+        "id": "zqc9j",
+        "name": "Fjärdlång Cafe Kiosk Reception",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q140393214",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2943477507"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5190094,
+          59.0363974
+        ]
+      },
+      "properties": {
+        "id": "kgy64",
+        "name": "Unknown (kgy64)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2943477509"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5190519,
+          59.03642
+        ]
+      },
+      "properties": {
+        "id": "947dr",
+        "name": "Dricksvatten",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2943477510"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.515539,
+          59.0372911
+        ]
+      },
+      "properties": {
+        "id": "622e5",
+        "name": "Dricksvatten Fjärdlång Tältplats",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:2943477517"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4333454,
+          59.0522804
+        ]
+      },
+      "properties": {
+        "id": "tthde",
+        "name": "Pizzaboden, Ornö",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134529043",
+        "website": "",
+        "phone": "+46 8 96 10 00",
+        "osmId": "node:2996710479"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4202522,
+          59.0439989
+        ]
+      },
+      "properties": {
+        "id": "c7xhs",
+        "name": "Ornö Hälsa & Rekreationscenter",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://skargarden.se/yvonne-loser-alla-problem-pa-orno-skola/",
+        "phone": "+46 73 705 44 84",
+        "osmId": "node:2996710481"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.357279,
+          58.9703185
+        ]
+      },
+      "properties": {
+        "id": "c5bst",
+        "name": "Stora Sandvik",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:3045387121"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1763804,
+          58.9197616
+        ]
+      },
+      "properties": {
+        "id": "6sd6h",
+        "name": "Rånö Källan Pub & Café",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134587974",
+        "website": "https://rano.se/krog/",
+        "phone": "",
+        "osmId": "node:3053395678"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9141727,
+          59.2893019
+        ]
+      },
+      "properties": {
+        "id": "f9aej",
+        "name": "Ankaret Café",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135428249",
+        "website": "",
+        "phone": "+46 72 719 40 33",
+        "osmId": "node:3053781979"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1277648,
+          58.8772566
+        ]
+      },
+      "properties": {
+        "id": "szg6p",
+        "name": "Drottninggrottan",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q63345339",
+        "website": "https://www.explorearchipelago.com/sv/sthlm/guider/fran-drottninggrottan-till-stora-sand-upplev-nattaros-magi",
+        "phone": "",
+        "osmId": "node:3297305397"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2190947,
+          58.9098077
+        ]
+      },
+      "properties": {
+        "id": "c8je6",
+        "name": "Ålö Storsand dricksvattenpump",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:3431736753"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.919075,
+          59.2886433
+        ]
+      },
+      "properties": {
+        "id": "krbvq",
+        "name": "Sandhamn",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4217053868"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5564108,
+          59.4071871
+        ]
+      },
+      "properties": {
+        "id": "gqgsx",
+        "name": "Unknown (gqgsx)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4239095028"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.373234,
+          59.034611
+        ]
+      },
+      "properties": {
+        "id": "sme3b",
+        "name": "Brunnsviken",
+        "category": "shop",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.ornobatvarv.se/",
+        "phone": "+46702964265",
+        "osmId": "node:4308897343"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3831127,
+          59.0682473
+        ]
+      },
+      "properties": {
+        "id": "yn39g",
+        "name": "Bodalsbryggan",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4308918509"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3860201,
+          59.0746627
+        ]
+      },
+      "properties": {
+        "id": "jva64",
+        "name": "Inre hamnen",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.xn--bthamn-iua.se/platser/inre-hamnen",
+        "phone": "",
+        "osmId": "node:4308918510"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1684185,
+          58.9252493
+        ]
+      },
+      "properties": {
+        "id": "t7zen",
+        "name": "Skutvikens toaletter Rånö",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4314791694"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4807408,
+          59.1017923
+        ]
+      },
+      "properties": {
+        "id": "722e9",
+        "name": "Unknown (722e9)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4318305761"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6565363,
+          59.4379814
+        ]
+      },
+      "properties": {
+        "id": "6p6hb",
+        "name": "Svartsö bryggcafe",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135107753",
+        "website": "https://www.svartsolanthandel.se/",
+        "phone": "+46854247325",
+        "osmId": "node:4319184675"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4773911,
+          59.1205539
+        ]
+      },
+      "properties": {
+        "id": "dztmf",
+        "name": "Unknown (dztmf)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4389522289"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5587582,
+          59.4135137
+        ]
+      },
+      "properties": {
+        "id": "vxav8",
+        "name": "Grinda Wärdshus",
+        "category": "food",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q133502889",
+        "website": "https://grinda.se/mat-fest/wardshuset/",
+        "phone": "+46 8 542 494 91",
+        "osmId": "node:4428110501"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1362078,
+          58.8862176
+        ]
+      },
+      "properties": {
+        "id": "4z558",
+        "name": "Unknown (4z558)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4879006116"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1693457,
+          58.925419
+        ]
+      },
+      "properties": {
+        "id": "v2vea",
+        "name": "Unknown (v2vea)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4936508701"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.177011,
+          58.9200289
+        ]
+      },
+      "properties": {
+        "id": "dkshm",
+        "name": "Unknown (dkshm)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4936509760"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7079436,
+          59.1999134
+        ]
+      },
+      "properties": {
+        "id": "b3bvp",
+        "name": "Unknown (b3bvp)",
+        "category": "other",
+        "section": "uto",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4958553279"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7122338,
+          59.2018388
+        ]
+      },
+      "properties": {
+        "id": "eg5ac",
+        "name": "Unknown (eg5ac)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4958820945"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5174209,
+          59.0366583
+        ]
+      },
+      "properties": {
+        "id": "hcdyf",
+        "name": "Unknown (hcdyf)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4962580122"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7568812,
+          59.4653216
+        ]
+      },
+      "properties": {
+        "id": "cd4yv",
+        "name": "Ingmarsö",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.hamnkartan.se/hamnar/ingmarso-gasthamn",
+        "phone": "",
+        "osmId": "node:4963568292"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7533935,
+          59.4662623
+        ]
+      },
+      "properties": {
+        "id": "mt8et",
+        "name": "Ingmarsö brödbod",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134705659",
+        "website": "https://ingmarsobageri.com",
+        "phone": "+46 8 37 09 50",
+        "osmId": "node:4963568623"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8121573,
+          59.4788476
+        ]
+      },
+      "properties": {
+        "id": "2r4yc",
+        "name": "Paradisviken Gästhamn",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q134704276",
+        "website": "https://www.hamnkartan.se/hamnar/paradisviken-gasthamn",
+        "phone": "",
+        "osmId": "node:4964697368"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8127836,
+          59.479663
+        ]
+      },
+      "properties": {
+        "id": "84pdd",
+        "name": "Hamnkontor",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4964697373"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7539542,
+          59.4664176
+        ]
+      },
+      "properties": {
+        "id": "6w3b5",
+        "name": "Unknown (6w3b5)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4964700616"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.326226,
+          58.9694806
+        ]
+      },
+      "properties": {
+        "id": "s57r5",
+        "name": "Seglarbaren",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q136433169",
+        "website": "https://www.utovardshus.se/restaurang/seglarbaren/",
+        "phone": "+46 8 504 203 00",
+        "osmId": "node:5005120551"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3244678,
+          58.9702091
+        ]
+      },
+      "properties": {
+        "id": "yy5yn",
+        "name": "Unknown (yy5yn)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5005120552"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3185622,
+          58.9669921
+        ]
+      },
+      "properties": {
+        "id": "9z37b",
+        "name": "Unknown (9z37b)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Utö Camping",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5005791361"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3194495,
+          58.9680089
+        ]
+      },
+      "properties": {
+        "id": "644r8",
+        "name": "Unknown (644r8)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5005793728"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2968614,
+          58.9583325
+        ]
+      },
+      "properties": {
+        "id": "pe68b",
+        "name": "Unknown (pe68b)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5005794340"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3247917,
+          58.9702299
+        ]
+      },
+      "properties": {
+        "id": "gbhad",
+        "name": "Toalett hamnboden",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5006428827"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1671605,
+          58.926971
+        ]
+      },
+      "properties": {
+        "id": "hfc5p",
+        "name": "Ryssugn",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5008269746"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1680385,
+          58.9296551
+        ]
+      },
+      "properties": {
+        "id": "wfdxn",
+        "name": "Ryssugn",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5008269761"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1663841,
+          58.9204747
+        ]
+      },
+      "properties": {
+        "id": "7z9gx",
+        "name": "Ryssugn",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5008269763"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1670135,
+          58.9268273
+        ]
+      },
+      "properties": {
+        "id": "n5xs6",
+        "name": "Ryssugn",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5008269766"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1673648,
+          58.9302174
+        ]
+      },
+      "properties": {
+        "id": "jn6qh",
+        "name": "Ryssugn",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5008269767"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1674013,
+          58.9207562
+        ]
+      },
+      "properties": {
+        "id": "chvh9",
+        "name": "Ryssugn",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5008269773"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1667775,
+          58.9211651
+        ]
+      },
+      "properties": {
+        "id": "efta6",
+        "name": "Ryssugn",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5008269786"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8096596,
+          59.4819501
+        ]
+      },
+      "properties": {
+        "id": "3bzw8",
+        "name": "Unknown (3bzw8)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5009607109"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9177435,
+          59.4413678
+        ]
+      },
+      "properties": {
+        "id": "zkdpn",
+        "name": "Jeppes",
+        "category": "food",
+        "section": "orno",
+        "operator": "",
+        "wikidata": "Q133812682",
+        "website": "https://www.facebook.com/jeppesgastgiveri/",
+        "phone": "+46 76 118 47 23",
+        "osmId": "node:5012735219"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4300616,
+          59.0523362
+        ]
+      },
+      "properties": {
+        "id": "btb63",
+        "name": "Unknown (btb63)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5013691335"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4267708,
+          59.0593009
+        ]
+      },
+      "properties": {
+        "id": "wzbpb",
+        "name": "Långviksgruvan",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://skargarden.se/gruvdrift-i-skargarden/",
+        "phone": "",
+        "osmId": "node:5031029738"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.710608,
+          59.20798
+        ]
+      },
+      "properties": {
+        "id": "nj3na",
+        "name": "Unknown (nj3na)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5032768703"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3801558,
+          59.0778304
+        ]
+      },
+      "properties": {
+        "id": "c89yp",
+        "name": "Unknown (c89yp)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5569009500"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8112865,
+          59.4816052
+        ]
+      },
+      "properties": {
+        "id": "zxxhc",
+        "name": "Unknown (zxxhc)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5630510921"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1926267,
+          58.9194499
+        ]
+      },
+      "properties": {
+        "id": "f5656",
+        "name": "Båtshakets Toaletter",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Båtshaket",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5728810295"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1955009,
+          58.9202952
+        ]
+      },
+      "properties": {
+        "id": "x386f",
+        "name": "Unknown (x386f)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5728811148"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1953357,
+          58.9202684
+        ]
+      },
+      "properties": {
+        "id": "nsjj5",
+        "name": "Unknown (nsjj5)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5728811330"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9056252,
+          59.2891169
+        ]
+      },
+      "properties": {
+        "id": "8p6kd",
+        "name": "Unknown (8p6kd)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5734098673"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1896626,
+          58.9273732
+        ]
+      },
+      "properties": {
+        "id": "65far",
+        "name": "Unknown (65far)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5798509123"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1907629,
+          58.9273526
+        ]
+      },
+      "properties": {
+        "id": "cypg8",
+        "name": "Rånö camping",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134452061",
+        "website": "https://www.visitskargarden.se/boende/camping/raanoe-camping.aspx",
+        "phone": "+46850157085",
+        "osmId": "node:5798509129"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1906172,
+          58.9280737
+        ]
+      },
+      "properties": {
+        "id": "ymn3b",
+        "name": "Unknown (ymn3b)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5798509131"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.751382,
+          59.4655127
+        ]
+      },
+      "properties": {
+        "id": "ejt9h",
+        "name": "Ingmarsö krog",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134531012",
+        "website": "https://ingmarsokrog.com/",
+        "phone": "+46 8 542 421 20",
+        "osmId": "node:5845367185"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7952326,
+          59.4792799
+        ]
+      },
+      "properties": {
+        "id": "h5y4c",
+        "name": "Unknown (h5y4c)",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q121754355",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Bockviken",
+        "phone": "",
+        "osmId": "node:5856137370"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7548336,
+          59.4736781
+        ]
+      },
+      "properties": {
+        "id": "58ezq",
+        "name": "Ingmarsö B&B",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134705878",
+        "website": "https://www.ingmarsobnb.se/",
+        "phone": "+46 70 422 27 11",
+        "osmId": "node:5856137503"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7555336,
+          59.4735841
+        ]
+      },
+      "properties": {
+        "id": "pgvnq",
+        "name": "Hembygdsmuseum",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133883699",
+        "website": "https://www.ingmarso.se/kultur",
+        "phone": "",
+        "osmId": "node:5856137504"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7939819,
+          59.4784857
+        ]
+      },
+      "properties": {
+        "id": "adffa",
+        "name": "Unknown (adffa)",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5856137513"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8128192,
+          59.4796474
+        ]
+      },
+      "properties": {
+        "id": "756xr",
+        "name": "Ragnars Strandkiosk",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q134580641",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5856137515"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8965516,
+          59.4114647
+        ]
+      },
+      "properties": {
+        "id": "wya3t",
+        "name": "Löka gästhamn toalett",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5860551264"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8832483,
+          59.4062988
+        ]
+      },
+      "properties": {
+        "id": "fap7m",
+        "name": "Unknown (fap7m)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:5860556339"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.388815,
+          59.0702255
+        ]
+      },
+      "properties": {
+        "id": "ejkdh",
+        "name": "Unknown (ejkdh)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:6013360089"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3931311,
+          59.0787451
+        ]
+      },
+      "properties": {
+        "id": "mhj78",
+        "name": "Telegrafberget",
+        "category": "viewpoint",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133847886",
+        "website": "",
+        "phone": "",
+        "osmId": "node:6089481566"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6870907,
+          59.203297
+        ]
+      },
+      "properties": {
+        "id": "83tp9",
+        "name": "Tjusviks hamn",
+        "category": "other",
+        "section": "nattaro",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.xn--bthamn-iua.se/platser/tjusviks-hamn",
+        "phone": "",
+        "osmId": "node:6415002799"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8102035,
+          59.4817642
+        ]
+      },
+      "properties": {
+        "id": "nvh64",
+        "name": "Unknown (nvh64)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:6535493386"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2261776,
+          58.9146897
+        ]
+      },
+      "properties": {
+        "id": "89hz7",
+        "name": "Laxvik",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:6722964356"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3328074,
+          58.959322
+        ]
+      },
+      "properties": {
+        "id": "f7eqh",
+        "name": "Unknown (f7eqh)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:6724706158"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9153421,
+          59.2869949
+        ]
+      },
+      "properties": {
+        "id": "3dqhc",
+        "name": "Sandtaget",
+        "category": "viewpoint",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:7056281205"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.711644,
+          59.2015562
+        ]
+      },
+      "properties": {
+        "id": "74m64",
+        "name": "Långviks norra tältplats, Nämdö",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.namdo.nu/portal/att_resa/att_resa.shtml#sleep",
+        "phone": "",
+        "osmId": "node:7783598695"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6886085,
+          59.182155
+        ]
+      },
+      "properties": {
+        "id": "haq8d",
+        "name": "Unknown (haq8d)",
+        "category": "other",
+        "section": "uto",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:7784414173"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7977657,
+          59.2789428
+        ]
+      },
+      "properties": {
+        "id": "xvppf",
+        "name": "Utkiksberget",
+        "category": "viewpoint",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:7788504063"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1055868,
+          58.8537858
+        ]
+      },
+      "properties": {
+        "id": "3esyv",
+        "name": "Halsudden",
+        "category": "viewpoint",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q32247988",
+        "website": "https://nattaro.se/aktiviteter/sevardheter/",
+        "phone": "",
+        "osmId": "node:7791334540"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1248931,
+          58.8682419
+        ]
+      },
+      "properties": {
+        "id": "tmd8m",
+        "name": "Vänsviken, Nåttarö BBQ",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134082069",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Vansviken",
+        "phone": "",
+        "osmId": "node:7791335090"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1332465,
+          58.8766577
+        ]
+      },
+      "properties": {
+        "id": "vxeh8",
+        "name": "Unknown (vxeh8)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134579695",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Storsand-Nattaro",
+        "phone": "",
+        "osmId": "node:7791350755"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1120437,
+          58.8785928
+        ]
+      },
+      "properties": {
+        "id": "7a8eg",
+        "name": "Unknown (7a8eg)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134570327",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Taltplatsens-grill-3",
+        "phone": "",
+        "osmId": "node:7791350756"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3780546,
+          59.0631165
+        ]
+      },
+      "properties": {
+        "id": "4zkep",
+        "name": "Gråberget",
+        "category": "viewpoint",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:7815304012"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3244138,
+          58.970199
+        ]
+      },
+      "properties": {
+        "id": "qnpbj",
+        "name": "Unknown (qnpbj)",
+        "category": "sauna",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.utogasthamn.se/gasthamnen/",
+        "phone": "",
+        "osmId": "node:7934205500"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3865883,
+          59.0722851
+        ]
+      },
+      "properties": {
+        "id": "jndv4",
+        "name": "Unknown (jndv4)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:7997530880"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9060936,
+          59.2895185
+        ]
+      },
+      "properties": {
+        "id": "d2mv2",
+        "name": "Unknown (d2mv2)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q106653497",
+        "website": "https://badplatsen.havochvatten.se/badplatsen/karta/#/bath/SE0110120000003835",
+        "phone": "",
+        "osmId": "node:8841112187"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4824373,
+          59.1118375
+        ]
+      },
+      "properties": {
+        "id": "cbt7n",
+        "name": "Ornöboda badplats",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q107290890",
+        "website": "",
+        "phone": "",
+        "osmId": "node:8846898703"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.573793,
+          59.4048042
+        ]
+      },
+      "properties": {
+        "id": "v5cje",
+        "name": "Unknown (v5cje)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:8870415588"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3859767,
+          59.0805961
+        ]
+      },
+      "properties": {
+        "id": "9p5kn",
+        "name": "Kolnäsbryggan",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.xn--bthamn-iua.se/platser/kolnasbryggan",
+        "phone": "",
+        "osmId": "node:8920392565"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3832506,
+          59.0805257
+        ]
+      },
+      "properties": {
+        "id": "hmef5",
+        "name": "Täppbryggan",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.xn--bthamn-iua.se/platser/tappbryggan",
+        "phone": "",
+        "osmId": "node:8920392566"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3930732,
+          59.082038
+        ]
+      },
+      "properties": {
+        "id": "vw972",
+        "name": "Norra sjön",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.xn--bthamn-iua.se/platser/norra-sjon",
+        "phone": "",
+        "osmId": "node:8920392567"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3812698,
+          59.0738237
+        ]
+      },
+      "properties": {
+        "id": "7jcng",
+        "name": "Yttre hamnen",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.xn--bthamn-iua.se/platser/yttre-hamnen",
+        "phone": "",
+        "osmId": "node:8920392568"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2005427,
+          58.9109246
+        ]
+      },
+      "properties": {
+        "id": "ppbec",
+        "name": "Tymarstugan",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "Rånö stuguthyrning",
+        "wikidata": "Q139629431",
+        "website": "https://dvqlxo2m2q99q.cloudfront.net/000_clients/622935/file/98-tymarstugen.pdf",
+        "phone": "",
+        "osmId": "node:8968325939"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9224911,
+          59.2857467
+        ]
+      },
+      "properties": {
+        "id": "zhjbw",
+        "name": "Dansberget",
+        "category": "viewpoint",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:8980934258"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7377828,
+          59.1967787
+        ]
+      },
+      "properties": {
+        "id": "7dwam",
+        "name": "Själuddens tältplats",
+        "category": "lodging",
+        "section": "uto",
+        "operator": "",
+        "wikidata": "Q133886565",
+        "website": "https://www.explorearchipelago.com/sv/sthlm/mellersta-skargarden/namdo",
+        "phone": "",
+        "osmId": "node:9011922103"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7367793,
+          59.1972454
+        ]
+      },
+      "properties": {
+        "id": "76qzy",
+        "name": "Unknown (76qzy)",
+        "category": "other",
+        "section": "uto",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:9011995676"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.0980955,
+          58.8630367
+        ]
+      },
+      "properties": {
+        "id": "5tj8c",
+        "name": "Unknown (5tj8c)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:9850643970"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8124063,
+          59.4816388
+        ]
+      },
+      "properties": {
+        "id": "kkevg",
+        "name": "Unknown (kkevg)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:9936118752"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7570929,
+          59.4674038
+        ]
+      },
+      "properties": {
+        "id": "cbm6r",
+        "name": "Ingmarsö bageri",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134705637",
+        "website": "https://ingmarsobageri.com",
+        "phone": "+46 8 37 09 50",
+        "osmId": "node:9937193058"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1110362,
+          58.8807405
+        ]
+      },
+      "properties": {
+        "id": "gtd3p",
+        "name": "Nåttarö uthyrning",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134580862",
+        "website": "https://nattaro.se/aktiviteter/kajak/",
+        "phone": "+46852040096",
+        "osmId": "node:9981328446"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1394314,
+          58.8845346
+        ]
+      },
+      "properties": {
+        "id": "bayh6",
+        "name": "grillplats Skarsand",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q136374558",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Norra-Skarsand",
+        "phone": "",
+        "osmId": "node:9981328487"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7483698,
+          59.4761778
+        ]
+      },
+      "properties": {
+        "id": "aze59",
+        "name": "Unknown (aze59)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:10049761782"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7498729,
+          59.4759339
+        ]
+      },
+      "properties": {
+        "id": "55f8n",
+        "name": "Unknown (55f8n)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:10049770242"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9186956,
+          59.2880007
+        ]
+      },
+      "properties": {
+        "id": "c8z6n",
+        "name": "Sandhamns Hotell",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.sandhamn.com/en/mat-och-dryck",
+        "phone": "",
+        "osmId": "node:10658261600"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8833061,
+          59.4062546
+        ]
+      },
+      "properties": {
+        "id": "38zez",
+        "name": "Unknown (38zez)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11066973234"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3847166,
+          59.0718975
+        ]
+      },
+      "properties": {
+        "id": "4je76",
+        "name": "MIF simskola",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Mörbyfjärdens idrottsförening",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11075643778"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3887171,
+          59.0771252
+        ]
+      },
+      "properties": {
+        "id": "tb53d",
+        "name": "Unknown (tb53d)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11079164849"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3964706,
+          59.0742634
+        ]
+      },
+      "properties": {
+        "id": "bdn8h",
+        "name": "Unknown (bdn8h)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11079164850"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5226354,
+          59.0489482
+        ]
+      },
+      "properties": {
+        "id": "f4mjz",
+        "name": "Unknown (f4mjz)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11080859473"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5153119,
+          59.037049
+        ]
+      },
+      "properties": {
+        "id": "2ctyz",
+        "name": "Unknown (2ctyz)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11084999217"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3490866,
+          59.0339043
+        ]
+      },
+      "properties": {
+        "id": "t7fj6",
+        "name": "Unknown (t7fj6)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11092271865"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1826489,
+          58.9372489
+        ]
+      },
+      "properties": {
+        "id": "n9jtx",
+        "name": "Unknown (n9jtx)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11092271868"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5575259,
+          59.4171234
+        ]
+      },
+      "properties": {
+        "id": "fqxgk",
+        "name": "Unknown (fqxgk)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q121433242",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Grinda-taltplatsen-vastra-2",
+        "phone": "",
+        "osmId": "node:11145662490"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8125705,
+          59.4795603
+        ]
+      },
+      "properties": {
+        "id": "32htq",
+        "name": "Ragnars kiosk, grillplats",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q133830825",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Ragnars-kiosk",
+        "phone": "",
+        "osmId": "node:11148319151"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1336288,
+          58.8894444
+        ]
+      },
+      "properties": {
+        "id": "ghgfg",
+        "name": "Unknown (ghgfg)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11231068339"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5713472,
+          59.4049686
+        ]
+      },
+      "properties": {
+        "id": "d63qb",
+        "name": "Unknown (d63qb)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12076565048"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8126474,
+          59.4797489
+        ]
+      },
+      "properties": {
+        "id": "652v2",
+        "name": "Unknown (652v2)",
+        "category": "shower",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12081127987"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8051661,
+          59.4795502
+        ]
+      },
+      "properties": {
+        "id": "9xyp5",
+        "name": "Unknown (9xyp5)",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12085564579"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7004888,
+          59.1852269
+        ]
+      },
+      "properties": {
+        "id": "6qpzh",
+        "name": "Handlar'n Nämdö",
+        "category": "shop",
+        "section": "uto",
+        "operator": "",
+        "wikidata": "Q134311548",
+        "website": "https://www.namdosolvik.com/",
+        "phone": "",
+        "osmId": "node:12085619948"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8235305,
+          59.4833454
+        ]
+      },
+      "properties": {
+        "id": "b7h76",
+        "name": "Unknown (b7h76)",
+        "category": "shower",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12088425263"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8240672,
+          59.4827214
+        ]
+      },
+      "properties": {
+        "id": "g3k29",
+        "name": "Unknown (g3k29)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12090393146"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.373491,
+          59.0345226
+        ]
+      },
+      "properties": {
+        "id": "w5555",
+        "name": "Unknown (w5555)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12098638761"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8216193,
+          59.4821956
+        ]
+      },
+      "properties": {
+        "id": "eqe2j",
+        "name": "Unknown (eqe2j)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12100561901"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1379758,
+          58.8876707
+        ]
+      },
+      "properties": {
+        "id": "9xbg8",
+        "name": "Unknown (9xbg8)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12118209285"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3390218,
+          58.9608732
+        ]
+      },
+      "properties": {
+        "id": "964s4",
+        "name": "Unknown (964s4)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12145802009"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8077469,
+          59.4831423
+        ]
+      },
+      "properties": {
+        "id": "f57he",
+        "name": "Unknown (f57he)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12151384563"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3393285,
+          58.9745745
+        ]
+      },
+      "properties": {
+        "id": "6d84d",
+        "name": "Unknown (6d84d)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q130338597",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Norra-sand-Uto",
+        "phone": "",
+        "osmId": "node:12190259938"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1652587,
+          58.9164502
+        ]
+      },
+      "properties": {
+        "id": "z4nmc",
+        "name": "Unknown (z4nmc)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12722707517"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1692528,
+          58.9289146
+        ]
+      },
+      "properties": {
+        "id": "pd56m",
+        "name": "Harviken, grillplats",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133864540",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Harviken",
+        "phone": "",
+        "osmId": "node:12723107960"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1899815,
+          58.9270465
+        ]
+      },
+      "properties": {
+        "id": "6hgt7",
+        "name": "Unknown (6hgt7)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12723432176"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5616885,
+          59.4172554
+        ]
+      },
+      "properties": {
+        "id": "ahtt7",
+        "name": "Unknown (ahtt7)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q121433272",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Grinda-taltplatsen-Ostra1",
+        "phone": "",
+        "osmId": "node:12735795790"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8077859,
+          59.4742491
+        ]
+      },
+      "properties": {
+        "id": "yz9hq",
+        "name": "Lammuddens vindskydd",
+        "category": "shelter",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q133829773",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Lammuddens-vindskydd",
+        "phone": "",
+        "osmId": "node:12736629494"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8122302,
+          59.4741017
+        ]
+      },
+      "properties": {
+        "id": "yjaxe",
+        "name": "Talluddens vindskydd",
+        "category": "shelter",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q133830267",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12736722603"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2249419,
+          58.9349266
+        ]
+      },
+      "properties": {
+        "id": "7dkcd",
+        "name": "Unknown (7dkcd)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12738887790"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.302897,
+          58.9459938
+        ]
+      },
+      "properties": {
+        "id": "737xd",
+        "name": "Unknown (737xd)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12738887792"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3069628,
+          58.9536986
+        ]
+      },
+      "properties": {
+        "id": "4anmp",
+        "name": "Unknown (4anmp)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12738920397"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2863093,
+          58.9517328
+        ]
+      },
+      "properties": {
+        "id": "sjg5a",
+        "name": "Unknown (sjg5a)",
+        "category": "shelter",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133839829",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12740326708"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2863963,
+          58.9517681
+        ]
+      },
+      "properties": {
+        "id": "3pdqj",
+        "name": "Unknown (3pdqj)",
+        "category": "shelter",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134606948",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12740326709"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4305319,
+          59.050773
+        ]
+      },
+      "properties": {
+        "id": "mbw82",
+        "name": "Unknown (mbw82)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133848185",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Orno-museum",
+        "phone": "",
+        "osmId": "node:12744311542"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4198865,
+          59.0599187
+        ]
+      },
+      "properties": {
+        "id": "a56dh",
+        "name": "Unknown (a56dh)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133848857",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Vastanvik-Orno",
+        "phone": "",
+        "osmId": "node:12745161549"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1339749,
+          58.8758738
+        ]
+      },
+      "properties": {
+        "id": "c6nkw",
+        "name": "Unknown (c6nkw)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134580000",
+        "website": "https://grillplatser.nu/Grillplats/Visa/SAT-grill-Storsand",
+        "phone": "",
+        "osmId": "node:12748117664"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1314217,
+          58.871647
+        ]
+      },
+      "properties": {
+        "id": "8wsnn",
+        "name": "Unknown (8wsnn)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12748135109"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1373716,
+          58.8871559
+        ]
+      },
+      "properties": {
+        "id": "a7yaa",
+        "name": "Unknown (a7yaa)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134082735",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Ostermar-2",
+        "phone": "",
+        "osmId": "node:12748135194"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5570314,
+          59.4122669
+        ]
+      },
+      "properties": {
+        "id": "fwpgg",
+        "name": "Grillplats vid badstrand, Grinda",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q121433209",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Grillplats-vid-badstrand",
+        "phone": "",
+        "osmId": "node:12759232983"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8189982,
+          59.472891
+        ]
+      },
+      "properties": {
+        "id": "r2q53",
+        "name": "Lilla Jolpan, vindskydd",
+        "category": "shelter",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q133895106",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12765919450"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5160081,
+          59.0378705
+        ]
+      },
+      "properties": {
+        "id": "67dh7",
+        "name": "Unknown (67dh7)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134006267",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Fjardlangen-1",
+        "phone": "",
+        "osmId": "node:12769968654"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5119622,
+          59.0357024
+        ]
+      },
+      "properties": {
+        "id": "4f4rw",
+        "name": "Fjärdlång bryggan, grillplats",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133993440",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Fjardlang-brygga",
+        "phone": "",
+        "osmId": "node:12770512759"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5171829,
+          59.0366832
+        ]
+      },
+      "properties": {
+        "id": "tgv45",
+        "name": "Thielska villan, grillplats",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134005778",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Thielska-villan",
+        "phone": "",
+        "osmId": "node:12771043917"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8053661,
+          59.4794491
+        ]
+      },
+      "properties": {
+        "id": "3832n",
+        "name": "Unknown (3832n)",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q134006727",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Pojkarnas-udde",
+        "phone": "",
+        "osmId": "node:12772629157"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1377708,
+          58.8874584
+        ]
+      },
+      "properties": {
+        "id": "e9267",
+        "name": "Unknown (e9267)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134082140",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Ostermar-1",
+        "phone": "",
+        "osmId": "node:12778302898"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7069477,
+          59.2001453
+        ]
+      },
+      "properties": {
+        "id": "a3nx8",
+        "name": "Långviks tältplats, Nämdö",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134369828",
+        "website": "https://www.namdo.nu/portal/att_resa/att_resa.shtml#sleep",
+        "phone": "",
+        "osmId": "node:12813901080"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1324348,
+          58.8775512
+        ]
+      },
+      "properties": {
+        "id": "kwwh8",
+        "name": "Unknown (kwwh8)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12849416944"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1311458,
+          58.8665506
+        ]
+      },
+      "properties": {
+        "id": "tf7f8",
+        "name": "Vänsvik udd, Nåttarö grillplats",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134537879",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Vanviks-udd",
+        "phone": "",
+        "osmId": "node:12849416949"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1069421,
+          58.8769707
+        ]
+      },
+      "properties": {
+        "id": "dpfvk",
+        "name": "Unknown (dpfvk)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12861931845"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1115552,
+          58.881526
+        ]
+      },
+      "properties": {
+        "id": "bc4jt",
+        "name": "Nåttarö snorklingsled",
+        "category": "attraction",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134078770",
+        "website": "https://skargardsstiftelsen.se/aktuellt/snorkelsasongen-ar-igang-pa-bjorno-och-nattaro/",
+        "phone": "",
+        "osmId": "node:12862822557"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1079424,
+          58.8775838
+        ]
+      },
+      "properties": {
+        "id": "ez9qc",
+        "name": "Unknown (ez9qc)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12862899770"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8724243,
+          59.406551
+        ]
+      },
+      "properties": {
+        "id": "dq4bj",
+        "name": "Möja Outdoor",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134580561",
+        "website": "https://mojaoutdoor.se",
+        "phone": "+46 76 145 18 57",
+        "osmId": "node:12864742991"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8127474,
+          59.4794153
+        ]
+      },
+      "properties": {
+        "id": "btdrf",
+        "name": "Ragnars kiosk kajak uthyrning",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "Q135917318",
+        "website": "https://finnhamn.se/aktiviteter/",
+        "phone": "",
+        "osmId": "node:12864797308"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7585335,
+          59.2558848
+        ]
+      },
+      "properties": {
+        "id": "nd8fv",
+        "name": "Solberga gård Runmarö kajakuthyrning",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134580717",
+        "website": "https://solbergagard.nu/kajak.htm",
+        "phone": "+46857152061",
+        "osmId": "node:12864902808"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6414487,
+          59.4379028
+        ]
+      },
+      "properties": {
+        "id": "nc8x6",
+        "name": "Svartsö kajak",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q134580947",
+        "website": "http://svartsökajak.se",
+        "phone": "",
+        "osmId": "node:12864952792"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9173564,
+          59.288062
+        ]
+      },
+      "properties": {
+        "id": "kzfw6",
+        "name": "Sandhamnsguiderna",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134581015",
+        "website": "https://www.sandhamn.se/aktiviteter/",
+        "phone": "+46 70 347 43 39",
+        "osmId": "node:12864971430"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1099851,
+          58.8775907
+        ]
+      },
+      "properties": {
+        "id": "32288",
+        "name": "Unknown (32288)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Nåttarö gård och resort",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12869950725"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7003354,
+          59.1850001
+        ]
+      },
+      "properties": {
+        "id": "zqc6r",
+        "name": "Restaurang Viken Nämdö Solvik",
+        "category": "food",
+        "section": "uto",
+        "operator": "",
+        "wikidata": "Q134692920",
+        "website": "https://www.namdosolvik.com/",
+        "phone": "",
+        "osmId": "node:12881274960"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1088458,
+          58.8809059
+        ]
+      },
+      "properties": {
+        "id": "85zjp",
+        "name": "Nåttarö nya gästhamn",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134776776",
+        "website": "https://nattaro.se/gasthamn/",
+        "phone": "",
+        "osmId": "node:12899347960"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7343308,
+          59.2680021
+        ]
+      },
+      "properties": {
+        "id": "978hx",
+        "name": "Jerkers udde",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q106678630",
+        "website": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/badplatserivarmdo/jerkersudde.4.18c983316e0536cb189a22a.html",
+        "phone": "",
+        "osmId": "node:12905547872"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5119852,
+          59.0355719
+        ]
+      },
+      "properties": {
+        "id": "snfzx",
+        "name": "Fjärdlång Gästhamn",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.hamnkartan.se/hamnar/fjardlang-gasthamn",
+        "phone": "",
+        "osmId": "node:12913032579"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3247749,
+          58.9698803
+        ]
+      },
+      "properties": {
+        "id": "sfedf",
+        "name": "Lilla Haket & Ninas Bod",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134895563",
+        "website": "https://www.uto.se/bar-restaurang/",
+        "phone": "+46 8 501 57 463",
+        "osmId": "node:12915366457"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6560745,
+          59.437985
+        ]
+      },
+      "properties": {
+        "id": "qgbc4",
+        "name": "Unknown (qgbc4)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135107155",
+        "website": "https://www.dockspot.com/sv/docks/263-svartso-gasthamn",
+        "phone": "",
+        "osmId": "node:12958356256"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6566286,
+          59.438052
+        ]
+      },
+      "properties": {
+        "id": "fv97k",
+        "name": "Svartsö Lanthandel cykeluthyrning",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135107242",
+        "website": "https://svartsolanthandel.se/cykeluthyrning",
+        "phone": "+46 8 542 472 22",
+        "osmId": "node:12958498621"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3295677,
+          58.9675673
+        ]
+      },
+      "properties": {
+        "id": "fmwme",
+        "name": "Unknown (fmwme)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Utö värdshus",
+        "wikidata": "Q135114682",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12961165511"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7356193,
+          59.2789433
+        ]
+      },
+      "properties": {
+        "id": "5c62v",
+        "name": "Unknown (5c62v)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135117359",
+        "website": "https://www.runmarolanthandel.se/cyklar",
+        "phone": "",
+        "osmId": "node:12962274334"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4297196,
+          59.0513528
+        ]
+      },
+      "properties": {
+        "id": "2yh23",
+        "name": "Unknown (2yh23)",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135152816",
+        "website": "https://orno.se/orno-museum/",
+        "phone": "",
+        "osmId": "node:12964017564"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3732328,
+          59.0346609
+        ]
+      },
+      "properties": {
+        "id": "s7h5m",
+        "name": "Unknown (s7h5m)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135153361",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12964236566"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2234136,
+          58.9226863
+        ]
+      },
+      "properties": {
+        "id": "pcq7t",
+        "name": "Unknown (pcq7t)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135267120",
+        "website": "https://www.explorearchipelago.com/sv/sthlm/sodra-skargarden/alorano",
+        "phone": "",
+        "osmId": "node:12992249253"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7583178,
+          59.2560581
+        ]
+      },
+      "properties": {
+        "id": "sj4sa",
+        "name": "Solberga Gårdsbutik",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135423626",
+        "website": "https://www.solbergagard.nu/butik.htm",
+        "phone": "",
+        "osmId": "node:13013411958"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9110259,
+          59.2879669
+        ]
+      },
+      "properties": {
+        "id": "hfham",
+        "name": "B&B Hotel",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "B&B Hotels",
+        "wikidata": "Q135428282",
+        "website": "https://sandhamns-vardshus.se/boende",
+        "phone": "+46703311672",
+        "osmId": "node:13014966006"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3321648,
+          58.9638696
+        ]
+      },
+      "properties": {
+        "id": "4kken",
+        "name": "Unknown (4kken)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.explorearchipelago.com/sv/sthlm/sodra-skargarden/uto",
+        "phone": "",
+        "osmId": "node:13023091918"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9201778,
+          59.4411097
+        ]
+      },
+      "properties": {
+        "id": "dfzxd",
+        "name": "Långviks inre Gästhamn",
+        "category": "other",
+        "section": "orno",
+        "operator": "",
+        "wikidata": "Q140621337",
+        "website": "https://visitmoja.se/g%C3%A4sthamnar/",
+        "phone": "",
+        "osmId": "node:13030354537"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9207912,
+          59.4430498
+        ]
+      },
+      "properties": {
+        "id": "hf5wd",
+        "name": "Långviks yttre Gästhamn",
+        "category": "other",
+        "section": "orno",
+        "operator": "",
+        "wikidata": "Q140621316",
+        "website": "https://visitmoja.se/g%C3%A4sthamnar/",
+        "phone": "+46 70 877 85 56",
+        "osmId": "node:13030354538"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1114068,
+          58.8803181
+        ]
+      },
+      "properties": {
+        "id": "h5vam",
+        "name": "Toaletter vid Nåttarö Brygga",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13037259125"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1441743,
+          58.8895223
+        ]
+      },
+      "properties": {
+        "id": "6564p",
+        "name": "Norra Nåttarö toalett",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13039521525"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1160734,
+          58.8804301
+        ]
+      },
+      "properties": {
+        "id": "e8j79",
+        "name": "Unknown (e8j79)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13041364818"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1121896,
+          58.8812201
+        ]
+      },
+      "properties": {
+        "id": "9qxvg",
+        "name": "Unknown (9qxvg)",
+        "category": "sauna",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q136196939",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13042690918"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1122338,
+          58.881188
+        ]
+      },
+      "properties": {
+        "id": "3n4yn",
+        "name": "Unknown (3n4yn)",
+        "category": "shower",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13042692090"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2233114,
+          58.9226546
+        ]
+      },
+      "properties": {
+        "id": "pcq7t",
+        "name": "Unknown (pcq7t)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135267120",
+        "website": "https://www.explorearchipelago.com/sv/sthlm/sodra-skargarden/alorano",
+        "phone": "",
+        "osmId": "node:13045921461"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2252073,
+          58.9148895
+        ]
+      },
+      "properties": {
+        "id": "zb6at",
+        "name": "Unknown (zb6at)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13047936490"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3634318,
+          58.9785128
+        ]
+      },
+      "properties": {
+        "id": "n9w34",
+        "name": "Unknown (n9w34)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13050416339"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2950312,
+          58.9494991
+        ]
+      },
+      "properties": {
+        "id": "pp4qy",
+        "name": "Vattenpump",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13052360067"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1119313,
+          58.8795368
+        ]
+      },
+      "properties": {
+        "id": "x3vvp",
+        "name": "Nåttarö Handelsbod",
+        "category": "shop",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134311495",
+        "website": "https://www.nattaroboden.se/",
+        "phone": "+46 8 792 12 12",
+        "osmId": "node:13057049541"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1111444,
+          58.8806081
+        ]
+      },
+      "properties": {
+        "id": "wyr7b",
+        "name": "Nåttarö bryggkiosk",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134777419",
+        "website": "https://www.nattaroboden.se/hem/bryggkiosken/",
+        "phone": "",
+        "osmId": "node:13057049542"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3821468,
+          59.0683808
+        ]
+      },
+      "properties": {
+        "id": "n6qbm",
+        "name": "Unknown (n6qbm)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13057537355"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8249709,
+          59.4824786
+        ]
+      },
+      "properties": {
+        "id": "vs2ba",
+        "name": "Toaletter Finnhamns Krog",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13061745475"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8245417,
+          59.4809564
+        ]
+      },
+      "properties": {
+        "id": "wteat",
+        "name": "Unknown (wteat)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135336466",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Finnhamn-Vandrarhemsviken",
+        "phone": "",
+        "osmId": "node:13061778916"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8234623,
+          59.4813277
+        ]
+      },
+      "properties": {
+        "id": "6f4re",
+        "name": "Unknown (6f4re)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13061781619"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7607388,
+          59.4692582
+        ]
+      },
+      "properties": {
+        "id": "9y6jx",
+        "name": "Unknown (9y6jx)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13063312449"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.757257,
+          59.4672672
+        ]
+      },
+      "properties": {
+        "id": "d9jkk",
+        "name": "Ingmarsö bageri toalet",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13063317163"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.6958551,
+          59.4465144
+        ]
+      },
+      "properties": {
+        "id": "z4mbp",
+        "name": "SAT Grillplats sågens Brygga",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q136087206",
+        "website": "https://grillplatser.nu/Karta/Sagens-brygga",
+        "phone": "",
+        "osmId": "node:13063609062"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7541748,
+          59.466302
+        ]
+      },
+      "properties": {
+        "id": "9ay3e",
+        "name": "Ingmarsö Gästhamn Dricksvatten",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13064822373"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8084516,
+          59.4754826
+        ]
+      },
+      "properties": {
+        "id": "fvjxc",
+        "name": "Södra Paradisviken Toaletter",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13065225866"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1077503,
+          58.8796001
+        ]
+      },
+      "properties": {
+        "id": "rfbfr",
+        "name": "Unknown (rfbfr)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13081071658"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1078747,
+          58.8795737
+        ]
+      },
+      "properties": {
+        "id": "4hq25",
+        "name": "Unknown (4hq25)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Nåttarö",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13081071659"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3592559,
+          58.9700153
+        ]
+      },
+      "properties": {
+        "id": "dpz3y",
+        "name": "Unknown (dpz3y)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135905118",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Sodra-Sandvik",
+        "phone": "",
+        "osmId": "node:13081270868"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1105361,
+          58.8771966
+        ]
+      },
+      "properties": {
+        "id": "hvp94",
+        "name": "Unknown (hvp94)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13081283759"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5571836,
+          59.4069962
+        ]
+      },
+      "properties": {
+        "id": "z4nd8",
+        "name": "Unknown (z4nd8)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13096050076"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5602919,
+          59.4068226
+        ]
+      },
+      "properties": {
+        "id": "rnhd3",
+        "name": "Unknown (rnhd3)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q135972088",
+        "website": "https://grillplatser.nu/Grillplats/Visa/SAT-Grinda-grillplats-stugbyn-2",
+        "phone": "",
+        "osmId": "node:13096084423"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5604668,
+          59.4071149
+        ]
+      },
+      "properties": {
+        "id": "dbmrp",
+        "name": "Unknown (dbmrp)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13096093701"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5623621,
+          59.4065726
+        ]
+      },
+      "properties": {
+        "id": "m696y",
+        "name": "Unknown (m696y)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13096119643"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5575315,
+          59.4118515
+        ]
+      },
+      "properties": {
+        "id": "459zw",
+        "name": "Grillplats vid badstrand, Grinda",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q135969918",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Badstrand-Grinda",
+        "phone": "",
+        "osmId": "node:13097085019"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5620066,
+          59.4068949
+        ]
+      },
+      "properties": {
+        "id": "gvh9x",
+        "name": "Unknown (gvh9x)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q135971987",
+        "website": "https://grillplatser.nu/Grillplats/Visa/SAT-Grinda-grillplats-stugbyn-3",
+        "phone": "",
+        "osmId": "node:13097212671"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5571621,
+          59.4124926
+        ]
+      },
+      "properties": {
+        "id": "cbnjd",
+        "name": "Cissi",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13098060270"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5586545,
+          59.4136466
+        ]
+      },
+      "properties": {
+        "id": "ttpbg",
+        "name": "Unknown (ttpbg)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13098083627"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5618025,
+          59.40697
+        ]
+      },
+      "properties": {
+        "id": "c4xct",
+        "name": "Unknown (c4xct)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13098115083"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5598672,
+          59.4075898
+        ]
+      },
+      "properties": {
+        "id": "tgnr4",
+        "name": "Unknown (tgnr4)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13100103357"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5564259,
+          59.4071783
+        ]
+      },
+      "properties": {
+        "id": "qg36e",
+        "name": "Unknown (qg36e)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13100145836"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5617991,
+          59.4069476
+        ]
+      },
+      "properties": {
+        "id": "kyef6",
+        "name": "Unknown (kyef6)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "Skärgårdsstiftelsen",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13100147504"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5596968,
+          59.4130679
+        ]
+      },
+      "properties": {
+        "id": "2cd4d",
+        "name": "Unknown (2cd4d)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13107588524"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5569196,
+          59.4138554
+        ]
+      },
+      "properties": {
+        "id": "9kf2w",
+        "name": "Unknown (9kf2w)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13107588525"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5569082,
+          59.4138352
+        ]
+      },
+      "properties": {
+        "id": "yzz3c",
+        "name": "Unknown (yzz3c)",
+        "category": "shower",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13107588526"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5591697,
+          59.4072581
+        ]
+      },
+      "properties": {
+        "id": "cxh8j",
+        "name": "Unknown (cxh8j)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q136036748",
+        "website": "https://grillplatser.nu/Grillplats/Visa/SAT-grillplats-grinda",
+        "phone": "",
+        "osmId": "node:13112047863"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3248949,
+          58.9699804
+        ]
+      },
+      "properties": {
+        "id": "2qk4d",
+        "name": "Utö grillkiosk",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q136164699",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13128085070"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.554532,
+          59.4154844
+        ]
+      },
+      "properties": {
+        "id": "26aed",
+        "name": "Unknown (26aed)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13144156053"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5561553,
+          59.4191835
+        ]
+      },
+      "properties": {
+        "id": "tyg7z",
+        "name": "Signe",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13144169970"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5749249,
+          59.4060453
+        ]
+      },
+      "properties": {
+        "id": "fqw8k",
+        "name": "Unknown (fqw8k)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q136298469",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Klubbudden-Grinda",
+        "phone": "",
+        "osmId": "node:13144859129"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.554558,
+          59.4153859
+        ]
+      },
+      "properties": {
+        "id": "xfnk5",
+        "name": "Unknown (xfnk5)",
+        "category": "shower",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13147022481"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8817305,
+          59.4050005
+        ]
+      },
+      "properties": {
+        "id": "sa2je",
+        "name": "Unknown (sa2je)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13149334415"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8849741,
+          59.4064363
+        ]
+      },
+      "properties": {
+        "id": "pvz9y",
+        "name": "Möja bageri",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135110110",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13157558827"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8577797,
+          59.4133522
+        ]
+      },
+      "properties": {
+        "id": "6yz3t",
+        "name": "Unknown (6yz3t)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q136337568",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Sodra-Moja",
+        "phone": "",
+        "osmId": "node:13157631495"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8131763,
+          59.4788356
+        ]
+      },
+      "properties": {
+        "id": "c3xce",
+        "name": "Unknown (c3xce)",
+        "category": "other",
+        "section": "finnhamn",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13158730230"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9145998,
+          59.2893184
+        ]
+      },
+      "properties": {
+        "id": "3xx4m",
+        "name": "Pentaboden",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q136342609",
+        "website": "https://sandhamns-vardshus.se/menyerpentaboden",
+        "phone": "+46 70 305 16 72",
+        "osmId": "node:13159224340"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5567794,
+          59.4138808
+        ]
+      },
+      "properties": {
+        "id": "bjxjx",
+        "name": "Grinda bakeri",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "Q134713103",
+        "website": "https://grinda.se/mat-fest/bageri/",
+        "phone": "",
+        "osmId": "node:13159921823"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.738175,
+          59.2771262
+        ]
+      },
+      "properties": {
+        "id": "7a3jy",
+        "name": "Runmarö rum",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135087816",
+        "website": "",
+        "phone": "+46 70 091 44 90",
+        "osmId": "node:13160007984"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3190174,
+          58.9680958
+        ]
+      },
+      "properties": {
+        "id": "xczv5",
+        "name": "Unknown (xczv5)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13164590454"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8848819,
+          59.4065859
+        ]
+      },
+      "properties": {
+        "id": "e97e5",
+        "name": "Unknown (e97e5)",
+        "category": "shower",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13164662180"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8845754,
+          59.4063453
+        ]
+      },
+      "properties": {
+        "id": "8dncm",
+        "name": "Unknown (8dncm)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13164756107"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8845434,
+          59.4063701
+        ]
+      },
+      "properties": {
+        "id": "ybc97",
+        "name": "Möja hamnbar",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135110316",
+        "website": "",
+        "phone": "+46 70 676 71 90",
+        "osmId": "node:13190921824"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8869659,
+          59.4066705
+        ]
+      },
+      "properties": {
+        "id": "wzwgn",
+        "name": "Coop Berg",
+        "category": "shop",
+        "section": "unknown",
+        "operator": "Möja konsumtionsförening",
+        "wikidata": "Q134451025",
+        "website": "https://www.coop.se/butiker-erbjudanden/coop/coop-berg/",
+        "phone": "+46 10 745 02 80",
+        "osmId": "node:13190933131"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8849774,
+          59.4067234
+        ]
+      },
+      "properties": {
+        "id": "bwsb2",
+        "name": "Möja Värdshus",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133812569",
+        "website": "https://www.instagram.com/mojavardshusochbageri",
+        "phone": "",
+        "osmId": "node:13190933132"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3385974,
+          58.9734129
+        ]
+      },
+      "properties": {
+        "id": "r8fer",
+        "name": "Unknown (r8fer)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13758241640"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9138771,
+          59.2890639
+        ]
+      },
+      "properties": {
+        "id": "d9hbs",
+        "name": "Strindberg's Champagne Club",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q139591732",
+        "website": "https://www.strindbergs.se/",
+        "phone": "+46 70 751 25 00",
+        "osmId": "node:13780498735"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1643779,
+          58.9173082
+        ]
+      },
+      "properties": {
+        "id": "ajh9w",
+        "name": "Unknown (ajh9w)",
+        "category": "sauna",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://rano.se/praktisk-information/",
+        "phone": "",
+        "osmId": "node:13826905255"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8844533,
+          59.405963
+        ]
+      },
+      "properties": {
+        "id": "sf22g",
+        "name": "Hamnbaren",
+        "category": "food",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.facebook.com/p/Möja-Hamnbar-100065104277412/",
+        "phone": "+46 73 515 28 02",
+        "osmId": "node:13922924501"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2754342,
+          58.9505962
+        ]
+      },
+      "properties": {
+        "id": "4ncam",
+        "name": "Villa Söderängen",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q135217025",
+        "website": "https://villasoderangen.se/",
+        "phone": "",
+        "osmId": "node:13943740199"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9176297,
+          59.4293482
+        ]
+      },
+      "properties": {
+        "id": "cgszh",
+        "name": "Ramsmora badklippor",
+        "category": "other",
+        "section": "orno",
+        "operator": "",
+        "wikidata": "Q135443360",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13943766555"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4370259,
+          59.0551702
+        ]
+      },
+      "properties": {
+        "id": "9hzqe",
+        "name": "Ornö badplats, Kyrkviken",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134839262",
+        "website": "https://www.naturkartan.se/sv/stockholms-lan/badplats-bp3",
+        "phone": "",
+        "osmId": "node:13943777187"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3752761,
+          59.0368986
+        ]
+      },
+      "properties": {
+        "id": "9cpwf",
+        "name": "Sågverket",
+        "category": "food",
+        "section": "unknown",
+        "operator": "Ornö Skärgårdshotell",
+        "wikidata": "Q140355511",
+        "website": "https://ornoskargardshotell.se/mat-dryck/",
+        "phone": "",
+        "osmId": "node:13965044888"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4315547,
+          59.0516536
+        ]
+      },
+      "properties": {
+        "id": "v3p96",
+        "name": "Unknown (v3p96)",
+        "category": "shower",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13977390456"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1106975,
+          58.8810445
+        ]
+      },
+      "properties": {
+        "id": "yx5sq",
+        "name": "Vatten vid ångbåtsbryggan Nåttarö",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13981318501"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8864688,
+          59.4084151
+        ]
+      },
+      "properties": {
+        "id": "sddpx",
+        "name": "Unknown (sddpx)",
+        "category": "shower",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13982153564"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.432847,
+          59.052059
+        ]
+      },
+      "properties": {
+        "id": "reays",
+        "name": "Ornö gästhamn cykeluthyrning",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q134727862",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13985578096"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9191211,
+          59.2876018
+        ]
+      },
+      "properties": {
+        "id": "awnk4",
+        "name": "Sandhamns hotell, bastu",
+        "category": "sauna",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q136207103",
+        "website": "https://www.sandhamn.com/sv/spa",
+        "phone": "+46 8 574 504 00",
+        "osmId": "node:13987524965"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4317015,
+          59.0517098
+        ]
+      },
+      "properties": {
+        "id": "mrc9c",
+        "name": "Unknown (mrc9c)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13991749415"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2091179,
+          58.938413
+        ]
+      },
+      "properties": {
+        "id": "xzp8m",
+        "name": "Hästholmsviken",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133864303",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13992112222"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.373468,
+          59.0345351
+        ]
+      },
+      "properties": {
+        "id": "5y6dm",
+        "name": "Unknown (5y6dm)",
+        "category": "shower",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13992691864"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2094292,
+          58.924836
+        ]
+      },
+      "properties": {
+        "id": "qzys6",
+        "name": "Vindskydd Ålö gård",
+        "category": "shelter",
+        "section": "unknown",
+        "operator": "Stockholm Archipelago trail",
+        "wikidata": "Q139624999",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14001148801"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2826819,
+          58.9546914
+        ]
+      },
+      "properties": {
+        "id": "c25bv",
+        "name": "Unknown (c25bv)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14002117405"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9124406,
+          59.4282758
+        ]
+      },
+      "properties": {
+        "id": "f43td",
+        "name": "Ramsmora gästhamn",
+        "category": "other",
+        "section": "orno",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://visitmoja.se/g%C3%A4sthamnar/",
+        "phone": "",
+        "osmId": "node:14002218333"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8963026,
+          59.4105788
+        ]
+      },
+      "properties": {
+        "id": "kdwzg",
+        "name": "Löka gästhamn",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://visitmoja.se/g%C3%A4sthamnar/",
+        "phone": "",
+        "osmId": "node:14002219440"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8832403,
+          59.4055447
+        ]
+      },
+      "properties": {
+        "id": "ykc69",
+        "name": "Kyrkvikens gästhamn",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://visitmoja.se/g%C3%A4sthamnar/",
+        "phone": "",
+        "osmId": "node:14002239525"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8713889,
+          59.4060656
+        ]
+      },
+      "properties": {
+        "id": "5zvpv",
+        "name": "Möjaström Gästhamn",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://visitmoja.se/g%C3%A4sthamnar/",
+        "phone": "",
+        "osmId": "node:14002250110"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7534607,
+          59.2587815
+        ]
+      },
+      "properties": {
+        "id": "awj76",
+        "name": "Unknown (awj76)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Nicholas Roman",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14002366735"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2773888,
+          58.9532037
+        ]
+      },
+      "properties": {
+        "id": "gsx9c",
+        "name": "Gäststugan Utö",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.airbnb.se/rooms/49319315",
+        "phone": "",
+        "osmId": "node:14002873500"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3731834,
+          59.0348255
+        ]
+      },
+      "properties": {
+        "id": "bkwcw",
+        "name": "Unknown (bkwcw)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "Ornö Båtshamn",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14002933455"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7532558,
+          59.4661991
+        ]
+      },
+      "properties": {
+        "id": "ptr6q",
+        "name": "Räkan",
+        "category": "food",
+        "section": "unknown",
+        "operator": "Ingmarsö Bageri",
+        "wikidata": "Q140561544",
+        "website": "https://ingmarsobageri.com/hander-i-bageriet/",
+        "phone": "",
+        "osmId": "node:14014496535"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7542064,
+          59.4663228
+        ]
+      },
+      "properties": {
+        "id": "nb7ca",
+        "name": "Bastu Ingmarsö gästhamn",
+        "category": "sauna",
+        "section": "unknown",
+        "operator": "Ingmarsö gästhamn",
+        "wikidata": "",
+        "website": "",
+        "phone": "+46 8 470 15 19",
+        "osmId": "node:14017263426"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8972616,
+          59.4111797
+        ]
+      },
+      "properties": {
+        "id": "w5jgg",
+        "name": "Dricksvattenpump Löka Hamn",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14022240647"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9195265,
+          59.4409664
+        ]
+      },
+      "properties": {
+        "id": "kwvxw",
+        "name": "Unknown (kwvxw)",
+        "category": "other",
+        "section": "orno",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14022481830"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4321627,
+          59.0514685
+        ]
+      },
+      "properties": {
+        "id": "5kssn",
+        "name": "Unknown (5kssn)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14022546073"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5567154,
+          59.4137112
+        ]
+      },
+      "properties": {
+        "id": "5bvfw",
+        "name": "Unknown (5bvfw)",
+        "category": "other",
+        "section": "grinda",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14023546865"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8849999,
+          59.4066772
+        ]
+      },
+      "properties": {
+        "id": "gysy6",
+        "name": "Möja Värdshus",
+        "category": "lodging",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "Q133812569",
+        "website": "https://www.booking.com/hotel/se/moja-vardshus-moja.html",
+        "phone": "",
+        "osmId": "node:14026909991"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9194909,
+          59.4409656
+        ]
+      },
+      "properties": {
+        "id": "s8qkq",
+        "name": "Unknown (s8qkq)",
+        "category": "shower",
+        "section": "orno",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14027227874"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9194715,
+          59.4409653
+        ]
+      },
+      "properties": {
+        "id": "4h53m",
+        "name": "Unknown (4h53m)",
+        "category": "other",
+        "section": "orno",
+        "operator": "",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14027227875"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9175603,
+          59.4414574
+        ]
+      },
+      "properties": {
+        "id": "pm382",
+        "name": "Jeppes Gästgiveri cykeluthyrning",
+        "category": "other",
+        "section": "orno",
+        "operator": "Jeppes Gästgiveri",
+        "wikidata": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14027506532"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8911195,
+          59.4110596
+        ]
+      },
+      "properties": {
+        "id": "xvvxc",
+        "name": "Unknown (xvvxc)",
+        "category": "shower",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.mojahallen.se/",
+        "phone": "",
+        "osmId": "node:14028200427"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8910718,
+          59.4110548
+        ]
+      },
+      "properties": {
+        "id": "9x9zq",
+        "name": "Unknown (9x9zq)",
+        "category": "other",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.mojahallen.se/",
+        "phone": "",
+        "osmId": "node:14028221357"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.891026,
+          59.411049
+        ]
+      },
+      "properties": {
+        "id": "x3rjc",
+        "name": "Unknown (x3rjc)",
+        "category": "sauna",
+        "section": "unknown",
+        "operator": "",
+        "wikidata": "",
+        "website": "https://www.mojahallen.se/",
+        "phone": "",
+        "osmId": "node:14028221358"
+      }
+    }
+  ]
+}

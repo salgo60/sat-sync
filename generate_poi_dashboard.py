@@ -15,6 +15,7 @@ import unicodedata
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime
+from pathlib import Path
 from typing import Optional
 from urllib.parse import quote, urlencode
 
@@ -23,6 +24,7 @@ POIS_URL = "https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson"
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 TRAIL_URL = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
 SECTIONS_INDEX_URL = "https://map.stockholmarchipelagotrail.com/data/sections-index.json"
+OSM_SAT_FORMAT_FILE = Path("osm_sat_format.json")
 
 HEADERS = {"User-Agent": "sat-sync-generator/1.0 (+https://github.com/salgo60/sat-sync)"}
 
@@ -367,7 +369,7 @@ ORDER BY DESC(geof:latitude(?coord))
             pass
         return 0, ""
 
-    def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict]) -> str:
+    def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict], osm_pois: Optional[list[dict]] = None) -> str:
         stage_by_slug = {s.slug: s for s in stages}
         generated_at = datetime.now().strftime("%Y%m%d %H:%M")
         pois_fetched_at = format_timestamp(self.pois_fetched_at or generated_at)
@@ -550,6 +552,24 @@ ORDER BY DESC(geof:latitude(?coord))
         )
         poi_flow_json = json.dumps(poi_flow_data, ensure_ascii=False)
         poi_map_json = json.dumps(poi_map_data, ensure_ascii=False)
+        
+        # Process OSM POI data if available
+        osm_map_data = []
+        if osm_pois:
+            for p in osm_pois:
+                props = p.get("properties", {})
+                osm_map_data.append({
+                    "id": props.get("id"),
+                    "name": props.get("name"),
+                    "section": props.get("section") or "okänd",
+                    "category": props.get("category") or "other",
+                    "operator": props.get("operator"),
+                    "operator_wikidata": props.get("wikidata"),
+                    "lat": p.get("geometry", {}).get("coordinates", [None, None])[1],
+                    "lon": p.get("geometry", {}).get("coordinates", [None, None])[0],
+                })
+        
+        osm_map_json = json.dumps(osm_map_data, ensure_ascii=False)
         trail_geojson_json = json.dumps(trail_geojson, ensure_ascii=False)
         sections_index_json = json.dumps(sections_index, ensure_ascii=False)
 
@@ -678,6 +698,13 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="filters">
+      <div>
+        <label id="dataSourceLabel" for="dataSourceFilter">Datakälla</label>
+        <select id="dataSourceFilter">
+          <option value="sat">SAT POI (Standarddata)</option>
+          <option value="osm">OSM (med ref:stockholmarchipelagotrail)</option>
+        </select>
+      </div>
       <div>
         <label id="languageFilterLabel" for="languageFilter">Språk</label>
         <select id="languageFilter">
@@ -812,6 +839,7 @@ ORDER BY DESC(geof:latitude(?coord))
     (function() {{
       const languageFilter = document.getElementById('languageFilter');
       const sectionFilter = document.getElementById('sectionFilter');
+      const dataSourceFilter = document.getElementById('dataSourceFilter');
   const organisationFilter = document.getElementById('organisationFilter');
   const categoryFilter = document.getElementById('categoryFilter');
   const trailInfoToggle = document.getElementById('trailInfoToggle');
@@ -826,9 +854,12 @@ ORDER BY DESC(geof:latitude(?coord))
   const sectionRows = Array.from(document.querySelectorAll('#sectionTable tbody tr'));
   const visibleCount = document.getElementById('visibleCount');
   const poiFlow = {poi_flow_json};
-  const poiMapData = {poi_map_json};
+  const satPoiMapData = {poi_map_json};
+  const osmPoiMapData = {osm_map_json};
+  let currentDataSource = 'sat';
+  let poiMapData = satPoiMapData;
   const poiById = new Map(poiMapData.filter((p) => !!p.id).map((p) => [p.id, p]));
-  const totalPoiCount = poiMapData.length;
+  let totalPoiCount = poiMapData.length;
   const sectionValues = new Set(Array.from(sectionFilter.options).map(o => o.value));
   const organisationValues = new Set();
   const categoryValues = new Set(Array.from(categoryFilter.options).map(o => o.value));
@@ -841,6 +872,16 @@ ORDER BY DESC(geof:latitude(?coord))
   let lastOrganisation = null;
   let lastCategory = null;
   const osmTagCache = new Map();
+  
+  // Handle data source switching
+  if (dataSourceFilter) {{
+    dataSourceFilter.addEventListener('change', (e) => {{
+      currentDataSource = e.target.value;
+      poiMapData = currentDataSource === 'osm' ? osmPoiMapData : satPoiMapData;
+      totalPoiCount = poiMapData.length;
+      applyFilters();
+    }});
+  }}
 
   // Predefined organisations with Wikidata links
   const knownOrganisations = {{
@@ -2076,7 +2117,18 @@ ORDER BY DESC(geof:latitude(?coord))
         stages = self.fetch_stages()
         trail_geojson = self.fetch_trail_geojson()
         sections_index = self.fetch_sections_index(stages)
-        html = self.generate_html(pois, stages, trail_geojson, sections_index)
+        
+        # Load OSM data if available
+        osm_pois = None
+        if OSM_SAT_FORMAT_FILE.exists():
+            try:
+                osm_data = json.loads(OSM_SAT_FORMAT_FILE.read_text(encoding="utf-8"))
+                osm_pois = osm_data.get("features", [])
+                print(f"✅ Läste OSM-data: {len(osm_pois)} POI:er")
+            except Exception as e:
+                print(f"⚠️  Kunde inte läsa OSM-data: {e}")
+        
+        html = self.generate_html(pois, stages, trail_geojson, sections_index, osm_pois)
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(html)
         print(f"✅ Dashboard sparad: {output_file}")
