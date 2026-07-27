@@ -1756,15 +1756,31 @@ ORDER BY DESC(geof:latitude(?coord))
             popupAnchor: [0, -12],
           }});
           const marker = L.marker([r.lat, r.lon], {{ icon }});
-          const satUrl = `https://map.stockholmarchipelagotrail.com/sv?id=${{encodeURIComponent(r.id)}}`;
-          const satJsonUrl = `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(r.id)}}`;
+          // Detect OSM candidates (untracked objects from OSM, not yet in SAT)
+          const isOsmCandidate = r.is_osm_candidate === true;
+          // For OSM candidates: link to OSM directly. For SAT POIs: link to SAT map.
+          let satUrl, satJsonUrl;
+          if (isOsmCandidate && r.osmId) {{
+            const osmParts = r.osmId.split(':');
+            satUrl = `https://www.openstreetmap.org/${{osmParts[0]}}/${{osmParts[1]}}`;
+            satJsonUrl = null;
+          }} else {{
+            satUrl = `https://map.stockholmarchipelagotrail.com/sv?id=${{encodeURIComponent(r.id)}}`;
+            satJsonUrl = `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(r.id)}}`;
+          }}
           const imageHtml = r.image
             ? `<img class="popup-thumb" src="${{escapeHtml(r.image)}}" alt="thumbnail">`
             : '';
           const osmRef = findOsmRef(r.same_as);
+          // For OSM candidates, derive osmRef from the osmId field directly
+          const candidateOsmRef = (isOsmCandidate && r.osmId) ? (function() {{
+            const parts = r.osmId.split(':');
+            return parts.length === 2 ? {{type: parts[0], id: parts[1], key: r.osmId}} : null;
+          }})() : null;
+          const effectiveOsmRef = osmRef || candidateOsmRef;
           const wdRef = findWikidataRef(r.same_as);
-          const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${{osmRef.type}}/${{osmRef.id}}` : null;
-          const mapkiUrl = osmRef ? `https://osm.mapki.com/history/${{osmRef.type}}/${{osmRef.id}}` : null;
+          const osmHistoryUrl = effectiveOsmRef ? `https://pewu.github.io/osm-history/#/${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}` : null;
+          const mapkiUrl = effectiveOsmRef ? `https://osm.mapki.com/history/${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}` : null;
           const mapCompleteTheme = (function(cat) {{
             const map = {{
               toilet: 'toilets',
@@ -1780,14 +1796,15 @@ ORDER BY DESC(geof:latitude(?coord))
             }};
             return map[cat] || 'nature';
           }})(r.category);
-          const mapCompleteUrl = osmRef
-            ? `https://mapcomplete.org/${{mapCompleteTheme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{osmRef.type}}/${{osmRef.id}}`
+          const mapCompleteUrl = effectiveOsmRef
+            ? `https://mapcomplete.org/${{mapCompleteTheme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}`
             : null;
-          const idEditorUrl = osmRef
-            ? `https://www.openstreetmap.org/edit?editor=id&${{osmRef.type}}=${{osmRef.id}}#map=18/${{r.lat}}/${{r.lon}}`
+          const idEditorUrl = effectiveOsmRef
+            ? `https://www.openstreetmap.org/edit?editor=id&${{effectiveOsmRef.type}}=${{effectiveOsmRef.id}}#map=18/${{r.lat}}/${{r.lon}}`
             : null;
-          const osmTagsHtml = osmRef
-            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div><div class="commons-thumb-body"></div></details>`
+          // OSM tags: always show for OSM candidates (they ARE in OSM); for SAT POIs show if linked
+          const osmTagsHtml = effectiveOsmRef
+            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${{escapeHtml(effectiveOsmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div><div class="commons-thumb-body"></div></details>`
             : `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body">${{escapeHtml(t('noOsmRef'))}}</div></details>`;
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${{osmHistoryUrl}}" target="_blank">OSM Deep history</a></div>`
@@ -1801,18 +1818,19 @@ ORDER BY DESC(geof:latitude(?coord))
           const idEditorLink = idEditorUrl
             ? `<div><a href="${{idEditorUrl}}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
-          const osmNotesUrl = (r.lat && r.lon)
+          // OSM Notes only for SAT POIs — OSM candidates are already in OSM
+          const osmNotesUrl = (!isOsmCandidate && r.lat && r.lon)
             ? `https://www.openstreetmap.org/#map=18/${{r.lat}}/${{r.lon}}&layers=N`
             : null;
           const osmNotesLink = osmNotesUrl
             ? `<div><a href="${{osmNotesUrl}}" target="_blank">💬 OSM Notes</a></div>`
             : '';
-          // Wikimedia photo upload links — only shown when POI has no image yet
+          // Wikimedia links only for SAT POIs with Wikidata refs (not OSM candidates)
           const missingImage = !r.image;
-          const wikishootmeUrl = (missingImage && r.lat && r.lon)
+          const wikishootmeUrl = (!isOsmCandidate && missingImage && r.lat && r.lon)
             ? `https://wikishootme.toolforge.org/#lat=${{r.lat}}&lng=${{r.lon}}&zoom=18`
             : null;
-          const commonsUploadUrl = (missingImage && wdRef)
+          const commonsUploadUrl = (!isOsmCandidate && missingImage && wdRef)
             ? `https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wikidata&depicts=${{encodeURIComponent(wdRef)}}`
             : null;
           const wikishootmeLink = wikishootmeUrl
@@ -1821,30 +1839,31 @@ ORDER BY DESC(geof:latitude(?coord))
           const commonsUploadLink = commonsUploadUrl
             ? `<div><a href="${{commonsUploadUrl}}" target="_blank">⬆️ Ladda upp bild till Commons</a></div>`
             : '';
+          const openLabel = isOsmCandidate ? 'Öppna i OSM' : escapeHtml(t('openSatMap'));
+          const jsonLink = (!isOsmCandidate && satJsonUrl) ? ` / <a href="${{satJsonUrl}}" target="_blank">json</a>` : '';
           marker.bindPopup(`
             <div class="popup-inner" style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(poiName)}}</strong><br>
               <small>${{escapeHtml(t('section'))}}: ${{escapeHtml(r.section)}} | ${{escapeHtml(t('category'))}}: ${{escapeHtml(poiCategoryLabel)}}</small><br>
-              <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a> /
-              <a href="${{satJsonUrl}}" target="_blank">json</a>
+              <a href="${{satUrl}}" target="_blank">${{openLabel}}</a>${{jsonLink}}
               ${{osmTagsHtml}}
               ${{osmHistoryLink}}
               ${{mapkiLink}}
               ${{idEditorLink}}
               ${{mapCompleteLink}}
               ${{osmNotesLink}}
-              ${{wikishootmeLink || commonsUploadLink ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}}
+              ${{(wikishootmeLink || commonsUploadLink) ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}}
               ${{wikishootmeLink}}
               ${{commonsUploadLink}}
               ${{imageHtml}}
             </div>
           `);
           marker.on('popupopen', (event) => {{
-            if (!osmRef) return;
+            if (!effectiveOsmRef) return;
             const root = event.popup.getElement();
             const candidates = root ? Array.from(root.querySelectorAll('[data-osm-ref]')) : [];
-            const node = candidates.find((el) => el.getAttribute('data-osm-ref') === osmRef.key);
-            if (node) loadOsmTags(osmRef, node, r.category);
+            const node = candidates.find((el) => el.getAttribute('data-osm-ref') === effectiveOsmRef.key);
+            if (node) loadOsmTags(effectiveOsmRef, node, r.category);
           }});
           marker.addTo(markerLayer);
           bounds.push([r.lat, r.lon]);
