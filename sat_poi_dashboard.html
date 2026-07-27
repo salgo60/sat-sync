@@ -103,7 +103,7 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-27 13:43</strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-27 13:47</strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-27 08:07</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/pull/76" target="_blank">PR #76</a> &nbsp;|&nbsp;
@@ -7997,7 +7997,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-27 13:43</strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-27 13:47</strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-27 08:07</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
@@ -8906,8 +8906,11 @@
         const selectedSection = sec !== 'all'
           ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
+        // For OSM candidates, section filter only controls map zoom (not marker visibility)
+        // since all OSM candidates have section="unknown"
+        const isOsmSource = currentDataSource === 'osm';
         const filtered = poiMapData.filter((r) =>
-          (sec === 'all' || r.section === sec) &&
+          (isOsmSource || sec === 'all' || r.section === sec) &&
           (safeOrg === 'all' || (r.operator === safeOrg)) &&
           (safeCat === 'all' || r.category === safeCat) &&
           isFiniteCoord(r.lat) &&
@@ -9307,7 +9310,9 @@
           const rowSec = row.dataset.section;
           const rowOrg = row.dataset.operator || '';
           const rowCat = row.dataset.category;
-          const show = (sec === 'all' || rowSec === sec) && 
+          // For OSM candidates: section filter only zooms map, doesn't hide rows
+          const sectionMatch = currentDataSource === 'osm' || sec === 'all' || rowSec === sec;
+          const show = sectionMatch && 
                       (org === 'all' || rowOrg === org) &&
                       (cat === 'all' || rowCat === cat);
           row.style.display = show ? '' : 'none';

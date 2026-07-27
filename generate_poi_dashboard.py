@@ -1735,8 +1735,11 @@ ORDER BY DESC(geof:latitude(?coord))
         const selectedSection = sec !== 'all'
           ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
+        // For OSM candidates, section filter only controls map zoom (not marker visibility)
+        // since all OSM candidates have section="unknown"
+        const isOsmSource = currentDataSource === 'osm';
         const filtered = poiMapData.filter((r) =>
-          (sec === 'all' || r.section === sec) &&
+          (isOsmSource || sec === 'all' || r.section === sec) &&
           (safeOrg === 'all' || (r.operator === safeOrg)) &&
           (safeCat === 'all' || r.category === safeCat) &&
           isFiniteCoord(r.lat) &&
@@ -2136,7 +2139,9 @@ ORDER BY DESC(geof:latitude(?coord))
           const rowSec = row.dataset.section;
           const rowOrg = row.dataset.operator || '';
           const rowCat = row.dataset.category;
-          const show = (sec === 'all' || rowSec === sec) && 
+          // For OSM candidates: section filter only zooms map, doesn't hide rows
+          const sectionMatch = currentDataSource === 'osm' || sec === 'all' || rowSec === sec;
+          const show = sectionMatch && 
                       (org === 'all' || rowOrg === org) &&
                       (cat === 'all' || rowCat === cat);
           row.style.display = show ? '' : 'none';
