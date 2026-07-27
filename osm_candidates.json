@@ -133,7 +133,13 @@
         "lat": 59.862053,
         "lon": 19.1227381
 =======
+<<<<<<< HEAD
+        "osmId": "node:5745003236",
+        "lat": 59.862053,
+        "lon": 19.1227381
+=======
         "osmId": "node:5745003236"
+>>>>>>> origin/main
       }
     },
     {
@@ -141,6 +147,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           19.1078696,
@@ -164,6 +172,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+>>>>>>> origin/main
 >>>>>>> origin/main
           19.1082075,
           59.8479714
@@ -204,7 +213,13 @@
         "lat": 59.844967,
         "lon": 19.121391
 =======
+<<<<<<< HEAD
+        "osmId": "node:800808700",
+        "lat": 59.844967,
+        "lon": 19.121391
+=======
         "osmId": "node:800808700"
+>>>>>>> origin/main
       }
     },
     {
@@ -212,6 +227,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           19.1099171,
@@ -255,6 +272,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+>>>>>>> origin/main
 >>>>>>> origin/main
           19.1057512,
           59.8404195
@@ -317,7 +335,13 @@
         "lat": 59.6637109,
         "lon": 18.937639
 =======
+<<<<<<< HEAD
+        "osmId": "node:13925322125",
+        "lat": 59.6637109,
+        "lon": 18.937639
+=======
         "osmId": "node:13925322125"
+>>>>>>> origin/main
       }
     },
     {
@@ -325,6 +349,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           18.9082393,
@@ -369,6 +395,7 @@
         "type": "Point",
         "coordinates": [
 >>>>>>> origin/main
+>>>>>>> origin/main
           18.9339021,
           59.6616427
         ]
@@ -386,7 +413,13 @@
         "lat": 59.6616427,
         "lon": 18.9339021
 =======
+<<<<<<< HEAD
+        "osmId": "node:12896559427",
+        "lat": 59.6616427,
+        "lon": 18.9339021
+=======
         "osmId": "node:12896559427"
+>>>>>>> origin/main
       }
     },
     {
@@ -394,6 +427,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           18.9229314,
@@ -437,6 +472,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+>>>>>>> origin/main
 >>>>>>> origin/main
           18.8128854,
           59.4796519
@@ -653,7 +689,13 @@
         "lat": 59.4742518,
         "lon": 18.8077588
 =======
+<<<<<<< HEAD
+        "osmId": "node:12736629495",
+        "lat": 59.4742518,
+        "lon": 18.8077588
+=======
         "osmId": "node:12736629495"
+>>>>>>> origin/main
       }
     },
     {
@@ -661,6 +703,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           18.7517758,
@@ -725,6 +769,7 @@
         "type": "Point",
         "coordinates": [
 >>>>>>> origin/main
+>>>>>>> origin/main
           18.8873061,
           59.4106093
         ]
@@ -764,7 +809,13 @@
         "lat": 59.406367,
         "lon": 18.8832525
 =======
+<<<<<<< HEAD
+        "osmId": "node:12089216143",
+        "lat": 59.406367,
+        "lon": 18.8832525
+=======
         "osmId": "node:12089216143"
+>>>>>>> origin/main
       }
     },
     {
@@ -772,6 +823,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           18.9223884,
@@ -815,6 +868,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+>>>>>>> origin/main
 >>>>>>> origin/main
           18.9056407,
           59.2891247
@@ -1009,7 +1063,13 @@
         "lat": 59.2894617,
         "lon": 18.9146089
 =======
+<<<<<<< HEAD
+        "osmId": "node:12805742901",
+        "lat": 59.2894617,
+        "lon": 18.9146089
+=======
         "osmId": "node:12805742901"
+>>>>>>> origin/main
       }
     },
     {
@@ -1017,6 +1077,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           18.7835078,
@@ -1060,6 +1122,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+>>>>>>> origin/main
 >>>>>>> origin/main
           18.5485543,
           59.4090281
@@ -1188,7 +1251,13 @@
         "lat": 59.4057576,
         "lon": 18.5765727
 =======
+<<<<<<< HEAD
+        "osmId": "node:13144410779",
+        "lat": 59.4057576,
+        "lon": 18.5765727
+=======
         "osmId": "node:13144410779"
+>>>>>>> origin/main
       }
     },
     {
@@ -1196,6 +1265,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           18.6771714,
@@ -1220,6 +1291,7 @@
         "type": "Point",
         "coordinates": [
 >>>>>>> origin/main
+>>>>>>> origin/main
           18.3735095,
           59.0344638
         ]
@@ -1237,7 +1309,13 @@
         "lat": 59.0344638,
         "lon": 18.3735095
 =======
+<<<<<<< HEAD
+        "osmId": "node:14004499739",
+        "lat": 59.0344638,
+        "lon": 18.3735095
+=======
         "osmId": "node:14004499739"
+>>>>>>> origin/main
       }
     },
     {
@@ -1245,6 +1323,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           18.3893523,
@@ -1268,6 +1348,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+>>>>>>> origin/main
 >>>>>>> origin/main
           18.4780537,
           59.1212496
@@ -2562,7 +2643,13 @@
         "lat": 59.4110437,
         "lon": 18.8909845
 =======
+<<<<<<< HEAD
+        "osmId": "node:14028221359",
+        "lat": 59.4110437,
+        "lon": 18.8909845
+=======
         "osmId": "node:14028221359"
+>>>>>>> origin/main
       }
     },
     {
@@ -2570,6 +2657,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           18.8910457,
@@ -2593,6 +2682,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+>>>>>>> origin/main
 >>>>>>> origin/main
           18.8965491,
           59.4114483
@@ -2633,7 +2723,13 @@
         "lat": 59.4143714,
         "lon": 18.5563696
 =======
+<<<<<<< HEAD
+        "osmId": "node:8880718355",
+        "lat": 59.4143714,
+        "lon": 18.5563696
+=======
         "osmId": "node:8880718355"
+>>>>>>> origin/main
       }
     },
     {
@@ -2641,6 +2737,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
           18.9195244,
@@ -2664,6 +2762,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+>>>>>>> origin/main
 >>>>>>> origin/main
           18.4394994,
           59.0452442
@@ -3985,9 +4084,13 @@
   "count": 161,
 =======
 <<<<<<< HEAD
+  "count": 161,
+=======
+<<<<<<< HEAD
   "count": 106,
 =======
   "count": 124,
+>>>>>>> origin/main
 >>>>>>> origin/main
 >>>>>>> origin/main
   "source": "OSM (PostPass) - ref:stockholmarchipelagotrail (untracked only)"
