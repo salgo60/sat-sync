@@ -413,6 +413,7 @@ ORDER BY DESC(geof:latitude(?coord))
                     "image": p.get("image"),
                     "operator": operator_info.get("name") if operator_info else None,
                     "operator_wikidata": operator_info.get("wikidata") if operator_info else None,
+                    "is_osm_candidate": False,
                 }
             )
             if sec not in section_stats:
@@ -423,6 +424,42 @@ ORDER BY DESC(geof:latitude(?coord))
             if any(x.startswith("wikidata:") for x in same_as):
                 section_stats[sec]["with_wd"] += 1
             if any(x.startswith("osm:") for x in same_as):
+                section_stats[sec]["with_osm"] += 1
+
+        # Add OSM candidates to poi_map_data
+        if osm_candidates:
+            for osm in osm_candidates:
+                geo = osm.get("geometry") or {}
+                coords = geo.get("coordinates") or [0, 0]
+                lon, lat = coords[0], coords[1]
+                props = osm.get("properties") or {}
+                sec = props.get("section") or "unknown"
+                cat = props.get("category") or "Övrigt"
+                categories.add(cat)
+                osm_id = props.get("osmId", "")
+                osm_name = props.get("name", f"OSM {osm_id.split(':')[-1] if ':' in osm_id else osm_id}")
+                
+                poi_map_data.append({
+                    "id": props.get("id"),
+                    "name": osm_name,
+                    "name_localized": {},
+                    "section": sec,
+                    "category": cat,
+                    "same_as": [],
+                    "osmId": osm_id,
+                    "first_seen": None,
+                    "updated_at": None,
+                    "lat": lat,
+                    "lon": lon,
+                    "image": None,
+                    "operator": props.get("operator") or None,
+                    "operator_wikidata": None,
+                    "is_osm_candidate": True,
+                })
+                if sec not in section_stats:
+                    section_stats[sec] = {"count": 0, "categories": {}, "with_wd": 0, "with_osm": 0}
+                section_stats[sec]["count"] += 1
+                section_stats[sec]["categories"][cat] = section_stats[sec]["categories"].get(cat, 0) + 1
                 section_stats[sec]["with_osm"] += 1
 
         section_rows = []
