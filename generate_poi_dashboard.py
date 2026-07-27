@@ -879,6 +879,13 @@ ORDER BY DESC(geof:latitude(?coord))
       currentDataSource = e.target.value;
       poiMapData = currentDataSource === 'osm' ? osmPoiMapData : satPoiMapData;
       totalPoiCount = poiMapData.length;
+      
+      // Update header stat
+      const statCard = document.querySelector('[id="statTotalLabel"]')?.parentElement;
+      if (statCard) {{
+        statCard.querySelector('.num').textContent = totalPoiCount;
+      }}
+      
       applyFilters();
     }});
   }}
