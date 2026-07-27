@@ -126,26 +126,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.1078696,
-          59.8511476
-        ]
-      },
-      "properties": {
-        "id": "osm:13068560201",
-        "name": "OSM 13068560201",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13068560201"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.1082075,
           59.8479714
         ]
@@ -179,46 +159,6 @@
         "website": "",
         "phone": "",
         "osmId": "node:800808700"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.1099171,
-          59.845716
-        ]
-      },
-      "properties": {
-        "id": "osm:13068655901",
-        "name": "OSM 13068655901",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13068655901"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.1120021,
-          59.8397255
-        ]
-      },
-      "properties": {
-        "id": "osm:13909289123",
-        "name": "OSM 13909289123",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909289123"
       }
     },
     {
@@ -286,46 +226,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.9082393,
-          59.65694
-        ]
-      },
-      "properties": {
-        "id": "osm:13906349301",
-        "name": "OSM 13906349301",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "+46 70 725 03 50",
-        "osmId": "node:13906349301"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9162044,
-          59.6589997
-        ]
-      },
-      "properties": {
-        "id": "osm:13945729201",
-        "name": "OSM 13945729201",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13945729201"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.9339021,
           59.6616427
         ]
@@ -339,46 +239,6 @@
         "website": "https://app.raa.se/open/fornsok/lamning/0a28d8d8-29d2-48d0-80fc-1e05b881adc2",
         "phone": "",
         "osmId": "node:12896559427"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9229314,
-          59.6627367
-        ]
-      },
-      "properties": {
-        "id": "osm:13909156301",
-        "name": "OSM 13909156301",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909156301"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.8275947,
-          59.5970772
-        ]
-      },
-      "properties": {
-        "id": "osm:13945706401",
-        "name": "OSM 13945706401",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13945706401"
       }
     },
     {
@@ -586,66 +446,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.7517758,
-          59.466092
-        ]
-      },
-      "properties": {
-        "id": "osm:13906338701",
-        "name": "OSM 13906338701",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13906338701"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.8546671,
-          59.4281682
-        ]
-      },
-      "properties": {
-        "id": "osm:13945689201",
-        "name": "OSM 13945689201",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13945689201"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.874021,
-          59.4037138
-        ]
-      },
-      "properties": {
-        "id": "osm:13909066697",
-        "name": "OSM 13909066697",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909066697"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.8873061,
           59.4106093
         ]
@@ -679,46 +479,6 @@
         "website": "",
         "phone": "",
         "osmId": "node:12089216143"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9223884,
-          59.2763614
-        ]
-      },
-      "properties": {
-        "id": "osm:13909393401",
-        "name": "OSM 13909393401",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "TrouvilleföreningenHjärtstartaren",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909393401"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9286327,
-          59.2796492
-        ]
-      },
-      "properties": {
-        "id": "osm:13909384901",
-        "name": "OSM 13909384901",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909384901"
       }
     },
     {
@@ -906,46 +666,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.7835078,
-          59.2682988
-        ]
-      },
-      "properties": {
-        "id": "osm:13909377401",
-        "name": "OSM 13909377401",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "Viktor Falk Jimenez",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909377401"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.7600905,
-          59.2786808
-        ]
-      },
-      "properties": {
-        "id": "osm:13909115801",
-        "name": "OSM 13909115801",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909115801"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.5485543,
           59.4090281
         ]
@@ -1066,26 +786,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.6771714,
-          59.4575978
-        ]
-      },
-      "properties": {
-        "id": "osm:13063733001",
-        "name": "OSM 13063733001",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13063733001"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.3735095,
           59.0344638
         ]
@@ -1099,26 +799,6 @@
         "website": "https://orno.se/resa-pa-orno/",
         "phone": "",
         "osmId": "node:14004499739"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.3893523,
-          59.0743513
-        ]
-      },
-      "properties": {
-        "id": "osm:7996790135",
-        "name": "OSM 7996790135",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "Mörbyfjärdens idrottsförening (MIF)",
-        "website": "",
-        "phone": "",
-        "osmId": "node:7996790135"
       }
     },
     {
@@ -2306,26 +1986,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.8910457,
-          59.4110762
-        ]
-      },
-      "properties": {
-        "id": "osm:14020231001",
-        "name": "OSM 14020231001",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:14020231001"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.8965491,
           59.4114483
         ]
@@ -2359,26 +2019,6 @@
         "website": "",
         "phone": "",
         "osmId": "node:8880718355"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9195244,
-          59.4409752
-        ]
-      },
-      "properties": {
-        "id": "osm:14022468501",
-        "name": "OSM 14022468501",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:14022468501"
       }
     },
     {
@@ -7892,6 +7532,6 @@
       }
     }
   ],
-  "count": 124,
+  "count": 106,
   "source": "OSM (PostPass) - ref:stockholmarchipelagotrail (untracked only)"
 }

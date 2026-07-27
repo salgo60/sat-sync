@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Convert OSM PostPass objects WITHOUT sat: refs to SAT POI candidates.
+"""Convert OSM PostPass objects WITHOUT sat:/shr: refs to SAT POI candidates.
 
 Objects that already have ref:stockholmarchipelagotrail = sat:poi:xxx / sat:pier:xxx /
 sat:section:xxx are already tracked in the SAT system — skip them.
+Objects with shr:xxx are AEDs from Hjärtstartarregistret — also skip them.
 Also skip objects whose OSM node IDs appear in SAT's piers or AED datasets.
 Only include objects that are genuinely untracked in SAT.
 """
@@ -70,9 +71,9 @@ for feat in features:
         skipped_no_coords += 1
         continue
 
-    # Skip objects already tracked in SAT (ref:stockholmarchipelagotrail = sat:...)
+    # Skip objects already tracked in SAT (ref:stockholmarchipelagotrail = sat:... or shr:...)
     sat_ref = tags.get("ref:stockholmarchipelagotrail", "")
-    if sat_ref.startswith("sat:"):
+    if sat_ref.startswith("sat:") or sat_ref.startswith("shr:"):
         skipped_already_in_sat += 1
         continue
 
