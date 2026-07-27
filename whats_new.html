@@ -40,6 +40,21 @@
   <div class="entry">
     <div class="date">Juli 2026</div>
     <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/77" target="_blank">PR #77</a>
+    </div>
+    <h2>🗺️ OSM kandidater: 2 datakällor, korrekta popups och sektionsfilter</h2>
+    <ul>
+      <li><strong>2 rena datakällor.</strong> Dashboarden visar nu SAT POI (683 objekt) och OSM kandidater (124 objekt) separat via datakälla-dropdown.</li>
+      <li><strong>OSM kandidater = 124 genuina fynd.</strong> OSM-objekt med <code>ref:stockholmarchipelagotrail</code> som inte är spårade i SAT — exkluderar <code>sat:</code>-prefix, piers och AED-noder.</li>
+      <li><strong>Korrekta popups för OSM-objekt.</strong> Länk direkt till OpenStreetMap, OSM-taggar laddas korrekt, ingen onödig SAT-länk eller OSM Notes.</li>
+      <li><strong>Sektionsfilter zoomar kartan.</strong> Välj etapp → kartan zoomar in till etappens yta, alla 124 kandidater syns oavsett etapp (de saknar section-koppling).</li>
+      <li><strong>Dynamiska räknare.</strong> Header och dropdown visar alltid aktuellt antal (inte hårdkodade värden).</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
       <a href="https://github.com/salgo60/sat-sync/pull/74" target="_blank">PR #74</a>
     </div>
     <h2>🌟 SSOT-initiativ: Operator som Single Source of Truth</h2>

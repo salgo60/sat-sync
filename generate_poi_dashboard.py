@@ -15,6 +15,7 @@ import unicodedata
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime
+from pathlib import Path
 from typing import Optional
 from urllib.parse import quote, urlencode
 
@@ -23,6 +24,7 @@ POIS_URL = "https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson"
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 TRAIL_URL = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
 SECTIONS_INDEX_URL = "https://map.stockholmarchipelagotrail.com/data/sections-index.json"
+OSM_CANDIDATES_FILE = Path("osm_candidates.json")
 
 HEADERS = {"User-Agent": "sat-sync-generator/1.0 (+https://github.com/salgo60/sat-sync)"}
 
@@ -367,7 +369,7 @@ ORDER BY DESC(geof:latitude(?coord))
             pass
         return 0, ""
 
-    def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict]) -> str:
+    def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict], osm_candidates: Optional[list[dict]] = None) -> str:
         stage_by_slug = {s.slug: s for s in stages}
         generated_at = datetime.now().strftime("%Y%m%d %H:%M")
         pois_fetched_at = format_timestamp(self.pois_fetched_at or generated_at)
@@ -411,6 +413,7 @@ ORDER BY DESC(geof:latitude(?coord))
                     "image": p.get("image"),
                     "operator": operator_info.get("name") if operator_info else None,
                     "operator_wikidata": operator_info.get("wikidata") if operator_info else None,
+                    "is_osm_candidate": False,
                 }
             )
             if sec not in section_stats:
@@ -550,6 +553,33 @@ ORDER BY DESC(geof:latitude(?coord))
         )
         poi_flow_json = json.dumps(poi_flow_data, ensure_ascii=False)
         poi_map_json = json.dumps(poi_map_data, ensure_ascii=False)
+        
+        # Process OSM candidate POI data if available (raw candidates, no category mapping)
+        osm_candidate_data = []
+        if osm_candidates:
+            for p in osm_candidates:
+                props = p.get("properties", {})
+                osm_id = props.get("osmId", "")
+                raw_name = props.get("name", "")
+                # Better display name: use stored name or fall back to OSM type+id
+                osm_name = raw_name if raw_name and not raw_name.startswith("OSM ") else f"OSM {osm_id}"
+                osm_candidate_data.append({
+                    "id": props.get("id"),
+                    "name": osm_name,
+                    "section": props.get("section") or "okänd",
+                    "category": props.get("category") or "Övrigt",
+                    "operator": props.get("operator"),
+                    "lat": p.get("geometry", {}).get("coordinates", [None, None])[1],
+                    "lon": p.get("geometry", {}).get("coordinates", [None, None])[0],
+                    "osmId": osm_id,
+                    "same_as": [],
+                    "name_localized": {},
+                    "image": None,
+                    "operator_wikidata": None,
+                    "is_osm_candidate": True,
+                })
+        
+        osm_candidate_json = json.dumps(osm_candidate_data, ensure_ascii=False)
         trail_geojson_json = json.dumps(trail_geojson, ensure_ascii=False)
         sections_index_json = json.dumps(sections_index, ensure_ascii=False)
 
@@ -671,13 +701,20 @@ ORDER BY DESC(geof:latitude(?coord))
     </div>
 
     <div class="stats">
-      <div class="card"><h3 id="statTotalLabel">Totalt POI</h3><div class="num">{len(pois)}</div></div>
+      <div class="card"><h3 id="statTotalLabel">Totalt POI</h3><div class="num" id="statTotalNum">{len(poi_map_data)}</div></div>
       <div class="card"><h3 id="statSectionsLabel">Etapp/ö (sections)</h3><div class="num">{len(section_stats)}</div></div>
       <div class="card"><h3 id="statCategoriesLabel">Objekttyper</h3><div class="num">{len(categories)}</div></div>
       <div class="card"><h3 id="statWikidataLabel">Wikidata-etapper</h3><div class="num">{len(stages)}</div></div>
     </div>
 
     <div class="filters">
+      <div>
+        <label id="dataSourceLabel" for="dataSourceFilter">Datakälla</label>
+        <select id="dataSourceFilter">
+          <option value="sat">SAT POI (Standarddata) - {len(poi_map_data)}</option>
+          <option value="osm">OSM kandidater - {len(osm_candidate_data)}</option>
+        </select>
+      </div>
       <div>
         <label id="languageFilterLabel" for="languageFilter">Språk</label>
         <select id="languageFilter">
@@ -812,6 +849,7 @@ ORDER BY DESC(geof:latitude(?coord))
     (function() {{
       const languageFilter = document.getElementById('languageFilter');
       const sectionFilter = document.getElementById('sectionFilter');
+      const dataSourceFilter = document.getElementById('dataSourceFilter');
   const organisationFilter = document.getElementById('organisationFilter');
   const categoryFilter = document.getElementById('categoryFilter');
   const trailInfoToggle = document.getElementById('trailInfoToggle');
@@ -822,13 +860,17 @@ ORDER BY DESC(geof:latitude(?coord))
   const downloadBtn = document.getElementById('downloadBtn');
   const resetBtn = document.getElementById('resetBtn');
   const zoomTrailBtn = document.getElementById('zoomTrailBtn');
-  const poiRows = Array.from(document.querySelectorAll('#poiTable tbody tr'));
+  // poiRows is dynamic — always read from DOM (rebuilt on source switch)
+  function getPoiRows() {{ return Array.from(document.querySelectorAll('#poiTable tbody tr')); }}
   const sectionRows = Array.from(document.querySelectorAll('#sectionTable tbody tr'));
   const visibleCount = document.getElementById('visibleCount');
   const poiFlow = {poi_flow_json};
-  const poiMapData = {poi_map_json};
+   const satPoiMapData = {poi_map_json};
+   const osmCandidateMapData = {osm_candidate_json};
+  let currentDataSource = 'sat';
+  let poiMapData = satPoiMapData;
   const poiById = new Map(poiMapData.filter((p) => !!p.id).map((p) => [p.id, p]));
-  const totalPoiCount = poiMapData.length;
+  let totalPoiCount = poiMapData.length;
   const sectionValues = new Set(Array.from(sectionFilter.options).map(o => o.value));
   const organisationValues = new Set();
   const categoryValues = new Set(Array.from(categoryFilter.options).map(o => o.value));
@@ -841,6 +883,64 @@ ORDER BY DESC(geof:latitude(?coord))
   let lastOrganisation = null;
   let lastCategory = null;
   const osmTagCache = new Map();
+  
+  // Handle data source switching
+  if (dataSourceFilter) {{
+    dataSourceFilter.addEventListener('change', (e) => {{
+      currentDataSource = e.target.value;
+      poiMapData = currentDataSource === 'osm' ? osmCandidateMapData : satPoiMapData;
+      totalPoiCount = poiMapData.length;
+      
+      // Update header stat card
+      const statNum = document.getElementById('statTotalNum');
+      if (statNum) statNum.textContent = totalPoiCount;
+      
+      // Rebuild table rows for the new data source
+      rebuildPoiTable(poiMapData, currentDataSource === 'osm');
+      
+      applyFilters();
+    }});
+  }}
+
+  function rebuildPoiTable(data, isOsmSource) {{
+    const tbody = document.querySelector('#poiTable tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    data.forEach((p) => {{
+      const sec = p.section || 'okänd';
+      const cat = p.category || 'okänd';
+      const id = p.id || '—';
+      const name = p.name || '—';
+      const operator = p.operator || '—';
+      const tr = document.createElement('tr');
+      tr.dataset.section = sec;
+      tr.dataset.category = cat;
+      tr.dataset.poiId = id;
+      tr.dataset.operator = p.operator || '';
+      
+      let idCell;
+      if (isOsmSource && p.osmId) {{
+        const parts = p.osmId.split(':');
+        const osmUrl = `https://www.openstreetmap.org/${{parts[0]}}/${{parts[1]}}`;
+        idCell = `<a href="${{osmUrl}}" target="_blank"><code>${{escapeHtml(p.osmId)}}</code></a>`;
+      }} else {{
+        const satUrl = `https://map.stockholmarchipelagotrail.com/?${{encodeURIComponent(id)}}`;
+        idCell = `<a href="${{satUrl}}" target="_blank"><code>${{escapeHtml(id)}}</code></a>`;
+      }}
+      
+      tr.innerHTML = `
+        <td>${{idCell}}</td>
+        <td>${{escapeHtml(name)}}</td>
+        <td>${{escapeHtml(sec)}}</td>
+        <td>${{escapeHtml(cat)}}</td>
+        <td>${{escapeHtml(operator)}}</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+      `;
+      tbody.appendChild(tr);
+    }});
+  }}
 
   // Predefined organisations with Wikidata links
   const knownOrganisations = {{
@@ -1220,7 +1320,7 @@ ORDER BY DESC(geof:latitude(?coord))
       }}
 
       function updateLocalizedPoiRows() {{
-        poiRows.forEach((row) => {{
+        getPoiRows().forEach((row) => {{
           const poiId = row.dataset.poiId;
           if (!poiId || !poiById.has(poiId)) return;
           const poi = poiById.get(poiId);
@@ -1635,8 +1735,11 @@ ORDER BY DESC(geof:latitude(?coord))
         const selectedSection = sec !== 'all'
           ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
+        // For OSM candidates, section filter only controls map zoom (not marker visibility)
+        // since all OSM candidates have section="unknown"
+        const isOsmSource = currentDataSource === 'osm';
         const filtered = poiMapData.filter((r) =>
-          (sec === 'all' || r.section === sec) &&
+          (isOsmSource || sec === 'all' || r.section === sec) &&
           (safeOrg === 'all' || (r.operator === safeOrg)) &&
           (safeCat === 'all' || r.category === safeCat) &&
           isFiniteCoord(r.lat) &&
@@ -1656,15 +1759,31 @@ ORDER BY DESC(geof:latitude(?coord))
             popupAnchor: [0, -12],
           }});
           const marker = L.marker([r.lat, r.lon], {{ icon }});
-          const satUrl = `https://map.stockholmarchipelagotrail.com/sv?id=${{encodeURIComponent(r.id)}}`;
-          const satJsonUrl = `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(r.id)}}`;
+          // Detect OSM candidates (untracked objects from OSM, not yet in SAT)
+          const isOsmCandidate = r.is_osm_candidate === true;
+          // For OSM candidates: link to OSM directly. For SAT POIs: link to SAT map.
+          let satUrl, satJsonUrl;
+          if (isOsmCandidate && r.osmId) {{
+            const osmParts = r.osmId.split(':');
+            satUrl = `https://www.openstreetmap.org/${{osmParts[0]}}/${{osmParts[1]}}`;
+            satJsonUrl = null;
+          }} else {{
+            satUrl = `https://map.stockholmarchipelagotrail.com/sv?id=${{encodeURIComponent(r.id)}}`;
+            satJsonUrl = `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(r.id)}}`;
+          }}
           const imageHtml = r.image
             ? `<img class="popup-thumb" src="${{escapeHtml(r.image)}}" alt="thumbnail">`
             : '';
           const osmRef = findOsmRef(r.same_as);
+          // For OSM candidates, derive osmRef from the osmId field directly
+          const candidateOsmRef = (isOsmCandidate && r.osmId) ? (function() {{
+            const parts = r.osmId.split(':');
+            return parts.length === 2 ? {{type: parts[0], id: parts[1], key: r.osmId}} : null;
+          }})() : null;
+          const effectiveOsmRef = osmRef || candidateOsmRef;
           const wdRef = findWikidataRef(r.same_as);
-          const osmHistoryUrl = osmRef ? `https://pewu.github.io/osm-history/#/${{osmRef.type}}/${{osmRef.id}}` : null;
-          const mapkiUrl = osmRef ? `https://osm.mapki.com/history/${{osmRef.type}}/${{osmRef.id}}` : null;
+          const osmHistoryUrl = effectiveOsmRef ? `https://pewu.github.io/osm-history/#/${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}` : null;
+          const mapkiUrl = effectiveOsmRef ? `https://osm.mapki.com/history/${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}` : null;
           const mapCompleteTheme = (function(cat) {{
             const map = {{
               toilet: 'toilets',
@@ -1680,14 +1799,15 @@ ORDER BY DESC(geof:latitude(?coord))
             }};
             return map[cat] || 'nature';
           }})(r.category);
-          const mapCompleteUrl = osmRef
-            ? `https://mapcomplete.org/${{mapCompleteTheme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{osmRef.type}}/${{osmRef.id}}`
+          const mapCompleteUrl = effectiveOsmRef
+            ? `https://mapcomplete.org/${{mapCompleteTheme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}`
             : null;
-          const idEditorUrl = osmRef
-            ? `https://www.openstreetmap.org/edit?editor=id&${{osmRef.type}}=${{osmRef.id}}#map=18/${{r.lat}}/${{r.lon}}`
+          const idEditorUrl = effectiveOsmRef
+            ? `https://www.openstreetmap.org/edit?editor=id&${{effectiveOsmRef.type}}=${{effectiveOsmRef.id}}#map=18/${{r.lat}}/${{r.lon}}`
             : null;
-          const osmTagsHtml = osmRef
-            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${{escapeHtml(osmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div><div class="commons-thumb-body"></div></details>`
+          // OSM tags: always show for OSM candidates (they ARE in OSM); for SAT POIs show if linked
+          const osmTagsHtml = effectiveOsmRef
+            ? `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="missing-tags-body" style="margin-bottom:4px;font-size:.8rem">⏳ Laddar…</div><div class="osm-tags-body" data-osm-ref="${{escapeHtml(effectiveOsmRef.key)}}">${{escapeHtml(t('loadingOsmTags'))}}</div><div class="commons-thumb-body"></div></details>`
             : `<details class="osm-tags"><summary>${{escapeHtml(t('osmTags'))}}</summary><div class="osm-tags-body">${{escapeHtml(t('noOsmRef'))}}</div></details>`;
           const osmHistoryLink = osmHistoryUrl
             ? `<div><a href="${{osmHistoryUrl}}" target="_blank">OSM Deep history</a></div>`
@@ -1701,18 +1821,19 @@ ORDER BY DESC(geof:latitude(?coord))
           const idEditorLink = idEditorUrl
             ? `<div><a href="${{idEditorUrl}}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
-          const osmNotesUrl = (r.lat && r.lon)
+          // OSM Notes only for SAT POIs — OSM candidates are already in OSM
+          const osmNotesUrl = (!isOsmCandidate && r.lat && r.lon)
             ? `https://www.openstreetmap.org/#map=18/${{r.lat}}/${{r.lon}}&layers=N`
             : null;
           const osmNotesLink = osmNotesUrl
             ? `<div><a href="${{osmNotesUrl}}" target="_blank">💬 OSM Notes</a></div>`
             : '';
-          // Wikimedia photo upload links — only shown when POI has no image yet
+          // Wikimedia links only for SAT POIs with Wikidata refs (not OSM candidates)
           const missingImage = !r.image;
-          const wikishootmeUrl = (missingImage && r.lat && r.lon)
+          const wikishootmeUrl = (!isOsmCandidate && missingImage && r.lat && r.lon)
             ? `https://wikishootme.toolforge.org/#lat=${{r.lat}}&lng=${{r.lon}}&zoom=18`
             : null;
-          const commonsUploadUrl = (missingImage && wdRef)
+          const commonsUploadUrl = (!isOsmCandidate && missingImage && wdRef)
             ? `https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=wikidata&depicts=${{encodeURIComponent(wdRef)}}`
             : null;
           const wikishootmeLink = wikishootmeUrl
@@ -1721,30 +1842,31 @@ ORDER BY DESC(geof:latitude(?coord))
           const commonsUploadLink = commonsUploadUrl
             ? `<div><a href="${{commonsUploadUrl}}" target="_blank">⬆️ Ladda upp bild till Commons</a></div>`
             : '';
+          const openLabel = isOsmCandidate ? 'Öppna i OSM' : escapeHtml(t('openSatMap'));
+          const jsonLink = (!isOsmCandidate && satJsonUrl) ? ` / <a href="${{satJsonUrl}}" target="_blank">json</a>` : '';
           marker.bindPopup(`
             <div class="popup-inner" style="min-width:180px">
               <strong><span class="poi-icon-badge" style="background:${{iconMeta.color}}">${{iconMeta.emoji}}</span>${{escapeHtml(poiName)}}</strong><br>
               <small>${{escapeHtml(t('section'))}}: ${{escapeHtml(r.section)}} | ${{escapeHtml(t('category'))}}: ${{escapeHtml(poiCategoryLabel)}}</small><br>
-              <a href="${{satUrl}}" target="_blank">${{escapeHtml(t('openSatMap'))}}</a> /
-              <a href="${{satJsonUrl}}" target="_blank">json</a>
+              <a href="${{satUrl}}" target="_blank">${{openLabel}}</a>${{jsonLink}}
               ${{osmTagsHtml}}
               ${{osmHistoryLink}}
               ${{mapkiLink}}
               ${{idEditorLink}}
               ${{mapCompleteLink}}
               ${{osmNotesLink}}
-              ${{wikishootmeLink || commonsUploadLink ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}}
+              ${{(wikishootmeLink || commonsUploadLink) ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}}
               ${{wikishootmeLink}}
               ${{commonsUploadLink}}
               ${{imageHtml}}
             </div>
           `);
           marker.on('popupopen', (event) => {{
-            if (!osmRef) return;
+            if (!effectiveOsmRef) return;
             const root = event.popup.getElement();
             const candidates = root ? Array.from(root.querySelectorAll('[data-osm-ref]')) : [];
-            const node = candidates.find((el) => el.getAttribute('data-osm-ref') === osmRef.key);
-            if (node) loadOsmTags(osmRef, node, r.category);
+            const node = candidates.find((el) => el.getAttribute('data-osm-ref') === effectiveOsmRef.key);
+            if (node) loadOsmTags(effectiveOsmRef, node, r.category);
           }});
           marker.addTo(markerLayer);
           bounds.push([r.lat, r.lon]);
@@ -2013,11 +2135,13 @@ ORDER BY DESC(geof:latitude(?coord))
         }}
         let visible = 0;
 
-        poiRows.forEach((row) => {{
+        getPoiRows().forEach((row) => {{
           const rowSec = row.dataset.section;
           const rowOrg = row.dataset.operator || '';
           const rowCat = row.dataset.category;
-          const show = (sec === 'all' || rowSec === sec) && 
+          // For OSM candidates: section filter only zooms map, doesn't hide rows
+          const sectionMatch = currentDataSource === 'osm' || sec === 'all' || rowSec === sec;
+          const show = sectionMatch && 
                       (org === 'all' || rowOrg === org) &&
                       (cat === 'all' || rowCat === cat);
           row.style.display = show ? '' : 'none';
@@ -2076,7 +2200,18 @@ ORDER BY DESC(geof:latitude(?coord))
         stages = self.fetch_stages()
         trail_geojson = self.fetch_trail_geojson()
         sections_index = self.fetch_sections_index(stages)
-        html = self.generate_html(pois, stages, trail_geojson, sections_index)
+        
+        # Load OSM candidate data if available
+        osm_candidates = None
+        if OSM_CANDIDATES_FILE.exists():
+            try:
+                osm_data = json.loads(OSM_CANDIDATES_FILE.read_text(encoding="utf-8"))
+                osm_candidates = osm_data.get("features", [])
+                print(f"✅ Läste OSM-kandidater: {len(osm_candidates)} POI:er (ref:stockholmarchipelagotrail)")
+            except Exception as e:
+                print(f"⚠️  Kunde inte läsa OSM-kandidater: {e}")
+        
+        html = self.generate_html(pois, stages, trail_geojson, sections_index, osm_candidates)
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(html)
         print(f"✅ Dashboard sparad: {output_file}")
