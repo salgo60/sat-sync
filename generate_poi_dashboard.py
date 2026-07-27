@@ -575,15 +575,21 @@ ORDER BY DESC(geof:latitude(?coord))
         if postpass_pois:
             for p in postpass_pois:
                 props = p.get("properties", {})
+                coords = p.get("geometry", {}).get("coordinates", [None, None])
+                poi_id = props.get("id", "")
+                is_unknown = poi_id.startswith("osm_unknown")
+                
                 postpass_map_data.append({
-                    "id": props.get("id"),
+                    "id": poi_id,
                     "name": props.get("name"),
                     "section": props.get("section") or "okänd",
                     "category": props.get("category") or "other",
                     "operator": props.get("operator"),
                     "operator_wikidata": props.get("wikidata"),
-                    "lat": p.get("geometry", {}).get("coordinates", [None, None])[1],
-                    "lon": p.get("geometry", {}).get("coordinates", [None, None])[0],
+                    "lat": coords[1],
+                    "lon": coords[0],
+                    "isUnknown": is_unknown,
+                    "satMapUrl": f"https://map.stockholmarchipelagotrail.com/en?mode=plan&z=14&c={coords[1]}%2C{coords[0]}" if coords[1] and coords[0] else "",
                 })
         
         osm_map_json = json.dumps(osm_map_data, ensure_ascii=False)
