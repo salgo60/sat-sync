@@ -13,8 +13,24 @@ COMMONS_API  = "https://commons.wikimedia.org/w/api.php"
 MAPILLARY_API = "https://graph.mapillary.com/images"
 MAPILLARY_TOKEN = os.getenv("MAPILLARY_TOKEN", "").strip()
 OUTPUT     = "sat_todo_map.html"
+COMMONS_CACHE   = "commons_cache.json"
+MAPILLARY_CACHE = "mapillary_cache.json"
 
 HEADERS = {"User-Agent": "sat-sync/todo-map 1.0"}
+
+
+def _load_json_cache(path: str) -> list | None:
+    """Return parsed JSON list from *path*, or None if the file does not exist."""
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
+    return None
+
+
+def _save_json_cache(path: str, data: list) -> None:
+    """Write *data* as JSON to *path*."""
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, ensure_ascii=False, indent=2)
 
 def fetch(url):
     req = urllib.request.Request(url, headers=HEADERS)
@@ -460,17 +476,28 @@ if piers_identity:
     if missing_pier_sat_ids:
         print(f"  ⚠️ {len(missing_pier_sat_ids)} piers saknar koordinater i Wikidata")
 
-print("📥 Hämtar Commons-foton (geotaggade)...")
-try:
-    commons_data = fetch_commons_geotagged(COMMONS_CATEGORY)
-    print(f"  ✅ {len(commons_data)} geotaggade Commons-foton")
-except Exception as e:
-    print(f"  ⚠️ Commons fel: {e}")
-    commons_data = []
+_commons_cached = _load_json_cache(COMMONS_CACHE)
+if _commons_cached is not None:
+    commons_data = _commons_cached
+    print(f"📦 Commons-foton laddade från lokal cache ({len(commons_data)} foton)")
+else:
+    print("📥 Hämtar Commons-foton (geotaggade)...")
+    try:
+        commons_data = fetch_commons_geotagged(COMMONS_CATEGORY)
+        print(f"  ✅ {len(commons_data)} geotaggade Commons-foton")
+        _save_json_cache(COMMONS_CACHE, commons_data)
+        print(f"  💾 Cache sparad → {COMMONS_CACHE}")
+    except Exception as e:
+        print(f"  ⚠️ Commons fel: {e}")
+        commons_data = []
 
-mapillary_data = []
-if MAPILLARY_TOKEN:
+_mapillary_cached = _load_json_cache(MAPILLARY_CACHE)
+if _mapillary_cached is not None:
+    mapillary_data = _mapillary_cached
+    print(f"📦 Mapillary-bilder laddade från lokal cache ({len(mapillary_data)} bilder)")
+elif MAPILLARY_TOKEN:
     print("📥 Hämtar Mapillary-bilder nära leden...")
+    mapillary_data = []
     try:
         mapillary_data = fetch_mapillary_images_near_trail(trail_geojson, MAPILLARY_TOKEN)
         print(f"  ✅ {len(mapillary_data)} Mapillary-bilder nära leden")
@@ -485,10 +512,14 @@ if MAPILLARY_TOKEN:
             print(f"  ✅ Landsort: +{added} (totalt {len(mapillary_data)})")
         else:
             print("  ⚠️ Landsort-sektion hittades inte i POI-data")
+
+        _save_json_cache(MAPILLARY_CACHE, mapillary_data)
+        print(f"  💾 Cache sparad → {MAPILLARY_CACHE}")
     except Exception as e:
         print(f"  ⚠️ Mapillary fel: {e}")
 else:
-    print("  ℹ️ Mapillary hoppas över (ingen MAPILLARY_TOKEN satt)")
+    mapillary_data = []
+    print("  ℹ️ Mapillary hoppas över (ingen cache och ingen MAPILLARY_TOKEN satt)")
 
 generated_at = datetime.datetime.now().strftime("%Y%m%d %H:%M")
 
