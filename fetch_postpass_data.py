@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 """
-Hämta OSM-data från PostPass (Geofabrik) via Overpass Turbo med SQL.
-PostPass har bättre indexering än Overpass API och ger >900 poster.
+Hämta OSM-data från PostPass (Geofabrik) med SQL API.
+PostPass returnerar >900 poster mot 703 från standard Overpass.
 """
 
 import urllib.request
 import json
 from pathlib import Path
 from datetime import datetime
-from urllib.parse import quote
+from urllib.parse import urlencode
 
-# Overpass API endpoint (routes to PostPass when using SQL syntax)
-OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+# PostPass API endpoint
+POSTPASS_URL = "https://postpass.geofabrik.de/api/0.2/interpreter"
 
-# SQL Query för PostPass (via Overpass Turbo syntax)
+# SQL Query för PostPass
 SQL_QUERY = """
-{{data:sql,server=https://postpass.geofabrik.de/api/0.2/}}
 SELECT osm_id, tags, geom
 FROM postpass_pointlinepolygon
 WHERE tags ? 'ref:stockholmarchipelagotrail'
@@ -25,27 +24,27 @@ OUTPUT_FILE = Path("osm_postpass_data.json")
 
 
 def fetch_postpass_data() -> dict:
-    """Hämta data från PostPass via Overpass API med SQL."""
+    """Hämta data från PostPass via SQL."""
     headers = {
         "User-Agent": "sat-sync/1.0 (+https://github.com/salgo60/sat-sync)",
     }
     
+    # PostPass API expects POST with data parameter
+    payload = {"data": SQL_QUERY}
+    
     req = urllib.request.Request(
-        OVERPASS_URL,
-        data=SQL_QUERY.encode('utf-8'),
+        POSTPASS_URL,
+        data=urlencode(payload).encode('utf-8'),
         headers=headers,
     )
     
-    print("🔍 Hämtar från PostPass via Overpass (SQL)...")
+    print("🔍 Hämtar från PostPass (>900 poster)...")
     try:
         with urllib.request.urlopen(req, timeout=120) as response:
             result = json.loads(response.read().decode('utf-8'))
         return result
     except urllib.error.HTTPError as e:
         print(f"❌ HTTP {e.code}: {e.reason}")
-        if e.code == 504:
-            print("💡 Timeout - försök igen senare eller använd Overpass Turbo direkt:")
-            print("   https://overpass-turbo.eu/?Q=%7B%7Bdata:sql,server=https://postpass.geofabrik.de/api/0.2/%7D%7D")
         return None
     except Exception as e:
         print(f"❌ Error: {e}")
@@ -59,67 +58,22 @@ def main():
         print("⚠️  Kunde inte hämta data från PostPass")
         return
     
-    # PostPass returns data in different formats depending on query type
-    # Handle both OSM XML and SQL JSON responses
-    rows = result.get('rows', result.get('elements', []))
+    # PostPass returns GeoJSON directly
+    features = result.get('features', [])
     
-    if not rows:
-        print(f"⚠️  Ingen data returnerad. Response keys: {result.keys()}")
+    if not features:
+        print(f"⚠️  Ingen data returnerad. Response: {result.keys()}")
         return
     
-    print(f"✅ Hämtade {len(rows)} element från PostPass")
+    print(f"✅ Hämtade {len(features)} element från PostPass")
     
-    # Convert to GeoJSON format
-    features = []
-    for row in rows:
-        # Handle different row formats from PostPass
-        if isinstance(row, dict):
-            osm_id = row.get('osm_id') or row.get('id')
-            tags = row.get('tags', {})
-            geom = row.get('geom') or row.get('geometry')
-        else:
-            continue
-        
-        if not osm_id or not tags:
-            continue
-        
-        ref = tags.get('ref:stockholmarchipelagotrail', '')
-        if not ref:
-            continue
-        
-        # Parse geometry if it's a string (WKT or JSON)
-        geometry = None
-        if geom:
-            try:
-                if isinstance(geom, str):
-                    geometry = json.loads(geom)
-                else:
-                    geometry = geom
-            except:
-                pass
-        
-        feature = {
-            "type": "Feature",
-            "osm_id": osm_id,
-            "geometry": geometry,
-            "properties": {
-                "id": ref.replace("sat:poi:", "").replace("sat:pier:", ""),
-                "ref": ref,
-                "name": tags.get("name", ""),
-                **tags  # Include all tags
-            }
-        }
-        
-        features.append(feature)
-    
-    # Save result
+    # Save as-is (already in GeoJSON format)
     output_data = {
         "type": "FeatureCollection",
-        "timestamp": datetime.now().isoformat(),
-        "source": "PostPass (Geofabrik)",
-        "query": QUERY.strip(),
         "features": features,
-        "count": len(features)
+        "count": len(features),
+        "source": "PostPass (Geofabrik)",
+        "timestamp": datetime.now().isoformat(),
     }
     
     OUTPUT_FILE.write_text(
@@ -127,11 +81,19 @@ def main():
         encoding='utf-8'
     )
     
-    print(f"\n📊 Summary:")
+    # Count by type
+    sat_poi = sum(1 for f in features if 'sat:poi:' in str(f.get('properties', {}).get('ref:stockholmarchipelagotrail', '')))
+    sat_pier = sum(1 for f in features if 'sat:pier:' in str(f.get('properties', {}).get('ref:stockholmarchipelagotrail', '')))
+    
+    print(f"\n📊 Breakdown:")
     print(f"  Total elements: {len(features)}")
-    print(f"  SAT POI refs: {sum(1 for f in features if f['properties']['ref'].startswith('sat:poi:'))}")
-    print(f"  SAT Pier refs: {sum(1 for f in features if f['properties']['ref'].startswith('sat:pier:'))}")
+    print(f"  SAT POI refs: {sat_poi}")
+    print(f"  SAT Pier refs: {sat_pier}")
+    print(f"  Other refs: {len(features) - sat_poi - sat_pier}")
     print(f"\n✅ Saved to: {OUTPUT_FILE}")
+    print(f"\n📝 Next step:")
+    print(f"  python3 generate_osm_dashboard_support.py  # Convert to dashboard format")
+    print(f"  python3 generate_poi_dashboard.py          # Regenerate dashboard")
 
 
 if __name__ == '__main__':

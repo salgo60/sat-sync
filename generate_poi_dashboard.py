@@ -25,6 +25,7 @@ WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 TRAIL_URL = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
 SECTIONS_INDEX_URL = "https://map.stockholmarchipelagotrail.com/data/sections-index.json"
 OSM_SAT_FORMAT_FILE = Path("osm_sat_format.json")
+OSM_POSTPASS_FORMAT_FILE = Path("osm_postpass_format.json")
 
 HEADERS = {"User-Agent": "sat-sync-generator/1.0 (+https://github.com/salgo60/sat-sync)"}
 
@@ -369,7 +370,7 @@ ORDER BY DESC(geof:latitude(?coord))
             pass
         return 0, ""
 
-    def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict], osm_pois: Optional[list[dict]] = None) -> str:
+    def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict], osm_pois: Optional[list[dict]] = None, postpass_pois: Optional[list[dict]] = None) -> str:
         stage_by_slug = {s.slug: s for s in stages}
         generated_at = datetime.now().strftime("%Y%m%d %H:%M")
         pois_fetched_at = format_timestamp(self.pois_fetched_at or generated_at)
@@ -569,7 +570,24 @@ ORDER BY DESC(geof:latitude(?coord))
                     "lon": p.get("geometry", {}).get("coordinates", [None, None])[0],
                 })
         
+        # Process PostPass POI data if available
+        postpass_map_data = []
+        if postpass_pois:
+            for p in postpass_pois:
+                props = p.get("properties", {})
+                postpass_map_data.append({
+                    "id": props.get("id"),
+                    "name": props.get("name"),
+                    "section": props.get("section") or "okänd",
+                    "category": props.get("category") or "other",
+                    "operator": props.get("operator"),
+                    "operator_wikidata": props.get("wikidata"),
+                    "lat": p.get("geometry", {}).get("coordinates", [None, None])[1],
+                    "lon": p.get("geometry", {}).get("coordinates", [None, None])[0],
+                })
+        
         osm_map_json = json.dumps(osm_map_data, ensure_ascii=False)
+        postpass_map_json = json.dumps(postpass_map_data, ensure_ascii=False)
         trail_geojson_json = json.dumps(trail_geojson, ensure_ascii=False)
         sections_index_json = json.dumps(sections_index, ensure_ascii=False)
 
@@ -703,6 +721,7 @@ ORDER BY DESC(geof:latitude(?coord))
         <select id="dataSourceFilter">
           <option value="sat">SAT POI (Standarddata)</option>
           <option value="osm">OSM (med ref:stockholmarchipelagotrail)</option>
+          <option value="postpass">OSM (PostPass) - 631 POI</option>
         </select>
       </div>
       <div>
@@ -856,6 +875,7 @@ ORDER BY DESC(geof:latitude(?coord))
   const poiFlow = {poi_flow_json};
   const satPoiMapData = {poi_map_json};
   const osmPoiMapData = {osm_map_json};
+  const postpassPoiMapData = {postpass_map_json};
   let currentDataSource = 'sat';
   let poiMapData = satPoiMapData;
   const poiById = new Map(poiMapData.filter((p) => !!p.id).map((p) => [p.id, p]));
@@ -877,7 +897,13 @@ ORDER BY DESC(geof:latitude(?coord))
   if (dataSourceFilter) {{
     dataSourceFilter.addEventListener('change', (e) => {{
       currentDataSource = e.target.value;
-      poiMapData = currentDataSource === 'osm' ? osmPoiMapData : satPoiMapData;
+      if (currentDataSource === 'osm') {{
+        poiMapData = osmPoiMapData;
+      }} else if (currentDataSource === 'postpass') {{
+        poiMapData = postpassPoiMapData;
+      }} else {{
+        poiMapData = satPoiMapData;
+      }}
       totalPoiCount = poiMapData.length;
       
       // Update header stat
@@ -2135,7 +2161,17 @@ ORDER BY DESC(geof:latitude(?coord))
             except Exception as e:
                 print(f"⚠️  Kunde inte läsa OSM-data: {e}")
         
-        html = self.generate_html(pois, stages, trail_geojson, sections_index, osm_pois)
+        # Load PostPass data if available
+        postpass_pois = None
+        if OSM_POSTPASS_FORMAT_FILE.exists():
+            try:
+                postpass_data = json.loads(OSM_POSTPASS_FORMAT_FILE.read_text(encoding="utf-8"))
+                postpass_pois = postpass_data.get("features", [])
+                print(f"✅ Läste PostPass-data: {len(postpass_pois)} POI:er")
+            except Exception as e:
+                print(f"⚠️  Kunde inte läsa PostPass-data: {e}")
+        
+        html = self.generate_html(pois, stages, trail_geojson, sections_index, osm_pois, postpass_pois)
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(html)
         print(f"✅ Dashboard sparad: {output_file}")

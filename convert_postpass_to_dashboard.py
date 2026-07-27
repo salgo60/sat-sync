@@ -101,15 +101,19 @@ def convert_postpass_geojson(input_file: Path) -> dict:
     print(f"📊 Processing {len(features)} features...")
     
     converted = []
+    with_sat_refs = 0
+    without_sat_refs = 0
     
     for feat in features:
         props = feat.get("properties", {})
-        ref = props.get("ref:stockholmarchipelagotrail") or props.get("ref", "")
         
-        if not ref or not ref.startswith("sat:poi:"):
-            continue
+        # Extract tags (PostPass nests them in properties.tags)
+        tags = props.get("tags", {})
+        if not tags and "osm_id" in props:
+            # Alternative: tags might be flattened
+            tags = props
         
-        poi_id = ref.replace("sat:poi:", "")
+        ref = tags.get("ref:stockholmarchipelagotrail", "")
         
         # Extract coordinates
         coords = feat.get("geometry", {}).get("coordinates", [None, None])
@@ -118,25 +122,42 @@ def convert_postpass_geojson(input_file: Path) -> dict:
         
         lon, lat = coords[0], coords[1]
         
+        # Ensure they're floats
+        try:
+            lon = float(lon) if not isinstance(lon, (int, float)) else lon
+            lat = float(lat) if not isinstance(lat, (int, float)) else lat
+        except (ValueError, TypeError):
+            continue
+        
         # Map to category and section
-        category = map_osm_to_category(props)
+        category = map_osm_to_category(tags)
         section = get_section_for_location(lat, lon)
         
         if not section:
             section = "unknown"
+        
+        # Handle both SAT refs and unknown POIs
+        if ref and ref.startswith("sat:poi:"):
+            poi_id = ref.replace("sat:poi:", "")
+            with_sat_refs += 1
+        else:
+            # Generate ID for unknown POIs (no sat:poi: reference)
+            osm_id = props.get('osm_id', '')
+            poi_id = f"osm_unknown_{osm_id}" if osm_id else f"osm_unk_{len(converted)}"
+            without_sat_refs += 1
         
         converted_feat = {
             "type": "Feature",
             "geometry": feat.get("geometry"),
             "properties": {
                 "id": poi_id,
-                "name": props.get("name", f"POI {poi_id}"),
+                "name": tags.get("name", f"POI {poi_id}"),
                 "category": category,
                 "section": section,
-                "operator": props.get("operator") or props.get("brand") or "",
-                "operator_wikidata": props.get("wikidata") or props.get("brand:wikidata") or "",
-                "website": props.get("website") or "",
-                "phone": props.get("phone") or "",
+                "operator": tags.get("operator") or tags.get("brand") or "",
+                "operator_wikidata": tags.get("wikidata") or tags.get("brand:wikidata") or "",
+                "website": tags.get("website") or "",
+                "phone": tags.get("phone") or "",
                 "osmId": f"node:{props.get('osm_id', 'unknown')}",
             }
         }
@@ -164,8 +185,17 @@ def main():
         encoding="utf-8"
     )
     
+    # Count stats
+    features = result["features"]
+    with_sat_refs = sum(1 for f in features if f["properties"]["id"].startswith("sat:poi") or not f["properties"]["id"].startswith("osm_"))
+    without_sat_refs = len(features) - with_sat_refs
+    unknown_sections = sum(1 for f in features if f["properties"]["section"] == "unknown")
+    
     print(f"\n✅ Conversion complete:")
-    print(f"  Input: {len(result['features'])} POIs")
+    print(f"  Total POIs: {len(result['features'])}")
+    print(f"  With sat:poi: refs: {with_sat_refs}")
+    print(f"  Without sat:poi: (unknown/new): {without_sat_refs}")
+    print(f"  In unknown section: {unknown_sections}")
     print(f"  Output: {OUTPUT_FILE}")
     print(f"\n📝 Next step:")
     print(f"  1. python3 generate_poi_dashboard.py")
