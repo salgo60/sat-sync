@@ -36,5 +36,6 @@ jobs:
             echo "Ingen förändring – hoppar över commit"
           else
             git commit -m "Auto-regenerate dashboard $(date -u +%Y%m%d\ %H:%M) UTC"
+            git pull --rebase origin main
             git push
           fi

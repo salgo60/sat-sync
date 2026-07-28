@@ -31,5 +31,6 @@ jobs:
             echo "Ingen förändring – hoppar över commit"
           else
             git commit -m "Refresh image cache (Commons + Mapillary) $(date -u +%Y%m%d\ %H:%M) UTC"
+            git pull --rebase origin main
             git push
           fi
