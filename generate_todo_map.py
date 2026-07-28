@@ -17,7 +17,7 @@ OUTPUT     = "sat_todo_map.html"
 COMMONS_CACHE   = "commons_cache.json"
 MAPILLARY_CACHE = "mapillary_cache.json"
 
-HEADERS = {"User-Agent": "sat-sync/todo-map 1.0"}
+HEADERS = {"User-Agent": "sat-sync/todo-map 1.0 (https://github.com/salgo60/sat-sync; salgo60@msn.com)"}
 
 
 def _load_json_cache(path: str) -> list | None:
@@ -138,21 +138,27 @@ out tags;
 
 def fetch_commons_geotagged(root_category: str) -> list[dict]:
     """Fetch all geotagged files from a Commons category tree (depth=1 subcats + root)."""
-    def api_get(params: dict, retries: int = 3) -> dict:
+    COMMONS_HEADERS = {"User-Agent": "sat-sync/todo-map 1.0 (https://github.com/salgo60/sat-sync; salgo60@msn.com)"}
+
+    def api_get(params: dict, retries: int = 6) -> dict:
         params["format"] = "json"
         url = COMMONS_API + "?" + urllib.parse.urlencode(params)
-        req = urllib.request.Request(url, headers={"User-Agent": "sat-sync/todo-map 1.0 (https://github.com/salgo60/sat-sync)"})
+        req = urllib.request.Request(url, headers=COMMONS_HEADERS)
         for attempt in range(retries):
             try:
-                with urllib.request.urlopen(req, timeout=20) as r:
+                with urllib.request.urlopen(req, timeout=30) as r:
                     return json.load(r)
             except urllib.error.HTTPError as e:
-                if e.code == 429:
-                    wait = 2 ** (attempt + 1)
-                    print(f"  ⏳ 429 rate-limit, väntar {wait}s...")
+                if e.code in (429, 503, 504):
+                    wait = 5 * (2 ** attempt)  # 5, 10, 20, 40, 80, 160s
+                    print(f"  ⏳ HTTP {e.code}, väntar {wait}s (försök {attempt+1}/{retries})...")
                     time.sleep(wait)
                 else:
                     raise
+            except Exception as e:
+                wait = 5 * (2 ** attempt)
+                print(f"  ⏳ Fel ({e}), väntar {wait}s (försök {attempt+1}/{retries})...")
+                time.sleep(wait)
         raise RuntimeError(f"Commons API misslyckades efter {retries} försök")
 
     # 1. Collect all categories to scan: root + direct subcategories
@@ -175,7 +181,7 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
     # The same file often appears in many categories; keep the richest metadata seen.
     photos_by_title: dict[str, dict] = {}
     for i, cat in enumerate(categories):
-        time.sleep(1.0)  # Commons API: 1 req/sec to avoid 429
+        time.sleep(2.0)  # Commons API: polite delay between categories
         print(f"  [{i+1}/{len(categories)}] {cat[:50]}", end="\r", flush=True)
         cont2 = {}
         while True:
