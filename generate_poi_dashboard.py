@@ -989,8 +989,13 @@ ORDER BY DESC(geof:latitude(?coord))
   const SORT_COL_MAP = {{0:'satid',1:'name',2:'section',3:'category',4:'org',6:'firstseen',7:'updated'}};
   const SORT_COL_REV = Object.fromEntries(Object.entries(SORT_COL_MAP).map(([k,v])=>[v,parseInt(k)]));
 
+<<<<<<< HEAD
   // Table sorting function (global so onclick= in <th> can reach it)
   window.sortTable = function(tableId, colIndex) {{
+=======
+  // Table sorting function
+  function sortTable(tableId, colIndex) {{
+>>>>>>> origin/main
     const table = document.getElementById(tableId);
     const tbody = table.tBodies[0];
     const rows = Array.from(tbody.rows);
@@ -1025,8 +1030,13 @@ ORDER BY DESC(geof:latitude(?coord))
     if (ths[colIndex]) {{
       ths[colIndex].classList.add(isAscending ? 'sort-asc' : 'sort-desc');
     }}
+<<<<<<< HEAD
     if (window._saveStateInUrl) window._saveStateInUrl();
   }};
+=======
+    saveStateInUrl(sectionFilter.value, categoryFilter.value);
+  }}
+>>>>>>> origin/main
 
       // Expected OSM tags per SAT category — used for gap analysis in popups
       const EXPECTED_TAGS = {{
