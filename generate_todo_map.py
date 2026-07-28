@@ -12,6 +12,7 @@ COMMONS_CATEGORY = "Stockholm_Archipelago_Trail"
 COMMONS_API  = "https://commons.wikimedia.org/w/api.php"
 MAPILLARY_API = "https://graph.mapillary.com/images"
 MAPILLARY_TOKEN = os.getenv("MAPILLARY_TOKEN", "").strip()
+SKIP_IMAGE_FETCH = os.getenv("SKIP_IMAGE_FETCH", "").strip().lower() in ("1", "true", "yes")
 OUTPUT     = "sat_todo_map.html"
 COMMONS_CACHE   = "commons_cache.json"
 MAPILLARY_CACHE = "mapillary_cache.json"
@@ -480,6 +481,9 @@ _commons_cached = _load_json_cache(COMMONS_CACHE)
 if _commons_cached is not None:
     commons_data = _commons_cached
     print(f"📦 Commons-foton laddade från lokal cache ({len(commons_data)} foton)")
+elif SKIP_IMAGE_FETCH:
+    print("⏭️ Commons-hämtning hoppas över (SKIP_IMAGE_FETCH=1)")
+    commons_data = []
 else:
     print("📥 Hämtar Commons-foton (geotaggade)...")
     try:
@@ -495,6 +499,9 @@ _mapillary_cached = _load_json_cache(MAPILLARY_CACHE)
 if _mapillary_cached is not None:
     mapillary_data = _mapillary_cached
     print(f"📦 Mapillary-bilder laddade från lokal cache ({len(mapillary_data)} bilder)")
+elif SKIP_IMAGE_FETCH:
+    print("⏭️ Mapillary-hämtning hoppas över (SKIP_IMAGE_FETCH=1)")
+    mapillary_data = []
 elif MAPILLARY_TOKEN:
     print("📥 Hämtar Mapillary-bilder nära leden...")
     mapillary_data = []

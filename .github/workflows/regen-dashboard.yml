@@ -20,6 +20,8 @@ jobs:
           python-version: "3.12"
 
       - name: Generera dashboard + TODO-lista + TODO-karta (utan bildhämtning)
+        env:
+          SKIP_IMAGE_FETCH: "1"
         run: |
           python3 generate_poi_dashboard.py
           python3 generate_todo_list.py
