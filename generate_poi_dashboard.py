@@ -29,23 +29,53 @@ OSM_CANDIDATES_FILE = Path("osm_candidates.json")
 HEADERS = {"User-Agent": "sat-sync-generator/1.0 (+https://github.com/salgo60/sat-sync)"}
 
 
-def format_timestamp(value: Optional[str]) -> str:
-    """Normalisera tidsstämplar till YYYY-MM-DD HH:MM för visning."""
-    if not value:
-        return "—"
-    text = str(value).strip()
-    if not text:
-        return "—"
+def _parse_to_utc(value: str) -> Optional[datetime]:
+    """Parse a timestamp string to a UTC-aware datetime, or None on failure."""
+    from datetime import timezone, timedelta
+    text = value.strip()
     for fmt in ("%Y%m%d %H:%M", "%Y-%m-%d %H:%M"):
         try:
-            return datetime.strptime(text, fmt).strftime("%Y-%m-%d %H:%M")
+            return datetime.strptime(text, fmt).replace(tzinfo=timezone.utc)
         except ValueError:
             pass
     try:
         iso = text.replace("Z", "+00:00")
-        return datetime.fromisoformat(iso).strftime("%Y-%m-%d %H:%M")
+        dt = datetime.fromisoformat(iso)
+        return dt.astimezone(timezone.utc)
     except ValueError:
-        return text
+        return None
+
+
+def format_timestamp(value: Optional[str]) -> str:
+    """Normalisera tidsstämplar till YYYY-MM-DD HH:MM CEST för visning."""
+    from datetime import timezone, timedelta
+    CEST = timezone(timedelta(hours=2))
+    if not value:
+        return "—"
+    dt = _parse_to_utc(str(value))
+    if dt is None:
+        return str(value).strip()
+    return dt.astimezone(CEST).strftime("%Y-%m-%d %H:%M CEST")
+
+
+def format_timestamp_link(value: Optional[str]) -> str:
+    """Returnera tidsstämpeln som en <a>-länk till timeanddate.com (öppnas i nytt fönster)."""
+    # p1=239 = Stockholm på timeanddate.com
+    from datetime import timezone, timedelta
+    CEST = timezone(timedelta(hours=2))
+    if not value:
+        return "—"
+    dt = _parse_to_utc(str(value))
+    if dt is None:
+        return str(value).strip()
+    cest = dt.astimezone(CEST)
+    label = cest.strftime("%Y-%m-%d %H:%M CEST")
+    url = (
+        "https://www.timeanddate.com/worldclock/fixedtime.html"
+        f"?day={cest.day}&month={cest.month}&year={cest.year}"
+        f"&hour={cest.hour}&min={cest.minute:02d}&p1=239"
+    )
+    return f'<a href="{url}" target="_blank" style="color:inherit;text-decoration:underline dotted">{label}</a>'
 
 
 def category_group(category: str) -> str:
@@ -205,7 +235,8 @@ class POIDashboardGenerator:
     def fetch_pois(self) -> list[dict]:
         print("📥 Hämtar pois.geojson...")
         data = self._get_json(POIS_URL)
-        self.pois_fetched_at = datetime.now().strftime("%Y%m%d %H:%M")
+        from datetime import timezone
+        self.pois_fetched_at = datetime.now(timezone.utc).strftime("%Y%m%d %H:%M")
         self.pois_source_generated_at = ((data.get("metadata") or {}).get("generatedAt"))
         features = data.get("features", [])
         pois = []
@@ -372,8 +403,8 @@ ORDER BY DESC(geof:latitude(?coord))
     def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict], osm_candidates: Optional[list[dict]] = None) -> str:
         stage_by_slug = {s.slug: s for s in stages}
         generated_at = datetime.now().strftime("%Y%m%d %H:%M")
-        pois_fetched_at = format_timestamp(self.pois_fetched_at or generated_at)
-        pois_source_generated_at = format_timestamp(self.pois_source_generated_at)
+        pois_fetched_at = format_timestamp_link(self.pois_fetched_at or generated_at)
+        pois_source_generated_at = format_timestamp_link(self.pois_source_generated_at)
         latest_pr_num, latest_pr_title = self.fetch_latest_pr()
         pr_html = (
             f'&nbsp;|&nbsp;\n        <a href="https://github.com/salgo60/sat-sync/pull/{latest_pr_num}" target="_blank">PR #{latest_pr_num}</a>'
