@@ -661,8 +661,11 @@ ORDER BY DESC(geof:latitude(?coord))
     code {{ background:#eef2f7; padding:2px 5px; border-radius:4px; }}
     a {{ color:#1d4ed8; text-decoration:none; }}
     a:hover {{ text-decoration:underline; }}
-    th.sortable {{ cursor:pointer; user-select:none; }}
+    th.sortable {{ cursor:pointer; user-select:none; white-space:nowrap; }}
     th.sortable:hover {{ background:#eef2f7; }}
+    th.sortable::after {{ content:' ↕'; color:#aaa; font-size:.75em; }}
+    th.sortable.sort-asc::after {{ content:' ▲'; color:#1d4ed8; }}
+    th.sortable.sort-desc::after {{ content:' ▼'; color:#1d4ed8; }}
     .footer {{ padding:20px 24px; font-size:.85rem; color:#666; text-align:center; }}
     @media (max-width: 640px) {{
       .header {{ padding:16px; }}
@@ -987,22 +990,37 @@ ORDER BY DESC(geof:latitude(?coord))
     const table = document.getElementById(tableId);
     const tbody = table.tBodies[0];
     const rows = Array.from(tbody.rows);
-    let isAscending = !tbody.dataset.sortAsc;
-        
+    const prevCol = parseInt(tbody.dataset.sortCol ?? '-1');
+    const prevAsc = tbody.dataset.sortAsc === '1';
+    const isAscending = (colIndex === prevCol) ? !prevAsc : true;
+
+    const isDateCol = colIndex === 6 || colIndex === 7;
+
     rows.sort((a, b) => {{
       const aVal = (a.cells[colIndex]?.textContent || '').trim();
       const bVal = (b.cells[colIndex]?.textContent || '').trim();
-      const cmp = aVal.localeCompare(bVal, 'sv');
+      let cmp;
+      if (isDateCol) {{
+        const aD = aVal === '—' ? '' : aVal;
+        const bD = bVal === '—' ? '' : bVal;
+        cmp = aD < bD ? -1 : aD > bD ? 1 : 0;
+      }} else {{
+        cmp = aVal.localeCompare(bVal, 'sv');
+      }}
       return isAscending ? cmp : -cmp;
     }});
-        
+
     rows.forEach(row => tbody.appendChild(row));
-    tbody.dataset.sortAsc = isAscending;
-        
-    // Update header appearance
-    Array.from(table.querySelectorAll('th.sortable')).forEach((th, idx) => {{
-      th.style.fontWeight = idx === colIndex ? 'bold' : 'normal';
+    tbody.dataset.sortCol = colIndex;
+    tbody.dataset.sortAsc = isAscending ? '1' : '0';
+
+    Array.from(table.querySelectorAll('th.sortable')).forEach(th => {{
+      th.classList.remove('sort-asc', 'sort-desc');
     }});
+    const ths = Array.from(table.querySelectorAll('th'));
+    if (ths[colIndex]) {{
+      ths[colIndex].classList.add(isAscending ? 'sort-asc' : 'sort-desc');
+    }}
   }}
 
       // Expected OSM tags per SAT category — used for gap analysis in popups
