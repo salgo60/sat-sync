@@ -448,10 +448,25 @@ ORDER BY DESC(geof:latitude(?coord))
             )
 
         poi_rows = []
+        # Build section_display early so poi_rows can use pretty names
+        _sec_display: dict[str, str] = {}
+        for _sec in section_stats:
+            _stage = self.match_stage_for_section(_sec, stage_by_slug, stages)
+            if _stage:
+                # Strip "SAT " prefix from Wikidata label (e.g. "SAT Ålö" → "Ålö")
+                _sec_display[_sec] = _stage.label.removeprefix("SAT ")
+            else:
+                _sec_meta = next((x for x in sections_index if x.get("slug") == _sec), None)
+                if _sec_meta and _sec_meta.get("title"):
+                    _sec_display[_sec] = _sec_meta["title"]
+                else:
+                    _sec_display[_sec] = _sec
+
         for p in poi_map_data:
             sec = p.get("section") or "okänd"
             cat = p.get("category") or "okänd"
             sat_id = p.get("id") or "—"
+            sec_label = _sec_display.get(sec, sec)
             
             # Build operator cell with Wikidata link if available
             operator_cell = "—"
@@ -467,7 +482,7 @@ ORDER BY DESC(geof:latitude(?coord))
         <tr data-section="{sec}" data-category="{cat}" data-poi-id="{sat_id}" data-operator="{p.get('operator') or ''}">
           <td><a href="https://map.stockholmarchipelagotrail.com/?{sat_id}" target="_blank"><code>{sat_id}</code></a></td>
           <td>{p.get("name") or "—"}</td>
-          <td>{sec}</td>
+          <td>{sec_label}</td>
           <td>{cat}</td>
           <td>{operator_cell}</td>
           <td>{self.same_as_links(p.get("same_as") or [])}</td>
