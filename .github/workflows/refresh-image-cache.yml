@@ -1,0 +1,35 @@
+name: Refresh Commons + Mapillary image cache
+
+on:
+  workflow_dispatch:  # Körs manuellt från GitHub UI
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Hämta bilder och uppdatera cache + TODO-karta
+        env:
+          MAPILLARY_TOKEN: ${{ secrets.MAPILLARY_TOKEN }}
+        run: |
+          python3 generate_todo_map.py
+
+      - name: Commita uppdaterad cache och karta
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sat_todo_map.html commons_cache.json mapillary_cache.json
+          if git diff --cached --quiet; then
+            echo "Ingen förändring – hoppar över commit"
+          else
+            git commit -m "Refresh image cache (Commons + Mapillary) $(date -u +%Y%m%d\ %H:%M) UTC"
+            git push
+          fi
