@@ -106,10 +106,10 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-28 10:48</strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>2026-07-28 10:52</strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-27 08:07</strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/88" target="_blank">PR #88</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/89" target="_blank">PR #89</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a data-todo-list-href href="sat_todo_list.html"><span id="todoListLinkHdr">✅ TODO-lista</span></a> &nbsp;|&nbsp;
@@ -8000,7 +8000,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-28 10:48</strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong>2026-07-28 10:52</strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong>2026-07-27 08:07</strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
@@ -8160,8 +8160,8 @@
   const SORT_COL_MAP = {0:'satid',1:'name',2:'section',3:'category',4:'org',6:'firstseen',7:'updated'};
   const SORT_COL_REV = Object.fromEntries(Object.entries(SORT_COL_MAP).map(([k,v])=>[v,parseInt(k)]));
 
-  // Table sorting function
-  function sortTable(tableId, colIndex) {
+  // Table sorting function (global so onclick= in <th> can reach it)
+  window.sortTable = function(tableId, colIndex) {
     const table = document.getElementById(tableId);
     const tbody = table.tBodies[0];
     const rows = Array.from(tbody.rows);
@@ -8196,8 +8196,8 @@
     if (ths[colIndex]) {
       ths[colIndex].classList.add(isAscending ? 'sort-asc' : 'sort-desc');
     }
-    saveStateInUrl(sectionFilter.value, categoryFilter.value);
-  }
+    if (window._saveStateInUrl) window._saveStateInUrl();
+  };
 
       // Expected OSM tags per SAT category — used for gap analysis in popups
       const EXPECTED_TAGS = {
@@ -8825,6 +8825,7 @@
           window.history.replaceState({}, '', url);
         } catch(e) {}
       }
+      window._saveStateInUrl = () => saveStateInUrl(sectionFilter.value, categoryFilter.value);
 
       function restoreStateFromUrl() {
         const params = new URLSearchParams(window.location.search);
