@@ -568,6 +568,7 @@ ORDER BY DESC(geof:latitude(?coord))
         )
         poi_flow_json = json.dumps(poi_flow_data, ensure_ascii=False)
         poi_map_json = json.dumps(poi_map_data, ensure_ascii=False)
+        section_display_json = json.dumps(_sec_display, ensure_ascii=False)
         
         # Process OSM candidate POI data if available (raw candidates, no category mapping)
         osm_candidate_data = []
@@ -864,6 +865,16 @@ ORDER BY DESC(geof:latitude(?coord))
   </div>
 
   <script>
+  // Global helpers used by both IIFE and rebuildPoiTable
+  function escapeHtml(text) {{
+    return String(text || '').replace(/[&<>"']/g, (ch) => {{
+      if (ch === '&') return '&amp;';
+      if (ch === '<') return '&lt;';
+      if (ch === '>') return '&gt;';
+      if (ch === '"') return '&quot;';
+      return '&#039;';
+    }});
+  }}
     (function() {{
       const languageFilter = document.getElementById('languageFilter');
       const sectionFilter = document.getElementById('sectionFilter');
@@ -894,6 +905,18 @@ ORDER BY DESC(geof:latitude(?coord))
   const categoryValues = new Set(Array.from(categoryFilter.options).map(o => o.value));
   const trailGeoJson = {trail_geojson_json};
   const sectionsIndex = {sections_index_json};
+  const SECTION_DISPLAY = {section_display_json};
+
+  function buildSameAsLinks(sameAs) {{
+    if (!Array.isArray(sameAs) || sameAs.length === 0) return '—';
+    return sameAs.map(v => {{
+      if (v.startsWith('osm:node:'))  return `<a href="https://www.openstreetmap.org/node/${{v.slice(9)}}" target="_blank">${{escapeHtml(v)}}</a>`;
+      if (v.startsWith('osm:way:'))   return `<a href="https://www.openstreetmap.org/way/${{v.slice(8)}}" target="_blank">${{escapeHtml(v)}}</a>`;
+      if (v.startsWith('osm:relation:')) return `<a href="https://www.openstreetmap.org/relation/${{v.slice(13)}}" target="_blank">${{escapeHtml(v)}}</a>`;
+      if (v.startsWith('wikidata:'))  return `<a href="https://www.wikidata.org/wiki/${{v.slice(9)}}" target="_blank">${{escapeHtml(v)}}</a>`;
+      return escapeHtml(v);
+    }}).join('<br>');
+  }}
   const map = L.map('poiMap').setView([59.2, 18.5], 8);
   let preserveMapView = false;
   let isProgrammaticMapMove = false;
@@ -949,12 +972,12 @@ ORDER BY DESC(geof:latitude(?coord))
       tr.innerHTML = `
         <td>${{idCell}}</td>
         <td>${{escapeHtml(name)}}</td>
-        <td>${{escapeHtml(sec)}}</td>
+        <td>${{escapeHtml(isOsmSource ? sec : (SECTION_DISPLAY[sec] || sec))}}</td>
         <td>${{escapeHtml(cat)}}</td>
         <td>${{escapeHtml(operator)}}</td>
-        <td>—</td>
-        <td>—</td>
-        <td>—</td>
+        <td>${{buildSameAsLinks(p.same_as || [])}}</td>
+        <td>${{escapeHtml(p.first_seen || '—')}}</td>
+        <td>${{escapeHtml(p.updated_at || '—')}}</td>
       `;
       tbody.appendChild(tr);
     }});
@@ -1453,15 +1476,7 @@ ORDER BY DESC(geof:latitude(?coord))
         document.documentElement.lang = currentLangCode();
       }}
 
-      function escapeHtml(text) {{
-        return String(text || '').replace(/[&<>"']/g, (ch) => {{
-          if (ch === '&') return '&amp;';
-          if (ch === '<') return '&lt;';
-          if (ch === '>') return '&gt;';
-          if (ch === '"') return '&quot;';
-          return '&#039;';
-        }});
-      }}
+      // escapeHtml defined globally above
 
       function isFiniteCoord(v) {{
         return typeof v === 'number' && Number.isFinite(v);
