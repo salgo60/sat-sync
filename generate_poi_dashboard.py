@@ -985,6 +985,10 @@ ORDER BY DESC(geof:latitude(?coord))
     organisationFilter.appendChild(opt);
   }});
 
+  // Column index <-> URL key mapping for sort state
+  const SORT_COL_MAP = {{0:'satid',1:'name',2:'section',3:'category',4:'org',6:'firstseen',7:'updated'}};
+  const SORT_COL_REV = Object.fromEntries(Object.entries(SORT_COL_MAP).map(([k,v])=>[v,parseInt(k)]));
+
   // Table sorting function
   function sortTable(tableId, colIndex) {{
     const table = document.getElementById(tableId);
@@ -1021,6 +1025,7 @@ ORDER BY DESC(geof:latitude(?coord))
     if (ths[colIndex]) {{
       ths[colIndex].classList.add(isAscending ? 'sort-asc' : 'sort-desc');
     }}
+    saveStateInUrl(sectionFilter.value, categoryFilter.value);
   }}
 
       // Expected OSM tags per SAT category — used for gap analysis in popups
@@ -1625,6 +1630,14 @@ ORDER BY DESC(geof:latitude(?coord))
         if (distanceBandToggle.checked) params.set('db', '1');
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
         if (bandMeters !== 500) params.set('dm', String(bandMeters));
+        const tbody = document.querySelector('#poiTable tbody');
+        if (tbody && tbody.dataset.sortCol !== undefined) {{
+          const colKey = SORT_COL_MAP[parseInt(tbody.dataset.sortCol)];
+          if (colKey) {{
+            params.set('sort', colKey);
+            params.set('dir', tbody.dataset.sortAsc === '1' ? 'asc' : 'desc');
+          }}
+        }}
         const m = currentMapState();
         params.set('lat', String(m.lat));
         params.set('lon', String(m.lon));
@@ -1657,6 +1670,22 @@ ORDER BY DESC(geof:latitude(?coord))
         trailInfoToggle.checked = li !== '0';
         distanceBandToggle.checked = params.get('db') === '1';
         distanceBandMeters.value = String(normalizeBandMeters(params.get('dm') || '500'));
+
+        const sortKey = params.get('sort');
+        const sortDir = params.get('dir');
+        if (sortKey && SORT_COL_REV[sortKey] !== undefined) {{
+          const colIdx = SORT_COL_REV[sortKey];
+          const tbody = document.querySelector('#poiTable tbody');
+          if (tbody) {{
+            if (sortDir === 'desc') {{
+              tbody.dataset.sortCol = colIdx;  // same col → toggle → desc
+              tbody.dataset.sortAsc = '1';
+            }} else {{
+              tbody.dataset.sortCol = '-1';    // new col → asc
+            }}
+            sortTable('poiTable', colIdx);
+          }}
+        }}
 
         const lat = Number(params.get('lat'));
         const lon = Number(params.get('lon'));
