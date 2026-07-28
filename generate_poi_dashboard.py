@@ -30,20 +30,27 @@ HEADERS = {"User-Agent": "sat-sync-generator/1.0 (+https://github.com/salgo60/sa
 
 
 def format_timestamp(value: Optional[str]) -> str:
-    """Normalisera tidsstämplar till YYYY-MM-DD HH:MM för visning."""
+    """Normalisera tidsstämplar till YYYY-MM-DD HH:MM CEST för visning."""
+    from datetime import timezone, timedelta
+    CEST = timezone(timedelta(hours=2))
     if not value:
         return "—"
     text = str(value).strip()
     if not text:
         return "—"
+    # Already a naive local string like "20260728 09:56" or "2026-07-28 09:56"
+    # — treat as UTC and convert to CEST
     for fmt in ("%Y%m%d %H:%M", "%Y-%m-%d %H:%M"):
         try:
-            return datetime.strptime(text, fmt).strftime("%Y-%m-%d %H:%M")
+            dt = datetime.strptime(text, fmt).replace(tzinfo=timezone.utc)
+            return dt.astimezone(CEST).strftime("%Y-%m-%d %H:%M CEST")
         except ValueError:
             pass
+    # ISO 8601 with timezone info (e.g. "2026-07-27T08:07:50.352Z")
     try:
         iso = text.replace("Z", "+00:00")
-        return datetime.fromisoformat(iso).strftime("%Y-%m-%d %H:%M")
+        dt = datetime.fromisoformat(iso)
+        return dt.astimezone(CEST).strftime("%Y-%m-%d %H:%M CEST")
     except ValueError:
         return text
 
@@ -205,7 +212,8 @@ class POIDashboardGenerator:
     def fetch_pois(self) -> list[dict]:
         print("📥 Hämtar pois.geojson...")
         data = self._get_json(POIS_URL)
-        self.pois_fetched_at = datetime.now().strftime("%Y%m%d %H:%M")
+        from datetime import timezone
+        self.pois_fetched_at = datetime.now(timezone.utc).strftime("%Y%m%d %H:%M")
         self.pois_source_generated_at = ((data.get("metadata") or {}).get("generatedAt"))
         features = data.get("features", [])
         pois = []
