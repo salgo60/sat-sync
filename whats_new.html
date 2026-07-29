@@ -40,6 +40,59 @@
   <div class="entry">
     <div class="date">Juli 2026</div>
     <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/99" target="_blank">PR #99</a>
+    </div>
+    <h2>🗺️ MapComplete: smart temarekommendation baserat på OSM-taggar</h2>
+    <ul>
+      <li><strong>Rekommendationsmotor för MapComplete-teman.</strong> Istället för ett fast tema per kategori poängsätts nu upp till 3 relevanta teman baserat på POI:ns faktiska OSM-taggar (<code>amenity</code>, <code>tourism</code>, <code>shop</code>, <code>natural</code>, m.fl.).</li>
+      <li><strong>Topp 3 teman visas i popup.</strong> Bästa temat markeras med ⭐, t.ex. <em>✏️ MapComplete: toilets ⭐ · nature</em> eller <em>camping ⭐ · nature · hiking</em>.</li>
+      <li><strong>Uppdateras dynamiskt.</strong> Länkarna uppdateras automatiskt när OSM-taggar laddas in — inga cachade gissningar.</li>
+      <li><strong>Täcker 20+ tag-kombinationer:</strong> toaletter, dricksvatten, bänkar, grillplatser, camping, utsiktsplatser, restauranger, butiker, parkering, AED med mera.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/95" target="_blank">PR #95</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/salgo60/sat-sync/pull/96" target="_blank">PR #96</a>
+    </div>
+    <h2>📸 Commons- och Mapillary-bilder fixade i TODO-kartan</h2>
+    <ul>
+      <li><strong>Daglig regen skriver inte längre över TODO-kartan.</strong> <code>regen-dashboard.yml</code> kör inte längre <code>generate_todo_map.py</code> — Commons/Mapillary-lagren överlever dagliga körningar.</li>
+      <li><strong>MAPILLARY_TOKEN satt som GitHub Secret.</strong> Mapillary-bilder hämtas nu korrekt vid manuell cache-refresh.</li>
+      <li><strong>Rate-limit-hantering förbättrad.</strong> Exponentiell backoff (5–160s) för 429/503/504, Wikimedia-compliant User-Agent med kontaktemail, 2s delay mellan kategorier.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/92" target="_blank">PR #92</a>
+    </div>
+    <h2>⏰ Tidsstämplar i CEST med timeanddate.com-länkar</h2>
+    <ul>
+      <li><strong>CEST istället för UTC.</strong> "POI hämtad" och "SAT POI" visas nu i svensk sommartid (UTC+2) med CEST-suffix.</li>
+      <li><strong>Klickbara tidsstämplar.</strong> Klick öppnar <a href="https://www.timeanddate.com/worldclock/" target="_blank">timeanddate.com</a> med exakt tidpunkt i alla tidszoner (p1=239 = Stockholm).</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/91" target="_blank">PR #91</a>
+    </div>
+    <h2>🏝️ Sorterbara kolumner och korrekta sektionsnamn</h2>
+    <ul>
+      <li><strong>Klickbara kolumnrubriker.</strong> POI-tabellen kan sorteras på Namn, Sektion, Kategori, Första sedd och Uppdaterad — med pil-indikatorer och URL-state (<code>?sort=name&amp;dir=asc</code>).</li>
+      <li><strong>Korrekta sektionsnamn med åäö.</strong> Visar nu Ålö, Finnhamn, Utö etc. istället för lågstavar som "alo".</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="date">Juli 2026</div>
+    <div class="pr-links">
       <a href="https://github.com/salgo60/sat-sync/pull/81" target="_blank">PR #81</a>
     </div>
     <h2>📱 TODO-kartan: mobilanpassning, lokal cache och stats-bar</h2>
