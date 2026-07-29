@@ -161,7 +161,7 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
                 time.sleep(wait)
         raise RuntimeError(f"Commons API misslyckades efter {retries} försök")
 
-    # 1. Collect all categories to scan: root + direct subcategories
+    # 1. Collect all categories to scan: root + direct subcategories (depth 1)
     categories = [root_category]
     cont = {}
     while True:
@@ -171,8 +171,7 @@ def fetch_commons_geotagged(root_category: str) -> list[dict]:
         params.update(cont)
         data = api_get(params)
         for m in data["query"]["categorymembers"]:
-            title = m["title"]  # "Category:SAT Sandhamn"
-            categories.append(title[len("Category:"):])
+            categories.append(m["title"][len("Category:"):])
         if "continue" not in data:
             break
         cont = data["continue"]
