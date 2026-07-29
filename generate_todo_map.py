@@ -1482,14 +1482,19 @@ html = f"""<!DOCTYPE html>
         ? new Date(p.capturedAt).toLocaleString(lang === 'en' ? 'en-SE' : 'sv-SE')
         : '';
       const creatorUrl = p.creator ? `https://www.mapillary.com/app/user/${{encodeURIComponent(p.creator)}}` : '';
+      const embedUrl = `https://www.mapillary.com/embed?image_key=${{encodeURIComponent(p.id)}}&style=photo`;
       const m = L.marker([lat, lon], {{ icon: mapillaryIcon }});
-      m.bindPopup(`<div style="font-size:13px;min-width:190px;max-width:240px">
-        ${{p.thumb ? `<a href="${{p.url}}" target="_blank"><img src="${{p.thumb}}" style="max-width:220px;border-radius:4px;display:block;margin-bottom:6px"></a>` : ''}}
+      m.bindPopup(`<div style="font-size:13px;min-width:280px;max-width:300px">
         <strong>📸 Mapillary</strong>
-        ${{captured ? `<div>🗓️ ${{escapeHtml(captured)}}</div>` : ''}}
+        ${{captured ? `<div style="color:#64748b;font-size:11px;margin-bottom:4px">🗓️ ${{escapeHtml(captured)}}</div>` : ''}}
+        <iframe src="${{embedUrl}}"
+          width="280" height="200"
+          frameborder="0" allowfullscreen
+          style="border-radius:6px;display:block;margin-bottom:6px">
+        </iframe>
         ${{p.creator ? `<div>👤 <a href="${{creatorUrl}}" target="_blank">${{escapeHtml(p.creator)}}</a></div>` : ''}}
-        <div><a href="${{p.url}}" target="_blank">🔗 Mapillary</a></div>
-      </div>`);
+        <div><a href="${{p.url}}" target="_blank">🔗 Öppna i Mapillary</a></div>
+      </div>`, {{ maxWidth: 310 }});
       layerMapillary.addLayer(m);
     }});
     console.log(`Mapillary: ${{MAPILLARY_IMAGES.length}} bilder laddade`);
