@@ -1893,21 +1893,84 @@ ORDER BY DESC(geof:latitude(?coord))
           const wdRef = findWikidataRef(r.same_as);
           const osmHistoryUrl = effectiveOsmRef ? `https://pewu.github.io/osm-history/#/${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}` : null;
           const mapkiUrl = effectiveOsmRef ? `https://osm.mapki.com/history/${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}` : null;
-          const mapCompleteTheme = (function(cat) {{
-            const map = {{
-              toilet: 'toilets',
-              water: 'drinking_water',
-              firepit: 'fireplace',
-              food: 'food',
-              shop: 'shops',
-              sauna: 'sauna',
-              lighthouse: 'lighthouses',
-              rental: 'bicycle_rental',
-              attraction: 'nature',
-              viewpoint: 'nature'
+          // MapComplete theme recommendation engine: score themes by OSM tags + category
+          const mapCompleteThemes = (function(cat, osmTags) {{
+            // tag-value → [theme, score]
+            const TAG_RULES = [
+              [['amenity','toilets'],        'toilets',          10],
+              [['amenity','drinking_water'], 'drinking_water',   10],
+              [['amenity','water_point'],    'drinking_water',    8],
+              [['amenity','bench'],          'benches',          10],
+              [['amenity','waste_basket'],   'waste_baskets',    10],
+              [['amenity','bbq'],            'bbq',              10],
+              [['amenity','shelter'],        'hiking',            8],
+              [['amenity','bicycle_repair_station'], 'cycling',  10],
+              [['amenity','parking'],        'parking',          10],
+              [['amenity','restaurant'],     'food',             10],
+              [['amenity','cafe'],           'food',              9],
+              [['amenity','fast_food'],      'food',              8],
+              [['amenity','bar'],            'food',              7],
+              [['amenity','pub'],            'food',              7],
+              [['amenity','fuel'],           'fuel',             10],
+              [['shop','supermarket'],       'shops',            10],
+              [['shop','convenience'],       'shops',             9],
+              [['shop','*'],                 'shops',             7],
+              [['tourism','viewpoint'],      'nature',            9],
+              [['tourism','picnic_site'],    'picnic',           10],
+              [['tourism','camp_site'],      'camping',          10],
+              [['tourism','hotel'],          'lodging',          10],
+              [['tourism','hostel'],         'lodging',           9],
+              [['tourism','guest_house'],    'lodging',           8],
+              [['tourism','information'],    'information',      10],
+              [['tourism','museum'],         'culture',          10],
+              [['tourism','artwork'],        'artwork',          10],
+              [['emergency','defibrillator'],'aed',             10],
+              [['natural','beach'],          'nature',            9],
+              [['natural','spring'],         'drinking_water',    7],
+              [['waterway','*'],             'nature',            6],
+              [['leisure','firepit'],        'fireplace',        10],
+              [['leisure','sauna'],          'sauna',            10],
+              [['man_made','lighthouse'],    'lighthouses',      10],
+              [['amenity','bicycle_rental'], 'bicycle_rental',  10],
+              [['wheelchair','yes'],         'toilets',           2],
+            ];
+            // category fallback scores
+            const CAT_MAP = {{
+              toilet: {{'toilets':8}},
+              water: {{'drinking_water':8}},
+              firepit: {{'fireplace':8}},
+              food: {{'food':8}},
+              shop: {{'shops':8}},
+              sauna: {{'sauna':8}},
+              lighthouse: {{'lighthouses':8}},
+              rental: {{'bicycle_rental':8}},
+              attraction: {{'nature':5}},
+              viewpoint: {{'nature':6}},
+              harbour: {{'nature':5}},
+              beach: {{'nature':7}},
+              lodging: {{'lodging':8}},
+              information: {{'information':8}},
             }};
-            return map[cat] || 'nature';
-          }})(r.category);
+            const scores = {{}};
+            const addScore = (theme, pts) => {{ scores[theme] = (scores[theme]||0) + pts; }};
+            // score from OSM tags
+            if (osmTags && typeof osmTags === 'object') {{
+              for (const [tagPair, theme, pts] of TAG_RULES) {{
+                const [k, v] = tagPair;
+                const val = osmTags[k];
+                if (val !== undefined && (v === '*' || val === v)) addScore(theme, pts);
+              }}
+            }}
+            // score from SAT category (fallback / boost)
+            const catScores = CAT_MAP[cat] || {{'nature':3}};
+            for (const [theme, pts] of Object.entries(catScores)) addScore(theme, pts);
+            // sort by score, return top 3
+            return Object.entries(scores)
+              .sort((a,b) => b[1]-a[1])
+              .slice(0,3)
+              .map(([theme]) => theme);
+          }})(r.category, r.osm_tags || {{}});
+          const mapCompleteTheme = mapCompleteThemes[0] || 'nature';
           const mapCompleteUrl = effectiveOsmRef
             ? `https://mapcomplete.org/${{mapCompleteTheme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}`
             : null;
@@ -1924,9 +1987,13 @@ ORDER BY DESC(geof:latitude(?coord))
           const mapkiLink = mapkiUrl
             ? `<div><a href="${{mapkiUrl}}" target="_blank">📍 Mapki history</a></div>`
             : '';
-          const mapCompleteLink = mapCompleteUrl
-            ? `<div><a href="${{mapCompleteUrl}}" target="_blank">✏️ MapComplete (${{mapCompleteTheme}})</a></div>`
-            : '';
+          const mapCompleteLink = (effectiveOsmRef && mapCompleteThemes.length > 0)
+            ? `<div class="mc-links">✏️ MapComplete: ${{mapCompleteThemes.map((theme, i) =>
+                `<a href="https://mapcomplete.org/${{theme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}" target="_blank">${{theme}}${{i===0?' ⭐':''}}</a>`
+              ).join(' · ')}}</div>`
+            : (mapCompleteUrl
+              ? `<div class="mc-links"><a href="${{mapCompleteUrl}}" target="_blank">✏️ MapComplete (${{mapCompleteTheme}})</a></div>`
+              : '');
           const idEditorLink = idEditorUrl
             ? `<div><a href="${{idEditorUrl}}" target="_blank">✏️ iD editor (OSM)</a></div>`
             : '';
@@ -1975,7 +2042,41 @@ ORDER BY DESC(geof:latitude(?coord))
             const root = event.popup.getElement();
             const candidates = root ? Array.from(root.querySelectorAll('[data-osm-ref]')) : [];
             const node = candidates.find((el) => el.getAttribute('data-osm-ref') === effectiveOsmRef.key);
-            if (node) loadOsmTags(effectiveOsmRef, node, r.category);
+            if (node) {{
+              loadOsmTags(effectiveOsmRef, node, r.category).then(() => {{
+                // Refresh MapComplete recommendations using loaded OSM tags
+                const tags = osmTagCache.get(effectiveOsmRef.key);
+                if (!tags) return;
+                const mcEl = root && root.querySelector('.mc-links');
+                if (!mcEl) return;
+                // Re-run theme recommendation with real tags
+                const TAG_RULES = [
+                  [['amenity','toilets'],'toilets',10],[['amenity','drinking_water'],'drinking_water',10],
+                  [['amenity','water_point'],'drinking_water',8],[['amenity','bench'],'benches',10],
+                  [['amenity','waste_basket'],'waste_baskets',10],[['amenity','bbq'],'bbq',10],
+                  [['amenity','shelter'],'hiking',8],[['amenity','bicycle_repair_station'],'cycling',10],
+                  [['amenity','parking'],'parking',10],[['amenity','restaurant'],'food',10],
+                  [['amenity','cafe'],'food',9],[['amenity','fast_food'],'food',8],
+                  [['shop','supermarket'],'shops',10],[['shop','convenience'],'shops',9],
+                  [['tourism','viewpoint'],'nature',9],[['tourism','picnic_site'],'picnic',10],
+                  [['tourism','camp_site'],'camping',10],[['tourism','hotel'],'lodging',10],
+                  [['tourism','information'],'information',10],[['tourism','museum'],'culture',10],
+                  [['emergency','defibrillator'],'aed',10],[['natural','beach'],'nature',9],
+                  [['leisure','firepit'],'fireplace',10],[['leisure','sauna'],'sauna',10],
+                  [['man_made','lighthouse'],'lighthouses',10],
+                ];
+                const scores = {{}};
+                for (const [[k,v],theme,pts] of TAG_RULES) {{
+                  if (tags[k] !== undefined && (v==='*'||tags[k]===v)) scores[theme]=(scores[theme]||0)+pts;
+                }}
+                const themes = Object.entries(scores).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([t])=>t);
+                if (themes.length > 0) {{
+                  mcEl.innerHTML = '✏️ MapComplete: ' + themes.map((theme,i) =>
+                    `<a href="https://mapcomplete.org/${{theme}}?lat=${{r.lat}}&lon=${{r.lon}}&z=17#${{effectiveOsmRef.type}}/${{effectiveOsmRef.id}}" target="_blank">${{theme}}${{i===0?' ⭐':''}}</a>`
+                  ).join(' · ');
+                }}
+              }});
+            }}
           }});
           marker.addTo(markerLayer);
           bounds.push([r.lat, r.lon]);
