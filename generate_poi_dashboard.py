@@ -1877,7 +1877,7 @@ ORDER BY DESC(geof:latitude(?coord))
         applyFilters();
       }}
 
-      function renderMap(sec, org, cat) {{
+      function renderMap(sec, org, cat, mun = 'all') {{
         markerLayer.clearLayers();
         sectionLayer.clearLayers();
         const showTrailInfo = trailInfoToggle.checked;
@@ -1885,6 +1885,7 @@ ORDER BY DESC(geof:latitude(?coord))
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const safeOrg = org && org !== 'all' ? org : 'all';
+        const safeMun = mun && mun !== 'all' ? mun : 'all';
         const selectedSection = sec !== 'all'
           ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
@@ -1895,6 +1896,7 @@ ORDER BY DESC(geof:latitude(?coord))
           (isOsmSource || sec === 'all' || r.section === sec) &&
           (safeOrg === 'all' || (r.operator === safeOrg)) &&
           (safeCat === 'all' || r.category === safeCat) &&
+          (safeMun === 'all' || (r.municipality === safeMun)) &&
           isFiniteCoord(r.lat) &&
           isFiniteCoord(r.lon)
         );
@@ -2413,7 +2415,7 @@ ORDER BY DESC(geof:latitude(?coord))
         applyLanguage();
         visibleCount.textContent = t('visibleCount', {{ visible, total: totalPoiCount }});
         saveStateInUrl(sec, org, cat);
-        renderMap(sec, org, cat);
+        renderMap(sec, org, cat, mun);
         renderSankey(sec, org, cat);
         updateDistanceBandCount(sec, org, cat);
         lastSection = sec;
@@ -2437,7 +2439,7 @@ ORDER BY DESC(geof:latitude(?coord))
         if (!distanceBandToggle.checked) return;
         const prevPreserve = preserveMapView;
         preserveMapView = true;
-        renderMap(sectionFilter.value, organisationFilter.value, categoryFilter.value);
+        renderMap(sectionFilter.value, organisationFilter.value, categoryFilter.value, municipalityFilter.value);
         preserveMapView = prevPreserve;
       }});
       map.on('moveend', () => {{

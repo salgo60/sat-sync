@@ -106,7 +106,7 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=15&month=8&year=2026&hour=15&min=44&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-15 15:44 CEST</a></strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=15&month=8&year=2026&hour=19&min=32&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-15 19:32 CEST</a></strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=13&month=8&year=2026&hour=12&min=00&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-13 12:00 CEST</a></strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/pull/102" target="_blank">PR #102</a> &nbsp;|&nbsp;
@@ -8851,7 +8851,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=15&month=8&year=2026&hour=15&min=44&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-15 15:44 CEST</a></strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=15&month=8&year=2026&hour=19&min=32&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-15 19:32 CEST</a></strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=13&month=8&year=2026&hour=12&min=00&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-13 12:00 CEST</a></strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
@@ -9814,7 +9814,7 @@
         applyFilters();
       }
 
-      function renderMap(sec, org, cat) {
+      function renderMap(sec, org, cat, mun = 'all') {
         markerLayer.clearLayers();
         sectionLayer.clearLayers();
         const showTrailInfo = trailInfoToggle.checked;
@@ -9822,6 +9822,7 @@
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const safeOrg = org && org !== 'all' ? org : 'all';
+        const safeMun = mun && mun !== 'all' ? mun : 'all';
         const selectedSection = sec !== 'all'
           ? sectionsIndex.find((s) => s.slug === sec && isFiniteCoord(s.lat) && isFiniteCoord(s.lon))
           : null;
@@ -9832,6 +9833,7 @@
           (isOsmSource || sec === 'all' || r.section === sec) &&
           (safeOrg === 'all' || (r.operator === safeOrg)) &&
           (safeCat === 'all' || r.category === safeCat) &&
+          (safeMun === 'all' || (r.municipality === safeMun)) &&
           isFiniteCoord(r.lat) &&
           isFiniteCoord(r.lon)
         );
@@ -10350,7 +10352,7 @@
         applyLanguage();
         visibleCount.textContent = t('visibleCount', { visible, total: totalPoiCount });
         saveStateInUrl(sec, org, cat);
-        renderMap(sec, org, cat);
+        renderMap(sec, org, cat, mun);
         renderSankey(sec, org, cat);
         updateDistanceBandCount(sec, org, cat);
         lastSection = sec;
@@ -10374,7 +10376,7 @@
         if (!distanceBandToggle.checked) return;
         const prevPreserve = preserveMapView;
         preserveMapView = true;
-        renderMap(sectionFilter.value, organisationFilter.value, categoryFilter.value);
+        renderMap(sectionFilter.value, organisationFilter.value, categoryFilter.value, municipalityFilter.value);
         preserveMapView = prevPreserve;
       });
       map.on('moveend', () => {
