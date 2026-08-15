@@ -1492,7 +1492,7 @@ ORDER BY DESC(geof:latitude(?coord))
           if (!poiId || !poiById.has(poiId)) return;
           const poi = poiById.get(poiId);
           const nameCell = row.children[1];
-          const categoryCell = row.children[3];
+          const categoryCell = row.children[4];
           if (nameCell) nameCell.textContent = localizedPoiName(poi);
           if (categoryCell) categoryCell.textContent = localizedCategory(poi.category || '');
         }});
