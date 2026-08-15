@@ -1753,7 +1753,7 @@ ORDER BY DESC(geof:latitude(?coord))
         }};
       }}
 
-      function buildShareUrl(sec, cat, baseUrl) {{
+      function buildShareUrl(sec, cat, baseUrl, mun = 'all') {{
         const safeSec = sanitizeValue(sec, sectionValues);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const safeLang = normalizeLangValue(languageFilter.value);
@@ -1761,6 +1761,7 @@ ORDER BY DESC(geof:latitude(?coord))
         const params = new URLSearchParams();
         if (safeSec !== 'all') params.set('s', safeSec);
         if (safeCat !== 'all') params.set('c', safeCat);
+        if (mun && mun !== 'all') params.set('mun', mun);
         params.set('lang', safeLangCode);
         if (!trailInfoToggle.checked) params.set('li', '0');
         if (distanceBandToggle.checked) params.set('db', '1');
@@ -1786,7 +1787,7 @@ ORDER BY DESC(geof:latitude(?coord))
       function saveStateInUrl(sec, cat) {{
         if (window.location.protocol === 'file:') return;
         try {{
-          const url = buildShareUrl(sec, cat, canonicalCurrentBaseUrl());
+          const url = buildShareUrl(sec, cat, canonicalCurrentBaseUrl(), municipalityFilter.value);
           window.history.replaceState({{}}, '', url);
         }} catch(e) {{}}
       }}
@@ -1803,6 +1804,9 @@ ORDER BY DESC(geof:latitude(?coord))
         applyLanguage();
         sectionFilter.value = sec;
         categoryFilter.value = cat;
+        const munParam = params.get('mun') || 'all';
+        const validMuns = new Set(Array.from(municipalityFilter.options).map(o => o.value));
+        municipalityFilter.value = validMuns.has(munParam) ? munParam : 'all';
         const li = params.get('li');
         trailInfoToggle.checked = li !== '0';
         distanceBandToggle.checked = params.get('db') === '1';
@@ -1841,7 +1845,8 @@ ORDER BY DESC(geof:latitude(?coord))
       async function shareCurrentState() {{
         const sec = sectionFilter.value;
         const cat = categoryFilter.value;
-        const url = buildShareUrl(sec, cat, canonicalShareBaseUrl());
+        const mun = municipalityFilter.value;
+        const url = buildShareUrl(sec, cat, canonicalShareBaseUrl(), mun);
         try {{
           if (navigator.share) {{
             await navigator.share({{ url }});
