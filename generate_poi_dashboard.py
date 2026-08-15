@@ -205,6 +205,32 @@ def p18_to_thumbnail_url(p18_value: Optional[str]) -> Optional[str]:
     return f"https://commons.wikimedia.org/wiki/Special:FilePath/{quote(value)}?width=360"
 
 
+# Sektion-slug (normalize_slug av Wikidata-etappnamn) → kommunnamn
+SECTION_MUNICIPALITY: dict[str, str] = {
+    "arholma":   "Norrtälje kommun",
+    "lido":      "Norrtälje kommun",
+    "yxlan":     "Norrtälje kommun",
+    "furusund":  "Norrtälje kommun",
+    "grinda":    "Värmdö kommun",
+    "namdo":     "Värmdö kommun",
+    "svartsо":   "Värmdö kommun",  # noqa: RUF001
+    "svartso":   "Värmdö kommun",
+    "runmaro":   "Värmdö kommun",
+    "moja":      "Värmdö kommun",
+    "sandhamn":  "Värmdö kommun",
+    "brotto":    "Österåkers kommun",
+    "ingmarso":  "Österåkers kommun",
+    "finnhamn":  "Österåkers kommun",
+    "nattaro":   "Haninge kommun",
+    "rano":      "Haninge kommun",
+    "alo":       "Haninge kommun",
+    "uto":       "Haninge kommun",
+    "orno":      "Haninge kommun",
+    "fjardlang": "Haninge kommun",
+    "landsort":  "Nynäshamns kommun",
+}
+
+
 @dataclass
 class Stage:
     q_id: str
@@ -444,6 +470,7 @@ ORDER BY DESC(geof:latitude(?coord))
                     "image": p.get("image"),
                     "operator": operator_info.get("name") if operator_info else None,
                     "operator_wikidata": operator_info.get("wikidata") if operator_info else None,
+                    "municipality": SECTION_MUNICIPALITY.get(normalize_slug(sec), ""),
                     "is_osm_candidate": False,
                 }
             )
@@ -510,10 +537,11 @@ ORDER BY DESC(geof:latitude(?coord))
             
             poi_rows.append(
                 f"""
-        <tr data-section="{sec}" data-category="{cat}" data-poi-id="{sat_id}" data-operator="{p.get('operator') or ''}">
+        <tr data-section="{sec}" data-category="{cat}" data-poi-id="{sat_id}" data-operator="{p.get('operator') or ''}" data-municipality="{p.get('municipality') or ''}">
           <td><a href="https://map.stockholmarchipelagotrail.com/?{sat_id}" target="_blank"><code>{sat_id}</code></a></td>
           <td>{p.get("name") or "—"}</td>
           <td>{sec_label}</td>
+          <td>{p.get("municipality") or "—"}</td>
           <td>{cat}</td>
           <td>{operator_cell}</td>
           <td>{self.same_as_links(p.get("same_as") or [])}</td>
@@ -556,6 +584,8 @@ ORDER BY DESC(geof:latitude(?coord))
             for _, _, sec in ordered_sections
         )
         category_options = "\n".join(f'<option value="{c}" data-category="{c}">{c}</option>' for c in sorted(categories))
+        municipalities = sorted({p["municipality"] for p in poi_map_data if p.get("municipality")})
+        municipality_options = "\n".join(f'<option value="{m}">{m}</option>' for m in municipalities)
         swedish_languages = [
             ("sv", "Swedish (Svenska)"),
             ("en", "English"),
@@ -780,6 +810,13 @@ ORDER BY DESC(geof:latitude(?coord))
         </select>
       </div>
       <div>
+        <label id="municipalityFilterLabel" for="municipalityFilter">Filtrera kommun</label>
+        <select id="municipalityFilter">
+          <option value="all">Alla kommuner</option>
+          {municipality_options}
+        </select>
+      </div>
+      <div>
         <label id="organisationFilterLabel" for="organisationFilter">Organisation (Work in progress)</label>
         <select id="organisationFilter">
           <option value="all" id="organisationAllOption">Alla organisationer</option>
@@ -833,11 +870,12 @@ ORDER BY DESC(geof:latitude(?coord))
               <th id="thSatId" class="sortable" onclick="sortTable('poiTable',0)">SAT ID</th>
               <th id="thName" class="sortable" onclick="sortTable('poiTable',1)">Namn</th>
               <th id="thSection" class="sortable" onclick="sortTable('poiTable',2)">Section</th>
-              <th id="thCategory" class="sortable" onclick="sortTable('poiTable',3)">Kategori</th>
-              <th id="thOrganisation" class="sortable" onclick="sortTable('poiTable',4)">Organisation</th>
+              <th id="thMunicipality" class="sortable" onclick="sortTable('poiTable',3)">Kommun</th>
+              <th id="thCategory" class="sortable" onclick="sortTable('poiTable',4)">Kategori</th>
+              <th id="thOrganisation" class="sortable" onclick="sortTable('poiTable',5)">Organisation</th>
               <th>sameAs</th>
-              <th id="thFirstSeen" class="sortable" onclick="sortTable('poiTable',6)">Första sedd</th>
-              <th id="thUpdated" class="sortable" onclick="sortTable('poiTable',7)">Uppdaterad</th>
+              <th id="thFirstSeen" class="sortable" onclick="sortTable('poiTable',7)">Första sedd</th>
+              <th id="thUpdated" class="sortable" onclick="sortTable('poiTable',8)">Uppdaterad</th>
             </tr>
           </thead>
           <tbody>
@@ -912,6 +950,7 @@ ORDER BY DESC(geof:latitude(?coord))
       const dataSourceFilter = document.getElementById('dataSourceFilter');
   const organisationFilter = document.getElementById('organisationFilter');
   const categoryFilter = document.getElementById('categoryFilter');
+  const municipalityFilter = document.getElementById('municipalityFilter');
   const trailInfoToggle = document.getElementById('trailInfoToggle');
   const distanceBandToggle = document.getElementById('distanceBandToggle');
   const distanceBandMeters = document.getElementById('distanceBandMeters');
@@ -989,6 +1028,7 @@ ORDER BY DESC(geof:latitude(?coord))
       tr.dataset.category = cat;
       tr.dataset.poiId = id;
       tr.dataset.operator = p.operator || '';
+      tr.dataset.municipality = p.municipality || '';
       
       let idCell;
       if (isOsmSource && p.osmId) {{
@@ -1004,6 +1044,7 @@ ORDER BY DESC(geof:latitude(?coord))
         <td>${{idCell}}</td>
         <td>${{escapeHtml(name)}}</td>
         <td>${{escapeHtml(isOsmSource ? sec : (SECTION_DISPLAY[sec] || sec))}}</td>
+        <td>${{escapeHtml(p.municipality || '—')}}</td>
         <td>${{escapeHtml(cat)}}</td>
         <td>${{escapeHtml(operator)}}</td>
         <td>${{buildSameAsLinks(p.same_as || [])}}</td>
@@ -1055,7 +1096,7 @@ ORDER BY DESC(geof:latitude(?coord))
   }});
 
   // Column index <-> URL key mapping for sort state
-  const SORT_COL_MAP = {{0:'satid',1:'name',2:'section',3:'category',4:'org',6:'firstseen',7:'updated'}};
+  const SORT_COL_MAP = {{0:'satid',1:'name',2:'section',3:'municipality',4:'category',5:'org',7:'firstseen',8:'updated'}};
   const SORT_COL_REV = Object.fromEntries(Object.entries(SORT_COL_MAP).map(([k,v])=>[v,parseInt(k)]));
 
   // Table sorting function (global so onclick= in <th> can reach it)
@@ -1067,7 +1108,7 @@ ORDER BY DESC(geof:latitude(?coord))
     const prevAsc = tbody.dataset.sortAsc === '1';
     const isAscending = (colIndex === prevCol) ? !prevAsc : true;
 
-    const isDateCol = colIndex === 6 || colIndex === 7;
+    const isDateCol = colIndex === 7 || colIndex === 8;
 
     rows.sort((a, b) => {{
       const aVal = (a.cells[colIndex]?.textContent || '').trim();
@@ -1781,14 +1822,16 @@ ORDER BY DESC(geof:latitude(?coord))
         }}
       }}
 
-      function filteredPois(sec, cat, org = 'all') {{
+      function filteredPois(sec, cat, org = 'all', mun = 'all') {{
         const safeSec = sanitizeValue(sec, sectionValues);
         const safeCat = sanitizeValue(normalizeCategoryValue(cat), categoryValues);
         const safeOrg = org && org !== 'all' ? org : 'all';
+        const safeMun = mun && mun !== 'all' ? mun : 'all';
         return poiMapData.filter((r) =>
           (safeSec === 'all' || r.section === safeSec) &&
           (safeCat === 'all' || r.category === safeCat) &&
-          (safeOrg === 'all' || (r.operator === safeOrg))
+          (safeOrg === 'all' || (r.operator === safeOrg)) &&
+          (safeMun === 'all' || (r.municipality === safeMun))
         );
       }}
 
@@ -1829,6 +1872,7 @@ ORDER BY DESC(geof:latitude(?coord))
       function resetFilters() {{
         sectionFilter.value = 'all';
         categoryFilter.value = 'all';
+        municipalityFilter.value = 'all';
         preserveMapView = false;
         applyFilters();
       }}
@@ -2337,6 +2381,7 @@ ORDER BY DESC(geof:latitude(?coord))
         const sec = sanitizeValue(sectionFilter.value, sectionValues);
         const org = organisationFilter.value;
         const cat = sanitizeValue(normalizeCategoryValue(categoryFilter.value), categoryValues);
+        const mun = municipalityFilter.value;
         sectionFilter.value = sec;
         categoryFilter.value = cat;
         const filterChanged = (lastSection !== null && (sec !== lastSection || cat !== lastCategory || org !== lastOrganisation));
@@ -2349,11 +2394,13 @@ ORDER BY DESC(geof:latitude(?coord))
           const rowSec = row.dataset.section;
           const rowOrg = row.dataset.operator || '';
           const rowCat = row.dataset.category;
+          const rowMun = row.dataset.municipality || '';
           // For OSM candidates: section filter only zooms map, doesn't hide rows
           const sectionMatch = currentDataSource === 'osm' || sec === 'all' || rowSec === sec;
           const show = sectionMatch && 
                       (org === 'all' || rowOrg === org) &&
-                      (cat === 'all' || rowCat === cat);
+                      (cat === 'all' || rowCat === cat) &&
+                      (mun === 'all' || rowMun === mun);
           row.style.display = show ? '' : 'none';
           if (show) visible += 1;
         }});
@@ -2375,6 +2422,7 @@ ORDER BY DESC(geof:latitude(?coord))
       }}
 
       sectionFilter.addEventListener('change', applyFilters);
+      municipalityFilter.addEventListener('change', applyFilters);
       organisationFilter.addEventListener('change', applyFilters);
       categoryFilter.addEventListener('change', applyFilters);
       languageFilter.addEventListener('change', applyFilters);
