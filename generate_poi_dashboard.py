@@ -1158,6 +1158,40 @@ ORDER BY DESC(geof:latitude(?coord))
       }};
       const markerLayer = L.layerGroup().addTo(map);
       const sectionLayer = L.layerGroup().addTo(map);
+      let municipalityBoundaryLayer = null;
+
+      // Municipality OSM relation IDs for boundary overlay
+      const MUNICIPALITY_RELATIONS = {{
+        'Haninge kommun':    398625,
+        'Norrtälje kommun':  397159,
+        'Nynäshamns kommun': 398627,
+        'Värmdö kommun':     398649,
+        'Österåkers kommun': 398037,
+      }};
+      const municipalityGeoJsonCache = {{}};
+
+      async function showMunicipalityBoundary(munName) {{
+        if (municipalityBoundaryLayer) {{
+          map.removeLayer(municipalityBoundaryLayer);
+          municipalityBoundaryLayer = null;
+        }}
+        if (!munName || munName === 'all') return;
+        const relId = MUNICIPALITY_RELATIONS[munName];
+        if (!relId) return;
+        if (!municipalityGeoJsonCache[relId]) {{
+          try {{
+            const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=R${{relId}}&format=geojson&polygon_geojson=1`;
+            const resp = await fetch(url, {{ headers: {{ 'User-Agent': 'SAT-Sync/1.0 (+https://github.com/salgo60/sat-sync)' }} }});
+            municipalityGeoJsonCache[relId] = await resp.json();
+          }} catch(e) {{
+            console.warn('Could not fetch municipality boundary:', e);
+            return;
+          }}
+        }}
+        municipalityBoundaryLayer = L.geoJSON(municipalityGeoJsonCache[relId], {{
+          style: {{ color: '#e11d48', weight: 2.5, fillOpacity: 0.06, dashArray: '8,5' }}
+        }}).addTo(map);
+      }}
       const distanceBandLayer = L.geoJSON(trailGeoJson, {{
         interactive: false,
         style: {{
@@ -2416,6 +2450,7 @@ ORDER BY DESC(geof:latitude(?coord))
         visibleCount.textContent = t('visibleCount', {{ visible, total: totalPoiCount }});
         saveStateInUrl(sec, org, cat);
         renderMap(sec, org, cat, mun);
+        showMunicipalityBoundary(mun);
         renderSankey(sec, org, cat);
         updateDistanceBandCount(sec, org, cat);
         lastSection = sec;
