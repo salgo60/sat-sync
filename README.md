@@ -126,3 +126,5 @@ People decide whether those differences represent:
 - or an intentional divergence.
 
 SAT Sync exists to make those conversations easier.
+
+[![Regenerate SAT POI Dashboard](https://github.com/salgo60/sat-sync/actions/workflows/regen-dashboard.yml/badge.svg)](https://github.com/salgo60/sat-sync/actions/workflows/regen-dashboard.yml)
