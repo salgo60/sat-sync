@@ -11,7 +11,7 @@ from datetime import datetime
 from urllib.parse import urlencode
 
 # PostPass API endpoint
-POSTPASS_URL = "https://postpass.geofabrik.de/api/0.2/interpreter"
+POSTPASS_URL = "https://postpass.geofabrik.de/api/interpreter"
 
 # SQL Query för PostPass
 SQL_QUERY = """
