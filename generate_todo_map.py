@@ -627,6 +627,7 @@ html = f"""<!DOCTYPE html>
 
     /* Map */
     #map {{ flex:1; min-height:0; }}
+    #map.map-fullscreen {{ position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:9999; }}
 
     /* List */
     #list-view {{ flex:1; min-height:0; overflow:auto; display:none; padding:8px 10px; }}
@@ -881,6 +882,34 @@ html = f"""<!DOCTYPE html>
     if (tb.isValid()) map.fitBounds(tb, {{ padding: [20,20] }});
   }} catch(e) {{}}
 
+  // Fullscreen control (bottom-right)
+  const FullscreenControl = L.Control.extend({{
+    options: {{ position: 'bottomright' }},
+    onAdd: function() {{
+      const btn = L.DomUtil.create('button', '');
+      btn.innerHTML = '⛶';
+      btn.title = 'Fullskärm';
+      btn.style.cssText = 'background:rgba(255,255,255,.9);border:2px solid #aaa;border-radius:6px;padding:4px 8px;cursor:pointer;font-size:1.2rem;line-height:1;box-shadow:0 1px 4px rgba(0,0,0,.2);';
+      L.DomEvent.disableClickPropagation(btn);
+      L.DomEvent.on(btn, 'click', () => {{
+        const mapEl = document.getElementById('map');
+        const isFs = mapEl.classList.toggle('map-fullscreen');
+        btn.innerHTML = isFs ? '✕' : '⛶';
+        document.body.style.overflow = isFs ? 'hidden' : '';
+        setTimeout(() => map.invalidateSize(), 200);
+      }});
+      return btn;
+    }}
+  }});
+  new FullscreenControl().addTo(map);
+  document.addEventListener('keydown', e => {{
+    if (e.key === 'Escape' && document.getElementById('map').classList.contains('map-fullscreen')) {{
+      document.getElementById('map').classList.remove('map-fullscreen');
+      document.body.style.overflow = '';
+      map.invalidateSize();
+    }}
+  }});
+
   // ── Stage + category filters ───────────────────────────────────────────────
   const stageFilter = document.getElementById('stageFilter');
   const categoryFilter = document.getElementById('categoryFilter');
@@ -1009,6 +1038,27 @@ html = f"""<!DOCTYPE html>
       container.appendChild(actionWrap);
       L.DomEvent.disableClickPropagation(actionWrap);
       L.DomEvent.disableScrollPropagation(actionWrap);
+
+      // Collapse toggle button in layer control header
+      const lcTitle = container.querySelector('.leaflet-control-layers-toggle') ||
+                      container.querySelector('.leaflet-control-layers-list');
+      const collapseBtn = document.createElement('button');
+      collapseBtn.type = 'button';
+      collapseBtn.textContent = '▲';
+      collapseBtn.title = 'Minimera/visa lager';
+      collapseBtn.style.cssText = 'position:absolute;top:4px;right:6px;background:none;border:none;cursor:pointer;font-size:12px;color:#475569;z-index:1;padding:2px 4px;';
+      container.style.position = 'relative';
+      let layerListEl = container.querySelector('.leaflet-control-layers-list');
+      if (layerListEl) {{
+        container.insertBefore(collapseBtn, container.firstChild);
+        collapseBtn.onclick = (ev) => {{
+          ev.stopPropagation();
+          const hidden = layerListEl.style.display === 'none';
+          layerListEl.style.display = hidden ? '' : 'none';
+          actionWrap.style.display = hidden ? '' : 'none';
+          collapseBtn.textContent = hidden ? '▲' : '▼';
+        }};
+      }}
     }}
   }}
 

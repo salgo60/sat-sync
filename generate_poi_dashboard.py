@@ -701,8 +701,12 @@ ORDER BY DESC(geof:latitude(?coord))
     h2 {{ margin:0 0 12px; }}
     .chart-wrap {{ background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:10px; }}
     #sankeyChart {{ width:100%; height:560px; }}
-    .map-wrap {{ background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:10px; }}
+    .map-wrap {{ background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:10px; position:relative; }}
     #poiMap {{ width:100%; height:520px; border-radius:6px; }}
+    .map-wrap.map-fullscreen {{ position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:9999; border-radius:0; padding:0; }}
+    .map-wrap.map-fullscreen #poiMap {{ height:100vh; border-radius:0; }}
+    .map-fullscreen-btn {{ position:absolute; top:8px; right:8px; z-index:10000; background:rgba(255,255,255,.9); border:2px solid #aaa; border-radius:6px; padding:4px 8px; cursor:pointer; font-size:1.1rem; line-height:1; box-shadow:0 1px 4px rgba(0,0,0,.2); }}
+    .map-fullscreen-btn:hover {{ background:#fff; }}
     .popup-thumb {{ width:140px; max-height:90px; object-fit:cover; border-radius:4px; display:block; margin-top:6px; }}
     .osm-tags {{ margin-top:6px; font-size:.82rem; }}
     .osm-tags-body {{ margin-top:6px; max-height:140px; overflow:auto; border:1px solid #e2e8f0; border-radius:6px; padding:6px; background:#f8fafc; }}
@@ -856,7 +860,8 @@ ORDER BY DESC(geof:latitude(?coord))
 
     <div class="section">
       <h2 id="mapSectionTitle">Karta (aktuell filtrering)</h2>
-      <div class="map-wrap">
+      <div class="map-wrap" id="mapWrap">
+        <button class="map-fullscreen-btn" id="fullscreenBtn" onclick="toggleMapFullscreen()" title="Fullskärm">⛶</button>
         <div id="poiMap"></div>
       </div>
     </div>
@@ -988,6 +993,15 @@ ORDER BY DESC(geof:latitude(?coord))
     }}).join('<br>');
   }}
   const map = L.map('poiMap').setView([59.2, 18.5], 8);
+  window.toggleMapFullscreen = function() {{
+    const wrap = document.getElementById('mapWrap');
+    const btn  = document.getElementById('fullscreenBtn');
+    wrap.classList.toggle('map-fullscreen');
+    btn.textContent = wrap.classList.contains('map-fullscreen') ? '✕' : '⛶';
+    document.body.style.overflow = wrap.classList.contains('map-fullscreen') ? 'hidden' : '';
+    setTimeout(() => map.invalidateSize(), 200);
+  }};
+  document.addEventListener('keydown', e => {{ if (e.key === 'Escape') {{ const wrap = document.getElementById('mapWrap'); if (wrap.classList.contains('map-fullscreen')) window.toggleMapFullscreen(); }} }});
   let preserveMapView = false;
   let isProgrammaticMapMove = false;
   let lastSection = null;
