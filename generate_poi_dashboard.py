@@ -230,6 +230,14 @@ SECTION_MUNICIPALITY: dict[str, str] = {
     "landsort":  "Nynäshamns kommun",
 }
 
+MUNICIPALITY_WIKIDATA: dict[str, str] = {
+    "Norrtälje kommun":   "wikidata:Q214048",
+    "Nynäshamns kommun":  "wikidata:Q505090",
+    "Haninge kommun":     "wikidata:Q113692",
+    "Värmdö kommun":      "wikidata:Q493841",
+    "Österåkers kommun":  "wikidata:Q117728",
+}
+
 
 @dataclass
 class Stage:
@@ -471,6 +479,7 @@ ORDER BY DESC(geof:latitude(?coord))
                     "operator": operator_info.get("name") if operator_info else None,
                     "operator_wikidata": operator_info.get("wikidata") if operator_info else None,
                     "municipality": SECTION_MUNICIPALITY.get(normalize_slug(sec), ""),
+                    "municipality_wikidata": MUNICIPALITY_WIKIDATA.get(SECTION_MUNICIPALITY.get(normalize_slug(sec), ""), ""),
                     "is_osm_candidate": False,
                 }
             )
