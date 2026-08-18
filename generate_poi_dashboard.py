@@ -230,6 +230,14 @@ SECTION_MUNICIPALITY: dict[str, str] = {
     "landsort":  "Nynäshamns kommun",
 }
 
+MUNICIPALITY_WIKIDATA: dict[str, str] = {
+    "Norrtälje kommun":   "wikidata:Q214048",
+    "Nynäshamns kommun":  "wikidata:Q505090",
+    "Haninge kommun":     "wikidata:Q113692",
+    "Värmdö kommun":      "wikidata:Q493841",
+    "Österåkers kommun":  "wikidata:Q117728",
+}
+
 
 @dataclass
 class Stage:
@@ -471,6 +479,7 @@ ORDER BY DESC(geof:latitude(?coord))
                     "operator": operator_info.get("name") if operator_info else None,
                     "operator_wikidata": operator_info.get("wikidata") if operator_info else None,
                     "municipality": SECTION_MUNICIPALITY.get(normalize_slug(sec), ""),
+                    "municipality_wikidata": MUNICIPALITY_WIKIDATA.get(SECTION_MUNICIPALITY.get(normalize_slug(sec), ""), ""),
                     "is_osm_candidate": False,
                 }
             )
@@ -770,7 +779,7 @@ ORDER BY DESC(geof:latitude(?coord))
   <div class="container">
     <div class="header">
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
-      <p id="headerSubtitle">Alla objekt i pois.geojson med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
+      <p id="headerSubtitle">Alla objekt i <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson">pois.geojson</a> med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
         <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong>{pois_fetched_at}</strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="{POIS_URL}" target="_blank">SAT POI</a>: <strong>{pois_source_generated_at}</strong> &nbsp;|&nbsp;
@@ -1234,7 +1243,7 @@ ORDER BY DESC(geof:latitude(?coord))
         sv: {{
           all: 'Alla',
           headerTitle: '🧭 SAT POI Dashboard',
-          headerSubtitle: 'Alla objekt i pois.geojson med koppling till etapp/ö (Wikidata), section och objekttyp',
+          headerSubtitle: 'Alla objekt i <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson">pois.geojson</a> med koppling till etapp/ö (Wikidata), section och objekttyp',
           statTotalLabel: 'Totalt POI',
           statSectionsLabel: 'Etapp/ö (sections)',
           statCategoriesLabel: 'Objekttyper',
