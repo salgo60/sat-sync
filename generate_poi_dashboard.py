@@ -685,6 +685,8 @@ ORDER BY DESC(geof:latitude(?coord))
     .header {{ background: linear-gradient(135deg,#2546a8,#1d2f6f); color:#fff; padding:24px; }}
     .header h1 {{ margin:0 0 8px; }}
     .header p {{ margin:0; opacity:.9; }}
+    .header p a {{ color:#fff !important; text-decoration:underline; text-underline-offset:3px; font-weight:600; }}
+    .header p a:hover {{ opacity:.8; }}
     .header-meta {{ margin-top:10px; font-size:0.8rem; opacity:0.75; }}
     .header-meta a {{ color:#a8c4ff; text-decoration:none; }}
     .header-meta a:hover {{ text-decoration:underline; }}
