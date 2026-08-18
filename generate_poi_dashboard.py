@@ -1573,7 +1573,13 @@ ORDER BY DESC(geof:latitude(?coord))
         }};
         Object.entries(bindings).forEach(([id, key]) => {{
           const el = document.getElementById(id);
-          if (el) el.textContent = t(key);
+          if (el) {{
+            if (id === 'headerSubtitle') {{
+              el.innerHTML = t(key);
+            }} else {{
+              el.textContent = t(key);
+            }}
+          }}
         }});
         const qualityLabel = qualityHistoryLabels[currentLangCode()] || qualityHistoryLabels.en;
         const qualityUrl = `sat_poi_quality_history.html?lang=${{encodeURIComponent(currentLangCode())}}`;
