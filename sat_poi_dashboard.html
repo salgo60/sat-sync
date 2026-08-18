@@ -14,6 +14,8 @@
     .header { background: linear-gradient(135deg,#2546a8,#1d2f6f); color:#fff; padding:24px; }
     .header h1 { margin:0 0 8px; }
     .header p { margin:0; opacity:.9; }
+    .header p a { color:#fff !important; text-decoration:underline; text-underline-offset:3px; font-weight:600; }
+    .header p a:hover { opacity:.8; }
     .header-meta { margin-top:10px; font-size:0.8rem; opacity:0.75; }
     .header-meta a { color:#a8c4ff; text-decoration:none; }
     .header-meta a:hover { text-decoration:underline; }
@@ -110,10 +112,10 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson">pois.geojson</a> med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=18&month=8&year=2026&hour=8&min=11&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-18 08:11 CEST</a></strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=18&month=8&year=2026&hour=10&min=02&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-18 10:02 CEST</a></strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=17&month=8&year=2026&hour=7&min=31&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-17 07:31 CEST</a></strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/111" target="_blank">PR #111</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/112" target="_blank">PR #112</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a data-todo-list-href href="sat_todo_list.html"><span id="todoListLinkHdr">✅ TODO-lista</span></a> &nbsp;|&nbsp;
@@ -135,7 +137,7 @@
         <label id="dataSourceLabel" for="dataSourceFilter">Datakälla</label>
         <select id="dataSourceFilter">
           <option value="sat">SAT POI (Standarddata) - 700</option>
-          <option value="osm">OSM kandidater - 176</option>
+          <option value="osm">OSM kandidater - 174</option>
         </select>
       </div>
       <div>
@@ -8904,7 +8906,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=18&month=8&year=2026&hour=8&min=11&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-18 08:11 CEST</a></strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=18&month=8&year=2026&hour=10&min=02&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-18 10:02 CEST</a></strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=17&month=8&year=2026&hour=7&min=31&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-17 07:31 CEST</a></strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
