@@ -1,4 +1,6 @@
 # SAT Sync
+* live [SAT](https://salgo60.github.io/sat-sync/sat_poi_dashboard.html?lang=sv&lat=59.30516&lon=18.49823&z=8)
+
 
 **SAT Sync is an identity reconciliation framework for loosely coupled open-data platforms.**
 
