@@ -5305,8 +5305,8 @@
           "percent": 47.29
         },
         "operator": {
-          "count": 106,
-          "percent": 15.14
+          "count": 105,
+          "percent": 15.0
         }
       },
       "fieldCoverage": {
@@ -6293,8 +6293,8 @@
               "percent": 50.0
             },
             "operator": {
-              "count": 4,
-              "percent": 15.38
+              "count": 3,
+              "percent": 11.54
             }
           },
           "fieldCoverage": {
@@ -6892,7 +6892,7 @@
       "operatorDistribution": [
         {
           "operator": "Skärgårdsstiftelsen",
-          "count": 45
+          "count": 44
         },
         {
           "operator": "Svenska Turistföreningen",
