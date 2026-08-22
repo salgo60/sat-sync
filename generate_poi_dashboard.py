@@ -556,6 +556,7 @@ ORDER BY DESC(geof:latitude(?coord))
           <td>{self.same_as_links(p.get("same_as") or [])}</td>
           <td>{p.get("first_seen") or "—"}</td>
           <td>{p.get("updated_at") or "—"}</td>
+          <td>{"<a href='https://livingatlas.arcgis.com/wayback/#mapCenter=" + str(p.get("lon","")) + "%2C" + str(p.get("lat","")) + "%2C18&mode=explore' target='_blank'>🛰️</a>" if p.get("lat") and p.get("lon") else "—"}</td>
         </tr>
 """
             )
@@ -892,6 +893,7 @@ ORDER BY DESC(geof:latitude(?coord))
               <th>sameAs</th>
               <th id="thFirstSeen" class="sortable" onclick="sortTable('poiTable',7)">Första sedd</th>
               <th id="thUpdated" class="sortable" onclick="sortTable('poiTable',8)">Uppdaterad</th>
+              <th>WIW</th>
             </tr>
           </thead>
           <tbody>
@@ -1075,6 +1077,7 @@ ORDER BY DESC(geof:latitude(?coord))
         <td>${{buildSameAsLinks(p.same_as || [])}}</td>
         <td>${{escapeHtml(p.first_seen || '—')}}</td>
         <td>${{escapeHtml(p.updated_at || '—')}}</td>
+        <td>${{(p.lat && p.lon) ? `<a href="https://livingatlas.arcgis.com/wayback/#mapCenter=${{p.lon}}%2C${{p.lat}}%2C18&mode=explore" target="_blank">🛰️</a>` : '—'}}</td>
       `;
       tbody.appendChild(tr);
     }});
@@ -2120,6 +2123,13 @@ ORDER BY DESC(geof:latitude(?coord))
           const osmNotesLink = osmNotesUrl
             ? `<div><a href="${{osmNotesUrl}}" target="_blank">💬 OSM Notes</a></div>`
             : '';
+          // World Imagery Wayback
+          const wiwUrl = (r.lat && r.lon)
+            ? `https://livingatlas.arcgis.com/wayback/#mapCenter=${{r.lon}}%2C${{r.lat}}%2C18&mode=explore`
+            : null;
+          const wiwLink = wiwUrl
+            ? `<div><a href="${{wiwUrl}}" target="_blank">🛰️ World Imagery Wayback</a></div>`
+            : '';
           // Wikimedia links only for SAT POIs with Wikidata refs (not OSM candidates)
           const missingImage = !r.image;
           const wikishootmeUrl = (!isOsmCandidate && missingImage && r.lat && r.lon)
@@ -2147,6 +2157,7 @@ ORDER BY DESC(geof:latitude(?coord))
               ${{idEditorLink}}
               ${{mapCompleteLink}}
               ${{osmNotesLink}}
+              ${{wiwLink}}
               ${{(wikishootmeLink || commonsUploadLink) ? '<hr style="margin:6px 0;border:none;border-top:1px solid #e2e8f0">' : ''}}
               ${{wikishootmeLink}}
               ${{commonsUploadLink}}
