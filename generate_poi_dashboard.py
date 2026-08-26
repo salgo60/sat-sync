@@ -1807,6 +1807,8 @@ ORDER BY DESC(geof:latitude(?coord))
         if (safeSec !== 'all') params.set('s', safeSec);
         if (safeCat !== 'all') params.set('c', safeCat);
         if (mun && mun !== 'all') params.set('mun', mun);
+        const srcVal = dataSourceFilter ? dataSourceFilter.value : 'sat';
+        if (srcVal && srcVal !== 'sat') params.set('src', srcVal);
         params.set('lang', safeLangCode);
         if (!trailInfoToggle.checked) params.set('li', '0');
         if (distanceBandToggle.checked) params.set('db', '1');
@@ -1852,6 +1854,12 @@ ORDER BY DESC(geof:latitude(?coord))
         const munParam = params.get('mun') || 'all';
         const validMuns = new Set(Array.from(municipalityFilter.options).map(o => o.value));
         municipalityFilter.value = validMuns.has(munParam) ? munParam : 'all';
+        const srcParam = params.get('src') || 'sat';
+        if (dataSourceFilter) {{
+          const validSrcs = new Set(Array.from(dataSourceFilter.options).map(o => o.value));
+          dataSourceFilter.value = validSrcs.has(srcParam) ? srcParam : 'sat';
+          dataSourceFilter.dispatchEvent(new Event('change'));
+        }}
         const li = params.get('li');
         trailInfoToggle.checked = li !== '0';
         distanceBandToggle.checked = params.get('db') === '1';
