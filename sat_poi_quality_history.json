@@ -7037,6 +7037,1754 @@
           "count": 2
         }
       ]
+    },
+    {
+      "version": 5,
+      "generatedAt": "2026-08-24T05:29:27.271Z",
+      "capturedAt": "2026-08-24T09:34:18.228394Z",
+      "totalPoi": 725,
+      "linkCoverage": {
+        "osm": {
+          "count": 629,
+          "percent": 86.76
+        },
+        "wikidata": {
+          "count": 334,
+          "percent": 46.07
+        },
+        "operator": {
+          "count": 113,
+          "percent": 15.59
+        }
+      },
+      "fieldCoverage": {
+        "wheelchair": {
+          "count": 138,
+          "percent": 19.03
+        },
+        "fee": {
+          "count": 159,
+          "percent": 21.93
+        },
+        "image": {
+          "count": 567,
+          "percent": 78.21
+        },
+        "website": {
+          "count": 361,
+          "percent": 49.79
+        },
+        "phone": {
+          "count": 92,
+          "percent": 12.69
+        },
+        "menu": {
+          "count": 0,
+          "percent": 0.0
+        },
+        "social_media": {
+          "count": 0,
+          "percent": 0.0
+        },
+        "facebook": {
+          "count": 0,
+          "percent": 0.0
+        },
+        "instagram": {
+          "count": 0,
+          "percent": 0.0
+        },
+        "address": {
+          "count": 22,
+          "percent": 3.03
+        },
+        "internet_access": {
+          "count": 24,
+          "percent": 3.31
+        },
+        "passBuyUrl": {
+          "count": 20,
+          "percent": 2.76
+        },
+        "passSells": {
+          "count": 20,
+          "percent": 2.76
+        },
+        "passStamps": {
+          "count": 31,
+          "percent": 4.28
+        }
+      },
+      "sectionCoverage": [
+        {
+          "section": "uto",
+          "totalPoi": 84,
+          "linkCoverage": {
+            "osm": {
+              "count": 73,
+              "percent": 86.9
+            },
+            "wikidata": {
+              "count": 38,
+              "percent": 45.24
+            },
+            "operator": {
+              "count": 10,
+              "percent": 11.9
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 9,
+              "percent": 10.71
+            },
+            "fee": {
+              "count": 10,
+              "percent": 11.9
+            },
+            "image": {
+              "count": 58,
+              "percent": 69.05
+            },
+            "website": {
+              "count": 49,
+              "percent": 58.33
+            },
+            "phone": {
+              "count": 9,
+              "percent": 10.71
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 2,
+              "percent": 2.38
+            },
+            "internet_access": {
+              "count": 1,
+              "percent": 1.19
+            },
+            "passBuyUrl": {
+              "count": 2,
+              "percent": 2.38
+            },
+            "passSells": {
+              "count": 2,
+              "percent": 2.38
+            },
+            "passStamps": {
+              "count": 2,
+              "percent": 2.38
+            }
+          }
+        },
+        {
+          "section": "grinda",
+          "totalPoi": 69,
+          "linkCoverage": {
+            "osm": {
+              "count": 54,
+              "percent": 78.26
+            },
+            "wikidata": {
+              "count": 21,
+              "percent": 30.43
+            },
+            "operator": {
+              "count": 22,
+              "percent": 31.88
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 29,
+              "percent": 42.03
+            },
+            "fee": {
+              "count": 26,
+              "percent": 37.68
+            },
+            "image": {
+              "count": 57,
+              "percent": 82.61
+            },
+            "website": {
+              "count": 31,
+              "percent": 44.93
+            },
+            "phone": {
+              "count": 5,
+              "percent": 7.25
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 1,
+              "percent": 1.45
+            },
+            "internet_access": {
+              "count": 5,
+              "percent": 7.25
+            },
+            "passBuyUrl": {
+              "count": 1,
+              "percent": 1.45
+            },
+            "passSells": {
+              "count": 1,
+              "percent": 1.45
+            },
+            "passStamps": {
+              "count": 1,
+              "percent": 1.45
+            }
+          }
+        },
+        {
+          "section": "nattaro",
+          "totalPoi": 66,
+          "linkCoverage": {
+            "osm": {
+              "count": 47,
+              "percent": 71.21
+            },
+            "wikidata": {
+              "count": 24,
+              "percent": 36.36
+            },
+            "operator": {
+              "count": 9,
+              "percent": 13.64
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 12,
+              "percent": 18.18
+            },
+            "fee": {
+              "count": 15,
+              "percent": 22.73
+            },
+            "image": {
+              "count": 57,
+              "percent": 86.36
+            },
+            "website": {
+              "count": 35,
+              "percent": 53.03
+            },
+            "phone": {
+              "count": 4,
+              "percent": 6.06
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "internet_access": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passBuyUrl": {
+              "count": 1,
+              "percent": 1.52
+            },
+            "passSells": {
+              "count": 1,
+              "percent": 1.52
+            },
+            "passStamps": {
+              "count": 2,
+              "percent": 3.03
+            }
+          }
+        },
+        {
+          "section": "finnhamn",
+          "totalPoi": 56,
+          "linkCoverage": {
+            "osm": {
+              "count": 51,
+              "percent": 91.07
+            },
+            "wikidata": {
+              "count": 22,
+              "percent": 39.29
+            },
+            "operator": {
+              "count": 2,
+              "percent": 3.57
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 18,
+              "percent": 32.14
+            },
+            "fee": {
+              "count": 23,
+              "percent": 41.07
+            },
+            "image": {
+              "count": 45,
+              "percent": 80.36
+            },
+            "website": {
+              "count": 16,
+              "percent": 28.57
+            },
+            "phone": {
+              "count": 3,
+              "percent": 5.36
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 2,
+              "percent": 3.57
+            },
+            "internet_access": {
+              "count": 2,
+              "percent": 3.57
+            },
+            "passBuyUrl": {
+              "count": 2,
+              "percent": 3.57
+            },
+            "passSells": {
+              "count": 2,
+              "percent": 3.57
+            },
+            "passStamps": {
+              "count": 2,
+              "percent": 3.57
+            }
+          }
+        },
+        {
+          "section": "orno",
+          "totalPoi": 55,
+          "linkCoverage": {
+            "osm": {
+              "count": 50,
+              "percent": 90.91
+            },
+            "wikidata": {
+              "count": 23,
+              "percent": 41.82
+            },
+            "operator": {
+              "count": 5,
+              "percent": 9.09
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 5,
+              "percent": 9.09
+            },
+            "fee": {
+              "count": 3,
+              "percent": 5.45
+            },
+            "image": {
+              "count": 31,
+              "percent": 56.36
+            },
+            "website": {
+              "count": 29,
+              "percent": 52.73
+            },
+            "phone": {
+              "count": 8,
+              "percent": 14.55
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 1,
+              "percent": 1.82
+            },
+            "internet_access": {
+              "count": 1,
+              "percent": 1.82
+            },
+            "passBuyUrl": {
+              "count": 1,
+              "percent": 1.82
+            },
+            "passSells": {
+              "count": 1,
+              "percent": 1.82
+            },
+            "passStamps": {
+              "count": 1,
+              "percent": 1.82
+            }
+          }
+        },
+        {
+          "section": "arholma",
+          "totalPoi": 51,
+          "linkCoverage": {
+            "osm": {
+              "count": 48,
+              "percent": 94.12
+            },
+            "wikidata": {
+              "count": 30,
+              "percent": 58.82
+            },
+            "operator": {
+              "count": 15,
+              "percent": 29.41
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 18,
+              "percent": 35.29
+            },
+            "fee": {
+              "count": 14,
+              "percent": 27.45
+            },
+            "image": {
+              "count": 45,
+              "percent": 88.24
+            },
+            "website": {
+              "count": 30,
+              "percent": 58.82
+            },
+            "phone": {
+              "count": 9,
+              "percent": 17.65
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 1,
+              "percent": 1.96
+            },
+            "internet_access": {
+              "count": 1,
+              "percent": 1.96
+            },
+            "passBuyUrl": {
+              "count": 2,
+              "percent": 3.92
+            },
+            "passSells": {
+              "count": 2,
+              "percent": 3.92
+            },
+            "passStamps": {
+              "count": 2,
+              "percent": 3.92
+            }
+          }
+        },
+        {
+          "section": "moja",
+          "totalPoi": 49,
+          "linkCoverage": {
+            "osm": {
+              "count": 46,
+              "percent": 93.88
+            },
+            "wikidata": {
+              "count": 22,
+              "percent": 44.9
+            },
+            "operator": {
+              "count": 5,
+              "percent": 10.2
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 4,
+              "percent": 8.16
+            },
+            "fee": {
+              "count": 10,
+              "percent": 20.41
+            },
+            "image": {
+              "count": 41,
+              "percent": 83.67
+            },
+            "website": {
+              "count": 28,
+              "percent": 57.14
+            },
+            "phone": {
+              "count": 11,
+              "percent": 22.45
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 2,
+              "percent": 4.08
+            },
+            "internet_access": {
+              "count": 5,
+              "percent": 10.2
+            },
+            "passBuyUrl": {
+              "count": 3,
+              "percent": 6.12
+            },
+            "passSells": {
+              "count": 3,
+              "percent": 6.12
+            },
+            "passStamps": {
+              "count": 3,
+              "percent": 6.12
+            }
+          }
+        },
+        {
+          "section": "landsort",
+          "totalPoi": 42,
+          "linkCoverage": {
+            "osm": {
+              "count": 40,
+              "percent": 95.24
+            },
+            "wikidata": {
+              "count": 28,
+              "percent": 66.67
+            },
+            "operator": {
+              "count": 2,
+              "percent": 4.76
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 7,
+              "percent": 16.67
+            },
+            "fee": {
+              "count": 7,
+              "percent": 16.67
+            },
+            "image": {
+              "count": 40,
+              "percent": 95.24
+            },
+            "website": {
+              "count": 22,
+              "percent": 52.38
+            },
+            "phone": {
+              "count": 8,
+              "percent": 19.05
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 1,
+              "percent": 2.38
+            },
+            "internet_access": {
+              "count": 1,
+              "percent": 2.38
+            },
+            "passBuyUrl": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passSells": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passStamps": {
+              "count": 2,
+              "percent": 4.76
+            }
+          }
+        },
+        {
+          "section": "sandhamn",
+          "totalPoi": 37,
+          "linkCoverage": {
+            "osm": {
+              "count": 36,
+              "percent": 97.3
+            },
+            "wikidata": {
+              "count": 23,
+              "percent": 62.16
+            },
+            "operator": {
+              "count": 3,
+              "percent": 8.11
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 5,
+              "percent": 13.51
+            },
+            "fee": {
+              "count": 7,
+              "percent": 18.92
+            },
+            "image": {
+              "count": 33,
+              "percent": 89.19
+            },
+            "website": {
+              "count": 18,
+              "percent": 48.65
+            },
+            "phone": {
+              "count": 11,
+              "percent": 29.73
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 2,
+              "percent": 5.41
+            },
+            "internet_access": {
+              "count": 1,
+              "percent": 2.7
+            },
+            "passBuyUrl": {
+              "count": 2,
+              "percent": 5.41
+            },
+            "passSells": {
+              "count": 2,
+              "percent": 5.41
+            },
+            "passStamps": {
+              "count": 3,
+              "percent": 8.11
+            }
+          }
+        },
+        {
+          "section": "ingmarso",
+          "totalPoi": 31,
+          "linkCoverage": {
+            "osm": {
+              "count": 29,
+              "percent": 93.55
+            },
+            "wikidata": {
+              "count": 10,
+              "percent": 32.26
+            },
+            "operator": {
+              "count": 8,
+              "percent": 25.81
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 7,
+              "percent": 22.58
+            },
+            "fee": {
+              "count": 8,
+              "percent": 25.81
+            },
+            "image": {
+              "count": 19,
+              "percent": 61.29
+            },
+            "website": {
+              "count": 13,
+              "percent": 41.94
+            },
+            "phone": {
+              "count": 6,
+              "percent": 19.35
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 3,
+              "percent": 9.68
+            },
+            "internet_access": {
+              "count": 2,
+              "percent": 6.45
+            },
+            "passBuyUrl": {
+              "count": 1,
+              "percent": 3.23
+            },
+            "passSells": {
+              "count": 1,
+              "percent": 3.23
+            },
+            "passStamps": {
+              "count": 2,
+              "percent": 6.45
+            }
+          }
+        },
+        {
+          "section": "lido",
+          "totalPoi": 31,
+          "linkCoverage": {
+            "osm": {
+              "count": 24,
+              "percent": 77.42
+            },
+            "wikidata": {
+              "count": 15,
+              "percent": 48.39
+            },
+            "operator": {
+              "count": 6,
+              "percent": 19.35
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 3,
+              "percent": 9.68
+            },
+            "fee": {
+              "count": 3,
+              "percent": 9.68
+            },
+            "image": {
+              "count": 28,
+              "percent": 90.32
+            },
+            "website": {
+              "count": 16,
+              "percent": 51.61
+            },
+            "phone": {
+              "count": 2,
+              "percent": 6.45
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 1,
+              "percent": 3.23
+            },
+            "internet_access": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passBuyUrl": {
+              "count": 1,
+              "percent": 3.23
+            },
+            "passSells": {
+              "count": 1,
+              "percent": 3.23
+            },
+            "passStamps": {
+              "count": 1,
+              "percent": 3.23
+            }
+          }
+        },
+        {
+          "section": "rano",
+          "totalPoi": 29,
+          "linkCoverage": {
+            "osm": {
+              "count": 26,
+              "percent": 89.66
+            },
+            "wikidata": {
+              "count": 11,
+              "percent": 37.93
+            },
+            "operator": {
+              "count": 2,
+              "percent": 6.9
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 7,
+              "percent": 24.14
+            },
+            "fee": {
+              "count": 6,
+              "percent": 20.69
+            },
+            "image": {
+              "count": 18,
+              "percent": 62.07
+            },
+            "website": {
+              "count": 9,
+              "percent": 31.03
+            },
+            "phone": {
+              "count": 1,
+              "percent": 3.45
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "internet_access": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passBuyUrl": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passSells": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passStamps": {
+              "count": 1,
+              "percent": 3.45
+            }
+          }
+        },
+        {
+          "section": "fjardlang",
+          "totalPoi": 28,
+          "linkCoverage": {
+            "osm": {
+              "count": 23,
+              "percent": 82.14
+            },
+            "wikidata": {
+              "count": 5,
+              "percent": 17.86
+            },
+            "operator": {
+              "count": 8,
+              "percent": 28.57
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 3,
+              "percent": 10.71
+            },
+            "fee": {
+              "count": 11,
+              "percent": 39.29
+            },
+            "image": {
+              "count": 19,
+              "percent": 67.86
+            },
+            "website": {
+              "count": 10,
+              "percent": 35.71
+            },
+            "phone": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "internet_access": {
+              "count": 1,
+              "percent": 3.57
+            },
+            "passBuyUrl": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passSells": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passStamps": {
+              "count": 0,
+              "percent": 0.0
+            }
+          }
+        },
+        {
+          "section": "furusund",
+          "totalPoi": 23,
+          "linkCoverage": {
+            "osm": {
+              "count": 19,
+              "percent": 82.61
+            },
+            "wikidata": {
+              "count": 17,
+              "percent": 73.91
+            },
+            "operator": {
+              "count": 2,
+              "percent": 8.7
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "fee": {
+              "count": 1,
+              "percent": 4.35
+            },
+            "image": {
+              "count": 19,
+              "percent": 82.61
+            },
+            "website": {
+              "count": 13,
+              "percent": 56.52
+            },
+            "phone": {
+              "count": 2,
+              "percent": 8.7
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 1,
+              "percent": 4.35
+            },
+            "internet_access": {
+              "count": 2,
+              "percent": 8.7
+            },
+            "passBuyUrl": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passSells": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passStamps": {
+              "count": 1,
+              "percent": 4.35
+            }
+          }
+        },
+        {
+          "section": "alo",
+          "totalPoi": 21,
+          "linkCoverage": {
+            "osm": {
+              "count": 14,
+              "percent": 66.67
+            },
+            "wikidata": {
+              "count": 7,
+              "percent": 33.33
+            },
+            "operator": {
+              "count": 7,
+              "percent": 33.33
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 3,
+              "percent": 14.29
+            },
+            "fee": {
+              "count": 5,
+              "percent": 23.81
+            },
+            "image": {
+              "count": 18,
+              "percent": 85.71
+            },
+            "website": {
+              "count": 12,
+              "percent": 57.14
+            },
+            "phone": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "internet_access": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passBuyUrl": {
+              "count": 1,
+              "percent": 4.76
+            },
+            "passSells": {
+              "count": 1,
+              "percent": 4.76
+            },
+            "passStamps": {
+              "count": 1,
+              "percent": 4.76
+            }
+          }
+        },
+        {
+          "section": "namdo",
+          "totalPoi": 18,
+          "linkCoverage": {
+            "osm": {
+              "count": 18,
+              "percent": 100.0
+            },
+            "wikidata": {
+              "count": 11,
+              "percent": 61.11
+            },
+            "operator": {
+              "count": 4,
+              "percent": 22.22
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 3,
+              "percent": 16.67
+            },
+            "fee": {
+              "count": 5,
+              "percent": 27.78
+            },
+            "image": {
+              "count": 13,
+              "percent": 72.22
+            },
+            "website": {
+              "count": 8,
+              "percent": 44.44
+            },
+            "phone": {
+              "count": 1,
+              "percent": 5.56
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "internet_access": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passBuyUrl": {
+              "count": 1,
+              "percent": 5.56
+            },
+            "passSells": {
+              "count": 1,
+              "percent": 5.56
+            },
+            "passStamps": {
+              "count": 2,
+              "percent": 11.11
+            }
+          }
+        },
+        {
+          "section": "svartso",
+          "totalPoi": 13,
+          "linkCoverage": {
+            "osm": {
+              "count": 12,
+              "percent": 92.31
+            },
+            "wikidata": {
+              "count": 11,
+              "percent": 84.62
+            },
+            "operator": {
+              "count": 2,
+              "percent": 15.38
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "fee": {
+              "count": 2,
+              "percent": 15.38
+            },
+            "image": {
+              "count": 11,
+              "percent": 84.62
+            },
+            "website": {
+              "count": 10,
+              "percent": 76.92
+            },
+            "phone": {
+              "count": 5,
+              "percent": 38.46
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 2,
+              "percent": 15.38
+            },
+            "internet_access": {
+              "count": 1,
+              "percent": 7.69
+            },
+            "passBuyUrl": {
+              "count": 1,
+              "percent": 7.69
+            },
+            "passSells": {
+              "count": 1,
+              "percent": 7.69
+            },
+            "passStamps": {
+              "count": 1,
+              "percent": 7.69
+            }
+          }
+        },
+        {
+          "section": "runmaro",
+          "totalPoi": 11,
+          "linkCoverage": {
+            "osm": {
+              "count": 10,
+              "percent": 90.91
+            },
+            "wikidata": {
+              "count": 9,
+              "percent": 81.82
+            },
+            "operator": {
+              "count": 1,
+              "percent": 9.09
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 3,
+              "percent": 27.27
+            },
+            "fee": {
+              "count": 2,
+              "percent": 18.18
+            },
+            "image": {
+              "count": 7,
+              "percent": 63.64
+            },
+            "website": {
+              "count": 7,
+              "percent": 63.64
+            },
+            "phone": {
+              "count": 5,
+              "percent": 45.45
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 3,
+              "percent": 27.27
+            },
+            "internet_access": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passBuyUrl": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passSells": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passStamps": {
+              "count": 2,
+              "percent": 18.18
+            }
+          }
+        },
+        {
+          "section": "yxlan",
+          "totalPoi": 10,
+          "linkCoverage": {
+            "osm": {
+              "count": 8,
+              "percent": 80.0
+            },
+            "wikidata": {
+              "count": 6,
+              "percent": 60.0
+            },
+            "operator": {
+              "count": 0,
+              "percent": 0.0
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 1,
+              "percent": 10.0
+            },
+            "fee": {
+              "count": 1,
+              "percent": 10.0
+            },
+            "image": {
+              "count": 8,
+              "percent": 80.0
+            },
+            "website": {
+              "count": 5,
+              "percent": 50.0
+            },
+            "phone": {
+              "count": 2,
+              "percent": 20.0
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "internet_access": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passBuyUrl": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passSells": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "passStamps": {
+              "count": 1,
+              "percent": 10.0
+            }
+          }
+        },
+        {
+          "section": "unknown",
+          "totalPoi": 1,
+          "linkCoverage": {
+            "osm": {
+              "count": 1,
+              "percent": 100.0
+            },
+            "wikidata": {
+              "count": 1,
+              "percent": 100.0
+            },
+            "operator": {
+              "count": 0,
+              "percent": 0.0
+            }
+          },
+          "fieldCoverage": {
+            "wheelchair": {
+              "count": 1,
+              "percent": 100.0
+            },
+            "fee": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "image": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "website": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "phone": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "menu": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "social_media": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "facebook": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "instagram": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "address": {
+              "count": 0,
+              "percent": 0.0
+            },
+            "internet_access": {
+              "count": 1,
+              "percent": 100.0
+            },
+            "passBuyUrl": {
+              "count": 1,
+              "percent": 100.0
+            },
+            "passSells": {
+              "count": 1,
+              "percent": 100.0
+            },
+            "passStamps": {
+              "count": 1,
+              "percent": 100.0
+            }
+          }
+        }
+      ],
+      "operatorDistribution": [
+        {
+          "operator": "Skärgårdsstiftelsen",
+          "count": 44
+        },
+        {
+          "operator": "Ingmarsö B&B",
+          "count": 5
+        },
+        {
+          "operator": "Svenska Turistföreningen",
+          "count": 5
+        },
+        {
+          "operator": "Arholma Nord",
+          "count": 4
+        },
+        {
+          "operator": "Lidö Värdshus",
+          "count": 4
+        },
+        {
+          "operator": "Arholma Handel",
+          "count": 3
+        },
+        {
+          "operator": "Möja konsumtionsförening",
+          "count": 3
+        },
+        {
+          "operator": "Nåttarö gård och resort",
+          "count": 3
+        },
+        {
+          "operator": "Grinda Wärdshus AB",
+          "count": 2
+        },
+        {
+          "operator": "Mörbyfjärdens idrottsförening",
+          "count": 2
+        },
+        {
+          "operator": "Stockholm Archipelago trail",
+          "count": 2
+        },
+        {
+          "operator": "Utö Gästhamn",
+          "count": 2
+        },
+        {
+          "operator": "Utö Värdshus",
+          "count": 2
+        },
+        {
+          "operator": "Arholma Dansbana",
+          "count": 1
+        },
+        {
+          "operator": "B&B Hotels",
+          "count": 1
+        },
+        {
+          "operator": "Bull August Vandrahem",
+          "count": 1
+        },
+        {
+          "operator": "Bull Augustvandrarhem",
+          "count": 1
+        },
+        {
+          "operator": "Båtshaket",
+          "count": 1
+        },
+        {
+          "operator": "Café Norrhamn",
+          "count": 1
+        },
+        {
+          "operator": "Furusunds Hamnkrog",
+          "count": 1
+        }
+      ],
+      "categories": [
+        {
+          "category": "toilet",
+          "count": 129
+        },
+        {
+          "category": "firepit",
+          "count": 86
+        },
+        {
+          "category": "beach",
+          "count": 79
+        },
+        {
+          "category": "lodging",
+          "count": 73
+        },
+        {
+          "category": "attraction",
+          "count": 69
+        },
+        {
+          "category": "food",
+          "count": 65
+        },
+        {
+          "category": "water",
+          "count": 64
+        },
+        {
+          "category": "harbour",
+          "count": 34
+        },
+        {
+          "category": "shop",
+          "count": 26
+        },
+        {
+          "category": "rental",
+          "count": 25
+        },
+        {
+          "category": "sauna",
+          "count": 21
+        },
+        {
+          "category": "viewpoint",
+          "count": 20
+        },
+        {
+          "category": "shower",
+          "count": 17
+        },
+        {
+          "category": "shelter",
+          "count": 11
+        },
+        {
+          "category": "lighthouse",
+          "count": 4
+        },
+        {
+          "category": "rowboat",
+          "count": 2
+        }
+      ]
     }
   ]
 }

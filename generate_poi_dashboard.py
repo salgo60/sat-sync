@@ -11,7 +11,9 @@ Visar koppling mellan:
 
 import json
 import re
+import time
 import unicodedata
+import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime
@@ -261,10 +263,19 @@ class POIDashboardGenerator:
             "Accept": "application/json",
         }
 
-    def _get_json(self, url: str) -> dict:
+    def _get_json(self, url: str, max_retries: int = 5) -> dict:
         req = urllib.request.Request(url, headers=self.headers)
-        with urllib.request.urlopen(req, timeout=60) as r:
-            return json.loads(r.read().decode("utf-8"))
+        for attempt in range(max_retries):
+            try:
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    return json.loads(r.read().decode("utf-8"))
+            except urllib.error.HTTPError as e:
+                if e.code == 429 and attempt < max_retries - 1:
+                    wait = 2 ** attempt * 5
+                    print(f"  ⚠️  HTTP 429 – väntar {wait}s innan nytt försök ({attempt + 1}/{max_retries - 1})...")
+                    time.sleep(wait)
+                else:
+                    raise
 
     def fetch_pois(self) -> list[dict]:
         print("📥 Hämtar pois.geojson...")
