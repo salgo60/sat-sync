@@ -10,44 +10,59 @@
   header { background:#2a6496; color:#fff; padding:1rem 1.5rem; }
   header h1 { margin:0 0 .25rem; font-size:1.3rem; }
   header p  { margin:0; font-size:.85rem; opacity:.85; }
-  .container { max-width:960px; margin:1.5rem auto; padding:0 1rem; }
+  .container { max-width:1000px; margin:1.5rem auto; padding:0 1rem; }
   .search-box { display:flex; gap:.5rem; margin-bottom:1.5rem; }
   .search-box input { flex:1; padding:.6rem .9rem; border:1px solid #ccc; border-radius:6px; font-size:1rem; }
   .search-box button { padding:.6rem 1.2rem; background:#2a6496; color:#fff; border:none; border-radius:6px; cursor:pointer; }
   .result-list { background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.1); overflow:hidden; }
-  .result-item { padding:.75rem 1rem; border-bottom:1px solid #eee; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+  .result-item { padding:.6rem 1rem; border-bottom:1px solid #eee; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
   .result-item:last-child { border-bottom:none; }
   .result-item:hover { background:#f0f7ff; }
   .result-item .name { font-weight:600; }
   .result-item .meta { font-size:.8rem; color:#666; }
+  .score-pill { display:inline-block; padding:.1rem .5rem; border-radius:10px; font-size:.75rem; font-weight:700; }
+  .score-high { background:#d4edda; color:#155724; }
+  .score-mid  { background:#fff3cd; color:#856404; }
+  .score-low  { background:#f8d7da; color:#721c24; }
   .poi-detail { background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.1); padding:1.5rem; margin-top:1.5rem; }
   .poi-detail h2 { margin:0 0 .25rem; color:#2a6496; }
-  .poi-detail .subtitle { font-size:.85rem; color:#666; margin-bottom:1.5rem; }
-  table.timeline { width:100%; border-collapse:collapse; font-size:.88rem; }
-  table.timeline th { background:#f0f0f0; padding:.5rem .75rem; text-align:left; border-bottom:2px solid #ddd; }
-  table.timeline td { padding:.45rem .75rem; border-bottom:1px solid #eee; }
+  .poi-detail .subtitle { font-size:.85rem; color:#666; margin-bottom:1.2rem; }
+  .stats-bar { display:flex; gap:.75rem; flex-wrap:wrap; margin-bottom:1.2rem; align-items:center; }
+  .stat-chip { background:#e8f4fd; border:1px solid #bee3f8; border-radius:20px; padding:.3rem .8rem; font-size:.82rem; }
+  .req-legend { font-size:.78rem; color:#666; margin-bottom:.75rem; }
+  .req-legend span { display:inline-block; width:.85rem; height:.85rem; border-radius:3px; vertical-align:middle; margin-right:.2rem; }
+  .req-yes-bg { background:#d4edda; }
+  .req-no-bg  { background:#f8d7da; }
+  .opt-yes-bg { background:#e8f4fd; }
+  .opt-no-bg  { background:#f0f0f0; }
+  table.timeline { width:100%; border-collapse:collapse; font-size:.85rem; }
+  table.timeline th { background:#f0f0f0; padding:.45rem .65rem; text-align:left; border-bottom:2px solid #ddd; white-space:nowrap; }
+  table.timeline td { padding:.4rem .65rem; border-bottom:1px solid #eee; white-space:nowrap; }
   table.timeline tr:last-child td { border-bottom:none; }
-  .badge { display:inline-block; width:1.4rem; height:1.4rem; line-height:1.4rem; text-align:center; border-radius:50%; font-size:.8rem; font-weight:700; }
+  table.timeline tr.required-row td:first-child { font-weight:700; }
+  .badge { display:inline-flex; align-items:center; justify-content:center; width:1.35rem; height:1.35rem; border-radius:50%; font-size:.82rem; font-weight:700; }
   .badge-yes { background:#d4edda; color:#155724; }
   .badge-no  { background:#f8d7da; color:#721c24; }
-  .badge-new { background:#fff3cd; color:#856404; font-size:.65rem; }
-  .delta { font-size:.7rem; color:#28a745; font-weight:700; margin-left:.3rem; }
-  .delta.lost { color:#dc3545; }
-  .osm-link { color:#2a6496; text-decoration:none; font-size:.8rem; }
+  .badge-opt-yes { background:#e8f4fd; color:#1a6496; }
+  .badge-opt-no  { background:#f0f0f0; color:#999; }
+  .delta-gain { font-size:.65rem; color:#28a745; font-weight:700; margin-left:.2rem; }
+  .delta-lost { font-size:.65rem; color:#dc3545; font-weight:700; margin-left:.2rem; }
+  .osm-link { color:#2a6496; text-decoration:none; font-size:.82rem; }
   .osm-link:hover { text-decoration:underline; }
   .no-result { text-align:center; color:#999; padding:2rem; }
-  .stats-bar { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1rem; }
-  .stat-chip { background:#e8f4fd; border:1px solid #bee3f8; border-radius:20px; padding:.3rem .8rem; font-size:.82rem; }
+  .back-btn { background:none; border:none; color:#2a6496; cursor:pointer; font-size:.9rem; margin-bottom:.75rem; padding:0; }
+  .back-btn:hover { text-decoration:underline; }
+  .section-divider { border:none; border-top:2px solid #e0e0e0; margin:.5rem 0; }
 </style>
 </head>
 <body>
 <header>
   <h1>🗺️ SAT POI Historia — per objekt</h1>
-  <p>Sök en POI och se hur dess datakvalitet förändrats mellan versioner</p>
+  <p>Sök en POI och se hur dess datakvalitet förändrats mellan versioner. Feta fält = obligatoriska för kategorin.</p>
 </header>
 <div class="container">
   <div class="search-box">
-    <input type="search" id="searchInput" placeholder="Sök POI namn eller sektion…" autocomplete="off">
+    <input type="search" id="searchInput" placeholder="Sök POI namn, sektion eller kategori…" autocomplete="off">
     <button onclick="doSearch()">Sök</button>
   </div>
   <div id="results"></div>
@@ -57,7 +72,7 @@
 const DATA = window.SAT_POI_QUALITY_HISTORY;
 const versions = DATA.versions;
 
-// Build index: id → [{version, snap}]
+// Build index: id → [{version, capturedAt, snap}]
 const poiIndex = {};
 versions.forEach(v => {
   (v.poiSnapshots || []).forEach(s => {
@@ -66,18 +81,46 @@ versions.forEach(v => {
   });
 });
 
-// Latest snapshot per POI → for search
+// Latest snapshot per POI
 const latest = {};
 Object.entries(poiIndex).forEach(([id, entries]) => {
   latest[id] = entries[entries.length - 1].snap;
 });
 
-const FIELDS = ['osm','wikidata','image','website','wheelchair','opening_hours','fee','description'];
-const FIELD_LABELS = {
-  osm: 'OSM-länk', wikidata: 'Wikidata', image: 'Bild',
-  website: 'Hemsida', wheelchair: 'Tillgänglighet', opening_hours: 'Öppettider',
-  fee: 'Avgift', description: 'Beskrivning'
+// Category-required fields (mirrors Python CATEGORY_REQUIRED_FIELDS)
+const CAT_REQUIRED = {
+  lodging:    ['osm','wikidata','image','website','opening_hours','description','passBuyUrl'],
+  food:       ['osm','wikidata','image','website','opening_hours','phone','description'],
+  shop:       ['osm','wikidata','image','website','opening_hours','phone'],
+  attraction: ['osm','wikidata','image','website','description'],
+  beach:      ['osm','wikidata','image','description'],
+  firepit:    ['osm','image','description'],
+  shelter:    ['osm','wikidata','image','description'],
+  harbour:    ['osm','image','website','fee'],
+  toilet:     ['osm','image','fee','wheelchair','access'],
+  water:      ['osm','image','fee','access'],
+  shower:     ['osm','image','fee','access'],
+  sauna:      ['osm','image','website','fee','description'],
+  rental:     ['osm','wikidata','image','website','description'],
+  viewpoint:  ['osm','image'],
+  lighthouse: ['osm','wikidata','image'],
+  rowboat:    ['osm','image','fee','opening_hours'],
 };
+const DEFAULT_REQUIRED = ['osm','wikidata','image','website'];
+
+const ALL_FIELDS = ['osm','wikidata','image','website','opening_hours','fee','description',
+                    'passBuyUrl','booking_url','phone','wheelchair','access'];
+
+const FIELD_LABELS = {
+  osm:'OSM-länk', wikidata:'Wikidata', image:'Bild', website:'Hemsida',
+  opening_hours:'Öppettider', fee:'Avgift', description:'Beskrivning',
+  passBuyUrl:'Boknings-URL (SAT Pass)', booking_url:'Boknings-URL', phone:'Telefon',
+  wheelchair:'Tillgänglighet', access:'Åtkomst',
+};
+
+function scoreClass(pct) {
+  return pct >= 80 ? 'score-high' : pct >= 50 ? 'score-mid' : 'score-low';
+}
 
 function doSearch() {
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
@@ -87,8 +130,9 @@ function doSearch() {
   const hits = Object.values(latest).filter(s =>
     (s.name || '').toLowerCase().includes(q) ||
     (s.section || '').toLowerCase().includes(q) ||
+    (s.category || '').toLowerCase().includes(q) ||
     (s.id || '').toLowerCase().includes(q)
-  ).slice(0, 30);
+  ).slice(0, 40);
 
   if (!hits.length) {
     document.getElementById('results').innerHTML = '<div class="no-result">Inga POIs hittades</div>';
@@ -96,12 +140,14 @@ function doSearch() {
   }
 
   const html = '<div class="result-list">' +
-    hits.map(s => `
-      <div class="result-item" onclick="showDetail('${s.id.replace(/'/g,"\\'")}')">
-        <div><span class="name">${s.name}</span></div>
-        <div class="meta">${s.section} · ${s.category}</div>
-      </div>`).join('') +
-    '</div>';
+    hits.map(s => {
+      const sc = s.completeness !== undefined ? s.completeness : null;
+      const pill = sc !== null ? `<span class="score-pill ${scoreClass(sc)}">${sc}%</span>` : '';
+      return `<div class="result-item" onclick="showDetail('${s.id.replace(/'/g,"\\'")}')">
+        <div><span class="name">${s.name}</span> <span class="meta">${s.section} · ${s.category}</span></div>
+        <div>${pill}</div>
+      </div>`;
+    }).join('') + '</div>';
   document.getElementById('results').innerHTML = html;
 }
 
@@ -109,14 +155,20 @@ document.getElementById('searchInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') doSearch();
 });
 
-function badge(val, prev) {
-  const icon = val ? '✓' : '✗';
-  const cls  = val ? 'badge-yes' : 'badge-no';
+function badge(val, isRequired, prev) {
+  let cls, icon;
+  if (isRequired) {
+    cls = val ? 'badge-yes' : 'badge-no';
+    icon = val ? '✓' : '✗';
+  } else {
+    cls = val ? 'badge-opt-yes' : 'badge-opt-no';
+    icon = val ? '✓' : '–';
+  }
   let delta = '';
   if (prev !== undefined && prev !== val) {
     delta = val
-      ? `<span class="delta">▲ ny</span>`
-      : `<span class="delta lost">▼ förlorad</span>`;
+      ? `<span class="delta-gain">▲</span>`
+      : `<span class="delta-lost">▼</span>`;
   }
   return `<span class="badge ${cls}">${icon}</span>${delta}`;
 }
@@ -130,45 +182,64 @@ function showDetail(id) {
   }
 
   const snap = history[history.length - 1].snap;
+  const required = CAT_REQUIRED[snap.category] || DEFAULT_REQUIRED;
+  const optional = ALL_FIELDS.filter(f => !required.includes(f));
+
+  const sc = snap.completeness !== undefined ? snap.completeness : null;
+  const pill = sc !== null ? `<span class="score-pill ${scoreClass(sc)}">${sc}% komplete</span>` : '';
+
   const osmLink = snap.lat
-    ? `<a class="osm-link" href="https://www.openstreetmap.org/?mlat=${snap.lat}&mlon=${snap.lon}#map=17/${snap.lat}/${snap.lon}" target="_blank">🗺 Visa på OSM</a>`
+    ? `<a class="osm-link" href="https://www.openstreetmap.org/?mlat=${snap.lat}&mlon=${snap.lon}#map=17/${snap.lat}/${snap.lon}" target="_blank">🗺 OSM</a>`
     : '';
 
-  // Summary chips
-  const score = FIELDS.filter(f => snap[f]).length;
   const chips = `<div class="stats-bar">
-    <span class="stat-chip">Senaste version: ${history[history.length-1].version}</span>
-    <span class="stat-chip">Sektion: ${snap.section}</span>
-    <span class="stat-chip">Kategori: ${snap.category}</span>
-    <span class="stat-chip">Fält ifyllda: ${score}/${FIELDS.length}</span>
+    <span class="stat-chip">v${history[history.length-1].version}</span>
+    <span class="stat-chip">${snap.section}</span>
+    <span class="stat-chip">${snap.category}</span>
+    ${pill}
     ${osmLink}
   </div>`;
 
-  // Timeline table — columns = versions
+  const legend = `<div class="req-legend">
+    <span class="req-yes-bg"></span> Obligatoriskt ✓ &nbsp;
+    <span class="req-no-bg"></span> Obligatoriskt saknas &nbsp;
+    <span class="opt-yes-bg"></span> Valfritt ✓ &nbsp;
+    <span class="opt-no-bg"></span> Valfritt saknas
+  </div>`;
+
+  // Table header
   let thead = '<tr><th>Fält</th>';
   history.forEach(h => {
     const d = h.capturedAt ? h.capturedAt.slice(0,10) : `v${h.version}`;
-    thead += `<th>v${h.version}<br><small>${d}</small></th>`;
+    thead += `<th style="text-align:center">v${h.version}<br><small>${d}</small></th>`;
   });
   thead += '</tr>';
 
-  let tbody = '';
-  FIELDS.forEach(field => {
-    let row = `<tr><td><strong>${FIELD_LABELS[field]}</strong></td>`;
-    history.forEach((h, idx) => {
-      const val  = h.snap[field];
-      const prev = idx > 0 ? history[idx-1].snap[field] : undefined;
-      row += `<td style="text-align:center">${badge(val, prev)}</td>`;
-    });
-    row += '</tr>';
-    tbody += row;
-  });
+  function makeRows(fields, isRequired) {
+    return fields.map(field => {
+      const label = FIELD_LABELS[field] || field;
+      let row = `<tr class="${isRequired ? 'required-row' : ''}"><td>${label}</td>`;
+      history.forEach((h, idx) => {
+        const val  = h.snap[field] || 0;
+        const prev = idx > 0 ? (history[idx-1].snap[field] || 0) : undefined;
+        row += `<td style="text-align:center">${badge(val, isRequired, prev)}</td>`;
+      });
+      row += '</tr>';
+      return row;
+    }).join('');
+  }
+
+  const divider = `<tr><td colspan="${history.length+1}"><hr class="section-divider"></td></tr>`;
+
+  const tbody = makeRows(required, true) + divider + makeRows(optional, false);
 
   document.getElementById('detail').innerHTML = `
     <div class="poi-detail">
+      <button class="back-btn" onclick="document.getElementById('detail').innerHTML='';document.getElementById('searchInput').focus()">← Tillbaka till sökning</button>
       <h2>${snap.name}</h2>
       <div class="subtitle">ID: ${id}</div>
       ${chips}
+      ${legend}
       <table class="timeline">
         <thead>${thead}</thead>
         <tbody>${tbody}</tbody>
