@@ -112,7 +112,7 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson">pois.geojson</a> med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=29&month=8&year=2026&hour=13&min=08&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-29 13:08 CEST</a></strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=29&month=8&year=2026&hour=12&min=24&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-29 12:24 CEST</a></strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=24&month=8&year=2026&hour=7&min=29&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-24 07:29 CEST</a></strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/pull/117" target="_blank">PR #117</a> &nbsp;|&nbsp;
@@ -247,7 +247,7 @@
         <button id="zoomTrailBtn" type="button">Zooma ut hela leden</button>
       </div>
       <label class="toggle" for="trailInfoToggle">
-        <input type="checkbox" id="trailInfoToggle" checked>
+        <input type="checkbox" id="trailInfoToggle">
         <span id="trailInfoToggleLabel">Visa ledinfo</span>
       </label>
       <div class="distance-controls">
@@ -9932,7 +9932,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=29&month=8&year=2026&hour=13&min=08&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-29 13:08 CEST</a></strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=29&month=8&year=2026&hour=12&min=24&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-29 12:24 CEST</a></strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=24&month=8&year=2026&hour=7&min=29&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-08-24 07:29 CEST</a></strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
@@ -10799,7 +10799,7 @@
         const srcVal = dataSourceFilter ? dataSourceFilter.value : 'sat';
         if (srcVal && srcVal !== 'sat') params.set('src', srcVal);
         params.set('lang', safeLangCode);
-        if (!trailInfoToggle.checked) params.set('li', '0');
+        if (trailInfoToggle.checked) params.set('li', '1');
         if (distanceBandToggle.checked) params.set('db', '1');
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
         if (bandMeters !== 500) params.set('dm', String(bandMeters));
@@ -10850,7 +10850,7 @@
           dataSourceFilter.dispatchEvent(new Event('change'));
         }
         const li = params.get('li');
-        trailInfoToggle.checked = li !== '0';
+        trailInfoToggle.checked = li === '1';
         distanceBandToggle.checked = params.get('db') === '1';
         distanceBandMeters.value = String(normalizeBandMeters(params.get('dm') || '500'));
 

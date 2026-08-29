@@ -863,7 +863,7 @@ ORDER BY DESC(geof:latitude(?coord))
         <button id="zoomTrailBtn" type="button">Zooma ut hela leden</button>
       </div>
       <label class="toggle" for="trailInfoToggle">
-        <input type="checkbox" id="trailInfoToggle" checked>
+        <input type="checkbox" id="trailInfoToggle">
         <span id="trailInfoToggleLabel">Visa ledinfo</span>
       </label>
       <div class="distance-controls">
@@ -1810,7 +1810,7 @@ ORDER BY DESC(geof:latitude(?coord))
         const srcVal = dataSourceFilter ? dataSourceFilter.value : 'sat';
         if (srcVal && srcVal !== 'sat') params.set('src', srcVal);
         params.set('lang', safeLangCode);
-        if (!trailInfoToggle.checked) params.set('li', '0');
+        if (trailInfoToggle.checked) params.set('li', '1');
         if (distanceBandToggle.checked) params.set('db', '1');
         const bandMeters = normalizeBandMeters(distanceBandMeters.value);
         if (bandMeters !== 500) params.set('dm', String(bandMeters));
@@ -1861,7 +1861,7 @@ ORDER BY DESC(geof:latitude(?coord))
           dataSourceFilter.dispatchEvent(new Event('change'));
         }}
         const li = params.get('li');
-        trailInfoToggle.checked = li !== '0';
+        trailInfoToggle.checked = li === '1';
         distanceBandToggle.checked = params.get('db') === '1';
         distanceBandMeters.value = String(normalizeBandMeters(params.get('dm') || '500'));
 

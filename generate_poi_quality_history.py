@@ -33,6 +33,37 @@ FIELD_ALIASES = {
     "passBuyUrl": ["passBuyUrl"],
     "passSells": ["passSells"],
     "passStamps": ["passStamps"],
+    "opening_hours": ["opening_hours", "openingHours"],
+    "description": ["description"],
+    "booking_url": ["bookingUrl", "booking_url", "reservationUrl", "reservation_url"],
+    "access": ["access"],
+    "fee_or_access": ["fee", "charge", "access"],
+}
+
+# Fält som alltid spåras per POI
+POI_SNAPSHOT_FIELDS = [
+    "osm", "wikidata", "image", "website", "wheelchair",
+    "opening_hours", "fee", "description", "passBuyUrl", "booking_url",
+]
+
+# Kategori-specifika obligatoriska fält (för completeness score)
+CATEGORY_REQUIRED_FIELDS: dict[str, list[str]] = {
+    "lodging":    ["osm", "wikidata", "image", "website", "opening_hours", "description", "passBuyUrl"],
+    "food":       ["osm", "wikidata", "image", "website", "opening_hours", "phone", "description"],
+    "shop":       ["osm", "wikidata", "image", "website", "opening_hours", "phone"],
+    "attraction": ["osm", "wikidata", "image", "website", "description"],
+    "beach":      ["osm", "wikidata", "image", "description"],
+    "firepit":    ["osm", "image", "description"],
+    "shelter":    ["osm", "wikidata", "image", "description"],
+    "harbour":    ["osm", "image", "website", "fee"],
+    "toilet":     ["osm", "image", "fee", "wheelchair", "access"],
+    "water":      ["osm", "image", "fee", "access"],
+    "shower":     ["osm", "image", "fee", "access"],
+    "sauna":      ["osm", "image", "website", "fee", "description"],
+    "rental":     ["osm", "wikidata", "image", "website", "description"],
+    "viewpoint":  ["osm", "image"],
+    "lighthouse": ["osm", "wikidata", "image"],
+    "rowboat":    ["osm", "image", "fee", "opening_hours"],
 }
 
 
@@ -126,6 +157,41 @@ def fetch_osm_operator(osm_type: str, osm_id: int) -> Optional[str]:
         return None
 
 
+def extract_poi_snapshot(props: dict) -> dict:
+    """Bygg en kompakt per-POI snapshot med nyckelattribut (1 = finns, 0 = saknas)."""
+    slug = props.get("slug") or props.get("id") or ""
+    name = props.get("name") or props.get("title") or slug
+    section = props.get("section") or "unknown"
+    category = props.get("category") or "unknown"
+
+    # Koordinater hämtas i create_snapshot via feature.geometry
+    has_osm = same_as_prefix_count(props, "osm:") > 0
+    has_wikidata = same_as_prefix_count(props, "wikidata:") > 0 or has_value(props.get("wikidata"))
+
+    result: dict = {
+        "id": slug,
+        "name": name,
+        "section": section,
+        "category": category,
+        "osm": 1 if has_osm else 0,
+        "wikidata": 1 if has_wikidata else 0,
+    }
+
+    # Alla spårade fält (utom osm/wikidata som hanteras ovan)
+    for field in ["image", "website", "wheelchair", "opening_hours", "fee", "description",
+                  "passBuyUrl", "booking_url", "phone", "access"]:
+        aliases = FIELD_ALIASES.get(field, [field])
+        result[field] = 1 if has_any_value(props, aliases) else 0
+
+    # Completeness score baserat på kategori-specifika krav
+    required = CATEGORY_REQUIRED_FIELDS.get(category, ["osm", "wikidata", "image", "website"])
+    filled = sum(result.get(f, 0) for f in required)
+    result["completeness"] = round(filled / len(required) * 100) if required else 0
+    result["required_fields"] = required
+
+    return result
+
+
 def load_existing_history() -> dict:
     if not OUTPUT_FILE.exists():
         return {"source": POIS_URL, "versions": []}
@@ -156,6 +222,7 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
     section_wikidata = Counter()
     section_operator = Counter()
     section_field_counter = {}
+    poi_snapshots = []
 
     for feature in features:
         props = feature.get("properties") or {}
@@ -187,6 +254,14 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
             if has_any_value(props, aliases):
                 field_counter[field] += 1
                 section_field_counter[section][field] += 1
+
+        # Per-POI snapshot
+        poi_snap = extract_poi_snapshot(props)
+        coords = (feature.get("geometry") or {}).get("coordinates")
+        if coords and len(coords) >= 2:
+            poi_snap["lon"] = round(coords[0], 6)
+            poi_snap["lat"] = round(coords[1], 6)
+        poi_snapshots.append(poi_snap)
 
     total_poi = len(features)
     categories = [
@@ -253,6 +328,7 @@ def create_snapshot(pois_data: dict, version_number: int) -> dict:
         "sectionCoverage": section_coverage,
         "operatorDistribution": operator_distribution,
         "categories": categories,
+        "poiSnapshots": poi_snapshots,
     }
 
 
