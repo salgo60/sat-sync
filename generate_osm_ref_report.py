@@ -29,6 +29,8 @@ HTML_OUTPUT = Path("sat_osm_ref_report.html")
 
 CATEGORY_ORDER = (
     "Vindskydd",
+    "Väderskydd vid hållplats",
+    "Övrigt väderskydd",
     "Toalett",
     "Grillplats",
     "Dricksvatten",
@@ -135,8 +137,14 @@ def classify(tags: dict[str, str]) -> str:
         and public_transport in {"platform", "station", "stop_position"}
     ):
         return "Färjeläge"
-    if amenity == "shelter" or tourism in {"alpine_hut", "wilderness_hut"}:
+    if tourism in {"alpine_hut", "wilderness_hut"} or (
+        amenity == "shelter" and tags.get("shelter_type") == "lean_to"
+    ):
         return "Vindskydd"
+    if amenity == "shelter" and tags.get("shelter_type") == "public_transport":
+        return "Väderskydd vid hållplats"
+    if amenity == "shelter":
+        return "Övrigt väderskydd"
     if amenity == "toilets":
         return "Toalett"
     if amenity == "bbq" or leisure == "firepit":
@@ -207,7 +215,11 @@ def element_coordinates(element: dict) -> tuple[float | None, float | None]:
 
 
 def wiki_key_url(key: str) -> str:
-    return "https://wiki.openstreetmap.org/wiki/Key:" + urllib.parse.quote(key, safe=":")
+    return (
+        "https://wiki.openstreetmap.org/wiki/Key:"
+        + urllib.parse.quote(key, safe=":")
+        + "?uselang=sv"
+    )
 
 
 def wiki_tag_url(key: str, value: str) -> str:
@@ -216,6 +228,7 @@ def wiki_tag_url(key: str, value: str) -> str:
         + urllib.parse.quote(key, safe=":")
         + "%3D"
         + urllib.parse.quote(value, safe="")
+        + "?uselang=sv"
     )
 
 
@@ -427,11 +440,14 @@ categorySelect.innerHTML+=REPORT.categories.map(c=>`<option value="${{esc(c.name
 document.getElementById('categoryNav').innerHTML=REPORT.categories.map(c=>`<a href="#${{slug(c.name)}}">${{esc(c.name)}} · ${{c.count}}</a>`).join('');
 
 function valuesHtml(stat) {{
-  return stat.topValues.map(v=>`<a href="${{v.directUrl||v.wikiUrl}}" target="_blank" rel="noopener"><code>${{esc(v.value)}}</code></a> ${{v.count}}`).join(' · ');
+  return stat.topValues.map(v=>{{
+    const title=v.directUrl ? '' : ` title="Wiki-beskrivningssidan för ${{esc(stat.key)}}=${{esc(v.value)}}-taggen"`;
+    return `<a href="${{v.directUrl||v.wikiUrl}}" target="_blank" rel="noopener"${{title}}><code>${{esc(v.value)}}</code></a> ${{v.count}}`;
+  }}).join(' · ');
 }}
 function tagsHtml(tags,valueUrls) {{
   return Object.entries(tags).map(([k,v])=>{{
-    const key=`<a href="https://wiki.openstreetmap.org/wiki/Key:${{encodeURIComponent(k).replaceAll('%3A',':')}}" target="_blank" rel="noopener">${{esc(k)}}</a>`;
+    const key=`<a href="https://wiki.openstreetmap.org/wiki/Key:${{encodeURIComponent(k).replaceAll('%3A',':')}}?uselang=sv" target="_blank" rel="noopener" title="Wiki-beskrivningssidan för ${{esc(k)}}-taggen">${{esc(k)}}</a>`;
     const value=valueUrls?.[k]
       ? `<a href="${{esc(valueUrls[k])}}" target="_blank" rel="noopener">${{esc(v)}}</a>`
       : esc(v);
