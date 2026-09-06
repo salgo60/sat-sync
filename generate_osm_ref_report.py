@@ -350,6 +350,7 @@ def render_report(report: dict) -> str:
     body {{ margin:0; background:#f6f8fa; color:var(--text); font-family:system-ui,-apple-system,sans-serif; }}
     header {{ background:linear-gradient(120deg,#173f67,#3278b6); color:white; padding:2rem max(1rem,calc((100vw - 1200px)/2)); }}
     header h1 {{ margin:0 0 .4rem; font-size:clamp(1.5rem,3vw,2.3rem); }}
+    header h1 code {{ background:#dce8f3; color:#173f67; }}
     header p {{ margin:.25rem 0; max-width:850px; }}
     main {{ max-width:1200px; margin:1.5rem auto; padding:0 1rem 3rem; }}
     a {{ color:#1264a3; }}
