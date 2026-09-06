@@ -14,7 +14,15 @@ from generate_osm_ref_report import (
 
 
 def test_classify_requested_categories():
-    assert classify({"amenity": "shelter"}) == "Vindskydd"
+    assert (
+        classify({"amenity": "shelter", "shelter_type": "lean_to"})
+        == "Vindskydd"
+    )
+    assert (
+        classify({"amenity": "shelter", "shelter_type": "public_transport"})
+        == "Väderskydd vid hållplats"
+    )
+    assert classify({"amenity": "shelter"}) == "Övrigt väderskydd"
     assert classify({"amenity": "toilets"}) == "Toalett"
     assert classify({"leisure": "firepit"}) == "Grillplats"
     assert classify({"amenity": "drinking_water"}) == "Dricksvatten"
@@ -79,6 +87,7 @@ def test_build_report_counts_tag_coverage_per_category():
     assert wheelchair["count"] == 1
     assert wheelchair["percent"] == 50.0
     assert wheelchair["wikiUrl"] == wiki_key_url("wheelchair")
+    assert wheelchair["wikiUrl"].endswith("?uselang=sv")
 
 
 def test_fetch_rejects_empty_overpass_response(monkeypatch):
