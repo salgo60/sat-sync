@@ -7,6 +7,7 @@ import generate_osm_ref_report
 from generate_osm_ref_report import (
     build_report,
     classify,
+    sat_json_url,
     tag_value_url,
     wiki_key_url,
 )
@@ -112,3 +113,10 @@ def test_tag_values_link_to_their_native_services():
         "mapillary", "9850471418372212"
     ) == "https://www.mapillary.com/app/user/salgo601?pKey=9850471418372212"
     assert tag_value_url("amenity", "toilets") is None
+
+
+def test_sat_json_url_links_only_sat_identifiers():
+    assert sat_json_url(
+        "sat:poi:z3q4b"
+    ) == "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:z3q4b"
+    assert sat_json_url("unknown") is None
