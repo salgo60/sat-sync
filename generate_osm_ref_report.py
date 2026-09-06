@@ -239,6 +239,15 @@ def tag_value_url(key: str, value: str) -> str | None:
     return None
 
 
+def sat_json_url(value: str) -> str | None:
+    value = str(value).strip()
+    if not value.startswith("sat:"):
+        return None
+    return "https://map.stockholmarchipelagotrail.com/api/objects/" + urllib.parse.quote(
+        value, safe=":"
+    )
+
+
 def build_report(elements: list[dict], source: str) -> dict:
     objects: list[dict] = []
     for element in elements:
@@ -252,6 +261,7 @@ def build_report(elements: list[dict], source: str) -> dict:
                 "name": tags.get("name") or tags.get("name:sv") or "(namnlös)",
                 "satRef": tags.get(REF_KEY, ""),
                 "satUrl": tag_value_url(REF_KEY, tags.get(REF_KEY, "")),
+                "satJsonUrl": sat_json_url(tags.get(REF_KEY, "")),
                 "category": classify(tags),
                 "lat": lat,
                 "lon": lon,
@@ -439,7 +449,7 @@ function render() {{
     const statRows=stats.map(stat=>`<tr><td><a href="${{stat.wikiUrl}}" target="_blank" rel="noopener"><code>${{esc(stat.key)}}</code></a></td><td class="num">${{stat.count}}</td><td class="num">${{stat.percent}}%</td><td class="values">${{valuesHtml(stat)}}</td></tr>`).join('');
     const objectRows=objects.map(o=>{{
       const satRef=o.satUrl
-        ? `<a href="${{o.satUrl}}" target="_blank" rel="noopener"><code>${{esc(o.satRef)}}</code></a>`
+        ? `<a href="${{o.satUrl}}" target="_blank" rel="noopener"><code>${{esc(o.satRef)}}</code></a> · <a href="${{o.satJsonUrl}}" target="_blank" rel="noopener">json</a>`
         : `<code>${{esc(o.satRef)}}</code>`;
       return `<tr><td><a href="${{o.osmUrl}}" target="_blank" rel="noopener">${{esc(o.name)}}</a></td><td>${{satRef}}</td><td><a href="${{o.osmUrl}}" target="_blank" rel="noopener">${{o.osmType}}/${{o.osmId}}</a></td><td class="object-tags">${{tagsHtml(o.tags,o.tagValueUrls)}}</td></tr>`;
     }}).join('');
