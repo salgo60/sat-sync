@@ -4,7 +4,12 @@ import urllib.error
 import pytest
 
 import generate_osm_ref_report
-from generate_osm_ref_report import build_report, classify, wiki_key_url
+from generate_osm_ref_report import (
+    build_report,
+    classify,
+    tag_value_url,
+    wiki_key_url,
+)
 
 
 def test_classify_requested_categories():
@@ -94,3 +99,16 @@ def test_fetch_rejects_empty_overpass_response(monkeypatch):
 
     with pytest.raises(RuntimeError, match="tomt resultat"):
         generate_osm_ref_report.fetch_osm_elements()
+
+
+def test_tag_values_link_to_their_native_services():
+    assert tag_value_url(
+        "ref:stockholmarchipelagotrail", "sat:poi:fwfmy"
+    ) == "https://map.stockholmarchipelagotrail.com/?sat:poi:fwfmy"
+    assert tag_value_url(
+        "wikimedia_commons", "Category:Yxlan ferry stops"
+    ) == "https://commons.wikimedia.org/wiki/Category:Yxlan%20ferry%20stops"
+    assert tag_value_url(
+        "mapillary", "9850471418372212"
+    ) == "https://www.mapillary.com/app/user/salgo601?pKey=9850471418372212"
+    assert tag_value_url("amenity", "toilets") is None
