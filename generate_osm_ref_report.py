@@ -223,6 +223,22 @@ def osm_url(osm_type: str, osm_id: int) -> str:
     return f"https://www.openstreetmap.org/{osm_type}/{osm_id}"
 
 
+def tag_value_url(key: str, value: str) -> str | None:
+    """Return a useful destination for identifiers stored as OSM tag values."""
+    value = str(value).strip()
+    if key == REF_KEY and value.startswith("sat:"):
+        return "https://map.stockholmarchipelagotrail.com/?" + urllib.parse.quote(
+            value, safe=":"
+        )
+    if key == "wikimedia_commons" and value.startswith(("Category:", "File:")):
+        return "https://commons.wikimedia.org/wiki/" + urllib.parse.quote(value, safe=":")
+    if key in {"mapillary", "mapillary:image"} and value.isdigit():
+        return "https://www.mapillary.com/app/user/salgo601?pKey=" + value
+    if value.startswith(("https://", "http://")):
+        return value
+    return None
+
+
 def build_report(elements: list[dict], source: str) -> dict:
     objects: list[dict] = []
     for element in elements:
@@ -235,10 +251,16 @@ def build_report(elements: list[dict], source: str) -> dict:
                 "osmUrl": osm_url(element["type"], element["id"]),
                 "name": tags.get("name") or tags.get("name:sv") or "(namnlös)",
                 "satRef": tags.get(REF_KEY, ""),
+                "satUrl": tag_value_url(REF_KEY, tags.get(REF_KEY, "")),
                 "category": classify(tags),
                 "lat": lat,
                 "lon": lon,
                 "tags": dict(sorted(tags.items())),
+                "tagValueUrls": {
+                    key: url
+                    for key, value in sorted(tags.items())
+                    if (url := tag_value_url(key, value))
+                },
             }
         )
 
@@ -259,7 +281,12 @@ def build_report(elements: list[dict], source: str) -> dict:
         tag_stats = []
         for key, count in sorted(key_counts.items(), key=lambda row: (-row[1], row[0])):
             top_values = [
-                {"value": value, "count": value_count, "wikiUrl": wiki_tag_url(key, value)}
+                {
+                    "value": value,
+                    "count": value_count,
+                    "wikiUrl": wiki_tag_url(key, value),
+                    "directUrl": tag_value_url(key, value),
+                }
                 for value, value_count in value_counts[key].most_common(5)
             ]
             tag_stats.append(
@@ -357,7 +384,7 @@ def render_report(report: dict) -> str:
 <header>
   <h1>OSM-objekt med <code>{html.escape(REF_KEY)}</code></h1>
   <p>Alla noder, vägar och relationer grupperade efter funktion. Taggstatistiken visar hur många objekt i varje grupp som har respektive egenskap.</p>
-  <p class="meta">Genererad {generated} · <a style="color:white" href="{query_url}" target="_blank" rel="noopener">Global Overpass-fråga</a> · Nycklar och värden länkar till OSM Wiki</p>
+  <p class="meta"><a style="color:white" href="sat_poi_dashboard.html">← SAT POI Dashboard</a> · Genererad {generated} · <a style="color:white" href="{query_url}" target="_blank" rel="noopener">Global Overpass-fråga</a> · Nycklar och värden länkar till OSM Wiki</p>
 </header>
 <main>
   <div id="summary" class="summary"></div>
@@ -389,10 +416,16 @@ categorySelect.innerHTML+=REPORT.categories.map(c=>`<option value="${{esc(c.name
 document.getElementById('categoryNav').innerHTML=REPORT.categories.map(c=>`<a href="#${{slug(c.name)}}">${{esc(c.name)}} · ${{c.count}}</a>`).join('');
 
 function valuesHtml(stat) {{
-  return stat.topValues.map(v=>`<a href="${{v.wikiUrl}}" target="_blank" rel="noopener"><code>${{esc(v.value)}}</code></a> ${{v.count}}`).join(' · ');
+  return stat.topValues.map(v=>`<a href="${{v.directUrl||v.wikiUrl}}" target="_blank" rel="noopener"><code>${{esc(v.value)}}</code></a> ${{v.count}}`).join(' · ');
 }}
-function tagsHtml(tags) {{
-  return Object.entries(tags).map(([k,v])=>`<span class="tag"><a href="https://wiki.openstreetmap.org/wiki/Key:${{encodeURIComponent(k).replaceAll('%3A',':')}}" target="_blank">${{esc(k)}}</a>=${{esc(v)}}</span>`).join(' ');
+function tagsHtml(tags,valueUrls) {{
+  return Object.entries(tags).map(([k,v])=>{{
+    const key=`<a href="https://wiki.openstreetmap.org/wiki/Key:${{encodeURIComponent(k).replaceAll('%3A',':')}}" target="_blank" rel="noopener">${{esc(k)}}</a>`;
+    const value=valueUrls?.[k]
+      ? `<a href="${{esc(valueUrls[k])}}" target="_blank" rel="noopener">${{esc(v)}}</a>`
+      : esc(v);
+    return `<span class="tag">${{key}}=${{value}}</span>`;
+  }}).join(' ');
 }}
 function render() {{
   const q=document.getElementById('search').value.trim().toLowerCase();
@@ -403,7 +436,12 @@ function render() {{
     if(q&&!objects.length)return '';
     const stats=category.tagStats;
     const statRows=stats.map(stat=>`<tr><td><a href="${{stat.wikiUrl}}" target="_blank" rel="noopener"><code>${{esc(stat.key)}}</code></a></td><td class="num">${{stat.count}}</td><td class="num">${{stat.percent}}%</td><td class="values">${{valuesHtml(stat)}}</td></tr>`).join('');
-    const objectRows=objects.map(o=>`<tr><td><a href="${{o.osmUrl}}" target="_blank" rel="noopener">${{esc(o.name)}}</a></td><td><code>${{esc(o.satRef)}}</code></td><td>${{o.osmType}}/${{o.osmId}}</td><td class="object-tags">${{tagsHtml(o.tags)}}</td></tr>`).join('');
+    const objectRows=objects.map(o=>{{
+      const satRef=o.satUrl
+        ? `<a href="${{o.satUrl}}" target="_blank" rel="noopener"><code>${{esc(o.satRef)}}</code></a>`
+        : `<code>${{esc(o.satRef)}}</code>`;
+      return `<tr><td><a href="${{o.osmUrl}}" target="_blank" rel="noopener">${{esc(o.name)}}</a></td><td>${{satRef}}</td><td><a href="${{o.osmUrl}}" target="_blank" rel="noopener">${{o.osmType}}/${{o.osmId}}</a></td><td class="object-tags">${{tagsHtml(o.tags,o.tagValueUrls)}}</td></tr>`;
+    }}).join('');
     return `<section id="${{slug(category.name)}}"><h2>${{esc(category.name)}} <small>(${{objects.length}}${{q?' filtrerade':''}})</small></h2>
       <div class="panel"><details open><summary style="padding:.8rem">Egenskaper och täckning</summary><div class="table-wrap"><table><thead><tr><th>OSM-nyckel</th><th class="num">Antal</th><th class="num">Andel</th><th>Vanligaste värden</th></tr></thead><tbody>${{statRows}}</tbody></table></div></details></div>
       <div class="panel"><details><summary style="padding:.8rem">Visa alla objekt (${{objects.length}})</summary><div class="table-wrap"><table><thead><tr><th>Namn / OSM</th><th>SAT-ref</th><th>Typ/ID</th><th>Alla taggar</th></tr></thead><tbody>${{objectRows}}</tbody></table></div></details></div>
