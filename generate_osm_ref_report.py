@@ -382,6 +382,11 @@ def render_report(report: dict) -> str:
     .card,.panel {{ background:white; border:1px solid var(--line); border-radius:10px; box-shadow:0 1px 3px #0001; }}
     .card {{ padding:1rem; }}
     .card strong {{ display:block; font-size:1.65rem; color:var(--blue); }}
+    .infographic {{ display:flex; align-items:center; gap:1rem; padding:.8rem; margin-bottom:1.25rem; }}
+    .infographic img {{ display:block; width:360px; max-width:38vw; height:auto; border-radius:7px; }}
+    .infographic figcaption {{ line-height:1.45; }}
+    .infographic strong {{ display:block; color:var(--blue); margin-bottom:.2rem; }}
+    .infographic small {{ color:#65717c; }}
     .toolbar {{ display:flex; gap:.7rem; flex-wrap:wrap; padding:1rem; margin-bottom:1rem; }}
     input,select {{ min-height:40px; padding:.5rem .7rem; border:1px solid #b9c5d0; border-radius:6px; background:white; font:inherit; }}
     input {{ flex:1; min-width:240px; }}
@@ -401,7 +406,11 @@ def render_report(report: dict) -> str:
     .object-tags {{ max-width:620px; white-space:normal; }}
     .tag {{ display:inline-block; margin:.08rem; padding:.12rem .3rem; background:#f0f4f7; border-radius:4px; }}
     .hidden {{ display:none !important; }}
-    @media(max-width:650px) {{ th:nth-child(4),td:nth-child(4) {{ display:none; }} }}
+    @media(max-width:650px) {{
+      .infographic {{ display:block; }}
+      .infographic img {{ width:100%; max-width:none; margin-bottom:.7rem; }}
+      th:nth-child(4),td:nth-child(4) {{ display:none; }}
+    }}
   </style>
 </head>
 <body>
@@ -411,6 +420,16 @@ def render_report(report: dict) -> str:
   <p class="meta"><a style="color:white" href="sat_poi_dashboard.html">← SAT POI Dashboard</a> · Genererad {generated} · <a style="color:white" href="{query_url}" target="_blank" rel="noopener">Global Overpass-fråga</a> · Nycklar och värden länkar till OSM Wiki</p>
 </header>
 <main>
+  <figure class="panel infographic">
+    <a href="assets/sat-osm-infographic.jpg" target="_blank">
+      <img src="assets/sat-osm-infographic.jpg" alt="Infografik över hur OSM-data används i Stockholm Archipelago Trail" width="1536" height="1024">
+    </a>
+    <figcaption>
+      <strong>Från OSM-data till upplevelser</strong>
+      Infografiken sammanfattar hur SAT använder OSM-objekt och deras egenskaper i en digital tvilling.
+      <small>Klicka på bilden för att öppna den i full storlek.</small>
+    </figcaption>
+  </figure>
   <div id="summary" class="summary"></div>
   <div class="panel toolbar">
     <input id="search" type="search" placeholder="Sök namn, SAT-ref, OSM-tagg eller värde…">
