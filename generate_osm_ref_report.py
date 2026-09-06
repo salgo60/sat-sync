@@ -384,7 +384,7 @@ def render_report(report: dict) -> str:
 <header>
   <h1>OSM-objekt med <code>{html.escape(REF_KEY)}</code></h1>
   <p>Alla noder, vägar och relationer grupperade efter funktion. Taggstatistiken visar hur många objekt i varje grupp som har respektive egenskap.</p>
-  <p class="meta">Genererad {generated} · <a style="color:white" href="{query_url}" target="_blank" rel="noopener">Global Overpass-fråga</a> · Nycklar och värden länkar till OSM Wiki</p>
+  <p class="meta"><a style="color:white" href="sat_poi_dashboard.html">← SAT POI Dashboard</a> · Genererad {generated} · <a style="color:white" href="{query_url}" target="_blank" rel="noopener">Global Overpass-fråga</a> · Nycklar och värden länkar till OSM Wiki</p>
 </header>
 <main>
   <div id="summary" class="summary"></div>
