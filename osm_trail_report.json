@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T09:28:20.889644Z",
+  "generatedAt": "2026-09-07T11:58:47.601174Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -10218,7 +10218,7 @@
       "osmUrl": "https://www.openstreetmap.org/relation/19013472",
       "name": "SAT Etapp Runmarö",
       "satRef": "sat:section:5cg25",
-      "distance": "",
+      "distance": "18.5 km",
       "memberCount": 40,
       "wayCount": 40,
       "nodeCount": 0,
@@ -10236,16 +10236,16 @@
           "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:direction%3Dclockwise?uselang=sv"
         },
         {
+          "key": "distance",
+          "value": "18.5 km",
+          "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:distance?uselang=sv",
+          "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:distance%3D18.5%20km?uselang=sv"
+        },
+        {
           "key": "image",
           "value": "https://commons.wikimedia.org/wiki/File:Runmar%C3%B6_-_KMB_-_16001000453864.jpg",
           "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "valueUrl": "https://commons.wikimedia.org/wiki/File:Runmar%C3%B6_-_KMB_-_16001000453864.jpg"
-        },
-        {
-          "key": "length",
-          "value": "18.5 km",
-          "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:length?uselang=sv",
-          "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:length%3D18.5%20km?uselang=sv"
         },
         {
           "key": "name",
@@ -11702,7 +11702,7 @@
       "osmUrl": "https://www.openstreetmap.org/relation/19014515",
       "name": "SAT Etapp Svartsö",
       "satRef": "sat:section:jzby6",
-      "distance": "",
+      "distance": "17.9 km",
       "memberCount": 40,
       "wayCount": 40,
       "nodeCount": 0,
@@ -11720,16 +11720,16 @@
           "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:direction%3Danticlockwise?uselang=sv"
         },
         {
-          "key": "image",
-          "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Svarts%C3%B6_Alsvik.jpg/1024px-Svarts%C3%B6_Alsvik.jpg",
-          "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
-          "valueUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Svarts%C3%B6_Alsvik.jpg/1024px-Svarts%C3%B6_Alsvik.jpg"
+          "key": "distance",
+          "value": "17.9 km",
+          "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:distance?uselang=sv",
+          "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:distance%3D17.9%20km?uselang=sv"
         },
         {
-          "key": "length",
-          "value": "17.9 km",
-          "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:length?uselang=sv",
-          "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:length%3D17.9%20km?uselang=sv"
+          "key": "image",
+          "value": "https://commons.wikimedia.org/wiki/File:Svarts%C3%B6_Alsvik.jpg",
+          "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
+          "valueUrl": "https://commons.wikimedia.org/wiki/File:Svarts%C3%B6_Alsvik.jpg"
         },
         {
           "key": "name",
@@ -19147,9 +19147,9 @@
         },
         {
           "key": "image",
-          "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Lid%C3%B6_kvarn.JPG/960px-Lid%C3%B6_kvarn.JPG",
+          "value": "https://commons.wikimedia.org/wiki/File:Lid%C3%B6_kvarn.JPG",
           "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
-          "valueUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Lid%C3%B6_kvarn.JPG/960px-Lid%C3%B6_kvarn.JPG"
+          "valueUrl": "https://commons.wikimedia.org/wiki/File:Lid%C3%B6_kvarn.JPG"
         },
         {
           "key": "name",
