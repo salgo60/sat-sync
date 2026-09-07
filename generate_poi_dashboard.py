@@ -31,6 +31,12 @@ OSM_CANDIDATES_FILE = Path("osm_candidates.json")
 HEADERS = {"User-Agent": "sat-sync-generator/1.0 (+https://github.com/salgo60/sat-sync)"}
 
 
+def sat_object_urls(sat_id: str) -> tuple[str, str]:
+    encoded_id = quote(sat_id, safe="")
+    base = "https://map.stockholmarchipelagotrail.com"
+    return f"{base}/?{encoded_id}", f"{base}/api/objects/{encoded_id}"
+
+
 def _parse_to_utc(value: str) -> Optional[datetime]:
     """Parse a timestamp string to a UTC-aware datetime, or None on failure."""
     from datetime import timezone, timedelta
@@ -544,6 +550,7 @@ ORDER BY DESC(geof:latitude(?coord))
             sec = p.get("section") or "okänd"
             cat = p.get("category") or "okänd"
             sat_id = p.get("id") or "—"
+            sat_url, sat_json_url = sat_object_urls(sat_id)
             sec_label = _sec_display.get(sec, sec)
             
             # Build operator cell with Wikidata link if available
@@ -558,7 +565,7 @@ ORDER BY DESC(geof:latitude(?coord))
             poi_rows.append(
                 f"""
         <tr data-section="{sec}" data-category="{cat}" data-poi-id="{sat_id}" data-operator="{p.get('operator') or ''}" data-municipality="{p.get('municipality') or ''}">
-          <td><a href="https://map.stockholmarchipelagotrail.com/?{sat_id}" target="_blank"><code>{sat_id}</code></a></td>
+          <td><a href="{sat_url}" target="_blank"><code>{sat_id}</code></a> · <a href="{sat_json_url}" target="_blank">json</a></td>
           <td>{p.get("name") or "—"}</td>
           <td>{sec_label}</td>
           <td>{p.get("municipality") or "—"}</td>
@@ -1078,7 +1085,8 @@ ORDER BY DESC(geof:latitude(?coord))
         idCell = `<a href="${{osmUrl}}" target="_blank"><code>${{escapeHtml(p.osmId)}}</code></a>`;
       }} else {{
         const satUrl = `https://map.stockholmarchipelagotrail.com/?${{encodeURIComponent(id)}}`;
-        idCell = `<a href="${{satUrl}}" target="_blank"><code>${{escapeHtml(id)}}</code></a>`;
+        const satJsonUrl = `https://map.stockholmarchipelagotrail.com/api/objects/${{encodeURIComponent(id)}}`;
+        idCell = `<a href="${{satUrl}}" target="_blank"><code>${{escapeHtml(id)}}</code></a> · <a href="${{satJsonUrl}}" target="_blank">json</a>`;
       }}
       
       tr.innerHTML = `
