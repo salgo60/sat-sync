@@ -384,6 +384,7 @@ def render_report(report: dict) -> str:
     .card strong {{ display:block; font-size:1.65rem; color:var(--blue); }}
     .infographic {{ display:flex; align-items:center; gap:1rem; padding:.8rem; margin-bottom:1.25rem; }}
     .infographic img {{ display:block; width:360px; max-width:38vw; height:auto; border-radius:7px; }}
+    .infographic.flyer img {{ width:260px; }}
     .infographic figcaption {{ line-height:1.45; }}
     .infographic strong {{ display:block; color:var(--blue); margin-bottom:.2rem; }}
     .infographic small {{ color:#65717c; }}
@@ -409,6 +410,7 @@ def render_report(report: dict) -> str:
     @media(max-width:650px) {{
       .infographic {{ display:block; }}
       .infographic img {{ width:100%; max-width:none; margin-bottom:.7rem; }}
+      .infographic.flyer img {{ width:100%; }}
       th:nth-child(4),td:nth-child(4) {{ display:none; }}
     }}
   </style>
@@ -420,6 +422,16 @@ def render_report(report: dict) -> str:
   <p class="meta"><a style="color:white" href="sat_poi_dashboard.html">← SAT POI Dashboard</a> · <a style="color:white" href="sat_osm_trail_report.html">🥾 Ledegenskaper</a> · Genererad {generated} · <a style="color:white" href="{query_url}" target="_blank" rel="noopener">Global Overpass-fråga</a> · Nycklar och värden länkar till OSM Wiki</p>
 </header>
 <main>
+  <figure class="panel infographic flyer">
+    <a href="assets/sat-open-data-flyer.jpg" target="_blank">
+      <img src="assets/sat-open-data-flyer.jpg" alt="Flyer om hur bra och kopplad data skapar bättre upplevelser på vandringsleder" width="1024" height="1536">
+    </a>
+    <figcaption>
+      <strong>Vandringsleder behöver bra data</strong>
+      Flyern visar vilken information vandraren behöver och hur öppna, sammankopplade datakällor kan skapa bättre och mer tillgängliga tjänster.
+      <small>Klicka på bilden för att öppna den i full storlek.</small>
+    </figcaption>
+  </figure>
   <figure class="panel infographic">
     <a href="assets/sat-osm-infographic.jpg" target="_blank">
       <img src="assets/sat-osm-infographic.jpg" alt="Infografik över hur OSM-data används i Stockholm Archipelago Trail" width="1536" height="1024">
