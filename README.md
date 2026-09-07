@@ -1,6 +1,7 @@
 # SAT Sync
 * live [SAT](https://salgo60.github.io/sat-sync/sat_poi_dashboard.html?lang=sv&lat=59.30516&lon=18.49823&z=8)
 * [OSM-egenskaper per kategori](https://salgo60.github.io/sat-sync/sat_osm_ref_report.html)
+* [OSM-egenskaper på leden](https://salgo60.github.io/sat-sync/sat_osm_trail_report.html)
 
 
 **SAT Sync is an identity reconciliation framework for loosely coupled open-data platforms.**
