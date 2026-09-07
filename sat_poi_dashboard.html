@@ -112,16 +112,17 @@
       <h1 id="headerTitle">🧭 SAT POI Dashboard</h1>
       <p id="headerSubtitle">Alla objekt i <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson">pois.geojson</a> med koppling till etapp/ö, sektion, operator (SSOT) och kategori</p>
       <div class="header-meta">
-        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=7&month=9&year=2026&hour=11&min=55&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-09-07 11:55 CEST</a></strong> &nbsp;|&nbsp;
+        <span id="poisFetchedLabelHdr">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=7&month=9&year=2026&hour=15&min=37&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-09-07 15:37 CEST</a></strong> &nbsp;|&nbsp;
         <a id="poisGeneratedAtLabelHdr" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=7&month=9&year=2026&hour=11&min=51&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-09-07 11:51 CEST</a></strong> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>&nbsp;|&nbsp;
-        <a href="https://github.com/salgo60/sat-sync/pull/131" target="_blank">PR #131</a> &nbsp;|&nbsp;
+        <a href="https://github.com/salgo60/sat-sync/pull/133" target="_blank">PR #133</a> &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a> &nbsp;|&nbsp;
         <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a> &nbsp;|&nbsp;
         <a href="sat_osm_ref_report.html">📊 OSM-egenskaper</a> &nbsp;|&nbsp;
         <a href="sat_osm_trail_report.html">🥾 Ledegenskaper</a> &nbsp;|&nbsp;
+        <a href="https://www.youtube.com/watch?v=saIpaWoWWA8" target="_blank" rel="noopener"><span id="videoLinkHdr">🎬 Introduktionsvideo</span></a> &nbsp;|&nbsp;
         <a href="sat_about.html"><span id="aboutLinkHdr">ℹ️ About</span></a>
       </div>
     </div>
@@ -10245,7 +10246,7 @@
     </div>
 
     <div class="footer">
-      <span id="poisFetchedLabel">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=7&month=9&year=2026&hour=11&min=55&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-09-07 11:55 CEST</a></strong> |
+      <span id="poisFetchedLabel">POI hämtad</span>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=7&month=9&year=2026&hour=15&min=37&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-09-07 15:37 CEST</a></strong> |
       <a id="poisGeneratedAtLabel" href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">SAT POI</a>: <strong><a href="https://www.timeanddate.com/worldclock/fixedtime.html?day=7&month=9&year=2026&hour=11&min=51&p1=239" target="_blank" style="color:inherit;text-decoration:underline dotted">2026-09-07 11:51 CEST</a></strong> |
       <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a> |
       <span id="sourcesLabel">Källor</span>: <a href="https://map.stockholmarchipelagotrail.com/data/geojson/pois.geojson" target="_blank">pois.geojson</a> |
@@ -10614,7 +10615,8 @@
           sankeyStagePrefix: 'etapp',
           whatsNewLink: "What's new",
           todoListLink: '✅ TODO-lista',
-          improvementsLink: '💡 Förbättringsförslag'
+          improvementsLink: '💡 Förbättringsförslag',
+          videoLink: '🎬 Introduktionsvideo'
         },
         en: {
           all: 'All',
@@ -10669,7 +10671,8 @@
           sankeyStagePrefix: 'stage',
           whatsNewLink: "What's new",
           todoListLink: '✅ TODO list',
-          improvementsLink: '💡 Improvement suggestion'
+          improvementsLink: '💡 Improvement suggestion',
+          videoLink: '🎬 Introduction video'
         }
       };
 
@@ -10889,7 +10892,8 @@
           poisGeneratedAtLabelHdr: 'poisGeneratedAtLabel',
           whatsNewLink: 'whatsNewLink',
           todoListLinkFtr: 'todoListLink',
-          improvementsLink: 'improvementsLink'
+          improvementsLink: 'improvementsLink',
+          videoLinkHdr: 'videoLink'
         };
         Object.entries(bindings).forEach(([id, key]) => {
           const el = document.getElementById(id);
