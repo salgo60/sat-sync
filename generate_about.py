@@ -110,6 +110,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-collaboration-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-collaboration-flyer.jpg" alt="Tillsammans för bättre vandringsleder" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-live-connected-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-live-connected-flyer.jpg" alt="Stockholm Archipelago Trail Live &amp; Connected" loading="lazy">
+      </a>
       <a class="flyer-card" href="assets/sat-community-collaboration-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-community-collaboration-flyer.jpg" alt="Från gemenskap till samverkan" loading="lazy">
       </a>

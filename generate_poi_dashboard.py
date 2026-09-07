@@ -836,12 +836,12 @@ ORDER BY DESC(geof:latitude(?coord))
         </figcaption>
       </figure>
       <figure class="dashboard-flyer">
-        <a href="assets/sat-collaboration-flyer.jpg" target="_blank">
-          <img src="assets/sat-collaboration-flyer.jpg" alt="Flyer om samverkan för bättre vandringsleder" width="1024" height="1536">
+        <a href="assets/sat-live-connected-flyer.jpg" target="_blank">
+          <img src="assets/sat-live-connected-flyer.jpg" alt="Flyer om realtidsdata för en levande och sammankopplad Stockholm Archipelago Trail" width="1024" height="1536">
         </a>
         <figcaption>
-          <strong id="collaborationFlyerTitle">Tillsammans för bättre vandringsleder</strong>
-          <span id="collaborationFlyerDesc">Flyern visar hur kommuner, myndigheter och organisationer tillsammans kan skapa öppna data och bättre tjänster.</span>
+          <strong id="collaborationFlyerTitle">Stockholm Archipelago Trail Live &amp; Connected</strong>
+          <span id="collaborationFlyerDesc">Flyern visar hur realtidsdata om båtar, boenden, service och evenemang kan göra vandringen enklare och mer upplevelserik.</span>
           <small id="collaborationFlyerHint">Klicka på bilden för att öppna den i full storlek.</small>
         </figcaption>
       </figure>
@@ -1367,8 +1367,8 @@ ORDER BY DESC(geof:latitude(?coord))
           flyerTitle: 'Vandringsleder behöver bra data',
           flyerDesc: 'Flyern visar hur öppna, sammankopplade datakällor kan skapa bättre och mer tillgängliga tjänster för vandrare.',
           flyerHint: 'Klicka på bilden för att öppna den i full storlek.',
-          collaborationFlyerTitle: 'Tillsammans för bättre vandringsleder',
-          collaborationFlyerDesc: 'Flyern visar hur kommuner, myndigheter och organisationer tillsammans kan skapa öppna data och bättre tjänster.',
+          collaborationFlyerTitle: 'Stockholm Archipelago Trail Live & Connected',
+          collaborationFlyerDesc: 'Flyern visar hur realtidsdata om båtar, boenden, service och evenemang kan göra vandringen enklare och mer upplevelserik.',
           collaborationFlyerHint: 'Klicka på bilden för att öppna den i full storlek.',
           communityFlyerTitle: 'Från gemenskap till samverkan',
           communityFlyerDesc: 'Flyern visar hur community-baserad data och offentliga aktörers kunskap tillsammans kan bygga en tillförlitlig digital tvilling.',
@@ -1432,8 +1432,8 @@ ORDER BY DESC(geof:latitude(?coord))
           flyerTitle: 'Hiking trails need good data',
           flyerDesc: 'The flyer shows how open, connected data sources can create better and more accessible services for hikers.',
           flyerHint: 'Click the image to open it full size.',
-          collaborationFlyerTitle: 'Together for better hiking trails',
-          collaborationFlyerDesc: 'The flyer shows how municipalities, public agencies, and organizations can work together to create open data and better services.',
+          collaborationFlyerTitle: 'Stockholm Archipelago Trail Live & Connected',
+          collaborationFlyerDesc: 'The flyer shows how real-time data about boats, accommodation, services, and events can make hiking easier and more rewarding.',
           collaborationFlyerHint: 'Click the image to open it full size.',
           communityFlyerTitle: 'From community to collaboration',
           communityFlyerDesc: 'The flyer shows how community-based data and public-sector knowledge can combine to build a reliable digital twin.',
