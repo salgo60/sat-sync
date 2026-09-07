@@ -430,6 +430,16 @@ def render_report(report: dict) -> str:
       <small>Klicka på bilden för att öppna den i full storlek.</small>
     </figcaption>
   </figure>
+  <figure class="panel infographic">
+    <a href="assets/sat-osm-experience-infographic.jpg" target="_blank">
+      <img src="assets/sat-osm-experience-infographic.jpg" alt="Infografik över hur SAT förädlar OSM-data till information och tjänster för vandrare" width="1536" height="1024">
+    </a>
+    <figcaption>
+      <strong>Från OSM-data till planering och upplevelser</strong>
+      Infografiken visar vägen från detaljerad OSM-data via SAT:s sammanställning och API till tjänster som hjälper vandraren att planera.
+      <small>Klicka på bilden för att öppna den i full storlek.</small>
+    </figcaption>
+  </figure>
   <div id="summary" class="summary"></div>
   <div class="panel toolbar">
     <input id="search" type="search" placeholder="Sök namn, SAT-ref, OSM-tagg eller värde…">
