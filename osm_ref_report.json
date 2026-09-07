@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T22:40:49.745289Z",
+  "generatedAt": "2026-09-07T04:43:44.431865Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -22535,6 +22535,44 @@
           ]
         },
         {
+          "key": "website",
+          "count": 115,
+          "percent": 80.4,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
+          "topValues": [
+            {
+              "value": "https://stockholmarchipelagotrail.com/section/sat-arholma/",
+              "count": 7,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsat-arholma%2F?uselang=sv",
+              "directUrl": "https://stockholmarchipelagotrail.com/section/sat-arholma/"
+            },
+            {
+              "value": "https://stockholmarchipelagotrail.com/section/section-orno",
+              "count": 7,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsection-orno?uselang=sv",
+              "directUrl": "https://stockholmarchipelagotrail.com/section/section-orno"
+            },
+            {
+              "value": "https://stockholmarchipelagotrail.com/section/section-ingmarso/",
+              "count": 6,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsection-ingmarso%2F?uselang=sv",
+              "directUrl": "https://stockholmarchipelagotrail.com/section/section-ingmarso/"
+            },
+            {
+              "value": "https://stockholmarchipelagotrail.com/section/section-nattaro/",
+              "count": 6,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsection-nattaro%2F?uselang=sv",
+              "directUrl": "https://stockholmarchipelagotrail.com/section/section-nattaro/"
+            },
+            {
+              "value": "https://stockholmarchipelagotrail.com/section/section-svartso/",
+              "count": 6,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsection-svartso%2F?uselang=sv",
+              "directUrl": "https://stockholmarchipelagotrail.com/section/section-svartso/"
+            }
+          ]
+        },
+        {
           "key": "wikidata",
           "count": 110,
           "percent": 76.9,
@@ -22569,44 +22607,6 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ136337707?uselang=sv",
               "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "website",
-          "count": 108,
-          "percent": 75.5,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
-          "topValues": [
-            {
-              "value": "https://stockholmarchipelagotrail.com/section/sat-arholma/",
-              "count": 7,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsat-arholma%2F?uselang=sv",
-              "directUrl": "https://stockholmarchipelagotrail.com/section/sat-arholma/"
-            },
-            {
-              "value": "https://stockholmarchipelagotrail.com/section/section-orno",
-              "count": 7,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsection-orno?uselang=sv",
-              "directUrl": "https://stockholmarchipelagotrail.com/section/section-orno"
-            },
-            {
-              "value": "https://stockholmarchipelagotrail.com/section/section-ingmarso/",
-              "count": 6,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsection-ingmarso%2F?uselang=sv",
-              "directUrl": "https://stockholmarchipelagotrail.com/section/section-ingmarso/"
-            },
-            {
-              "value": "https://stockholmarchipelagotrail.com/section/section-nattaro/",
-              "count": 6,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsection-nattaro%2F?uselang=sv",
-              "directUrl": "https://stockholmarchipelagotrail.com/section/section-nattaro/"
-            },
-            {
-              "value": "https://stockholmarchipelagotrail.com/section/section-svartso/",
-              "count": 6,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fstockholmarchipelagotrail.com%2Fsection%2Fsection-svartso%2F?uselang=sv",
-              "directUrl": "https://stockholmarchipelagotrail.com/section/section-svartso/"
             }
           ]
         },
@@ -22871,6 +22871,44 @@
           ]
         },
         {
+          "key": "description",
+          "count": 35,
+          "percent": 24.5,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
+          "topValues": [
+            {
+              "value": "Ryssugn, oval, 2x1,5 m (Ö-V) och 0,5 m h. Uppbyggd av 0,1-1,2 mst stenar (vanligen 0,2-0,6 m st).",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DRyssugn%2C%20oval%2C%202x1%2C5%20m%20%28%C3%96-V%29%20och%200%2C5%20m%20h.%20Uppbyggd%20av%200%2C1-1%2C2%20mst%20stenar%20%28vanligen%200%2C2-0%2C6%20m%20st%29.?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Neptunigaffel vid Sandhamn Dansberget",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DNeptunigaffel%20vid%20Sandhamn%20Dansberget?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Turistinformation och souvenirbutikför på Möja under sommaren",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DTuristinformation%20och%20souvenirbutikf%C3%B6r%20p%C3%A5%20M%C3%B6ja%20under%20sommaren?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Kungsstolen som ligger utmed Strandvägen på höger sida är tillverkad av fabrikör Per Wikström, dåvarande ägare till Furusund, inför operasångare Johan Uddmans besök på Furusund i mitten av 1800-talet",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DKungsstolen%20som%20ligger%20utmed%20Strandv%C3%A4gen%20p%C3%A5%20h%C3%B6ger%20sida%20%C3%A4r%20tillverkad%20av%20fabrik%C3%B6r%20Per%20Wikstr%C3%B6m%2C%20d%C3%A5varande%20%C3%A4gare%20till%20Furusund%2C%20inf%C3%B6r%20operas%C3%A5ngare%20Johan%20Uddmans%20bes%C3%B6k%20p%C3%A5%20Furusund%20i%20mitten%20av%201800-talet?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "väderkvarn som står på Kvarnberget i Furusund den byggdes troligen 1722",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dv%C3%A4derkvarn%20som%20st%C3%A5r%20p%C3%A5%20Kvarnberget%20i%20Furusund%20den%20byggdes%20troligen%201722?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "historic",
           "count": 29,
           "percent": 20.3,
@@ -22904,44 +22942,6 @@
               "value": "manor",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:historic%3Dmanor?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "description",
-          "count": 28,
-          "percent": 19.6,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
-          "topValues": [
-            {
-              "value": "Neptunigaffel vid Sandhamn Dansberget",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DNeptunigaffel%20vid%20Sandhamn%20Dansberget?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Turistinformation och souvenirbutikför på Möja under sommaren",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DTuristinformation%20och%20souvenirbutikf%C3%B6r%20p%C3%A5%20M%C3%B6ja%20under%20sommaren?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Kungsstolen som ligger utmed Strandvägen på höger sida är tillverkad av fabrikör Per Wikström, dåvarande ägare till Furusund, inför operasångare Johan Uddmans besök på Furusund i mitten av 1800-talet",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DKungsstolen%20som%20ligger%20utmed%20Strandv%C3%A4gen%20p%C3%A5%20h%C3%B6ger%20sida%20%C3%A4r%20tillverkad%20av%20fabrik%C3%B6r%20Per%20Wikstr%C3%B6m%2C%20d%C3%A5varande%20%C3%A4gare%20till%20Furusund%2C%20inf%C3%B6r%20operas%C3%A5ngare%20Johan%20Uddmans%20bes%C3%B6k%20p%C3%A5%20Furusund%20i%20mitten%20av%201800-talet?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "väderkvarn som står på Kvarnberget i Furusund den byggdes troligen 1722",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dv%C3%A4derkvarn%20som%20st%C3%A5r%20p%C3%A5%20Kvarnberget%20i%20Furusund%20den%20byggdes%20troligen%201722?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Drottninggrottan, där drottning Maria Eleonora enligt sägnen sökte skydd i sin sorg - kanske med kung Gustav II Adolfs hjärta i ett guldskrin.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DDrottninggrottan%2C%20d%C3%A4r%20drottning%20Maria%20Eleonora%20enligt%20s%C3%A4gnen%20s%C3%B6kte%20skydd%20i%20sin%20sorg%20-%20kanske%20med%20kung%20Gustav%20II%20Adolfs%20hj%C3%A4rta%20i%20ett%20guldskrin.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -23447,6 +23447,38 @@
           ]
         },
         {
+          "key": "note",
+          "count": 4,
+          "percent": 2.8,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note?uselang=sv",
+          "topValues": [
+            {
+              "value": "Unionskonung Kristian den 1:a lät hugga in denna 24 gradiga kompassros i berget år 1463. Den äldsta i norden och den enda med kunglig krona.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DUnionskonung%20Kristian%20den%201%3Aa%20l%C3%A4t%20hugga%20in%20denna%2024%20gradiga%20kompassros%20i%20berget%20%C3%A5r%201463.%20Den%20%C3%A4ldsta%20i%20norden%20och%20den%20enda%20med%20kunglig%20krona.?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Från 1724 års kungabesök i Furusund av Fredrik I finns en inristning, kallad kungaristningen ”Kong Frederik 1724” på Ålandsbergets nordvästra sluttning.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DFr%C3%A5n%201724%20%C3%A5rs%20kungabes%C3%B6k%20i%20Furusund%20av%20Fredrik%20I%20finns%20en%20inristning%2C%20kallad%20kungaristningen%20%E2%80%9DKong%20Frederik%201724%E2%80%9D%20p%C3%A5%20%C3%85landsbergets%20nordv%C3%A4stra%20sluttning.?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Kvarnen har årtalet 1722 i flöjeln. Den har byggts om flera gånger sedan dess. Den senaste upprustningen skedde 1960, och kvarnen ”återinvigdes” 1961 under medverkan av bland annat Evert Taube. Nu är den K-märkt och tillhör och förvaltas av Roslagsmuseet",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DKvarnen%20har%20%C3%A5rtalet%201722%20i%20fl%C3%B6jeln.%20Den%20har%20byggts%20om%20flera%20g%C3%A5nger%20sedan%20dess.%20Den%20senaste%20upprustningen%20skedde%201960%2C%20och%20kvarnen%20%E2%80%9D%C3%A5terinvigdes%E2%80%9D%201961%20under%20medverkan%20av%20bland%20annat%20Evert%20Taube.%20Nu%20%C3%A4r%20den%20K-m%C3%A4rkt%20och%20tillh%C3%B6r%20och%20f%C3%B6rvaltas%20av%20Roslagsmuseet?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "L2014:1860 Brott/täkt Möjlig fornlämning",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DL2014%3A1860%20Brott%2Ft%C3%A4kt%20M%C3%B6jlig%20fornl%C3%A4mning?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "ref:neptuniorden",
           "count": 4,
           "percent": 2.8,
@@ -23516,32 +23548,6 @@
               "value": "bunker",
               "count": 3,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:military%3Dbunker?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "note",
-          "count": 3,
-          "percent": 2.1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note?uselang=sv",
-          "topValues": [
-            {
-              "value": "Unionskonung Kristian den 1:a lät hugga in denna 24 gradiga kompassros i berget år 1463. Den äldsta i norden och den enda med kunglig krona.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DUnionskonung%20Kristian%20den%201%3Aa%20l%C3%A4t%20hugga%20in%20denna%2024%20gradiga%20kompassros%20i%20berget%20%C3%A5r%201463.%20Den%20%C3%A4ldsta%20i%20norden%20och%20den%20enda%20med%20kunglig%20krona.?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Från 1724 års kungabesök i Furusund av Fredrik I finns en inristning, kallad kungaristningen ”Kong Frederik 1724” på Ålandsbergets nordvästra sluttning.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DFr%C3%A5n%201724%20%C3%A5rs%20kungabes%C3%B6k%20i%20Furusund%20av%20Fredrik%20I%20finns%20en%20inristning%2C%20kallad%20kungaristningen%20%E2%80%9DKong%20Frederik%201724%E2%80%9D%20p%C3%A5%20%C3%85landsbergets%20nordv%C3%A4stra%20sluttning.?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Kvarnen har årtalet 1722 i flöjeln. Den har byggts om flera gånger sedan dess. Den senaste upprustningen skedde 1960, och kvarnen ”återinvigdes” 1961 under medverkan av bland annat Evert Taube. Nu är den K-märkt och tillhör och förvaltas av Roslagsmuseet",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DKvarnen%20har%20%C3%A5rtalet%201722%20i%20fl%C3%B6jeln.%20Den%20har%20byggts%20om%20flera%20g%C3%A5nger%20sedan%20dess.%20Den%20senaste%20upprustningen%20skedde%201960%2C%20och%20kvarnen%20%E2%80%9D%C3%A5terinvigdes%E2%80%9D%201961%20under%20medverkan%20av%20bland%20annat%20Evert%20Taube.%20Nu%20%C3%A4r%20den%20K-m%C3%A4rkt%20och%20tillh%C3%B6r%20och%20f%C3%B6rvaltas%20av%20Roslagsmuseet?uselang=sv",
               "directUrl": null
             }
           ]
@@ -55248,6 +55254,7 @@
         "image": "https://commons.wikimedia.org/wiki/File:Gruva_R%C3%A5n%C3%B6.jpg",
         "name": "Fältspatsgruvan",
         "name:sv": "Fältspatsgruvan",
+        "note": "L2014:1860 Brott/täkt Möjlig fornlämning",
         "ref:stockholmarchipelagotrail": "sat:poi:baaav",
         "resource": "feldspar",
         "source": "Fornsök;egen inventering",
@@ -56280,12 +56287,15 @@
       "lat": 58.926971,
       "lon": 18.1671605,
       "tags": {
+        "description": "Ryssugn, oval, 3x2 m (Ö-V) och 0,5 m h. Uppbyggd av 0,1-0,8 mst stenar. Delvis skörbrända sstenar",
         "name": "Ryssugn",
         "ref:stockholmarchipelagotrail": "sat:poi:hfc5p",
-        "tourism": "attraction"
+        "tourism": "attraction",
+        "website": "https://app.raa.se/open/fornsok/lamning/c890b82a-601d-470c-bc0e-c64ca08fd76c"
       },
       "tagValueUrls": {
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:hfc5p"
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:hfc5p",
+        "website": "https://app.raa.se/open/fornsok/lamning/c890b82a-601d-470c-bc0e-c64ca08fd76c"
       }
     },
     {
@@ -56300,12 +56310,15 @@
       "lat": 58.9296551,
       "lon": 18.1680385,
       "tags": {
+        "description": "Ryssugn, oval, 2x1,5 m (Ö-V) och 0,5 m h. Uppbyggd av 0,1-1,2 mst stenar (vanligen 0,2-0,6 m st).",
         "name": "Ryssugn",
         "ref:stockholmarchipelagotrail": "sat:poi:wfdxn",
-        "tourism": "attraction"
+        "tourism": "attraction",
+        "website": "https://app.raa.se/open/fornsok/lamning/a091f736-72df-46b2-9acf-faa9b16d7c5c"
       },
       "tagValueUrls": {
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:wfdxn"
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:wfdxn",
+        "website": "https://app.raa.se/open/fornsok/lamning/a091f736-72df-46b2-9acf-faa9b16d7c5c"
       }
     },
     {
@@ -56320,12 +56333,15 @@
       "lat": 58.9204747,
       "lon": 18.1663841,
       "tags": {
+        "description": "Ryssugn, rund, 2 m diam och 0,5 m h. Uppbyggd av 0,1-0,5 m ststenar",
         "name": "Ryssugn",
         "ref:stockholmarchipelagotrail": "sat:poi:7z9gx",
-        "tourism": "attraction"
+        "tourism": "attraction",
+        "website": "https://app.raa.se/open/fornsok/lamning/dec97334-abd6-48ae-ba87-93b160011a41"
       },
       "tagValueUrls": {
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:7z9gx"
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:7z9gx",
+        "website": "https://app.raa.se/open/fornsok/lamning/dec97334-abd6-48ae-ba87-93b160011a41"
       }
     },
     {
@@ -56340,12 +56356,15 @@
       "lat": 58.9268273,
       "lon": 18.1670135,
       "tags": {
+        "description": "Ryssugn, oval, 2x1,5 m (Ö-V) och 0,5 m h. Uppbyggd av 0,1-1,2 mst stenar (vanligen 0,2-0,6 m st).",
         "name": "Ryssugn",
         "ref:stockholmarchipelagotrail": "sat:poi:n5xs6",
-        "tourism": "attraction"
+        "tourism": "attraction",
+        "website": "https://app.raa.se/open/fornsok/lamning/d540d07c-ce36-4631-946e-c2bb3a27a738"
       },
       "tagValueUrls": {
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:n5xs6"
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:n5xs6",
+        "website": "https://app.raa.se/open/fornsok/lamning/d540d07c-ce36-4631-946e-c2bb3a27a738"
       }
     },
     {
@@ -56360,12 +56379,15 @@
       "lat": 58.9302174,
       "lon": 18.1673648,
       "tags": {
+        "description": "Ryssugn, rektangulär, 2,5-2 m (N-S) och 0,5 m h. Uppbyggd av0,1-1 m st stenar. Delvis skörbrända stenar",
         "name": "Ryssugn",
         "ref:stockholmarchipelagotrail": "sat:poi:jn6qh",
-        "tourism": "attraction"
+        "tourism": "attraction",
+        "website": "https://app.raa.se/open/fornsok/lamning/a23a9c20-0b70-4ea1-a4bf-db6d97757a4d"
       },
       "tagValueUrls": {
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:jn6qh"
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:jn6qh",
+        "website": "https://app.raa.se/open/fornsok/lamning/a23a9c20-0b70-4ea1-a4bf-db6d97757a4d"
       }
     },
     {
@@ -56380,12 +56402,15 @@
       "lat": 58.9207562,
       "lon": 18.1674013,
       "tags": {
+        "description": "Ryssugn, rektangulär, 2x1,5 m (NNV-SSÖ) och 0,9 m h. Uppbyggd0,1-0,8 m st stenar (vanligen 0,3-0,5 m st)",
         "name": "Ryssugn",
         "ref:stockholmarchipelagotrail": "sat:poi:chvh9",
-        "tourism": "attraction"
+        "tourism": "attraction",
+        "website": "https://app.raa.se/open/fornsok/lamning/adb59f91-eb96-4d3e-8659-0027c2b2bff7"
       },
       "tagValueUrls": {
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:chvh9"
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:chvh9",
+        "website": "https://app.raa.se/open/fornsok/lamning/adb59f91-eb96-4d3e-8659-0027c2b2bff7"
       }
     },
     {
@@ -56400,12 +56425,15 @@
       "lat": 58.9211651,
       "lon": 18.1667775,
       "tags": {
+        "description": "Ryssugn, rund, ca 1,5 m diam och 0,5 m h. Uppbyggd av 0,1-0,6 m ststenar (vanligen 0,2-0,4 m st)",
         "name": "Ryssugn",
         "ref:stockholmarchipelagotrail": "sat:poi:efta6",
-        "tourism": "attraction"
+        "tourism": "attraction",
+        "website": "https://app.raa.se/open/fornsok/lamning/90c10f22-816e-4b7b-92f9-8029eb26ef56"
       },
       "tagValueUrls": {
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:efta6"
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:efta6",
+        "website": "https://app.raa.se/open/fornsok/lamning/90c10f22-816e-4b7b-92f9-8029eb26ef56"
       }
     },
     {

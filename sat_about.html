@@ -52,6 +52,7 @@
     <a href="sat_todo_list.html" id="nav-todo-list">✅ TODO-lista</a> &nbsp;|&nbsp;
     <a href="sat_poi_quality_history.html" id="nav-quality">📈 Datakvalitet</a> &nbsp;|&nbsp;
     <a href="sat_osm_ref_report.html" id="nav-osm-report">📊 OSM-egenskaper</a> &nbsp;|&nbsp;
+    <a href="sat_osm_trail_report.html" id="nav-trail-report">🥾 Ledegenskaper</a> &nbsp;|&nbsp;
     <a href="whats_new.html" id="nav-whatsnew">What's new</a> &nbsp;|&nbsp;
     <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub</a>
     <button class="lang-btn" id="lang-btn" onclick="toggleLang()">English</button>
@@ -105,6 +106,11 @@
         <div class="icon">📊</div>
         <h3 id="card-osm-report-title">OSM-egenskaper</h3>
         <p id="card-osm-report-desc">1 099 SAT-kopplade OSM-objekt grupperade per funktion med taggtäckning, vanligaste värden och direktlänkar.</p>
+      </a>
+      <a class="tool-card" href="sat_osm_trail_report.html">
+        <div class="icon">🥾</div>
+        <h3 id="card-trail-report-title">OSM-egenskaper på leden</h3>
+        <p id="card-trail-report-desc">Superrelation, 20 etapprelationer och statistik för 769 unika vägar/noder som leden följer.</p>
       </a>
       <a class="tool-card" href="whats_new.html">
         <div class="icon">📋</div>
@@ -170,7 +176,8 @@
       <li id="sec-how-li3"><strong>generate_todo_list.py</strong> — bygger en filtrerbar TODO-lista med checkboxar och export i sat_todo_list.html</li>
       <li id="sec-how-li4"><strong>generate_poi_quality_history.py</strong> — sparar ett snapshot av datakvaliteten när pois.geojson uppdateras</li>
       <li id="sec-how-li5"><strong>generate_osm_ref_report.py</strong> — grupperar alla SAT-kopplade OSM-objekt och räknar taggtäckning per kategori</li>
-      <li id="sec-how-li6"><strong>generate_about.py</strong> — genererar den här sidan</li>
+      <li id="sec-how-li6"><strong>generate_osm_trail_report.py</strong> — följer OSM-hierarkin superroute → etapprelation → ledsegment och sammanställer ledegenskaper</li>
+      <li id="sec-how-li7"><strong>generate_about.py</strong> — genererar den här sidan</li>
     </ul>
     <p id="sec-how-p2">Dashboarden har stöd för 20+ språk. Om-sidan och flera arbetsverktyg har sv/en-språkbyte, medan specialrapporter kan vara enspråkiga.</p>
   </section>
@@ -196,7 +203,7 @@
 </main>
 
 <div class="footer">
-  <span id="footer-gen">Genererad</span>: 2026-09-07 04:08 UTC &nbsp;|&nbsp;
+  <span id="footer-gen">Genererad</span>: 2026-09-07 04:43 UTC &nbsp;|&nbsp;
   <a href="https://github.com/salgo60/sat-sync" target="_blank">salgo60/sat-sync</a>
 </div>
 
@@ -208,7 +215,7 @@
       h1: 'ℹ️ Om SAT POI-verktygen',
       subtitle: 'Dokumentation och bakgrund för Stockholm Archipelago Trail POI-verktyg',
       navDashboard: '🧭 Dashboard', navTodo: '🗺️ TODO-karta', navTodoList: '✅ TODO-lista',
-      navQuality: '📈 Datakvalitet', navOsmReport: '📊 OSM-egenskaper', navWhatsnew: "What's new",
+      navQuality: '📈 Datakvalitet', navOsmReport: '📊 OSM-egenskaper', navTrailReport: '🥾 Ledegenskaper', navWhatsnew: "What's new",
       langBtn: 'English',
       secLatestTitle: '🆕 Senaste: OSM-egenskapsrapporten (september 2026)',
       secLatestList: '<li><strong>1 099 SAT-kopplade OSM-objekt</strong> är grupperade i 29 funktionella kategorier.</li><li>Rapporten visar täckning, vanligaste värden och kompletta OSM-taggar per kategori.</li><li>SAT-ID, objekt-JSON, OSM-ID, Commons och Mapillary är direkt klickbara.</li><li>Vindskydd skiljs från väderskydd vid hållplatser med hjälp av <code>shelter_type</code>.</li>',
@@ -226,6 +233,8 @@
       cardQualityDesc: 'Historisk vy av datakvaliteten per snapshot av pois.geojson — täckning per fält, kategori och etapp.',
       cardOsmReportTitle: 'OSM-egenskaper',
       cardOsmReportDesc: '1 099 SAT-kopplade OSM-objekt grupperade per funktion med taggtäckning, vanligaste värden och direktlänkar.',
+      cardTrailReportTitle: 'OSM-egenskaper på leden',
+      cardTrailReportDesc: 'Superrelation, 20 etapprelationer och statistik för 769 unika vägar/noder som leden följer.',
       cardWhatsnewTitle: "What's new",
       cardWhatsnewDesc: 'Ändringslogg med alla PR:s och förbättringar i verktygen.',
       secSourcesTitle: '📡 Datakällor',
@@ -242,7 +251,8 @@
       secHowLi3: '<strong>generate_todo_list.py</strong> — bygger en filtrerbar TODO-lista med checkboxar och export i sat_todo_list.html',
       secHowLi4: '<strong>generate_poi_quality_history.py</strong> — sparar ett snapshot av datakvaliteten när pois.geojson uppdateras',
       secHowLi5: '<strong>generate_osm_ref_report.py</strong> — grupperar alla SAT-kopplade OSM-objekt och räknar taggtäckning per kategori',
-      secHowLi6: '<strong>generate_about.py</strong> — genererar den här sidan',
+      secHowLi6: '<strong>generate_osm_trail_report.py</strong> — följer OSM-hierarkin superroute → etapprelation → ledsegment och sammanställer ledegenskaper',
+      secHowLi7: '<strong>generate_about.py</strong> — genererar den här sidan',
       secHowP2: 'Dashboarden har stöd för 20+ språk. Om-sidan och flera arbetsverktyg har sv/en-språkbyte, medan specialrapporter kan vara enspråkiga.',
       secContribTitle: '🤝 Bidra',
       secContribP1: 'Alla förbättringsförslag, buggrapporter och pull requests välkomnas på GitHub:',
@@ -259,7 +269,7 @@
       h1: 'ℹ️ About the SAT POI tools',
       subtitle: 'Documentation and background for the Stockholm Archipelago Trail POI toolset',
       navDashboard: '🧭 Dashboard', navTodo: '🗺️ TODO map', navTodoList: '✅ TODO list',
-      navQuality: '📈 Data quality', navOsmReport: '📊 OSM properties', navWhatsnew: "What's new",
+      navQuality: '📈 Data quality', navOsmReport: '📊 OSM properties', navTrailReport: '🥾 Trail properties', navWhatsnew: "What's new",
       langBtn: 'Svenska',
       secLatestTitle: '🆕 Latest: OSM properties report (September 2026)',
       secLatestList: '<li><strong>1,099 SAT-linked OSM objects</strong> are grouped into 29 functional categories.</li><li>The report shows coverage, common values, and complete OSM tags per category.</li><li>SAT IDs, object JSON, OSM IDs, Commons, and Mapillary are directly linked.</li><li>Trail shelters are separated from public transport shelters using <code>shelter_type</code>.</li>',
@@ -277,6 +287,8 @@
       cardQualityDesc: 'Historical view of data quality per pois.geojson snapshot — coverage per field, category and stage.',
       cardOsmReportTitle: 'OSM properties',
       cardOsmReportDesc: '1,099 SAT-linked OSM objects grouped by function with tag coverage, common values, and direct links.',
+      cardTrailReportTitle: 'OSM properties along the trail',
+      cardTrailReportDesc: 'The superroute, 20 section relations, and statistics for the 769 unique ways/nodes followed by the trail.',
       cardWhatsnewTitle: "What's new",
       cardWhatsnewDesc: 'Changelog with all PRs and improvements to the tools.',
       secSourcesTitle: '📡 Data sources',
@@ -293,7 +305,8 @@
       secHowLi3: '<strong>generate_todo_list.py</strong> — builds a filterable TODO list with checkboxes and export in sat_todo_list.html',
       secHowLi4: '<strong>generate_poi_quality_history.py</strong> — saves a data quality snapshot when pois.geojson is updated',
       secHowLi5: '<strong>generate_osm_ref_report.py</strong> — groups all SAT-linked OSM objects and calculates tag coverage by category',
-      secHowLi6: '<strong>generate_about.py</strong> — generates this page',
+      secHowLi6: '<strong>generate_osm_trail_report.py</strong> — follows the OSM hierarchy from superroute to section relation to trail segment and summarizes trail properties',
+      secHowLi7: '<strong>generate_about.py</strong> — generates this page',
       secHowP2: 'The dashboard supports 20+ languages. The About page and several working tools support Swedish/English switching, while specialist reports may be monolingual.',
       secContribTitle: '🤝 Contribute',
       secContribP1: 'All suggestions, bug reports and pull requests are welcome on GitHub:',
@@ -312,20 +325,20 @@
   if (urlParams.get('lang') === 'en') lang = 'en';
 
   const ids = [
-    'page-h1','page-subtitle','nav-dashboard','nav-todo','nav-todo-list','nav-quality','nav-osm-report','nav-whatsnew','lang-btn',
+    'page-h1','page-subtitle','nav-dashboard','nav-todo','nav-todo-list','nav-quality','nav-osm-report','nav-trail-report','nav-whatsnew','lang-btn',
     'sec-latest-title','sec-latest-list','sec-what-title','sec-what-p1','sec-what-p2','sec-tools-title',
     'card-dashboard-title','card-dashboard-desc','card-todo-title','card-todo-desc','card-todo-list-title','card-todo-list-desc',
-    'card-quality-title','card-quality-desc','card-osm-report-title','card-osm-report-desc','card-whatsnew-title','card-whatsnew-desc',
+    'card-quality-title','card-quality-desc','card-osm-report-title','card-osm-report-desc','card-trail-report-title','card-trail-report-desc','card-whatsnew-title','card-whatsnew-desc',
     'sec-sources-title','th-source','th-what','th-url',
     'src-sat','src-osm','src-wd','src-trail','src-aed','src-piers',
-    'sec-how-title','sec-how-p1','sec-how-li1','sec-how-li2','sec-how-li3','sec-how-li4','sec-how-li5','sec-how-li6','sec-how-p2',
+    'sec-how-title','sec-how-p1','sec-how-li1','sec-how-li2','sec-how-li3','sec-how-li4','sec-how-li5','sec-how-li6','sec-how-li7','sec-how-p2',
     'sec-contrib-title','sec-contrib-p1','link-issue','link-issues','link-prs','sec-contrib-p2',
     'sec-license-title','sec-license-p','footer-gen',
   ];
 
   const idToKey = {
     'page-h1':'h1','page-subtitle':'subtitle',
-    'nav-dashboard':'navDashboard','nav-todo':'navTodo','nav-todo-list':'navTodoList','nav-quality':'navQuality','nav-osm-report':'navOsmReport','nav-whatsnew':'navWhatsnew',
+    'nav-dashboard':'navDashboard','nav-todo':'navTodo','nav-todo-list':'navTodoList','nav-quality':'navQuality','nav-osm-report':'navOsmReport','nav-trail-report':'navTrailReport','nav-whatsnew':'navWhatsnew',
     'lang-btn':'langBtn',
     'sec-latest-title':'secLatestTitle','sec-latest-list':'secLatestList',
     'sec-what-title':'secWhatTitle','sec-what-p1':'secWhatP1','sec-what-p2':'secWhatP2',
@@ -335,12 +348,13 @@
     'card-todo-list-title':'cardTodoListTitle','card-todo-list-desc':'cardTodoListDesc',
     'card-quality-title':'cardQualityTitle','card-quality-desc':'cardQualityDesc',
     'card-osm-report-title':'cardOsmReportTitle','card-osm-report-desc':'cardOsmReportDesc',
+    'card-trail-report-title':'cardTrailReportTitle','card-trail-report-desc':'cardTrailReportDesc',
     'card-whatsnew-title':'cardWhatsnewTitle','card-whatsnew-desc':'cardWhatsnewDesc',
     'sec-sources-title':'secSourcesTitle','th-source':'thSource','th-what':'thWhat','th-url':'thUrl',
     'src-sat':'srcSat','src-osm':'srcOsm','src-wd':'srcWd','src-trail':'srcTrail',
     'src-aed':'srcAed','src-piers':'srcPiers',
     'sec-how-title':'secHowTitle','sec-how-p1':'secHowP1',
-    'sec-how-li1':'secHowLi1','sec-how-li2':'secHowLi2','sec-how-li3':'secHowLi3','sec-how-li4':'secHowLi4','sec-how-li5':'secHowLi5','sec-how-li6':'secHowLi6',
+    'sec-how-li1':'secHowLi1','sec-how-li2':'secHowLi2','sec-how-li3':'secHowLi3','sec-how-li4':'secHowLi4','sec-how-li5':'secHowLi5','sec-how-li6':'secHowLi6','sec-how-li7':'secHowLi7',
     'sec-how-p2':'secHowP2',
     'sec-contrib-title':'secContribTitle','sec-contrib-p1':'secContribP1',
     'link-issue':'linkIssue','link-issues':'linkIssues','link-prs':'linkPrs',
@@ -362,7 +376,7 @@
     });
     // Update nav href lang params
     [['nav-dashboard','sat_poi_dashboard.html'],['nav-todo','sat_todo_map.html'],['nav-todo-list','sat_todo_list.html'],
-     ['nav-quality','sat_poi_quality_history.html'],['nav-osm-report','sat_osm_ref_report.html'],['nav-whatsnew','whats_new.html']].forEach(([id, base]) => {
+     ['nav-quality','sat_poi_quality_history.html'],['nav-osm-report','sat_osm_ref_report.html'],['nav-trail-report','sat_osm_trail_report.html'],['nav-whatsnew','whats_new.html']].forEach(([id, base]) => {
       const el = document.getElementById(id);
       if (el && el.closest) {
         const a = el.closest('a') || el;
