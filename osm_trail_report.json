@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T11:58:47.601174Z",
+  "generatedAt": "2026-09-07T14:37:11.295498Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -258,12 +258,6 @@
           "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_14.jpg"
         },
         {
-          "value": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
-          "count": 5,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F64%2FSAT_%25C3%2585l%25C3%25B6_20250805_med_base_camp_Stora_Sand_06.jpg?uselang=sv",
-          "directUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg"
-        },
-        {
           "value": "https://upload.wikimedia.org/wikipedia/commons/f/f5/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28149%29.jpg",
           "count": 5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ff5%2FSAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%2528149%2529.jpg?uselang=sv",
@@ -292,6 +286,12 @@
           "count": 4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fda%2FSAT_Furusund_2025_april_boule.jpg?uselang=sv",
           "directUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/SAT_Furusund_2025_april_boule.jpg"
+        },
+        {
+          "value": "https://upload.wikimedia.org/wikipedia/commons/2/2a/SAT_Landsort_33.jpg",
+          "count": 3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F2%2F2a%2FSAT_Landsort_33.jpg?uselang=sv",
+          "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/SAT_Landsort_33.jpg"
         }
       ]
     },
@@ -461,8 +461,8 @@
     },
     {
       "key": "width",
-      "count": 402,
-      "percent": 52.3,
+      "count": 403,
+      "percent": 52.4,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:width?uselang=sv",
       "topValues": [
         {
@@ -473,7 +473,7 @@
         },
         {
           "value": "1",
-          "count": 61,
+          "count": 62,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D1?uselang=sv",
           "directUrl": null
         },
@@ -517,8 +517,8 @@
     },
     {
       "key": "trailblazed",
-      "count": 249,
-      "percent": 32.4,
+      "count": 250,
+      "percent": 32.5,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
       "topValues": [
         {
@@ -529,7 +529,7 @@
         },
         {
           "value": "no",
-          "count": 95,
+          "count": 96,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dno?uselang=sv",
           "directUrl": null
         },
@@ -1800,26 +1800,6 @@
       ]
     },
     {
-      "key": "imagery_used",
-      "count": 2,
-      "percent": 0.3,
-      "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:imagery_used?uselang=sv",
-      "topValues": [
-        {
-          "value": "https://commons.wikimedia.org/wiki/File:SAT_20250813_Arholma_Vandra_03.jpg",
-          "count": 1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:imagery_used%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_20250813_Arholma_Vandra_03.jpg?uselang=sv",
-          "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_20250813_Arholma_Vandra_03.jpg"
-        },
-        {
-          "value": "https://upload.wikimedia.org/wikipedia/commons/8/85/SAT_Furusund_%2829%29.jpg",
-          "count": 1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:imagery_used%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F8%2F85%2FSAT_Furusund_%252829%2529.jpg?uselang=sv",
-          "directUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/SAT_Furusund_%2829%29.jpg"
-        }
-      ]
-    },
-    {
       "key": "lanes:backward",
       "count": 2,
       "percent": 0.3,
@@ -2044,6 +2024,20 @@
           "count": 1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:handrail:left%3Dyes?uselang=sv",
           "directUrl": null
+        }
+      ]
+    },
+    {
+      "key": "imagery_used",
+      "count": 1,
+      "percent": 0.1,
+      "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:imagery_used?uselang=sv",
+      "topValues": [
+        {
+          "value": "https://commons.wikimedia.org/wiki/File:SAT_20250813_Arholma_Vandra_03.jpg",
+          "count": 1,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:imagery_used%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_20250813_Arholma_Vandra_03.jpg?uselang=sv",
+          "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_20250813_Arholma_Vandra_03.jpg"
         }
       ]
     },
@@ -2593,28 +2587,28 @@
               "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_952232493534409_(cropped).jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/3/31/SAT_Landsort_Mapillary_423951114146593_%28cropped%29.jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F31%2FSAT_Landsort_Mapillary_423951114146593_%2528cropped%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/SAT_Landsort_Mapillary_423951114146593_%28cropped%29.jpg"
-            },
-            {
               "value": "https://upload.wikimedia.org/wikipedia/commons/c/cc/SAT_Landsort_Mapillary_1001082425551608_%28cropped%29.jpg",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fc%2Fcc%2FSAT_Landsort_Mapillary_1001082425551608_%2528cropped%2529.jpg?uselang=sv",
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/SAT_Landsort_Mapillary_1001082425551608_%28cropped%29.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/5/5c/SAT_Landsort_23.jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F5%2F5c%2FSAT_Landsort_23.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/SAT_Landsort_23.jpg"
-            },
-            {
               "value": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_1104814181483052_%28cropped%29.jpg",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Landsort_Mapillary_1104814181483052_%2528cropped%2529.jpg?uselang=sv",
               "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_1104814181483052_%28cropped%29.jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_13.jpg",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Landsort_13.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_13.jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:North_harbor_drinking_water_Landsort.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ANorth_harbor_drinking_water_Landsort.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:North_harbor_drinking_water_Landsort.jpg"
             }
           ]
         },
@@ -3522,7 +3516,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SAT_Landsort_47.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_47.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "lit": "no",
@@ -3652,7 +3646,7 @@
             "foot": "yes",
             "handrail": "yes",
             "highway": "steps",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/SAT_Landsort_Mapillary_423951114146593_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_423951114146593_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "incline": "up",
@@ -3720,7 +3714,7 @@
             "bicycle": "yes",
             "foot": "yes",
             "highway": "residential",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Vandrarhemmet_Landsort_2025_juni.jpg/2560px-Vandrarhemmet_Landsort_2025_juni.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:Vandrarhemmet_Landsort_2025_juni.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "lit": "no",
@@ -3970,7 +3964,7 @@
             "bicycle": "discouraged",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/SAT_Landsort_23.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_23.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "1995824187490562",
@@ -5788,7 +5782,7 @@
           "tags": {
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/SAT_Arholma_20250813_-_19.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_19.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "unpaved",
@@ -6689,10 +6683,10 @@
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/SAT_Ut%C3%B6_2025_maj_Gruvbryggan.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/a/a2/SAT_Ut%C3%B6_Spr%C3%A4nga_ferry_stop_2025_maj_%2818%29.jpg",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_Spr%C3%A4nga_ferry_stop_2025_maj_%2818%29.jpg",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fa%2Fa2%2FSAT_Ut%25C3%25B6_Spr%25C3%25A4nga_ferry_stop_2025_maj_%252818%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/SAT_Ut%C3%B6_Spr%C3%A4nga_ferry_stop_2025_maj_%2818%29.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Ut%25C3%25B6_Spr%25C3%25A4nga_ferry_stop_2025_maj_%252818%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_Spr%C3%A4nga_ferry_stop_2025_maj_%2818%29.jpg"
             },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/d/d9/SAT_Ut%C3%B6_vandring_2025_april_100.jpg",
@@ -6864,14 +6858,20 @@
         },
         {
           "key": "trailblazed",
-          "count": 15,
-          "percent": 33.3,
+          "count": 16,
+          "percent": 35.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
           "topValues": [
             {
               "value": "symbols",
               "count": 14,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "no",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dno?uselang=sv",
               "directUrl": null
             },
             {
@@ -7245,11 +7245,12 @@
           "role": "connection",
           "tags": {
             "highway": "unclassified",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/a/a2/SAT_Ut%C3%B6_Spr%C3%A4nga_ferry_stop_2025_maj_%2818%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_Spr%C3%A4nga_ferry_stop_2025_maj_%2818%29.jpg",
             "image:license": "CC-0",
             "sac_scale": "hiking",
             "surface": "gravel",
-            "trail_visibility": "excellent"
+            "trail_visibility": "excellent",
+            "trailblazed": "no"
           }
         },
         {
@@ -7574,7 +7575,7 @@
             "fixme": "needs a ground check: unclassified or footway?",
             "foot": "designated",
             "highway": "footway",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/SAT_Ut%C3%B6_2025_april_173.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_173.jpg",
             "image:license": "CC-0",
             "sac_scale": "hiking",
             "surface": "ground",
@@ -8272,16 +8273,22 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
-              "count": 5,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F64%2FSAT_%25C3%2585l%25C3%25B6_20250805_med_base_camp_Stora_Sand_06.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg"
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
+              "count": 3,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_%25C3%2585l%25C3%25B6_20250805_med_base_camp_Stora_Sand_06.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg"
             },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/b/b1/SAT_%C3%85l%C3%B6_vandring_2025_april_76.jpg",
               "count": 3,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fb%2Fb1%2FSAT_%25C3%2585l%25C3%25B6_vandring_2025_april_76.jpg?uselang=sv",
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/SAT_%C3%85l%C3%B6_vandring_2025_april_76.jpg"
+            },
+            {
+              "value": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F64%2FSAT_%25C3%2585l%25C3%25B6_20250805_med_base_camp_Stora_Sand_06.jpg?uselang=sv",
+              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg"
             },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/f/fc/SAT_%C3%85l%C3%B6_vandring_2025_april_03.jpg",
@@ -8312,12 +8319,6 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_%25C3%2585l%25C3%25B6_vandring_2025_april_27.jpg%23?uselang=sv",
               "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_vandring_2025_april_27.jpg#"
-            },
-            {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/%C3%85l%C3%B6_och_Stora_sand_20250805_09.jpg/3024px-%C3%85l%C3%B6_och_Stora_sand_20250805_09.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Ff%2Ffa%2F%25C3%2585l%25C3%25B6_och_Stora_sand_20250805_09.jpg%2F3024px-%25C3%2585l%25C3%25B6_och_Stora_sand_20250805_09.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/%C3%85l%C3%B6_och_Stora_sand_20250805_09.jpg/3024px-%C3%85l%C3%B6_och_Stora_sand_20250805_09.jpg"
             }
           ]
         },
@@ -8718,7 +8719,7 @@
             "bicycle": "no",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "sac_scale": "hiking",
@@ -8735,7 +8736,7 @@
             "bicycle": "no",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "sac_scale": "hiking",
@@ -8752,7 +8753,7 @@
             "bicycle": "no",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "sac_scale": "hiking",
@@ -9893,7 +9894,7 @@
           "tags": {
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg/2560px-SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "gravel",
@@ -14018,8 +14019,8 @@
           "percent": 84.2
         },
         "width": {
-          "count": 7,
-          "percent": 36.8
+          "count": 8,
+          "percent": 42.1
         },
         "incline": {
           "count": 0,
@@ -14096,6 +14097,12 @@
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/SAT_R%C3%A5n%C3%B6_2_apr_2025_%2828%29.jpg"
             },
             {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_R%C3%A5n%C3%B6_april_vandring_15.jpg",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_R%25C3%25A5n%25C3%25B6_april_vandring_15.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_R%C3%A5n%C3%B6_april_vandring_15.jpg"
+            },
+            {
               "value": "https://upload.wikimedia.org/wikipedia/commons/e/e8/SAT_R%C3%A5n%C3%B6_2_apr_2025_%2826%29.jpg",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fe%2Fe8%2FSAT_R%25C3%25A5n%25C3%25B6_2_apr_2025_%252826%2529.jpg?uselang=sv",
@@ -14124,12 +14131,6 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3a%2FSAT_R%25C3%25A5n%25C3%25B6_2_apr_2025_%252814%2529.jpg?uselang=sv",
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/SAT_R%C3%A5n%C3%B6_2_apr_2025_%2814%29.jpg"
-            },
-            {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/7/74/SAT_R%C3%A5n%C3%B6_2_apr_2025_%2816%29.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F7%2F74%2FSAT_R%25C3%25A5n%25C3%25B6_2_apr_2025_%252816%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/SAT_R%C3%A5n%C3%B6_2_apr_2025_%2816%29.jpg"
             }
           ]
         },
@@ -14343,8 +14344,8 @@
         },
         {
           "key": "width",
-          "count": 7,
-          "percent": 36.8,
+          "count": 8,
+          "percent": 42.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:width?uselang=sv",
           "topValues": [
             {
@@ -14363,6 +14364,12 @@
               "value": "3",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D3?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "1",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D1?uselang=sv",
               "directUrl": null
             }
           ]
@@ -14762,7 +14769,7 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/SAT_R%C3%A5n%C3%B6_april_vandring_15.jpg/3024px-SAT_R%C3%A5n%C3%B6_april_vandring_15.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_R%C3%A5n%C3%B6_april_vandring_15.jpg",
             "image:license": "CC-.0",
             "image:license:wikidata": "Q6938433",
             "sac_scale": "hiking",
@@ -14783,7 +14790,8 @@
             "image:license:wikidata": "Q6938433",
             "sac_scale": "hiking",
             "surface": "ground",
-            "trail_visibility": "intermediate"
+            "trail_visibility": "intermediate",
+            "width": "1"
           }
         },
         {
@@ -15193,16 +15201,16 @@
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/SAT_Furusund_2025_april_%289%29.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/3/3d/SAT_Furusund_%2840%29.jpg",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_%2829%29.jpg",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3d%2FSAT_Furusund_%252840%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/SAT_Furusund_%2840%29.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Furusund_%252829%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_%2829%29.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/b/b2/SAT_Furusund_grillplats_Myrudden.jpg",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_grillplats_Myrudden.jpg",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fb%2Fb2%2FSAT_Furusund_grillplats_Myrudden.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/SAT_Furusund_grillplats_Myrudden.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Furusund_grillplats_Myrudden.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_grillplats_Myrudden.jpg"
             }
           ]
         },
@@ -15573,20 +15581,6 @@
           ]
         },
         {
-          "key": "imagery_used",
-          "count": 1,
-          "percent": 2.2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:imagery_used?uselang=sv",
-          "topValues": [
-            {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/8/85/SAT_Furusund_%2829%29.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:imagery_used%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F8%2F85%2FSAT_Furusund_%252829%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/SAT_Furusund_%2829%29.jpg"
-            }
-          ]
-        },
-        {
           "key": "incline",
           "count": 1,
           "percent": 2.2,
@@ -15680,7 +15674,7 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/SAT_Furusund_%2840%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_%2829%29.jpg",
             "image:license": "CC0",
             "mtb:scale": "5",
             "name": "Röd slinga",
@@ -15700,9 +15694,8 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/b/b2/SAT_Furusund_grillplats_Myrudden.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_grillplats_Myrudden.jpg",
             "image:license": "CC0",
-            "imagery_used": "https://upload.wikimedia.org/wikipedia/commons/8/85/SAT_Furusund_%2829%29.jpg",
             "name": "Röd slinga",
             "sac_scale": "hiking",
             "surface": "sand",
@@ -31134,7 +31127,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/SAT_Landsort_47.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_47.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "lit": "no",
@@ -31276,7 +31269,7 @@
         "foot": "yes",
         "handrail": "yes",
         "highway": "steps",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/SAT_Landsort_Mapillary_423951114146593_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_423951114146593_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "incline": "up",
@@ -31350,7 +31343,7 @@
         "bicycle": "yes",
         "foot": "yes",
         "highway": "residential",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Vandrarhemmet_Landsort_2025_juni.jpg/2560px-Vandrarhemmet_Landsort_2025_juni.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:Vandrarhemmet_Landsort_2025_juni.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "lit": "no",
@@ -31605,7 +31598,7 @@
         "bicycle": "discouraged",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/SAT_Landsort_23.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_23.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "1995824187490562",
@@ -32599,7 +32592,7 @@
       "tags": {
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/SAT_Arholma_20250813_-_19.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_19.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "surface": "unpaved",
@@ -33106,11 +33099,12 @@
       ],
       "tags": {
         "highway": "unclassified",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/a/a2/SAT_Ut%C3%B6_Spr%C3%A4nga_ferry_stop_2025_maj_%2818%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_Spr%C3%A4nga_ferry_stop_2025_maj_%2818%29.jpg",
         "image:license": "CC-0",
         "sac_scale": "hiking",
         "surface": "gravel",
-        "trail_visibility": "excellent"
+        "trail_visibility": "excellent",
+        "trailblazed": "no"
       }
     },
     {
@@ -33473,7 +33467,7 @@
         "fixme": "needs a ground check: unclassified or footway?",
         "foot": "designated",
         "highway": "footway",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/SAT_Ut%C3%B6_2025_april_173.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_173.jpg",
         "image:license": "CC-0",
         "sac_scale": "hiking",
         "surface": "ground",
@@ -34052,7 +34046,7 @@
         "bicycle": "no",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "sac_scale": "hiking",
@@ -34071,7 +34065,7 @@
         "bicycle": "no",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "sac_scale": "hiking",
@@ -34090,7 +34084,7 @@
         "bicycle": "no",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/64/SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "sac_scale": "hiking",
@@ -34609,7 +34603,7 @@
       "tags": {
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg/2560px-SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "surface": "gravel",
@@ -37061,7 +37055,7 @@
       "tags": {
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/SAT_R%C3%A5n%C3%B6_april_vandring_15.jpg/3024px-SAT_R%C3%A5n%C3%B6_april_vandring_15.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_R%C3%A5n%C3%B6_april_vandring_15.jpg",
         "image:license": "CC-.0",
         "image:license:wikidata": "Q6938433",
         "sac_scale": "hiking",
@@ -37084,7 +37078,8 @@
         "image:license:wikidata": "Q6938433",
         "sac_scale": "hiking",
         "surface": "ground",
-        "trail_visibility": "intermediate"
+        "trail_visibility": "intermediate",
+        "width": "1"
       }
     },
     {
@@ -37136,7 +37131,7 @@
       "tags": {
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/SAT_Furusund_%2840%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_%2829%29.jpg",
         "image:license": "CC0",
         "mtb:scale": "5",
         "name": "Röd slinga",
@@ -37158,9 +37153,8 @@
       "tags": {
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/b/b2/SAT_Furusund_grillplats_Myrudden.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_grillplats_Myrudden.jpg",
         "image:license": "CC0",
-        "imagery_used": "https://upload.wikimedia.org/wikipedia/commons/8/85/SAT_Furusund_%2829%29.jpg",
         "name": "Röd slinga",
         "sac_scale": "hiking",
         "surface": "sand",
