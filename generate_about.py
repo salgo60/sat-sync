@@ -116,6 +116,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-live-connected-archipelago-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-live-connected-archipelago-flyer.jpg" alt="Stockholm Archipelago Trail Live &amp; Connected med realtidsdata i skärgården" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-live-data-experiences-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-live-data-experiences-flyer.jpg" alt="Live data. Levande upplevelser längs Stockholm Archipelago Trail" loading="lazy">
+      </a>
       <a class="flyer-card" href="assets/sat-community-collaboration-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-community-collaboration-flyer.jpg" alt="Från gemenskap till samverkan" loading="lazy">
       </a>
