@@ -811,6 +811,7 @@ ORDER BY DESC(geof:latitude(?coord))
         <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a> &nbsp;|&nbsp;
         <a href="sat_osm_ref_report.html">📊 OSM-egenskaper</a> &nbsp;|&nbsp;
         <a href="sat_osm_trail_report.html">🥾 Ledegenskaper</a> &nbsp;|&nbsp;
+        <a href="https://www.youtube.com/watch?v=saIpaWoWWA8" target="_blank" rel="noopener"><span id="videoLinkHdr">🎬 Introduktionsvideo</span></a> &nbsp;|&nbsp;
         <a href="sat_about.html"><span id="aboutLinkHdr">ℹ️ About</span></a>
       </div>
     </div>
@@ -1320,7 +1321,8 @@ ORDER BY DESC(geof:latitude(?coord))
           sankeyStagePrefix: 'etapp',
           whatsNewLink: "What's new",
           todoListLink: '✅ TODO-lista',
-          improvementsLink: '💡 Förbättringsförslag'
+          improvementsLink: '💡 Förbättringsförslag',
+          videoLink: '🎬 Introduktionsvideo'
         }},
         en: {{
           all: 'All',
@@ -1375,7 +1377,8 @@ ORDER BY DESC(geof:latitude(?coord))
           sankeyStagePrefix: 'stage',
           whatsNewLink: "What's new",
           todoListLink: '✅ TODO list',
-          improvementsLink: '💡 Improvement suggestion'
+          improvementsLink: '💡 Improvement suggestion',
+          videoLink: '🎬 Introduction video'
         }}
       }};
 
@@ -1595,7 +1598,8 @@ ORDER BY DESC(geof:latitude(?coord))
           poisGeneratedAtLabelHdr: 'poisGeneratedAtLabel',
           whatsNewLink: 'whatsNewLink',
           todoListLinkFtr: 'todoListLink',
-          improvementsLink: 'improvementsLink'
+          improvementsLink: 'improvementsLink',
+          videoLinkHdr: 'videoLink'
         }};
         Object.entries(bindings).forEach(([id, key]) => {{
           const el = document.getElementById(id);

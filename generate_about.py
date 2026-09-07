@@ -42,13 +42,18 @@ HTML = f"""\
     .tool-card .icon {{ font-size: 1.8rem; margin-bottom: 8px; }}
     .tool-card h3 {{ font-size: .95rem; color: #2546a8; margin: 0 0 4px; }}
     .tool-card p {{ font-size: .82rem; color: #64748b; margin: 0; }}
+    .video-card {{ display:grid; grid-template-columns:minmax(220px,320px) 1fr; gap:20px; align-items:center; color:inherit; text-decoration:none; }}
+    .video-card:hover {{ text-decoration:none; }}
+    .video-card img {{ display:block; width:100%; border-radius:9px; }}
+    .video-card h2 {{ border:0; margin:0 0 6px; padding:0; }}
+    .video-card p {{ margin:0; }}
     .source-table {{ width: 100%; border-collapse: collapse; font-size: .88rem; }}
     .source-table th {{ background: #f1f5f9; text-align: left; padding: 8px 10px; border-bottom: 2px solid #e2e8f0; }}
     .source-table td {{ padding: 7px 10px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }}
     .badge {{ display: inline-block; background: #dbeafe; color: #1e40af; border-radius: 6px;
               padding: 2px 8px; font-size: .75rem; font-weight: 600; }}
     .footer {{ text-align: center; font-size: .8rem; color: #94a3b8; padding: 24px; }}
-    @media(max-width:600px) {{ .header h1 {{ font-size: 1.2rem; }} main {{ padding: 0 10px; }} }}
+    @media(max-width:600px) {{ .header h1 {{ font-size: 1.2rem; }} main {{ padding: 0 10px; }} .video-card {{ grid-template-columns:1fr; }} }}
   </style>
 </head>
 <body>
@@ -79,6 +84,16 @@ HTML = f"""\
       <li>Välj en etapp för att se dess relationstaggar, ledobjekt, taggtäckning och vanligaste värden.</li>
       <li>En ny infografik förklarar relationerna mellan hela leden, etapper, geometri och platser.</li>
     </ul>
+  </section>
+
+  <section>
+    <a class="video-card" href="https://www.youtube.com/watch?v=saIpaWoWWA8" target="_blank" rel="noopener">
+      <img src="https://i.ytimg.com/vi/saIpaWoWWA8/hqdefault.jpg" alt="Miniatyr för videon SAT POI Dashboard" width="480" height="360">
+      <div>
+        <h2 id="video-title">🎬 Se introduktionsvideon</h2>
+        <p id="video-desc">En presentation av SAT POI Dashboard och hur verktyget hjälper till att utforska och förbättra data längs leden. Öppnas på YouTube.</p>
+      </div>
+    </a>
   </section>
 
   <!-- ── What is this? ─────────────────────────────────────────────────── -->
@@ -229,6 +244,8 @@ HTML = f"""\
       langBtn: 'English',
       secLatestTitle: '🆕 Senaste: OSM-egenskaper på leden (september 2026)',
       secLatestList: '<li>Den nya <a href="sat_osm_trail_report.html"><strong>ledrapporten</strong></a> följer OSM:s hierarki från superrelationen till 20 etapprelationer.</li><li>Den sammanställer egenskaper för 769 unika vägar och noder som leden följer.</li><li>Välj en etapp för att se dess relationstaggar, ledobjekt, taggtäckning och vanligaste värden.</li><li>En ny infografik förklarar relationerna mellan hela leden, etapper, geometri och platser.</li>',
+      videoTitle: '🎬 Se introduktionsvideon',
+      videoDesc: 'En presentation av SAT POI Dashboard och hur verktyget hjälper till att utforska och förbättra data längs leden. Öppnas på YouTube.',
       secWhatTitle: '🧭 Vad är det här?',
       secWhatP1: 'Det här är en uppsättning öppna webbaserade verktyg för att följa och förbättra datakvaliteten hos POI (Points of Interest) längs <strong>Stockholm Archipelago Trail (SAT)</strong> — en vandringsled med 21 etapper/öar i Stockholms skärgård.',
       secWhatP2: 'Verktygen hämtar data från SAT:s officiella API, OpenStreetMap (OSM) och Wikidata, och visar hur väl kopplingarna mellan dessa tre datakällor stämmer överens — och vad som saknas.',
@@ -283,6 +300,8 @@ HTML = f"""\
       langBtn: 'Svenska',
       secLatestTitle: '🆕 Latest: OSM trail properties (September 2026)',
       secLatestList: '<li>The new <a href="sat_osm_trail_report.html"><strong>trail report</strong></a> follows the OSM hierarchy from the superroute to 20 section relations.</li><li>It summarizes properties for the 769 unique ways and nodes followed by the trail.</li><li>Select a section to see its relation tags, trail objects, tag coverage, and common values.</li><li>A new infographic explains the relationships between the complete trail, sections, geometry, and places.</li>',
+      videoTitle: '🎬 Watch the introduction video',
+      videoDesc: 'An introduction to the SAT POI Dashboard and how it helps explore and improve data along the trail. Opens on YouTube.',
       secWhatTitle: '🧭 What is this?',
       secWhatP1: 'This is a set of open web-based tools for tracking and improving the data quality of POIs (Points of Interest) along the <strong>Stockholm Archipelago Trail (SAT)</strong> — a hiking trail across 21 stages/islands in the Stockholm archipelago.',
       secWhatP2: 'The tools fetch data from the SAT official API, OpenStreetMap (OSM), and Wikidata, and show how well the links between these three data sources align — and what is missing.',
@@ -336,7 +355,7 @@ HTML = f"""\
 
   const ids = [
     'page-h1','page-subtitle','nav-dashboard','nav-todo','nav-todo-list','nav-quality','nav-osm-report','nav-trail-report','nav-whatsnew','lang-btn',
-    'sec-latest-title','sec-latest-list','sec-what-title','sec-what-p1','sec-what-p2','sec-tools-title',
+    'sec-latest-title','sec-latest-list','video-title','video-desc','sec-what-title','sec-what-p1','sec-what-p2','sec-tools-title',
     'card-dashboard-title','card-dashboard-desc','card-todo-title','card-todo-desc','card-todo-list-title','card-todo-list-desc',
     'card-quality-title','card-quality-desc','card-osm-report-title','card-osm-report-desc','card-trail-report-title','card-trail-report-desc','card-whatsnew-title','card-whatsnew-desc',
     'sec-sources-title','th-source','th-what','th-url',
@@ -351,6 +370,7 @@ HTML = f"""\
     'nav-dashboard':'navDashboard','nav-todo':'navTodo','nav-todo-list':'navTodoList','nav-quality':'navQuality','nav-osm-report':'navOsmReport','nav-trail-report':'navTrailReport','nav-whatsnew':'navWhatsnew',
     'lang-btn':'langBtn',
     'sec-latest-title':'secLatestTitle','sec-latest-list':'secLatestList',
+    'video-title':'videoTitle','video-desc':'videoDesc',
     'sec-what-title':'secWhatTitle','sec-what-p1':'secWhatP1','sec-what-p2':'secWhatP2',
     'sec-tools-title':'secToolsTitle',
     'card-dashboard-title':'cardDashboardTitle','card-dashboard-desc':'cardDashboardDesc',
