@@ -709,7 +709,8 @@ ORDER BY DESC(geof:latitude(?coord))
     .header-meta {{ margin-top:10px; font-size:0.8rem; opacity:0.75; }}
     .header-meta a {{ color:#a8c4ff; text-decoration:none; }}
     .header-meta a:hover {{ text-decoration:underline; }}
-    .dashboard-flyer {{ display:flex; align-items:center; gap:18px; margin:16px 24px; padding:12px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; box-shadow:0 1px 3px #0001; }}
+    .dashboard-flyers {{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:16px 24px; }}
+    .dashboard-flyer {{ display:flex; align-items:center; gap:18px; margin:0; padding:12px; background:#fff; border:1px solid #e2e8f0; border-radius:10px; box-shadow:0 1px 3px #0001; }}
     .dashboard-flyer img {{ display:block; width:220px; max-width:30vw; height:auto; border-radius:7px; }}
     .dashboard-flyer strong {{ display:block; color:#2546a8; font-size:1.05rem; margin-bottom:4px; }}
     .dashboard-flyer small {{ display:block; color:#64748b; margin-top:4px; }}
@@ -797,7 +798,8 @@ ORDER BY DESC(geof:latitude(?coord))
       th, td {{ padding:6px 8px; }}
       .footer {{ padding:12px 16px; font-size:.75rem; }}
       .header-meta {{ font-size:0.72rem; }}
-      .dashboard-flyer {{ display:block; margin:12px 16px; }}
+      .dashboard-flyers {{ grid-template-columns:1fr; margin:12px 16px; }}
+      .dashboard-flyer {{ display:block; }}
       .dashboard-flyer img {{ width:100%; max-width:none; margin-bottom:10px; }}
     }}
   </style>
@@ -822,16 +824,28 @@ ORDER BY DESC(geof:latitude(?coord))
       </div>
     </div>
 
-    <figure class="dashboard-flyer">
-      <a href="assets/sat-open-data-flyer.jpg" target="_blank">
-        <img src="assets/sat-open-data-flyer.jpg" alt="Flyer om hur bra och kopplad data skapar bättre upplevelser på vandringsleder" width="1024" height="1536">
-      </a>
-      <figcaption>
-        <strong id="flyerTitle">Vandringsleder behöver bra data</strong>
-        <span id="flyerDesc">Flyern visar hur öppna, sammankopplade datakällor kan skapa bättre och mer tillgängliga tjänster för vandrare.</span>
-        <small id="flyerHint">Klicka på bilden för att öppna den i full storlek.</small>
-      </figcaption>
-    </figure>
+    <div class="dashboard-flyers">
+      <figure class="dashboard-flyer">
+        <a href="assets/sat-open-data-flyer.jpg" target="_blank">
+          <img src="assets/sat-open-data-flyer.jpg" alt="Flyer om hur bra och kopplad data skapar bättre upplevelser på vandringsleder" width="1024" height="1536">
+        </a>
+        <figcaption>
+          <strong id="flyerTitle">Vandringsleder behöver bra data</strong>
+          <span id="flyerDesc">Flyern visar hur öppna, sammankopplade datakällor kan skapa bättre och mer tillgängliga tjänster för vandrare.</span>
+          <small id="flyerHint">Klicka på bilden för att öppna den i full storlek.</small>
+        </figcaption>
+      </figure>
+      <figure class="dashboard-flyer">
+        <a href="assets/sat-collaboration-flyer.jpg" target="_blank">
+          <img src="assets/sat-collaboration-flyer.jpg" alt="Flyer om samverkan för bättre vandringsleder" width="1024" height="1536">
+        </a>
+        <figcaption>
+          <strong id="collaborationFlyerTitle">Tillsammans för bättre vandringsleder</strong>
+          <span id="collaborationFlyerDesc">Flyern visar hur kommuner, myndigheter och organisationer tillsammans kan skapa öppna data och bättre tjänster.</span>
+          <small id="collaborationFlyerHint">Klicka på bilden för att öppna den i full storlek.</small>
+        </figcaption>
+      </figure>
+    </div>
 
     <div class="stats">
       <div class="card"><h3 id="statTotalLabel">Totalt POI</h3><div class="num" id="statTotalNum">{len(poi_map_data)}</div></div>
@@ -1342,7 +1356,10 @@ ORDER BY DESC(geof:latitude(?coord))
           videoLink: '🎬 Introduktionsvideo',
           flyerTitle: 'Vandringsleder behöver bra data',
           flyerDesc: 'Flyern visar hur öppna, sammankopplade datakällor kan skapa bättre och mer tillgängliga tjänster för vandrare.',
-          flyerHint: 'Klicka på bilden för att öppna den i full storlek.'
+          flyerHint: 'Klicka på bilden för att öppna den i full storlek.',
+          collaborationFlyerTitle: 'Tillsammans för bättre vandringsleder',
+          collaborationFlyerDesc: 'Flyern visar hur kommuner, myndigheter och organisationer tillsammans kan skapa öppna data och bättre tjänster.',
+          collaborationFlyerHint: 'Klicka på bilden för att öppna den i full storlek.'
         }},
         en: {{
           all: 'All',
@@ -1401,7 +1418,10 @@ ORDER BY DESC(geof:latitude(?coord))
           videoLink: '🎬 Introduction video',
           flyerTitle: 'Hiking trails need good data',
           flyerDesc: 'The flyer shows how open, connected data sources can create better and more accessible services for hikers.',
-          flyerHint: 'Click the image to open it full size.'
+          flyerHint: 'Click the image to open it full size.',
+          collaborationFlyerTitle: 'Together for better hiking trails',
+          collaborationFlyerDesc: 'The flyer shows how municipalities, public agencies, and organizations can work together to create open data and better services.',
+          collaborationFlyerHint: 'Click the image to open it full size.'
         }}
       }};
 
@@ -1625,7 +1645,10 @@ ORDER BY DESC(geof:latitude(?coord))
           videoLinkHdr: 'videoLink',
           flyerTitle: 'flyerTitle',
           flyerDesc: 'flyerDesc',
-          flyerHint: 'flyerHint'
+          flyerHint: 'flyerHint',
+          collaborationFlyerTitle: 'collaborationFlyerTitle',
+          collaborationFlyerDesc: 'collaborationFlyerDesc',
+          collaborationFlyerHint: 'collaborationFlyerHint'
         }};
         Object.entries(bindings).forEach(([id, key]) => {{
           const el = document.getElementById(id);
