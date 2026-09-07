@@ -144,6 +144,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-open-data-ecosystem-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-open-data-ecosystem-flyer.jpg" alt="Öppna data, fler leder och större upplevelser" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-learning-competencies-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-learning-competencies-flyer.jpg" alt="Visualisera lärandet – kompetenserna som bygger och förvaltar ekosystemet" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
   </section>
 
