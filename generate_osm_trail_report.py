@@ -301,6 +301,11 @@ def render_report(report: dict) -> str:
     .card {{ padding:1rem; }}
     .card strong {{ display:block; color:var(--blue); font-size:1.65rem; }}
     .panel {{ margin-bottom:1rem; padding:1rem; }}
+    .infographic {{ display:flex; align-items:center; gap:1rem; padding:.8rem; }}
+    .infographic img {{ display:block; width:360px; max-width:38vw; height:auto; border-radius:7px; }}
+    .infographic figcaption {{ line-height:1.45; }}
+    .infographic strong {{ display:block; color:var(--blue); margin-bottom:.2rem; }}
+    .infographic small {{ color:#65717c; }}
     h2 {{ color:var(--blue); font-size:1.25rem; margin:.2rem 0 .8rem; }}
     h3 {{ color:var(--deep); }}
     .hierarchy {{ display:grid; grid-template-columns:minmax(230px,.8fr) 2fr; gap:1rem; }}
@@ -325,6 +330,8 @@ def render_report(report: dict) -> str:
     .coverage div {{ padding:.45rem .55rem; background:#f5f8fa; border-radius:6px; }}
     .coverage strong {{ float:right; color:var(--blue); }}
     @media(max-width:720px) {{
+      .infographic {{ display:block; }}
+      .infographic img {{ width:100%; max-width:none; margin-bottom:.7rem; }}
       .hierarchy {{ grid-template-columns:1fr; }}
       th:nth-child(4),td:nth-child(4) {{ display:none; }}
     }}
@@ -337,6 +344,16 @@ def render_report(report: dict) -> str:
   <p class="meta"><a href="sat_poi_dashboard.html">← SAT POI Dashboard</a> · <a href="sat_osm_ref_report.html">POI-egenskaper</a> · <a href="sat_about.html?lang=sv">Om verktygen</a> · Genererad {generated} · <a href="{query_url}" target="_blank" rel="noopener">Overpass-fråga</a></p>
 </header>
 <main>
+  <figure class="panel infographic">
+    <a href="assets/sat-osm-trail-infographic.jpg" target="_blank">
+      <img src="assets/sat-osm-trail-infographic.jpg" alt="Infografik över hur Stockholm Archipelago Trail beskrivs i OpenStreetMap" width="1536" height="1024">
+    </a>
+    <figcaption>
+      <strong>Från relation till ledens vägar och platser</strong>
+      Infografiken visar hur SAT byggs upp i OSM med en superrelation, 20 etapprelationer och deras vägar, stigar och platser.
+      <small>Klicka på bilden för att öppna den i full storlek.</small>
+    </figcaption>
+  </figure>
   <div id="summary" class="cards"></div>
   <section class="panel">
     <h2>Leden som OSM-hierarki</h2>
