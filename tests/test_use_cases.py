@@ -65,6 +65,20 @@ def test_published_page_matches_generator():
     assert (ROOT / "sat_use_cases.html").read_text(encoding="utf-8") == render_html()
 
 
+def test_infographic_is_linked_and_explained_in_both_languages():
+    html = render_html()
+    page = Page(html)
+    image = next(attrs for tag, attrs in page.elements if tag == "img")
+    assert image["src"] == "assets/sat-use-cases-infographic.jpg"
+    assert (ROOT / image["src"]).is_file()
+    assert image["width"] == "1024" and image["height"] == "1536"
+    assert image["aria-describedby"] == "infographic-caption"
+    assert any(tag == "a" and attrs.get("href") == image["src"]
+               for tag, attrs in page.elements)
+    assert "Konceptöversikt" in html and "Concept overview" in html
+    assert "inte en interaktiv karta" in html and "not an interactive map" in html
+
+
 def test_validation_rejects_unmapped_personas_and_missing_translations():
     cases = deepcopy(CASES)
     for case in cases:

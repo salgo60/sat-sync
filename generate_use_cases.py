@@ -132,6 +132,22 @@ def render_html(cases=CASES):
       {bi("Prioriteringar och ansvariga är förslag, inte beslut eller partneråtaganden.",
           "Priorities and owners are proposals, not decisions or partner commitments.")}</p>
   </section>
+  <section aria-labelledby="infographic-title">
+    <h2 id="infographic-title">{bi("Användningsfallen i bild", "Use cases at a glance")}</h2>
+    <figure class="use-cases-infographic">
+      <a href="assets/sat-use-cases-infographic.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-use-cases-infographic.jpg"
+             alt="Stockholm Archipelago Trail: 16 användningsfall / 16 use cases"
+             width="1024" height="1536" loading="lazy" aria-describedby="infographic-caption">
+      </a>
+      <figcaption id="infographic-caption">
+        <p>{bi("Konceptöversikt över resan före, under och efter vandringen samt aktörer och öppna data. Bildens numrering, prioriteringar och exempel skiljer sig från sidans SAT-ID:n. Korten nedan är den aktuella bedömningen; bilden är inte en interaktiv karta eller ett löfte om tillgängliga tjänster.",
+               "Concept overview of the journey before, during and after hiking, stakeholders and open data. The image's numbering, priorities and examples differ from this page's SAT IDs. The cards below are the current assessment; the image is not an interactive map or a promise of available services.")}</p>
+        <p>{bi("Klicka på bilden för full storlek. Texten i bilden är på svenska.",
+               "Click the image to open it full size. The text in the image is in Swedish.")}</p>
+      </figcaption>
+    </figure>
+  </section>
   <section id="assessment">
     <h2>{bi("Kritik: vad saknas i helheten?", "Critique: what is missing overall?")}</h2>
     <div class="assessment-grid">
@@ -239,6 +255,9 @@ TEMPLATE = """<!DOCTYPE html>
     .skip { position:absolute; left:12px; top:-100px; background:white; padding:10px; z-index:10; }
     .skip:focus { top:10px; }
     .notice { border-left:5px solid #d97706; background:#fffbeb; }
+    .use-cases-infographic { margin:0; }
+    .use-cases-infographic img { display:block; width:100%; max-width:800px; height:auto; margin:0 auto; border-radius:8px; }
+    .use-cases-infographic figcaption { color:#475569; font-size:.95rem; }
     .assessment-grid, .case-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
     .stats { display:flex; gap:14px; flex-wrap:wrap; }
     .stat { background:#f1f5f9; padding:12px 20px; border-radius:8px; }
