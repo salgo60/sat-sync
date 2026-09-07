@@ -147,6 +147,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-learning-competencies-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-learning-competencies-flyer.jpg" alt="Visualisera lärandet – kompetenserna som bygger och förvaltar ekosystemet" width="1536" height="1024" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-memory-palace-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-memory-palace-flyer.jpg" alt="Memory Palace – Kompetenser för en levande skärgård: från vision och datakällor till samverkan och förvaltning" width="1520" height="1013" loading="lazy">
+      </a>
     </div>
   </section>
 
