@@ -72,6 +72,7 @@ HTML = f"""\
     <a href="sat_poi_quality_history.html" id="nav-quality">📈 Datakvalitet</a> &nbsp;|&nbsp;
     <a href="sat_osm_ref_report.html" id="nav-osm-report">📊 OSM-egenskaper</a> &nbsp;|&nbsp;
     <a href="sat_osm_trail_report.html" id="nav-trail-report">🥾 Ledegenskaper</a> &nbsp;|&nbsp;
+    <a href="sat_use_cases.html" id="nav-use-cases">Användningsfall</a> &nbsp;|&nbsp;
     <a href="whats_new.html" id="nav-whatsnew">What's new</a> &nbsp;|&nbsp;
     <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub</a>
     <button class="lang-btn" id="lang-btn" onclick="toggleLang()">English</button>
@@ -157,6 +158,10 @@ HTML = f"""\
   <section>
     <h2 id="sec-tools-title">🛠️ Verktyg</h2>
     <div class="card-grid">
+      <a class="tool-card" href="sat_use_cases.html" id="use-cases-card">
+        <h3 id="card-use-cases-title">Användningsfall för vandring</h3>
+        <p id="card-use-cases-desc">16 konkreta uppgifter, jämförelse med 43 målgrupper och en kritisk bedömning av befintligt stöd, luckor och prioriteringar.</p>
+      </a>
       <a class="tool-card" href="sat_poi_dashboard.html">
         <div class="icon">🧭</div>
         <h3 id="card-dashboard-title">SAT POI Dashboard</h3>
@@ -295,6 +300,9 @@ HTML = f"""\
       secLatestTitle: '🆕 Senaste: OSM-egenskaper på leden (september 2026)',
       secLatestList: '<li>Den nya <a href="sat_osm_trail_report.html"><strong>ledrapporten</strong></a> följer OSM:s hierarki från superrelationen till 20 etapprelationer.</li><li>Den sammanställer egenskaper för 769 unika vägar och noder som leden följer.</li><li>Välj en etapp för att se dess relationstaggar, ledobjekt, taggtäckning och vanligaste värden.</li><li>En ny infografik förklarar relationerna mellan hela leden, etapper, geometri och platser.</li>',
       videoTitle: '🎬 Se introduktionsvideon',
+      navUseCases: 'Användningsfall',
+      cardUseCasesTitle: 'Användningsfall för vandring',
+      cardUseCasesDesc: '16 konkreta uppgifter, jämförelse med 43 målgrupper och en kritisk bedömning av befintligt stöd, luckor och prioriteringar.',
       videoDesc: 'En presentation av SAT POI Dashboard och hur verktyget hjälper till att utforska och förbättra data längs leden. Öppnas på YouTube.',
       flyersTitle: '🖼️ Flyers och infografik',
       flyersDesc: 'Klicka på en bild för att öppna den i full storlek.',
@@ -353,6 +361,9 @@ HTML = f"""\
       secLatestTitle: '🆕 Latest: OSM trail properties (September 2026)',
       secLatestList: '<li>The new <a href="sat_osm_trail_report.html"><strong>trail report</strong></a> follows the OSM hierarchy from the superroute to 20 section relations.</li><li>It summarizes properties for the 769 unique ways and nodes followed by the trail.</li><li>Select a section to see its relation tags, trail objects, tag coverage, and common values.</li><li>A new infographic explains the relationships between the complete trail, sections, geometry, and places.</li>',
       videoTitle: '🎬 Watch the introduction video',
+      navUseCases: 'Use cases',
+      cardUseCasesTitle: 'Hiking use cases',
+      cardUseCasesDesc: '16 actionable tasks, a comparison with 43 personas and a critical assessment of current support, gaps and priorities.',
       videoDesc: 'An introduction to the SAT POI Dashboard and how it helps explore and improve data along the trail. Opens on YouTube.',
       flyersTitle: '🖼️ Flyers and infographics',
       flyersDesc: 'Click an image to open it at full size.',
@@ -408,6 +419,7 @@ HTML = f"""\
   if (urlParams.get('lang') === 'en') lang = 'en';
 
   const ids = [
+    'nav-use-cases','card-use-cases-title','card-use-cases-desc',
     'page-h1','page-subtitle','nav-dashboard','nav-todo','nav-todo-list','nav-quality','nav-osm-report','nav-trail-report','nav-whatsnew','lang-btn',
     'sec-latest-title','sec-latest-list','video-title','video-desc','flyers-title','flyers-desc','sec-what-title','sec-what-p1','sec-what-p2','sec-tools-title',
     'card-dashboard-title','card-dashboard-desc','card-todo-title','card-todo-desc','card-todo-list-title','card-todo-list-desc',
@@ -420,6 +432,7 @@ HTML = f"""\
   ];
 
   const idToKey = {{
+    'nav-use-cases':'navUseCases','card-use-cases-title':'cardUseCasesTitle','card-use-cases-desc':'cardUseCasesDesc',
     'page-h1':'h1','page-subtitle':'subtitle',
     'nav-dashboard':'navDashboard','nav-todo':'navTodo','nav-todo-list':'navTodoList','nav-quality':'navQuality','nav-osm-report':'navOsmReport','nav-trail-report':'navTrailReport','nav-whatsnew':'navWhatsnew',
     'lang-btn':'langBtn',
@@ -460,7 +473,8 @@ HTML = f"""\
       if (d[key] !== undefined) el.innerHTML = d[key];
     }});
     // Update nav href lang params
-    [['nav-dashboard','sat_poi_dashboard.html'],['nav-todo','sat_todo_map.html'],['nav-todo-list','sat_todo_list.html'],
+    [['nav-use-cases','sat_use_cases.html'],['use-cases-card','sat_use_cases.html'],
+     ['nav-dashboard','sat_poi_dashboard.html'],['nav-todo','sat_todo_map.html'],['nav-todo-list','sat_todo_list.html'],
      ['nav-quality','sat_poi_quality_history.html'],['nav-osm-report','sat_osm_ref_report.html'],['nav-trail-report','sat_osm_trail_report.html'],['nav-whatsnew','whats_new.html']].forEach(([id, base]) => {{
       const el = document.getElementById(id);
       if (el && el.closest) {{

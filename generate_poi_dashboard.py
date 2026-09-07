@@ -819,6 +819,7 @@ ORDER BY DESC(geof:latitude(?coord))
         <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a> &nbsp;|&nbsp;
         <a href="sat_osm_ref_report.html">📊 OSM-egenskaper</a> &nbsp;|&nbsp;
         <a href="sat_osm_trail_report.html">🥾 Ledegenskaper</a> &nbsp;|&nbsp;
+        <a href="sat_use_cases.html" id="useCasesLinkHdr">Användningsfall</a> &nbsp;|&nbsp;
         <a href="https://www.youtube.com/watch?v=saIpaWoWWA8" target="_blank" rel="noopener"><span id="videoLinkHdr">🎬 Introduktionsvideo</span></a> &nbsp;|&nbsp;
         <a href="sat_about.html"><span id="aboutLinkHdr">ℹ️ About</span></a>
       </div>
@@ -1689,6 +1690,9 @@ ORDER BY DESC(geof:latitude(?coord))
           link.setAttribute('href', qualityUrl);
         }});
         const aboutUrl = `sat_about.html?lang=${{encodeURIComponent(currentLangCode())}}`;
+        const useCasesLink = document.getElementById('useCasesLinkHdr');
+        useCasesLink.textContent = currentLangCode() === 'sv' ? 'Användningsfall' : 'Use cases';
+        useCasesLink.href = `sat_use_cases.html?lang=${{currentLangCode() === 'sv' ? 'sv' : 'en'}}`;
         const aboutHdr = document.getElementById('aboutLinkHdr');
         const aboutFtr = document.getElementById('aboutLinkFtr');
         const aboutLabel = currentLangCode() === 'sv' ? 'ℹ️ Om verktygen' : 'ℹ️ About';
