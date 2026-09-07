@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T04:42:30.660592Z",
+  "generatedAt": "2026-09-07T05:59:21.378883Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -246,10 +246,10 @@
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
       "topValues": [
         {
-          "value": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
-          "count": 11,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffa%2FSAT_Landsort_Mapillary_996157579398784_%2528cropped%2529.jpg?uselang=sv",
-          "directUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg"
+          "value": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+          "count": 10,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Landsort_Mapillary_996157579398784_%2528cropped%2529.jpg?uselang=sv",
+          "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg"
         },
         {
           "value": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_14.jpg",
@@ -282,16 +282,16 @@
           "directUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/SAT_Grinda_28_b%C3%A4nk_p%C3%A5_leden.jpg"
         },
         {
-          "value": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
-          "count": 4,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fdc%2FSAT_Landsort_Mapillary_703903108794092_%2528cropped%2529.jpg?uselang=sv",
-          "directUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg"
-        },
-        {
           "value": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
           "count": 4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fe%2Fec%2FSAT_N%25C3%25A4md%25C3%25B6_b_08.jpg?uselang=sv",
           "directUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg"
+        },
+        {
+          "value": "https://upload.wikimedia.org/wikipedia/commons/d/da/SAT_Furusund_2025_april_boule.jpg",
+          "count": 4,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fda%2FSAT_Furusund_2025_april_boule.jpg?uselang=sv",
+          "directUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/SAT_Furusund_2025_april_boule.jpg"
         }
       ]
     },
@@ -1321,13 +1321,13 @@
     },
     {
       "key": "scenic",
-      "count": 18,
-      "percent": 2.3,
+      "count": 17,
+      "percent": 2.2,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:scenic?uselang=sv",
       "topValues": [
         {
           "value": "yes",
-          "count": 18,
+          "count": 17,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:scenic%3Dyes?uselang=sv",
           "directUrl": null
         }
@@ -2569,10 +2569,10 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
-              "count": 11,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffa%2FSAT_Landsort_Mapillary_996157579398784_%2528cropped%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg"
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+              "count": 10,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Landsort_Mapillary_996157579398784_%2528cropped%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg"
             },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/2/2a/SAT_Landsort_33.jpg",
@@ -2581,16 +2581,16 @@
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/SAT_Landsort_33.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
-              "count": 4,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fdc%2FSAT_Landsort_Mapillary_703903108794092_%2528cropped%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg"
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Landsort_Mapillary_703903108794092_%2528cropped%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/8/88/SAT_Landsort_42.jpg",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_952232493534409_(cropped).jpg",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F8%2F88%2FSAT_Landsort_42.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/SAT_Landsort_42.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Landsort_Mapillary_952232493534409_%28cropped%29.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_952232493534409_(cropped).jpg"
             },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/3/31/SAT_Landsort_Mapillary_423951114146593_%28cropped%29.jpg",
@@ -3167,20 +3167,6 @@
           ]
         },
         {
-          "key": "scenic",
-          "count": 2,
-          "percent": 3.6,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:scenic?uselang=sv",
-          "topValues": [
-            {
-              "value": "yes",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:scenic%3Dyes?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "shoreline",
           "count": 2,
           "percent": 3.6,
@@ -3274,6 +3260,20 @@
               "value": "Landsortsvägen",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DLandsortsv%C3%A4gen?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "scenic",
+          "count": 1,
+          "percent": 1.8,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:scenic?uselang=sv",
+          "topValues": [
+            {
+              "value": "yes",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:scenic%3Dyes?uselang=sv",
               "directUrl": null
             }
           ]
@@ -3461,7 +3461,7 @@
             "bicycle": "yes",
             "foot": "yes",
             "highway": "residential",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "lanes": "1",
@@ -3481,7 +3481,7 @@
             "bicycle": "yes",
             "foot": "yes",
             "highway": "residential",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/8/85/SAT_Landsort_48.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_48.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "lanes": "1",
@@ -3502,7 +3502,7 @@
             "bicycle": "yes",
             "foot": "yes",
             "highway": "service",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "703903108794092",
@@ -3541,7 +3541,7 @@
           "tags": {
             "handrail": "yes",
             "highway": "steps",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/SAT_Landsort_Mapillary_708000472182749_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_708000472182749_(cropped).jpg",
             "image:license": "CC0",
             "image:license:wikidata": "Q6938433",
             "incline": "up",
@@ -3566,7 +3566,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/SAT_Landsort_42.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_952232493534409_(cropped).jpg",
             "image:license": "CC0",
             "image:license:wikidata": "Q6938433",
             "lit": "no",
@@ -3611,7 +3611,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/SAT_Landsort_42.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_952232493534409_(cropped).jpg",
             "image:license": "CC0",
             "image:license:wikidata": "Q6938433",
             "lit": "no",
@@ -3874,7 +3874,7 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/SAT_Landsort_28.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_28.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "660089790171971",
@@ -4046,7 +4046,7 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/SAT_Landsort_12.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_12.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "sac_scale": "hiking",
@@ -4086,10 +4086,9 @@
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "sac_scale": "hiking",
-            "scenic": "yes",
             "shoreline": "yes",
             "smoothness": "bad",
-            "surface": "stone",
+            "surface": "pebblestone",
             "trail_visibility": "intermediate"
           }
         },
@@ -4139,7 +4138,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4159,7 +4158,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4179,7 +4178,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4199,7 +4198,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4219,7 +4218,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4239,7 +4238,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:Landsort_Albert_Holms_minnessten_20260707_50.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4259,7 +4258,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4279,7 +4278,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4299,7 +4298,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4319,7 +4318,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4339,7 +4338,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4359,7 +4358,7 @@
             "bicycle": "yes",
             "foot": "designated",
             "highway": "track",
-            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_1202630367803727_(cropped).jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "mapillary": "996157579398784",
@@ -4379,7 +4378,7 @@
             "bicycle": "yes",
             "foot": "yes",
             "highway": "residential",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_31.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "lanes": "1",
@@ -28842,12 +28841,6 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/7/73/SAT_Orn%C3%B6_2025_april_%2863%29.jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F7%2F73%2FSAT_Orn%25C3%25B6_2025_april_%252863%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/SAT_Orn%C3%B6_2025_april_%2863%29.jpg"
-            },
-            {
               "value": "https://commons.wikimedia.org/wiki/File:SAT_Orn%C3%B6_2025_maj_%2827%29.jpg",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Orn%25C3%25B6_2025_maj_%252827%2529.jpg?uselang=sv",
@@ -28878,16 +28871,22 @@
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/SAT_Orn%C3%B6_2025_april_%2852%29.jpg"
             },
             {
+              "value": "https://upload.wikimedia.org/wikipedia/commons/7/73/SAT_Orn%C3%B6_2025_april_%2863%29.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F7%2F73%2FSAT_Orn%25C3%25B6_2025_april_%252863%2529.jpg?uselang=sv",
+              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/SAT_Orn%C3%B6_2025_april_%2863%29.jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Orn%C3%B6_2025_april_%2863%29.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Orn%25C3%25B6_2025_april_%252863%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Orn%C3%B6_2025_april_%2863%29.jpg"
+            },
+            {
               "value": "https://upload.wikimedia.org/wikipedia/commons/9/91/SAT_Orn%C3%B6_2025_april_%2864%29.jpg",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F9%2F91%2FSAT_Orn%25C3%25B6_2025_april_%252864%2529.jpg?uselang=sv",
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/SAT_Orn%C3%B6_2025_april_%2864%29.jpg"
-            },
-            {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/8/8b/SAT_Orn%C3%B6_2025_april_%2866%29.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F8%2F8b%2FSAT_Orn%25C3%25B6_2025_april_%252866%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/SAT_Orn%C3%B6_2025_april_%2866%29.jpg"
             }
           ]
         },
@@ -29609,7 +29608,7 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/SAT_Orn%C3%B6_2025_april_%2863%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Orn%C3%B6_2025_april_%2863%29.jpg",
             "image:license": "CC-0",
             "name": "Motionsstig",
             "sac_scale": "hiking",
@@ -31068,7 +31067,7 @@
         "bicycle": "yes",
         "foot": "yes",
         "highway": "residential",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "lanes": "1",
@@ -31090,7 +31089,7 @@
         "bicycle": "yes",
         "foot": "yes",
         "highway": "residential",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/85/SAT_Landsort_48.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_48.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "lanes": "1",
@@ -31113,7 +31112,7 @@
         "bicycle": "yes",
         "foot": "yes",
         "highway": "service",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "703903108794092",
@@ -31156,7 +31155,7 @@
       "tags": {
         "handrail": "yes",
         "highway": "steps",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/SAT_Landsort_Mapillary_708000472182749_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_708000472182749_(cropped).jpg",
         "image:license": "CC0",
         "image:license:wikidata": "Q6938433",
         "incline": "up",
@@ -31183,7 +31182,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/SAT_Landsort_42.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_952232493534409_(cropped).jpg",
         "image:license": "CC0",
         "image:license:wikidata": "Q6938433",
         "lit": "no",
@@ -31232,7 +31231,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/SAT_Landsort_42.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_952232493534409_(cropped).jpg",
         "image:license": "CC0",
         "image:license:wikidata": "Q6938433",
         "lit": "no",
@@ -31500,7 +31499,7 @@
       "tags": {
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/SAT_Landsort_28.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_28.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "660089790171971",
@@ -31690,7 +31689,7 @@
       "tags": {
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/SAT_Landsort_12.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_12.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "sac_scale": "hiking",
@@ -31734,10 +31733,9 @@
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "sac_scale": "hiking",
-        "scenic": "yes",
         "shoreline": "yes",
         "smoothness": "bad",
-        "surface": "stone",
+        "surface": "pebblestone",
         "trail_visibility": "intermediate"
       }
     },
@@ -31793,7 +31791,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -31815,7 +31813,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -31837,7 +31835,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -31859,7 +31857,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -31881,7 +31879,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -31903,7 +31901,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:Landsort_Albert_Holms_minnessten_20260707_50.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -31925,7 +31923,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -31947,7 +31945,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -31969,7 +31967,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -31991,7 +31989,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -32013,7 +32011,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -32035,7 +32033,7 @@
         "bicycle": "yes",
         "foot": "designated",
         "highway": "track",
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_996157579398784_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_Mapillary_1202630367803727_(cropped).jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "mapillary": "996157579398784",
@@ -32057,7 +32055,7 @@
         "bicycle": "yes",
         "foot": "yes",
         "highway": "residential",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/d/dc/SAT_Landsort_Mapillary_703903108794092_%28cropped%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_31.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "lanes": "1",
@@ -44393,7 +44391,7 @@
       "tags": {
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/SAT_Orn%C3%B6_2025_april_%2863%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Orn%C3%B6_2025_april_%2863%29.jpg",
         "image:license": "CC-0",
         "name": "Motionsstig",
         "sac_scale": "hiking",
