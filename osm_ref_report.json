@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T07:06:38.663108Z",
+  "generatedAt": "2026-09-07T09:28:19.214356Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -22035,44 +22035,6 @@
           ]
         },
         {
-          "key": "wikidata",
-          "count": 13,
-          "percent": 31.7,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
-          "topValues": [
-            {
-              "value": "Q135901032",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ135901032?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Q134568948",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134568948?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Q135010859",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ135010859?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Q135013563",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ135013563?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Q135013597",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ135013597?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "name",
           "count": 12,
           "percent": 29.3,
@@ -22106,6 +22068,44 @@
               "value": "Hjärtstartare Fläskberget",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DHj%C3%A4rtstartare%20Fl%C3%A4skberget?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "wikidata",
+          "count": 12,
+          "percent": 29.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
+          "topValues": [
+            {
+              "value": "Q135901032",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ135901032?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Q134568948",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134568948?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Q135013563",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ135013563?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Q135013597",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ135013597?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Q135013611",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ135013611?uselang=sv",
               "directUrl": null
             }
           ]
@@ -54859,7 +54859,6 @@
         "ref:hjartstartarregistret.se": "86788",
         "ref:stockholmarchipelagotrail": "shr:86788",
         "wheelchair": "limited",
-        "wikidata": "Q135010859",
         "wikimedia_commons": "Category:Sjöfartsverket_gaveln_AED"
       },
       "tagValueUrls": {
