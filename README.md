@@ -2,9 +2,19 @@
 * live [SAT](https://salgo60.github.io/sat-sync/sat_poi_dashboard.html?lang=sv&lat=59.30516&lon=18.49823&z=8)
 * [OSM-egenskaper per kategori](https://salgo60.github.io/sat-sync/sat_osm_ref_report.html)
 * [OSM-egenskaper på leden](https://salgo60.github.io/sat-sync/sat_osm_trail_report.html)
+* [Hiking use cases: current support, gaps and priorities](https://salgo60.github.io/sat-sync/sat_use_cases.html?lang=en)
 
 
 **SAT Sync is an identity reconciliation framework for loosely coupled open-data platforms.**
+
+The [use-case assessment](https://salgo60.github.io/sat-sync/sat_use_cases.html)
+maps all 43 personas from the
+[original SAT dashboard](https://salgo60.github.io/Stockholm_Archipelago_Trail/Notebook/output/dashboard.html#UC-1)
+to 16 concrete tasks. It distinguishes existing tools from partial support and
+unimplemented flyer visions, with evidence, proposed owners and acceptance criteria.
+Edit `use_cases_data.py` and regenerate with `python3 generate_use_cases.py`.
+The assessment date and source-code baseline are editorial: update them only
+after reassessing capabilities, not just because the page was regenerated.
 
 It helps maintain identity links across independent datasets such as:
 
