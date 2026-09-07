@@ -16,7 +16,7 @@
                  border-radius: 6px; padding: 4px 12px; font-size: .75rem; font-weight: 600;
                  cursor: pointer; margin-left: 10px; vertical-align: middle; }
     .lang-btn:hover { background: rgba(255,255,255,.35); }
-    main { max-width: 860px; margin: 32px auto; padding: 0 16px; }
+    main { max-width: 1180px; margin: 32px auto; padding: 0 16px; }
     section { background: #fff; border-radius: 12px; padding: 28px; margin-bottom: 24px;
                box-shadow: 0 1px 4px rgba(0,0,0,.08); }
     section h2 { font-size: 1.15rem; color: #2546a8; margin-bottom: 12px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
@@ -37,6 +37,10 @@
     .video-card img { display:block; width:100%; border-radius:9px; }
     .video-card h2 { border:0; margin:0 0 6px; padding:0; }
     .video-card p { margin:0; }
+    .flyer-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; margin-top:18px; align-items:start; }
+    .flyer-card { display:block; border-radius:10px; overflow:hidden; background:#e2e8f0; box-shadow:0 1px 4px rgba(0,0,0,.12); transition:transform .2s,box-shadow .2s; }
+    .flyer-card:hover { transform:translateY(-2px); box-shadow:0 5px 16px rgba(0,0,0,.18); }
+    .flyer-card img { display:block; width:100%; height:auto; }
     .source-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
     .source-table th { background: #f1f5f9; text-align: left; padding: 8px 10px; border-bottom: 2px solid #e2e8f0; }
     .source-table td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
@@ -84,6 +88,43 @@
         <p id="video-desc">En presentation av SAT POI Dashboard och hur verktyget hjälper till att utforska och förbättra data längs leden. Öppnas på YouTube.</p>
       </div>
     </a>
+  </section>
+
+  <section>
+    <h2 id="flyers-title">🖼️ Flyers och infografik</h2>
+    <p id="flyers-desc">Klicka på en bild för att öppna den i full storlek.</p>
+    <div class="flyer-grid">
+      <a class="flyer-card" href="assets/sat-open-data-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-open-data-flyer.jpg" alt="Vandringsleder behöver bra data" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-collaboration-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-collaboration-flyer.jpg" alt="Tillsammans för bättre vandringsleder" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-community-collaboration-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-community-collaboration-flyer.jpg" alt="Från gemenskap till samverkan" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-osm-infographic.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-osm-infographic.jpg" alt="OpenStreetMap-objekt längs Stockholm Archipelago Trail" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-osm-trail-infographic.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-osm-trail-infographic.jpg" alt="Stockholm Archipelago Trails ledhierarki i OpenStreetMap" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-osm-experience-infographic.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-osm-experience-infographic.jpg" alt="Från öppna data till rikare vandringsupplevelser" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-open-europe-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-open-europe-flyer.jpg" alt="Ett öppnare Europa för vandrare" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-open-data-chinese-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-open-data-chinese-flyer.jpg" alt="Öppna vandringsdata på kinesiska" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-community-collaboration-arabic-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-community-collaboration-arabic-flyer.jpg" alt="Från gemenskap till samverkan på arabiska" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-open-data-ecosystem-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-open-data-ecosystem-flyer.jpg" alt="Öppna data, fler leder och större upplevelser" loading="lazy">
+      </a>
+    </div>
   </section>
 
   <!-- ── What is this? ─────────────────────────────────────────────────── -->
@@ -218,7 +259,7 @@
 </main>
 
 <div class="footer">
-  <span id="footer-gen">Genererad</span>: 2026-09-07 13:37 UTC &nbsp;|&nbsp;
+  <span id="footer-gen">Genererad</span>: 2026-09-07 16:02 UTC &nbsp;|&nbsp;
   <a href="https://github.com/salgo60/sat-sync" target="_blank">salgo60/sat-sync</a>
 </div>
 
@@ -236,6 +277,8 @@
       secLatestList: '<li>Den nya <a href="sat_osm_trail_report.html"><strong>ledrapporten</strong></a> följer OSM:s hierarki från superrelationen till 20 etapprelationer.</li><li>Den sammanställer egenskaper för 769 unika vägar och noder som leden följer.</li><li>Välj en etapp för att se dess relationstaggar, ledobjekt, taggtäckning och vanligaste värden.</li><li>En ny infografik förklarar relationerna mellan hela leden, etapper, geometri och platser.</li>',
       videoTitle: '🎬 Se introduktionsvideon',
       videoDesc: 'En presentation av SAT POI Dashboard och hur verktyget hjälper till att utforska och förbättra data längs leden. Öppnas på YouTube.',
+      flyersTitle: '🖼️ Flyers och infografik',
+      flyersDesc: 'Klicka på en bild för att öppna den i full storlek.',
       secWhatTitle: '🧭 Vad är det här?',
       secWhatP1: 'Det här är en uppsättning öppna webbaserade verktyg för att följa och förbättra datakvaliteten hos POI (Points of Interest) längs <strong>Stockholm Archipelago Trail (SAT)</strong> — en vandringsled med 21 etapper/öar i Stockholms skärgård.',
       secWhatP2: 'Verktygen hämtar data från SAT:s officiella API, OpenStreetMap (OSM) och Wikidata, och visar hur väl kopplingarna mellan dessa tre datakällor stämmer överens — och vad som saknas.',
@@ -292,6 +335,8 @@
       secLatestList: '<li>The new <a href="sat_osm_trail_report.html"><strong>trail report</strong></a> follows the OSM hierarchy from the superroute to 20 section relations.</li><li>It summarizes properties for the 769 unique ways and nodes followed by the trail.</li><li>Select a section to see its relation tags, trail objects, tag coverage, and common values.</li><li>A new infographic explains the relationships between the complete trail, sections, geometry, and places.</li>',
       videoTitle: '🎬 Watch the introduction video',
       videoDesc: 'An introduction to the SAT POI Dashboard and how it helps explore and improve data along the trail. Opens on YouTube.',
+      flyersTitle: '🖼️ Flyers and infographics',
+      flyersDesc: 'Click an image to open it at full size.',
       secWhatTitle: '🧭 What is this?',
       secWhatP1: 'This is a set of open web-based tools for tracking and improving the data quality of POIs (Points of Interest) along the <strong>Stockholm Archipelago Trail (SAT)</strong> — a hiking trail across 21 stages/islands in the Stockholm archipelago.',
       secWhatP2: 'The tools fetch data from the SAT official API, OpenStreetMap (OSM), and Wikidata, and show how well the links between these three data sources align — and what is missing.',
@@ -345,7 +390,7 @@
 
   const ids = [
     'page-h1','page-subtitle','nav-dashboard','nav-todo','nav-todo-list','nav-quality','nav-osm-report','nav-trail-report','nav-whatsnew','lang-btn',
-    'sec-latest-title','sec-latest-list','video-title','video-desc','sec-what-title','sec-what-p1','sec-what-p2','sec-tools-title',
+    'sec-latest-title','sec-latest-list','video-title','video-desc','flyers-title','flyers-desc','sec-what-title','sec-what-p1','sec-what-p2','sec-tools-title',
     'card-dashboard-title','card-dashboard-desc','card-todo-title','card-todo-desc','card-todo-list-title','card-todo-list-desc',
     'card-quality-title','card-quality-desc','card-osm-report-title','card-osm-report-desc','card-trail-report-title','card-trail-report-desc','card-whatsnew-title','card-whatsnew-desc',
     'sec-sources-title','th-source','th-what','th-url',
@@ -361,6 +406,7 @@
     'lang-btn':'langBtn',
     'sec-latest-title':'secLatestTitle','sec-latest-list':'secLatestList',
     'video-title':'videoTitle','video-desc':'videoDesc',
+    'flyers-title':'flyersTitle','flyers-desc':'flyersDesc',
     'sec-what-title':'secWhatTitle','sec-what-p1':'secWhatP1','sec-what-p2':'secWhatP2',
     'sec-tools-title':'secToolsTitle',
     'card-dashboard-title':'cardDashboardTitle','card-dashboard-desc':'cardDashboardDesc',
