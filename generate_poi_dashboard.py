@@ -800,7 +800,6 @@ ORDER BY DESC(geof:latitude(?coord))
         <a href="https://github.com/salgo60/sat-sync" target="_blank">GitHub: salgo60/sat-sync</a>{pr_html} &nbsp;|&nbsp;
         <a href="whats_new.html"><span id="whatsNewLink">What's new</span></a> &nbsp;|&nbsp;
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
-        <a data-todo-list-href href="sat_todo_list.html"><span id="todoListLinkHdr">✅ TODO-lista</span></a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a> &nbsp;|&nbsp;
         <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a> &nbsp;|&nbsp;
         <a href="sat_osm_ref_report.html">📊 OSM-egenskaper</a> &nbsp;|&nbsp;
@@ -1587,7 +1586,6 @@ ORDER BY DESC(geof:latitude(?coord))
           poisFetchedLabelHdr: 'poisFetchedLabel',
           poisGeneratedAtLabelHdr: 'poisGeneratedAtLabel',
           whatsNewLink: 'whatsNewLink',
-          todoListLinkHdr: 'todoListLink',
           todoListLinkFtr: 'todoListLink',
           improvementsLink: 'improvementsLink'
         }};
