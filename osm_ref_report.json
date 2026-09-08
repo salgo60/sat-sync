@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-08T06:58:10.998378Z",
+  "generatedAt": "2026-09-08T09:01:30.284131Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
   "refKey": "ref:stockholmarchipelagotrail",
-  "totalObjects": 1150,
+  "totalObjects": 1164,
   "osmTypes": {
-    "node": 807,
-    "way": 307,
+    "node": 820,
+    "way": 308,
     "relation": 36
   },
   "categoryCounts": {
@@ -30,16 +30,16 @@
     "Hamn": 38,
     "Uthyrning": 31,
     "Fyr": 4,
-    "Hjärtstartare": 41,
+    "Hjärtstartare": 42,
     "Turism / sevärdhet": 149,
     "Kyrka / kultur": 10,
-    "Aktivitet": 19,
+    "Aktivitet": 20,
     "Ö / naturplats": 26,
     "Butik övrig": 3,
-    "Service": 24,
-    "Byggnad / plats": 15,
+    "Service": 38,
+    "Byggnad / plats": 16,
     "Led / rutt": 18,
-    "Övrigt": 23
+    "Övrigt": 20
   },
   "categories": [
     {
@@ -21840,17 +21840,17 @@
     },
     {
       "name": "Hjärtstartare",
-      "count": 41,
+      "count": 42,
       "tagStats": [
         {
           "key": "emergency",
-          "count": 41,
+          "count": 42,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:emergency?uselang=sv",
           "topValues": [
             {
               "value": "defibrillator",
-              "count": 41,
+              "count": 42,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:emergency%3Ddefibrillator?uselang=sv",
               "directUrl": null
             }
@@ -21858,13 +21858,13 @@
         },
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 41,
+          "count": 42,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
               "value": "unknown",
-              "count": 18,
+              "count": 19,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
               "directUrl": null
             },
@@ -21896,13 +21896,13 @@
         },
         {
           "key": "indoor",
-          "count": 39,
-          "percent": 95.1,
+          "count": 40,
+          "percent": 95.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:indoor?uselang=sv",
           "topValues": [
             {
               "value": "no",
-              "count": 28,
+              "count": 29,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:indoor%3Dno?uselang=sv",
               "directUrl": null
             },
@@ -21916,13 +21916,13 @@
         },
         {
           "key": "access",
-          "count": 36,
-          "percent": 87.8,
+          "count": 37,
+          "percent": 88.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:access?uselang=sv",
           "topValues": [
             {
               "value": "yes",
-              "count": 36,
+              "count": 37,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dyes?uselang=sv",
               "directUrl": null
             }
@@ -21931,7 +21931,7 @@
         {
           "key": "check_date",
           "count": 36,
-          "percent": 87.8,
+          "percent": 85.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -21969,7 +21969,7 @@
         {
           "key": "defibrillator:location:sv",
           "count": 33,
-          "percent": 80.5,
+          "percent": 78.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:defibrillator:location:sv?uselang=sv",
           "topValues": [
             {
@@ -22006,10 +22006,16 @@
         },
         {
           "key": "ref:hjartstartarregistret.se",
-          "count": 31,
-          "percent": 75.6,
+          "count": 32,
+          "percent": 76.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:hjartstartarregistret.se?uselang=sv",
           "topValues": [
+            {
+              "value": "41557",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:hjartstartarregistret.se%3D41557?uselang=sv",
+              "directUrl": null
+            },
             {
               "value": "none",
               "count": 2,
@@ -22029,12 +22035,6 @@
               "directUrl": null
             },
             {
-              "value": "41557",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:hjartstartarregistret.se%3D41557?uselang=sv",
-              "directUrl": null
-            },
-            {
               "value": "79003",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:hjartstartarregistret.se%3D79003?uselang=sv",
@@ -22044,8 +22044,8 @@
         },
         {
           "key": "image",
-          "count": 29,
-          "percent": 70.7,
+          "count": 30,
+          "percent": 71.4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -22082,8 +22082,8 @@
         },
         {
           "key": "wikimedia_commons",
-          "count": 27,
-          "percent": 65.9,
+          "count": 28,
+          "percent": 66.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -22120,13 +22120,13 @@
         },
         {
           "key": "image:license",
-          "count": 23,
-          "percent": 56.1,
+          "count": 24,
+          "percent": 57.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
               "value": "CC0",
-              "count": 22,
+              "count": 23,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC0?uselang=sv",
               "directUrl": null
             },
@@ -22140,10 +22140,16 @@
         },
         {
           "key": "defibrillator:location",
-          "count": 17,
-          "percent": 41.5,
+          "count": 18,
+          "percent": 42.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:defibrillator:location?uselang=sv",
           "topValues": [
+            {
+              "value": "On the wall of the building",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:defibrillator:location%3DOn%20the%20wall%20of%20the%20building?uselang=sv",
+              "directUrl": null
+            },
             {
               "value": "At the outer building wall.",
               "count": 2,
@@ -22163,12 +22169,6 @@
               "directUrl": null
             },
             {
-              "value": "On the wall of the building",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:defibrillator:location%3DOn%20the%20wall%20of%20the%20building?uselang=sv",
-              "directUrl": null
-            },
-            {
               "value": "Sitter på ytterväggen vid västra hamnen",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:defibrillator:location%3DSitter%20p%C3%A5%20ytterv%C3%A4ggen%20vid%20v%C3%A4stra%20hamnen?uselang=sv",
@@ -22179,7 +22179,7 @@
         {
           "key": "name",
           "count": 12,
-          "percent": 29.3,
+          "percent": 28.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -22217,7 +22217,7 @@
         {
           "key": "wikidata",
           "count": 12,
-          "percent": 29.3,
+          "percent": 28.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
           "topValues": [
             {
@@ -22255,7 +22255,7 @@
         {
           "key": "level",
           "count": 6,
-          "percent": 14.6,
+          "percent": 14.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:level?uselang=sv",
           "topValues": [
             {
@@ -22269,7 +22269,7 @@
         {
           "key": "defibrillator:location:en",
           "count": 5,
-          "percent": 12.2,
+          "percent": 11.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:defibrillator:location:en?uselang=sv",
           "topValues": [
             {
@@ -22307,7 +22307,7 @@
         {
           "key": "operator",
           "count": 4,
-          "percent": 9.8,
+          "percent": 9.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
           "topValues": [
             {
@@ -22339,7 +22339,7 @@
         {
           "key": "wheelchair",
           "count": 4,
-          "percent": 9.8,
+          "percent": 9.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
@@ -22359,7 +22359,7 @@
         {
           "key": "image:license:wikidata",
           "count": 3,
-          "percent": 7.3,
+          "percent": 7.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
@@ -22373,7 +22373,7 @@
         {
           "key": "opening_hours",
           "count": 3,
-          "percent": 7.3,
+          "percent": 7.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
           "topValues": [
             {
@@ -22387,7 +22387,7 @@
         {
           "key": "description",
           "count": 2,
-          "percent": 4.9,
+          "percent": 4.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -22407,7 +22407,7 @@
         {
           "key": "mapillary",
           "count": 2,
-          "percent": 4.9,
+          "percent": 4.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:mapillary?uselang=sv",
           "topValues": [
             {
@@ -22427,7 +22427,7 @@
         {
           "key": "note",
           "count": 2,
-          "percent": 4.9,
+          "percent": 4.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note?uselang=sv",
           "topValues": [
             {
@@ -22441,7 +22441,7 @@
         {
           "key": "website",
           "count": 2,
-          "percent": 4.9,
+          "percent": 4.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
           "topValues": [
             {
@@ -25412,24 +25412,24 @@
     },
     {
       "name": "Aktivitet",
-      "count": 19,
+      "count": 20,
       "tagStats": [
         {
           "key": "leisure",
-          "count": 19,
+          "count": 20,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:leisure?uselang=sv",
           "topValues": [
             {
-              "value": "fitness_station",
+              "value": "picnic_table",
               "count": 6,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dfitness_station?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dpicnic_table?uselang=sv",
               "directUrl": null
             },
             {
-              "value": "picnic_table",
-              "count": 5,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dpicnic_table?uselang=sv",
+              "value": "fitness_station",
+              "count": 6,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dfitness_station?uselang=sv",
               "directUrl": null
             },
             {
@@ -25454,13 +25454,13 @@
         },
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 19,
+          "count": 20,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
               "value": "unknown",
-              "count": 17,
+              "count": 18,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
               "directUrl": null
             },
@@ -25480,8 +25480,8 @@
         },
         {
           "key": "image",
-          "count": 17,
-          "percent": 89.5,
+          "count": 18,
+          "percent": 90.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -25503,23 +25503,23 @@
               "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Lid%C3%B6_(168).jpg"
             },
             {
+              "value": "https://commons.wikimedia.org/wiki/File%3AIngmars%C3%B6%5FFemsundsvikens%5Fbadplats%5F01%2Ejpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%253AIngmars%25C3%25B6%255FFemsundsvikens%255Fbadplats%255F01%252Ejpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File%3AIngmars%C3%B6%5FFemsundsvikens%5Fbadplats%5F01%2Ejpg"
+            },
+            {
               "value": "https://commons.wikimedia.org/wiki/File:Utegymet_p%C3%A5_Sandhamn_02.jpg",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AUtegymet_p%25C3%25A5_Sandhamn_02.jpg?uselang=sv",
               "directUrl": "https://commons.wikimedia.org/wiki/File:Utegymet_p%C3%A5_Sandhamn_02.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_16.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Ut%25C3%25B6_2025_april_16.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_16.jpg"
             }
           ]
         },
         {
           "key": "name",
           "count": 11,
-          "percent": 57.9,
+          "percent": 55.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -25557,7 +25557,7 @@
         {
           "key": "wikimedia_commons",
           "count": 10,
-          "percent": 52.6,
+          "percent": 50.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -25594,8 +25594,8 @@
         },
         {
           "key": "check_date",
-          "count": 8,
-          "percent": 42.1,
+          "count": 9,
+          "percent": 45.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -25611,6 +25611,12 @@
               "directUrl": null
             },
             {
+              "value": "2026-07-14",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-14?uselang=sv",
+              "directUrl": null
+            },
+            {
               "value": "2026-04-28",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-28?uselang=sv",
@@ -25621,19 +25627,13 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-24?uselang=sv",
               "directUrl": null
-            },
-            {
-              "value": "2026-08-07",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-08-07?uselang=sv",
-              "directUrl": null
             }
           ]
         },
         {
           "key": "wikidata",
           "count": 8,
-          "percent": 42.1,
+          "percent": 40.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
           "topValues": [
             {
@@ -25671,7 +25671,7 @@
         {
           "key": "access",
           "count": 6,
-          "percent": 31.6,
+          "percent": 30.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:access?uselang=sv",
           "topValues": [
             {
@@ -25691,7 +25691,7 @@
         {
           "key": "sport",
           "count": 6,
-          "percent": 31.6,
+          "percent": 30.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:sport?uselang=sv",
           "topValues": [
             {
@@ -25705,7 +25705,7 @@
         {
           "key": "website",
           "count": 5,
-          "percent": 26.3,
+          "percent": 25.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
           "topValues": [
             {
@@ -25743,7 +25743,7 @@
         {
           "key": "description",
           "count": 4,
-          "percent": 21.1,
+          "percent": 20.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -25775,7 +25775,7 @@
         {
           "key": "image:license",
           "count": 4,
-          "percent": 21.1,
+          "percent": 20.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
@@ -25801,7 +25801,7 @@
         {
           "key": "wheelchair",
           "count": 4,
-          "percent": 21.1,
+          "percent": 20.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
@@ -25815,7 +25815,7 @@
         {
           "key": "covered",
           "count": 3,
-          "percent": 15.8,
+          "percent": 15.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:covered?uselang=sv",
           "topValues": [
             {
@@ -25829,7 +25829,7 @@
         {
           "key": "fee",
           "count": 3,
-          "percent": 15.8,
+          "percent": 15.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fee?uselang=sv",
           "topValues": [
             {
@@ -25843,7 +25843,7 @@
         {
           "key": "location",
           "count": 3,
-          "percent": 15.8,
+          "percent": 15.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:location?uselang=sv",
           "topValues": [
             {
@@ -25857,7 +25857,7 @@
         {
           "key": "blind",
           "count": 2,
-          "percent": 10.5,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:blind?uselang=sv",
           "topValues": [
             {
@@ -25871,7 +25871,7 @@
         {
           "key": "building",
           "count": 2,
-          "percent": 10.5,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:building?uselang=sv",
           "topValues": [
             {
@@ -25885,7 +25885,7 @@
         {
           "key": "material",
           "count": 2,
-          "percent": 10.5,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:material?uselang=sv",
           "topValues": [
             {
@@ -25899,7 +25899,7 @@
         {
           "key": "name:en",
           "count": 2,
-          "percent": 10.5,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name:en?uselang=sv",
           "topValues": [
             {
@@ -25919,7 +25919,7 @@
         {
           "key": "operator",
           "count": 2,
-          "percent": 10.5,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
           "topValues": [
             {
@@ -25933,7 +25933,7 @@
         {
           "key": "seats",
           "count": 2,
-          "percent": 10.5,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seats?uselang=sv",
           "topValues": [
             {
@@ -25947,7 +25947,7 @@
         {
           "key": "addr:country",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:country?uselang=sv",
           "topValues": [
             {
@@ -25961,7 +25961,7 @@
         {
           "key": "addr:municipality",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:municipality?uselang=sv",
           "topValues": [
             {
@@ -25975,7 +25975,7 @@
         {
           "key": "addr:place",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:place?uselang=sv",
           "topValues": [
             {
@@ -25989,7 +25989,7 @@
         {
           "key": "addr:postcode",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:postcode?uselang=sv",
           "topValues": [
             {
@@ -26003,7 +26003,7 @@
         {
           "key": "backrest",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:backrest?uselang=sv",
           "topValues": [
             {
@@ -26017,7 +26017,7 @@
         {
           "key": "barrier",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:barrier?uselang=sv",
           "topValues": [
             {
@@ -26031,7 +26031,7 @@
         {
           "key": "building:levels",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:building:levels?uselang=sv",
           "topValues": [
             {
@@ -26045,7 +26045,7 @@
         {
           "key": "capacity",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:capacity?uselang=sv",
           "topValues": [
             {
@@ -26059,7 +26059,7 @@
         {
           "key": "contact:facebook",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:contact:facebook?uselang=sv",
           "topValues": [
             {
@@ -26073,7 +26073,7 @@
         {
           "key": "description:en",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:en?uselang=sv",
           "topValues": [
             {
@@ -26087,7 +26087,7 @@
         {
           "key": "email",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:email?uselang=sv",
           "topValues": [
             {
@@ -26101,7 +26101,7 @@
         {
           "key": "facebook",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:facebook?uselang=sv",
           "topValues": [
             {
@@ -26115,7 +26115,7 @@
         {
           "key": "fence",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fence?uselang=sv",
           "topValues": [
             {
@@ -26129,7 +26129,7 @@
         {
           "key": "fence_type",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fence_type?uselang=sv",
           "topValues": [
             {
@@ -26143,7 +26143,7 @@
         {
           "key": "image:license:wikidata",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
@@ -26157,7 +26157,7 @@
         {
           "key": "indoor",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:indoor?uselang=sv",
           "topValues": [
             {
@@ -26171,7 +26171,7 @@
         {
           "key": "opening_hours",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
           "topValues": [
             {
@@ -26185,7 +26185,7 @@
         {
           "key": "seasonal",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal?uselang=sv",
           "topValues": [
             {
@@ -26199,7 +26199,7 @@
         {
           "key": "small_dog",
           "count": 1,
-          "percent": 5.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:small_dog?uselang=sv",
           "topValues": [
             {
@@ -27140,17 +27140,17 @@
     },
     {
       "name": "Service",
-      "count": 24,
+      "count": 38,
       "tagStats": [
         {
           "key": "amenity",
-          "count": 24,
+          "count": 38,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:amenity?uselang=sv",
           "topValues": [
             {
               "value": "bench",
-              "count": 20,
+              "count": 34,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbench?uselang=sv",
               "directUrl": null
             },
@@ -27182,10 +27182,22 @@
         },
         {
           "key": "image",
-          "count": 24,
+          "count": 38,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
+            {
+              "value": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg",
+              "count": 4,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FCategory%3AS%25C3%25B6dra_fladens_vindskydd_2%23%2Fmedia%2FFile%3ASAT_Ut%25C3%25B6_2025_april_83.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp",
+              "count": 3,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%253AV%25C3%25A4ster%25C3%25A4ngsudden%255FGrillplats%252Ewebp?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp"
+            },
             {
               "value": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_Skarsand_grillplatser_SAT.jpg",
               "count": 2,
@@ -27199,68 +27211,36 @@
               "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Svarts%C3%B6_20250811_05.jpg"
             },
             {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_vandringen_01.jpg",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Arholma_20250813_vandringen_01.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_vandringen_01.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Lid%C3%B6_%28267%29.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Lid%25C3%25B6_%2528267%2529.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Lid%C3%B6_%28267%29.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2848%29.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%252848%2529.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2848%29.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_%25C3%2585l%25C3%25B6_med_basecamp_Stora_Sand_202508_13.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg"
             }
           ]
         },
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 24,
+          "count": 38,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
               "value": "unknown",
-              "count": 24,
+              "count": 38,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
               "directUrl": null
             }
           ]
         },
         {
-          "key": "image:license",
-          "count": 12,
-          "percent": 50.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
-          "topValues": [
-            {
-              "value": "CC-0",
-              "count": 9,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "CC0",
-              "count": 3,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC0?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "backrest",
-          "count": 10,
-          "percent": 41.7,
+          "count": 23,
+          "percent": 60.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:backrest?uselang=sv",
           "topValues": [
             {
               "value": "no",
-              "count": 9,
+              "count": 22,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:backrest%3Dno?uselang=sv",
               "directUrl": null
             },
@@ -27274,13 +27254,13 @@
         },
         {
           "key": "armrest",
-          "count": 9,
-          "percent": 37.5,
+          "count": 22,
+          "percent": 57.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:armrest?uselang=sv",
           "topValues": [
             {
               "value": "no",
-              "count": 8,
+              "count": 21,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:armrest%3Dno?uselang=sv",
               "directUrl": null
             },
@@ -27293,14 +27273,34 @@
           ]
         },
         {
+          "key": "image:license",
+          "count": 13,
+          "percent": 34.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
+          "topValues": [
+            {
+              "value": "CC-0",
+              "count": 10,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "CC0",
+              "count": 3,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC0?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "material",
-          "count": 9,
-          "percent": 37.5,
+          "count": 11,
+          "percent": 28.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:material?uselang=sv",
           "topValues": [
             {
               "value": "wood",
-              "count": 9,
+              "count": 11,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:material%3Dwood?uselang=sv",
               "directUrl": null
             }
@@ -27308,13 +27308,13 @@
         },
         {
           "key": "seats",
-          "count": 9,
-          "percent": 37.5,
+          "count": 11,
+          "percent": 28.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seats?uselang=sv",
           "topValues": [
             {
               "value": "4",
-              "count": 5,
+              "count": 7,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seats%3D4?uselang=sv",
               "directUrl": null
             },
@@ -27329,7 +27329,7 @@
         {
           "key": "image:license:wikidata",
           "count": 7,
-          "percent": 29.2,
+          "percent": 18.4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
@@ -27342,10 +27342,16 @@
         },
         {
           "key": "check_date",
-          "count": 3,
-          "percent": 12.5,
+          "count": 5,
+          "percent": 13.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
+            {
+              "value": "2025-08-04",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-04?uselang=sv",
+              "directUrl": null
+            },
             {
               "value": "2026-08-13",
               "count": 1,
@@ -27369,7 +27375,7 @@
         {
           "key": "wikimedia_commons",
           "count": 3,
-          "percent": 12.5,
+          "percent": 7.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -27395,7 +27401,7 @@
         {
           "key": "name",
           "count": 2,
-          "percent": 8.3,
+          "percent": 5.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -27415,7 +27421,7 @@
         {
           "key": "website",
           "count": 2,
-          "percent": 8.3,
+          "percent": 5.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
           "topValues": [
             {
@@ -27435,7 +27441,7 @@
         {
           "key": "boat",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:boat?uselang=sv",
           "topValues": [
             {
@@ -27449,7 +27455,7 @@
         {
           "key": "building",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:building?uselang=sv",
           "topValues": [
             {
@@ -27463,7 +27469,7 @@
         {
           "key": "fuel:diesel",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fuel:diesel?uselang=sv",
           "topValues": [
             {
@@ -27477,7 +27483,7 @@
         {
           "key": "fuel:lpg",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fuel:lpg?uselang=sv",
           "topValues": [
             {
@@ -27491,7 +27497,7 @@
         {
           "key": "fuel:octane_98",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fuel:octane_98?uselang=sv",
           "topValues": [
             {
@@ -27505,7 +27511,7 @@
         {
           "key": "opening_hours",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
           "topValues": [
             {
@@ -27519,7 +27525,7 @@
         {
           "key": "operator",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
           "topValues": [
             {
@@ -27533,7 +27539,7 @@
         {
           "key": "payment:cards",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:payment:cards?uselang=sv",
           "topValues": [
             {
@@ -27547,7 +27553,7 @@
         {
           "key": "recycling:glass_bottles",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:recycling:glass_bottles?uselang=sv",
           "topValues": [
             {
@@ -27561,7 +27567,7 @@
         {
           "key": "recycling:metal",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:recycling:metal?uselang=sv",
           "topValues": [
             {
@@ -27575,7 +27581,7 @@
         {
           "key": "recycling_type",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:recycling_type?uselang=sv",
           "topValues": [
             {
@@ -27589,7 +27595,7 @@
         {
           "key": "scenic",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:scenic?uselang=sv",
           "topValues": [
             {
@@ -27603,7 +27609,7 @@
         {
           "key": "wheelchair",
           "count": 1,
-          "percent": 4.2,
+          "percent": 2.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
@@ -27618,17 +27624,17 @@
     },
     {
       "name": "Byggnad / plats",
-      "count": 15,
+      "count": 16,
       "tagStats": [
         {
           "key": "building",
-          "count": 15,
+          "count": 16,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:building?uselang=sv",
           "topValues": [
             {
               "value": "yes",
-              "count": 12,
+              "count": 13,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:building%3Dyes?uselang=sv",
               "directUrl": null
             },
@@ -27654,7 +27660,7 @@
         },
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 15,
+          "count": 16,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
@@ -27675,13 +27681,19 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunkwown?uselang=sv",
               "directUrl": null
+            },
+            {
+              "value": "sat:poi:dbnaq",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dsat%3Apoi%3Adbnaq?uselang=sv",
+              "directUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:dbnaq"
             }
           ]
         },
         {
           "key": "name",
-          "count": 14,
-          "percent": 93.3,
+          "count": 15,
+          "percent": 93.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -27718,8 +27730,8 @@
         },
         {
           "key": "wikidata",
-          "count": 11,
-          "percent": 73.3,
+          "count": 12,
+          "percent": 75.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
           "topValues": [
             {
@@ -27756,8 +27768,8 @@
         },
         {
           "key": "image",
-          "count": 10,
-          "percent": 66.7,
+          "count": 11,
+          "percent": 68.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -27793,47 +27805,9 @@
           ]
         },
         {
-          "key": "website",
-          "count": 8,
-          "percent": 53.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
-          "topValues": [
-            {
-              "value": "https://villasoderangen.se/",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fvillasoderangen.se%2F?uselang=sv",
-              "directUrl": "https://villasoderangen.se/"
-            },
-            {
-              "value": "https://app.raa.se/open/bebyggelse/bebyggelseobjekt/50b2227e-a336-4c3d-8cbb-4deedc89b671",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fapp.raa.se%2Fopen%2Fbebyggelse%2Fbebyggelseobjekt%2F50b2227e-a336-4c3d-8cbb-4deedc89b671?uselang=sv",
-              "directUrl": "https://app.raa.se/open/bebyggelse/bebyggelseobjekt/50b2227e-a336-4c3d-8cbb-4deedc89b671"
-            },
-            {
-              "value": "https://www.furusund.se/museipaviljongen-2/",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fwww.furusund.se%2Fmuseipaviljongen-2%2F?uselang=sv",
-              "directUrl": "https://www.furusund.se/museipaviljongen-2/"
-            },
-            {
-              "value": "https://lotsarnastockholm.se/index.php/arholma-lotsplats/",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Flotsarnastockholm.se%2Findex.php%2Farholma-lotsplats%2F?uselang=sv",
-              "directUrl": "https://lotsarnastockholm.se/index.php/arholma-lotsplats/"
-            },
-            {
-              "value": "https://lidovardshus.com/pensionat-vstergrden",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Flidovardshus.com%2Fpensionat-vstergrden?uselang=sv",
-              "directUrl": "https://lidovardshus.com/pensionat-vstergrden"
-            }
-          ]
-        },
-        {
           "key": "wikimedia_commons",
-          "count": 8,
-          "percent": 53.3,
+          "count": 9,
+          "percent": 56.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -27869,9 +27843,47 @@
           ]
         },
         {
+          "key": "website",
+          "count": 8,
+          "percent": 50.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
+          "topValues": [
+            {
+              "value": "https://villasoderangen.se/",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fvillasoderangen.se%2F?uselang=sv",
+              "directUrl": "https://villasoderangen.se/"
+            },
+            {
+              "value": "https://app.raa.se/open/bebyggelse/bebyggelseobjekt/50b2227e-a336-4c3d-8cbb-4deedc89b671",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fapp.raa.se%2Fopen%2Fbebyggelse%2Fbebyggelseobjekt%2F50b2227e-a336-4c3d-8cbb-4deedc89b671?uselang=sv",
+              "directUrl": "https://app.raa.se/open/bebyggelse/bebyggelseobjekt/50b2227e-a336-4c3d-8cbb-4deedc89b671"
+            },
+            {
+              "value": "https://www.furusund.se/museipaviljongen-2/",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fwww.furusund.se%2Fmuseipaviljongen-2%2F?uselang=sv",
+              "directUrl": "https://www.furusund.se/museipaviljongen-2/"
+            },
+            {
+              "value": "https://lotsarnastockholm.se/index.php/arholma-lotsplats/",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Flotsarnastockholm.se%2Findex.php%2Farholma-lotsplats%2F?uselang=sv",
+              "directUrl": "https://lotsarnastockholm.se/index.php/arholma-lotsplats/"
+            },
+            {
+              "value": "https://lidovardshus.com/pensionat-vstergrden",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Flidovardshus.com%2Fpensionat-vstergrden?uselang=sv",
+              "directUrl": "https://lidovardshus.com/pensionat-vstergrden"
+            }
+          ]
+        },
+        {
           "key": "description",
-          "count": 3,
-          "percent": 20.0,
+          "count": 4,
+          "percent": 25.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -27891,13 +27903,19 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dpaviljong%20i%20Furusund%20som%20inneh%C3%A5ller%20historiskt%20intressant%20material?uselang=sv",
               "directUrl": null
+            },
+            {
+              "value": "Vindskydd för övernattning och rast i naturen.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DVindskydd%20f%C3%B6r%20%C3%B6vernattning%20och%20rast%20i%20naturen.?uselang=sv",
+              "directUrl": null
             }
           ]
         },
         {
           "key": "image:license",
-          "count": 3,
-          "percent": 20.0,
+          "count": 4,
+          "percent": 25.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
@@ -27905,13 +27923,19 @@
               "count": 3,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
               "directUrl": null
+            },
+            {
+              "value": "cc-0",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3Dcc-0?uselang=sv",
+              "directUrl": null
             }
           ]
         },
         {
           "key": "check_date",
-          "count": 2,
-          "percent": 13.3,
+          "count": 3,
+          "percent": 18.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -27925,13 +27949,19 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-17?uselang=sv",
               "directUrl": null
+            },
+            {
+              "value": "2026-08-20",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-08-20?uselang=sv",
+              "directUrl": null
             }
           ]
         },
         {
           "key": "description:en",
           "count": 2,
-          "percent": 13.3,
+          "percent": 12.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:en?uselang=sv",
           "topValues": [
             {
@@ -27951,7 +27981,7 @@
         {
           "key": "addr:city",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:city?uselang=sv",
           "topValues": [
             {
@@ -27965,7 +27995,7 @@
         {
           "key": "addr:housenumber",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:housenumber?uselang=sv",
           "topValues": [
             {
@@ -27979,7 +28009,7 @@
         {
           "key": "addr:postcode",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:postcode?uselang=sv",
           "topValues": [
             {
@@ -27993,7 +28023,7 @@
         {
           "key": "addr:street",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:street?uselang=sv",
           "topValues": [
             {
@@ -28007,7 +28037,7 @@
         {
           "key": "building:levels",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:building:levels?uselang=sv",
           "topValues": [
             {
@@ -28021,7 +28051,7 @@
         {
           "key": "facebook",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:facebook?uselang=sv",
           "topValues": [
             {
@@ -28033,9 +28063,23 @@
           ]
         },
         {
+          "key": "fee",
+          "count": 1,
+          "percent": 6.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fee?uselang=sv",
+          "topValues": [
+            {
+              "value": "no",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:fee%3Dno?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "height",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:height?uselang=sv",
           "topValues": [
             {
@@ -28049,7 +28093,7 @@
         {
           "key": "image:license:wikidata",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
@@ -28063,7 +28107,7 @@
         {
           "key": "instagram",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:instagram?uselang=sv",
           "topValues": [
             {
@@ -28077,7 +28121,7 @@
         {
           "key": "landuse",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:landuse?uselang=sv",
           "topValues": [
             {
@@ -28091,7 +28135,7 @@
         {
           "key": "material",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:material?uselang=sv",
           "topValues": [
             {
@@ -28105,7 +28149,7 @@
         {
           "key": "military",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:military?uselang=sv",
           "topValues": [
             {
@@ -28119,7 +28163,7 @@
         {
           "key": "name:en",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name:en?uselang=sv",
           "topValues": [
             {
@@ -28131,9 +28175,23 @@
           ]
         },
         {
+          "key": "opening_hours",
+          "count": 1,
+          "percent": 6.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
+          "topValues": [
+            {
+              "value": "24/7",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D24%2F7?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "operator",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
           "topValues": [
             {
@@ -28147,7 +28205,7 @@
         {
           "key": "ruins",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ruins?uselang=sv",
           "topValues": [
             {
@@ -28159,9 +28217,23 @@
           ]
         },
         {
+          "key": "shelter_type",
+          "count": 1,
+          "percent": 6.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:shelter_type?uselang=sv",
+          "topValues": [
+            {
+              "value": "lean_to",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:shelter_type%3Dlean_to?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "start_date",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:start_date?uselang=sv",
           "topValues": [
             {
@@ -28175,7 +28247,7 @@
         {
           "key": "website:booking",
           "count": 1,
-          "percent": 6.7,
+          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website:booking?uselang=sv",
           "topValues": [
             {
@@ -28974,17 +29046,17 @@
     },
     {
       "name": "Övrigt",
-      "count": 23,
+      "count": 20,
       "tagStats": [
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 23,
+          "count": 20,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
               "value": "unknown",
-              "count": 18,
+              "count": 16,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
               "directUrl": null
             },
@@ -29007,55 +29079,17 @@
               "directUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:fcrkg"
             },
             {
-              "value": "sat:poi:dbnaq",
+              "value": "sat:poi:fwfmy",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dsat%3Apoi%3Adbnaq?uselang=sv",
-              "directUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:dbnaq"
-            }
-          ]
-        },
-        {
-          "key": "image",
-          "count": 16,
-          "percent": 69.6,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
-          "topValues": [
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Orn%C3%B6_norra_2025_maj_(87).jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Orn%25C3%25B6_norra_2025_maj_%2887%29.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Orn%C3%B6_norra_2025_maj_(87).jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_%25C3%2585l%25C3%25B6_med_basecamp_Stora_Sand_202508_13.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_02.jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_%25C3%2585l%25C3%25B6_20250805_med_base_camp_Stora_Sand_02.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_02.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:Strindbergsg%C3%A5rden2.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AStrindbergsg%25C3%25A5rden2.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:Strindbergsg%C3%A5rden2.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_133.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Ut%25C3%25B6_2025_april_133.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_133.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dsat%3Apoi%3Afwfmy?uselang=sv",
+              "directUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:fwfmy"
             }
           ]
         },
         {
           "key": "name",
-          "count": 16,
-          "percent": 69.6,
+          "count": 15,
+          "percent": 75.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -29083,55 +29117,55 @@
               "directUrl": null
             },
             {
-              "value": "Vindskydd Västerängsudden",
+              "value": "Lidö Naturhamn",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DVindskydd%20V%C3%A4ster%C3%A4ngsudden?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DLid%C3%B6%20Naturhamn?uselang=sv",
               "directUrl": null
             }
           ]
         },
         {
-          "key": "wikidata",
+          "key": "image",
           "count": 13,
-          "percent": 56.5,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
+          "percent": 65.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
-              "value": "Q134777160",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Orn%C3%B6_norra_2025_maj_(87).jpg",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134777160?uselang=sv",
-              "directUrl": null
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Orn%25C3%25B6_norra_2025_maj_%2887%29.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Orn%C3%B6_norra_2025_maj_(87).jpg"
             },
             {
-              "value": "Q63615597",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ63615597?uselang=sv",
-              "directUrl": null
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_02.jpg",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_%25C3%2585l%25C3%25B6_20250805_med_base_camp_Stora_Sand_02.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_02.jpg"
             },
             {
-              "value": "Q134578274",
+              "value": "https://commons.wikimedia.org/wiki/File:Strindbergsg%C3%A5rden2.jpg",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134578274?uselang=sv",
-              "directUrl": null
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AStrindbergsg%25C3%25A5rden2.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:Strindbergsg%C3%A5rden2.jpg"
             },
             {
-              "value": "Q134704760",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_133.jpg",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134704760?uselang=sv",
-              "directUrl": null
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Ut%25C3%25B6_2025_april_133.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_133.jpg"
             },
             {
-              "value": "Q134721339",
+              "value": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_grillplats_Storsand_%283%29.jpg",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134721339?uselang=sv",
-              "directUrl": null
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASATN%25C3%25A5ttar%25C3%25B6_2025_april_grillplats_Storsand_%25283%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_grillplats_Storsand_%283%29.jpg"
             }
           ]
         },
         {
           "key": "website",
           "count": 12,
-          "percent": 52.2,
+          "percent": 60.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
           "topValues": [
             {
@@ -29167,9 +29201,47 @@
           ]
         },
         {
+          "key": "wikidata",
+          "count": 12,
+          "percent": 60.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
+          "topValues": [
+            {
+              "value": "Q134777160",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134777160?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Q63615597",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ63615597?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Q134578274",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134578274?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Q134721339",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134721339?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Q134834157",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ134834157?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "wikimedia_commons",
-          "count": 11,
-          "percent": 47.8,
+          "count": 10,
+          "percent": 50.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -29191,35 +29263,29 @@
               "directUrl": "https://commons.wikimedia.org/wiki/Category:Storsand_grillplats_1"
             },
             {
-              "value": "Category:Lidö_windshelter_Västerängsudden",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3ALid%C3%B6_windshelter_V%C3%A4ster%C3%A4ngsudden?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/Category:Lid%C3%B6_windshelter_V%C3%A4ster%C3%A4ngsudden"
-            },
-            {
               "value": "Category:Lidö_natural_harbor",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3ALid%C3%B6_natural_harbor?uselang=sv",
               "directUrl": "https://commons.wikimedia.org/wiki/Category:Lid%C3%B6_natural_harbor"
+            },
+            {
+              "value": "Category:Ornöhuvud_natural_harbor",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3AOrn%C3%B6huvud_natural_harbor?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/Category:Orn%C3%B6huvud_natural_harbor"
             }
           ]
         },
         {
           "key": "check_date",
-          "count": 10,
-          "percent": 43.5,
+          "count": 7,
+          "percent": 35.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
               "value": "2025-08-04",
-              "count": 4,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-04?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2026-08-20",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-08-20?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-04?uselang=sv",
               "directUrl": null
             },
             {
@@ -29239,25 +29305,25 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-23?uselang=sv",
               "directUrl": null
+            },
+            {
+              "value": "2026-06-27",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-06-27?uselang=sv",
+              "directUrl": null
             }
           ]
         },
         {
           "key": "description",
-          "count": 8,
-          "percent": 34.8,
+          "count": 7,
+          "percent": 35.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
               "value": "kallas Strindbergsgården eftersom August Strindberg bodde här under några dagar 1869 eller 1870",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dkallas%20Strindbergsg%C3%A5rden%20eftersom%20August%20Strindberg%20bodde%20h%C3%A4r%20under%20n%C3%A5gra%20dagar%201869%20eller%201870?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Vindskydd för övernattning och rast i naturen.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DVindskydd%20f%C3%B6r%20%C3%B6vernattning%20och%20rast%20i%20naturen.?uselang=sv",
               "directUrl": null
             },
             {
@@ -29277,13 +29343,19 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DG%C3%A5rdsbutik%20p%C3%A5%20%C3%96stra%20H%C3%A4sselmara%20g%C3%A5rd%20med%20egenproducerade%20%C3%A4gg%20och%20ekologiska%20gr%C3%B6nsaker.?uselang=sv",
               "directUrl": null
+            },
+            {
+              "value": "Gårdsbutik på Ingmarsö med ekologiska grönsaker.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DG%C3%A5rdsbutik%20p%C3%A5%20Ingmars%C3%B6%20med%20ekologiska%20gr%C3%B6nsaker.?uselang=sv",
+              "directUrl": null
             }
           ]
         },
         {
           "key": "seamark:type",
           "count": 7,
-          "percent": 30.4,
+          "percent": 35.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seamark:type?uselang=sv",
           "topValues": [
             {
@@ -29308,13 +29380,13 @@
         },
         {
           "key": "bench",
-          "count": 5,
-          "percent": 21.7,
+          "count": 3,
+          "percent": 15.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:bench?uselang=sv",
           "topValues": [
             {
               "value": "yes",
-              "count": 5,
+              "count": 3,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:bench%3Dyes?uselang=sv",
               "directUrl": null
             }
@@ -29322,8 +29394,8 @@
         },
         {
           "key": "image:license",
-          "count": 4,
-          "percent": 17.4,
+          "count": 3,
+          "percent": 15.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
@@ -29339,12 +29411,6 @@
               "directUrl": null
             },
             {
-              "value": "cc-0",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3Dcc-0?uselang=sv",
-              "directUrl": null
-            },
-            {
               "value": "CC-0",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
@@ -29355,7 +29421,7 @@
         {
           "key": "landuse",
           "count": 2,
-          "percent": 8.7,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:landuse?uselang=sv",
           "topValues": [
             {
@@ -29367,29 +29433,9 @@
           ]
         },
         {
-          "key": "opening_hours",
-          "count": 2,
-          "percent": 8.7,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
-          "topValues": [
-            {
-              "value": "24/7",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D24%2F7?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "seasonal",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3Dseasonal?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "payment:swish",
           "count": 2,
-          "percent": 8.7,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:payment:swish?uselang=sv",
           "topValues": [
             {
@@ -29403,7 +29449,7 @@
         {
           "key": "waterway",
           "count": 2,
-          "percent": 8.7,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:waterway?uselang=sv",
           "topValues": [
             {
@@ -29423,7 +29469,7 @@
         {
           "key": "addr:housenumber",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:housenumber?uselang=sv",
           "topValues": [
             {
@@ -29437,7 +29483,7 @@
         {
           "key": "addr:street",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:street?uselang=sv",
           "topValues": [
             {
@@ -29451,7 +29497,7 @@
         {
           "key": "al_fresco",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:al_fresco?uselang=sv",
           "topValues": [
             {
@@ -29465,7 +29511,7 @@
         {
           "key": "check_date:opening_hours",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date:opening_hours?uselang=sv",
           "topValues": [
             {
@@ -29479,7 +29525,7 @@
         {
           "key": "depth",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:depth?uselang=sv",
           "topValues": [
             {
@@ -29491,23 +29537,9 @@
           ]
         },
         {
-          "key": "fee",
-          "count": 1,
-          "percent": 4.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fee?uselang=sv",
-          "topValues": [
-            {
-              "value": "no",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:fee%3Dno?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "gluten_free",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:gluten_free?uselang=sv",
           "topValues": [
             {
@@ -29521,7 +29553,7 @@
         {
           "key": "harbour",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:harbour?uselang=sv",
           "topValues": [
             {
@@ -29535,7 +29567,7 @@
         {
           "key": "ice_cream",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ice_cream?uselang=sv",
           "topValues": [
             {
@@ -29549,7 +29581,7 @@
         {
           "key": "information",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:information?uselang=sv",
           "topValues": [
             {
@@ -29563,7 +29595,7 @@
         {
           "key": "instagram",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:instagram?uselang=sv",
           "topValues": [
             {
@@ -29577,7 +29609,7 @@
         {
           "key": "mapillary",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:mapillary?uselang=sv",
           "topValues": [
             {
@@ -29591,7 +29623,7 @@
         {
           "key": "office",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:office?uselang=sv",
           "topValues": [
             {
@@ -29603,9 +29635,23 @@
           ]
         },
         {
+          "key": "opening_hours",
+          "count": 1,
+          "percent": 5.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
+          "topValues": [
+            {
+              "value": "seasonal",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3Dseasonal?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "payment:cash",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:payment:cash?uselang=sv",
           "topValues": [
             {
@@ -29619,7 +29665,7 @@
         {
           "key": "port_of_entry",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:port_of_entry?uselang=sv",
           "topValues": [
             {
@@ -29633,7 +29679,7 @@
         {
           "key": "product",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:product?uselang=sv",
           "topValues": [
             {
@@ -29647,7 +29693,7 @@
         {
           "key": "ref:grillplatser.nu",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:grillplatser.nu?uselang=sv",
           "topValues": [
             {
@@ -29661,7 +29707,7 @@
         {
           "key": "seamark:anchorage:category",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seamark:anchorage:category?uselang=sv",
           "topValues": [
             {
@@ -29675,7 +29721,7 @@
         {
           "key": "seamark:harbour:category",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seamark:harbour:category?uselang=sv",
           "topValues": [
             {
@@ -29689,7 +29735,7 @@
         {
           "key": "seamark:small_craft_facility:category",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seamark:small_craft_facility:category?uselang=sv",
           "topValues": [
             {
@@ -29703,7 +29749,7 @@
         {
           "key": "self_service",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:self_service?uselang=sv",
           "topValues": [
             {
@@ -29715,23 +29761,9 @@
           ]
         },
         {
-          "key": "shelter_type",
-          "count": 1,
-          "percent": 4.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:shelter_type?uselang=sv",
-          "topValues": [
-            {
-              "value": "lean_to",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:shelter_type%3Dlean_to?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "width",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:width?uselang=sv",
           "topValues": [
             {
@@ -29745,7 +29777,7 @@
         {
           "key": "wikipedia:sv",
           "count": 1,
-          "percent": 4.3,
+          "percent": 5.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikipedia:sv?uselang=sv",
           "topValues": [
             {
@@ -54696,6 +54728,33 @@
     },
     {
       "osmType": "node",
+      "osmId": 12089318349,
+      "osmUrl": "https://www.openstreetmap.org/node/12089318349",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Hjärtstartare",
+      "lat": 59.428501,
+      "lon": 18.9106145,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "On the wall of the building",
+        "emergency": "defibrillator",
+        "image": "https://commons.wikimedia.org/wiki/File:Ramsmora_M%C3%B6ja_hj%C3%A4rtstartare_20260717_44.jpg",
+        "image:license": "CC0",
+        "indoor": "no",
+        "ref:hjartstartarregistret.se": "41557",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "wikimedia_commons": "Category:Ramsmora_AED"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:Ramsmora_M%C3%B6ja_hj%C3%A4rtstartare_20260717_44.jpg",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Ramsmora_AED"
+      }
+    },
+    {
+      "osmType": "node",
       "osmId": 12804717601,
       "osmUrl": "https://www.openstreetmap.org/node/12804717601",
       "name": "(namnlös)",
@@ -60280,6 +60339,27 @@
     },
     {
       "osmType": "node",
+      "osmId": 5856137423,
+      "osmUrl": "https://www.openstreetmap.org/node/5856137423",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Aktivitet",
+      "lat": 59.4704469,
+      "lon": 18.7707904,
+      "tags": {
+        "check_date": "2026-07-14",
+        "image": "https://commons.wikimedia.org/wiki/File%3AIngmars%C3%B6%5FFemsundsvikens%5Fbadplats%5F01%2Ejpg",
+        "leisure": "picnic_table",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File%3AIngmars%C3%B6%5FFemsundsvikens%5Fbadplats%5F01%2Ejpg"
+      }
+    },
+    {
+      "osmType": "node",
       "osmId": 13069275535,
       "osmUrl": "https://www.openstreetmap.org/node/13069275535",
       "name": "(namnlös)",
@@ -61587,6 +61667,27 @@
     },
     {
       "osmType": "node",
+      "osmId": 12942189721,
+      "osmUrl": "https://www.openstreetmap.org/node/12942189721",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 58.7376946,
+      "lon": 17.8654478,
+      "tags": {
+        "amenity": "bench",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/SAT_Landsort_s%C3%B6dra.jpg/1280px-SAT_Landsort_s%C3%B6dra.jpg",
+        "image:license": "CC-0",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/SAT_Landsort_s%C3%B6dra.jpg/1280px-SAT_Landsort_s%C3%B6dra.jpg"
+      }
+    },
+    {
+      "osmType": "node",
       "osmId": 12959418501,
       "osmUrl": "https://www.openstreetmap.org/node/12959418501",
       "name": "(namnlös)",
@@ -61923,6 +62024,31 @@
     },
     {
       "osmType": "node",
+      "osmId": 14160287297,
+      "osmUrl": "https://www.openstreetmap.org/node/14160287297",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 58.9227083,
+      "lon": 18.2233747,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "check_date": "2025-08-04",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg",
+        "material": "wood",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "seats": "4"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg"
+      }
+    },
+    {
+      "osmType": "node",
       "osmId": 14160384148,
       "osmUrl": "https://www.openstreetmap.org/node/14160384148",
       "name": "(namnlös)",
@@ -62015,6 +62141,273 @@
       },
       "tagValueUrls": {
         "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_Skarsand_grillplatser_SAT.jpg"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14161923871,
+      "osmUrl": "https://www.openstreetmap.org/node/14161923871",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 58.9226684,
+      "lon": 18.2233908,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "check_date": "2025-08-04",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg",
+        "material": "wood",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "seats": "4"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14161967671,
+      "osmUrl": "https://www.openstreetmap.org/node/14161967671",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 58.8874825,
+      "lon": 18.1375008,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/File%3A%C3%96stemarsfladen%5Fstrand%5F12%2Ejpg",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File%3A%C3%96stemarsfladen%5Fstrand%5F12%2Ejpg"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162051984,
+      "osmUrl": "https://www.openstreetmap.org/node/14162051984",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 59.7852905,
+      "lon": 19.1031494,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/File%3ALid%C3%B6%5FNorrkalven%5Fvindskydd%5F20260820%5F49%2Ejpg",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File%3ALid%C3%B6%5FNorrkalven%5Fvindskydd%5F20260820%5F49%2Ejpg"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162062711,
+      "osmUrl": "https://www.openstreetmap.org/node/14162062711",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 59.7700167,
+      "lon": 19.0789936,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/File%3ALid%C3%B6%5Fbrygga%5F20260820%5F01%2Ejpg",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File%3ALid%C3%B6%5Fbrygga%5F20260820%5F01%2Ejpg"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162070436,
+      "osmUrl": "https://www.openstreetmap.org/node/14162070436",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 59.7819109,
+      "lon": 19.0621313,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162070437,
+      "osmUrl": "https://www.openstreetmap.org/node/14162070437",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 59.7819283,
+      "lon": 19.0621584,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162070438,
+      "osmUrl": "https://www.openstreetmap.org/node/14162070438",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 59.7819154,
+      "lon": 19.0621545,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162071531,
+      "osmUrl": "https://www.openstreetmap.org/node/14162071531",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 58.951698,
+      "lon": 18.2862912,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162071532,
+      "osmUrl": "https://www.openstreetmap.org/node/14162071532",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 58.9516647,
+      "lon": 18.2864442,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162071533,
+      "osmUrl": "https://www.openstreetmap.org/node/14162071533",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 58.9516515,
+      "lon": 18.2863528,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162071534,
+      "osmUrl": "https://www.openstreetmap.org/node/14162071534",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 58.9517523,
+      "lon": 18.2864691,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14162081204,
+      "osmUrl": "https://www.openstreetmap.org/node/14162081204",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 59.4728748,
+      "lon": 18.8190057,
+      "tags": {
+        "amenity": "bench",
+        "armrest": "no",
+        "backrest": "no",
+        "image": "https://commons.wikimedia.org/wiki/File:Lilla_Jolpan_vindskydd_03.jpg",
+        "ref:stockholmarchipelagotrail": "unknown"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:Lilla_Jolpan_vindskydd_03.jpg"
       }
     },
     {
@@ -62417,6 +62810,37 @@
       },
       "tagValueUrls": {
         "website": "https://villasoderangen.se/"
+      }
+    },
+    {
+      "osmType": "way",
+      "osmId": 1557277258,
+      "osmUrl": "https://www.openstreetmap.org/way/1557277258",
+      "name": "Vindskydd Västerängsudden",
+      "satRef": "sat:poi:dbnaq",
+      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:dbnaq",
+      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:dbnaq",
+      "category": "Byggnad / plats",
+      "lat": 59.7819091,
+      "lon": 19.0621752,
+      "tags": {
+        "building": "yes",
+        "check_date": "2026-08-20",
+        "description": "Vindskydd för övernattning och rast i naturen.",
+        "fee": "no",
+        "image": "https://commons.wikimedia.org/wiki/File:Lid%C3%B6_vindkydd.jpg",
+        "image:license": "cc-0",
+        "name": "Vindskydd Västerängsudden",
+        "opening_hours": "24/7",
+        "ref:stockholmarchipelagotrail": "sat:poi:dbnaq",
+        "shelter_type": "lean_to",
+        "wikidata": "Q134704760",
+        "wikimedia_commons": "Category:Lidö_windshelter_Västerängsudden"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:Lid%C3%B6_vindkydd.jpg",
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:dbnaq",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Lid%C3%B6_windshelter_V%C3%A4ster%C3%A4ngsudden"
       }
     },
     {
@@ -63150,48 +63574,6 @@
     },
     {
       "osmType": "node",
-      "osmId": 14160287296,
-      "osmUrl": "https://www.openstreetmap.org/node/14160287296",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Övrigt",
-      "lat": 58.9226639,
-      "lon": 18.223409,
-      "tags": {
-        "bench": "yes",
-        "check_date": "2025-08-04",
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg",
-        "ref:stockholmarchipelagotrail": "unknown"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg"
-      }
-    },
-    {
-      "osmType": "node",
-      "osmId": 14160287297,
-      "osmUrl": "https://www.openstreetmap.org/node/14160287297",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Övrigt",
-      "lat": 58.9227083,
-      "lon": 18.2233747,
-      "tags": {
-        "bench": "yes",
-        "check_date": "2025-08-04",
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg",
-        "ref:stockholmarchipelagotrail": "unknown"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_13.jpg"
-      }
-    },
-    {
-      "osmType": "node",
       "osmId": 14160309747,
       "osmUrl": "https://www.openstreetmap.org/node/14160309747",
       "name": "(namnlös)",
@@ -63502,36 +63884,6 @@
       "tagValueUrls": {
         "image": "https://commons.wikimedia.org/wiki/File:Ulviks_g%C3%A5rd.jpg",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Ulviks_g%C3%A5rd"
-      }
-    },
-    {
-      "osmType": "node",
-      "osmId": 12886705448,
-      "osmUrl": "https://www.openstreetmap.org/node/12886705448",
-      "name": "Vindskydd Västerängsudden",
-      "satRef": "sat:poi:dbnaq",
-      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:dbnaq",
-      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:dbnaq",
-      "category": "Övrigt",
-      "lat": 59.7819008,
-      "lon": 19.062171,
-      "tags": {
-        "check_date": "2026-08-20",
-        "description": "Vindskydd för övernattning och rast i naturen.",
-        "fee": "no",
-        "image": "https://commons.wikimedia.org/wiki/File:Lid%C3%B6_vindkydd.jpg",
-        "image:license": "cc-0",
-        "name": "Vindskydd Västerängsudden",
-        "opening_hours": "24/7",
-        "ref:stockholmarchipelagotrail": "sat:poi:dbnaq",
-        "shelter_type": "lean_to",
-        "wikidata": "Q134704760",
-        "wikimedia_commons": "Category:Lidö_windshelter_Västerängsudden"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:Lid%C3%B6_vindkydd.jpg",
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:dbnaq",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Lid%C3%B6_windshelter_V%C3%A4ster%C3%A4ngsudden"
       }
     },
     {
