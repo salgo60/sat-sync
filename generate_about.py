@@ -150,6 +150,12 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-memory-palace-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-memory-palace-flyer.jpg" alt="Memory Palace – Kompetenser för en levande skärgård: från vision och datakällor till samverkan och förvaltning" width="1520" height="1013" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-ecosystem-checklist-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-ecosystem-checklist-flyer.jpg" alt="Checklista – Bygg och driv ett levande ekosystem: från vision och data till tjänster, förvaltning och hållbarhet" width="1224" height="1285" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-data-maturity-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-data-maturity-flyer.jpg" alt="Datamognadstrappa för en levande skärgård – sju steg från dokumentbaserad information till ett AI-drivet ekosystem" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
   </section>
 
