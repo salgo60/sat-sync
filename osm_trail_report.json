@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T14:37:11.295498Z",
+  "generatedAt": "2026-09-08T06:58:12.413594Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -185,8 +185,8 @@
     },
     {
       "key": "surface",
-      "count": 705,
-      "percent": 91.7,
+      "count": 706,
+      "percent": 91.8,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:surface?uselang=sv",
       "topValues": [
         {
@@ -197,7 +197,7 @@
         },
         {
           "value": "gravel",
-          "count": 188,
+          "count": 189,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:surface%3Dgravel?uselang=sv",
           "directUrl": null
         },
@@ -315,7 +315,7 @@
         },
         {
           "value": "excellent",
-          "count": 50,
+          "count": 51,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dexcellent?uselang=sv",
           "directUrl": null
         },
@@ -461,8 +461,8 @@
     },
     {
       "key": "width",
-      "count": 403,
-      "percent": 52.4,
+      "count": 404,
+      "percent": 52.5,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:width?uselang=sv",
       "topValues": [
         {
@@ -479,7 +479,7 @@
         },
         {
           "value": "3",
-          "count": 53,
+          "count": 54,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D3?uselang=sv",
           "directUrl": null
         },
@@ -517,13 +517,13 @@
     },
     {
       "key": "trailblazed",
-      "count": 250,
-      "percent": 32.5,
+      "count": 251,
+      "percent": 32.6,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
       "topValues": [
         {
           "value": "symbols",
-          "count": 138,
+          "count": 139,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
           "directUrl": null
         },
@@ -685,8 +685,8 @@
     },
     {
       "key": "bicycle",
-      "count": 159,
-      "percent": 20.7,
+      "count": 160,
+      "percent": 20.8,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:bicycle?uselang=sv",
       "topValues": [
         {
@@ -717,6 +717,12 @@
           "value": "mtb",
           "count": 1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:bicycle%3Dmtb?uselang=sv",
+          "directUrl": null
+        },
+        {
+          "value": "designated",
+          "count": 1,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:bicycle%3Ddesignated?uselang=sv",
           "directUrl": null
         }
       ]
@@ -6505,8 +6511,8 @@
           "percent": 71.1
         },
         "surface": {
-          "count": 34,
-          "percent": 75.6
+          "count": 35,
+          "percent": 77.8
         },
         "smoothness": {
           "count": 10,
@@ -6525,8 +6531,8 @@
           "percent": 93.3
         },
         "width": {
-          "count": 10,
-          "percent": 22.2
+          "count": 11,
+          "percent": 24.4
         },
         "incline": {
           "count": 0,
@@ -6634,14 +6640,8 @@
             },
             {
               "value": "excellent",
-              "count": 1,
+              "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dexcellent?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "poor",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dpoor?uselang=sv",
               "directUrl": null
             }
           ]
@@ -6652,12 +6652,6 @@
           "percent": 91.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
-            {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/7/78/SAT_Ut%C3%B6_2025_april_76.jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F7%2F78%2FSAT_Ut%25C3%25B6_2025_april_76.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/SAT_Ut%C3%B6_2025_april_76.jpg"
-            },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/d/d7/SAT_Ut%C3%B6_20250806_vandring_06.jpg",
               "count": 2,
@@ -6699,6 +6693,12 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F66%2FSAT_Ut%25C3%25B6_2025_april_72.jpg?uselang=sv",
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/SAT_Ut%C3%B6_2025_april_72.jpg"
+            },
+            {
+              "value": "https://upload.wikimedia.org/wikipedia/commons/3/31/SAT_Ut%C3%B6_2025_april_75.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F31%2FSAT_Ut%25C3%25B6_2025_april_75.jpg?uselang=sv",
+              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/SAT_Ut%C3%B6_2025_april_75.jpg"
             }
           ]
         },
@@ -6744,13 +6744,13 @@
         },
         {
           "key": "surface",
-          "count": 34,
-          "percent": 75.6,
+          "count": 35,
+          "percent": 77.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:surface?uselang=sv",
           "topValues": [
             {
               "value": "gravel",
-              "count": 12,
+              "count": 13,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:surface%3Dgravel?uselang=sv",
               "directUrl": null
             },
@@ -6858,13 +6858,13 @@
         },
         {
           "key": "trailblazed",
-          "count": 16,
-          "percent": 35.6,
+          "count": 17,
+          "percent": 37.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
           "topValues": [
             {
               "value": "symbols",
-              "count": 14,
+              "count": 15,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
               "directUrl": null
             },
@@ -6878,6 +6878,50 @@
               "value": "symb",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymb?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "width",
+          "count": 11,
+          "percent": 24.4,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:width?uselang=sv",
+          "topValues": [
+            {
+              "value": "1",
+              "count": 3,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D1?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "3",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D3?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "0.5",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D0.5?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "0.8",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D0.8?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D2?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "1.5",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D1.5?uselang=sv",
               "directUrl": null
             }
           ]
@@ -6924,50 +6968,6 @@
               "value": "intermediate",
               "count": 3,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:smoothness%3Dintermediate?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "width",
-          "count": 10,
-          "percent": 22.2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:width?uselang=sv",
-          "topValues": [
-            {
-              "value": "1",
-              "count": 3,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D1?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "0.5",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D0.5?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "0.8",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D0.8?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D2?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "1.5",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D1.5?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "3",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D3?uselang=sv",
               "directUrl": null
             }
           ]
@@ -7022,14 +7022,20 @@
         },
         {
           "key": "bicycle",
-          "count": 5,
-          "percent": 11.1,
+          "count": 6,
+          "percent": 13.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:bicycle?uselang=sv",
           "topValues": [
             {
               "value": "yes",
               "count": 5,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:bicycle%3Dyes?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "designated",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:bicycle%3Ddesignated?uselang=sv",
               "directUrl": null
             }
           ]
@@ -7320,12 +7326,16 @@
           "osmUrl": "https://www.openstreetmap.org/way/1378917578",
           "role": "",
           "tags": {
+            "bicycle": "designated",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/SAT_Ut%C3%B6_2025_april_76.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_76.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
-            "trail_visibility": "poor"
+            "surface": "gravel",
+            "trail_visibility": "excellent",
+            "trailblazed": "symbols",
+            "width": "3"
           }
         },
         {
@@ -7894,7 +7904,7 @@
           "role": "",
           "tags": {
             "highway": "residential",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/SAT_Ut%C3%B6_2025_april_71.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_71.jpg",
             "image:license": "CC-0",
             "name": "Vänsviken",
             "sac_scale": "hiking",
@@ -10475,10 +10485,10 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/2/2e/SAT_Runmar%C3%B6_02.jpg",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Runmar%C3%B6_02.jpg",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F2%2F2e%2FSAT_Runmar%25C3%25B6_02.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/SAT_Runmar%C3%B6_02.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Runmar%25C3%25B6_02.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Runmar%C3%B6_02.jpg"
             },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/SAT_Runmar%C3%B6_vandring_leden_14.jpg/3024px-SAT_Runmar%C3%B6_vandring_leden_14.jpg",
@@ -11008,7 +11018,7 @@
           "tags": {
             "foot": "designated",
             "highway": "tertiary",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/SAT_Runmar%C3%B6_02.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Runmar%C3%B6_02.jpg",
             "image:license": "CC0",
             "maxspeed": "70",
             "name": "Länsväg 697",
@@ -11650,7 +11660,7 @@
           "tags": {
             "foot": "designated",
             "highway": "tertiary",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/SAT_Runmar%C3%B6_02.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Runmar%C3%B6_02.jpg",
             "image:license": "CC0",
             "maxspeed": "70",
             "name": "Länsväg 697",
@@ -25238,7 +25248,7 @@
             "foot": "designated",
             "handrail": "no",
             "highway": "steps",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/SAT_Grinda_20250915_i_05.jpg/1536px-SAT_Grinda_20250915_i_05.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250915_i_05.jpg",
             "image:license": "CC0",
             "incline": "down",
             "ladder": "yes",
@@ -25260,7 +25270,7 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/SAT_Grinda_20250915_k_04.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250915_k_04.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "compacted",
@@ -25278,7 +25288,7 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/SAT_Grinda_20250915_k_04.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250915_k_04.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "compacted",
@@ -33182,12 +33192,16 @@
         19012654
       ],
       "tags": {
+        "bicycle": "designated",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/SAT_Ut%C3%B6_2025_april_76.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_76.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
-        "trail_visibility": "poor"
+        "surface": "gravel",
+        "trail_visibility": "excellent",
+        "trailblazed": "symbols",
+        "width": "3"
       }
     },
     {
@@ -33824,7 +33838,7 @@
       ],
       "tags": {
         "highway": "residential",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/SAT_Ut%C3%B6_2025_april_71.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_71.jpg",
         "image:license": "CC-0",
         "name": "Vänsviken",
         "sac_scale": "hiking",
@@ -34906,7 +34920,7 @@
       "tags": {
         "foot": "designated",
         "highway": "tertiary",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/SAT_Runmar%C3%B6_02.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Runmar%C3%B6_02.jpg",
         "image:license": "CC0",
         "maxspeed": "70",
         "name": "Länsväg 697",
@@ -42641,7 +42655,7 @@
         "foot": "designated",
         "handrail": "no",
         "highway": "steps",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/SAT_Grinda_20250915_i_05.jpg/1536px-SAT_Grinda_20250915_i_05.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250915_i_05.jpg",
         "image:license": "CC0",
         "incline": "down",
         "ladder": "yes",
@@ -42665,7 +42679,7 @@
       "tags": {
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/SAT_Grinda_20250915_k_04.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250915_k_04.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "surface": "compacted",
@@ -42685,7 +42699,7 @@
       "tags": {
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/SAT_Grinda_20250915_k_04.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250915_k_04.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "surface": "compacted",
