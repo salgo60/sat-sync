@@ -156,6 +156,12 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-data-maturity-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-data-maturity-flyer.jpg" alt="Datamognadstrappa för en levande skärgård – sju steg från dokumentbaserad information till ett AI-drivet ekosystem" width="1536" height="1024" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-organisation-data-maturity-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-organisation-data-maturity-flyer.jpg" alt="Datamognadstrappa – Från information till impact: var befinner sig din organisation?" width="1536" height="1024" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-ai-guidance-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-ai-guidance-flyer.jpg" alt="Från att visa till att svara – vision för hur AI omvandlar öppen information till personlig vägledning" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
   </section>
 
