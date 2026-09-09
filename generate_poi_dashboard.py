@@ -701,8 +701,13 @@ ORDER BY DESC(geof:latitude(?coord))
                 props = p.get("properties", {})
                 osm_id = props.get("osmId", "")
                 raw_name = props.get("name", "")
-                # Better display name: use stored name or fall back to OSM type+id
-                osm_name = raw_name if raw_name and not raw_name.startswith("OSM ") else f"OSM {osm_id}"
+                # Normalize legacy ID placeholders without discarding real names.
+                osm_name = (
+                    raw_name.strip()
+                    if isinstance(raw_name, str) and raw_name.strip()
+                    and not re.fullmatch(r"OSM (?:(?:node|way|relation):)?\d+", raw_name.strip())
+                    else f"OSM {osm_id}"
+                )
                 osm_candidate_data.append({
                     "id": props.get("id"),
                     "name": osm_name,
@@ -719,7 +724,7 @@ ORDER BY DESC(geof:latitude(?coord))
                     "is_osm_candidate": True,
                 })
         
-        osm_candidate_json = json.dumps(osm_candidate_data, ensure_ascii=False)
+        osm_candidate_json = json.dumps(osm_candidate_data, ensure_ascii=False).replace("<", "\\u003c")
         trail_geojson_json = json.dumps(trail_geojson, ensure_ascii=False)
         sections_index_json = json.dumps(sections_index, ensure_ascii=False)
 

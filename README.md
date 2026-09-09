@@ -9,6 +9,11 @@ OSM object's `description:sv`, then `description`. Existing names are retained.
 The fallback uses explicit `ref:stockholmarchipelagotrail` links in
 `osm_postpass_data.json`, refreshed by the scheduled dashboard workflow.
 
+For **OSM candidates**, missing names use `description:sv`, then `description`,
+then an object-defining tag such as `emergency=defibrillator` or
+`tourism=viewpoint`. The OSM ID is the final fallback. This changes display
+labels only, not OSM names or the candidate category.
+
 **SAT Sync is an identity reconciliation framework for loosely coupled open-data platforms.**
 
 The [use-case assessment](https://salgo60.github.io/sat-sync/sat_use_cases.html)
