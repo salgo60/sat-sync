@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T09:01:30.284131Z",
+  "generatedAt": "2026-09-09T09:05:12.477113Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -15,8 +15,8 @@
     "Väderskydd vid hållplats": 22,
     "Övrigt väderskydd": 3,
     "Toalett": 130,
-    "Grillplats": 83,
-    "Dricksvatten": 74,
+    "Grillplats": 82,
+    "Dricksvatten": 75,
     "Tältplats": 15,
     "Boende": 77,
     "Handla mat": 38,
@@ -2101,29 +2101,9 @@
           ]
         },
         {
-          "key": "seasonal",
+          "key": "note",
           "count": 9,
           "percent": 6.9,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal?uselang=sv",
-          "topValues": [
-            {
-              "value": "summer",
-              "count": 8,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal%3Dsummer?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "yes",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal%3Dyes?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "note",
-          "count": 8,
-          "percent": 6.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note?uselang=sv",
           "topValues": [
             {
@@ -2139,9 +2119,35 @@
               "directUrl": null
             },
             {
+              "value": "Skärgårdsstiftelsen sköter om toaletten.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DSk%C3%A4rg%C3%A5rdsstiftelsen%20sk%C3%B6ter%20om%20toaletten.?uselang=sv",
+              "directUrl": null
+            },
+            {
               "value": "Sköts av Skärgårdsstiftelsen och felanmäls dit. Har ramp för rullstol.",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DSk%C3%B6ts%20av%20Sk%C3%A4rg%C3%A5rdsstiftelsen%20och%20felanm%C3%A4ls%20dit.%20Har%20ramp%20f%C3%B6r%20rullstol.?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "seasonal",
+          "count": 9,
+          "percent": 6.9,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal?uselang=sv",
+          "topValues": [
+            {
+              "value": "summer",
+              "count": 8,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal%3Dsummer?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "yes",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal%3Dyes?uselang=sv",
               "directUrl": null
             }
           ]
@@ -2690,17 +2696,17 @@
     },
     {
       "name": "Grillplats",
-      "count": 83,
+      "count": 82,
       "tagStats": [
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 83,
+          "count": 82,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
               "value": "unknown",
-              "count": 16,
+              "count": 14,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
               "directUrl": null
             },
@@ -2732,8 +2738,8 @@
         },
         {
           "key": "image",
-          "count": 77,
-          "percent": 92.8,
+          "count": 78,
+          "percent": 95.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -2771,7 +2777,7 @@
         {
           "key": "website",
           "count": 75,
-          "percent": 90.4,
+          "percent": 91.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
           "topValues": [
             {
@@ -2809,7 +2815,7 @@
         {
           "key": "wikidata",
           "count": 68,
-          "percent": 81.9,
+          "percent": 82.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
           "topValues": [
             {
@@ -2847,7 +2853,7 @@
         {
           "key": "ref:grillplatser.nu",
           "count": 67,
-          "percent": 80.7,
+          "percent": 81.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:grillplatser.nu?uselang=sv",
           "topValues": [
             {
@@ -2885,7 +2891,7 @@
         {
           "key": "image:license",
           "count": 58,
-          "percent": 69.9,
+          "percent": 70.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
@@ -2910,8 +2916,8 @@
         },
         {
           "key": "wikimedia_commons",
-          "count": 57,
-          "percent": 68.7,
+          "count": 58,
+          "percent": 70.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -2948,13 +2954,13 @@
         },
         {
           "key": "leisure",
-          "count": 54,
-          "percent": 65.1,
+          "count": 53,
+          "percent": 64.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:leisure?uselang=sv",
           "topValues": [
             {
               "value": "firepit",
-              "count": 54,
+              "count": 53,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dfirepit?uselang=sv",
               "directUrl": null
             }
@@ -2962,8 +2968,8 @@
         },
         {
           "key": "check_date",
-          "count": 53,
-          "percent": 63.9,
+          "count": 52,
+          "percent": 63.4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -2999,45 +3005,17 @@
           ]
         },
         {
-          "key": "amenity",
-          "count": 30,
-          "percent": 36.1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:amenity?uselang=sv",
-          "topValues": [
-            {
-              "value": "bbq",
-              "count": 30,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbbq?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "access",
-          "count": 29,
-          "percent": 34.9,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:access?uselang=sv",
-          "topValues": [
-            {
-              "value": "yes",
-              "count": 28,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dyes?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "no",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dno?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "name",
-          "count": 28,
-          "percent": 33.7,
+          "count": 31,
+          "percent": 37.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
+            {
+              "value": "Grillplats Utö tältplats",
+              "count": 3,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DGrillplats%20Ut%C3%B6%20t%C3%A4ltplats?uselang=sv",
+              "directUrl": null
+            },
             {
               "value": "Knicksand grillplats",
               "count": 2,
@@ -3061,11 +3039,39 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DGrillplats%20Grinda%20s%C3%B6dra%20bryggan?uselang=sv",
               "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "amenity",
+          "count": 30,
+          "percent": 36.6,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:amenity?uselang=sv",
+          "topValues": [
+            {
+              "value": "bbq",
+              "count": 30,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbbq?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "access",
+          "count": 29,
+          "percent": 35.4,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:access?uselang=sv",
+          "topValues": [
+            {
+              "value": "yes",
+              "count": 28,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dyes?uselang=sv",
+              "directUrl": null
             },
             {
-              "value": "Grillplats barnens strand",
+              "value": "no",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DGrillplats%20barnens%20strand?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dno?uselang=sv",
               "directUrl": null
             }
           ]
@@ -3073,7 +3079,7 @@
         {
           "key": "covered",
           "count": 17,
-          "percent": 20.5,
+          "percent": 20.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:covered?uselang=sv",
           "topValues": [
             {
@@ -3087,7 +3093,7 @@
         {
           "key": "fuel",
           "count": 15,
-          "percent": 18.1,
+          "percent": 18.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fuel?uselang=sv",
           "topValues": [
             {
@@ -3107,7 +3113,7 @@
         {
           "key": "wood_provided",
           "count": 15,
-          "percent": 18.1,
+          "percent": 18.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wood_provided?uselang=sv",
           "topValues": [
             {
@@ -3127,7 +3133,7 @@
         {
           "key": "seasonal",
           "count": 13,
-          "percent": 15.7,
+          "percent": 15.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal?uselang=sv",
           "topValues": [
             {
@@ -3141,7 +3147,7 @@
         {
           "key": "image:license:wikidata",
           "count": 12,
-          "percent": 14.5,
+          "percent": 14.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
@@ -3161,7 +3167,7 @@
         {
           "key": "fireplace",
           "count": 8,
-          "percent": 9.6,
+          "percent": 9.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fireplace?uselang=sv",
           "topValues": [
             {
@@ -3175,7 +3181,7 @@
         {
           "key": "wheelchair",
           "count": 8,
-          "percent": 9.6,
+          "percent": 9.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
@@ -3201,7 +3207,7 @@
         {
           "key": "description",
           "count": 6,
-          "percent": 7.2,
+          "percent": 7.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -3314,6 +3320,20 @@
               "value": "ved finns sep till maj via Finnhamns Arkipelag AB övrig tid grillkol som finns att köpa i kiosken",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:sv%3Dved%20finns%20sep%20till%20maj%20via%20Finnhamns%20Arkipelag%20AB%20%C3%B6vrig%20tid%20grillkol%20som%20finns%20att%20k%C3%B6pa%20i%20kiosken?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "firewood",
+          "count": 1,
+          "percent": 1.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:firewood?uselang=sv",
+          "topValues": [
+            {
+              "value": "no",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:firewood%3Dno?uselang=sv",
               "directUrl": null
             }
           ]
@@ -3448,17 +3468,17 @@
     },
     {
       "name": "Dricksvatten",
-      "count": 74,
+      "count": 75,
       "tagStats": [
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 74,
+          "count": 75,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
               "value": "unknown",
-              "count": 6,
+              "count": 7,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
               "directUrl": null
             },
@@ -3490,13 +3510,13 @@
         },
         {
           "key": "amenity",
-          "count": 72,
+          "count": 73,
           "percent": 97.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:amenity?uselang=sv",
           "topValues": [
             {
               "value": "drinking_water",
-              "count": 66,
+              "count": 67,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Ddrinking_water?uselang=sv",
               "directUrl": null
             },
@@ -3516,8 +3536,8 @@
         },
         {
           "key": "image",
-          "count": 64,
-          "percent": 86.5,
+          "count": 65,
+          "percent": 86.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -3555,7 +3575,7 @@
         {
           "key": "check_date",
           "count": 55,
-          "percent": 74.3,
+          "percent": 73.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -3593,7 +3613,7 @@
         {
           "key": "drinking_water",
           "count": 48,
-          "percent": 64.9,
+          "percent": 64.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:drinking_water?uselang=sv",
           "topValues": [
             {
@@ -3631,7 +3651,7 @@
         {
           "key": "wikimedia_commons",
           "count": 43,
-          "percent": 58.1,
+          "percent": 57.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -3669,7 +3689,7 @@
         {
           "key": "image:license",
           "count": 40,
-          "percent": 54.1,
+          "percent": 53.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
@@ -3695,7 +3715,7 @@
         {
           "key": "access",
           "count": 36,
-          "percent": 48.6,
+          "percent": 48.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:access?uselang=sv",
           "topValues": [
             {
@@ -3733,7 +3753,7 @@
         {
           "key": "name",
           "count": 31,
-          "percent": 41.9,
+          "percent": 41.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -3771,7 +3791,7 @@
         {
           "key": "description",
           "count": 29,
-          "percent": 39.2,
+          "percent": 38.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -3809,7 +3829,7 @@
         {
           "key": "fee",
           "count": 28,
-          "percent": 37.8,
+          "percent": 37.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fee?uselang=sv",
           "topValues": [
             {
@@ -3829,7 +3849,7 @@
         {
           "key": "image:license:wikidata",
           "count": 22,
-          "percent": 29.7,
+          "percent": 29.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
@@ -3855,7 +3875,7 @@
         {
           "key": "seasonal",
           "count": 22,
-          "percent": 29.7,
+          "percent": 29.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal?uselang=sv",
           "topValues": [
             {
@@ -3881,7 +3901,7 @@
         {
           "key": "wheelchair",
           "count": 19,
-          "percent": 25.7,
+          "percent": 25.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
@@ -3907,7 +3927,7 @@
         {
           "key": "man_made",
           "count": 18,
-          "percent": 24.3,
+          "percent": 24.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:man_made?uselang=sv",
           "topValues": [
             {
@@ -3927,7 +3947,7 @@
         {
           "key": "note",
           "count": 18,
-          "percent": 24.3,
+          "percent": 24.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note?uselang=sv",
           "topValues": [
             {
@@ -3937,15 +3957,15 @@
               "directUrl": null
             },
             {
-              "value": "Drickbart vatten Ta gärna vatten – men slösa inte. Det är ont om färskvatten i hela skärgården.",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DDrickbart%20vatten%20Ta%20g%C3%A4rna%20vatten%20%E2%80%93%20men%20sl%C3%B6sa%20inte.%20Det%20%C3%A4r%20ont%20om%20f%C3%A4rskvatten%20i%20hela%20sk%C3%A4rg%C3%A5rden.?uselang=sv",
-              "directUrl": null
-            },
-            {
               "value": "fungerar ej vid besök 2026 juni",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3Dfungerar%20ej%20vid%20bes%C3%B6k%202026%20juni?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Drickbart vatten Ta gärna vatten – men slösa inte. Skärgårdsstiftelsen sköter om denna vattenpump.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DDrickbart%20vatten%20Ta%20g%C3%A4rna%20vatten%20%E2%80%93%20men%20sl%C3%B6sa%20inte.%20Sk%C3%A4rg%C3%A5rdsstiftelsen%20sk%C3%B6ter%20om%20denna%20vattenpump.?uselang=sv",
               "directUrl": null
             },
             {
@@ -3955,9 +3975,9 @@
               "directUrl": null
             },
             {
-              "value": "Vattnet verkar ha mycket järn och ej testat. Folk undviker använda det.",
+              "value": "Drickbart vatten Ta gärna vatten – men slösa inte. Det är ont om färskvatten i hela skärgården. Skärgårdsstiftelsen sköter om denna vattenpump.",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DVattnet%20verkar%20ha%20mycket%20j%C3%A4rn%20och%20ej%20testat.%20Folk%20undviker%20anv%C3%A4nda%20det.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DDrickbart%20vatten%20Ta%20g%C3%A4rna%20vatten%20%E2%80%93%20men%20sl%C3%B6sa%20inte.%20Det%20%C3%A4r%20ont%20om%20f%C3%A4rskvatten%20i%20hela%20sk%C3%A4rg%C3%A5rden.%20Sk%C3%A4rg%C3%A5rdsstiftelsen%20sk%C3%B6ter%20om%20denna%20vattenpump.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -3965,7 +3985,7 @@
         {
           "key": "bottle",
           "count": 17,
-          "percent": 23.0,
+          "percent": 22.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:bottle?uselang=sv",
           "topValues": [
             {
@@ -3979,7 +3999,7 @@
         {
           "key": "indoor",
           "count": 16,
-          "percent": 21.6,
+          "percent": 21.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:indoor?uselang=sv",
           "topValues": [
             {
@@ -3999,7 +4019,7 @@
         {
           "key": "operator",
           "count": 15,
-          "percent": 20.3,
+          "percent": 20.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
           "topValues": [
             {
@@ -4037,7 +4057,7 @@
         {
           "key": "note:en",
           "count": 11,
-          "percent": 14.9,
+          "percent": 14.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note:en?uselang=sv",
           "topValues": [
             {
@@ -4069,7 +4089,7 @@
         {
           "key": "operator:wikidata",
           "count": 11,
-          "percent": 14.9,
+          "percent": 14.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
           "topValues": [
             {
@@ -4095,7 +4115,7 @@
         {
           "key": "covered",
           "count": 10,
-          "percent": 13.5,
+          "percent": 13.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:covered?uselang=sv",
           "topValues": [
             {
@@ -4115,7 +4135,7 @@
         {
           "key": "lit",
           "count": 9,
-          "percent": 12.2,
+          "percent": 12.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:lit?uselang=sv",
           "topValues": [
             {
@@ -4135,7 +4155,7 @@
         {
           "key": "opening_hours",
           "count": 9,
-          "percent": 12.2,
+          "percent": 12.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
           "topValues": [
             {
@@ -4155,7 +4175,7 @@
         {
           "key": "pump",
           "count": 6,
-          "percent": 8.1,
+          "percent": 8.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:pump?uselang=sv",
           "topValues": [
             {
@@ -4169,7 +4189,7 @@
         {
           "key": "source:opening_hours",
           "count": 6,
-          "percent": 8.1,
+          "percent": 8.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:source:opening_hours?uselang=sv",
           "topValues": [
             {
@@ -4183,7 +4203,7 @@
         {
           "key": "fixme",
           "count": 5,
-          "percent": 6.8,
+          "percent": 6.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fixme?uselang=sv",
           "topValues": [
             {
@@ -4221,7 +4241,7 @@
         {
           "key": "capacity",
           "count": 4,
-          "percent": 5.4,
+          "percent": 5.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:capacity?uselang=sv",
           "topValues": [
             {
@@ -4235,7 +4255,7 @@
         {
           "key": "cold_water",
           "count": 4,
-          "percent": 5.4,
+          "percent": 5.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:cold_water?uselang=sv",
           "topValues": [
             {
@@ -4249,7 +4269,7 @@
         {
           "key": "description:en",
           "count": 4,
-          "percent": 5.4,
+          "percent": 5.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:en?uselang=sv",
           "topValues": [
             {
@@ -4281,7 +4301,7 @@
         {
           "key": "hot_water",
           "count": 4,
-          "percent": 5.4,
+          "percent": 5.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:hot_water?uselang=sv",
           "topValues": [
             {
@@ -4295,7 +4315,7 @@
         {
           "key": "warm_water",
           "count": 4,
-          "percent": 5.4,
+          "percent": 5.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:warm_water?uselang=sv",
           "topValues": [
             {
@@ -4309,7 +4329,7 @@
         {
           "key": "fountain",
           "count": 3,
-          "percent": 4.1,
+          "percent": 4.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fountain?uselang=sv",
           "topValues": [
             {
@@ -4323,7 +4343,7 @@
         {
           "key": "mapillary",
           "count": 3,
-          "percent": 4.1,
+          "percent": 4.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:mapillary?uselang=sv",
           "topValues": [
             {
@@ -4349,7 +4369,7 @@
         {
           "key": "source",
           "count": 3,
-          "percent": 4.1,
+          "percent": 4.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:source?uselang=sv",
           "topValues": [
             {
@@ -4415,7 +4435,7 @@
         {
           "key": "charge",
           "count": 1,
-          "percent": 1.4,
+          "percent": 1.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:charge?uselang=sv",
           "topValues": [
             {
@@ -4429,7 +4449,7 @@
         {
           "key": "description:sv",
           "count": 1,
-          "percent": 1.4,
+          "percent": 1.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:sv?uselang=sv",
           "topValues": [
             {
@@ -4443,7 +4463,7 @@
         {
           "key": "drinking_water:legal",
           "count": 1,
-          "percent": 1.4,
+          "percent": 1.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:drinking_water:legal?uselang=sv",
           "topValues": [
             {
@@ -4457,7 +4477,7 @@
         {
           "key": "drinking_water:seasonal",
           "count": 1,
-          "percent": 1.4,
+          "percent": 1.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:drinking_water:seasonal?uselang=sv",
           "topValues": [
             {
@@ -4469,9 +4489,37 @@
           ]
         },
         {
+          "key": "leisure",
+          "count": 1,
+          "percent": 1.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:leisure?uselang=sv",
+          "topValues": [
+            {
+              "value": "picnic_table",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dpicnic_table?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "material",
+          "count": 1,
+          "percent": 1.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:material?uselang=sv",
+          "topValues": [
+            {
+              "value": "wood",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:material%3Dwood?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "payment:",
           "count": 1,
-          "percent": 1.4,
+          "percent": 1.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:payment:?uselang=sv",
           "topValues": [
             {
@@ -4485,7 +4533,7 @@
         {
           "key": "payment:cash",
           "count": 1,
-          "percent": 1.4,
+          "percent": 1.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:payment:cash?uselang=sv",
           "topValues": [
             {
@@ -4499,7 +4547,7 @@
         {
           "key": "regulation:authority",
           "count": 1,
-          "percent": 1.4,
+          "percent": 1.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:regulation:authority?uselang=sv",
           "topValues": [
             {
@@ -4513,7 +4561,7 @@
         {
           "key": "regulation:authority:wikidata",
           "count": 1,
-          "percent": 1.4,
+          "percent": 1.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:regulation:authority:wikidata?uselang=sv",
           "topValues": [
             {
@@ -4525,9 +4573,23 @@
           ]
         },
         {
+          "key": "seats",
+          "count": 1,
+          "percent": 1.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seats?uselang=sv",
+          "topValues": [
+            {
+              "value": "6",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seats%3D6?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "wikidata",
           "count": 1,
-          "percent": 1.4,
+          "percent": 1.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
           "topValues": [
             {
@@ -12014,8 +12076,8 @@
         },
         {
           "key": "image",
-          "count": 47,
-          "percent": 82.5,
+          "count": 48,
+          "percent": 84.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -14138,8 +14200,8 @@
         },
         {
           "key": "name",
-          "count": 18,
-          "percent": 51.4,
+          "count": 20,
+          "percent": 57.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -14161,23 +14223,61 @@
               "directUrl": null
             },
             {
+              "value": "Utsiktspunkt med bänk",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DUtsiktspunkt%20med%20b%C3%A4nk?uselang=sv",
+              "directUrl": null
+            },
+            {
               "value": "Arholma minneslund utsikten",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DArholma%20minneslund%20utsikten?uselang=sv",
               "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "check_date",
+          "count": 7,
+          "percent": 20.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
+          "topValues": [
+            {
+              "value": "2025-09-15",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-09-15?uselang=sv",
+              "directUrl": null
             },
             {
-              "value": "Utsiktspunkt norra Idholmen",
+              "value": "2025-08-12",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DUtsiktspunkt%20norra%20Idholmen?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-12?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2025-05-23",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-23?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2025-05-08",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-08?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2025-04-05",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-05?uselang=sv",
               "directUrl": null
             }
           ]
         },
         {
           "key": "description",
-          "count": 8,
-          "percent": 22.9,
+          "count": 7,
+          "percent": 20.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -14199,15 +14299,15 @@
               "directUrl": null
             },
             {
-              "value": "Utsiktspunk Stångudden",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DUtsiktspunk%20St%C3%A5ngudden?uselang=sv",
-              "directUrl": null
-            },
-            {
               "value": "utsiktspunkt Bockvikskobb",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dutsiktspunkt%20Bockvikskobb?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Utsikt över Stor-Kastet",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DUtsikt%20%C3%B6ver%20Stor-Kastet?uselang=sv",
               "directUrl": null
             }
           ]
@@ -14228,44 +14328,6 @@
               "value": "CC0",
               "count": 3,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC0?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "check_date",
-          "count": 6,
-          "percent": 17.1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
-          "topValues": [
-            {
-              "value": "2025-09-15",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-09-15?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2025-08-12",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-12?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2025-05-08",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-08?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2025-04-05",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-05?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2025-06-21",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-06-21?uselang=sv",
               "directUrl": null
             }
           ]
@@ -22178,8 +22240,8 @@
         },
         {
           "key": "name",
-          "count": 12,
-          "percent": 28.6,
+          "count": 14,
+          "percent": 33.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -22588,8 +22650,8 @@
         },
         {
           "key": "name",
-          "count": 139,
-          "percent": 93.3,
+          "count": 140,
+          "percent": 94.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -22784,7 +22846,7 @@
             },
             {
               "value": "board",
-              "count": 9,
+              "count": 10,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:information%3Dboard?uselang=sv",
               "directUrl": null
             },
@@ -22798,12 +22860,6 @@
               "value": "map",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:information%3Dmap?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "sign",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:information%3Dsign?uselang=sv",
               "directUrl": null
             }
           ]
@@ -23032,8 +23088,8 @@
         },
         {
           "key": "description",
-          "count": 35,
-          "percent": 23.5,
+          "count": 36,
+          "percent": 24.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -27342,8 +27398,8 @@
         },
         {
           "key": "check_date",
-          "count": 5,
-          "percent": 13.2,
+          "count": 6,
+          "percent": 15.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -27359,6 +27415,12 @@
               "directUrl": null
             },
             {
+              "value": "2025-05-23",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-23?uselang=sv",
+              "directUrl": null
+            },
+            {
               "value": "2025-09-15",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-09-15?uselang=sv",
@@ -27368,6 +27430,32 @@
               "value": "2026-06-27",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-06-27?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "name",
+          "count": 3,
+          "percent": 7.9,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
+          "topValues": [
+            {
+              "value": "Återvinning Grinda hamnkontor",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3D%C3%85tervinning%20Grinda%20hamnkontor?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Grinda sjömack",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DGrinda%20sj%C3%B6mack?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Ornö skola",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DOrn%C3%B6%20skola?uselang=sv",
               "directUrl": null
             }
           ]
@@ -27395,26 +27483,6 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3AOrn%C3%B6_skola?uselang=sv",
               "directUrl": "https://commons.wikimedia.org/wiki/Category:Orn%C3%B6_skola"
-            }
-          ]
-        },
-        {
-          "key": "name",
-          "count": 2,
-          "percent": 5.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
-          "topValues": [
-            {
-              "value": "Grinda sjömack",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DGrinda%20sj%C3%B6mack?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Ornö skola",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DOrn%C3%B6%20skola?uselang=sv",
-              "directUrl": null
             }
           ]
         },
@@ -31595,6 +31663,7 @@
         "drinking_water": "no",
         "fee": "no",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Ålö_2025_maj_(241)_toalett.jpg",
+        "note": "Skärgårdsstiftelsen sköter om toaletten.",
         "opening_hours": "24/7",
         "operator": "Skärgårdsstiftelsen",
         "operator:wikidata": "Q10670989",
@@ -35054,12 +35123,17 @@
       "lon": 18.2221634,
       "tags": {
         "check_date": "2025-08-06",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_01.jpg",
         "leisure": "firepit",
         "ref:stockholmarchipelagotrail": "unknown",
         "seasonal": "no",
-        "wikidata": "Q121409637"
+        "wikidata": "Q121409637",
+        "wikimedia_commons": "Category:Grillplats_Ålö_storsand_3"
       },
-      "tagValueUrls": {}
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_med_basecamp_Stora_Sand_202508_01.jpg",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Grillplats_%C3%85l%C3%B6_storsand_3"
+      }
     },
     {
       "osmType": "node",
@@ -35361,63 +35435,6 @@
     },
     {
       "osmType": "node",
-      "osmId": 12740398797,
-      "osmUrl": "https://www.openstreetmap.org/node/12740398797",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Grillplats",
-      "lat": 58.9658969,
-      "lon": 18.3175987,
-      "tags": {
-        "amenity": "bbq",
-        "check_date": "2025-04-08",
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_42.jpg",
-        "image:license": "CC-0",
-        "ref:grillplatser.nu": "Uto-taltplats-4",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-1",
-        "wikidata": "Q133840790",
-        "wikimedia_commons": "Category:Utö_camping_grillplats_1"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_42.jpg",
-        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-1",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Ut%C3%B6_camping_grillplats_1"
-      }
-    },
-    {
-      "osmType": "node",
-      "osmId": 12740404960,
-      "osmUrl": "https://www.openstreetmap.org/node/12740404960",
-      "name": "(namnlös)",
-      "satRef": "sat:poi:ayvfp",
-      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:ayvfp",
-      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ayvfp",
-      "category": "Grillplats",
-      "lat": 58.9664013,
-      "lon": 18.3184676,
-      "tags": {
-        "amenity": "bbq",
-        "check_date": "2025-04-08",
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_39.jpg",
-        "image:license": "CC-0",
-        "ref:grillplatser.nu": "Uto-taltplats-2",
-        "ref:stockholmarchipelagotrail": "sat:poi:ayvfp",
-        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-2",
-        "wikidata": "Q133840685",
-        "wikimedia_commons": "Category:Utö camping grillplats 2"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_39.jpg",
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:ayvfp",
-        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-2",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Ut%C3%B6%20camping%20grillplats%202"
-      }
-    },
-    {
-      "osmType": "node",
       "osmId": 12744311542,
       "osmUrl": "https://www.openstreetmap.org/node/12744311542",
       "name": "(namnlös)",
@@ -35654,6 +35671,7 @@
       "lon": 18.5160081,
       "tags": {
         "check_date": "2026-06-27",
+        "firewood": "no",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_20260627_05.jpg",
         "image:license": "CC-0",
         "leisure": "firepit",
@@ -35942,33 +35960,6 @@
     },
     {
       "osmType": "node",
-      "osmId": 12874566169,
-      "osmUrl": "https://www.openstreetmap.org/node/12874566169",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Grillplats",
-      "lat": 58.9666868,
-      "lon": 18.3178422,
-      "tags": {
-        "check_date": "2025-04-08",
-        "image": "https://grillplatser.nu/Photos/Uto-taltplats/Grillplatsen-.jpeg",
-        "image:license": "CC-0",
-        "leisure": "firepit",
-        "ref:grillplatser.nu": "Uto-taltplats",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats",
-        "wikimedia_commons": "Category:Utö_camping_grillplats"
-      },
-      "tagValueUrls": {
-        "image": "https://grillplatser.nu/Photos/Uto-taltplats/Grillplatsen-.jpeg",
-        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Ut%C3%B6_camping_grillplats"
-      }
-    },
-    {
-      "osmType": "node",
       "osmId": 12992249253,
       "osmUrl": "https://www.openstreetmap.org/node/12992249253",
       "name": "(namnlös)",
@@ -36034,24 +36025,6 @@
         "leisure": "firepit",
         "ref:stockholmarchipelagotrail": "unknown",
         "seasonal": "no"
-      },
-      "tagValueUrls": {}
-    },
-    {
-      "osmType": "node",
-      "osmId": 13046001460,
-      "osmUrl": "https://www.openstreetmap.org/node/13046001460",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Grillplats",
-      "lat": 58.9093332,
-      "lon": 18.2227658,
-      "tags": {
-        "check_date": "2025-08-03",
-        "leisure": "firepit",
-        "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {}
     },
@@ -36791,6 +36764,94 @@
         "image": "https://commons.wikimedia.org/wiki/File:Finnhamn_15.jpg",
         "website": "https://grillplatser.nu/Grillplats/Visa/Vindskydd-Talludden",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Talluddens_grillplats"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 12740398797,
+      "osmUrl": "https://www.openstreetmap.org/node/12740398797",
+      "name": "Grillplats Utö tältplats",
+      "satRef": "sat:poi:kwxxh",
+      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:kwxxh",
+      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:kwxxh",
+      "category": "Grillplats",
+      "lat": 58.9658969,
+      "lon": 18.3175987,
+      "tags": {
+        "amenity": "bbq",
+        "check_date": "2025-04-08",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_42.jpg",
+        "image:license": "CC-0",
+        "name": "Grillplats Utö tältplats",
+        "ref:grillplatser.nu": "Uto-taltplats-4",
+        "ref:stockholmarchipelagotrail": "sat:poi:kwxxh",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-1",
+        "wikidata": "Q133840790",
+        "wikimedia_commons": "Category:Utö_camping_grillplats_1"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_42.jpg",
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:kwxxh",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-1",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Ut%C3%B6_camping_grillplats_1"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 12740404960,
+      "osmUrl": "https://www.openstreetmap.org/node/12740404960",
+      "name": "Grillplats Utö tältplats",
+      "satRef": "sat:poi:ayvfp",
+      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:ayvfp",
+      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:ayvfp",
+      "category": "Grillplats",
+      "lat": 58.9664013,
+      "lon": 18.3184676,
+      "tags": {
+        "amenity": "bbq",
+        "check_date": "2025-04-08",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_39.jpg",
+        "image:license": "CC-0",
+        "name": "Grillplats Utö tältplats",
+        "ref:grillplatser.nu": "Uto-taltplats-2",
+        "ref:stockholmarchipelagotrail": "sat:poi:ayvfp",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-2",
+        "wikidata": "Q133840685",
+        "wikimedia_commons": "Category:Utö camping grillplats 2"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_39.jpg",
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:ayvfp",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-2",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Ut%C3%B6%20camping%20grillplats%202"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 12874566169,
+      "osmUrl": "https://www.openstreetmap.org/node/12874566169",
+      "name": "Grillplats Utö tältplats",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Grillplats",
+      "lat": 58.9666868,
+      "lon": 18.3178422,
+      "tags": {
+        "check_date": "2025-04-08",
+        "image": "https://grillplatser.nu/Photos/Uto-taltplats/Grillplatsen-.jpeg",
+        "image:license": "CC-0",
+        "leisure": "firepit",
+        "name": "Grillplats Utö tältplats",
+        "ref:grillplatser.nu": "Uto-taltplats",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats",
+        "wikimedia_commons": "Category:Utö_camping_grillplats"
+      },
+      "tagValueUrls": {
+        "image": "https://grillplatser.nu/Photos/Uto-taltplats/Grillplatsen-.jpeg",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Ut%C3%B6_camping_grillplats"
       }
     },
     {
@@ -38524,6 +38585,29 @@
     },
     {
       "osmType": "node",
+      "osmId": 14165762403,
+      "osmUrl": "https://www.openstreetmap.org/node/14165762403",
+      "name": "(namnlös)",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Dricksvatten",
+      "lat": 58.8759397,
+      "lon": 18.1338942,
+      "tags": {
+        "amenity": "drinking_water",
+        "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_SAT_grill_Storsand_(3).jpg",
+        "leisure": "picnic_table",
+        "material": "wood",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "seats": "6"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_SAT_grill_Storsand_(3).jpg"
+      }
+    },
+    {
+      "osmType": "node",
       "osmId": 822563176,
       "osmUrl": "https://www.openstreetmap.org/node/822563176",
       "name": "Dricksvatten",
@@ -38600,7 +38684,7 @@
         "image:license:wikidata": "Q6938433",
         "man_made": "water_well",
         "name": "Dricksvatten",
-        "note": "Drickbart vatten Ta gärna vatten – men slösa inte. Det är ont om färskvatten i hela skärgården.",
+        "note": "Drickbart vatten Ta gärna vatten – men slösa inte. Det är ont om färskvatten i hela skärgården. Skärgårdsstiftelsen sköter om denna vattenpump.",
         "note:en": "Drinkable water Please save on water. There is a water scarcity in the archipelago",
         "operator": "Skärgårdsstiftelsen",
         "operator:wikidata": "Q10670989",
@@ -39283,7 +39367,7 @@
       "tags": {
         "check_date": "2025-08-06",
         "drinking_water": "unknown",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SAT_Ut%C3%B6_20250805_vandring_Norra_10.jpg/960px-SAT_Ut%C3%B6_20250805_vandring_Norra_10.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_20250805_vandring_Norra_10.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "man_made": "water_tap",
@@ -39297,7 +39381,7 @@
         "wikidata": "Q135905224"
       },
       "tagValueUrls": {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SAT_Ut%C3%B6_20250805_vandring_Norra_10.jpg/960px-SAT_Ut%C3%B6_20250805_vandring_Norra_10.jpg"
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_20250805_vandring_Norra_10.jpg"
       }
     },
     {
@@ -39448,7 +39532,7 @@
         "lit": "no",
         "man_made": "water_well",
         "name": "Ålö Storsand dricksvattenpump",
-        "note": "Drickbart vatten Ta gärna vatten – men slösa inte. Det är ont om färskvatten i hela skärgården.",
+        "note": "Drickbart vatten Ta gärna vatten – men slösa inte. Skärgårdsstiftelsen sköter om denna vattenpump.",
         "note:en": "Drinkable water Please save on water. There is a water scarcity in the archipelago",
         "operator": "Skärgårdsstiftelsen",
         "operator:wikidata": "Q10670989",
@@ -44275,10 +44359,12 @@
       "lon": 18.6993887,
       "tags": {
         "amenity": "cafe",
+        "image": "https://commons.wikimedia.org/wiki/File:Sollenkroka_Marina_cafe_20260717_08.jpg",
         "ref:stockholmarchipelagotrail": "unknown",
         "wikimedia_commons": "Category:Sollenkroka_Marina"
       },
       "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:Sollenkroka_Marina_cafe_20260717_08.jpg",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Sollenkroka_Marina"
       }
     },
@@ -46338,31 +46424,6 @@
     },
     {
       "osmType": "node",
-      "osmId": 4239095072,
-      "osmUrl": "https://www.openstreetmap.org/node/4239095072",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Utsiktspunkt",
-      "lat": 59.4090281,
-      "lon": 18.5485543,
-      "tags": {
-        "description": "utsiktspunkt sydvästra Grinda",
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_28_b%C3%A4nk_p%C3%A5_leden.jpg",
-        "image:license": "CC0",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "tourism": "viewpoint",
-        "wheelchair": "no",
-        "wikimedia_commons": "Category:Grinda_viewpoint_4239095072"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_28_b%C3%A4nk_p%C3%A5_leden.jpg",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Grinda_viewpoint_4239095072"
-      }
-    },
-    {
-      "osmType": "node",
       "osmId": 5745003236,
       "osmUrl": "https://www.openstreetmap.org/node/5745003236",
       "name": "(namnlös)",
@@ -46560,30 +46621,6 @@
       "tagValueUrls": {
         "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_vandring_2025_april_39.jpg",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:%C3%85l%C3%B6_viewpoint_13925511367"
-      }
-    },
-    {
-      "osmType": "node",
-      "osmId": 13925849375,
-      "osmUrl": "https://www.openstreetmap.org/node/13925849375",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Utsiktspunkt",
-      "lat": 58.7376833,
-      "lon": 17.8655104,
-      "tags": {
-        "check_date": "2025-06-21",
-        "description": "Utsiktspunk Stångudden",
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_s%C3%B6dra.jpg",
-        "mapillary": "1138818468284983",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "tourism": "viewpoint"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_s%C3%B6dra.jpg",
-        "mapillary": "https://www.mapillary.com/app/user/salgo601?pKey=1138818468284983"
       }
     },
     {
@@ -46997,6 +47034,30 @@
     },
     {
       "osmType": "node",
+      "osmId": 13925849375,
+      "osmUrl": "https://www.openstreetmap.org/node/13925849375",
+      "name": "Utsiktspunk Stångudden",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Utsiktspunkt",
+      "lat": 58.7376833,
+      "lon": 17.8655104,
+      "tags": {
+        "check_date": "2025-06-21",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_s%C3%B6dra.jpg",
+        "mapillary": "1138818468284983",
+        "name": "Utsiktspunk Stångudden",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "tourism": "viewpoint"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_s%C3%B6dra.jpg",
+        "mapillary": "https://www.mapillary.com/app/user/salgo601?pKey=1138818468284983"
+      }
+    },
+    {
+      "osmType": "node",
       "osmId": 13925221954,
       "osmUrl": "https://www.openstreetmap.org/node/13925221954",
       "name": "utsiktspunkt Arholma båk",
@@ -47018,6 +47079,33 @@
         "image": "https://commons.wikimedia.org/wiki/File:1056_Arholma_August_2014_-_panoramio.jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:7nvj4",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Arholma%20viewpoint%2013925221954"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 4239095072,
+      "osmUrl": "https://www.openstreetmap.org/node/4239095072",
+      "name": "Utsiktspunkt med bänk",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Utsiktspunkt",
+      "lat": 59.4090281,
+      "lon": 18.5485543,
+      "tags": {
+        "check_date": "2025-05-23",
+        "description": "utsiktspunkt sydvästra Grinda",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_28_b%C3%A4nk_p%C3%A5_leden.jpg",
+        "image:license": "CC0",
+        "name": "Utsiktspunkt med bänk",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "tourism": "viewpoint",
+        "wheelchair": "no",
+        "wikimedia_commons": "Category:Grinda_viewpoint_4239095072"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_28_b%C3%A4nk_p%C3%A5_leden.jpg",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Grinda_viewpoint_4239095072"
       }
     },
     {
@@ -54905,37 +54993,6 @@
     },
     {
       "osmType": "node",
-      "osmId": 13069095802,
-      "osmUrl": "https://www.openstreetmap.org/node/13069095802",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Hjärtstartare",
-      "lat": 59.8404195,
-      "lon": 19.1057512,
-      "tags": {
-        "access": "yes",
-        "check_date": "2025-08-13",
-        "defibrillator:location:sv": "Sitter på väggen mot vägen bredvid brandsläckare",
-        "emergency": "defibrillator",
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_20250813_Arholma_Vandring_17.jpg",
-        "image:license": "CC-0",
-        "image:license:wikidata": "Q6938433",
-        "indoor": "no",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "website": "https://www.hjartstartarregistret.se/#/54560",
-        "wikidata": "Q135900661",
-        "wikimedia_commons": "Category:Arholma_Intresseförening_Ensfyrens_väg_AED"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_20250813_Arholma_Vandring_17.jpg",
-        "website": "https://www.hjartstartarregistret.se/#/54560",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Arholma_Intressef%C3%B6rening_Ensfyrens_v%C3%A4g_AED"
-      }
-    },
-    {
-      "osmType": "node",
       "osmId": 13906338701,
       "osmUrl": "https://www.openstreetmap.org/node/13906338701",
       "name": "(namnlös)",
@@ -55145,33 +55202,6 @@
         "ref:stockholmarchipelagotrail": "shr:101476"
       },
       "tagValueUrls": {}
-    },
-    {
-      "osmType": "node",
-      "osmId": 13930058601,
-      "osmUrl": "https://www.openstreetmap.org/node/13930058601",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Hjärtstartare",
-      "lat": 59.2879984,
-      "lon": 18.9187596,
-      "tags": {
-        "access": "yes",
-        "check_date": "2026-04-28",
-        "defibrillator:location:sv": "Sitter på väggen innanför dörren",
-        "emergency": "defibrillator",
-        "image": "https://commons.wikimedia.org/wiki/File:Sandhamn_2026_april_07.jpg",
-        "indoor": "yes",
-        "level": "0",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "wikimedia_commons": "Category:Sandhamns_hotell_AED"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:Sandhamn_2026_april_07.jpg",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Sandhamns_hotell_AED"
-      }
     },
     {
       "osmType": "node",
@@ -55428,6 +55458,38 @@
       "tagValueUrls": {
         "image": "https://openaedmap.org/api/v1/photos/view/4zbDd878qfWwzzWIhJz_qA.webp",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Arholma_handel_AED_13068560201"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 13069095802,
+      "osmUrl": "https://www.openstreetmap.org/node/13069095802",
+      "name": "Hjärtstartare Arholma Intresseförening Ensfyrens väg",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Hjärtstartare",
+      "lat": 59.8404195,
+      "lon": 19.1057512,
+      "tags": {
+        "access": "yes",
+        "check_date": "2025-08-13",
+        "defibrillator:location:sv": "Sitter på väggen mot vägen bredvid brandsläckare",
+        "emergency": "defibrillator",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_20250813_Arholma_Vandring_17.jpg",
+        "image:license": "CC-0",
+        "image:license:wikidata": "Q6938433",
+        "indoor": "no",
+        "name": "Hjärtstartare Arholma Intresseförening Ensfyrens väg",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "website": "https://www.hjartstartarregistret.se/#/54560",
+        "wikidata": "Q135900661",
+        "wikimedia_commons": "Category:Arholma_Intresseförening_Ensfyrens_väg_AED"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_20250813_Arholma_Vandring_17.jpg",
+        "website": "https://www.hjartstartarregistret.se/#/54560",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Arholma_Intressef%C3%B6rening_Ensfyrens_v%C3%A4g_AED"
       }
     },
     {
@@ -55700,6 +55762,34 @@
     },
     {
       "osmType": "node",
+      "osmId": 13930058601,
+      "osmUrl": "https://www.openstreetmap.org/node/13930058601",
+      "name": "Hjärtstartare Seglarhotellet",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Hjärtstartare",
+      "lat": 59.2879984,
+      "lon": 18.9187596,
+      "tags": {
+        "access": "yes",
+        "check_date": "2026-04-28",
+        "defibrillator:location:sv": "Sitter på väggen innanför dörren",
+        "emergency": "defibrillator",
+        "image": "https://commons.wikimedia.org/wiki/File:Sandhamn_2026_april_07.jpg",
+        "indoor": "yes",
+        "level": "0",
+        "name": "Hjärtstartare Seglarhotellet",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "wikimedia_commons": "Category:Sandhamns_hotell_AED"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:Sandhamn_2026_april_07.jpg",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Sandhamns_hotell_AED"
+      }
+    },
+    {
+      "osmType": "node",
       "osmId": 12942128203,
       "osmUrl": "https://www.openstreetmap.org/node/12942128203",
       "name": "Hjärtstartare Västra hamnen Landsort",
@@ -55764,27 +55854,6 @@
         "image": "https://openaedmap.org/api/v1/photos/view/gJ1ux89RwA35vwo6hDNssg.webp",
         "mapillary": "https://www.mapillary.com/app/user/salgo601?pKey=2118726731974715",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Sj%C3%B6fartsverket_gaveln_AED"
-      }
-    },
-    {
-      "osmType": "node",
-      "osmId": 10657352922,
-      "osmUrl": "https://www.openstreetmap.org/node/10657352922",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Turism / sevärdhet",
-      "lat": 59.2858695,
-      "lon": 18.9219268,
-      "tags": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_Dansberget.jpg",
-        "information": "sign",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "tourism": "information"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_Dansberget.jpg"
       }
     },
     {
@@ -56291,6 +56360,29 @@
     },
     {
       "osmType": "node",
+      "osmId": 10657352922,
+      "osmUrl": "https://www.openstreetmap.org/node/10657352922",
+      "name": "Dansberget",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Turism / sevärdhet",
+      "lat": 59.2858695,
+      "lon": 18.9219268,
+      "tags": {
+        "description": "Dansberget har genom sitt fina höga läge och platta stenhäll tidigare använts som dansbana. Här dansade man tills en dansbana av trä byggdes i hamnen. Nedanför Dansberget har det en gång funnits två separata nakenbad – ett för herrar och ett för damer.",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_Dansberget.jpg",
+        "information": "board",
+        "name": "Dansberget",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "tourism": "information"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_Dansberget.jpg"
+      }
+    },
+    {
+      "osmType": "node",
       "osmId": 3297305397,
       "osmUrl": "https://www.openstreetmap.org/node/3297305397",
       "name": "Drottninggrottan",
@@ -56474,28 +56566,6 @@
         "tourism": "information"
       },
       "tagValueUrls": {}
-    },
-    {
-      "osmType": "node",
-      "osmId": 14122046392,
-      "osmUrl": "https://www.openstreetmap.org/node/14122046392",
-      "name": "Hamn/ Ejder",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Turism / sevärdhet",
-      "lat": 59.4293341,
-      "lon": 18.8573234,
-      "tags": {
-        "image": "https://commons.wikimedia.org/wiki/File:M%C3%B6ja_Hamn_skyltar.jpg",
-        "information": "board",
-        "name": "Hamn/ Ejder",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "tourism": "information"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:M%C3%B6ja_Hamn_skyltar.jpg"
-      }
     },
     {
       "osmType": "node",
@@ -59772,6 +59842,28 @@
       }
     },
     {
+      "osmType": "node",
+      "osmId": 14122046392,
+      "osmUrl": "https://www.openstreetmap.org/node/14122046392",
+      "name": "Skylt Hamn/ Ejder",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Turism / sevärdhet",
+      "lat": 59.4293341,
+      "lon": 18.8573234,
+      "tags": {
+        "image": "https://commons.wikimedia.org/wiki/File:M%C3%B6ja_Hamn_skyltar.jpg",
+        "information": "board",
+        "name": "Skylt Hamn/ Ejder",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "tourism": "information"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:M%C3%B6ja_Hamn_skyltar.jpg"
+      }
+    },
+    {
       "osmType": "way",
       "osmId": 388325250,
       "osmUrl": "https://www.openstreetmap.org/way/388325250",
@@ -61764,6 +61856,7 @@
       "lon": 18.5485778,
       "tags": {
         "amenity": "bench",
+        "check_date": "2025-05-23",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_28_b%C3%A4nk_p%C3%A5_leden.jpg",
         "image:license": "CC0",
         "ref:stockholmarchipelagotrail": "unknown",
@@ -61818,31 +61911,6 @@
       },
       "tagValueUrls": {
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250915_f_16.jpg"
-      }
-    },
-    {
-      "osmType": "node",
-      "osmId": 14055551886,
-      "osmUrl": "https://www.openstreetmap.org/node/14055551886",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Service",
-      "lat": 59.4140611,
-      "lon": 18.5571924,
-      "tags": {
-        "amenity": "recycling",
-        "image": "https://commons.wikimedia.org/wiki/File:Grinda_hamnkontoret_och_%C3%A5tervinning_20260718_46.jpg",
-        "recycling:glass_bottles": "yes",
-        "recycling:metal": "yes",
-        "recycling_type": "container",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "wikimedia_commons": "Category:Grinda_Recycling_station"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:Grinda_hamnkontoret_och_%C3%A5tervinning_20260718_46.jpg",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Grinda_Recycling_station"
       }
     },
     {
@@ -62466,6 +62534,32 @@
         "image": "https://commons.wikimedia.org/wiki/File:Orn%C3%B6_skola_20260627_26.jpg",
         "website": "https://ornoskola.haninge.se//",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Orn%C3%B6_skola"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 14055551886,
+      "osmUrl": "https://www.openstreetmap.org/node/14055551886",
+      "name": "Återvinning Grinda hamnkontor",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Service",
+      "lat": 59.4140611,
+      "lon": 18.5571924,
+      "tags": {
+        "amenity": "recycling",
+        "image": "https://commons.wikimedia.org/wiki/File:Grinda_hamnkontoret_och_%C3%A5tervinning_20260718_46.jpg",
+        "name": "Återvinning Grinda hamnkontor",
+        "recycling:glass_bottles": "yes",
+        "recycling:metal": "yes",
+        "recycling_type": "container",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "wikimedia_commons": "Category:Grinda_Recycling_station"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:Grinda_hamnkontoret_och_%C3%A5tervinning_20260718_46.jpg",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Grinda_Recycling_station"
       }
     },
     {
