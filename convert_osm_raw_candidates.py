@@ -12,6 +12,7 @@ by computing a centroid for non-point types.
 import json
 import urllib.request
 from pathlib import Path
+from osm_display_name import osm_display_name
 
 INPUT_FILE = Path("osm_postpass_data.json")
 OUTPUT_FILE = Path("osm_candidates.json")
@@ -135,7 +136,7 @@ for feat in features:
         "geometry": {"type": "Point", "coordinates": [lon, lat]},
         "properties": {
             "id": f"osm:{osm_id}",
-            "name": tags.get("name") or f"OSM {osm_id}",
+            "name": osm_display_name(tags, f"{osm_type}:{osm_id}"),
             "category": "Övrigt",  # NO mapping — SAT decides categories
             "section": "unknown",
             "operator": tags.get("operator") or tags.get("brand") or "",

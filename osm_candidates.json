@@ -12,7 +12,7 @@
       },
       "properties": {
         "id": "osm:5745003236",
-        "name": "OSM 5745003236",
+        "name": "tourism=viewpoint",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -100,7 +100,7 @@
       },
       "properties": {
         "id": "osm:13930058601",
-        "name": "OSM 13930058601",
+        "name": "emergency=defibrillator",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -122,7 +122,7 @@
       },
       "properties": {
         "id": "osm:10657352922",
-        "name": "OSM 10657352922",
+        "name": "tourism=information",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -166,7 +166,7 @@
       },
       "properties": {
         "id": "osm:13144299619",
-        "name": "OSM 13144299619",
+        "name": "tourism=viewpoint",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -188,7 +188,7 @@
       },
       "properties": {
         "id": "osm:863394760",
-        "name": "OSM 863394760",
+        "name": "tourism=viewpoint",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -342,7 +342,7 @@
       },
       "properties": {
         "id": "osm:12874566169",
-        "name": "OSM 12874566169",
+        "name": "leisure=firepit",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -386,7 +386,7 @@
       },
       "properties": {
         "id": "osm:12849416935",
-        "name": "OSM 12849416935",
+        "name": "tourism=viewpoint",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -430,7 +430,7 @@
       },
       "properties": {
         "id": "osm:13925511367",
-        "name": "OSM 13925511367",
+        "name": "tourism=viewpoint",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -474,7 +474,7 @@
       },
       "properties": {
         "id": "osm:13925452748",
-        "name": "OSM 13925452748",
+        "name": "tourism=viewpoint",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -518,7 +518,7 @@
       },
       "properties": {
         "id": "osm:13925871486",
-        "name": "OSM 13925871486",
+        "name": "tourism=viewpoint",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -738,7 +738,7 @@
       },
       "properties": {
         "id": "osm:13069095802",
-        "name": "OSM 13069095802",
+        "name": "emergency=defibrillator",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -826,7 +826,7 @@
       },
       "properties": {
         "id": "osm:13144410779",
-        "name": "OSM 13144410779",
+        "name": "tourism=viewpoint",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1018,28 +1018,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.9200905,
-          59.2842719
-        ]
-      },
-      "properties": {
-        "id": "osm:12805751201",
-        "name": "Hjärtstartare Sandhamns tennisklubb",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:12805751201",
-        "lat": 59.2842719,
-        "lon": 18.9200905
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.9056407,
           59.2891247
         ]
@@ -1156,7 +1134,7 @@
       },
       "properties": {
         "id": "osm:6652974964",
-        "name": "OSM 6652974964",
+        "name": "amenity=cafe",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1178,7 +1156,7 @@
       },
       "properties": {
         "id": "osm:5860556435",
-        "name": "OSM 5860556435",
+        "name": "emergency=defibrillator",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1222,7 +1200,7 @@
       },
       "properties": {
         "id": "osm:13983383701",
-        "name": "OSM 13983383701",
+        "name": "emergency=defibrillator",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1266,7 +1244,7 @@
       },
       "properties": {
         "id": "osm:13925035435",
-        "name": "OSM 13925035435",
+        "name": "Utsikt över Skvallerhamnen",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1288,7 +1266,7 @@
       },
       "properties": {
         "id": "osm:12740398797",
-        "name": "OSM 12740398797",
+        "name": "amenity=bbq",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1354,7 +1332,7 @@
       },
       "properties": {
         "id": "osm:14055551886",
-        "name": "OSM 14055551886",
+        "name": "amenity=recycling",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1376,7 +1354,7 @@
       },
       "properties": {
         "id": "osm:4239095072",
-        "name": "OSM 4239095072",
+        "name": "utsiktspunkt sydvästra Grinda",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1398,7 +1376,7 @@
       },
       "properties": {
         "id": "osm:13925857327",
-        "name": "OSM 13925857327",
+        "name": "utsiktspunkt Bockvikskobb",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1464,7 +1442,7 @@
       },
       "properties": {
         "id": "osm:13925508657",
-        "name": "OSM 13925508657",
+        "name": "Utsiktspunkt med fri utsikt över havet släta kusthällar där berggrundens strukturer framträder tydligt",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1508,7 +1486,7 @@
       },
       "properties": {
         "id": "osm:13925849375",
-        "name": "OSM 13925849375",
+        "name": "Utsiktspunk Stångudden",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1618,7 +1596,7 @@
       },
       "properties": {
         "id": "osm:3431736737",
-        "name": "OSM 3431736737",
+        "name": "leisure=firepit",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1640,7 +1618,7 @@
       },
       "properties": {
         "id": "osm:13045934615",
-        "name": "OSM 13045934615",
+        "name": "leisure=firepit",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1662,7 +1640,7 @@
       },
       "properties": {
         "id": "osm:13046001460",
-        "name": "OSM 13046001460",
+        "name": "leisure=firepit",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1684,7 +1662,7 @@
       },
       "properties": {
         "id": "osm:13047936489",
-        "name": "OSM 13047936489",
+        "name": "leisure=firepit",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1904,7 +1882,7 @@
       },
       "properties": {
         "id": "osm:4990875347",
-        "name": "OSM 4990875347",
+        "name": "emergency=defibrillator",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1926,7 +1904,7 @@
       },
       "properties": {
         "id": "osm:14122757356",
-        "name": "OSM 14122757356",
+        "name": "amenity=waste_basket",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1948,7 +1926,7 @@
       },
       "properties": {
         "id": "osm:12865440356",
-        "name": "OSM 12865440356",
+        "name": "leisure=firepit",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -1970,7 +1948,7 @@
       },
       "properties": {
         "id": "osm:14019326401",
-        "name": "OSM 14019326401",
+        "name": "emergency=defibrillator",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -2014,7 +1992,7 @@
       },
       "properties": {
         "id": "osm:9011922104",
-        "name": "OSM 9011922104",
+        "name": "Obs ont om vatten så hushålla",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -2058,7 +2036,7 @@
       },
       "properties": {
         "id": "osm:13925952606",
-        "name": "OSM 13925952606",
+        "name": "Utsikt över Stor-Kastet",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -2146,7 +2124,7 @@
       },
       "properties": {
         "id": "osm:14109373888",
-        "name": "OSM 14109373888",
+        "name": "leisure=hot_tub",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "Lidö wärdshus",
@@ -2168,7 +2146,7 @@
       },
       "properties": {
         "id": "osm:14109373889",
-        "name": "OSM 14109373889",
+        "name": "leisure=hot_tub",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "Lidö wärdshus",
@@ -2190,7 +2168,7 @@
       },
       "properties": {
         "id": "osm:14005133946",
-        "name": "OSM 14005133946",
+        "name": "leisure=firepit",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -2212,7 +2190,7 @@
       },
       "properties": {
         "id": "osm:13925256442",
-        "name": "OSM 13925256442",
+        "name": "tourism=viewpoint",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -2234,7 +2212,7 @@
       },
       "properties": {
         "id": "osm:14109444956",
-        "name": "OSM 14109444956",
+        "name": "amenity=bbq",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -2300,7 +2278,7 @@
       },
       "properties": {
         "id": "osm:14114525009",
-        "name": "OSM 14114525009",
+        "name": "amenity=toilets",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -2366,7 +2344,7 @@
       },
       "properties": {
         "id": "osm:14119758422",
-        "name": "OSM 14119758422",
+        "name": "leisure=firepit",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -2388,7 +2366,7 @@
       },
       "properties": {
         "id": "osm:14119758423",
-        "name": "OSM 14119758423",
+        "name": "leisure=firepit",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -2580,28 +2558,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.8404726,
-          59.6123005
-        ]
-      },
-      "properties": {
-        "id": "osm:13909005774",
-        "name": "OSM 13909005774",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "Hamnängens Samfällighetsförening",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13909005774",
-        "lat": 59.6123005,
-        "lon": 18.8404726
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.1202708,
           59.8579176
         ]
@@ -2696,7 +2652,7 @@
       },
       "properties": {
         "id": "osm:12758859016",
-        "name": "OSM 12758859016",
+        "name": "tourism=information",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "Stockholm Archipelago Trail",
@@ -2718,7 +2674,7 @@
       },
       "properties": {
         "id": "osm:14143807401",
-        "name": "OSM 14143807401",
+        "name": "emergency=defibrillator",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -3774,7 +3730,7 @@
       },
       "properties": {
         "id": "osm:14112121576",
-        "name": "OSM 14112121576",
+        "name": "tourism=information",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "Stockholm Archipelago Trail",
@@ -3796,7 +3752,7 @@
       },
       "properties": {
         "id": "osm:14112124484",
-        "name": "OSM 14112124484",
+        "name": "tourism=information",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "Stockholm Archipelago Trail",
@@ -3950,7 +3906,7 @@
       },
       "properties": {
         "id": "osm:4963568624",
-        "name": "OSM 4963568624",
+        "name": "waterway=fuel",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -3994,7 +3950,7 @@
       },
       "properties": {
         "id": "osm:14107083401",
-        "name": "OSM 14107083401",
+        "name": "emergency=defibrillator",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4082,7 +4038,7 @@
       },
       "properties": {
         "id": "osm:13069611873",
-        "name": "OSM 13069611873",
+        "name": "leisure=picnic_table",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4104,7 +4060,7 @@
       },
       "properties": {
         "id": "osm:13069275535",
-        "name": "OSM 13069275535",
+        "name": "leisure=picnic_table",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4500,7 +4456,7 @@
       },
       "properties": {
         "id": "osm:13069275536",
-        "name": "OSM 13069275536",
+        "name": "leisure=picnic_table",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4522,7 +4478,7 @@
       },
       "properties": {
         "id": "osm:12959418501",
-        "name": "OSM 12959418501",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4544,7 +4500,7 @@
       },
       "properties": {
         "id": "osm:13075628000",
-        "name": "OSM 13075628000",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4566,7 +4522,7 @@
       },
       "properties": {
         "id": "osm:14159548690",
-        "name": "OSM 14159548690",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4588,7 +4544,7 @@
       },
       "properties": {
         "id": "osm:14159564370",
-        "name": "OSM 14159564370",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4610,7 +4566,7 @@
       },
       "properties": {
         "id": "osm:12873924579",
-        "name": "OSM 12873924579",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4632,7 +4588,7 @@
       },
       "properties": {
         "id": "osm:12873924931",
-        "name": "OSM 12873924931",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "Swedish Archipelago Trail",
@@ -4654,7 +4610,7 @@
       },
       "properties": {
         "id": "osm:13052870022",
-        "name": "OSM 13052870022",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4676,7 +4632,7 @@
       },
       "properties": {
         "id": "osm:14112124485",
-        "name": "OSM 14112124485",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4698,7 +4654,7 @@
       },
       "properties": {
         "id": "osm:14160332709",
-        "name": "OSM 14160332709",
+        "name": "tourism=picnic_site",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4720,7 +4676,7 @@
       },
       "properties": {
         "id": "osm:14160384148",
-        "name": "OSM 14160384148",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4742,7 +4698,7 @@
       },
       "properties": {
         "id": "osm:14160384149",
-        "name": "OSM 14160384149",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4764,7 +4720,7 @@
       },
       "properties": {
         "id": "osm:14159552654",
-        "name": "OSM 14159552654",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4786,7 +4742,7 @@
       },
       "properties": {
         "id": "osm:14160384773",
-        "name": "OSM 14160384773",
+        "name": "tourism=picnic_site",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4808,7 +4764,7 @@
       },
       "properties": {
         "id": "osm:14160384774",
-        "name": "OSM 14160384774",
+        "name": "tourism=picnic_site",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4830,7 +4786,7 @@
       },
       "properties": {
         "id": "osm:14160384775",
-        "name": "OSM 14160384775",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4852,7 +4808,7 @@
       },
       "properties": {
         "id": "osm:14160287297",
-        "name": "OSM 14160287297",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4874,7 +4830,7 @@
       },
       "properties": {
         "id": "osm:14161923871",
-        "name": "OSM 14161923871",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4896,7 +4852,7 @@
       },
       "properties": {
         "id": "osm:14161967671",
-        "name": "OSM 14161967671",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4918,7 +4874,7 @@
       },
       "properties": {
         "id": "osm:14162062711",
-        "name": "OSM 14162062711",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4940,7 +4896,7 @@
       },
       "properties": {
         "id": "osm:12942189721",
-        "name": "OSM 12942189721",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4962,7 +4918,7 @@
       },
       "properties": {
         "id": "osm:14162071531",
-        "name": "OSM 14162071531",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -4984,7 +4940,7 @@
       },
       "properties": {
         "id": "osm:14162071532",
-        "name": "OSM 14162071532",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5006,7 +4962,7 @@
       },
       "properties": {
         "id": "osm:14162071533",
-        "name": "OSM 14162071533",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5028,7 +4984,7 @@
       },
       "properties": {
         "id": "osm:14162071534",
-        "name": "OSM 14162071534",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5050,7 +5006,7 @@
       },
       "properties": {
         "id": "osm:14159545411",
-        "name": "OSM 14159545411",
+        "name": "bord och bänkar",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5072,7 +5028,7 @@
       },
       "properties": {
         "id": "osm:13143762898",
-        "name": "OSM 13143762898",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5094,7 +5050,7 @@
       },
       "properties": {
         "id": "osm:14159552065",
-        "name": "OSM 14159552065",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5116,7 +5072,7 @@
       },
       "properties": {
         "id": "osm:14159552066",
-        "name": "OSM 14159552066",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5138,7 +5094,7 @@
       },
       "properties": {
         "id": "osm:14159553577",
-        "name": "OSM 14159553577",
+        "name": "tourism=picnic_site",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5160,7 +5116,7 @@
       },
       "properties": {
         "id": "osm:14159557081",
-        "name": "OSM 14159557081",
+        "name": "tourism=picnic_site",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5182,7 +5138,7 @@
       },
       "properties": {
         "id": "osm:12753930289",
-        "name": "OSM 12753930289",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5204,7 +5160,7 @@
       },
       "properties": {
         "id": "osm:14160309747",
-        "name": "OSM 14160309747",
+        "name": "OSM node:14160309747",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5226,7 +5182,7 @@
       },
       "properties": {
         "id": "osm:14160309748",
-        "name": "OSM 14160309748",
+        "name": "OSM node:14160309748",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5248,7 +5204,7 @@
       },
       "properties": {
         "id": "osm:12738957958",
-        "name": "OSM 12738957958",
+        "name": "OSM node:12738957958",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5270,7 +5226,7 @@
       },
       "properties": {
         "id": "osm:14160270263",
-        "name": "OSM 14160270263",
+        "name": "tourism=picnic_site",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5292,7 +5248,7 @@
       },
       "properties": {
         "id": "osm:13144410780",
-        "name": "OSM 13144410780",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5314,7 +5270,7 @@
       },
       "properties": {
         "id": "osm:13146613859",
-        "name": "OSM 13146613859",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5336,7 +5292,7 @@
       },
       "properties": {
         "id": "osm:14161182969",
-        "name": "OSM 14161182969",
+        "name": "amenity=shower",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5358,7 +5314,7 @@
       },
       "properties": {
         "id": "osm:14073542366",
-        "name": "OSM 14073542366",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5380,7 +5336,7 @@
       },
       "properties": {
         "id": "osm:14161906649",
-        "name": "OSM 14161906649",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5402,7 +5358,7 @@
       },
       "properties": {
         "id": "osm:14161906650",
-        "name": "OSM 14161906650",
+        "name": "leisure=picnic_table",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5424,7 +5380,7 @@
       },
       "properties": {
         "id": "osm:5856137423",
-        "name": "OSM 5856137423",
+        "name": "leisure=picnic_table",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5446,7 +5402,7 @@
       },
       "properties": {
         "id": "osm:14162051984",
-        "name": "OSM 14162051984",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5468,7 +5424,7 @@
       },
       "properties": {
         "id": "osm:14162070436",
-        "name": "OSM 14162070436",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5490,7 +5446,7 @@
       },
       "properties": {
         "id": "osm:14162070437",
-        "name": "OSM 14162070437",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5512,7 +5468,7 @@
       },
       "properties": {
         "id": "osm:14162070438",
-        "name": "OSM 14162070438",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5534,7 +5490,7 @@
       },
       "properties": {
         "id": "osm:14162081204",
-        "name": "OSM 14162081204",
+        "name": "amenity=bench",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5556,7 +5512,7 @@
       },
       "properties": {
         "id": "osm:12089318349",
-        "name": "OSM 12089318349",
+        "name": "emergency=defibrillator",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5908,7 +5864,7 @@
       },
       "properties": {
         "id": "osm:1540858830",
-        "name": "OSM 1540858830",
+        "name": "OSM way:1540858830",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -5974,7 +5930,7 @@
       },
       "properties": {
         "id": "osm:219372725",
-        "name": "OSM 219372725",
+        "name": "amenity=shelter",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
@@ -6844,6 +6800,6 @@
       }
     }
   ],
-  "count": 311,
+  "count": 309,
   "source": "OSM (PostPass) - ref:stockholmarchipelagotrail (untracked only)"
 }
