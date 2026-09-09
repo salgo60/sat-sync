@@ -17,6 +17,7 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime
+from html import escape
 from pathlib import Path
 from typing import Optional
 from urllib.parse import quote, urlencode
@@ -27,6 +28,7 @@ WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 TRAIL_URL = "https://map.stockholmarchipelagotrail.com/data/trail.jsonld"
 SECTIONS_INDEX_URL = "https://map.stockholmarchipelagotrail.com/data/sections-index.json"
 OSM_CANDIDATES_FILE = Path("osm_candidates.json")
+OSM_POSTPASS_FILE = Path("osm_postpass_data.json")
 
 HEADERS = {"User-Agent": "sat-sync-generator/1.0 (+https://github.com/salgo60/sat-sync)"}
 
@@ -35,6 +37,39 @@ def sat_object_urls(sat_id: str) -> tuple[str, str]:
     encoded_id = quote(sat_id, safe="")
     base = "https://map.stockholmarchipelagotrail.com"
     return f"{base}/?{encoded_id}", f"{base}/api/objects/{encoded_id}"
+
+
+def osm_description_names(features: list[dict]) -> dict[str, str]:
+    """Use explicit SAT references, never proximity, to find OSM descriptions."""
+    descriptions: dict[str, dict[str, str]] = {}
+    for feature in features:
+        tags = (feature.get("properties") or {}).get("tags") or {}
+        refs = tags.get("ref:stockholmarchipelagotrail", "")
+        for ref in refs.split(";"):
+            ref = ref.strip()
+            if not ref.startswith("sat:poi:"):
+                continue
+            values = descriptions.setdefault(ref, {})
+            for key in ("description:sv", "description"):
+                value = tags.get(key)
+                if isinstance(value, str) and value.strip():
+                    values.setdefault(key, value.strip())
+    return {
+        ref: values.get("description:sv") or values["description"]
+        for ref, values in descriptions.items() if values
+    }
+
+
+def poi_display_name(poi: dict, descriptions: dict[str, str]) -> str:
+    name = pick_text(poi.get("name"))
+    if name and name.strip():
+        return name
+    localized = poi.get("name_localized") or {}
+    for lang in ("en", "sv"):
+        value = localized.get(lang)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return descriptions.get(poi.get("id"), "")
 
 
 def _parse_to_utc(value: str) -> Optional[datetime]:
@@ -451,7 +486,7 @@ ORDER BY DESC(geof:latitude(?coord))
             pass
         return 0, ""
 
-    def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict], osm_candidates: Optional[list[dict]] = None) -> str:
+    def generate_html(self, pois: list[dict], stages: list[Stage], trail_geojson: dict, sections_index: list[dict], osm_candidates: Optional[list[dict]] = None, osm_descriptions: Optional[dict[str, str]] = None) -> str:
         stage_by_slug = {s.slug: s for s in stages}
         generated_at = datetime.now().strftime("%Y%m%d %H:%M")
         pois_fetched_at = format_timestamp_link(self.pois_fetched_at or generated_at)
@@ -483,7 +518,7 @@ ORDER BY DESC(geof:latitude(?coord))
             poi_map_data.append(
                 {
                     "id": p.get("id"),
-                    "name": p.get("name"),
+                    "name": poi_display_name(p, osm_descriptions or {}),
                     "name_localized": p.get("name_localized") or {},
                     "section": sec,
                     "category": cat,
@@ -566,7 +601,7 @@ ORDER BY DESC(geof:latitude(?coord))
                 f"""
         <tr data-section="{sec}" data-category="{cat}" data-poi-id="{sat_id}" data-operator="{p.get('operator') or ''}" data-municipality="{p.get('municipality') or ''}">
           <td><a href="{sat_url}" target="_blank"><code>{sat_id}</code></a> · <a href="{sat_json_url}" target="_blank">json</a></td>
-          <td>{p.get("name") or "—"}</td>
+          <td>{escape(p.get("name") or "—")}</td>
           <td>{sec_label}</td>
           <td>{p.get("municipality") or "—"}</td>
           <td>{cat}</td>
@@ -656,7 +691,7 @@ ORDER BY DESC(geof:latitude(?coord))
             f'<optgroup label="Turistspråken">\n{tourist_language_options}\n</optgroup>'
         )
         poi_flow_json = json.dumps(poi_flow_data, ensure_ascii=False)
-        poi_map_json = json.dumps(poi_map_data, ensure_ascii=False)
+        poi_map_json = json.dumps(poi_map_data, ensure_ascii=False).replace("<", "\\u003c")
         section_display_json = json.dumps(_sec_display, ensure_ascii=False)
         
         # Process OSM candidate POI data if available (raw candidates, no category mapping)
@@ -1596,7 +1631,8 @@ ORDER BY DESC(geof:latitude(?coord))
         if (!poi) return '—';
         const lang = currentLangCode();
         const localized = poi.name_localized || {{}};
-        return localized[lang] || localized.en || localized.sv || poi.name || poi.id || '—';
+        return [localized[lang], localized.en, localized.sv, poi.name, poi.id]
+          .find(value => typeof value === 'string' && value.trim()) || '—';
       }}
 
       function updateLocalizedPoiRows() {{
@@ -2658,7 +2694,13 @@ ORDER BY DESC(geof:latitude(?coord))
             except Exception as e:
                 print(f"⚠️  Kunde inte läsa OSM-kandidater: {e}")
         
-        html = self.generate_html(pois, stages, trail_geojson, sections_index, osm_candidates)
+        osm_descriptions = {}
+        if OSM_POSTPASS_FILE.exists():
+            osm_data = json.loads(OSM_POSTPASS_FILE.read_text(encoding="utf-8"))
+            osm_descriptions = osm_description_names(osm_data.get("features", []))
+        else:
+            print(f"⚠️ {OSM_POSTPASS_FILE} saknas – OSM-beskrivningar kan inte användas som namn.")
+        html = self.generate_html(pois, stages, trail_geojson, sections_index, osm_candidates, osm_descriptions)
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(html)
         print(f"✅ Dashboard sparad: {output_file}")
