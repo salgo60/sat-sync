@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T15:02:18.835097Z",
+  "generatedAt": "2026-09-10T09:04:04.510620Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -859,8 +859,8 @@
     },
     {
       "key": "check_date",
-      "count": 57,
-      "percent": 7.4,
+      "count": 59,
+      "percent": 7.7,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
       "topValues": [
         {
@@ -900,15 +900,15 @@
           "directUrl": null
         },
         {
-          "value": "2025-05-03",
-          "count": 1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-03?uselang=sv",
+          "value": "2026-08-12",
+          "count": 2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-08-12?uselang=sv",
           "directUrl": null
         },
         {
-          "value": "2026-07-09",
+          "value": "2025-05-03",
           "count": 1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-09?uselang=sv",
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-03?uselang=sv",
           "directUrl": null
         }
       ]
@@ -13150,8 +13150,8 @@
           "percent": 0.0
         },
         "check_date": {
-          "count": 0,
-          "percent": 0.0
+          "count": 2,
+          "percent": 9.1
         }
       },
       "tagStats": [
@@ -13194,12 +13194,6 @@
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/SATN%C3%A5ttar%C3%B6_2025_april_%28221%29.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/3/3c/SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSATN%25C3%25A5ttar%25C3%25B6_2025_april_%2528195%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg"
-            },
-            {
               "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/N%C3%A5ttar%C3%B6_20250731_batch_3.jpg/1536px-N%C3%A5ttar%C3%B6_20250731_batch_3.jpg",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F2%2F2a%2FN%25C3%25A5ttar%25C3%25B6_20250731_batch_3.jpg%2F1536px-N%25C3%25A5ttar%25C3%25B6_20250731_batch_3.jpg?uselang=sv",
@@ -13224,16 +13218,22 @@
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/SATN%C3%A5ttar%C3%B6_2025_april_%28211%29.jpg"
             },
             {
+              "value": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASATN%25C3%25A5ttar%25C3%25B6_2025_april_%2528195%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg"
+            },
+            {
               "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Stor_sand_N%C3%A5ttar%C3%B6.jpg/2560px-Stor_sand_N%C3%A5ttar%C3%B6.jpg",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fb3%2FStor_sand_N%25C3%25A5ttar%25C3%25B6.jpg%2F2560px-Stor_sand_N%25C3%25A5ttar%25C3%25B6.jpg?uselang=sv",
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Stor_sand_N%C3%A5ttar%C3%B6.jpg/2560px-Stor_sand_N%C3%A5ttar%C3%B6.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/f/fe/SATN%C3%A5ttar%C3%B6_2025_april_%28141%29.jpg",
+              "value": "https://upload.wikimedia.org/wikipedia/commons/3/3c/SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Ff%2Ffe%2FSATN%25C3%25A5ttar%25C3%25B6_2025_april_%2528141%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/SATN%C3%A5ttar%C3%B6_2025_april_%28141%29.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F3c%2FSATN%25C3%25A5ttar%25C3%25B6_2025_april_%2528195%2529.jpg?uselang=sv",
+              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg"
             }
           ]
         },
@@ -13516,6 +13516,20 @@
           ]
         },
         {
+          "key": "check_date",
+          "count": 2,
+          "percent": 9.1,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
+          "topValues": [
+            {
+              "value": "2026-08-12",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-08-12?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "mtb:scale",
           "count": 1,
           "percent": 4.5,
@@ -13570,6 +13584,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/1426259061",
           "role": "",
           "tags": {
+            "check_date": "2026-08-12",
             "foot": "designated",
             "highway": "path",
             "image": "https://upload.wikimedia.org/wikipedia/commons/b/b2/SATN%C3%A5ttar%C3%B6_2025_april_%28211%29.jpg",
@@ -13588,9 +13603,10 @@
           "osmUrl": "https://www.openstreetmap.org/way/1379074974",
           "role": "",
           "tags": {
+            "check_date": "2026-08-12",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg",
             "image:license": "CC-0",
             "image:license:wikidata": "Q6938433",
             "sac_scale": "hiking",
@@ -36533,6 +36549,7 @@
         19014571
       ],
       "tags": {
+        "check_date": "2026-08-12",
         "foot": "designated",
         "highway": "path",
         "image": "https://upload.wikimedia.org/wikipedia/commons/b/b2/SATN%C3%A5ttar%C3%B6_2025_april_%28211%29.jpg",
@@ -36553,9 +36570,10 @@
         19014571
       ],
       "tags": {
+        "check_date": "2026-08-12",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_%28195%29.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "sac_scale": "hiking",

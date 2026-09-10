@@ -75055,8 +75055,8 @@
           "percent": 45.53
         },
         "operator": {
-          "count": 118,
-          "percent": 15.75
+          "count": 122,
+          "percent": 16.29
         }
       },
       "fieldCoverage": {
@@ -75151,8 +75151,8 @@
               "percent": 47.13
             },
             "operator": {
-              "count": 10,
-              "percent": 11.49
+              "count": 12,
+              "percent": 13.79
             }
           },
           "fieldCoverage": {
@@ -75535,8 +75535,8 @@
               "percent": 38.6
             },
             "operator": {
-              "count": 2,
-              "percent": 3.51
+              "count": 3,
+              "percent": 5.26
             }
           },
           "fieldCoverage": {
@@ -75631,8 +75631,8 @@
               "percent": 55.36
             },
             "operator": {
-              "count": 19,
-              "percent": 33.93
+              "count": 20,
+              "percent": 35.71
             }
           },
           "fieldCoverage": {
@@ -76111,8 +76111,8 @@
               "percent": 46.88
             },
             "operator": {
-              "count": 7,
-              "percent": 21.88
+              "count": 8,
+              "percent": 25.0
             }
           },
           "fieldCoverage": {
@@ -76303,8 +76303,8 @@
               "percent": 17.86
             },
             "operator": {
-              "count": 8,
-              "percent": 28.57
+              "count": 7,
+              "percent": 25.0
             }
           },
           "fieldCoverage": {
@@ -77069,6 +77069,10 @@
           "count": 8
         },
         {
+          "operator": "Stockholm Archipelago Trail",
+          "count": 7
+        },
+        {
           "operator": "Ingmarsö B&B",
           "count": 5
         },
@@ -77098,10 +77102,6 @@
         },
         {
           "operator": "Mörbyfjärdens idrottsförening",
-          "count": 2
-        },
-        {
-          "operator": "Stockholm Archipelago trail",
           "count": 2
         },
         {

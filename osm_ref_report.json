@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-09T09:05:12.477113Z",
+  "generatedAt": "2026-09-10T09:04:03.122283Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
   "refKey": "ref:stockholmarchipelagotrail",
-  "totalObjects": 1164,
+  "totalObjects": 1165,
   "osmTypes": {
-    "node": 820,
+    "node": 821,
     "way": 308,
     "relation": 36
   },
@@ -15,7 +15,7 @@
     "Väderskydd vid hållplats": 22,
     "Övrigt väderskydd": 3,
     "Toalett": 130,
-    "Grillplats": 82,
+    "Grillplats": 83,
     "Dricksvatten": 75,
     "Tältplats": 15,
     "Boende": 77,
@@ -331,6 +331,34 @@
           ]
         },
         {
+          "key": "operator",
+          "count": 7,
+          "percent": 70.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
+          "topValues": [
+            {
+              "value": "Stockholm Archipelago Trail",
+              "count": 7,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DStockholm%20Archipelago%20Trail?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "operator:wikidata",
+          "count": 7,
+          "percent": 70.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
+          "topValues": [
+            {
+              "value": "Q131318799",
+              "count": 7,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator:wikidata%3DQ131318799?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "image:license",
           "count": 6,
           "percent": 60.0,
@@ -365,6 +393,32 @@
           ]
         },
         {
+          "key": "description",
+          "count": 4,
+          "percent": 40.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
+          "topValues": [
+            {
+              "value": "Vindskydd med sovplats för fyra personer, trägolv och sittplatser.",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DVindskydd%20med%20sovplats%20f%C3%B6r%20fyra%20personer%2C%20tr%C3%A4golv%20och%20sittplatser.?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Vindskydd en bit nedanför vandringsleden. Ingen tydligt markerad väg leder dit.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DVindskydd%20en%20bit%20nedanf%C3%B6r%20vandringsleden.%20Ingen%20tydligt%20markerad%20v%C3%A4g%20leder%20dit.?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Vindskydd för övernattning och rast i naturen.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DVindskydd%20f%C3%B6r%20%C3%B6vernattning%20och%20rast%20i%20naturen.?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "access",
           "count": 3,
           "percent": 30.0,
@@ -394,26 +448,6 @@
               "value": "yes",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:building%3Dyes?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "description",
-          "count": 3,
-          "percent": 30.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
-          "topValues": [
-            {
-              "value": "Vindskydd med sovplats för fyra personer, trägolv och sittplatser.",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DVindskydd%20med%20sovplats%20f%C3%B6r%20fyra%20personer%2C%20tr%C3%A4golv%20och%20sittplatser.?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Vindskydd för övernattning och rast i naturen.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DVindskydd%20f%C3%B6r%20%C3%B6vernattning%20och%20rast%20i%20naturen.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -494,20 +528,6 @@
               "value": "4",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:capacity%3D4?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "operator",
-          "count": 2,
-          "percent": 20.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
-          "topValues": [
-            {
-              "value": "Stockholm Archipelago trail",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DStockholm%20Archipelago%20trail?uselang=sv",
               "directUrl": null
             }
           ]
@@ -1251,6 +1271,20 @@
           ]
         },
         {
+          "key": "operator:wikidata",
+          "count": 1,
+          "percent": 33.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
+          "topValues": [
+            {
+              "value": "Q131318799",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator:wikidata%3DQ131318799?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "roof:shape",
           "count": 1,
           "percent": 33.3,
@@ -1791,44 +1825,6 @@
           ]
         },
         {
-          "key": "operator",
-          "count": 39,
-          "percent": 30.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
-          "topValues": [
-            {
-              "value": "Skärgårdsstiftelsen",
-              "count": 31,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DSk%C3%A4rg%C3%A5rdsstiftelsen?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Nåttarö gård och resort",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DN%C3%A5ttar%C3%B6%20g%C3%A5rd%20och%20resort?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Norrtälje kommun",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DNorrt%C3%A4lje%20kommun?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "c",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3Dc?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Utö Camping",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DUt%C3%B6%20Camping?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "opening_hours",
           "count": 38,
           "percent": 29.2,
@@ -1856,6 +1852,44 @@
               "value": "same as Nåttarö Krog",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3Dsame%20as%20N%C3%A5ttar%C3%B6%20Krog?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "operator",
+          "count": 38,
+          "percent": 29.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
+          "topValues": [
+            {
+              "value": "Skärgårdsstiftelsen",
+              "count": 31,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DSk%C3%A4rg%C3%A5rdsstiftelsen?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Nåttarö gård och resort",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DN%C3%A5ttar%C3%B6%20g%C3%A5rd%20och%20resort?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Norrtälje kommun",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DNorrt%C3%A4lje%20kommun?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Utö Camping",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DUt%C3%B6%20Camping?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Båtshaket",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DB%C3%A5tshaket?uselang=sv",
               "directUrl": null
             }
           ]
@@ -2696,17 +2730,17 @@
     },
     {
       "name": "Grillplats",
-      "count": 82,
+      "count": 83,
       "tagStats": [
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 82,
+          "count": 83,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
               "value": "unknown",
-              "count": 14,
+              "count": 15,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
               "directUrl": null
             },
@@ -2738,8 +2772,8 @@
         },
         {
           "key": "image",
-          "count": 78,
-          "percent": 95.1,
+          "count": 79,
+          "percent": 95.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -2776,8 +2810,8 @@
         },
         {
           "key": "website",
-          "count": 75,
-          "percent": 91.5,
+          "count": 76,
+          "percent": 91.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
           "topValues": [
             {
@@ -2814,8 +2848,8 @@
         },
         {
           "key": "wikidata",
-          "count": 68,
-          "percent": 82.9,
+          "count": 69,
+          "percent": 83.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
           "topValues": [
             {
@@ -2852,8 +2886,8 @@
         },
         {
           "key": "ref:grillplatser.nu",
-          "count": 67,
-          "percent": 81.7,
+          "count": 68,
+          "percent": 81.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:grillplatser.nu?uselang=sv",
           "topValues": [
             {
@@ -2890,8 +2924,8 @@
         },
         {
           "key": "image:license",
-          "count": 58,
-          "percent": 70.7,
+          "count": 59,
+          "percent": 71.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
@@ -2902,7 +2936,7 @@
             },
             {
               "value": "CC-0",
-              "count": 22,
+              "count": 23,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
               "directUrl": null
             },
@@ -2917,7 +2951,7 @@
         {
           "key": "wikimedia_commons",
           "count": 58,
-          "percent": 70.7,
+          "percent": 69.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -2953,28 +2987,14 @@
           ]
         },
         {
-          "key": "leisure",
-          "count": 53,
-          "percent": 64.6,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:leisure?uselang=sv",
-          "topValues": [
-            {
-              "value": "firepit",
-              "count": 53,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dfirepit?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "check_date",
-          "count": 52,
-          "percent": 63.4,
+          "count": 55,
+          "percent": 66.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
               "value": "2025-04-23",
-              "count": 10,
+              "count": 8,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-23?uselang=sv",
               "directUrl": null
             },
@@ -2991,23 +3011,37 @@
               "directUrl": null
             },
             {
+              "value": "2026-07-07",
+              "count": 4,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-07?uselang=sv",
+              "directUrl": null
+            },
+            {
               "value": "2025-04-02",
               "count": 4,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-02?uselang=sv",
               "directUrl": null
-            },
+            }
+          ]
+        },
+        {
+          "key": "leisure",
+          "count": 54,
+          "percent": 65.1,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:leisure?uselang=sv",
+          "topValues": [
             {
-              "value": "2026-07-18",
-              "count": 3,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-18?uselang=sv",
+              "value": "firepit",
+              "count": 54,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:leisure%3Dfirepit?uselang=sv",
               "directUrl": null
             }
           ]
         },
         {
           "key": "name",
-          "count": 31,
-          "percent": 37.8,
+          "count": 32,
+          "percent": 38.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -3045,7 +3079,7 @@
         {
           "key": "amenity",
           "count": 30,
-          "percent": 36.6,
+          "percent": 36.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:amenity?uselang=sv",
           "topValues": [
             {
@@ -3059,7 +3093,7 @@
         {
           "key": "access",
           "count": 29,
-          "percent": 35.4,
+          "percent": 34.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:access?uselang=sv",
           "topValues": [
             {
@@ -3079,7 +3113,7 @@
         {
           "key": "covered",
           "count": 17,
-          "percent": 20.7,
+          "percent": 20.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:covered?uselang=sv",
           "topValues": [
             {
@@ -3093,7 +3127,7 @@
         {
           "key": "fuel",
           "count": 15,
-          "percent": 18.3,
+          "percent": 18.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fuel?uselang=sv",
           "topValues": [
             {
@@ -3113,7 +3147,7 @@
         {
           "key": "wood_provided",
           "count": 15,
-          "percent": 18.3,
+          "percent": 18.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wood_provided?uselang=sv",
           "topValues": [
             {
@@ -3131,9 +3165,37 @@
           ]
         },
         {
+          "key": "operator",
+          "count": 13,
+          "percent": 15.7,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
+          "topValues": [
+            {
+              "value": "Stockholm Archipelago Trail",
+              "count": 13,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DStockholm%20Archipelago%20Trail?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "operator:wikidata",
+          "count": 13,
+          "percent": 15.7,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
+          "topValues": [
+            {
+              "value": "Q131318799",
+              "count": 13,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator:wikidata%3DQ131318799?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "seasonal",
           "count": 13,
-          "percent": 15.9,
+          "percent": 15.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal?uselang=sv",
           "topValues": [
             {
@@ -3147,7 +3209,7 @@
         {
           "key": "image:license:wikidata",
           "count": 12,
-          "percent": 14.6,
+          "percent": 14.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
@@ -3167,7 +3229,7 @@
         {
           "key": "fireplace",
           "count": 8,
-          "percent": 9.8,
+          "percent": 9.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fireplace?uselang=sv",
           "topValues": [
             {
@@ -3181,7 +3243,7 @@
         {
           "key": "wheelchair",
           "count": 8,
-          "percent": 9.8,
+          "percent": 9.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
@@ -3207,7 +3269,7 @@
         {
           "key": "description",
           "count": 6,
-          "percent": 7.3,
+          "percent": 7.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -15901,15 +15963,15 @@
           ]
         },
         {
-          "key": "desription:en",
+          "key": "description:en",
           "count": 1,
           "percent": 4.8,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:desription:en?uselang=sv",
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:en?uselang=sv",
           "topValues": [
             {
               "value": "Sauna and jacuzzi available for hire at Gula villan",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:desription:en%3DSauna%20and%20jacuzzi%20available%20for%20hire%20at%20Gula%20villan?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DSauna%20and%20jacuzzi%20available%20for%20hire%20at%20Gula%20villan?uselang=sv",
               "directUrl": null
             }
           ]
@@ -17109,6 +17171,44 @@
           ]
         },
         {
+          "key": "description",
+          "count": 14,
+          "percent": 15.9,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
+          "topValues": [
+            {
+              "value": "Tveksam badplats måste undersökas",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DTveksam%20badplats%20m%C3%A5ste%20unders%C3%B6kas?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "klippbad",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dklippbad?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "mindre badplats bredvid en bygga vid tältplatsen på Lidö",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dmindre%20badplats%20bredvid%20en%20bygga%20vid%20t%C3%A4ltplatsen%20p%C3%A5%20Lid%C3%B6?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "badplats på udden vid inre hamnen på Ornö",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dbadplats%20p%C3%A5%20udden%20vid%20inre%20hamnen%20p%C3%A5%20Orn%C3%B6?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Fina klippor att bada från nås via en stig från en utmärkt stig från Arholma Nord",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DFina%20klippor%20att%20bada%20fr%C3%A5n%20n%C3%A5s%20via%20en%20stig%20fr%C3%A5n%20en%20utm%C3%A4rkt%20stig%20fr%C3%A5n%20Arholma%20Nord?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "ref:badkartan.se",
           "count": 14,
           "percent": 15.9,
@@ -17142,44 +17242,6 @@
               "value": "0149020",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:badkartan.se%3D0149020?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "description",
-          "count": 13,
-          "percent": 14.8,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
-          "topValues": [
-            {
-              "value": "Tveksam badplats måste undersökas",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DTveksam%20badplats%20m%C3%A5ste%20unders%C3%B6kas?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "klippbad",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dklippbad?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "mindre badplats bredvid en bygga vid tältplatsen på Lidö",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dmindre%20badplats%20bredvid%20en%20bygga%20vid%20t%C3%A4ltplatsen%20p%C3%A5%20Lid%C3%B6?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "badplats på udden vid inre hamnen på Ornö",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3Dbadplats%20p%C3%A5%20udden%20vid%20inre%20hamnen%20p%C3%A5%20Orn%C3%B6?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Fina klippor att bada från nås via en stig från en utmärkt stig från Arholma Nord",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DFina%20klippor%20att%20bada%20fr%C3%A5n%20n%C3%A5s%20via%20en%20stig%20fr%C3%A5n%20en%20utm%C3%A4rkt%20stig%20fr%C3%A5n%20Arholma%20Nord?uselang=sv",
               "directUrl": null
             }
           ]
@@ -24091,6 +24153,26 @@
           ]
         },
         {
+          "key": "operator:wikidata",
+          "count": 2,
+          "percent": 1.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
+          "topValues": [
+            {
+              "value": "Q131318799",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator:wikidata%3DQ131318799?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Q10670989",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator:wikidata%3DQ10670989?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "phone",
           "count": 2,
           "percent": 1.3,
@@ -24607,20 +24689,6 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:url%3Dhttps%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1887250089314822%26set%3Da.656353079071202?uselang=sv",
               "directUrl": "https://www.facebook.com/photo/?fbid=1887250089314822&set=a.656353079071202"
-            }
-          ]
-        },
-        {
-          "key": "operator:wikidata",
-          "count": 1,
-          "percent": 0.7,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
-          "topValues": [
-            {
-              "value": "Q10670989",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator:wikidata%3DQ10670989?uselang=sv",
-              "directUrl": null
             }
           ]
         },
@@ -25611,6 +25679,44 @@
           ]
         },
         {
+          "key": "check_date",
+          "count": 10,
+          "percent": 50.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
+          "topValues": [
+            {
+              "value": "2026-07-13",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-13?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2025-08-13",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-13?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2026-07-14",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-14?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2026-04-28",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-28?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2026-04-24",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-24?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "wikimedia_commons",
           "count": 10,
           "percent": 50.0,
@@ -25645,44 +25751,6 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3AM%C3%B6ja_dansbana?uselang=sv",
               "directUrl": "https://commons.wikimedia.org/wiki/Category:M%C3%B6ja_dansbana"
-            }
-          ]
-        },
-        {
-          "key": "check_date",
-          "count": 9,
-          "percent": 45.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
-          "topValues": [
-            {
-              "value": "2026-07-13",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-13?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2025-08-13",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-13?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2026-07-14",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-14?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2026-04-28",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-28?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2026-04-24",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-24?uselang=sv",
-              "directUrl": null
             }
           ]
         },
@@ -25911,6 +25979,26 @@
           ]
         },
         {
+          "key": "operator",
+          "count": 3,
+          "percent": 15.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
+          "topValues": [
+            {
+              "value": "Lidö wärdshus",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DLid%C3%B6%20w%C3%A4rdshus?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Stockholm Archipelago Trail",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DStockholm%20Archipelago%20Trail?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "blind",
           "count": 2,
           "percent": 10.0,
@@ -25968,20 +26056,6 @@
               "value": "Grinda Sea Lodge sauna",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name:en%3DGrinda%20Sea%20Lodge%20sauna?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "operator",
-          "count": 2,
-          "percent": 10.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
-          "topValues": [
-            {
-              "value": "Lidö wärdshus",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DLid%C3%B6%20w%C3%A4rdshus?uselang=sv",
               "directUrl": null
             }
           ]
@@ -26234,6 +26308,20 @@
               "value": "24/7",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D24%2F7?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "operator:wikidata",
+          "count": 1,
+          "percent": 5.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
+          "topValues": [
+            {
+              "value": "Q131318799",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator:wikidata%3DQ131318799?uselang=sv",
               "directUrl": null
             }
           ]
@@ -27363,6 +27451,26 @@
           ]
         },
         {
+          "key": "operator",
+          "count": 11,
+          "percent": 28.9,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
+          "topValues": [
+            {
+              "value": "Stockholm Archipelago Trail",
+              "count": 10,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DStockholm%20Archipelago%20Trail?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Swedish Archipelago Trail",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DSwedish%20Archipelago%20Trail?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "seats",
           "count": 11,
           "percent": 28.9,
@@ -27383,25 +27491,31 @@
           ]
         },
         {
-          "key": "image:license:wikidata",
-          "count": 7,
-          "percent": 18.4,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
+          "key": "operator:wikidata",
+          "count": 10,
+          "percent": 26.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
           "topValues": [
             {
-              "value": "Q6938433",
-              "count": 7,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license:wikidata%3DQ6938433?uselang=sv",
+              "value": "Q131318799",
+              "count": 10,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator:wikidata%3DQ131318799?uselang=sv",
               "directUrl": null
             }
           ]
         },
         {
           "key": "check_date",
-          "count": 6,
-          "percent": 15.8,
+          "count": 8,
+          "percent": 21.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
+            {
+              "value": "2026-08-12",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-08-12?uselang=sv",
+              "directUrl": null
+            },
             {
               "value": "2025-08-04",
               "count": 2,
@@ -27425,11 +27539,19 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-09-15?uselang=sv",
               "directUrl": null
-            },
+            }
+          ]
+        },
+        {
+          "key": "image:license:wikidata",
+          "count": 7,
+          "percent": 18.4,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
+          "topValues": [
             {
-              "value": "2026-06-27",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-06-27?uselang=sv",
+              "value": "Q6938433",
+              "count": 7,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license:wikidata%3DQ6938433?uselang=sv",
               "directUrl": null
             }
           ]
@@ -27586,20 +27708,6 @@
               "value": "05:00-22:00",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D05%3A00-22%3A00?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "operator",
-          "count": 1,
-          "percent": 2.6,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
-          "topValues": [
-            {
-              "value": "Swedish Archipelago Trail",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DSwedish%20Archipelago%20Trail?uselang=sv",
               "directUrl": null
             }
           ]
@@ -28047,6 +28155,26 @@
           ]
         },
         {
+          "key": "operator",
+          "count": 2,
+          "percent": 12.5,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
+          "topValues": [
+            {
+              "value": "byalaget på Arholma",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3Dbyalaget%20p%C3%A5%20Arholma?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Stockholm Archipelago Trail",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3DStockholm%20Archipelago%20Trail?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "addr:city",
           "count": 1,
           "percent": 6.2,
@@ -28257,15 +28385,15 @@
           ]
         },
         {
-          "key": "operator",
+          "key": "operator:wikidata",
           "count": 1,
           "percent": 6.2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
           "topValues": [
             {
-              "value": "byalaget på Arholma",
+              "value": "Q131318799",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator%3Dbyalaget%20p%C3%A5%20Arholma?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:operator:wikidata%3DQ131318799?uselang=sv",
               "directUrl": null
             }
           ]
@@ -29878,6 +30006,8 @@
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_81.jpg",
         "image:license": "CC0 1.0",
         "opening_hours": "24/7",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:sjg5a",
         "shelter_type": "lean_to",
         "wikidata": "Q133839829",
@@ -29907,6 +30037,8 @@
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_april_81.jpg",
         "image:license": "CC0 1.0",
         "opening_hours": "24/7",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:3pdqj",
         "shelter_type": "lean_to",
         "wikidata": "Q134606948",
@@ -29964,10 +30096,13 @@
       "tags": {
         "amenity": "shelter",
         "check_date": "2026-06-20",
+        "description": "Vindskydd en bit nedanför vandringsleden. Ingen tydligt markerad väg leder dit.",
         "fee": "no",
         "image": "https://commons.wikimedia.org/wiki/File:SATArholma_20260620_04.jpg",
         "name": "Arholma Nord",
         "opening_hours": "24/7",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:bhm9p",
         "shelter_type": "lean_to",
         "website": "https://www.facebook.com/groups/1327237162079801/permalink/1535026461300869/",
@@ -30033,6 +30168,8 @@
         "image": "https://commons.wikimedia.org/wiki/File:Vindskydd-och-grillplats-Category-Lid%C3%B6_windshelter_Norrkalven.webp",
         "name": "Lidö Vindskydd Norrkalven",
         "opening_hours": "24/7",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:vq5yw",
         "shelter_type": "lean_to",
         "wikidata": "Q141114855",
@@ -30065,6 +30202,8 @@
         "image:license": "CC0 1.0",
         "name": "Lilla Jolpan, vindskydd",
         "opening_hours": "24/7",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:r2q53",
         "shelter_type": "lean_to",
         "start_date": "2025-04",
@@ -30137,7 +30276,8 @@
         "image": "https://commons.wikimedia.org/wiki/File:Vindskydd_H%C3%A4lsok%C3%A4llan_2026-07-15.jpg",
         "name": "Vindskydd Hälsokällan",
         "opening_hours": "24/7",
-        "operator": "Stockholm Archipelago trail",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "picnic_table": "yes",
         "ref:stockholmarchipelagotrail": "sat:poi:83pc7",
         "shelter_type": "lean_to",
@@ -30174,7 +30314,8 @@
         "image": "https://commons.wikimedia.org/wiki/File:Vindskydd_%C3%85l%C3%B6_g%C3%A5rd_(SAT_dc139c2c).jpg",
         "name": "Vindskydd Ålö gård",
         "opening_hours": "24/7",
-        "operator": "Stockholm Archipelago trail",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:qzys6",
         "shelter_type": "lean_to",
         "wikidata": "Q139624999",
@@ -30857,6 +30998,7 @@
         "name": "SAT Vindskydd",
         "opening_hours": "24/7",
         "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown",
         "wikimedia_commons": "Category:Nämdö_windshelter"
       },
@@ -31156,7 +31298,6 @@
       "tags": {
         "amenity": "toilets",
         "fixme": "12 år gammalt bör verifieras kanske har",
-        "operator": "c",
         "ref:stockholmarchipelagotrail": "sat:poi:6mn5j"
       },
       "tagValueUrls": {
@@ -35041,6 +35182,8 @@
         "image": "https://commons.wikimedia.org/wiki/File:SAT_20250915_n_17.jpg",
         "image:license": "CC-0",
         "leisure": "firepit",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Grinda-taltplats-vastra-1-1",
         "ref:stockholmarchipelagotrail": "sat:poi:t6rmc",
         "website": "https://grillplatser.nu/Grillplats/Visa/Grinda-taltplats-vastra-1-1",
@@ -35239,6 +35382,8 @@
         "image": "https://commons.wikimedia.org/wiki/File:SAT_20250915_n_17.jpg",
         "image:license": "CC0 1.0",
         "leisure": "firepit",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Grinda-taltplatsen-vastra-2",
         "ref:stockholmarchipelagotrail": "sat:poi:fqxgk",
         "website": "https://grillplatser.nu/Grillplats/Visa/Grinda-taltplatsen-vastra-2",
@@ -35335,6 +35480,8 @@
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_ny_grillplats_2025_mar.jpg",
         "image:license": "CC0 1.0",
         "leisure": "firepit",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Grinda-taltplatsen-Ostra1",
         "ref:stockholmarchipelagotrail": "sat:poi:ahtt7",
         "website": "https://grillplatser.nu/Grillplats/Visa/Grinda-taltplatsen-Ostra1",
@@ -35420,6 +35567,8 @@
         "check_date": "2025-04-08",
         "image": "https://upload.wikimedia.org/wikipedia/commons/0/06/SAT_Ut%C3%B6_2025_april_81.jpg",
         "image:license": "CC0 1.0",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Sodra-fladens-vatmark",
         "ref:stockholmarchipelagotrail": "sat:poi:e3msg",
         "website": "https://grillplatser.nu/Grillplats/Visa/Sodra-fladens-vatmark",
@@ -35502,16 +35651,19 @@
       "lat": 58.8777009,
       "lon": 18.1358484,
       "tags": {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/SATN%C3%A5ttar%C3%B6_2025_april_SAT_Storsand.jpg",
+        "check_date": "2026-07-07",
+        "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_SAT_Storsand.jpg",
         "image:license": "CC0 1.0",
         "leisure": "firepit",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:q4eg2",
         "website": "https://grillplatser.nu/Grillplats/Visa/Norr-storsand",
         "wikidata": "Q134570185",
         "wikimedia_commons": "Category:Norr_Storsand_BBQ"
       },
       "tagValueUrls": {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/SATN%C3%A5ttar%C3%B6_2025_april_SAT_Storsand.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_SAT_Storsand.jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:q4eg2",
         "website": "https://grillplatser.nu/Grillplats/Visa/Norr-storsand",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Norr_Storsand_BBQ"
@@ -35589,10 +35741,13 @@
       "tags": {
         "access": "yes",
         "amenity": "bbq",
+        "check_date": "2026-08-12",
         "covered": "no",
         "fuel": "wood",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/SATN%C3%A5ttar%C3%B6_2025_april_%C3%96stemar_grillplats_SAT.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_%C3%96stemar_grillplats_SAT.jpg",
         "image:license": "CC0",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Ostermar-2",
         "ref:stockholmarchipelagotrail": "sat:poi:a7yaa",
         "website": "https://grillplatser.nu/Grillplats/Visa/Ostermar-2",
@@ -35600,7 +35755,7 @@
         "wikimedia_commons": "Category:Östemar_grillplats_nya"
       },
       "tagValueUrls": {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/SATN%C3%A5ttar%C3%B6_2025_april_%C3%96stemar_grillplats_SAT.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_%C3%96stemar_grillplats_SAT.jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:a7yaa",
         "website": "https://grillplatser.nu/Grillplats/Visa/Ostermar-2",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:%C3%96stemar_grillplats_nya"
@@ -35851,11 +36006,13 @@
       "tags": {
         "access": "yes",
         "amenity": "bbq",
-        "check_date": "2025-04-25",
+        "check_date": "2026-08-12",
         "covered": "no",
         "fuel": "wood",
         "image": "https://commons.wikimedia.org/wiki/Special:FilePath/SATNåttarö_2025_april_Skarsand_grillplats_SAT_2.jpg",
         "image:license": "CC-0",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Skarsand-SAT-grillplats",
         "ref:stockholmarchipelagotrail": "sat:poi:394zr",
         "website": "https://grillplatser.nu/Karta/Skarsand-SAT-grillplats",
@@ -35883,11 +36040,13 @@
       "tags": {
         "access": "yes",
         "amenity": "bbq",
-        "check_date": "2025-04-23",
+        "check_date": "2026-08-12",
         "covered": "no",
         "fuel": "wood",
         "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_Skarsand_grillplatser_SAT_%281%29.jpg",
         "image:license": "CC-0",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Skarsand-SAT-grillplats",
         "ref:stockholmarchipelagotrail": "sat:poi:kndjy",
         "website": "https://grillplatser.nu/Grillplats/Visa/Skarsand-SAT-grillplats",
@@ -36276,6 +36435,8 @@
         "fuel": "wood",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_29250915_c_08.jpg",
         "image:license": "CC0 1.0",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Grinda-Klubbudden",
         "ref:stockholmarchipelagotrail": "sat:poi:fqw8k",
         "website": "https://grillplatser.nu/Grillplats/Visa/Klubbudden-Grinda",
@@ -36334,6 +36495,8 @@
         "access": "yes",
         "image": "https://commons.wikimedia.org/wiki/File:Utsikt_vindskydd_Norrkalven_Lid%C3%B6.webp",
         "leisure": "firepit",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Norra-Lido",
         "ref:stockholmarchipelagotrail": "unknown",
         "website": "https://grillplatser.nu/Grillplats/Visa/Norra-Lido"
@@ -36384,6 +36547,8 @@
         "covered": "no",
         "fuel": "wood",
         "image": "https://commons.wikimedia.org/wiki/File:V%C3%A4ster%C3%A4ngsudden_Grillplats.webp",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Vasterangsudden",
         "ref:stockholmarchipelagotrail": "unknown",
         "website": "https://grillplatser.nu/Grillplats/Visa/Vasterangsudden",
@@ -36716,7 +36881,7 @@
       "lat": 58.8771247,
       "lon": 18.1337692,
       "tags": {
-        "check_date": "2025-04-23",
+        "check_date": "2026-07-07",
         "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_Storsand_grillplats_3.jpg",
         "image:license": "CC0 1.0",
         "leisure": "firepit",
@@ -37159,6 +37324,33 @@
     },
     {
       "osmType": "node",
+      "osmId": 12770338575,
+      "osmUrl": "https://www.openstreetmap.org/node/12770338575",
+      "name": "Noret Fjärdlångs grillplats",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Grillplats",
+      "lat": 59.0315212,
+      "lon": 18.5204247,
+      "tags": {
+        "check_date": "2026-06-27",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Grillplatsen-Noret.jpg",
+        "image:license": "CC-0",
+        "leisure": "firepit",
+        "name": "Noret Fjärdlångs grillplats",
+        "ref:grillplatser.nu": "Noret-Fjardlang",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Noret-Fjardlang",
+        "wikidata": "Q134582361"
+      },
+      "tagValueUrls": {
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Grillplatsen-Noret.jpg",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Noret-Fjardlang"
+      }
+    },
+    {
+      "osmType": "node",
       "osmId": 12778243911,
       "osmUrl": "https://www.openstreetmap.org/node/12778243911",
       "name": "Nåttarö vandrarhem grillplats",
@@ -37304,6 +37496,8 @@
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Utö_2025_april_40.jpg",
         "image:license": "CC-0",
         "name": "Utö camping grillplats",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Uto-taltplats-3",
         "ref:stockholmarchipelagotrail": "sat:poi:bcsxm",
         "website": "https://grillplatser.nu/Grillplats/Visa/Uto-taltplats-3",
@@ -37398,6 +37592,8 @@
         "image:license": "CC0 1.0",
         "leisure": "firepit",
         "name": "Vänsviken, Nåttarö BBQ",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:grillplatser.nu": "Vansviken",
         "ref:stockholmarchipelagotrail": "sat:poi:tmd8m",
         "seasonal": "no",
@@ -49310,7 +49506,7 @@
       "tags": {
         "access": "customers",
         "description": "Bastu och jacuzzi att hyra vid Gula villan",
-        "desription:en": "Sauna and jacuzzi available for hire at Gula villan",
+        "description:en": "Sauna and jacuzzi available for hire at Gula villan",
         "fee": "yes",
         "image": "https://commons.wikimedia.org/wiki/File:Ut%C3%B6_Gula_villan_sauna_20260814_03.jpg",
         "leisure": "sauna",
@@ -51062,6 +51258,7 @@
       "lat": 58.7661605,
       "lon": 17.8652385,
       "tags": {
+        "description": "Klipp- och stenstrand med berghällar",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Landsort_16.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
@@ -59416,6 +59613,7 @@
         "information": "guidepost",
         "name": "SAT Utö",
         "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown",
         "tourism": "information",
         "website": "https://stockholmarchipelagotrail.com/section/uto",
@@ -60601,9 +60799,12 @@
       "lat": 58.8841368,
       "lon": 18.1366407,
       "tags": {
+        "check_date": "2026-08-12",
         "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_Skarsand_grillplatser_SAT.jpg",
         "leisure": "picnic_table",
         "material": "wood",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown",
         "seats": "4"
       },
@@ -61928,8 +62129,11 @@
         "amenity": "bench",
         "armrest": "no",
         "backrest": "no",
+        "check_date": "2026-08-12",
         "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_Skarsand_grillplatser_SAT.jpg",
         "material": "wood",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown",
         "seats": "4"
       },
@@ -62202,6 +62406,7 @@
         "amenity": "bench",
         "armrest": "no",
         "backrest": "no",
+        "check_date": "2026-08-12",
         "image": "https://commons.wikimedia.org/wiki/File:SATN%C3%A5ttar%C3%B6_2025_april_Skarsand_grillplatser_SAT.jpg",
         "material": "wood",
         "ref:stockholmarchipelagotrail": "unknown",
@@ -62274,6 +62479,8 @@
         "armrest": "no",
         "backrest": "no",
         "image": "https://commons.wikimedia.org/wiki/File%3ALid%C3%B6%5FNorrkalven%5Fvindskydd%5F20260820%5F49%2Ejpg",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {
@@ -62318,6 +62525,8 @@
         "armrest": "no",
         "backrest": "no",
         "image": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {
@@ -62340,6 +62549,8 @@
         "armrest": "no",
         "backrest": "no",
         "image": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {
@@ -62362,6 +62573,8 @@
         "armrest": "no",
         "backrest": "no",
         "image": "https://commons.wikimedia.org/wiki/File%3AV%C3%A4ster%C3%A4ngsudden%5FGrillplats%2Ewebp",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {
@@ -62384,6 +62597,8 @@
         "armrest": "no",
         "backrest": "no",
         "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {
@@ -62406,6 +62621,8 @@
         "armrest": "no",
         "backrest": "no",
         "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {
@@ -62428,6 +62645,8 @@
         "armrest": "no",
         "backrest": "no",
         "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {
@@ -62450,6 +62669,8 @@
         "armrest": "no",
         "backrest": "no",
         "image": "https://commons.wikimedia.org/wiki/Category:S%C3%B6dra_fladens_vindskydd_2#/media/File:SAT_Ut%C3%B6_2025_april_83.jpg",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {
@@ -62472,6 +62693,8 @@
         "armrest": "no",
         "backrest": "no",
         "image": "https://commons.wikimedia.org/wiki/File:Lilla_Jolpan_vindskydd_03.jpg",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "unknown"
       },
       "tagValueUrls": {
@@ -62926,6 +63149,8 @@
         "image:license": "cc-0",
         "name": "Vindskydd Västerängsudden",
         "opening_hours": "24/7",
+        "operator": "Stockholm Archipelago Trail",
+        "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:dbnaq",
         "shelter_type": "lean_to",
         "wikidata": "Q134704760",
