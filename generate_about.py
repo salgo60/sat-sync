@@ -168,6 +168,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-data-model-sources-infographic.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-data-model-sources-infographic.jpg" alt="Stockholm Archipelago Trail – Datamodell och datakällor: kopplingar mellan SAT, OpenStreetMap, Wikidata, Wikimedia Commons och externa register" width="1380" height="920" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-data-roundtrip-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-data-roundtrip-flyer.jpg" alt="Dataroundtrip i praktiken – utmaningar och möjligheter: identitet, länkar, datamodeller, proveniens och historik mellan SAT, OpenStreetMap, Wikidata och andra datakällor" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
   </section>
 
