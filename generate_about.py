@@ -162,6 +162,12 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-ai-guidance-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-ai-guidance-flyer.jpg" alt="Från att visa till att svara – vision för hur AI omvandlar öppen information till personlig vägledning" width="1536" height="1024" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-linked-data-experiences-infographic.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-linked-data-experiences-infographic.jpg" alt="Stockholm Archipelago Trail – Från data till upplevelser: en plats, många källor och gemensamma identifierare" width="1380" height="920" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-data-model-sources-infographic.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-data-model-sources-infographic.jpg" alt="Stockholm Archipelago Trail – Datamodell och datakällor: kopplingar mellan SAT, OpenStreetMap, Wikidata, Wikimedia Commons och externa register" width="1380" height="920" loading="lazy">
+      </a>
     </div>
   </section>
 
