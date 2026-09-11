@@ -180,6 +180,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-open-data-experiences-collaboration-en-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-open-data-experiences-collaboration-en-flyer.jpg" alt="Good trail data creates great experiences; Live data. Real experiences; From community to collaboration – three English panels illustrating a vision for connected open data and richer trail experiences" lang="en" width="1024" height="1536" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-conways-law-tourism-project-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-conways-law-tourism-project-flyer.jpg" alt="Conway’s Law in a Tourism Project – hur en gemensam SSOT-plattform kan minska informationssilor, dubbelarbete och motstridig besöksinformation" lang="en" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
   </section>
 
