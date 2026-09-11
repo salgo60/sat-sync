@@ -4,6 +4,13 @@
 * [OSM-egenskaper på leden](https://salgo60.github.io/sat-sync/sat_osm_trail_report.html)
 * [Hiking use cases: current support, gaps and priorities](https://salgo60.github.io/sat-sync/sat_use_cases.html?lang=en)
 
+Both OSM reports have an **English / Svenska** button and support `?lang=en`
+and `?lang=sv` (Swedish by default). Switching languages preserves active filters
+and expanded details; navigation between the reports and About carries the language.
+Controls, category labels, captions and OSM Wiki links follow the selected language.
+Source names and tag values are unchanged, and text inside existing infographic
+images remains Swedish. Shared presentation helpers live in `report_i18n.py`.
+
 In the dashboard's **Alla POI** table, missing SAT names fall back to the linked
 OSM object's `description:sv`, then `description`. Existing names are retained.
 The fallback uses explicit `ref:stockholmarchipelagotrail` links in
