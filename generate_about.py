@@ -183,6 +183,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-conways-law-tourism-project-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-conways-law-tourism-project-flyer.jpg" alt="Conway’s Law in a Tourism Project – hur en gemensam SSOT-plattform kan minska informationssilor, dubbelarbete och motstridig besöksinformation" lang="en" width="1536" height="1024" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-social-media-dedicated-platforms-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-social-media-dedicated-platforms-flyer.jpg" alt="Today: Social Media – Tomorrow: Dedicated Platforms: från splittrad social medieinformation till samordnade, realtidsbaserade friluftstjänster byggda för vandrare" lang="en" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
   </section>
 
