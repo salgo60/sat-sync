@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T09:04:04.510620Z",
+  "generatedAt": "2026-09-11T09:03:10.238072Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -297,13 +297,13 @@
     },
     {
       "key": "trail_visibility",
-      "count": 690,
-      "percent": 89.7,
+      "count": 691,
+      "percent": 89.9,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trail_visibility?uselang=sv",
       "topValues": [
         {
           "value": "good",
-          "count": 549,
+          "count": 550,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dgood?uselang=sv",
           "directUrl": null
         },
@@ -429,13 +429,13 @@
     },
     {
       "key": "sac_scale",
-      "count": 642,
-      "percent": 83.5,
+      "count": 644,
+      "percent": 83.7,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:sac_scale?uselang=sv",
       "topValues": [
         {
           "value": "hiking",
-          "count": 630,
+          "count": 632,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:sac_scale%3Dhiking?uselang=sv",
           "directUrl": null
         },
@@ -517,13 +517,13 @@
     },
     {
       "key": "trailblazed",
-      "count": 270,
-      "percent": 35.1,
+      "count": 271,
+      "percent": 35.2,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
       "topValues": [
         {
           "value": "symbols",
-          "count": 152,
+          "count": 153,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
           "directUrl": null
         },
@@ -19315,12 +19315,12 @@
           "percent": 50.0
         },
         "sac_scale": {
-          "count": 34,
-          "percent": 85.0
+          "count": 38,
+          "percent": 95.0
         },
         "trail_visibility": {
-          "count": 33,
-          "percent": 82.5
+          "count": 35,
+          "percent": 87.5
         },
         "width": {
           "count": 24,
@@ -19378,6 +19378,20 @@
               "value": "footway",
               "count": 3,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dfootway?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "sac_scale",
+          "count": 38,
+          "percent": 95.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:sac_scale?uselang=sv",
+          "topValues": [
+            {
+              "value": "hiking",
+              "count": 38,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:sac_scale%3Dhiking?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19483,15 +19497,27 @@
           ]
         },
         {
-          "key": "sac_scale",
-          "count": 34,
-          "percent": 85.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:sac_scale?uselang=sv",
+          "key": "trail_visibility",
+          "count": 35,
+          "percent": 87.5,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trail_visibility?uselang=sv",
           "topValues": [
             {
-              "value": "hiking",
-              "count": 34,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:sac_scale%3Dhiking?uselang=sv",
+              "value": "good",
+              "count": 25,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dgood?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "excellent",
+              "count": 7,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dexcellent?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "intermediate",
+              "count": 3,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dintermediate?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19532,32 +19558,6 @@
               "value": "CC-0",
               "count": 10,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "trail_visibility",
-          "count": 33,
-          "percent": 82.5,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trail_visibility?uselang=sv",
-          "topValues": [
-            {
-              "value": "good",
-              "count": 23,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dgood?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "excellent",
-              "count": 7,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dexcellent?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "intermediate",
-              "count": 3,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail_visibility%3Dintermediate?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19747,6 +19747,26 @@
           ]
         },
         {
+          "key": "trailblazed",
+          "count": 7,
+          "percent": 17.5,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
+          "topValues": [
+            {
+              "value": "symbols",
+              "count": 5,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "no",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dno?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "image:license:wikidata",
           "count": 6,
           "percent": 15.0,
@@ -19776,26 +19796,6 @@
               "value": "yes",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dyes?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "trailblazed",
-          "count": 5,
-          "percent": 12.5,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
-          "topValues": [
-            {
-              "value": "symbols",
-              "count": 3,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "no",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dno?uselang=sv",
               "directUrl": null
             }
           ]
@@ -20518,6 +20518,7 @@
             "foot": "designated",
             "highway": "path",
             "image": "https://commons.wikimedia.org/wiki/File:Lid%C3%B6_till_vindskyddet_Norrkalven_20260820_56.jpg",
+            "sac_scale": "hiking",
             "smoothness": "intermediate",
             "surface": "compacted",
             "trail_visibility": "excellent",
@@ -20533,6 +20534,7 @@
             "foot": "designated",
             "highway": "path",
             "image": "https://commons.wikimedia.org/wiki/File:Lid%C3%B6_till_vindskyddet_Norrkalven_20260820_56.jpg",
+            "sac_scale": "hiking",
             "smoothness": "intermediate",
             "surface": "compacted",
             "trail_visibility": "excellent",
@@ -20567,8 +20569,11 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
+            "sac_scale": "hiking",
             "smoothness": "intermediate",
-            "surface": "compacted"
+            "surface": "compacted",
+            "trail_visibility": "good",
+            "trailblazed": "symbols"
           }
         },
         {
@@ -20579,8 +20584,11 @@
           "tags": {
             "foot": "designated",
             "highway": "path",
+            "sac_scale": "hiking",
             "smoothness": "intermediate",
-            "surface": "compacted"
+            "surface": "compacted",
+            "trail_visibility": "good",
+            "trailblazed": "symbols"
           }
         }
       ]
@@ -40130,6 +40138,7 @@
         "foot": "designated",
         "highway": "path",
         "image": "https://commons.wikimedia.org/wiki/File:Lid%C3%B6_till_vindskyddet_Norrkalven_20260820_56.jpg",
+        "sac_scale": "hiking",
         "smoothness": "intermediate",
         "surface": "compacted",
         "trail_visibility": "excellent",
@@ -40160,8 +40169,11 @@
       "tags": {
         "foot": "designated",
         "highway": "path",
+        "sac_scale": "hiking",
         "smoothness": "intermediate",
-        "surface": "compacted"
+        "surface": "compacted",
+        "trail_visibility": "good",
+        "trailblazed": "symbols"
       }
     },
     {
