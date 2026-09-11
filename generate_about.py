@@ -171,6 +171,12 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-data-roundtrip-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-data-roundtrip-flyer.jpg" alt="Dataroundtrip i praktiken – utmaningar och möjligheter: identitet, länkar, datamodeller, proveniens och historik mellan SAT, OpenStreetMap, Wikidata och andra datakällor" width="1536" height="1024" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-open-data-outdoor-life-sv-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-open-data-outdoor-life-sv-flyer.jpg" alt="Öppna Data: Motorn i Sveriges Friluftsliv – ett öppet ekosystem med geodata, länkad kunskap, återkoppling och API:er" width="1985" height="1108" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-open-data-outdoor-life-en-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-open-data-outdoor-life-en-flyer.jpg" alt="Open Data: A Driving Force in Sweden’s Outdoor Life – an open ecosystem connecting geodata, linked knowledge, community feedback and APIs" lang="en" width="1678" height="937" loading="lazy">
+      </a>
     </div>
   </section>
 
