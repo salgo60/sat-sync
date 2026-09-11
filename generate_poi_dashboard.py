@@ -857,8 +857,8 @@ ORDER BY DESC(geof:latitude(?coord))
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a> &nbsp;|&nbsp;
         <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a> &nbsp;|&nbsp;
-        <a href="sat_osm_ref_report.html">📊 OSM-egenskaper</a> &nbsp;|&nbsp;
-        <a href="sat_osm_trail_report.html">🥾 Ledegenskaper</a> &nbsp;|&nbsp;
+        <a data-report-link href="sat_osm_ref_report.html"><span id="osmPropertiesLinkHdr">📊 OSM-egenskaper</span></a> &nbsp;|&nbsp;
+        <a data-report-link href="sat_osm_trail_report.html"><span id="trailPropertiesLinkHdr">🥾 Ledegenskaper</span></a> &nbsp;|&nbsp;
         <a href="sat_use_cases.html" id="useCasesLinkHdr">Användningsfall</a> &nbsp;|&nbsp;
         <a href="https://www.youtube.com/watch?v=saIpaWoWWA8" target="_blank" rel="noopener"><span id="videoLinkHdr">🎬 Introduktionsvideo</span></a> &nbsp;|&nbsp;
         <a href="sat_about.html"><span id="aboutLinkHdr">ℹ️ About</span></a>
@@ -1049,8 +1049,8 @@ ORDER BY DESC(geof:latitude(?coord))
       <a data-todo-list-href href="sat_todo_list.html"><span id="todoListLinkFtr">✅ TODO-lista</span></a> |
       <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringsförslag</a> |
       <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkFtr">📈 Datakvalitet över tid</span></a> |
-      <a href="sat_osm_ref_report.html">📊 OSM-egenskaper</a> |
-      <a href="sat_osm_trail_report.html">🥾 Ledegenskaper</a> |
+      <a data-report-link href="sat_osm_ref_report.html"><span id="osmPropertiesLinkFtr">📊 OSM-egenskaper</span></a> |
+      <a data-report-link href="sat_osm_trail_report.html"><span id="trailPropertiesLinkFtr">🥾 Ledegenskaper</span></a> |
       <a href="sat_about.html"><span id="aboutLinkFtr">ℹ️ About</span></a>
     </div>
   </div>
@@ -1413,7 +1413,9 @@ ORDER BY DESC(geof:latitude(?coord))
           collaborationFlyerHint: 'Klicka på bilden för att öppna den i full storlek.',
           communityFlyerTitle: 'Från gemenskap till samverkan',
           communityFlyerDesc: 'Flyern visar hur community-baserad data och offentliga aktörers kunskap tillsammans kan bygga en tillförlitlig digital tvilling.',
-          communityFlyerHint: 'Klicka på bilden för att öppna den i full storlek.'
+          communityFlyerHint: 'Klicka på bilden för att öppna den i full storlek.',
+          osmPropertiesLink: '📊 OSM-egenskaper',
+          trailPropertiesLink: '🥾 Ledegenskaper'
         }},
         en: {{
           all: 'All',
@@ -1478,7 +1480,9 @@ ORDER BY DESC(geof:latitude(?coord))
           collaborationFlyerHint: 'Click the image to open it full size.',
           communityFlyerTitle: 'From community to collaboration',
           communityFlyerDesc: 'The flyer shows how community-based data and public-sector knowledge can combine to build a reliable digital twin.',
-          communityFlyerHint: 'Click the image to open it full size.'
+          communityFlyerHint: 'Click the image to open it full size.',
+          osmPropertiesLink: '📊 OSM properties',
+          trailPropertiesLink: '🥾 Trail properties'
         }}
       }};
 
@@ -1709,7 +1713,11 @@ ORDER BY DESC(geof:latitude(?coord))
           collaborationFlyerHint: 'collaborationFlyerHint',
           communityFlyerTitle: 'communityFlyerTitle',
           communityFlyerDesc: 'communityFlyerDesc',
-          communityFlyerHint: 'communityFlyerHint'
+          communityFlyerHint: 'communityFlyerHint',
+          osmPropertiesLinkHdr: 'osmPropertiesLink',
+          trailPropertiesLinkHdr: 'trailPropertiesLink',
+          osmPropertiesLinkFtr: 'osmPropertiesLink',
+          trailPropertiesLinkFtr: 'trailPropertiesLink'
         }};
         Object.entries(bindings).forEach(([id, key]) => {{
           const el = document.getElementById(id);
@@ -1741,6 +1749,12 @@ ORDER BY DESC(geof:latitude(?coord))
         if (aboutFtr) aboutFtr.textContent = aboutLabel;
         document.querySelectorAll('a[href="sat_about.html"]').forEach((link) => {{
           link.setAttribute('href', aboutUrl);
+        }});
+        const reportLang = encodeURIComponent(currentLangCode() === 'sv' ? 'sv' : 'en');
+        document.querySelectorAll('a[data-report-link]').forEach((link) => {{
+          const reportUrl = new URL(link.getAttribute('href'), window.location.href);
+          reportUrl.searchParams.set('lang', reportLang);
+          link.setAttribute('href', reportUrl.href);
         }});
         const todoListUrl = `sat_todo_list.html?lang=${{encodeURIComponent(currentLangCode())}}`;
         document.querySelectorAll('a[data-todo-list-href]').forEach((link) => {{
