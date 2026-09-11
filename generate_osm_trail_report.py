@@ -13,6 +13,13 @@ from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
 
+from report_i18n import (
+    LANGUAGE_BUTTON,
+    LANGUAGE_SCRIPT,
+    LANGUAGE_STYLE,
+    attribute,
+    text,
+)
 
 SUPERROUTE_ID = 19012437
 OVERPASS_ENDPOINTS = (
@@ -283,8 +290,9 @@ def render_report(report: dict) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>OSM-egenskaper på Stockholm Archipelago Trail</title>
+  {text("OSM-egenskaper på Stockholm Archipelago Trail", "OSM trail properties on Stockholm Archipelago Trail", "title")}
   <style>
+    {LANGUAGE_STYLE}
     :root {{ --blue:#245b8e; --deep:#173f67; --light:#eef5fb; --line:#d9e2ea; --text:#18222c; }}
     * {{ box-sizing:border-box; }}
     body {{ margin:0; background:#f6f8fa; color:var(--text); font-family:system-ui,-apple-system,sans-serif; }}
@@ -341,60 +349,61 @@ def render_report(report: dict) -> str:
 </head>
 <body>
 <header>
-  <h1>🥾 OSM-egenskaper på Stockholm Archipelago Trail</h1>
-  <p>Från superrelationen via 20 etapprelationer till de vägar och noder som leden faktiskt följer.</p>
-  <p class="meta"><a href="sat_poi_dashboard.html">← SAT POI Dashboard</a> · <a href="sat_osm_ref_report.html">POI-egenskaper</a> · <a href="sat_about.html?lang=sv">Om verktygen</a> · Genererad {generated} · <a href="{query_url}" target="_blank" rel="noopener">Overpass-fråga</a></p>
+  {LANGUAGE_BUTTON}
+  {text("🥾 OSM-egenskaper på Stockholm Archipelago Trail", "🥾 OSM trail properties on Stockholm Archipelago Trail", "h1")}
+  {text(f"Från superrelationen via {report['sectionCount']} etapprelationer till de vägar och noder som leden faktiskt följer.", f"From the superroute through {report['sectionCount']} section relations to the ways and nodes the trail actually follows.", "p")}
+  <p class="meta"><a data-lang-link href="sat_poi_dashboard.html">← SAT POI Dashboard</a> · <a data-lang-link href="sat_osm_ref_report.html">{text("POI-egenskaper", "POI properties")}</a> · <a data-lang-link href="sat_about.html?lang=sv">{text("Om verktygen", "About the tools")}</a> · {text("Genererad", "Generated")} {generated} · <a href="{query_url}" target="_blank" rel="noopener">{text("Overpass-fråga", "Overpass query")}</a></p>
 </header>
 <main>
   <figure class="panel infographic flyer">
     <a href="assets/sat-open-data-flyer.jpg" target="_blank">
-      <img src="assets/sat-open-data-flyer.jpg" alt="Flyer om hur bra och kopplad data skapar bättre upplevelser på vandringsleder" width="1024" height="1536">
+      <img src="assets/sat-open-data-flyer.jpg" {attribute("alt", "Flyer om hur bra och kopplad data skapar bättre upplevelser på vandringsleder", "Swedish flyer about how connected data improves hiking experiences")} width="1024" height="1536">
     </a>
     <figcaption>
-      <strong>Vandringsleder behöver bra data</strong>
-      Flyern visar vilken information vandraren behöver och hur öppna, sammankopplade datakällor kan skapa bättre och mer tillgängliga tjänster.
-      <small>Klicka på bilden för att öppna den i full storlek.</small>
+      {text("Vandringsleder behöver bra data", "Hiking trails need good data", "strong")}
+      {text("Flyern visar vilken information vandraren behöver och hur öppna, sammankopplade datakällor kan skapa bättre och mer tillgängliga tjänster.", "The flyer shows what information hikers need and how connected open data can create better, more accessible services.")}
+      {text("Klicka på bilden för att öppna den i full storlek.", "Click the image to open it at full size. Text within the image is in Swedish.", "small")}
     </figcaption>
   </figure>
   <figure class="panel infographic">
     <a href="assets/sat-osm-trail-infographic.jpg" target="_blank">
-      <img src="assets/sat-osm-trail-infographic.jpg" alt="Infografik över hur Stockholm Archipelago Trail beskrivs i OpenStreetMap" width="1536" height="1024">
+      <img src="assets/sat-osm-trail-infographic.jpg" {attribute("alt", "Infografik över hur Stockholm Archipelago Trail beskrivs i OpenStreetMap", "Swedish infographic showing how Stockholm Archipelago Trail is described in OpenStreetMap")} width="1536" height="1024">
     </a>
     <figcaption>
-      <strong>Från relation till ledens vägar och platser</strong>
-      Infografiken visar hur SAT byggs upp i OSM med en superrelation, 20 etapprelationer och deras vägar, stigar och platser.
-      <small>Klicka på bilden för att öppna den i full storlek.</small>
+      {text("Från relation till ledens vägar och platser", "From relations to the trail's ways and places", "strong")}
+      {text("Infografiken visar hur SAT byggs upp i OSM med en superrelation, 20 etapprelationer och deras vägar, stigar och platser.", "The infographic shows how SAT is structured in OSM with a superroute, 20 section relations and their roads, paths and places.")}
+      {text("Klicka på bilden för att öppna den i full storlek.", "Click the image to open it at full size. Text within the image is in Swedish.", "small")}
     </figcaption>
   </figure>
   <figure class="panel infographic">
     <a href="assets/sat-osm-experience-infographic.jpg" target="_blank">
-      <img src="assets/sat-osm-experience-infographic.jpg" alt="Infografik över hur SAT förädlar OSM-data till information och tjänster för vandrare" width="1536" height="1024">
+      <img src="assets/sat-osm-experience-infographic.jpg" {attribute("alt", "Infografik över hur SAT förädlar OSM-data till information och tjänster för vandrare", "Swedish infographic showing how SAT turns OSM data into information and services for hikers")} width="1536" height="1024">
     </a>
     <figcaption>
-      <strong>Från OSM-data till planering och upplevelser</strong>
-      Infografiken visar vägen från detaljerad OSM-data via SAT:s sammanställning och API till tjänster som hjälper vandraren att planera.
-      <small>Klicka på bilden för att öppna den i full storlek.</small>
+      {text("Från OSM-data till planering och upplevelser", "From OSM data to planning and experiences", "strong")}
+      {text("Infografiken visar vägen från detaljerad OSM-data via SAT:s sammanställning och API till tjänster som hjälper vandraren att planera.", "The infographic shows the path from detailed OSM data through SAT's aggregation and API to services that help hikers plan.")}
+      {text("Klicka på bilden för att öppna den i full storlek.", "Click the image to open it at full size. Text within the image is in Swedish.", "small")}
     </figcaption>
   </figure>
   <div id="summary" class="cards"></div>
   <section class="panel">
-    <h2>Leden som OSM-hierarki</h2>
+    {text("Leden som OSM-hierarki", "The trail as an OSM hierarchy", "h2")}
     <div class="hierarchy">
       <div id="superroute" class="relation"></div>
       <div id="sectionGrid" class="section-grid"></div>
     </div>
   </section>
   <section class="panel">
-    <h2>Etapp och egenskaper</h2>
+    {text("Etapp och egenskaper", "Section and properties", "h2")}
     <div class="toolbar">
-      <select id="sectionSelect"><option value="all">Hela leden — unika segment</option></select>
-      <input id="tagSearch" type="search" placeholder="Sök OSM-nyckel eller värde…">
+      <select id="sectionSelect" {attribute("aria-label", "Etapp", "Section")}><option value="all">Hela leden — unika segment</option></select>
+      <input id="tagSearch" type="search" {attribute("placeholder", "Sök OSM-nyckel eller värde…", "Search OSM key or value…")} {attribute("aria-label", "Sök OSM-nyckel eller värde", "Search OSM key or value")}>
     </div>
     <div id="selectionMeta"></div>
     <div id="coverage"></div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>OSM-nyckel</th><th class="num">Antal</th><th class="num">Andel</th><th>Vanligaste värden</th></tr></thead>
+        <thead><tr><th>{text("OSM-nyckel", "OSM key")}</th><th class="num">{text("Antal", "Count")}</th><th class="num">{text("Andel", "Coverage")}</th><th>{text("Vanligaste värden", "Most common values")}</th></tr></thead>
         <tbody id="statsBody"></tbody>
       </table>
     </div>
@@ -402,7 +411,7 @@ def render_report(report: dict) -> str:
       <summary id="membersSummary">Visa ledobjekt</summary>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>OSM-objekt</th><th>Huvudtyp</th><th>Etapper</th><th>Utvalda egenskaper</th></tr></thead>
+          <thead><tr><th>{text("OSM-objekt", "OSM object")}</th><th>{text("Huvudtyp", "Main type")}</th><th>{text("Etapper", "Sections")}</th><th>{text("Utvalda egenskaper", "Selected properties")}</th></tr></thead>
           <tbody id="membersBody"></tbody>
         </table>
       </div>
@@ -410,11 +419,12 @@ def render_report(report: dict) -> str:
   </section>
 </main>
 <script>
+{LANGUAGE_SCRIPT}
 const REPORT={embedded};
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
 const sectionById=Object.fromEntries(REPORT.sections.map(s=>[String(s.osmId),s]));
-const keyUrl=key=>`https://wiki.openstreetmap.org/wiki/Key:${{encodeURIComponent(key).replaceAll('%3A',':')}}?uselang=sv`;
-const tagUrl=(key,value)=>`https://wiki.openstreetmap.org/wiki/Tag:${{encodeURIComponent(key).replaceAll('%3A',':')}}%3D${{encodeURIComponent(value)}}?uselang=sv`;
+const keyUrl=key=>`https://wiki.openstreetmap.org/wiki/Key:${{encodeURIComponent(key).replaceAll('%3A',':')}}?uselang=${{lang}}`;
+const tagUrl=(key,value)=>`https://wiki.openstreetmap.org/wiki/Tag:${{encodeURIComponent(key).replaceAll('%3A',':')}}%3D${{encodeURIComponent(value)}}?uselang=${{lang}}`;
 function nativeUrl(key,value) {{
   value=String(value||'');
   if(value.startsWith('http://')||value.startsWith('https://'))return value;
@@ -429,19 +439,24 @@ function linkValue(key,value,count='') {{
   return `<span class="tag-value"><a href="${{href}}" target="_blank" rel="noopener"><code>${{esc(value)}}</code></a>${{count!==''?' '+count:''}}</span>`;
 }}
 function tagList(tags) {{
-  return tags.map(tag=>`<div><a href="${{tag.keyUrl}}" target="_blank"><code>${{esc(tag.key)}}</code></a> = <a href="${{tag.valueUrl}}" target="_blank"><code>${{esc(tag.value)}}</code></a></div>`).join('');
+  return tags.map(tag=>`<div><a href="${{esc(wikiLanguage(tag.keyUrl))}}" target="_blank"><code>${{esc(tag.key)}}</code></a> = <a href="${{esc(wikiLanguage(tag.valueUrl))}}" target="_blank"><code>${{esc(tag.value)}}</code></a></div>`).join('');
 }}
-document.getElementById('summary').innerHTML=[
-  ['Superrelation',REPORT.superroute.osmId],
-  ['Etapprelationer',REPORT.sectionCount],
-  ['Unika ledobjekt',REPORT.uniqueSegmentCount],
-  ['Medlemskap',REPORT.totalMemberships],
-  ['Återanvända segment',REPORT.duplicateMemberships],
-].map(([label,value])=>`<div class="card"><strong>${{value}}</strong>${{label}}</div>`).join('');
-document.getElementById('superroute').innerHTML=`<strong><a href="${{REPORT.superroute.osmUrl}}" target="_blank">${{esc(REPORT.superroute.name)}}</a></strong><p>relation/${{REPORT.superroute.osmId}} · ${{REPORT.superroute.memberCount}} etapper</p><details><summary>Visa relationens taggar</summary>${{tagList(REPORT.superroute.tags)}}</details>`;
-document.getElementById('sectionGrid').innerHTML=REPORT.sections.map(s=>`<div class="section-card" data-id="${{s.osmId}}"><strong>${{s.order}}. ${{esc(s.name.replace(/^SAT Etapp /,''))}}</strong><small>${{esc(s.distance||'okänd längd')}} · ${{s.memberCount}} medlemmar · relation/${{s.osmId}}</small></div>`).join('');
 const select=document.getElementById('sectionSelect');
-select.innerHTML+=REPORT.sections.map(s=>`<option value="${{s.osmId}}">${{s.order}}. ${{esc(s.name.replace(/^SAT Etapp /,''))}} (${{s.memberCount}})</option>`).join('');
+function renderLanguage() {{
+document.getElementById('summary').innerHTML=[
+  [t('Superrelation','Superroute'),REPORT.superroute.osmId],
+  [t('Etapprelationer','Section relations'),REPORT.sectionCount],
+  [t('Unika ledobjekt','Unique trail objects'),REPORT.uniqueSegmentCount],
+  [t('Medlemskap','Memberships'),REPORT.totalMemberships],
+  [t('Återanvända segment','Reused segments'),REPORT.duplicateMemberships],
+].map(([label,value])=>`<div class="card"><strong>${{value}}</strong>${{label}}</div>`).join('');
+document.getElementById('superroute').innerHTML=`<strong><a href="${{REPORT.superroute.osmUrl}}" target="_blank">${{esc(REPORT.superroute.name)}}</a></strong><p>relation/${{REPORT.superroute.osmId}} · ${{REPORT.superroute.memberCount}} ${{t('etapper','sections')}}</p><details id="superrouteTags"><summary>${{t('Visa relationens taggar','Show relation tags')}}</summary>${{tagList(REPORT.superroute.tags)}}</details>`;
+document.getElementById('sectionGrid').innerHTML=REPORT.sections.map(s=>`<div class="section-card" data-id="${{s.osmId}}"><strong>${{s.order}}. ${{esc(s.name.replace(/^SAT Etapp /,''))}}</strong><small>${{esc(s.distance||t('okänd längd','unknown distance'))}} · ${{s.memberCount}} ${{t('medlemmar','members')}} · relation/${{s.osmId}}</small></div>`).join('');
+const selected=select.value;
+select.innerHTML=`<option value="all">${{t('Hela leden — unika segment','Entire trail — unique segments')}}</option>`+REPORT.sections.map(s=>`<option value="${{s.osmId}}">${{s.order}}. ${{esc(s.name.replace(/^SAT Etapp /,''))}} (${{s.memberCount}})</option>`).join('');
+select.value=selected;
+render();
+}}
 function compactTags(tags) {{
   const preferred=['highway','surface','smoothness','sac_scale','trail_visibility','foot','width','image'];
   return preferred.filter(k=>tags[k]).map(k=>`<span class="tag-value"><a href="${{keyUrl(k)}}" target="_blank"><code>${{esc(k)}}</code></a>=${{linkValue(k,tags[k])}}</span>`).join(' ');
@@ -453,12 +468,12 @@ function render() {{
   const query=document.getElementById('tagSearch').value.trim().toLowerCase();
   const filteredStats=stats.filter(stat=>!query||stat.key.toLowerCase().includes(query)||stat.topValues.some(v=>v.value.toLowerCase().includes(query)));
   document.getElementById('selectionMeta').innerHTML=section
-    ? `<h3><a href="${{section.osmUrl}}" target="_blank">${{esc(section.name)}}</a></h3><p>${{esc(section.distance||'Längd saknas')}} · ${{section.wayCount}} vägar · ${{section.nodeCount}} noder · <code>${{esc(section.satRef)}}</code></p><details><summary>Visa etapprelationens taggar</summary>${{tagList(section.tags)}}</details>`
-    : `<h3>Hela SAT-leden</h3><p>${{REPORT.uniqueSegmentCount}} unika ledobjekt. ${{REPORT.duplicateMemberships}} medlemskap är segment som används i mer än en etapp.</p>`;
+    ? `<h3><a href="${{section.osmUrl}}" target="_blank">${{esc(section.name)}}</a></h3><p>${{esc(section.distance||t('Längd saknas','Distance missing'))}} · ${{section.wayCount}} ${{t('vägar','ways')}} · ${{section.nodeCount}} ${{t('noder','nodes')}} · <code>${{esc(section.satRef)}}</code></p><details id="sectionTags"><summary>${{t('Visa etapprelationens taggar','Show section relation tags')}}</summary>${{tagList(section.tags)}}</details>`
+    : `<h3>${{t('Hela SAT-leden','Entire SAT trail')}}</h3><p>${{REPORT.uniqueSegmentCount}} ${{t('unika ledobjekt.','unique trail objects.')}} ${{REPORT.duplicateMemberships}} ${{t('medlemskap är segment som används i mer än en etapp.','memberships are segments used in more than one section.')}}</p>`;
   const coverage=section?section.featureCoverage:Object.fromEntries(REPORT.featureKeys.map(key=>{{const stat=REPORT.tagStats.find(s=>s.key===key);return [key,{{count:stat?.count||0,percent:stat?.percent||0}}];}}));
   document.getElementById('coverage').innerHTML='<div class="coverage">'+REPORT.featureKeys.map(key=>`<div><a href="${{keyUrl(key)}}" target="_blank"><code>${{esc(key)}}</code></a><strong>${{coverage[key].percent}}%</strong></div>`).join('')+'</div>';
-  document.getElementById('statsBody').innerHTML=filteredStats.map(stat=>`<tr><td><a href="${{stat.wikiUrl}}" target="_blank"><code>${{esc(stat.key)}}</code></a></td><td class="num">${{stat.count}}</td><td class="num">${{stat.percent}}%</td><td>${{stat.topValues.map(v=>linkValue(stat.key,v.value,v.count)).join(' · ')}}</td></tr>`).join('');
-  document.getElementById('membersSummary').textContent=`Visa ledobjekt (${{members.length}})`;
+  document.getElementById('statsBody').innerHTML=filteredStats.map(stat=>`<tr><td><a href="${{esc(wikiLanguage(stat.wikiUrl))}}" target="_blank"><code>${{esc(stat.key)}}</code></a></td><td class="num">${{stat.count}}</td><td class="num">${{stat.percent}}%</td><td>${{stat.topValues.map(v=>linkValue(stat.key,v.value,v.count)).join(' · ')}}</td></tr>`).join('')||`<tr><td colspan="4">${{t('Inga egenskaper matchar sökningen.','No properties match the search.')}}</td></tr>`;
+  document.getElementById('membersSummary').textContent=`${{t('Visa ledobjekt','Show trail objects')}} (${{members.length}})`;
   document.getElementById('membersBody').innerHTML=members.map(member=>{{
     const sectionNames=(member.sections||[section?.osmId]).filter(Boolean).map(id=>sectionById[String(id)]?.name.replace(/^SAT Etapp /,'')||id).join(', ');
     const mainType=member.tags.highway?`highway=${{member.tags.highway}}`:(member.tags.amenity?`amenity=${{member.tags.amenity}}`:'—');
@@ -467,8 +482,8 @@ function render() {{
 }}
 select.addEventListener('change',render);
 document.getElementById('tagSearch').addEventListener('input',render);
-document.querySelectorAll('.section-card').forEach(card=>card.addEventListener('click',()=>{{select.value=card.dataset.id;render();document.getElementById('sectionSelect').scrollIntoView({{behavior:'smooth',block:'center'}});}}));
-render();
+document.getElementById('sectionGrid').addEventListener('click',event=>{{const card=event.target.closest('.section-card');if(card){{select.value=card.dataset.id;render();select.scrollIntoView({{behavior:'smooth',block:'center'}});}}}});
+initializeLanguage(renderLanguage);
 </script>
 </body>
 </html>

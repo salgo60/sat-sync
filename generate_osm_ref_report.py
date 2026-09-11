@@ -13,6 +13,13 @@ from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
 
+from report_i18n import (
+    LANGUAGE_BUTTON,
+    LANGUAGE_SCRIPT,
+    LANGUAGE_STYLE,
+    attribute,
+    text,
+)
 
 REF_KEY = "ref:stockholmarchipelagotrail"
 OVERPASS_ENDPOINTS = (
@@ -58,6 +65,38 @@ CATEGORY_ORDER = (
     "Led / rutt",
     "Övrigt",
 )
+
+CATEGORY_EN = {
+    "Vindskydd": "Trail shelter",
+    "Väderskydd vid hållplats": "Public transport shelter",
+    "Övrigt väderskydd": "Other shelter",
+    "Toalett": "Toilet",
+    "Grillplats": "Barbecue / fire pit",
+    "Dricksvatten": "Drinking water",
+    "Tältplats": "Campsite",
+    "Boende": "Accommodation",
+    "Handla mat": "Food shop",
+    "Museum": "Museum",
+    "Restaurang / café": "Restaurant / café",
+    "Utsiktspunkt": "Viewpoint",
+    "Färjeläge": "Ferry terminal",
+    "Bastu": "Sauna",
+    "Dusch": "Shower",
+    "Badplats": "Swimming spot",
+    "Hamn": "Harbour",
+    "Uthyrning": "Rental",
+    "Fyr": "Lighthouse",
+    "Hjärtstartare": "Defibrillator",
+    "Turism / sevärdhet": "Tourism / attraction",
+    "Kyrka / kultur": "Church / culture",
+    "Aktivitet": "Activity",
+    "Ö / naturplats": "Island / natural site",
+    "Butik övrig": "Other shop",
+    "Service": "Service",
+    "Byggnad / plats": "Building / place",
+    "Led / rutt": "Trail / route",
+    "Övrigt": "Other",
+}
 
 LODGING_VALUES = {
     "alpine_hut",
@@ -366,8 +405,9 @@ def render_report(report: dict) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>OSM-objekt längs Stockholm Archipelago Trail</title>
+  {text("OSM-objekt längs Stockholm Archipelago Trail", "OSM objects along Stockholm Archipelago Trail", "title")}
   <style>
+    {LANGUAGE_STYLE}
     :root {{ --blue:#245b8e; --light:#eef5fb; --line:#d9e2ea; --text:#18222c; }}
     * {{ box-sizing:border-box; }}
     body {{ margin:0; background:#f6f8fa; color:var(--text); font-family:system-ui,-apple-system,sans-serif; }}
@@ -417,80 +457,89 @@ def render_report(report: dict) -> str:
 </head>
 <body>
 <header>
-  <h1>OSM-objekt med <code>{html.escape(REF_KEY)}</code></h1>
-  <p>Alla noder, vägar och relationer grupperade efter funktion. Taggstatistiken visar hur många objekt i varje grupp som har respektive egenskap.</p>
-  <p class="meta"><a style="color:white" href="sat_poi_dashboard.html">← SAT POI Dashboard</a> · <a style="color:white" href="sat_osm_trail_report.html">🥾 Ledegenskaper</a> · Genererad {generated} · <a style="color:white" href="{query_url}" target="_blank" rel="noopener">Global Overpass-fråga</a> · Nycklar och värden länkar till OSM Wiki</p>
+  {LANGUAGE_BUTTON}
+  <h1>{text("OSM-objekt med", "OSM objects with")} <code>{html.escape(REF_KEY)}</code></h1>
+  {text("Alla noder, vägar och relationer grupperade efter funktion. Taggstatistiken visar hur många objekt i varje grupp som har respektive egenskap.", "All nodes, ways and relations grouped by function. Tag statistics show how many objects in each group have each property.", "p")}
+  <p class="meta"><a data-lang-link style="color:white" href="sat_poi_dashboard.html">← SAT POI Dashboard</a> · <a data-lang-link style="color:white" href="sat_osm_trail_report.html">{text("🥾 Ledegenskaper", "🥾 Trail properties")}</a> · <a data-lang-link style="color:white" href="sat_about.html">{text("Om verktygen", "About the tools")}</a> · {text("Genererad", "Generated")} {generated} · <a style="color:white" href="{query_url}" target="_blank" rel="noopener">{text("Global Overpass-fråga", "Global Overpass query")}</a> · {text("Nycklar och värden länkar till OSM Wiki", "Keys and values link to the OSM Wiki")}</p>
 </header>
 <main>
   <figure class="panel infographic flyer">
     <a href="assets/sat-open-data-flyer.jpg" target="_blank">
-      <img src="assets/sat-open-data-flyer.jpg" alt="Flyer om hur bra och kopplad data skapar bättre upplevelser på vandringsleder" width="1024" height="1536">
+      <img src="assets/sat-open-data-flyer.jpg" {attribute("alt", "Flyer om hur bra och kopplad data skapar bättre upplevelser på vandringsleder", "Swedish flyer about how connected data improves hiking experiences")} width="1024" height="1536">
     </a>
     <figcaption>
-      <strong>Vandringsleder behöver bra data</strong>
-      Flyern visar vilken information vandraren behöver och hur öppna, sammankopplade datakällor kan skapa bättre och mer tillgängliga tjänster.
-      <small>Klicka på bilden för att öppna den i full storlek.</small>
+      {text("Vandringsleder behöver bra data", "Hiking trails need good data", "strong")}
+      {text("Flyern visar vilken information vandraren behöver och hur öppna, sammankopplade datakällor kan skapa bättre och mer tillgängliga tjänster.", "The flyer shows what information hikers need and how connected open data can create better, more accessible services.")}
+      {text("Klicka på bilden för att öppna den i full storlek.", "Click the image to open it at full size. Text within the image is in Swedish.", "small")}
     </figcaption>
   </figure>
   <figure class="panel infographic">
     <a href="assets/sat-osm-infographic.jpg" target="_blank">
-      <img src="assets/sat-osm-infographic.jpg" alt="Infografik över hur OSM-data används i Stockholm Archipelago Trail" width="1536" height="1024">
+      <img src="assets/sat-osm-infographic.jpg" {attribute("alt", "Infografik över hur OSM-data används i Stockholm Archipelago Trail", "Swedish infographic showing how OSM data is used in Stockholm Archipelago Trail")} width="1536" height="1024">
     </a>
     <figcaption>
-      <strong>Från OSM-data till upplevelser</strong>
-      Infografiken sammanfattar hur SAT använder OSM-objekt och deras egenskaper i en digital tvilling.
-      <small>Klicka på bilden för att öppna den i full storlek.</small>
+      {text("Från OSM-data till upplevelser", "From OSM data to experiences", "strong")}
+      {text("Infografiken sammanfattar hur SAT använder OSM-objekt och deras egenskaper i en digital tvilling.", "The infographic summarises how SAT uses OSM objects and their properties in a digital twin.")}
+      {text("Klicka på bilden för att öppna den i full storlek.", "Click the image to open it at full size. Text within the image is in Swedish.", "small")}
     </figcaption>
   </figure>
   <figure class="panel infographic">
     <a href="assets/sat-osm-experience-infographic.jpg" target="_blank">
-      <img src="assets/sat-osm-experience-infographic.jpg" alt="Infografik över hur SAT förädlar OSM-data till information och tjänster för vandrare" width="1536" height="1024">
+      <img src="assets/sat-osm-experience-infographic.jpg" {attribute("alt", "Infografik över hur SAT förädlar OSM-data till information och tjänster för vandrare", "Swedish infographic showing how SAT turns OSM data into information and services for hikers")} width="1536" height="1024">
     </a>
     <figcaption>
-      <strong>Från OSM-data till planering och upplevelser</strong>
-      Infografiken visar vägen från detaljerad OSM-data via SAT:s sammanställning och API till tjänster som hjälper vandraren att planera.
-      <small>Klicka på bilden för att öppna den i full storlek.</small>
+      {text("Från OSM-data till planering och upplevelser", "From OSM data to planning and experiences", "strong")}
+      {text("Infografiken visar vägen från detaljerad OSM-data via SAT:s sammanställning och API till tjänster som hjälper vandraren att planera.", "The infographic shows the path from detailed OSM data through SAT's aggregation and API to services that help hikers plan.")}
+      {text("Klicka på bilden för att öppna den i full storlek.", "Click the image to open it at full size. Text within the image is in Swedish.", "small")}
     </figcaption>
   </figure>
   <div id="summary" class="summary"></div>
   <div class="panel toolbar">
-    <input id="search" type="search" placeholder="Sök namn, SAT-ref, OSM-tagg eller värde…">
-    <select id="category"><option value="">Alla kategorier</option></select>
+    <input id="search" type="search" {attribute("placeholder", "Sök namn, SAT-ref, OSM-tagg eller värde…", "Search name, SAT ref, OSM tag or value…")} {attribute("aria-label", "Sök namn, SAT-ref, OSM-tagg eller värde", "Search name, SAT ref, OSM tag or value")}>
+    <select id="category" {attribute("aria-label", "Kategori", "Category")}><option value="">Alla kategorier</option></select>
   </div>
   <nav id="categoryNav" class="category-nav"></nav>
   <div id="categories"></div>
 </main>
 <script>
+{LANGUAGE_SCRIPT}
 const REPORT={embedded};
+const CATEGORY_EN={json.dumps(CATEGORY_EN, ensure_ascii=False)};
+const categoryLabel=name=>t(name,CATEGORY_EN[name]);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
 const slug=value=>'cat-'+value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^a-z0-9]+/g,'-');
 const objectsByCategory=Object.groupBy
   ? Object.groupBy(REPORT.objects,o=>o.category)
   : REPORT.objects.reduce((a,o)=>((a[o.category]??=[]).push(o),a),{{}});
 
+const categorySelect=document.getElementById('category');
+function renderLanguage() {{
 document.getElementById('summary').innerHTML=[
-  ['OSM-objekt',REPORT.totalObjects],
-  ['Noder',REPORT.osmTypes.node||0],
-  ['Vägar',REPORT.osmTypes.way||0],
-  ['Relationer',REPORT.osmTypes.relation||0],
-  ['Kategorier',REPORT.categories.length],
+  [t('OSM-objekt','OSM objects'),REPORT.totalObjects],
+  [t('Noder','Nodes'),REPORT.osmTypes.node||0],
+  [t('Vägar','Ways'),REPORT.osmTypes.way||0],
+  [t('Relationer','Relations'),REPORT.osmTypes.relation||0],
+  [t('Kategorier','Categories'),REPORT.categories.length],
 ].map(([label,value])=>`<div class="card"><strong>${{value}}</strong>${{label}}</div>`).join('');
 
-const categorySelect=document.getElementById('category');
-categorySelect.innerHTML+=REPORT.categories.map(c=>`<option value="${{esc(c.name)}}">${{esc(c.name)}} (${{c.count}})</option>`).join('');
-document.getElementById('categoryNav').innerHTML=REPORT.categories.map(c=>`<a href="#${{slug(c.name)}}">${{esc(c.name)}} · ${{c.count}}</a>`).join('');
+const selected=categorySelect.value;
+categorySelect.innerHTML=`<option value="">${{t('Alla kategorier','All categories')}}</option>`+REPORT.categories.map(c=>`<option value="${{esc(c.name)}}">${{esc(categoryLabel(c.name))}} (${{c.count}})</option>`).join('');
+categorySelect.value=selected;
+document.getElementById('categoryNav').innerHTML=REPORT.categories.map(c=>`<a href="#${{slug(c.name)}}">${{esc(categoryLabel(c.name))}} · ${{c.count}}</a>`).join('');
+render();
+}}
 
 function valuesHtml(stat) {{
   return stat.topValues.map(v=>{{
-    const title=v.directUrl ? '' : ` title="Wiki-beskrivningssidan för ${{esc(stat.key)}}=${{esc(v.value)}}-taggen"`;
-    return `<a href="${{v.directUrl||v.wikiUrl}}" target="_blank" rel="noopener"${{title}}><code>${{esc(v.value)}}</code></a> ${{v.count}}`;
+    const title=v.directUrl ? '' : ` title="${{t('Wiki-beskrivningssidan för taggen','Wiki documentation for the tag')}} ${{esc(stat.key)}}=${{esc(v.value)}}"`;
+    return `<a href="${{esc(wikiLanguage(v.directUrl||v.wikiUrl))}}" target="_blank" rel="noopener"${{title}}><code>${{esc(v.value)}}</code></a> ${{v.count}}`;
   }}).join(' · ');
 }}
 function tagsHtml(tags,valueUrls) {{
   return Object.entries(tags).map(([k,v])=>{{
-    const key=`<a href="https://wiki.openstreetmap.org/wiki/Key:${{encodeURIComponent(k).replaceAll('%3A',':')}}?uselang=sv" target="_blank" rel="noopener" title="Wiki-beskrivningssidan för ${{esc(k)}}-taggen">${{esc(k)}}</a>`;
+    const key=`<a href="https://wiki.openstreetmap.org/wiki/Key:${{encodeURIComponent(k).replaceAll('%3A',':')}}?uselang=${{lang}}" target="_blank" rel="noopener" title="${{t('Wiki-beskrivningssidan för taggen','Wiki documentation for the tag')}} ${{esc(k)}}">${{esc(k)}}</a>`;
     const value=valueUrls?.[k]
-      ? `<a href="${{esc(valueUrls[k])}}" target="_blank" rel="noopener">${{esc(v)}}</a>`
+      ? `<a href="${{esc(wikiLanguage(valueUrls[k]))}}" target="_blank" rel="noopener">${{esc(v)}}</a>`
       : esc(v);
     return `<span class="tag">${{key}}=${{value}}</span>`;
   }}).join(' ');
@@ -500,26 +549,27 @@ function render() {{
   const selected=categorySelect.value;
   const sections=REPORT.categories.map(category=>{{
     if(selected&&selected!==category.name)return '';
-    const objects=(objectsByCategory[category.name]||[]).filter(o=>!q||JSON.stringify(o).toLowerCase().includes(q));
+    const objects=(objectsByCategory[category.name]||[]).filter(o=>!q||JSON.stringify(o).toLowerCase().includes(q)||CATEGORY_EN[o.category].toLowerCase().includes(q));
     if(q&&!objects.length)return '';
     const stats=category.tagStats;
-    const statRows=stats.map(stat=>`<tr><td><a href="${{stat.wikiUrl}}" target="_blank" rel="noopener"><code>${{esc(stat.key)}}</code></a></td><td class="num">${{stat.count}}</td><td class="num">${{stat.percent}}%</td><td class="values">${{valuesHtml(stat)}}</td></tr>`).join('');
+    const statRows=stats.map(stat=>`<tr><td><a href="${{esc(wikiLanguage(stat.wikiUrl))}}" target="_blank" rel="noopener"><code>${{esc(stat.key)}}</code></a></td><td class="num">${{stat.count}}</td><td class="num">${{stat.percent}}%</td><td class="values">${{valuesHtml(stat)}}</td></tr>`).join('');
     const objectRows=objects.map(o=>{{
+      const name=o.tags.name||o.tags['name:sv']||t('(namnlös)','(unnamed)');
       const satRef=o.satUrl
         ? `<a href="${{o.satUrl}}" target="_blank" rel="noopener"><code>${{esc(o.satRef)}}</code></a> · <a href="${{o.satJsonUrl}}" target="_blank" rel="noopener">json</a>`
         : `<code>${{esc(o.satRef)}}</code>`;
-      return `<tr><td><a href="${{o.osmUrl}}" target="_blank" rel="noopener">${{esc(o.name)}}</a></td><td>${{satRef}}</td><td><a href="${{o.osmUrl}}" target="_blank" rel="noopener">${{o.osmType}}/${{o.osmId}}</a></td><td class="object-tags">${{tagsHtml(o.tags,o.tagValueUrls)}}</td></tr>`;
+      return `<tr><td><a href="${{o.osmUrl}}" target="_blank" rel="noopener">${{esc(name)}}</a></td><td>${{satRef}}</td><td><a href="${{o.osmUrl}}" target="_blank" rel="noopener">${{o.osmType}}/${{o.osmId}}</a></td><td class="object-tags">${{tagsHtml(o.tags,o.tagValueUrls)}}</td></tr>`;
     }}).join('');
-    return `<section id="${{slug(category.name)}}"><h2>${{esc(category.name)}} <small>(${{objects.length}}${{q?' filtrerade':''}})</small></h2>
-      <div class="panel"><details open><summary style="padding:.8rem">Egenskaper och täckning</summary><div class="table-wrap"><table><thead><tr><th>OSM-nyckel</th><th class="num">Antal</th><th class="num">Andel</th><th>Vanligaste värden</th></tr></thead><tbody>${{statRows}}</tbody></table></div></details></div>
-      <div class="panel"><details><summary style="padding:.8rem">Visa alla objekt (${{objects.length}})</summary><div class="table-wrap"><table><thead><tr><th>Namn / OSM</th><th>SAT-ref</th><th>Typ/ID</th><th>Alla taggar</th></tr></thead><tbody>${{objectRows}}</tbody></table></div></details></div>
+    return `<section id="${{slug(category.name)}}"><h2>${{esc(categoryLabel(category.name))}} <small>(${{objects.length}}${{q?t(' filtrerade',' filtered'):''}})</small></h2>
+      <div class="panel"><details id="${{slug(category.name)}}-stats" open><summary style="padding:.8rem">${{t('Egenskaper och täckning','Properties and coverage')}}</summary><div class="table-wrap"><table><thead><tr><th>${{t('OSM-nyckel','OSM key')}}</th><th class="num">${{t('Antal','Count')}}</th><th class="num">${{t('Andel','Coverage')}}</th><th>${{t('Vanligaste värden','Most common values')}}</th></tr></thead><tbody>${{statRows}}</tbody></table></div></details></div>
+      <div class="panel"><details id="${{slug(category.name)}}-objects"><summary style="padding:.8rem">${{t('Visa alla objekt','Show all objects')}} (${{objects.length}})</summary><div class="table-wrap"><table><thead><tr><th>${{t('Namn / OSM','Name / OSM')}}</th><th>SAT-ref</th><th>${{t('Typ/ID','Type/ID')}}</th><th>${{t('Alla taggar','All tags')}}</th></tr></thead><tbody>${{objectRows}}</tbody></table></div></details></div>
     </section>`;
   }}).join('');
-  document.getElementById('categories').innerHTML=sections||'<p>Inga objekt matchar filtret.</p>';
+  document.getElementById('categories').innerHTML=sections||`<p>${{t('Inga objekt matchar filtret.','No objects match the filter.')}}</p>`;
 }}
 document.getElementById('search').addEventListener('input',render);
 categorySelect.addEventListener('change',render);
-render();
+initializeLanguage(renderLanguage);
 </script>
 </body>
 </html>

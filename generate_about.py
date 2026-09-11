@@ -295,7 +295,7 @@ HTML = f"""\
       <li id="sec-how-li6"><strong>generate_osm_trail_report.py</strong> — följer OSM-hierarkin superroute → etapprelation → ledsegment och sammanställer ledegenskaper</li>
       <li id="sec-how-li7"><strong>generate_about.py</strong> — genererar den här sidan</li>
     </ul>
-    <p id="sec-how-p2">Dashboarden har stöd för 20+ språk. Om-sidan och flera arbetsverktyg har sv/en-språkbyte, medan specialrapporter kan vara enspråkiga.</p>
+    <p id="sec-how-p2">Dashboarden har stöd för 20+ språk. Om-sidan, OSM-egenskapsrapporten och ledrapporten har språkbyte mellan svenska och engelska.</p>
   </section>
 
   <!-- ── Contribute ─────────────────────────────────────────────────────── -->
@@ -376,7 +376,7 @@ HTML = f"""\
       secHowLi5: '<strong>generate_osm_ref_report.py</strong> — grupperar alla SAT-kopplade OSM-objekt och räknar taggtäckning per kategori',
       secHowLi6: '<strong>generate_osm_trail_report.py</strong> — följer OSM-hierarkin superroute → etapprelation → ledsegment och sammanställer ledegenskaper',
       secHowLi7: '<strong>generate_about.py</strong> — genererar den här sidan',
-      secHowP2: 'Dashboarden har stöd för 20+ språk. Om-sidan och flera arbetsverktyg har sv/en-språkbyte, medan specialrapporter kan vara enspråkiga.',
+      secHowP2: 'Dashboarden har stöd för 20+ språk. Om-sidan, OSM-egenskapsrapporten och ledrapporten har språkbyte mellan svenska och engelska.',
       secContribTitle: '🤝 Bidra',
       secContribP1: 'Alla förbättringsförslag, buggrapporter och pull requests välkomnas på GitHub:',
       linkIssue: '💡 Skapa ett förbättringsförslag',
@@ -437,7 +437,7 @@ HTML = f"""\
       secHowLi5: '<strong>generate_osm_ref_report.py</strong> — groups all SAT-linked OSM objects and calculates tag coverage by category',
       secHowLi6: '<strong>generate_osm_trail_report.py</strong> — follows the OSM hierarchy from superroute to section relation to trail segment and summarizes trail properties',
       secHowLi7: '<strong>generate_about.py</strong> — generates this page',
-      secHowP2: 'The dashboard supports 20+ languages. The About page and several working tools support Swedish/English switching, while specialist reports may be monolingual.',
+      secHowP2: 'The dashboard supports 20+ languages. The About page, OSM property report and trail report support Swedish/English switching.',
       secContribTitle: '🤝 Contribute',
       secContribP1: 'All suggestions, bug reports and pull requests are welcome on GitHub:',
       linkIssue: '💡 Create a feature request',
@@ -516,6 +516,13 @@ HTML = f"""\
       if (el && el.closest) {{
         const a = el.closest('a') || el;
         if (a.tagName === 'A') a.href = base + (lang !== 'sv' ? '?lang=' + lang : '');
+      }}
+    }});
+    document.querySelectorAll('a[href]').forEach(a => {{
+      const url = new URL(a.getAttribute('href'), window.location.href);
+      if (['sat_osm_ref_report.html', 'sat_osm_trail_report.html'].includes(url.pathname.split('/').pop())) {{
+        url.searchParams.set('lang', lang);
+        a.href = url.href;
       }}
     }});
   }}
