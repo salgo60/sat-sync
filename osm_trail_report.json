@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T09:03:10.238072Z",
+  "generatedAt": "2026-09-12T08:45:27.027055Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -241,8 +241,8 @@
     },
     {
       "key": "image",
-      "count": 700,
-      "percent": 91.0,
+      "count": 701,
+      "percent": 91.2,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
       "topValues": [
         {
@@ -517,19 +517,19 @@
     },
     {
       "key": "trailblazed",
-      "count": 271,
-      "percent": 35.2,
+      "count": 282,
+      "percent": 36.7,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
       "topValues": [
         {
           "value": "symbols",
-          "count": 153,
+          "count": 163,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
           "directUrl": null
         },
         {
           "value": "no",
-          "count": 96,
+          "count": 97,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dno?uselang=sv",
           "directUrl": null
         },
@@ -838,34 +838,14 @@
       ]
     },
     {
-      "key": "lanes",
-      "count": 63,
-      "percent": 8.2,
-      "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:lanes?uselang=sv",
-      "topValues": [
-        {
-          "value": "1",
-          "count": 61,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:lanes%3D1?uselang=sv",
-          "directUrl": null
-        },
-        {
-          "value": "3",
-          "count": 2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:lanes%3D3?uselang=sv",
-          "directUrl": null
-        }
-      ]
-    },
-    {
       "key": "check_date",
-      "count": 59,
-      "percent": 7.7,
+      "count": 73,
+      "percent": 9.5,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
       "topValues": [
         {
           "value": "2025-04-20",
-          "count": 14,
+          "count": 15,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-20?uselang=sv",
           "directUrl": null
         },
@@ -876,6 +856,12 @@
           "directUrl": null
         },
         {
+          "value": "2025-04-22",
+          "count": 10,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-22?uselang=sv",
+          "directUrl": null
+        },
+        {
           "value": "2025-05-12",
           "count": 9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-12?uselang=sv",
@@ -883,7 +869,7 @@
         },
         {
           "value": "2026-06-27",
-          "count": 7,
+          "count": 8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-06-27?uselang=sv",
           "directUrl": null
         },
@@ -900,15 +886,29 @@
           "directUrl": null
         },
         {
-          "value": "2026-08-12",
-          "count": 2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-08-12?uselang=sv",
+          "value": "2025-08-13",
+          "count": 3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-13?uselang=sv",
+          "directUrl": null
+        }
+      ]
+    },
+    {
+      "key": "lanes",
+      "count": 63,
+      "percent": 8.2,
+      "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:lanes?uselang=sv",
+      "topValues": [
+        {
+          "value": "1",
+          "count": 61,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:lanes%3D1?uselang=sv",
           "directUrl": null
         },
         {
-          "value": "2025-05-03",
-          "count": 1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-03?uselang=sv",
+          "value": "3",
+          "count": 2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:lanes%3D3?uselang=sv",
           "directUrl": null
         }
       ]
@@ -4563,8 +4563,8 @@
           "percent": 0.0
         },
         "check_date": {
-          "count": 9,
-          "percent": 15.3
+          "count": 11,
+          "percent": 18.6
         }
       },
       "tagStats": [
@@ -4997,6 +4997,38 @@
           ]
         },
         {
+          "key": "check_date",
+          "count": 11,
+          "percent": 18.6,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
+          "topValues": [
+            {
+              "value": "2026-06-20",
+              "count": 6,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-06-20?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2025-08-13",
+              "count": 3,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-13?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2026-07-09",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-09?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2025-06-20",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-06-20?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "maxspeed",
           "count": 11,
           "percent": 18.6,
@@ -5058,38 +5090,6 @@
               "value": "1168",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:reg_ref%3D1168?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "check_date",
-          "count": 9,
-          "percent": 15.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
-          "topValues": [
-            {
-              "value": "2026-06-20",
-              "count": 6,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-06-20?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2026-07-09",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-09?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2025-06-20",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-06-20?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2025-08-13",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-13?uselang=sv",
               "directUrl": null
             }
           ]
@@ -6182,9 +6182,10 @@
           "osmUrl": "https://www.openstreetmap.org/way/514839702",
           "role": "",
           "tags": {
+            "check_date": "2025-08-13",
             "foot": "designated",
             "highway": "footway",
-            "image": "https://commons.wikimedia.org/wiki/File:Arholma_20250815_03.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20260620_02.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "grass",
@@ -6200,6 +6201,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/1429536382",
           "role": "",
           "tags": {
+            "check_date": "2025-08-13",
             "foot": "designated",
             "highway": "footway",
             "image": "https://commons.wikimedia.org/wiki/File:Arholma_20250815_06.jpg",
@@ -16631,8 +16633,8 @@
           "percent": 0.0
         },
         "image": {
-          "count": 29,
-          "percent": 96.7
+          "count": 30,
+          "percent": 100.0
         },
         "image:license": {
           "count": 30,
@@ -16643,11 +16645,67 @@
           "percent": 0.0
         },
         "check_date": {
-          "count": 21,
-          "percent": 70.0
+          "count": 22,
+          "percent": 73.3
         }
       },
       "tagStats": [
+        {
+          "key": "image",
+          "count": 30,
+          "percent": 100.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
+          "topValues": [
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28220%29.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%2528220%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28220%29.jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28218%29.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%2528218%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28218%29.jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(139).jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28139%29.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(139).jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(135).jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28135%29.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(135).jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(130).jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28130%29.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(130).jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(114).jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28114%29.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(114).jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(107).jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28107%29.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(107).jpg"
+            },
+            {
+              "value": "https://upload.wikimedia.org/wikipedia/commons/4/47/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2885%29.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F4%2F47%2FSAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%252885%2529.jpg?uselang=sv",
+              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2885%29.jpg"
+            }
+          ]
+        },
         {
           "key": "image:license",
           "count": 30,
@@ -16717,62 +16775,6 @@
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dfootway?uselang=sv",
               "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "image",
-          "count": 29,
-          "percent": 96.7,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
-          "topValues": [
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28220%29.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%2528220%2529.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28220%29.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28218%29.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%2528218%2529.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28218%29.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(139).jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28139%29.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(139).jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(135).jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28135%29.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(135).jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(130).jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28130%29.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(130).jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(114).jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28114%29.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(114).jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(107).jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%28107%29.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(107).jpg"
-            },
-            {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/4/47/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2885%29.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F4%2F47%2FSAT_Fj%25C3%25A4rdl%25C3%25A5ng_2025_april_%252885%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2885%29.jpg"
             }
           ]
         },
@@ -16867,6 +16869,26 @@
           ]
         },
         {
+          "key": "check_date",
+          "count": 22,
+          "percent": 73.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
+          "topValues": [
+            {
+              "value": "2025-04-20",
+              "count": 15,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-20?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2026-06-27",
+              "count": 7,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-06-27?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "trailblazed",
           "count": 22,
           "percent": 73.3,
@@ -16932,26 +16954,6 @@
               "value": "0.7",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D0.7?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "check_date",
-          "count": 21,
-          "percent": 70.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
-          "topValues": [
-            {
-              "value": "2025-04-20",
-              "count": 14,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-20?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "2026-06-27",
-              "count": 7,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-06-27?uselang=sv",
               "directUrl": null
             }
           ]
@@ -17248,7 +17250,7 @@
             "check_date": "2026-06-27",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/a/af/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2879%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_(4).jpg",
             "image:license": "CC:0",
             "sac_scale": "hiking",
             "surface": "compacted",
@@ -17284,6 +17286,7 @@
             "check_date": "2026-06-27",
             "foot": "designated",
             "highway": "track",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(76).jpg",
             "image:license": "CC:0",
             "sac_scale": "hiking",
             "surface": "compacted",
@@ -17368,7 +17371,7 @@
             "bridge": "yes",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/8/8c/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28211%29.jpgq",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28211%29.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "compacted",
@@ -17398,9 +17401,10 @@
           "role": "",
           "tags": {
             "boardwalk": "yes",
+            "check_date": "2025-04-20",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/9/98/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28200%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28200%29.jpg",
             "image:license": "CC0",
             "material": "wood",
             "sac_scale": "hiking",
@@ -17433,7 +17437,7 @@
           "tags": {
             "foot": "yes",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28195%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28195%29.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "unpaved",
@@ -17557,7 +17561,7 @@
             "check_date": "2026-06-27",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2872%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2872%29.jpg",
             "image:license": "CC:0",
             "sac_scale": "hiking",
             "surface": "compacted",
@@ -26971,8 +26975,8 @@
           "percent": 0.0
         },
         "check_date": {
-          "count": 1,
-          "percent": 2.3
+          "count": 12,
+          "percent": 27.9
         }
       },
       "tagStats": [
@@ -27105,10 +27109,10 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/2/26/SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F2%2F26%2FSAT_Sandhamn_2025_april_V%25C3%25A4sterudden_%25283%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Sandhamn_2025_april_V%25C3%25A4sterudden_%25283%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg"
             },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/3/39/SAT_Sandhamn_2025_april_%28187%29.jpg",
@@ -27123,16 +27127,10 @@
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/SAT_Sandhamn_2025_april_%28197%29.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SAT_Sandhamn_2025_april_%28115%29.jpg/2560px-SAT_Sandhamn_2025_april_%28115%29.jpg",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28165%29.jpg",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F36%2FSAT_Sandhamn_2025_april_%2528115%2529.jpg%2F2560px-SAT_Sandhamn_2025_april_%2528115%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SAT_Sandhamn_2025_april_%28115%29.jpg/2560px-SAT_Sandhamn_2025_april_%28115%29.jpg"
-            },
-            {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/SAT_Sandhamn_2025_april_%28165%29.jpg/1536px-SAT_Sandhamn_2025_april_%28165%29.jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F4%2F4a%2FSAT_Sandhamn_2025_april_%2528165%2529.jpg%2F1536px-SAT_Sandhamn_2025_april_%2528165%2529.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/SAT_Sandhamn_2025_april_%28165%29.jpg/1536px-SAT_Sandhamn_2025_april_%28165%29.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Sandhamn_2025_april_%2528165%2529.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28165%29.jpg"
             },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/SAT_Sandhamn_2025_april_%28178%29.jpg/2560px-SAT_Sandhamn_2025_april_%28178%29.jpg",
@@ -27151,6 +27149,12 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fe%2Fe7%2FSAT_Sandhamn_2025_april_%2528184%2529.jpg%2F2560px-SAT_Sandhamn_2025_april_%2528184%2529.jpg?uselang=sv",
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/SAT_Sandhamn_2025_april_%28184%29.jpg/2560px-SAT_Sandhamn_2025_april_%28184%29.jpg"
+            },
+            {
+              "value": "https://upload.wikimedia.org/wikipedia/commons/0/0a/SAT_Sandhamn_2025_april_%28186%29.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F0%2F0a%2FSAT_Sandhamn_2025_april_%2528186%2529.jpg?uselang=sv",
+              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/SAT_Sandhamn_2025_april_%28186%29.jpg"
             }
           ]
         },
@@ -27242,6 +27246,46 @@
               "value": "1.2",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:width%3D1.2?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "check_date",
+          "count": 12,
+          "percent": 27.9,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
+          "topValues": [
+            {
+              "value": "2025-04-22",
+              "count": 11,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-04-22?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2026-04-28",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-28?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "trailblazed",
+          "count": 12,
+          "percent": 27.9,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
+          "topValues": [
+            {
+              "value": "symbols",
+              "count": 10,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "no",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dno?uselang=sv",
               "directUrl": null
             }
           ]
@@ -27415,20 +27459,6 @@
           ]
         },
         {
-          "key": "check_date",
-          "count": 1,
-          "percent": 2.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
-          "topValues": [
-            {
-              "value": "2026-04-28",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-28?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "lines",
           "count": 1,
           "percent": 2.3,
@@ -27469,20 +27499,6 @@
               "directUrl": null
             }
           ]
-        },
-        {
-          "key": "trailblazed",
-          "count": 1,
-          "percent": 2.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
-          "topValues": [
-            {
-              "value": "symbols",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
-              "directUrl": null
-            }
-          ]
         }
       ],
       "members": [
@@ -27492,13 +27508,15 @@
           "osmUrl": "https://www.openstreetmap.org/way/589299278",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "compacted",
             "trail_visibility": "good",
+            "trailblazed": "no",
             "width": "1.5"
           }
         },
@@ -28014,12 +28032,15 @@
           "osmUrl": "https://www.openstreetmap.org/way/1383592530",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_20260426_v_12.jpg",
             "image:license": "CC0",
             "incline": "0%",
             "sac_scale": "hiking",
-            "surface": "dirt"
+            "surface": "dirt",
+            "trailblazed": "symbols"
           }
         },
         {
@@ -28029,15 +28050,17 @@
           "role": "",
           "tags": {
             "bicycle": "yes",
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SAT_Sandhamn_2025_april_%28115%29.jpg/2560px-SAT_Sandhamn_2025_april_%28115%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_(110).jpg",
             "image:license": "CC0",
             "incline": "0%",
             "mtb:scale:imba": "0",
             "mtb:scale:uphill": "0",
             "sac_scale": "hiking",
             "surface": "dirt",
+            "trailblazed": "symbols",
             "width": "3"
           }
         },
@@ -28047,15 +28070,17 @@
           "osmUrl": "https://www.openstreetmap.org/way/1383592532",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SAT_Sandhamn_2025_april_%28115%29.jpg/2560px-SAT_Sandhamn_2025_april_%28115%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28115%29.jpg",
             "image:license": "CC0",
             "incline": "0%",
             "mtb:scale:imba": "0",
             "mtb:scale:uphill": "0",
             "sac_scale": "hiking",
             "surface": "dirt",
+            "trailblazed": "symbols",
             "width": "3"
           }
         },
@@ -28065,13 +28090,15 @@
           "osmUrl": "https://www.openstreetmap.org/way/589296982",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/SAT_Sandhamn_2025_april_%28118%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28118%29.jpg",
             "image:license": "CC0",
             "smoothness": "bad",
             "surface": "compacted",
             "trail_visibility": "good",
+            "trailblazed": "symbols",
             "width": "1.2"
           }
         },
@@ -28081,13 +28108,15 @@
           "osmUrl": "https://www.openstreetmap.org/way/1383592534",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/SAT_Sandhamn_2025_april_%28144%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28144%29.jpg",
             "image:license": "CC0",
             "smoothness": "intermediate",
             "surface": "compacted",
             "trail_visibility": "good",
+            "trailblazed": "symbols",
             "width": "1.2"
           }
         },
@@ -28097,6 +28126,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/1383592535",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/SAT_Sandhamn_2025_april_%28146%29.jpg/2560px-SAT_Sandhamn_2025_april_%28146%29.jpg",
@@ -28104,6 +28134,7 @@
             "smoothness": "intermediate",
             "surface": "compacted",
             "trail_visibility": "good",
+            "trailblazed": "symbols",
             "width": "1.5"
           }
         },
@@ -28113,14 +28144,15 @@
           "osmUrl": "https://www.openstreetmap.org/way/589298535",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SAT_Sandhamn_2025_april_%28155%29.jpg/1536px-SAT_Sandhamn_2025_april_%28155%29.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "smoothness": "intermediate",
             "surface": "compacted",
             "trail_visibility": "good",
+            "trailblazed": "symbols",
             "wheelchair": "limited",
             "width": "1"
           }
@@ -28131,12 +28163,14 @@
           "osmUrl": "https://www.openstreetmap.org/way/1054645901",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/SAT_Sandhamn_2025_april_%28165%29.jpg/1536px-SAT_Sandhamn_2025_april_%28165%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28165%29.jpg",
             "image:license": "CC0",
             "surface": "dirt",
             "trail_visibility": "good",
+            "trailblazed": "symbols",
             "width": "1.5"
           }
         },
@@ -28146,12 +28180,14 @@
           "osmUrl": "https://www.openstreetmap.org/way/1383592501",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/SAT_Sandhamn_2025_april_%28165%29.jpg/1536px-SAT_Sandhamn_2025_april_%28165%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28165%29.jpg",
             "image:license": "CC0",
             "surface": "dirt",
             "trail_visibility": "good",
+            "trailblazed": "symbols",
             "width": "1.5"
           }
         },
@@ -28161,13 +28197,15 @@
           "osmUrl": "https://www.openstreetmap.org/way/589299278",
           "role": "",
           "tags": {
+            "check_date": "2025-04-22",
             "foot": "designated",
             "highway": "path",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "compacted",
             "trail_visibility": "good",
+            "trailblazed": "no",
             "width": "1.5"
           }
         }
@@ -28772,8 +28810,8 @@
           "percent": 1.3
         },
         "check_date": {
-          "count": 13,
-          "percent": 16.5
+          "count": 14,
+          "percent": 17.7
         }
       },
       "tagStats": [
@@ -29139,13 +29177,13 @@
         },
         {
           "key": "trailblazed",
-          "count": 28,
-          "percent": 35.4,
+          "count": 29,
+          "percent": 36.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
           "topValues": [
             {
               "value": "symbols",
-              "count": 28,
+              "count": 29,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
               "directUrl": null
             }
@@ -29173,8 +29211,8 @@
         },
         {
           "key": "check_date",
-          "count": 13,
-          "percent": 16.5,
+          "count": 14,
+          "percent": 17.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -29187,6 +29225,12 @@
               "value": "2025-05-07",
               "count": 4,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-07?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "2026-06-27",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-06-27?uselang=sv",
               "directUrl": null
             }
           ]
@@ -30786,12 +30830,14 @@
           "osmUrl": "https://www.openstreetmap.org/way/181270137",
           "role": "approach",
           "tags": {
+            "check_date": "2026-06-27",
             "highway": "unclassified",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Lervassastigen%2C_Kyrkviken_Orn%C3%B6_%281%29.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:Lervassastigen%2C_Kyrkviken_Orn%C3%B6_%281%29.jpg",
             "image:license": "CC-0",
             "sac_scale": "hiking",
             "surface": "gravel",
             "trail_visibility": "good",
+            "trailblazed": "symbols",
             "width": "0.4"
           }
         },
@@ -33005,9 +33051,10 @@
         19012436
       ],
       "tags": {
+        "check_date": "2025-08-13",
         "foot": "designated",
         "highway": "footway",
-        "image": "https://commons.wikimedia.org/wiki/File:Arholma_20250815_03.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20260620_02.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "surface": "grass",
@@ -33025,6 +33072,7 @@
         19012436
       ],
       "tags": {
+        "check_date": "2025-08-13",
         "foot": "designated",
         "highway": "footway",
         "image": "https://commons.wikimedia.org/wiki/File:Arholma_20250815_06.jpg",
@@ -38297,7 +38345,7 @@
         "check_date": "2026-06-27",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/a/af/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2879%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_(4).jpg",
         "image:license": "CC:0",
         "sac_scale": "hiking",
         "surface": "compacted",
@@ -38337,6 +38385,7 @@
         "check_date": "2026-06-27",
         "foot": "designated",
         "highway": "track",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_(76).jpg",
         "image:license": "CC:0",
         "sac_scale": "hiking",
         "surface": "compacted",
@@ -38431,7 +38480,7 @@
         "bridge": "yes",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8c/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28211%29.jpgq",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28211%29.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "surface": "compacted",
@@ -38465,9 +38514,10 @@
       ],
       "tags": {
         "boardwalk": "yes",
+        "check_date": "2025-04-20",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/9/98/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28200%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28200%29.jpg",
         "image:license": "CC0",
         "material": "wood",
         "sac_scale": "hiking",
@@ -38504,7 +38554,7 @@
       "tags": {
         "foot": "yes",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28195%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%28195%29.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "surface": "unpaved",
@@ -38642,7 +38692,7 @@
         "check_date": "2026-06-27",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2872%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Fj%C3%A4rdl%C3%A5ng_2025_april_%2872%29.jpg",
         "image:license": "CC:0",
         "sac_scale": "hiking",
         "surface": "compacted",
@@ -43627,13 +43677,15 @@
         19081125
       ],
       "tags": {
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_V%C3%A4sterudden_%283%29.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "surface": "compacted",
         "trail_visibility": "good",
+        "trailblazed": "no",
         "width": "1.5"
       }
     },
@@ -44215,12 +44267,15 @@
         19081125
       ],
       "tags": {
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_20260426_v_12.jpg",
         "image:license": "CC0",
         "incline": "0%",
         "sac_scale": "hiking",
-        "surface": "dirt"
+        "surface": "dirt",
+        "trailblazed": "symbols"
       }
     },
     {
@@ -44232,15 +44287,17 @@
       ],
       "tags": {
         "bicycle": "yes",
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SAT_Sandhamn_2025_april_%28115%29.jpg/2560px-SAT_Sandhamn_2025_april_%28115%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_(110).jpg",
         "image:license": "CC0",
         "incline": "0%",
         "mtb:scale:imba": "0",
         "mtb:scale:uphill": "0",
         "sac_scale": "hiking",
         "surface": "dirt",
+        "trailblazed": "symbols",
         "width": "3"
       }
     },
@@ -44252,15 +44309,17 @@
         19081125
       ],
       "tags": {
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/SAT_Sandhamn_2025_april_%28115%29.jpg/2560px-SAT_Sandhamn_2025_april_%28115%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28115%29.jpg",
         "image:license": "CC0",
         "incline": "0%",
         "mtb:scale:imba": "0",
         "mtb:scale:uphill": "0",
         "sac_scale": "hiking",
         "surface": "dirt",
+        "trailblazed": "symbols",
         "width": "3"
       }
     },
@@ -44272,13 +44331,15 @@
         19081125
       ],
       "tags": {
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/SAT_Sandhamn_2025_april_%28118%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28118%29.jpg",
         "image:license": "CC0",
         "smoothness": "bad",
         "surface": "compacted",
         "trail_visibility": "good",
+        "trailblazed": "symbols",
         "width": "1.2"
       }
     },
@@ -44290,13 +44351,15 @@
         19081125
       ],
       "tags": {
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/SAT_Sandhamn_2025_april_%28144%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28144%29.jpg",
         "image:license": "CC0",
         "smoothness": "intermediate",
         "surface": "compacted",
         "trail_visibility": "good",
+        "trailblazed": "symbols",
         "width": "1.2"
       }
     },
@@ -44308,6 +44371,7 @@
         19081125
       ],
       "tags": {
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/SAT_Sandhamn_2025_april_%28146%29.jpg/2560px-SAT_Sandhamn_2025_april_%28146%29.jpg",
@@ -44315,6 +44379,7 @@
         "smoothness": "intermediate",
         "surface": "compacted",
         "trail_visibility": "good",
+        "trailblazed": "symbols",
         "width": "1.5"
       }
     },
@@ -44326,14 +44391,15 @@
         19081125
       ],
       "tags": {
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/SAT_Sandhamn_2025_april_%28155%29.jpg/1536px-SAT_Sandhamn_2025_april_%28155%29.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "smoothness": "intermediate",
         "surface": "compacted",
         "trail_visibility": "good",
+        "trailblazed": "symbols",
         "wheelchair": "limited",
         "width": "1"
       }
@@ -44346,12 +44412,14 @@
         19081125
       ],
       "tags": {
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/SAT_Sandhamn_2025_april_%28165%29.jpg/1536px-SAT_Sandhamn_2025_april_%28165%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28165%29.jpg",
         "image:license": "CC0",
         "surface": "dirt",
         "trail_visibility": "good",
+        "trailblazed": "symbols",
         "width": "1.5"
       }
     },
@@ -44363,12 +44431,14 @@
         19081125
       ],
       "tags": {
+        "check_date": "2025-04-22",
         "foot": "designated",
         "highway": "path",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/SAT_Sandhamn_2025_april_%28165%29.jpg/1536px-SAT_Sandhamn_2025_april_%28165%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_%28165%29.jpg",
         "image:license": "CC0",
         "surface": "dirt",
         "trail_visibility": "good",
+        "trailblazed": "symbols",
         "width": "1.5"
       }
     },
@@ -45755,12 +45825,14 @@
         19023687
       ],
       "tags": {
+        "check_date": "2026-06-27",
         "highway": "unclassified",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Lervassastigen%2C_Kyrkviken_Orn%C3%B6_%281%29.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:Lervassastigen%2C_Kyrkviken_Orn%C3%B6_%281%29.jpg",
         "image:license": "CC-0",
         "sac_scale": "hiking",
         "surface": "gravel",
         "trail_visibility": "good",
+        "trailblazed": "symbols",
         "width": "0.4"
       }
     },
