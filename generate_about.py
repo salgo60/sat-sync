@@ -47,10 +47,20 @@ HTML = f"""\
     .video-card img {{ display:block; width:100%; border-radius:9px; }}
     .video-card h2 {{ border:0; margin:0 0 6px; padding:0; }}
     .video-card p {{ margin:0; }}
-    .flyer-grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; margin-top:18px; align-items:start; }}
-    .flyer-card {{ display:block; border-radius:10px; overflow:hidden; background:#e2e8f0; box-shadow:0 1px 4px rgba(0,0,0,.12); transition:transform .2s,box-shadow .2s; }}
-    .flyer-card:hover {{ transform:translateY(-2px); box-shadow:0 5px 16px rgba(0,0,0,.18); }}
+    .flyer-carousel {{ position:relative; margin-top:18px; }}
+    .flyer-grid {{ display:block; }}
+    .flyer-card {{ display:none; border-radius:10px; overflow:hidden; background:#e2e8f0; box-shadow:0 1px 4px rgba(0,0,0,.12); }}
+    .flyer-card.is-active {{ display:block; }}
     .flyer-card img {{ display:block; width:100%; height:auto; }}
+    .carousel-controls {{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:12px; }}
+    .carousel-btn {{ width:40px; height:40px; border:0; border-radius:50%; background:#2546a8; color:#fff; font-size:1.4rem; line-height:1; cursor:pointer; }}
+    .carousel-btn:hover, .carousel-btn:focus-visible {{ background:#1d2f6f; }}
+    .carousel-btn:focus-visible {{ outline:3px solid #f59e0b; outline-offset:2px; }}
+    .carousel-counter {{ min-width:90px; text-align:center; color:#475569; font-size:.9rem; font-variant-numeric:tabular-nums; }}
+    .carousel-dots {{ display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin-top:12px; }}
+    .carousel-dot {{ width:9px; height:9px; padding:0; border:0; border-radius:50%; background:#cbd5e1; cursor:pointer; }}
+    .carousel-dot.is-active {{ background:#2546a8; transform:scale(1.25); }}
+    .carousel-dot:focus-visible {{ outline:2px solid #f59e0b; outline-offset:2px; }}
     .source-table {{ width: 100%; border-collapse: collapse; font-size: .88rem; }}
     .source-table th {{ background: #f1f5f9; text-align: left; padding: 8px 10px; border-bottom: 2px solid #e2e8f0; }}
     .source-table td {{ padding: 7px 10px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }}
@@ -104,6 +114,7 @@ HTML = f"""\
   <section>
     <h2 id="flyers-title">🖼️ Flyers och infografik</h2>
     <p id="flyers-desc">Klicka på en bild för att öppna den i full storlek.</p>
+    <div class="flyer-carousel" aria-roledescription="carousel">
     <div class="flyer-grid">
       <a class="flyer-card" href="assets/sat-open-data-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-open-data-flyer.jpg" alt="Vandringsleder behöver bra data" loading="lazy">
@@ -186,6 +197,43 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-social-media-dedicated-platforms-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-social-media-dedicated-platforms-flyer.jpg" alt="Today: Social Media – Tomorrow: Dedicated Platforms: från splittrad social medieinformation till samordnade, realtidsbaserade friluftstjänster byggda för vandrare" lang="en" width="1536" height="1024" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-vandrings-sverige-2030-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-vandrings-sverige-2030-flyer.jpg" alt="Vandrings-Sverige 2030 – vision för ett levande, öppet och inkluderande friluftsekosystem" width="1493" height="995" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-ai-tourism-data-chaos-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-ai-tourism-data-chaos-flyer.jpg" alt="Från data-kaos till AI-turism i världsklass – samma leder, två olika framtider" width="1536" height="1024" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-proof-of-concept-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-proof-of-concept-flyer.jpg" alt="Stockholm Archipelago Trail – proof of concept för en levande datainfrastruktur" width="1536" height="1024" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-hiking-trails-2017-2026-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-hiking-trails-2017-2026-flyer.jpg" alt="Sveriges vandringsleder 2017–2026 – många initiativ, mycket arbete och frågan om leveransen" width="1536" height="1024" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-data-infrastructure-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-data-infrastructure-flyer.jpg" alt="Stockholm Archipelago Trail – från öppna datakällor till en gemensam digital infrastruktur" width="1536" height="1024" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-ledmodell-sat-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-ledmodell-sat-flyer.jpg" alt="Naturvårdsverkets ledmodell och Stockholm Archipelago Trail – från datamodell till upplevelser" width="1536" height="1024" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-model-reality-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-model-reality-flyer.jpg" alt="Från modell till verklighet – samma mål, olika angreppssätt" width="1536" height="1024" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-trails-history-comic.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-trails-history-comic.jpg" alt="Sveriges vandringsleder – från lokala leder och nationella ramverk till fungerande digital infrastruktur" width="1536" height="1024" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-data-management-comic.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-data-management-comic.jpg" alt="Från många initiativ till praktisk data management för Stockholm Archipelago Trail" width="1529" height="1019" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-ledmodell-fungerande-datainfrastruktur-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-ledmodell-fungerande-datainfrastruktur-flyer.jpg" alt="Från ledmodell till fungerande datainfrastruktur – SAT som praktisk tillämpning av Naturvårdsverkets ramverk" width="1672" height="941" loading="lazy">
+      </a>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Föregående bild">‹</button>
+      <span class="carousel-counter" id="carousel-counter" aria-live="polite"></span>
+      <button class="carousel-btn" id="carousel-next" type="button" aria-label="Nästa bild">›</button>
+    </div>
+    <div class="carousel-dots" id="carousel-dots" aria-label="Välj bild"></div>
     </div>
   </section>
 
@@ -514,6 +562,9 @@ HTML = f"""\
       const key = idToKey[id] || id;
       if (d[key] !== undefined) el.innerHTML = d[key];
     }});
+    document.getElementById('carousel-prev').setAttribute('aria-label', lang === 'sv' ? 'Föregående bild' : 'Previous image');
+    document.getElementById('carousel-next').setAttribute('aria-label', lang === 'sv' ? 'Nästa bild' : 'Next image');
+    document.getElementById('carousel-dots').setAttribute('aria-label', lang === 'sv' ? 'Välj bild' : 'Choose image');
     // Update nav href lang params
     [['nav-use-cases','sat_use_cases.html'],['use-cases-card','sat_use_cases.html'],
      ['nav-dashboard','sat_poi_dashboard.html'],['nav-todo','sat_todo_map.html'],['nav-todo-list','sat_todo_list.html'],
@@ -541,6 +592,49 @@ HTML = f"""\
     window.history.replaceState({{}}, '', url.toString());
     applyLanguage();
   }};
+
+  const flyerCards = Array.from(document.querySelectorAll('.flyer-card'));
+  const carouselDots = document.getElementById('carousel-dots');
+  const carouselCounter = document.getElementById('carousel-counter');
+  let flyerIndex = 0;
+
+  function showFlyer(index) {{
+    flyerIndex = (index + flyerCards.length) % flyerCards.length;
+    flyerCards.forEach((card, cardIndex) => {{
+      const active = cardIndex === flyerIndex;
+      card.classList.toggle('is-active', active);
+      card.setAttribute('aria-hidden', active ? 'false' : 'true');
+    }});
+    document.querySelectorAll('.carousel-dot').forEach((dot, dotIndex) => {{
+      const active = dotIndex === flyerIndex;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-current', active ? 'true' : 'false');
+    }});
+    carouselCounter.textContent = `${{flyerIndex + 1}} / ${{flyerCards.length}}`;
+  }}
+
+  flyerCards.forEach((_, index) => {{
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot';
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Bild ${{index + 1}}`);
+    dot.addEventListener('click', () => showFlyer(index));
+    carouselDots.appendChild(dot);
+  }});
+  document.getElementById('carousel-prev').addEventListener('click', () => showFlyer(flyerIndex - 1));
+  document.getElementById('carousel-next').addEventListener('click', () => showFlyer(flyerIndex + 1));
+  document.addEventListener('keydown', event => {{
+    if (event.key === 'ArrowLeft') showFlyer(flyerIndex - 1);
+    if (event.key === 'ArrowRight') showFlyer(flyerIndex + 1);
+  }});
+  const flyerCarousel = document.querySelector('.flyer-carousel');
+  let touchStartX = 0;
+  flyerCarousel.addEventListener('touchstart', event => {{ touchStartX = event.changedTouches[0].screenX; }}, {{ passive: true }});
+  flyerCarousel.addEventListener('touchend', event => {{
+    const delta = event.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(delta) > 40) showFlyer(flyerIndex + (delta < 0 ? 1 : -1));
+  }}, {{ passive: true }});
+  showFlyer(0);
 
   applyLanguage();
 }})();
