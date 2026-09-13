@@ -230,6 +230,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-digitalisering-friluftslivet-sat-poc-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-digitalisering-friluftslivet-sat-poc-flyer.jpg" alt="Sveriges digitalisering av friluftslivet – SAT som proof of concept för en fungerande öppen datagrund" width="1346" height="1122" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-lessons-learned-poc-2026-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-lessons-learned-poc-2026-flyer.jpg" alt="Lessons Learned – SAT POC 2026: från digitalisering av friluftslivet till fungerande datainfrastruktur" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
     <div class="carousel-controls">
       <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Föregående bild">‹</button>
