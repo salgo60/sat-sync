@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T08:45:27.027055Z",
+  "generatedAt": "2026-09-13T09:43:00.672895Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -258,12 +258,6 @@
           "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_14.jpg"
         },
         {
-          "value": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
-          "count": 4,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fe%2Fec%2FSAT_N%25C3%25A4md%25C3%25B6_b_08.jpg?uselang=sv",
-          "directUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg"
-        },
-        {
           "value": "https://upload.wikimedia.org/wikipedia/commons/d/da/SAT_Furusund_2025_april_boule.jpg",
           "count": 4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fda%2FSAT_Furusund_2025_april_boule.jpg?uselang=sv",
@@ -292,6 +286,12 @@
           "count": 3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_%25C3%2585l%25C3%25B6_20250805_med_base_camp_Stora_Sand_06.jpg?uselang=sv",
           "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_20250805_med_base_camp_Stora_Sand_06.jpg"
+        },
+        {
+          "value": "https://upload.wikimedia.org/wikipedia/commons/b/b1/SAT_%C3%85l%C3%B6_vandring_2025_april_76.jpg",
+          "count": 3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fb%2Fb1%2FSAT_%25C3%2585l%25C3%25B6_vandring_2025_april_76.jpg?uselang=sv",
+          "directUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/SAT_%C3%85l%C3%B6_vandring_2025_april_76.jpg"
         }
       ]
     },
@@ -517,13 +517,13 @@
     },
     {
       "key": "trailblazed",
-      "count": 282,
-      "percent": 36.7,
+      "count": 284,
+      "percent": 36.9,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
       "topValues": [
         {
           "value": "symbols",
-          "count": 163,
+          "count": 165,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
           "directUrl": null
         },
@@ -824,25 +824,17 @@
       ]
     },
     {
-      "key": "image:license:wikidata",
+      "key": "check_date",
       "count": 93,
       "percent": 12.1,
-      "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
-      "topValues": [
-        {
-          "value": "Q6938433",
-          "count": 93,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license:wikidata%3DQ6938433?uselang=sv",
-          "directUrl": null
-        }
-      ]
-    },
-    {
-      "key": "check_date",
-      "count": 73,
-      "percent": 9.5,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
       "topValues": [
+        {
+          "value": "2025-03-26",
+          "count": 19,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-03-26?uselang=sv",
+          "directUrl": null
+        },
         {
           "value": "2025-04-20",
           "count": 15,
@@ -880,15 +872,23 @@
           "directUrl": null
         },
         {
-          "value": "2025-05-07",
-          "count": 4,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-05-07?uselang=sv",
-          "directUrl": null
-        },
-        {
           "value": "2025-08-13",
-          "count": 3,
+          "count": 4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-13?uselang=sv",
+          "directUrl": null
+        }
+      ]
+    },
+    {
+      "key": "image:license:wikidata",
+      "count": 93,
+      "percent": 12.1,
+      "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
+      "topValues": [
+        {
+          "value": "Q6938433",
+          "count": 93,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license:wikidata%3DQ6938433?uselang=sv",
           "directUrl": null
         }
       ]
@@ -1897,20 +1897,6 @@
           "value": "no",
           "count": 2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:tactile_paving%3Dno?uselang=sv",
-          "directUrl": null
-        }
-      ]
-    },
-    {
-      "key": "trail",
-      "count": 2,
-      "percent": 0.3,
-      "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trail?uselang=sv",
-      "topValues": [
-        {
-          "value": "good",
-          "count": 2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail%3Dgood?uselang=sv",
           "directUrl": null
         }
       ]
@@ -4563,8 +4549,8 @@
           "percent": 0.0
         },
         "check_date": {
-          "count": 11,
-          "percent": 18.6
+          "count": 13,
+          "percent": 22.0
         }
       },
       "tagStats": [
@@ -4998,8 +4984,8 @@
         },
         {
           "key": "check_date",
-          "count": 11,
-          "percent": 18.6,
+          "count": 13,
+          "percent": 22.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -5010,7 +4996,7 @@
             },
             {
               "value": "2025-08-13",
-              "count": 3,
+              "count": 5,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-13?uselang=sv",
               "directUrl": null
             },
@@ -5138,20 +5124,6 @@
               "value": "yes",
               "count": 3,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:scenic%3Dyes?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "trail",
-          "count": 3,
-          "percent": 5.1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trail?uselang=sv",
-          "topValues": [
-            {
-              "value": "good",
-              "count": 3,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trail%3Dgood?uselang=sv",
               "directUrl": null
             }
           ]
@@ -5344,7 +5316,6 @@
             "source": "GPS",
             "surface": "gravel",
             "tracktype": "grade3",
-            "trail": "good",
             "trail_visibility": "good",
             "trailblazed": "symbols",
             "width": "3"
@@ -5356,6 +5327,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/1525728285",
           "role": "",
           "tags": {
+            "check_date": "2025-08-13",
             "foot": "designated",
             "highway": "service",
             "image": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_14.jpg",
@@ -5367,7 +5339,6 @@
             "source": "GPS",
             "surface": "gravel",
             "tracktype": "grade3",
-            "trail": "good",
             "trail_visibility": "good",
             "trailblazed": "symbols",
             "width": "3"
@@ -5520,6 +5491,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/1525728285",
           "role": "",
           "tags": {
+            "check_date": "2025-08-13",
             "foot": "designated",
             "highway": "service",
             "image": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_14.jpg",
@@ -5531,7 +5503,6 @@
             "source": "GPS",
             "surface": "gravel",
             "tracktype": "grade3",
-            "trail": "good",
             "trail_visibility": "good",
             "trailblazed": "symbols",
             "width": "3"
@@ -9167,8 +9138,8 @@
           "percent": 0.0
         },
         "check_date": {
-          "count": 0,
-          "percent": 0.0
+          "count": 21,
+          "percent": 63.6
         }
       },
       "tagStats": [
@@ -9319,10 +9290,10 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
-              "count": 6,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fe%2Fec%2FSAT_N%25C3%25A4md%25C3%25B6_b_08.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg"
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_08.jpg",
+              "count": 4,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_N%25C3%25A4md%25C3%25B6_b_08.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_08.jpg"
             },
             {
               "value": "https://upload.wikimedia.org/wikipedia/commons/e/ed/SAT_N%C3%A4md%C3%B6_02.jpg",
@@ -9343,28 +9314,28 @@
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/SAT_N%C3%A4md%C3%B6_v%C3%A4gen_Sand.jpg"
             },
             {
+              "value": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fe%2Fec%2FSAT_N%25C3%25A4md%25C3%25B6_b_08.jpg?uselang=sv",
+              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg"
+            },
+            {
               "value": "https://upload.wikimedia.org/wikipedia/commons/1/1b/SAT_N%C3%A4md%C3%B6_b_03.jpg",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F1%2F1b%2FSAT_N%25C3%25A4md%25C3%25B6_b_03.jpg?uselang=sv",
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/SAT_N%C3%A4md%C3%B6_b_03.jpg"
             },
             {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/1/1f/SAT_N%C3%A4md%C3%B6_b_05.jpg",
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_05.jpg",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F1%2F1f%2FSAT_N%25C3%25A4md%25C3%25B6_b_05.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/SAT_N%C3%A4md%C3%B6_b_05.jpg"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_N%25C3%25A4md%25C3%25B6_b_05.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_05.jpg"
             },
             {
               "value": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_10.jpg",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_N%25C3%25A4md%25C3%25B6_b_10.jpg?uselang=sv",
               "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_10.jpg"
-            },
-            {
-              "value": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/SAT_N%C3%A4md%C3%B6_b1.jpg/1536px-SAT_N%C3%A4md%C3%B6_b1.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fd%2Fd0%2FSAT_N%25C3%25A4md%25C3%25B6_b1.jpg%2F1536px-SAT_N%25C3%25A4md%25C3%25B6_b1.jpg?uselang=sv",
-              "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/SAT_N%C3%A4md%C3%B6_b1.jpg/1536px-SAT_N%C3%A4md%C3%B6_b1.jpg"
             }
           ]
         },
@@ -9384,6 +9355,20 @@
               "value": "CC-0",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "check_date",
+          "count": 21,
+          "percent": 63.6,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
+          "topValues": [
+            {
+              "value": "2025-03-26",
+              "count": 21,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-03-26?uselang=sv",
               "directUrl": null
             }
           ]
@@ -9575,6 +9560,20 @@
           ]
         },
         {
+          "key": "trailblazed",
+          "count": 4,
+          "percent": 12.1,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
+          "topValues": [
+            {
+              "value": "symbols",
+              "count": 4,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "ref",
           "count": 3,
           "percent": 9.1,
@@ -9631,20 +9630,6 @@
           ]
         },
         {
-          "key": "trailblazed",
-          "count": 2,
-          "percent": 6.1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:trailblazed?uselang=sv",
-          "topValues": [
-            {
-              "value": "symbols",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:trailblazed%3Dsymbols?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "motor_vehicle",
           "count": 1,
           "percent": 3.0,
@@ -9695,14 +9680,16 @@
           "osmUrl": "https://www.openstreetmap.org/way/81238564",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "track",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/SAT_N%C3%A4md%C3%B6_b_05.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_05.jpg",
             "image:license": "CC0",
             "sac_scale": "hiking",
             "surface": "gravel",
             "tracktype": "grade3",
             "trail_visibility": "excellent",
+            "trailblazed": "symbols",
             "width": "2"
           }
         },
@@ -9712,9 +9699,10 @@
           "osmUrl": "https://www.openstreetmap.org/way/1123596512",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "unclassified",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_08.jpg",
             "image:license": "CC0",
             "lanes": "1",
             "maxspeed": "70",
@@ -9731,9 +9719,10 @@
           "osmUrl": "https://www.openstreetmap.org/way/1431465993",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "unclassified",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_08.jpg",
             "image:license": "CC0",
             "lanes": "1",
             "maxspeed": "70",
@@ -9765,6 +9754,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/116730474",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "path",
             "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_10.jpg",
@@ -9772,6 +9762,7 @@
             "sac_scale": "hiking",
             "surface": "compacted",
             "trail_visibility": "good",
+            "trailblazed": "symbols",
             "width": "2"
           }
         },
@@ -9844,6 +9835,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/1378968890",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "highway": "track",
             "tracktype": "grade5"
           }
@@ -9854,6 +9846,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/1378968891",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "path",
             "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/SAT_N%C3%A4md%C3%B6_b_16.jpg",
@@ -9871,6 +9864,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/833889559",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "path",
             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/SAT_N%C3%A4md%C3%B6_b1.jpg/1536px-SAT_N%C3%A4md%C3%B6_b1.jpg",
@@ -9888,6 +9882,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/833889567",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "track",
             "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg",
@@ -9904,6 +9899,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/674095793",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "track",
             "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg",
@@ -9921,6 +9917,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/833862789",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "path",
             "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/SAT_N%C3%A4md%C3%B6_leden_sv%C3%A4nger_ut_p%C3%A5_en_skogsv%C3%A4g.jpg",
@@ -9938,6 +9935,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/833862790",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "track",
             "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/SAT_N%C3%A4md%C3%B6_leden_skogsv%C3%A4g.jpg",
@@ -9954,6 +9952,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/833862800",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "track",
             "sac_scale": "hiking",
@@ -9968,6 +9967,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/833862787",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "track",
             "sac_scale": "hiking",
@@ -9983,6 +9983,7 @@
           "role": "",
           "tags": {
             "bicycle": "yes",
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "service",
             "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/SAT_N%C3%A4md%C3%B6_v%C3%A4gen_Sand.jpg",
@@ -10003,6 +10004,7 @@
           "role": "",
           "tags": {
             "bicycle": "yes",
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "service",
             "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/SAT_N%C3%A4md%C3%B6_v%C3%A4gen_Sand.jpg",
@@ -10021,6 +10023,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/81238579",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "path",
             "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_vandring_05.jpg",
@@ -10056,6 +10059,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/81238540",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "unclassified",
             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/SAT_N%C3%A4md%C3%B6_01.jpg/3024px-SAT_N%C3%A4md%C3%B6_01.jpg",
@@ -10153,9 +10157,10 @@
           "osmUrl": "https://www.openstreetmap.org/way/1431465993",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "unclassified",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_08.jpg",
             "image:license": "CC0",
             "lanes": "1",
             "maxspeed": "70",
@@ -10172,9 +10177,10 @@
           "osmUrl": "https://www.openstreetmap.org/way/1123596512",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "unclassified",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
+            "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_08.jpg",
             "image:license": "CC0",
             "lanes": "1",
             "maxspeed": "70",
@@ -10191,6 +10197,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/1525740940",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "unclassified",
             "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
@@ -10210,6 +10217,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/1431465994",
           "role": "",
           "tags": {
+            "check_date": "2025-03-26",
             "foot": "designated",
             "highway": "unclassified",
             "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
@@ -32292,7 +32300,6 @@
         "source": "GPS",
         "surface": "gravel",
         "tracktype": "grade3",
-        "trail": "good",
         "trail_visibility": "good",
         "trailblazed": "symbols",
         "width": "3"
@@ -32307,6 +32314,7 @@
         19012436
       ],
       "tags": {
+        "check_date": "2025-08-13",
         "foot": "designated",
         "highway": "service",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_14.jpg",
@@ -32318,7 +32326,6 @@
         "source": "GPS",
         "surface": "gravel",
         "tracktype": "grade3",
-        "trail": "good",
         "trail_visibility": "good",
         "trailblazed": "symbols",
         "width": "3"
@@ -34516,14 +34523,16 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "track",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/SAT_N%C3%A4md%C3%B6_b_05.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_05.jpg",
         "image:license": "CC0",
         "sac_scale": "hiking",
         "surface": "gravel",
         "tracktype": "grade3",
         "trail_visibility": "excellent",
+        "trailblazed": "symbols",
         "width": "2"
       }
     },
@@ -34536,9 +34545,10 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "unclassified",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_08.jpg",
         "image:license": "CC0",
         "lanes": "1",
         "maxspeed": "70",
@@ -34558,9 +34568,10 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "unclassified",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_08.jpg",
         "image:license": "CC0",
         "lanes": "1",
         "maxspeed": "70",
@@ -34597,6 +34608,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "path",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_b_10.jpg",
@@ -34604,6 +34616,7 @@
         "sac_scale": "hiking",
         "surface": "compacted",
         "trail_visibility": "good",
+        "trailblazed": "symbols",
         "width": "2"
       }
     },
@@ -34688,6 +34701,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "highway": "track",
         "tracktype": "grade5"
       }
@@ -34700,6 +34714,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "path",
         "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/SAT_N%C3%A4md%C3%B6_b_16.jpg",
@@ -34719,6 +34734,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "path",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/SAT_N%C3%A4md%C3%B6_b1.jpg/1536px-SAT_N%C3%A4md%C3%B6_b1.jpg",
@@ -34738,6 +34754,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "track",
         "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg",
@@ -34756,6 +34773,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "track",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_leden_korsning_Tjusvik.jpg",
@@ -34775,6 +34793,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "path",
         "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/SAT_N%C3%A4md%C3%B6_leden_sv%C3%A4nger_ut_p%C3%A5_en_skogsv%C3%A4g.jpg",
@@ -34794,6 +34813,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "track",
         "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/SAT_N%C3%A4md%C3%B6_leden_skogsv%C3%A4g.jpg",
@@ -34812,6 +34832,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "track",
         "sac_scale": "hiking",
@@ -34828,6 +34849,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "track",
         "sac_scale": "hiking",
@@ -34845,6 +34867,7 @@
       ],
       "tags": {
         "bicycle": "yes",
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "service",
         "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/SAT_N%C3%A4md%C3%B6_v%C3%A4gen_Sand.jpg",
@@ -34867,6 +34890,7 @@
       ],
       "tags": {
         "bicycle": "yes",
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "service",
         "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/SAT_N%C3%A4md%C3%B6_v%C3%A4gen_Sand.jpg",
@@ -34887,6 +34911,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "path",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_vandring_05.jpg",
@@ -34926,6 +34951,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "unclassified",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/SAT_N%C3%A4md%C3%B6_01.jpg/3024px-SAT_N%C3%A4md%C3%B6_01.jpg",
@@ -35016,6 +35042,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "unclassified",
         "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",
@@ -35037,6 +35064,7 @@
         19013473
       ],
       "tags": {
+        "check_date": "2025-03-26",
         "foot": "designated",
         "highway": "unclassified",
         "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/SAT_N%C3%A4md%C3%B6_b_08.jpg",

@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-09-12T08:45:25.442348Z",
+  "generatedAt": "2026-09-13T09:42:58.190676Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
   "refKey": "ref:stockholmarchipelagotrail",
-  "totalObjects": 1152,
+  "totalObjects": 1154,
   "osmTypes": {
     "node": 817,
-    "way": 300,
+    "way": 302,
     "relation": 35
   },
   "categoryCounts": {
     "Vindskydd": 10,
-    "Väderskydd vid hållplats": 22,
+    "Väderskydd vid hållplats": 24,
     "Övrigt väderskydd": 3,
     "Toalett": 129,
     "Grillplats": 83,
@@ -255,6 +255,44 @@
           ]
         },
         {
+          "key": "name",
+          "count": 8,
+          "percent": 80.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
+          "topValues": [
+            {
+              "value": "Lammuddens vindskydd",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DLammuddens%20vindskydd?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Talluddens vindskydd",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DTalluddens%20vindskydd?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Lilla Jolpan, vindskydd",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DLilla%20Jolpan%2C%20vindskydd?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Arholma Nord",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DArholma%20Nord?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Vindskydd Ålö gård",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DVindskydd%20%C3%85l%C3%B6%20g%C3%A5rd?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "check_date",
           "count": 7,
           "percent": 70.0,
@@ -288,44 +326,6 @@
               "value": "2026-07-08",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-08?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "name",
-          "count": 7,
-          "percent": 70.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
-          "topValues": [
-            {
-              "value": "Lammuddens vindskydd",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DLammuddens%20vindskydd?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Talluddens vindskydd",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DTalluddens%20vindskydd?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Lilla Jolpan, vindskydd",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DLilla%20Jolpan%2C%20vindskydd?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Arholma Nord",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DArholma%20Nord?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Vindskydd Ålö gård",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DVindskydd%20%C3%85l%C3%B6%20g%C3%A5rd?uselang=sv",
               "directUrl": null
             }
           ]
@@ -620,17 +620,17 @@
     },
     {
       "name": "Väderskydd vid hållplats",
-      "count": 22,
+      "count": 24,
       "tagStats": [
         {
           "key": "amenity",
-          "count": 22,
+          "count": 24,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:amenity?uselang=sv",
           "topValues": [
             {
               "value": "shelter",
-              "count": 22,
+              "count": 24,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dshelter?uselang=sv",
               "directUrl": null
             }
@@ -638,13 +638,13 @@
         },
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 22,
+          "count": 24,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
               "value": "unknown",
-              "count": 22,
+              "count": 24,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
               "directUrl": null
             }
@@ -652,22 +652,60 @@
         },
         {
           "key": "shelter_type",
-          "count": 22,
+          "count": 24,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:shelter_type?uselang=sv",
           "topValues": [
             {
               "value": "public_transport",
-              "count": 22,
+              "count": 24,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:shelter_type%3Dpublic_transport?uselang=sv",
               "directUrl": null
             }
           ]
         },
         {
+          "key": "name",
+          "count": 23,
+          "percent": 95.8,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
+          "topValues": [
+            {
+              "value": "Möjaström väntkur",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DM%C3%B6jastr%C3%B6m%20v%C3%A4ntkur?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Nåttarös bryggas väntkur",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DN%C3%A5ttar%C3%B6s%20bryggas%20v%C3%A4ntkur?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Norrö bryggas väntkur",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DNorr%C3%B6%20bryggas%20v%C3%A4ntkur?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Spränga bryggas väntkur",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DSpr%C3%A4nga%20bryggas%20v%C3%A4ntkur?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Norra Svartsö bryggas väntkur",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DNorra%20Svarts%C3%B6%20bryggas%20v%C3%A4ntkur?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "wikimedia_commons",
-          "count": 22,
-          "percent": 100.0,
+          "count": 23,
+          "percent": 95.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -703,52 +741,14 @@
           ]
         },
         {
-          "key": "name",
-          "count": 21,
-          "percent": 95.5,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
-          "topValues": [
-            {
-              "value": "Nåttarös bryggas väntkur",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DN%C3%A5ttar%C3%B6s%20bryggas%20v%C3%A4ntkur?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Norrö bryggas väntkur",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DNorr%C3%B6%20bryggas%20v%C3%A4ntkur?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Spränga bryggas väntkur",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DSpr%C3%A4nga%20bryggas%20v%C3%A4ntkur?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Norra Svartsö bryggas väntkur",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DNorra%20Svarts%C3%B6%20bryggas%20v%C3%A4ntkur?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Löka brygga väntkur",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DL%C3%B6ka%20brygga%20v%C3%A4ntkur?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "building",
-          "count": 20,
-          "percent": 90.9,
+          "count": 22,
+          "percent": 91.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:building?uselang=sv",
           "topValues": [
             {
               "value": "yes",
-              "count": 20,
+              "count": 22,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:building%3Dyes?uselang=sv",
               "directUrl": null
             }
@@ -756,10 +756,16 @@
         },
         {
           "key": "image",
-          "count": 20,
-          "percent": 90.9,
+          "count": 22,
+          "percent": 91.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_M%C3%B6ja_01.jpg",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_M%25C3%25B6ja_01.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_M%C3%B6ja_01.jpg"
+            },
             {
               "value": "https://commons.wikimedia.org/wiki/File:N%C3%A5ttar%C3%B6_brygga.jpg",
               "count": 1,
@@ -783,19 +789,13 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASvarts%25C3%25B6_SAT_april_2025_Norra_Svarts%25C3%25B6_brygga.jpg?uselang=sv",
               "directUrl": "https://commons.wikimedia.org/wiki/File:Svarts%C3%B6_SAT_april_2025_Norra_Svarts%C3%B6_brygga.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:Brott%C3%B6brygga.JPG",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ABrott%25C3%25B6brygga.JPG?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:Brott%C3%B6brygga.JPG"
             }
           ]
         },
         {
           "key": "image:license",
-          "count": 16,
-          "percent": 72.7,
+          "count": 17,
+          "percent": 70.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
@@ -806,7 +806,7 @@
             },
             {
               "value": "CC-0",
-              "count": 6,
+              "count": 7,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
               "directUrl": null
             },
@@ -819,23 +819,9 @@
           ]
         },
         {
-          "key": "source",
-          "count": 10,
-          "percent": 45.5,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:source?uselang=sv",
-          "topValues": [
-            {
-              "value": "survey",
-              "count": 10,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:source%3Dsurvey?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "check_date",
-          "count": 9,
-          "percent": 40.9,
+          "count": 10,
+          "percent": 41.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -851,6 +837,12 @@
               "directUrl": null
             },
             {
+              "value": "20250403",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D20250403?uselang=sv",
+              "directUrl": null
+            },
+            {
               "value": "2026-07-13",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-13?uselang=sv",
@@ -861,11 +853,19 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-07-07?uselang=sv",
               "directUrl": null
-            },
+            }
+          ]
+        },
+        {
+          "key": "source",
+          "count": 10,
+          "percent": 41.7,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:source?uselang=sv",
+          "topValues": [
             {
-              "value": "2026-09-02",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-09-02?uselang=sv",
+              "value": "survey",
+              "count": 10,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:source%3Dsurvey?uselang=sv",
               "directUrl": null
             }
           ]
@@ -873,7 +873,7 @@
         {
           "key": "emergency",
           "count": 4,
-          "percent": 18.2,
+          "percent": 16.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:emergency?uselang=sv",
           "topValues": [
             {
@@ -887,7 +887,7 @@
         {
           "key": "bench",
           "count": 3,
-          "percent": 13.6,
+          "percent": 12.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:bench?uselang=sv",
           "topValues": [
             {
@@ -901,7 +901,7 @@
         {
           "key": "wheelchair",
           "count": 2,
-          "percent": 9.1,
+          "percent": 8.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
@@ -921,7 +921,7 @@
         {
           "key": "area",
           "count": 1,
-          "percent": 4.5,
+          "percent": 4.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:area?uselang=sv",
           "topValues": [
             {
@@ -935,7 +935,7 @@
         {
           "key": "bin",
           "count": 1,
-          "percent": 4.5,
+          "percent": 4.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:bin?uselang=sv",
           "topValues": [
             {
@@ -949,7 +949,7 @@
         {
           "key": "image:license:wikidata",
           "count": 1,
-          "percent": 4.5,
+          "percent": 4.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
@@ -963,7 +963,7 @@
         {
           "key": "wikimedia_commons:path",
           "count": 1,
-          "percent": 4.5,
+          "percent": 4.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons:path?uselang=sv",
           "topValues": [
             {
@@ -1033,9 +1033,9 @@
               "directUrl": null
             },
             {
-              "value": "SAT Vindskydd",
+              "value": "SAT Vindskydd Skärgårdsmuseet Nämdö",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DSAT%20Vindskydd?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DSAT%20Vindskydd%20Sk%C3%A4rg%C3%A5rdsmuseet%20N%C3%A4md%C3%B6?uselang=sv",
               "directUrl": null
             },
             {
@@ -12068,8 +12068,8 @@
         },
         {
           "key": "website",
-          "count": 49,
-          "percent": 86.0,
+          "count": 50,
+          "percent": 87.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
           "topValues": [
             {
@@ -27412,13 +27412,13 @@
         },
         {
           "key": "image:license",
-          "count": 13,
-          "percent": 33.3,
+          "count": 14,
+          "percent": 35.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
               "value": "CC-0",
-              "count": 10,
+              "count": 11,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
               "directUrl": null
             },
@@ -27651,6 +27651,20 @@
           ]
         },
         {
+          "key": "facebook",
+          "count": 1,
+          "percent": 2.6,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:facebook?uselang=sv",
+          "topValues": [
+            {
+              "value": "100038918576450",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:facebook%3D100038918576450?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "fuel:diesel",
           "count": 1,
           "percent": 2.6,
@@ -27688,6 +27702,20 @@
               "value": "yes",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:fuel:octane_98%3Dyes?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "instagram",
+          "count": 1,
+          "percent": 2.6,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:instagram?uselang=sv",
+          "topValues": [
+            {
+              "value": "orno_skola",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:instagram%3Dorno_skola?uselang=sv",
               "directUrl": null
             }
           ]
@@ -27786,6 +27814,20 @@
               "value": "no",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dno?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "wikidata",
+          "count": 1,
+          "percent": 2.6,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
+          "topValues": [
+            {
+              "value": "Q89197643",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ89197643?uselang=sv",
               "directUrl": null
             }
           ]
@@ -29985,38 +30027,6 @@
       }
     },
     {
-      "osmType": "way",
-      "osmId": 1376426246,
-      "osmUrl": "https://www.openstreetmap.org/way/1376426246",
-      "name": "(namnlös)",
-      "satRef": "sat:poi:t5tq8",
-      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:t5tq8",
-      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:t5tq8",
-      "category": "Vindskydd",
-      "lat": 59.050753,
-      "lon": 18.4305376,
-      "tags": {
-        "amenity": "shelter",
-        "building": "yes",
-        "check_date": "2025-04-09",
-        "fee": "no",
-        "image": "https://commons.wikimedia.org/wiki/File:Vindskydd,_grillplats_Kyrkviken_Orn%C3%B6_museum.jpg",
-        "image:license": "CC-0",
-        "opening_hours": "24/7",
-        "ref:stockholmarchipelagotrail": "sat:poi:t5tq8",
-        "shelter_type": "lean_to",
-        "website": "https://grillplatser.nu/Grillplats/Visa/Orno-museum",
-        "wikidata": "Q133848174",
-        "wikimedia_commons": "Category:Windshelter_Kyrkviken_Ornö"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:Vindskydd,_grillplats_Kyrkviken_Orn%C3%B6_museum.jpg",
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:t5tq8",
-        "website": "https://grillplatser.nu/Grillplats/Visa/Orno-museum",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Windshelter_Kyrkviken_Orn%C3%B6"
-      }
-    },
-    {
       "osmType": "node",
       "osmId": 13856234564,
       "osmUrl": "https://www.openstreetmap.org/node/13856234564",
@@ -30150,6 +30160,39 @@
         "image": "https://commons.wikimedia.org/wiki/File:Lilla_Jolpan_vindskydd_01.jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:r2q53",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Lilla%20Jolpan%20vindskydd"
+      }
+    },
+    {
+      "osmType": "way",
+      "osmId": 1376426246,
+      "osmUrl": "https://www.openstreetmap.org/way/1376426246",
+      "name": "Ornö museums vindskydd",
+      "satRef": "sat:poi:t5tq8",
+      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:t5tq8",
+      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:t5tq8",
+      "category": "Vindskydd",
+      "lat": 59.050753,
+      "lon": 18.4305376,
+      "tags": {
+        "amenity": "shelter",
+        "building": "yes",
+        "check_date": "2025-04-09",
+        "fee": "no",
+        "image": "https://commons.wikimedia.org/wiki/File:Vindskydd,_grillplats_Kyrkviken_Orn%C3%B6_museum.jpg",
+        "image:license": "CC-0",
+        "name": "Ornö museums vindskydd",
+        "opening_hours": "24/7",
+        "ref:stockholmarchipelagotrail": "sat:poi:t5tq8",
+        "shelter_type": "lean_to",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Orno-museum",
+        "wikidata": "Q133848174",
+        "wikimedia_commons": "Category:Windshelter_Kyrkviken_Ornö"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:Vindskydd,_grillplats_Kyrkviken_Orn%C3%B6_museum.jpg",
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:t5tq8",
+        "website": "https://grillplatser.nu/Grillplats/Visa/Orno-museum",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Windshelter_Kyrkviken_Orn%C3%B6"
       }
     },
     {
@@ -30531,6 +30574,33 @@
     },
     {
       "osmType": "way",
+      "osmId": 527351318,
+      "osmUrl": "https://www.openstreetmap.org/way/527351318",
+      "name": "Möjaström väntkur",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Väderskydd vid hållplats",
+      "lat": 59.4041703,
+      "lon": 18.875091,
+      "tags": {
+        "amenity": "shelter",
+        "building": "yes",
+        "check_date": "20250403",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_M%C3%B6ja_01.jpg",
+        "image:license": "CC-0",
+        "name": "Möjaström väntkur",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "shelter_type": "public_transport",
+        "wikimedia_commons": "Category:Möjaström_ferry_stop_windshelter"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_M%C3%B6ja_01.jpg",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:M%C3%B6jastr%C3%B6m_ferry_stop_windshelter"
+      }
+    },
+    {
+      "osmType": "way",
       "osmId": 1435201594,
       "osmUrl": "https://www.openstreetmap.org/way/1435201594",
       "name": "Möjaström väntkur",
@@ -30826,6 +30896,29 @@
     },
     {
       "osmType": "way",
+      "osmId": 1558339640,
+      "osmUrl": "https://www.openstreetmap.org/way/1558339640",
+      "name": "Södermöja väntkur",
+      "satRef": "unknown",
+      "satUrl": null,
+      "satJsonUrl": null,
+      "category": "Väderskydd vid hållplats",
+      "lat": 59.4035629,
+      "lon": 18.8741262,
+      "tags": {
+        "amenity": "shelter",
+        "building": "yes",
+        "image": "https://commons.wikimedia.org/wiki/File:M%C3%B6ja_20250809_SAT_M%C3%B6ja_01.jpg",
+        "name": "Södermöja väntkur",
+        "ref:stockholmarchipelagotrail": "unknown",
+        "shelter_type": "public_transport"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:M%C3%B6ja_20250809_SAT_M%C3%B6ja_01.jpg"
+      }
+    },
+    {
+      "osmType": "way",
       "osmId": 1425904357,
       "osmUrl": "https://www.openstreetmap.org/way/1425904357",
       "name": "Vindskydd Södra Bryggan Grinda",
@@ -30915,7 +31008,7 @@
       "osmType": "node",
       "osmId": 14057115601,
       "osmUrl": "https://www.openstreetmap.org/node/14057115601",
-      "name": "SAT Vindskydd",
+      "name": "SAT Vindskydd Skärgårdsmuseet Nämdö",
       "satRef": "unknown",
       "satUrl": null,
       "satJsonUrl": null,
@@ -30929,7 +31022,7 @@
         "description:sv": "Vindskyddet är malplacerat då det ligger i trädgården till museumet/cafét och ägaren till cafét tyckte inte det var lämpligt att tälta och övernatta där trots att marken tillhör Värmdö kommun.",
         "dog": "yes",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Vindskydd_bakom_museet_p%C3%A5_N%C3%A4md%C3%B6_02.jpg",
-        "name": "SAT Vindskydd",
+        "name": "SAT Vindskydd Skärgårdsmuseet Nämdö",
         "opening_hours": "24/7",
         "operator": "Stockholm Archipelago Trail",
         "operator:wikidata": "Q131318799",
@@ -44672,12 +44765,14 @@
         "ref:stockholmarchipelagotrail": "sat:poi:tf98b",
         "seasonal": "summer",
         "street_vendor": "yes",
+        "website": "https://www.facebook.com/captainssmokehouse/",
         "wikimedia_commons": "Category:Captains_Smokehouse_Ornö"
       },
       "tagValueUrls": {
         "contact:facebook": "https://www.facebook.com/captainssmokehouse/",
         "image": "https://commons.wikimedia.org/wiki/File:Captains_Smokehouse_Orn%C3%B6_20260903_48.jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:tf98b",
+        "website": "https://www.facebook.com/captainssmokehouse/",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Captains_Smokehouse_Orn%C3%B6"
       }
     },
@@ -54869,8 +54964,8 @@
       "satUrl": null,
       "satJsonUrl": null,
       "category": "Hjärtstartare",
-      "lat": 59.4037138,
-      "lon": 18.874021,
+      "lat": 59.4036068,
+      "lon": 18.8741813,
       "tags": {
         "access": "yes",
         "defibrillator:location": "På utsidan av vänthus",
@@ -62393,14 +62488,18 @@
         "amenity": "school",
         "building": "school",
         "check_date": "2026-06-27",
-        "image": "https://commons.wikimedia.org/wiki/File:Orn%C3%B6_skola_20260627_26.jpg",
+        "facebook": "100038918576450",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Orn%C3%B6_skola.jpg",
+        "image:license": "CC-0",
+        "instagram": "orno_skola",
         "name": "Ornö skola",
         "ref:stockholmarchipelagotrail": "unknown",
         "website": "https://ornoskola.haninge.se//",
+        "wikidata": "Q89197643",
         "wikimedia_commons": "Category:Ornö_skola"
       },
       "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:Orn%C3%B6_skola_20260627_26.jpg",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Orn%C3%B6_skola.jpg",
         "website": "https://ornoskola.haninge.se//",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Orn%C3%B6_skola"
       }
