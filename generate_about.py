@@ -233,6 +233,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-lessons-learned-poc-2026-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-lessons-learned-poc-2026-flyer.jpg" alt="Lessons Learned – SAT POC 2026: från digitalisering av friluftslivet till fungerande datainfrastruktur" width="1536" height="1024" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-ai-tourism-archipelago-planning-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-ai-tourism-archipelago-planning-flyer.jpg" alt="Planera en tur i skärgården – samla boende, färjor, mat, aktiviteter och annan information från många källor till ett enkelt svar" width="1312" height="1199" loading="lazy">
+      </a>
     </div>
     <div class="carousel-controls">
       <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Föregående bild">‹</button>
