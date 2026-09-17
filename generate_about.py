@@ -61,6 +61,21 @@ HTML = f"""\
     .carousel-dot {{ width:9px; height:9px; padding:0; border:0; border-radius:50%; background:#cbd5e1; cursor:pointer; }}
     .carousel-dot.is-active {{ background:#2546a8; transform:scale(1.25); }}
     .carousel-dot:focus-visible {{ outline:2px solid #f59e0b; outline-offset:2px; }}
+    .carousel-thumbs {{ display:flex; gap:8px; overflow-x:auto; margin-top:16px; padding:4px 2px 8px; scroll-behavior:smooth; }}
+    .carousel-thumb {{ flex:0 0 86px; height:58px; padding:0; border:2px solid transparent; border-radius:6px; overflow:hidden; background:#e2e8f0; cursor:pointer; }}
+    .carousel-thumb img {{ width:100%; height:100%; object-fit:cover; display:block; }}
+    .carousel-thumb.is-active {{ border-color:#2546a8; box-shadow:0 0 0 2px #bfdbfe; }}
+    .carousel-thumb:focus-visible {{ outline:3px solid #f59e0b; outline-offset:2px; }}
+    .lightbox {{ position:fixed; inset:0; z-index:20; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(15,23,42,.92); }}
+    .lightbox.is-open {{ display:flex; }}
+    .lightbox img {{ max-width:calc(100vw - 150px); max-height:calc(100vh - 90px); object-fit:contain; border-radius:8px; }}
+    .lightbox-btn {{ position:absolute; border:0; border-radius:50%; width:48px; height:48px; background:#fff; color:#1e3a8a; font-size:2rem; line-height:1; cursor:pointer; }}
+    .lightbox-btn:hover, .lightbox-btn:focus-visible {{ background:#dbeafe; }}
+    .lightbox-btn:focus-visible {{ outline:3px solid #f59e0b; outline-offset:3px; }}
+    #lightbox-close {{ top:18px; right:22px; }}
+    #lightbox-prev {{ left:22px; top:50%; transform:translateY(-50%); }}
+    #lightbox-next {{ right:22px; top:50%; transform:translateY(-50%); }}
+    .lightbox-counter {{ position:absolute; bottom:18px; left:50%; transform:translateX(-50%); color:#fff; font-size:.9rem; }}
     .source-table {{ width: 100%; border-collapse: collapse; font-size: .88rem; }}
     .source-table th {{ background: #f1f5f9; text-align: left; padding: 8px 10px; border-bottom: 2px solid #e2e8f0; }}
     .source-table td {{ padding: 7px 10px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }}
@@ -249,6 +264,7 @@ HTML = f"""\
       <button class="carousel-btn" id="carousel-next" type="button" aria-label="Nästa bild">›</button>
     </div>
     <div class="carousel-dots" id="carousel-dots" aria-label="Välj bild"></div>
+    <div class="carousel-thumbs" id="carousel-thumbs" aria-label="Bildöversikt"></div>
     </div>
   </section>
 
@@ -386,6 +402,14 @@ HTML = f"""\
   </section>
 
 </main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bildvisning" aria-hidden="true">
+  <button class="lightbox-btn" id="lightbox-close" type="button" aria-label="Stäng">×</button>
+  <button class="lightbox-btn" id="lightbox-prev" type="button" aria-label="Föregående bild">‹</button>
+  <img id="lightbox-image" alt="">
+  <button class="lightbox-btn" id="lightbox-next" type="button" aria-label="Nästa bild">›</button>
+  <span class="lightbox-counter" id="lightbox-counter" aria-live="polite"></span>
+</div>
 
 <div class="footer">
   <span id="footer-gen">Genererad</span>: {GENERATED_AT} &nbsp;|&nbsp;
@@ -580,6 +604,11 @@ HTML = f"""\
     document.getElementById('carousel-prev').setAttribute('aria-label', lang === 'sv' ? 'Föregående bild' : 'Previous image');
     document.getElementById('carousel-next').setAttribute('aria-label', lang === 'sv' ? 'Nästa bild' : 'Next image');
     document.getElementById('carousel-dots').setAttribute('aria-label', lang === 'sv' ? 'Välj bild' : 'Choose image');
+    document.getElementById('carousel-thumbs').setAttribute('aria-label', lang === 'sv' ? 'Bildöversikt' : 'Image overview');
+    document.getElementById('lightbox').setAttribute('aria-label', lang === 'sv' ? 'Bildvisning' : 'Image viewer');
+    document.getElementById('lightbox-close').setAttribute('aria-label', lang === 'sv' ? 'Stäng' : 'Close');
+    document.getElementById('lightbox-prev').setAttribute('aria-label', lang === 'sv' ? 'Föregående bild' : 'Previous image');
+    document.getElementById('lightbox-next').setAttribute('aria-label', lang === 'sv' ? 'Nästa bild' : 'Next image');
     // Update nav href lang params
     [['nav-use-cases','sat_use_cases.html'],['use-cases-card','sat_use_cases.html'],
      ['nav-dashboard','sat_poi_dashboard.html'],['nav-todo','sat_todo_map.html'],['nav-todo-list','sat_todo_list.html'],
@@ -610,7 +639,12 @@ HTML = f"""\
 
   const flyerCards = Array.from(document.querySelectorAll('.flyer-card'));
   const carouselDots = document.getElementById('carousel-dots');
+  const carouselThumbs = document.getElementById('carousel-thumbs');
   const carouselCounter = document.getElementById('carousel-counter');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCounter = document.getElementById('lightbox-counter');
+  let lastFocusedElement;
   let flyerIndex = 0;
 
   function showFlyer(index) {{
@@ -625,7 +659,18 @@ HTML = f"""\
       dot.classList.toggle('is-active', active);
       dot.setAttribute('aria-current', active ? 'true' : 'false');
     }});
+    document.querySelectorAll('.carousel-thumb').forEach((thumb, thumbIndex) => {{
+      const active = thumbIndex === flyerIndex;
+      thumb.classList.toggle('is-active', active);
+      thumb.setAttribute('aria-current', active ? 'true' : 'false');
+      if (active) thumb.scrollIntoView({{ block: 'nearest', inline: 'center' }});
+    }});
     carouselCounter.textContent = `${{flyerIndex + 1}} / ${{flyerCards.length}}`;
+    if (lightbox.classList.contains('is-open')) {{
+      lightboxImage.src = flyerCards[flyerIndex].getAttribute('href');
+      lightboxImage.alt = flyerCards[flyerIndex].querySelector('img').alt;
+      lightboxCounter.textContent = `${{flyerIndex + 1}} / ${{flyerCards.length}}`;
+    }}
   }}
 
   flyerCards.forEach((_, index) => {{
@@ -635,10 +680,39 @@ HTML = f"""\
     dot.setAttribute('aria-label', `Bild ${{index + 1}}`);
     dot.addEventListener('click', () => showFlyer(index));
     carouselDots.appendChild(dot);
+    const thumb = document.createElement('button');
+    thumb.className = 'carousel-thumb';
+    thumb.type = 'button';
+    thumb.setAttribute('aria-label', `Visa bild ${{index + 1}}`);
+    thumb.innerHTML = `<img src="${{flyerCards[index].getAttribute('href')}}" alt="">`;
+    thumb.addEventListener('click', () => showFlyer(index));
+    carouselThumbs.appendChild(thumb);
   }});
+  flyerCards.forEach((card, index) => card.addEventListener('click', event => {{
+    event.preventDefault();
+    lastFocusedElement = card;
+    showFlyer(index);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    lightboxImage.src = card.getAttribute('href');
+    lightboxImage.alt = card.querySelector('img').alt;
+    lightboxCounter.textContent = `${{index + 1}} / ${{flyerCards.length}}`;
+    document.getElementById('lightbox-close').focus();
+  }}));
+  function closeLightbox() {{
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImage.removeAttribute('src');
+    if (lastFocusedElement) lastFocusedElement.focus();
+  }}
   document.getElementById('carousel-prev').addEventListener('click', () => showFlyer(flyerIndex - 1));
   document.getElementById('carousel-next').addEventListener('click', () => showFlyer(flyerIndex + 1));
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', () => showFlyer(flyerIndex - 1));
+  document.getElementById('lightbox-next').addEventListener('click', () => showFlyer(flyerIndex + 1));
+  lightbox.addEventListener('click', event => {{ if (event.target === lightbox) closeLightbox(); }});
   document.addEventListener('keydown', event => {{
+    if (event.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
     if (event.key === 'ArrowLeft') showFlyer(flyerIndex - 1);
     if (event.key === 'ArrowRight') showFlyer(flyerIndex + 1);
   }});
