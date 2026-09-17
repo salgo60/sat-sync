@@ -64,7 +64,7 @@ HTML = f"""\
     .carousel-thumbs {{ display:flex; gap:10px; overflow-x:auto; margin-top:16px; padding:12px 8px 14px; scroll-behavior:smooth; }}
     .carousel-thumb {{ flex:0 0 128px; height:86px; padding:0; border:2px solid transparent; border-radius:7px; overflow:hidden; background:#e2e8f0; cursor:pointer; transition:transform .18s ease,box-shadow .18s ease; position:relative; }}
     .carousel-thumb img {{ width:100%; height:100%; object-fit:cover; display:block; }}
-    .carousel-thumb:hover {{ transform:scale(1.12); z-index:2; box-shadow:0 5px 14px rgba(15,23,42,.28); }}
+    .carousel-thumb:hover {{ transform:scale(1.65); z-index:3; box-shadow:0 8px 22px rgba(15,23,42,.36); }}
     .carousel-thumb.is-active {{ border-color:#2546a8; box-shadow:0 0 0 2px #bfdbfe; }}
     .carousel-thumb:focus-visible {{ outline:3px solid #f59e0b; outline-offset:2px; }}
     .lightbox {{ position:fixed; inset:0; z-index:20; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(15,23,42,.92); }}
