@@ -450,7 +450,7 @@ document.getElementById('summary').innerHTML=[
   [t('Unika ledobjekt','Unique trail objects'),REPORT.uniqueSegmentCount],
   [t('Medlemskap','Memberships'),REPORT.totalMemberships],
   [t('Återanvända segment','Reused segments'),REPORT.duplicateMemberships],
-  [t('Egenskaper','Properties'),REPORT.uniqueTagKeys],
+  [t('OSM POI-egenskaper','OSM POI properties'),REPORT.uniqueTagKeys],
 ].map(([label,value])=>`<div class="card"><strong>${{value}}</strong>${{label}}</div>`).join('');
 document.getElementById('superroute').innerHTML=`<strong><a href="${{REPORT.superroute.osmUrl}}" target="_blank">${{esc(REPORT.superroute.name)}}</a></strong><p>relation/${{REPORT.superroute.osmId}} · ${{REPORT.superroute.memberCount}} ${{t('etapper','sections')}}</p><details id="superrouteTags"><summary>${{t('Visa relationens taggar','Show relation tags')}}</summary>${{tagList(REPORT.superroute.tags)}}</details>`;
 document.getElementById('sectionGrid').innerHTML=REPORT.sections.map(s=>`<div class="section-card" data-id="${{s.osmId}}"><strong>${{s.order}}. ${{esc(s.name.replace(/^SAT Etapp /,''))}}</strong><small>${{esc(s.distance||t('okänd längd','unknown distance'))}} · ${{s.memberCount}} ${{t('medlemmar','members')}} · relation/${{s.osmId}}</small></div>`).join('');

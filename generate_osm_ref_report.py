@@ -523,7 +523,7 @@ document.getElementById('summary').innerHTML=[
   [t('Vägar','Ways'),REPORT.osmTypes.way||0],
   [t('Relationer','Relations'),REPORT.osmTypes.relation||0],
   [t('Kategorier','Categories'),REPORT.categories.length],
-  [t('Egenskaper','Properties'),REPORT.uniqueTagKeys],
+  [t('OSM POI-egenskaper','OSM POI properties'),REPORT.uniqueTagKeys],
 ].map(([label,value])=>`<div class="card"><strong>${{value}}</strong>${{label}}</div>`).join('');
 
 const selected=categorySelect.value;
