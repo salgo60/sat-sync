@@ -369,6 +369,8 @@ def build_report(elements: list[dict], source: str) -> dict:
             }
         )
 
+    unique_tag_keys = {key for item in objects for key in item["tags"]}
+
     return {
         "generatedAt": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
         "source": source,
@@ -377,6 +379,7 @@ def build_report(elements: list[dict], source: str) -> dict:
         + urllib.parse.quote(QUERY, safe=""),
         "refKey": REF_KEY,
         "totalObjects": len(objects),
+        "uniqueTagKeys": len(unique_tag_keys),
         "osmTypes": dict(Counter(item["osmType"] for item in objects)),
         "categoryCounts": {
             category: category_counts[category]
@@ -520,6 +523,7 @@ document.getElementById('summary').innerHTML=[
   [t('Vägar','Ways'),REPORT.osmTypes.way||0],
   [t('Relationer','Relations'),REPORT.osmTypes.relation||0],
   [t('Kategorier','Categories'),REPORT.categories.length],
+  [t('OSM POI-egenskaper','OSM POI properties'),REPORT.uniqueTagKeys],
 ].map(([label,value])=>`<div class="card"><strong>${{value}}</strong>${{label}}</div>`).join('');
 
 const selected=categorySelect.value;
