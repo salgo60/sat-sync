@@ -261,6 +261,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-ai-kompetens-trafiklabs-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-ai-kompetens-trafiklabs-flyer.jpg" alt="Hur AI snabbar på – rätt data, rätt kopplingar och rätt kompetens ger stor effekt i Stockholm Archipelago Trail" width="1536" height="1024" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-samma-led-tva-upplevelser-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-samma-led-tva-upplevelser-flyer.jpg" alt="Samma led – två helt olika upplevelser: från fina intentioner till verklig nytta i skärgården" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
     <div class="carousel-controls">
       <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Föregående bild">‹</button>
