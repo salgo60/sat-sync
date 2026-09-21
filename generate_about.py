@@ -258,6 +258,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-ssot-model-data-management-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-ssot-model-data-management-flyer.jpg" alt="SSOT-modell för SAT – från dataägarskap och källor till identifierare, aktualitet, förvaltning och bättre friluftsupplevelser" width="1536" height="1024" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-ledens-livscykel-ekosystem-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-ledens-livscykel-ekosystem-flyer.jpg" alt="En led, ett ekosystem, hela livscykeln – från medborgarförslag och planering till leverans, förvaltning och nästa generation" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
     <div class="carousel-controls">
       <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Föregående bild">‹</button>
