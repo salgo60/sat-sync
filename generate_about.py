@@ -273,6 +273,12 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-data-pipeline-vandringsinformation-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-data-pipeline-vandringsinformation-flyer.jpg" alt="Från källdata till användbar vandringsinformation – SAT data pipeline från öppna källor via normalisering och länkning till vandrarens frågor, samt saknad dynamisk data för bokning" width="1672" height="941" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-poi-malbild-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-poi-malbild-flyer.jpg" alt="SAT POI visar vägen till målbilden – en gemensam digital plattform där samma data kan användas av webbkartor, kommunwebb, reseplanering och AI-turplanering" width="1536" height="1024" loading="lazy">
+      </a>
+      <a class="flyer-card" href="assets/sat-poi-ssot-services-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-poi-ssot-services-flyer.jpg" alt="SAT POI – från källornas SSOT till vandrarens tjänster: matcha, berika, kvalitetssäkra och publicera data för flera tjänster" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
     <div class="carousel-controls">
       <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Föregående bild">‹</button>
