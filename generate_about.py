@@ -273,6 +273,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-data-pipeline-vandringsinformation-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-data-pipeline-vandringsinformation-flyer.jpg" alt="Från källdata till användbar vandringsinformation – SAT data pipeline från öppna källor via normalisering och länkning till vandrarens frågor, samt saknad dynamisk data för bokning" width="1672" height="941" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-tourist-information-hub-vision-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-tourist-information-hub-vision-flyer.jpg" alt="Vision: turistinformation som trafikinformation – öppna källor, communitydata och ett tillförlitligt turistinformationsnav i realtid" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
     <div class="carousel-controls">
       <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Föregående bild">‹</button>
