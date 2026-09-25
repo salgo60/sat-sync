@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T06:34:40.972929Z",
+  "generatedAt": "2026-09-25T09:48:20.548969Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -35309,7 +35309,7 @@
       "lon": 18.7952326,
       "tags": {
         "covered": "no",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Q121754355.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:Q121754355.jpg",
         "image:license": "CC0 1.0",
         "leisure": "firepit",
         "ref:grillplatser.nu": "Bockviken",
@@ -35319,7 +35319,7 @@
         "wikimedia_commons": "Category:Kålgårdsöns naturreservat, grillplats"
       },
       "tagValueUrls": {
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Q121754355.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:Q121754355.jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:h78ed",
         "website": "https://grillplatser.nu/Grillplats/Visa/Bockviken",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:K%C3%A5lg%C3%A5rds%C3%B6ns%20naturreservat%2C%20grillplats"
