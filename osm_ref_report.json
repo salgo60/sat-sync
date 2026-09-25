@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T09:30:07.228872Z",
+  "generatedAt": "2026-09-25T06:34:40.972929Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -2822,6 +2822,44 @@
           ]
         },
         {
+          "key": "ref:grillplatser.nu",
+          "count": 70,
+          "percent": 83.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:grillplatser.nu?uselang=sv",
+          "topValues": [
+            {
+              "value": "Grinda-Klubbudden",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DGrinda-Klubbudden?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Norra-sand-Uto",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DNorra-sand-Uto?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Ostermar-2",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DOstermar-2?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Skarsand-SAT-grillplats",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DSkarsand-SAT-grillplats?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Grinda-taltplats-vastra-1-1",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DGrinda-taltplats-vastra-1-1?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "wikidata",
           "count": 70,
           "percent": 83.3,
@@ -2855,44 +2893,6 @@
               "value": "Q121352030",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikidata%3DQ121352030?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "ref:grillplatser.nu",
-          "count": 69,
-          "percent": 82.1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:grillplatser.nu?uselang=sv",
-          "topValues": [
-            {
-              "value": "Grinda-Klubbudden",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DGrinda-Klubbudden?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Ostermar-2",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DOstermar-2?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Skarsand-SAT-grillplats",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DSkarsand-SAT-grillplats?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Grinda-taltplats-vastra-1-1",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DGrinda-taltplats-vastra-1-1?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Storsand-Alo",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:grillplatser.nu%3DStorsand-Alo?uselang=sv",
               "directUrl": null
             }
           ]
@@ -3441,6 +3441,20 @@
               "value": "82892",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:naturkartan.se%3D82892?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "toilets:wheelchair",
+          "count": 1,
+          "percent": 1.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:wheelchair?uselang=sv",
+          "topValues": [
+            {
+              "value": "yes",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:toilets:wheelchair%3Dyes?uselang=sv",
               "directUrl": null
             }
           ]
@@ -9180,6 +9194,32 @@
           ]
         },
         {
+          "key": "wheelchair",
+          "count": 7,
+          "percent": 18.4,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
+          "topValues": [
+            {
+              "value": "yes",
+              "count": 4,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dyes?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "limited",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dlimited?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "no",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dno?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "addr:city",
           "count": 6,
           "percent": 15.8,
@@ -9347,32 +9387,6 @@
               "value": "utobakgard",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:contact:instagram%3Dutobakgard?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "wheelchair",
-          "count": 5,
-          "percent": 13.2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
-          "topValues": [
-            {
-              "value": "yes",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dyes?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "limited",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dlimited?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "no",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dno?uselang=sv",
               "directUrl": null
             }
           ]
@@ -12463,8 +12477,8 @@
         },
         {
           "key": "wheelchair",
-          "count": 12,
-          "percent": 21.1,
+          "count": 13,
+          "percent": 22.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
@@ -12481,7 +12495,7 @@
             },
             {
               "value": "yes",
-              "count": 1,
+              "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dyes?uselang=sv",
               "directUrl": null
             }
@@ -16290,25 +16304,17 @@
           ]
         },
         {
-          "key": "image:license:wikidata",
-          "count": 4,
-          "percent": 22.2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
-          "topValues": [
-            {
-              "value": "Q6938433",
-              "count": 4,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license:wikidata%3DQ6938433?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "name",
-          "count": 4,
-          "percent": 22.2,
+          "count": 5,
+          "percent": 27.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
+            {
+              "value": "Dusch Grinda Stugby",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DDusch%20Grinda%20Stugby?uselang=sv",
+              "directUrl": null
+            },
             {
               "value": "dusch STF-vandrarhem på Möja",
               "count": 1,
@@ -16331,6 +16337,20 @@
               "value": "Stugbyn Dusch",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:name%3DStugbyn%20Dusch?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "image:license:wikidata",
+          "count": 4,
+          "percent": 22.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
+          "topValues": [
+            {
+              "value": "Q6938433",
+              "count": 4,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license:wikidata%3DQ6938433?uselang=sv",
               "directUrl": null
             }
           ]
@@ -36768,6 +36788,7 @@
         "image:license": "CC-0",
         "leisure": "firepit",
         "name": "Grillplats barnens strand",
+        "ref:grillplatser.nu": "Norra-sand-Uto",
         "ref:stockholmarchipelagotrail": "unknown",
         "wikidata": "Q130338761"
       },
@@ -36829,6 +36850,7 @@
         "name": "Grillplats Grinda södra bryggan",
         "ref:grillplatser.nu": "Grinda-sodra-bryggan",
         "ref:stockholmarchipelagotrail": "sat:poi:9qvps",
+        "toilets:wheelchair": "yes",
         "website": "https://grillplatser.nu/Grillplats/Visa/Grinda-sodra-bryggan",
         "wheelchair": "yes",
         "wikidata": "Q121361352",
@@ -38536,7 +38558,7 @@
       "lon": 18.5617991,
       "tags": {
         "amenity": "drinking_water",
-        "image": "https://commons.wikimedia.org/w/index.php?search=SAT_Grinda_20250825_Visit_batch_9.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_Visit_batch_9.jpg",
         "image:license": "CC-0",
         "image:license:wikidata": "Q6938433",
         "note": "Vatten stängs av på Grinda i oktober enligt Skärgårdsstiftelsen",
@@ -38548,7 +38570,7 @@
         "wheelchair": "no"
       },
       "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/w/index.php?search=SAT_Grinda_20250825_Visit_batch_9.jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_Visit_batch_9.jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:kyef6"
       }
     },
@@ -43260,6 +43282,7 @@
         "shop": "bakery",
         "source:opening_hours": "https://grinda.se/mat-fest/bageri/",
         "website": "https://grinda.se/mat-fest/bageri/",
+        "wheelchair": "yes",
         "wikidata": "Q134713103",
         "wikimedia_commons": "Category:Grinda_bageri"
       },
@@ -43296,6 +43319,7 @@
         "shop": "convenience",
         "source:opening_hours": "https://grinda.se/mat-fest/lanthandel-cafe/",
         "website": "https://grinda.se/mat-fest/lanthandel-cafe/",
+        "wheelchair": "yes",
         "wikidata": "Q134310117",
         "wikimedia_commons": "Category:Grinda_Lanthandel"
       },
@@ -45105,6 +45129,7 @@
         "seasonal": "yes",
         "takeaway": "yes",
         "website": "https://grinda.se/mat-fest/framfickan/",
+        "wheelchair": "yes",
         "wikidata": "Q134711795",
         "wikimedia_commons": "Category:Framfickans_restaurang"
       },
@@ -49834,37 +49859,6 @@
     },
     {
       "osmType": "node",
-      "osmId": 863423353,
-      "osmUrl": "https://www.openstreetmap.org/node/863423353",
-      "name": "(namnlös)",
-      "satRef": "sat:poi:c2qvj",
-      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:c2qvj",
-      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:c2qvj",
-      "category": "Dusch",
-      "lat": 59.4077348,
-      "lon": 18.558404,
-      "tags": {
-        "access": "customers",
-        "amenity": "shower",
-        "fee": "no",
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_Visit_batch_3.jpg",
-        "image:license": "CC-0",
-        "image:license:wikidata": "Q6938433",
-        "indoor": "yes",
-        "opening_hours": "24/7",
-        "operator": "Skärgårdsstiftelsen",
-        "operator:wikidata": "Q10670989",
-        "ref:stockholmarchipelagotrail": "sat:poi:c2qvj",
-        "wikimedia_commons": "Category:Grinda_shower_863423353"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_Visit_batch_3.jpg",
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:c2qvj",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Grinda_shower_863423353"
-      }
-    },
-    {
-      "osmType": "node",
       "osmId": 8524303978,
       "osmUrl": "https://www.openstreetmap.org/node/8524303978",
       "name": "(namnlös)",
@@ -50189,6 +50183,38 @@
       },
       "tagValueUrls": {
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:v7nwd"
+      }
+    },
+    {
+      "osmType": "node",
+      "osmId": 863423353,
+      "osmUrl": "https://www.openstreetmap.org/node/863423353",
+      "name": "Dusch Grinda Stugby",
+      "satRef": "sat:poi:c2qvj",
+      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:c2qvj",
+      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:c2qvj",
+      "category": "Dusch",
+      "lat": 59.4077348,
+      "lon": 18.558404,
+      "tags": {
+        "access": "customers",
+        "amenity": "shower",
+        "fee": "no",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_Visit_batch_3.jpg",
+        "image:license": "CC-0",
+        "image:license:wikidata": "Q6938433",
+        "indoor": "yes",
+        "name": "Dusch Grinda Stugby",
+        "opening_hours": "24/7",
+        "operator": "Skärgårdsstiftelsen",
+        "operator:wikidata": "Q10670989",
+        "ref:stockholmarchipelagotrail": "sat:poi:c2qvj",
+        "wikimedia_commons": "Category:Grinda_shower_863423353"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_Visit_batch_3.jpg",
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:c2qvj",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Grinda_shower_863423353"
       }
     },
     {
@@ -53949,7 +53975,7 @@
         "building": "yes",
         "check_date": "2026-04-24",
         "description": "Hyr cykel på Ålö och lämna tillbaka på Utö",
-        "image": "https://commons.wikimedia.org/wiki/Category:B%C3%A5tshaket_bicycle#/media/File:SAT_%C3%85l%C3%B6_2025_maj_(249).jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_2025_maj_(249).jpg",
         "image:license": "CC0 1.0",
         "name": "Båtshaket cykeluthyrning",
         "ref:stockholmarchipelagotrail": "sat:poi:ctepx",
@@ -53959,7 +53985,7 @@
         "wikimedia_commons": "Category:Båtshaket_bicycle"
       },
       "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/Category:B%C3%A5tshaket_bicycle#/media/File:SAT_%C3%85l%C3%B6_2025_maj_(249).jpg",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_%C3%85l%C3%B6_2025_maj_(249).jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:ctepx",
         "website": "https://www.utogasthamn.se/uto-cykeluthyrning/",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:B%C3%A5tshaket_bicycle"
