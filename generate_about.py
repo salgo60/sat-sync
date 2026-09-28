@@ -282,6 +282,9 @@ HTML = f"""\
       <a class="flyer-card" href="assets/sat-vandringsleder-digitalisering-basta-matris-flyer.jpg" target="_blank" rel="noopener">
         <img src="assets/sat-vandringsleder-digitalisering-basta-matris-flyer.jpg" alt="Vandringsleder och digitalisering – en behovsmatris från vandrarens mål och data som behövs till arbetssätt och ansvariga aktörer" width="1086" height="1448" loading="lazy">
       </a>
+      <a class="flyer-card" href="assets/sat-federerad-ssot-kunskapskallor-flyer.jpg" target="_blank" rel="noopener">
+        <img src="assets/sat-federerad-ssot-kunskapskallor-flyer.jpg" alt="SAT – samma verklighet, flera kunskapskällor: specialiserade datakällor och öppna communityplattformar kopplas ihop med persistenta identifierare i en federerad SSOT" width="1536" height="1024" loading="lazy">
+      </a>
     </div>
     <div class="carousel-controls">
       <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Föregående bild">‹</button>
