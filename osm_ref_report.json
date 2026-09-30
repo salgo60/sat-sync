@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-09-29T10:53:35.694094Z",
+  "generatedAt": "2026-09-30T10:39:44.488286Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
   "refKey": "ref:stockholmarchipelagotrail",
   "totalObjects": 1161,
-  "uniqueTagKeys": 521,
+  "uniqueTagKeys": 520,
   "osmTypes": {
-    "node": 824,
-    "way": 302,
+    "node": 823,
+    "way": 303,
     "relation": 35
   },
   "categoryCounts": {
     "Vindskydd": 10,
     "Väderskydd vid hållplats": 24,
     "Övrigt väderskydd": 3,
-    "Toalett": 129,
+    "Toalett": 130,
     "Grillplats": 84,
     "Dricksvatten": 75,
     "Tältplats": 13,
@@ -32,7 +32,7 @@
     "Uthyrning": 31,
     "Fyr": 4,
     "Hjärtstartare": 43,
-    "Turism / sevärdhet": 150,
+    "Turism / sevärdhet": 149,
     "Kyrka / kultur": 10,
     "Aktivitet": 21,
     "Ö / naturplats": 26,
@@ -1331,17 +1331,17 @@
     },
     {
       "name": "Toalett",
-      "count": 129,
+      "count": 130,
       "tagStats": [
         {
           "key": "amenity",
-          "count": 129,
+          "count": 130,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:amenity?uselang=sv",
           "topValues": [
             {
               "value": "toilets",
-              "count": 129,
+              "count": 130,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dtoilets?uselang=sv",
               "directUrl": null
             }
@@ -1349,10 +1349,16 @@
         },
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 129,
+          "count": 130,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
+            {
+              "value": "sat:poi:cbnjd",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dsat%3Apoi%3Acbnjd?uselang=sv",
+              "directUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:cbnjd"
+            },
             {
               "value": "sat:poi:z3q4b",
               "count": 1,
@@ -1376,24 +1382,18 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dsat%3Apoi%3A5t7sg?uselang=sv",
               "directUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:5t7sg"
-            },
-            {
-              "value": "sat:poi:s5w7y",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dsat%3Apoi%3As5w7y?uselang=sv",
-              "directUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:s5w7y"
             }
           ]
         },
         {
           "key": "access",
-          "count": 105,
-          "percent": 81.4,
+          "count": 106,
+          "percent": 81.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:access?uselang=sv",
           "topValues": [
             {
               "value": "yes",
-              "count": 80,
+              "count": 81,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dyes?uselang=sv",
               "directUrl": null
             },
@@ -1419,10 +1419,16 @@
         },
         {
           "key": "image",
-          "count": 94,
-          "percent": 72.9,
+          "count": 95,
+          "percent": 73.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_vandring_dokumentera_11.jpg",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Grinda_20250825_vandring_dokumentera_11.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_vandring_dokumentera_11.jpg"
+            },
             {
               "value": "https://commons.wikimedia.org/wiki/File:Toaletter_Oasen_20260820_03.jpg",
               "count": 2,
@@ -1446,19 +1452,13 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F0d%2FSAT_20250915_n_11.jpg%2F3024px-SAT_20250915_n_11.jpg?uselang=sv",
               "directUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/SAT_20250915_n_11.jpg/3024px-SAT_20250915_n_11.jpg"
-            },
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_toalett_s%C3%B6dra_bryggan_20250826_03.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Grinda_toalett_s%25C3%25B6dra_bryggan_20250826_03.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_toalett_s%C3%B6dra_bryggan_20250826_03.jpg"
             }
           ]
         },
         {
           "key": "toilets:disposal",
-          "count": 93,
-          "percent": 72.1,
+          "count": 94,
+          "percent": 72.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:disposal?uselang=sv",
           "topValues": [
             {
@@ -1475,7 +1475,7 @@
             },
             {
               "value": "bucket",
-              "count": 20,
+              "count": 21,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:toilets:disposal%3Dbucket?uselang=sv",
               "directUrl": null
             },
@@ -1495,8 +1495,8 @@
         },
         {
           "key": "wikimedia_commons",
-          "count": 92,
-          "percent": 71.3,
+          "count": 93,
+          "percent": 71.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -1534,7 +1534,7 @@
         {
           "key": "unisex",
           "count": 81,
-          "percent": 62.8,
+          "percent": 62.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:unisex?uselang=sv",
           "topValues": [
             {
@@ -1547,8 +1547,8 @@
         },
         {
           "key": "toilets:handwashing",
-          "count": 78,
-          "percent": 60.5,
+          "count": 79,
+          "percent": 60.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:handwashing?uselang=sv",
           "topValues": [
             {
@@ -1559,7 +1559,7 @@
             },
             {
               "value": "yes",
-              "count": 36,
+              "count": 37,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:toilets:handwashing%3Dyes?uselang=sv",
               "directUrl": null
             }
@@ -1567,13 +1567,13 @@
         },
         {
           "key": "fee",
-          "count": 76,
-          "percent": 58.9,
+          "count": 77,
+          "percent": 59.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fee?uselang=sv",
           "topValues": [
             {
               "value": "no",
-              "count": 74,
+              "count": 75,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:fee%3Dno?uselang=sv",
               "directUrl": null
             },
@@ -1587,13 +1587,13 @@
         },
         {
           "key": "image:license",
-          "count": 72,
-          "percent": 55.8,
+          "count": 73,
+          "percent": 56.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
               "value": "CC-0",
-              "count": 62,
+              "count": 63,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
               "directUrl": null
             },
@@ -1625,13 +1625,13 @@
         },
         {
           "key": "wheelchair",
-          "count": 71,
-          "percent": 55.0,
+          "count": 72,
+          "percent": 55.4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
               "value": "no",
-              "count": 52,
+              "count": 53,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dno?uselang=sv",
               "directUrl": null
             },
@@ -1651,8 +1651,8 @@
         },
         {
           "key": "check_date",
-          "count": 65,
-          "percent": 50.4,
+          "count": 66,
+          "percent": 50.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -1668,15 +1668,15 @@
               "directUrl": null
             },
             {
-              "value": "2026-04-28",
+              "value": "2025-08-25",
               "count": 4,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-28?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-25?uselang=sv",
               "directUrl": null
             },
             {
-              "value": "2025-08-25",
-              "count": 3,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2025-08-25?uselang=sv",
+              "value": "2026-04-28",
+              "count": 4,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:check_date%3D2026-04-28?uselang=sv",
               "directUrl": null
             },
             {
@@ -1689,13 +1689,13 @@
         },
         {
           "key": "image:license:wikidata",
-          "count": 60,
-          "percent": 46.5,
+          "count": 61,
+          "percent": 46.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
               "value": "Q6938433",
-              "count": 60,
+              "count": 61,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license:wikidata%3DQ6938433?uselang=sv",
               "directUrl": null
             }
@@ -1703,13 +1703,13 @@
         },
         {
           "key": "toilets:paper_supplied",
-          "count": 57,
-          "percent": 44.2,
+          "count": 58,
+          "percent": 44.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:paper_supplied?uselang=sv",
           "topValues": [
             {
               "value": "yes",
-              "count": 53,
+              "count": 54,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:toilets:paper_supplied%3Dyes?uselang=sv",
               "directUrl": null
             },
@@ -1723,13 +1723,13 @@
         },
         {
           "key": "toilets:position",
-          "count": 53,
-          "percent": 41.1,
+          "count": 54,
+          "percent": 41.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:position?uselang=sv",
           "topValues": [
             {
               "value": "seated",
-              "count": 52,
+              "count": 53,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:toilets:position%3Dseated?uselang=sv",
               "directUrl": null
             },
@@ -1743,8 +1743,8 @@
         },
         {
           "key": "toilets:wheelchair",
-          "count": 48,
-          "percent": 37.2,
+          "count": 49,
+          "percent": 37.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:wheelchair?uselang=sv",
           "topValues": [
             {
@@ -1755,7 +1755,7 @@
             },
             {
               "value": "yes",
-              "count": 8,
+              "count": 9,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:toilets:wheelchair%3Dyes?uselang=sv",
               "directUrl": null
             },
@@ -1769,8 +1769,8 @@
         },
         {
           "key": "toilets:num_chambers",
-          "count": 47,
-          "percent": 36.4,
+          "count": 48,
+          "percent": 36.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:num_chambers?uselang=sv",
           "topValues": [
             {
@@ -1781,7 +1781,7 @@
             },
             {
               "value": "3",
-              "count": 10,
+              "count": 11,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:toilets:num_chambers%3D3?uselang=sv",
               "directUrl": null
             },
@@ -1801,13 +1801,13 @@
         },
         {
           "key": "changing_table",
-          "count": 45,
-          "percent": 34.9,
+          "count": 46,
+          "percent": 35.4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:changing_table?uselang=sv",
           "topValues": [
             {
               "value": "no",
-              "count": 39,
+              "count": 40,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:changing_table%3Dno?uselang=sv",
               "directUrl": null
             },
@@ -1821,13 +1821,13 @@
         },
         {
           "key": "opening_hours",
-          "count": 41,
-          "percent": 31.8,
+          "count": 42,
+          "percent": 32.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
           "topValues": [
             {
               "value": "24/7",
-              "count": 38,
+              "count": 39,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D24%2F7?uselang=sv",
               "directUrl": null
             },
@@ -1853,13 +1853,13 @@
         },
         {
           "key": "drinking_water",
-          "count": 39,
-          "percent": 30.2,
+          "count": 40,
+          "percent": 30.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:drinking_water?uselang=sv",
           "topValues": [
             {
               "value": "yes",
-              "count": 27,
+              "count": 28,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:drinking_water%3Dyes?uselang=sv",
               "directUrl": null
             },
@@ -1874,7 +1874,7 @@
         {
           "key": "operator",
           "count": 38,
-          "percent": 29.5,
+          "percent": 29.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
           "topValues": [
             {
@@ -1911,13 +1911,13 @@
         },
         {
           "key": "building",
-          "count": 31,
-          "percent": 24.0,
+          "count": 32,
+          "percent": 24.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:building?uselang=sv",
           "topValues": [
             {
               "value": "yes",
-              "count": 30,
+              "count": 31,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:building%3Dyes?uselang=sv",
               "directUrl": null
             },
@@ -1931,8 +1931,8 @@
         },
         {
           "key": "name",
-          "count": 31,
-          "percent": 24.0,
+          "count": 32,
+          "percent": 24.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -1970,7 +1970,7 @@
         {
           "key": "operator:wikidata",
           "count": 30,
-          "percent": 23.3,
+          "percent": 23.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator:wikidata?uselang=sv",
           "topValues": [
             {
@@ -2002,7 +2002,7 @@
         {
           "key": "description",
           "count": 19,
-          "percent": 14.7,
+          "percent": 14.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -2039,13 +2039,13 @@
         },
         {
           "key": "gender_segregated",
-          "count": 15,
-          "percent": 11.6,
+          "count": 16,
+          "percent": 12.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:gender_segregated?uselang=sv",
           "topValues": [
             {
               "value": "no",
-              "count": 15,
+              "count": 16,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:gender_segregated%3Dno?uselang=sv",
               "directUrl": null
             }
@@ -2053,13 +2053,13 @@
         },
         {
           "key": "source",
-          "count": 14,
-          "percent": 10.9,
+          "count": 15,
+          "percent": 11.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:source?uselang=sv",
           "topValues": [
             {
               "value": "survey",
-              "count": 13,
+              "count": 14,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:source%3Dsurvey?uselang=sv",
               "directUrl": null
             },
@@ -2074,7 +2074,7 @@
         {
           "key": "toilets:number",
           "count": 13,
-          "percent": 10.1,
+          "percent": 10.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:number?uselang=sv",
           "topValues": [
             {
@@ -2112,7 +2112,7 @@
         {
           "key": "indoor",
           "count": 12,
-          "percent": 9.3,
+          "percent": 9.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:indoor?uselang=sv",
           "topValues": [
             {
@@ -2126,7 +2126,7 @@
         {
           "key": "note",
           "count": 9,
-          "percent": 7.0,
+          "percent": 6.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note?uselang=sv",
           "topValues": [
             {
@@ -2158,7 +2158,7 @@
         {
           "key": "seasonal",
           "count": 9,
-          "percent": 7.0,
+          "percent": 6.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal?uselang=sv",
           "topValues": [
             {
@@ -2171,6 +2171,26 @@
               "value": "yes",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal%3Dyes?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "handwashing:soap",
+          "count": 7,
+          "percent": 5.4,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:handwashing:soap?uselang=sv",
+          "topValues": [
+            {
+              "value": "yes",
+              "count": 5,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:handwashing:soap%3Dyes?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "no",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:handwashing:soap%3Dno?uselang=sv",
               "directUrl": null
             }
           ]
@@ -2216,29 +2236,9 @@
           ]
         },
         {
-          "key": "handwashing:soap",
-          "count": 6,
-          "percent": 4.7,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:handwashing:soap?uselang=sv",
-          "topValues": [
-            {
-              "value": "yes",
-              "count": 4,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:handwashing:soap%3Dyes?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "no",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:handwashing:soap%3Dno?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "note:en",
           "count": 6,
-          "percent": 4.7,
+          "percent": 4.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note:en?uselang=sv",
           "topValues": [
             {
@@ -2252,7 +2252,7 @@
         {
           "key": "toilets:wash",
           "count": 6,
-          "percent": 4.7,
+          "percent": 4.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:wash?uselang=sv",
           "topValues": [
             {
@@ -2266,7 +2266,7 @@
         {
           "key": "fixme",
           "count": 5,
-          "percent": 3.9,
+          "percent": 3.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fixme?uselang=sv",
           "topValues": [
             {
@@ -2304,7 +2304,7 @@
         {
           "key": "toilets:access",
           "count": 5,
-          "percent": 3.9,
+          "percent": 3.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:access?uselang=sv",
           "topValues": [
             {
@@ -2324,7 +2324,7 @@
         {
           "key": "toilets:unisex",
           "count": 5,
-          "percent": 3.9,
+          "percent": 3.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:toilets:unisex?uselang=sv",
           "topValues": [
             {
@@ -2438,7 +2438,7 @@
         {
           "key": "fountain",
           "count": 2,
-          "percent": 1.6,
+          "percent": 1.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fountain?uselang=sv",
           "topValues": [
             {
@@ -2452,7 +2452,7 @@
         {
           "key": "hot_water",
           "count": 2,
-          "percent": 1.6,
+          "percent": 1.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:hot_water?uselang=sv",
           "topValues": [
             {
@@ -2466,7 +2466,7 @@
         {
           "key": "mapillary",
           "count": 2,
-          "percent": 1.6,
+          "percent": 1.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:mapillary?uselang=sv",
           "topValues": [
             {
@@ -5792,12 +5792,6 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
-              "value": "unknown",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
-              "directUrl": null
-            },
-            {
               "value": "sat:poi:y2cyg",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dsat%3Apoi%3Ay2cyg?uselang=sv",
@@ -5820,6 +5814,12 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dsat%3Apoi%3At5tb5?uselang=sv",
               "directUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:t5tb5"
+            },
+            {
+              "value": "sat:poi:58ezq",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dsat%3Apoi%3A58ezq?uselang=sv",
+              "directUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:58ezq"
             }
           ]
         },
@@ -12241,8 +12241,8 @@
         },
         {
           "key": "opening_hours",
-          "count": 26,
-          "percent": 45.6,
+          "count": 25,
+          "percent": 43.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
           "topValues": [
             {
@@ -12258,12 +12258,6 @@
               "directUrl": null
             },
             {
-              "value": "13:00-23:00",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D13%3A00-23%3A00?uselang=sv",
-              "directUrl": null
-            },
-            {
               "value": "We 16:00-20:00; Fr 11:00-24:00; Sa 00:00-24:00; Su 11:00-16:00",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3DWe%2016%3A00-20%3A00%3B%20Fr%2011%3A00-24%3A00%3B%20Sa%2000%3A00-24%3A00%3B%20Su%2011%3A00-16%3A00?uselang=sv",
@@ -12273,6 +12267,12 @@
               "value": "Su-Th 11:00-21:00; Fr-Sa 11:00-22:00",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3DSu-Th%2011%3A00-21%3A00%3B%20Fr-Sa%2011%3A00-22%3A00?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Mo-Fr, Su 09:00-19:00; Sa 09:00-20:00",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3DMo-Fr%2C%20Su%2009%3A00-19%3A00%3B%20Sa%2009%3A00-20%3A00?uselang=sv",
               "directUrl": null
             }
           ]
@@ -13054,9 +13054,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note?uselang=sv",
           "topValues": [
             {
-              "value": "Öppnat 2026 stänger för säsongen 28 sep 2026 https://www.facebook.com/groups/331147070287925/permalink/28460730060236249/",
+              "value": "Öppnat 2026 stänger för säsongen 28 sep 2026 kommer att köra 2027",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3D%C3%96ppnat%202026%20st%C3%A4nger%20f%C3%B6r%20s%C3%A4songen%2028%20sep%202026%20https%3A%2F%2Fwww.facebook.com%2Fgroups%2F331147070287925%2Fpermalink%2F28460730060236249%2F?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3D%C3%96ppnat%202026%20st%C3%A4nger%20f%C3%B6r%20s%C3%A4songen%2028%20sep%202026%20kommer%20att%20k%C3%B6ra%202027?uselang=sv",
               "directUrl": null
             },
             {
@@ -13388,26 +13388,6 @@
           ]
         },
         {
-          "key": "fixme",
-          "count": 2,
-          "percent": 3.5,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fixme?uselang=sv",
-          "topValues": [
-            {
-              "value": "Följa upp hur det blir 2027",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:fixme%3DF%C3%B6lja%20upp%20hur%20det%20blir%202027?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "ej klart om dom driver detta 2027",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:fixme%3Dej%20klart%20om%20dom%20driver%20detta%202027?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "food",
           "count": 2,
           "percent": 3.5,
@@ -13686,6 +13666,20 @@
           ]
         },
         {
+          "key": "fixme",
+          "count": 1,
+          "percent": 1.8,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:fixme?uselang=sv",
+          "topValues": [
+            {
+              "value": "ej klart om dom driver detta 2027",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:fixme%3Dej%20klart%20om%20dom%20driver%20detta%202027?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "ice_cream",
           "count": 1,
           "percent": 1.8,
@@ -13762,9 +13756,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note:en?uselang=sv",
           "topValues": [
             {
-              "value": "Started in 2026 now 2026 sep closed for the season",
+              "value": "Started in 2026 now 2026 sep closed for the season will open 2027",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note:en%3DStarted%20in%202026%20now%202026%20sep%20closed%20for%20the%20season?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note:en%3DStarted%20in%202026%20now%202026%20sep%20closed%20for%20the%20season%20will%20open%202027?uselang=sv",
               "directUrl": null
             }
           ]
@@ -16548,6 +16542,20 @@
           ]
         },
         {
+          "key": "count",
+          "count": 1,
+          "percent": 5.6,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:count?uselang=sv",
+          "topValues": [
+            {
+              "value": "3",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:count%3D3?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "description:de",
           "count": 1,
           "percent": 5.6,
@@ -16683,20 +16691,6 @@
               "value": "yes",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:shower%3Dyes?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "shower:count",
-          "count": 1,
-          "percent": 5.6,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:shower:count?uselang=sv",
-          "topValues": [
-            {
-              "value": "3",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:shower:count%3D3?uselang=sv",
               "directUrl": null
             }
           ]
@@ -22577,17 +22571,17 @@
     },
     {
       "name": "Turism / sevärdhet",
-      "count": 150,
+      "count": 149,
       "tagStats": [
         {
           "key": "ref:stockholmarchipelagotrail",
-          "count": 150,
+          "count": 149,
           "percent": 100.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:stockholmarchipelagotrail?uselang=sv",
           "topValues": [
             {
               "value": "unknown",
-              "count": 98,
+              "count": 97,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:stockholmarchipelagotrail%3Dunknown?uselang=sv",
               "directUrl": null
             },
@@ -22620,7 +22614,7 @@
         {
           "key": "name",
           "count": 140,
-          "percent": 93.3,
+          "percent": 94.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -22657,8 +22651,8 @@
         },
         {
           "key": "tourism",
-          "count": 139,
-          "percent": 92.7,
+          "count": 138,
+          "percent": 92.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:tourism?uselang=sv",
           "topValues": [
             {
@@ -22675,7 +22669,7 @@
             },
             {
               "value": "picnic_site",
-              "count": 6,
+              "count": 5,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:tourism%3Dpicnic_site?uselang=sv",
               "directUrl": null
             },
@@ -22689,8 +22683,8 @@
         },
         {
           "key": "image",
-          "count": 132,
-          "percent": 88.0,
+          "count": 131,
+          "percent": 87.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -22712,23 +22706,23 @@
               "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_20260426_09.jpg"
             },
             {
-              "value": "https://commons.wikimedia.org/wiki/File:Ingmars%C3%B6_Hembygdsmuseum_2026_16.jpg",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AIngmars%25C3%25B6_Hembygdsmuseum_2026_16.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:Ingmars%C3%B6_Hembygdsmuseum_2026_16.jpg"
-            },
-            {
               "value": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_08.jpg",
               "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Arholma_20250813_-_08.jpg?uselang=sv",
               "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Arholma_20250813_-_08.jpg"
+            },
+            {
+              "value": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_2025_april_kompassrosen.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ASAT_Furusund_2025_april_kompassrosen.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_2025_april_kompassrosen.jpg"
             }
           ]
         },
         {
           "key": "website",
           "count": 115,
-          "percent": 76.7,
+          "percent": 77.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:website?uselang=sv",
           "topValues": [
             {
@@ -22766,7 +22760,7 @@
         {
           "key": "wikidata",
           "count": 110,
-          "percent": 73.3,
+          "percent": 73.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikidata?uselang=sv",
           "topValues": [
             {
@@ -22804,7 +22798,7 @@
         {
           "key": "information",
           "count": 85,
-          "percent": 56.7,
+          "percent": 57.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:information?uselang=sv",
           "topValues": [
             {
@@ -22836,7 +22830,7 @@
         {
           "key": "operator",
           "count": 83,
-          "percent": 55.3,
+          "percent": 55.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:operator?uselang=sv",
           "topValues": [
             {
@@ -22874,7 +22868,7 @@
         {
           "key": "board_type",
           "count": 74,
-          "percent": 49.3,
+          "percent": 49.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:board_type?uselang=sv",
           "topValues": [
             {
@@ -22906,7 +22900,7 @@
         {
           "key": "destination",
           "count": 74,
-          "percent": 49.3,
+          "percent": 49.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:destination?uselang=sv",
           "topValues": [
             {
@@ -22943,13 +22937,13 @@
         },
         {
           "key": "image:license",
-          "count": 53,
-          "percent": 35.3,
+          "count": 52,
+          "percent": 34.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license?uselang=sv",
           "topValues": [
             {
               "value": "CC-0",
-              "count": 26,
+              "count": 25,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC-0?uselang=sv",
               "directUrl": null
             },
@@ -22982,7 +22976,7 @@
         {
           "key": "wikimedia_commons",
           "count": 42,
-          "percent": 28.0,
+          "percent": 28.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -23020,7 +23014,7 @@
         {
           "key": "check_date",
           "count": 37,
-          "percent": 24.7,
+          "percent": 24.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:check_date?uselang=sv",
           "topValues": [
             {
@@ -23058,7 +23052,7 @@
         {
           "key": "description",
           "count": 36,
-          "percent": 24.0,
+          "percent": 24.2,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
@@ -23096,7 +23090,7 @@
         {
           "key": "historic",
           "count": 29,
-          "percent": 19.3,
+          "percent": 19.5,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:historic?uselang=sv",
           "topValues": [
             {
@@ -23134,7 +23128,7 @@
         {
           "key": "building",
           "count": 19,
-          "percent": 12.7,
+          "percent": 12.8,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:building?uselang=sv",
           "topValues": [
             {
@@ -23160,7 +23154,7 @@
         {
           "key": "wikipedia",
           "count": 15,
-          "percent": 10.0,
+          "percent": 10.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikipedia?uselang=sv",
           "topValues": [
             {
@@ -23198,7 +23192,7 @@
         {
           "key": "image:license:wikidata",
           "count": 12,
-          "percent": 8.0,
+          "percent": 8.1,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image:license:wikidata?uselang=sv",
           "topValues": [
             {
@@ -23211,13 +23205,13 @@
         },
         {
           "key": "wheelchair",
-          "count": 11,
-          "percent": 7.3,
+          "count": 10,
+          "percent": 6.7,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wheelchair?uselang=sv",
           "topValues": [
             {
               "value": "no",
-              "count": 7,
+              "count": 6,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dno?uselang=sv",
               "directUrl": null
             },
@@ -23231,26 +23225,6 @@
               "value": "yes",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wheelchair%3Dyes?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "access",
-          "count": 9,
-          "percent": 6.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:access?uselang=sv",
-          "topValues": [
-            {
-              "value": "yes",
-              "count": 8,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dyes?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "private",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dprivate?uselang=sv",
               "directUrl": null
             }
           ]
@@ -23303,6 +23277,26 @@
               "value": "yes",
               "count": 9,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:hiking%3Dyes?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "access",
+          "count": 8,
+          "percent": 5.4,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:access?uselang=sv",
+          "topValues": [
+            {
+              "value": "yes",
+              "count": 7,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dyes?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "private",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:access%3Dprivate?uselang=sv",
               "directUrl": null
             }
           ]
@@ -23384,20 +23378,6 @@
           ]
         },
         {
-          "key": "capacity",
-          "count": 6,
-          "percent": 4.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:capacity?uselang=sv",
-          "topValues": [
-            {
-              "value": "6",
-              "count": 6,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:capacity%3D6?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "man_made",
           "count": 6,
           "percent": 4.0,
@@ -23462,9 +23442,23 @@
           ]
         },
         {
+          "key": "capacity",
+          "count": 5,
+          "percent": 3.4,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:capacity?uselang=sv",
+          "topValues": [
+            {
+              "value": "6",
+              "count": 5,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:capacity%3D6?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "landuse",
           "count": 5,
-          "percent": 3.3,
+          "percent": 3.4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:landuse?uselang=sv",
           "topValues": [
             {
@@ -23490,7 +23484,7 @@
         {
           "key": "mapillary",
           "count": 5,
-          "percent": 3.3,
+          "percent": 3.4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:mapillary?uselang=sv",
           "topValues": [
             {
@@ -23528,7 +23522,7 @@
         {
           "key": "name:en",
           "count": 5,
-          "percent": 3.3,
+          "percent": 3.4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name:en?uselang=sv",
           "topValues": [
             {
@@ -23566,7 +23560,7 @@
         {
           "key": "start_date",
           "count": 5,
-          "percent": 3.3,
+          "percent": 3.4,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:start_date?uselang=sv",
           "topValues": [
             {
@@ -24881,20 +24875,6 @@
               "value": "start",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:zip_line%3Dstart?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "{{OSMLink|type",
-          "count": 1,
-          "percent": 0.7,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:%7B%7BOSMLink%7Ctype?uselang=sv",
-          "topValues": [
-            {
-              "value": "node|OSM_ID=14159557081}}",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:%7B%7BOSMLink%7Ctype%3Dnode%7COSM_ID%3D14159557081%7D%7D?uselang=sv",
               "directUrl": null
             }
           ]
@@ -34141,6 +34121,49 @@
       }
     },
     {
+      "osmType": "way",
+      "osmId": 1424973417,
+      "osmUrl": "https://www.openstreetmap.org/way/1424973417",
+      "name": "Cissi",
+      "satRef": "sat:poi:cbnjd",
+      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:cbnjd",
+      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:cbnjd",
+      "category": "Toalett",
+      "lat": 59.412492,
+      "lon": 18.5571672,
+      "tags": {
+        "access": "yes",
+        "amenity": "toilets",
+        "building": "yes",
+        "changing_table": "no",
+        "check_date": "2025-08-25",
+        "drinking_water": "yes",
+        "fee": "no",
+        "gender_segregated": "no",
+        "handwashing:soap": "yes",
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_vandring_dokumentera_11.jpg",
+        "image:license": "CC-0",
+        "image:license:wikidata": "Q6938433",
+        "name": "Cissi",
+        "opening_hours": "24/7",
+        "ref:stockholmarchipelagotrail": "sat:poi:cbnjd",
+        "source": "survey",
+        "toilets:disposal": "bucket",
+        "toilets:handwashing": "yes",
+        "toilets:num_chambers": "3",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "seated",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "no",
+        "wikimedia_commons": "Category:Grinda,_public_toilets_Cissi_13098060270"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Grinda_20250825_vandring_dokumentera_11.jpg",
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:cbnjd",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Grinda%2C_public_toilets_Cissi_13098060270"
+      }
+    },
+    {
       "osmType": "node",
       "osmId": 12815485678,
       "osmUrl": "https://www.openstreetmap.org/node/12815485678",
@@ -42691,9 +42714,9 @@
       "osmId": 14204579427,
       "osmUrl": "https://www.openstreetmap.org/node/14204579427",
       "name": "Utö hotellstugor",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
+      "satRef": "sat:poi:85kwe",
+      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:85kwe",
+      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:85kwe",
       "category": "Boende",
       "lat": 58.9685525,
       "lon": 18.3272316,
@@ -42703,13 +42726,14 @@
         "name": "Utö hotellstugor",
         "operator": "Utö Värdshus",
         "operator:wikidata": "Q133840505",
-        "ref:stockholmarchipelagotrail": "unknown",
+        "ref:stockholmarchipelagotrail": "sat:poi:85kwe",
         "tourism": "holiday_village",
         "website": "https://www.utovardshus.se/boende/hotellstugor/",
         "wikimedia_commons": "Category:Utö_Hotellstugorna"
       },
       "tagValueUrls": {
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_maj.jpg",
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:85kwe",
         "website": "https://www.utovardshus.se/boende/hotellstugor/",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Ut%C3%B6_Hotellstugorna"
       }
@@ -46572,12 +46596,10 @@
         "addr:street": "Edenäs gård",
         "amenity": "restaurant",
         "cuisine": "swedish",
-        "fixme": "Följa upp hur det blir 2027",
         "image": "https://commons.wikimedia.org/wiki/File:Ut%C3%B6_bykrogen_20260709_06.jpg",
         "name": "Utö bykrog",
-        "note": "Öppnat 2026 stänger för säsongen 28 sep 2026 https://www.facebook.com/groups/331147070287925/permalink/28460730060236249/",
-        "note:en": "Started in 2026 now 2026 sep closed for the season",
-        "opening_hours": "13:00-23:00",
+        "note": "Öppnat 2026 stänger för säsongen 28 sep 2026 kommer att köra 2027",
+        "note:en": "Started in 2026 now 2026 sep closed for the season will open 2027",
         "phone": "+46739079628",
         "ref:stockholmarchipelagotrail": "sat:poi:9rwwe",
         "seasonal": "summer",
@@ -50143,11 +50165,11 @@
         "access": "customers",
         "amenity": "shower",
         "check_date": "2026-05-08",
+        "count": "3",
         "fee": "yes",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_maj_toaletter_Ut%C3%B6_t%C3%A4ltplats.jpg",
         "indoor": "yes",
-        "ref:stockholmarchipelagotrail": "sat:poi:x3ptv",
-        "shower:count": "3"
+        "ref:stockholmarchipelagotrail": "sat:poi:x3ptv"
       },
       "tagValueUrls": {
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Ut%C3%B6_2025_maj_toaletter_Ut%C3%B6_t%C3%A4ltplats.jpg",
@@ -56170,31 +56192,6 @@
       },
       "tagValueUrls": {
         "image": "https://commons.wikimedia.org/wiki/File:Bistro_S%C3%A5gen_grillplats_01.jpg"
-      }
-    },
-    {
-      "osmType": "node",
-      "osmId": 14160332709,
-      "osmUrl": "https://www.openstreetmap.org/node/14160332709",
-      "name": "(namnlös)",
-      "satRef": "unknown",
-      "satUrl": null,
-      "satJsonUrl": null,
-      "category": "Turism / sevärdhet",
-      "lat": 59.4465248,
-      "lon": 18.6959585,
-      "tags": {
-        "access": "yes",
-        "capacity": "6",
-        "image": "https://commons.wikimedia.org/wiki/File:Ingmars%C3%B6_Hembygdsmuseum_2026_16.jpg",
-        "image:license": "CC-0",
-        "ref:stockholmarchipelagotrail": "unknown",
-        "tourism": "picnic_site",
-        "wheelchair": "no",
-        "{{OSMLink|type": "node|OSM_ID=14159557081}}"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:Ingmars%C3%B6_Hembygdsmuseum_2026_16.jpg"
       }
     },
     {
