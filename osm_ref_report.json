@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T10:39:44.488286Z",
+  "generatedAt": "2026-10-01T11:06:37.421220Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -28706,9 +28706,9 @@
               "directUrl": null
             },
             {
-              "value": "18.5 km",
+              "value": "17.8 km",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:distance%3D18.5%20km?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:distance%3D17.8%20km?uselang=sv",
               "directUrl": null
             },
             {
@@ -63650,7 +63650,7 @@
       "tags": {
         "colour": "yellow",
         "direction": "clockwise",
-        "distance": "18.5 km",
+        "distance": "17.8 km",
         "image": "https://commons.wikimedia.org/wiki/File:Runmar%C3%B6_-_KMB_-_16001000453864.jpg",
         "name": "SAT Etapp Runmarö",
         "name:de": "SAT Etappe Runmarö",
