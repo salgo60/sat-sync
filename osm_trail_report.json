@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T09:59:44.060564Z",
+  "generatedAt": "2026-10-06T11:25:51.744002Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -16,10 +16,28 @@
         "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:colour%3Dyellow?uselang=sv"
       },
       {
+        "key": "contact:facebook",
+        "value": "100091686674986",
+        "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:contact:facebook?uselang=sv",
+        "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:contact:facebook%3D100091686674986?uselang=sv"
+      },
+      {
         "key": "distance",
         "value": "270 km",
         "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:distance?uselang=sv",
         "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:distance%3D270%20km?uselang=sv"
+      },
+      {
+        "key": "facebook",
+        "value": "groups/1327237162079801",
+        "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:facebook?uselang=sv",
+        "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:facebook%3Dgroups%2F1327237162079801?uselang=sv"
+      },
+      {
+        "key": "instagram",
+        "value": "stockholmarchipelagotrail",
+        "keyUrl": "https://wiki.openstreetmap.org/wiki/Key:instagram?uselang=sv",
+        "valueUrl": "https://wiki.openstreetmap.org/wiki/Tag:instagram%3Dstockholmarchipelagotrail?uselang=sv"
       },
       {
         "key": "name",
