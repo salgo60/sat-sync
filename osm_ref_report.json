@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T04:42:32.488790Z",
+  "generatedAt": "2026-10-08T04:44:00.860951Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -16883,8 +16883,8 @@
         },
         {
           "key": "name",
-          "count": 38,
-          "percent": 46.3,
+          "count": 39,
+          "percent": 47.6,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:name?uselang=sv",
           "topValues": [
             {
@@ -17561,6 +17561,20 @@
               "value": "Kinnekulle_badplats,_Ålö",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons:path%3DKinnekulle_badplats%2C_%C3%85l%C3%B6?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "alt_name",
+          "count": 1,
+          "percent": 1.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:alt_name?uselang=sv",
+          "topValues": [
+            {
+              "value": "Barnens bad",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:alt_name%3DBarnens%20bad?uselang=sv",
               "directUrl": null
             }
           ]
@@ -51291,34 +51305,6 @@
     },
     {
       "osmType": "way",
-      "osmId": 1317165259,
-      "osmUrl": "https://www.openstreetmap.org/way/1317165259",
-      "name": "(namnlös)",
-      "satRef": "sat:poi:qannr",
-      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:qannr",
-      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qannr",
-      "category": "Badplats",
-      "lat": 58.9747842,
-      "lon": 18.339334,
-      "tags": {
-        "check_date": "2026-04-24",
-        "image": "https://commons.wikimedia.org/wiki/File:Norra_sand,_Ut%C3%B6,_grillplats_02.jpg",
-        "image:license": "CC0 1.0",
-        "mapillary": "1109983360806111",
-        "natural": "beach",
-        "ref:stockholmarchipelagotrail": "sat:poi:qannr",
-        "wikidata": "Q130338821",
-        "wikimedia_commons": "Category:Norra sands badplats, Utö"
-      },
-      "tagValueUrls": {
-        "image": "https://commons.wikimedia.org/wiki/File:Norra_sand,_Ut%C3%B6,_grillplats_02.jpg",
-        "mapillary": "https://www.mapillary.com/app/user/salgo601?pKey=1109983360806111",
-        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:qannr",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Norra%20sands%20badplats%2C%20Ut%C3%B6"
-      }
-    },
-    {
-      "osmType": "way",
       "osmId": 1377169457,
       "osmUrl": "https://www.openstreetmap.org/way/1377169457",
       "name": "(namnlös)",
@@ -51990,6 +51976,36 @@
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_grillplats_Myrudden.jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:tjc9x",
         "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Myruddens_badplats"
+      }
+    },
+    {
+      "osmType": "way",
+      "osmId": 1317165259,
+      "osmUrl": "https://www.openstreetmap.org/way/1317165259",
+      "name": "Norra sands badplats, Utö",
+      "satRef": "sat:poi:qannr",
+      "satUrl": "https://map.stockholmarchipelagotrail.com/?sat:poi:qannr",
+      "satJsonUrl": "https://map.stockholmarchipelagotrail.com/api/objects/sat:poi:qannr",
+      "category": "Badplats",
+      "lat": 58.9747842,
+      "lon": 18.339334,
+      "tags": {
+        "alt_name": "Barnens bad",
+        "check_date": "2026-04-24",
+        "image": "https://commons.wikimedia.org/wiki/File:Norra_sand,_Ut%C3%B6,_grillplats_02.jpg",
+        "image:license": "CC0 1.0",
+        "mapillary": "1109983360806111",
+        "name": "Norra sands badplats, Utö",
+        "natural": "beach",
+        "ref:stockholmarchipelagotrail": "sat:poi:qannr",
+        "wikidata": "Q130338821",
+        "wikimedia_commons": "Category:Norra sands badplats, Utö"
+      },
+      "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:Norra_sand,_Ut%C3%B6,_grillplats_02.jpg",
+        "mapillary": "https://www.mapillary.com/app/user/salgo601?pKey=1109983360806111",
+        "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:qannr",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Norra%20sands%20badplats%2C%20Ut%C3%B6"
       }
     },
     {
