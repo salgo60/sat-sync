@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-08T04:44:00.860951Z",
+  "generatedAt": "2026-10-10T04:44:15.991759Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
   "refKey": "ref:stockholmarchipelagotrail",
   "totalObjects": 1161,
-  "uniqueTagKeys": 520,
+  "uniqueTagKeys": 519,
   "osmTypes": {
     "node": 823,
     "way": 303,
@@ -6009,8 +6009,8 @@
         },
         {
           "key": "wikimedia_commons",
-          "count": 39,
-          "percent": 50.6,
+          "count": 40,
+          "percent": 51.9,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
           "topValues": [
             {
@@ -7958,20 +7958,6 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:bicycle_rental%3Dyes?uselang=sv",
               "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "bild",
-          "count": 1,
-          "percent": 1.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:bild?uselang=sv",
-          "topValues": [
-            {
-              "value": "https://commons.wikimedia.org/wiki/File:Tymarsstugan_%C3%85l%C3%B6.jpg",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:bild%3Dhttps%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ATymarsstugan_%25C3%2585l%25C3%25B6.jpg?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/File:Tymarsstugan_%C3%85l%C3%B6.jpg"
             }
           ]
         },
@@ -42671,7 +42657,6 @@
       "lat": 58.9109246,
       "lon": 18.2005427,
       "tags": {
-        "bild": "https://commons.wikimedia.org/wiki/File:Tymarsstugan_%C3%85l%C3%B6.jpg",
         "building": "yes",
         "check_date": "2025-05-08",
         "name": "Tymarstugan",
@@ -42679,12 +42664,13 @@
         "ref:stockholmarchipelagotrail": "sat:poi:ppbec",
         "tourism": "chalet",
         "website": "https://dvqlxo2m2q99q.cloudfront.net/000_clients/622935/file/98-tymarstugen.pdf",
-        "wikidata": "Q139629431"
+        "wikidata": "Q139629431",
+        "wikimedia_commons": "File:Tymarsstugan_Ålö.jpg"
       },
       "tagValueUrls": {
-        "bild": "https://commons.wikimedia.org/wiki/File:Tymarsstugan_%C3%85l%C3%B6.jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:ppbec",
-        "website": "https://dvqlxo2m2q99q.cloudfront.net/000_clients/622935/file/98-tymarstugen.pdf"
+        "website": "https://dvqlxo2m2q99q.cloudfront.net/000_clients/622935/file/98-tymarstugen.pdf",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/File:Tymarsstugan_%C3%85l%C3%B6.jpg"
       }
     },
     {

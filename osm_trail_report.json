@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T04:46:25.271110Z",
+  "generatedAt": "2026-10-10T04:44:19.097891Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -153,13 +153,13 @@
       "topValues": [
         {
           "value": "path",
-          "count": 319,
+          "count": 320,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dpath?uselang=sv",
           "directUrl": null
         },
         {
           "value": "track",
-          "count": 148,
+          "count": 147,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dtrack?uselang=sv",
           "directUrl": null
         },
@@ -20669,7 +20669,7 @@
           "topValues": [
             {
               "value": "path",
-              "count": 33,
+              "count": 34,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dpath?uselang=sv",
               "directUrl": null
             },
@@ -20686,15 +20686,15 @@
               "directUrl": null
             },
             {
-              "value": "track",
-              "count": 6,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dtrack?uselang=sv",
-              "directUrl": null
-            },
-            {
               "value": "tertiary",
               "count": 5,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dtertiary?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "track",
+              "count": 5,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:highway%3Dtrack?uselang=sv",
               "directUrl": null
             },
             {
@@ -22287,7 +22287,7 @@
           "osmUrl": "https://www.openstreetmap.org/way/360067491",
           "role": "",
           "tags": {
-            "highway": "track",
+            "highway": "path",
             "sac_scale": "hiking",
             "trail_visibility": "good",
             "trailblazed": "no"
@@ -41200,7 +41200,7 @@
         19020310
       ],
       "tags": {
-        "highway": "track",
+        "highway": "path",
         "sac_scale": "hiking",
         "trail_visibility": "good",
         "trailblazed": "no"
