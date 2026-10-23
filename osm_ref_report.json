@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-19T04:42:19.767009Z",
+  "generatedAt": "2026-10-23T04:39:44.992619Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
   "refKey": "ref:stockholmarchipelagotrail",
   "totalObjects": 1162,
-  "uniqueTagKeys": 519,
+  "uniqueTagKeys": 517,
   "osmTypes": {
     "node": 824,
     "way": 303,
@@ -10557,8 +10557,8 @@
         },
         {
           "key": "image",
-          "count": 11,
-          "percent": 91.7,
+          "count": 10,
+          "percent": 83.3,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -10628,6 +10628,44 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:website%3Dhttps%3A%2F%2Fskargarden.se%2Ffyrsallskapet-invigde-utstallning-pa-landsort%2F?uselang=sv",
               "directUrl": "https://skargarden.se/fyrsallskapet-invigde-utstallning-pa-landsort/"
+            }
+          ]
+        },
+        {
+          "key": "wikimedia_commons",
+          "count": 8,
+          "percent": 66.7,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
+          "topValues": [
+            {
+              "value": "Category:ERSTA-batteriet_Landsort",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3AERSTA-batteriet_Landsort?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/Category:ERSTA-batteriet_Landsort"
+            },
+            {
+              "value": "Category:Bygdemuseet_Ornö_sockenstuga",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3ABygdemuseet_Orn%C3%B6_sockenstuga?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/Category:Bygdemuseet_Orn%C3%B6_sockenstuga"
+            },
+            {
+              "value": "Category:Utö_Gruvmuseum",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3AUt%C3%B6_Gruvmuseum?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/Category:Ut%C3%B6_Gruvmuseum"
+            },
+            {
+              "value": "File:Interiör. Möja Museum. Förevisning av hur man spinner ull en vanlig syssla förr.jpg",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DFile%3AInteri%C3%B6r.%20M%C3%B6ja%20Museum.%20F%C3%B6revisning%20av%20hur%20man%20spinner%20ull%20en%20vanlig%20syssla%20f%C3%B6rr.jpg?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/File:Interi%C3%B6r.%20M%C3%B6ja%20Museum.%20F%C3%B6revisning%20av%20hur%20man%20spinner%20ull%20en%20vanlig%20syssla%20f%C3%B6rr.jpg"
+            },
+            {
+              "value": "Category:Sandhamns_museum",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3ASandhamns_museum?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/Category:Sandhamns_museum"
             }
           ]
         },
@@ -10756,44 +10794,6 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:image:license%3DCC0%201.0?uselang=sv",
               "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "wikimedia_commons",
-          "count": 7,
-          "percent": 58.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:wikimedia_commons?uselang=sv",
-          "topValues": [
-            {
-              "value": "Category:ERSTA-batteriet_Landsort",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3AERSTA-batteriet_Landsort?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/Category:ERSTA-batteriet_Landsort"
-            },
-            {
-              "value": "Category:Bygdemuseet_Ornö_sockenstuga",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3ABygdemuseet_Orn%C3%B6_sockenstuga?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/Category:Bygdemuseet_Orn%C3%B6_sockenstuga"
-            },
-            {
-              "value": "Category:Utö_Gruvmuseum",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3AUt%C3%B6_Gruvmuseum?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/Category:Ut%C3%B6_Gruvmuseum"
-            },
-            {
-              "value": "Category:Sandhamns_museum",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3ASandhamns_museum?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/Category:Sandhamns_museum"
-            },
-            {
-              "value": "Category:Skärgådsmuseet_Nämdö",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3ASk%C3%A4rg%C3%A5dsmuseet_N%C3%A4md%C3%B6?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/Category:Sk%C3%A4rg%C3%A5dsmuseet_N%C3%A4md%C3%B6"
             }
           ]
         },
@@ -10980,26 +10980,6 @@
           ]
         },
         {
-          "key": "source",
-          "count": 2,
-          "percent": 16.7,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:source?uselang=sv",
-          "topValues": [
-            {
-              "value": "bing",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:source%3Dbing?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Bing",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:source%3DBing?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "subject:wikidata",
           "count": 2,
           "percent": 16.7,
@@ -11034,15 +11014,43 @@
           ]
         },
         {
-          "key": "addr:hamlet",
+          "key": "addr:city",
           "count": 1,
           "percent": 8.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:hamlet?uselang=sv",
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:city?uselang=sv",
+          "topValues": [
+            {
+              "value": "Möja",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:addr:city%3DM%C3%B6ja?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "addr:country",
+          "count": 1,
+          "percent": 8.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:country?uselang=sv",
+          "topValues": [
+            {
+              "value": "SE",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:addr:country%3DSE?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "addr:place",
+          "count": 1,
+          "percent": 8.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:addr:place?uselang=sv",
           "topValues": [
             {
               "value": "Berg",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:addr:hamlet%3DBerg?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:addr:place%3DBerg?uselang=sv",
               "directUrl": null
             }
           ]
@@ -11211,20 +11219,6 @@
               "value": "ornomuseum",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:instagram%3Dornomuseum?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "is_in",
-          "count": 1,
-          "percent": 8.3,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:is_in?uselang=sv",
-          "topValues": [
-            {
-              "value": "Möja",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:is_in%3DM%C3%B6ja?uselang=sv",
               "directUrl": null
             }
           ]
@@ -11533,6 +11527,20 @@
               "value": "recommended",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:reservation%3Drecommended?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "source",
+          "count": 1,
+          "percent": 8.3,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:source?uselang=sv",
+          "topValues": [
+            {
+              "value": "Bing",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:source%3DBing?uselang=sv",
               "directUrl": null
             }
           ]
@@ -44493,14 +44501,14 @@
       "lat": 59.4049048,
       "lon": 18.8859777,
       "tags": {
-        "addr:hamlet": "Berg",
+        "addr:city": "Möja",
+        "addr:country": "SE",
+        "addr:place": "Berg",
         "building": "house",
         "check_date": "2026-07-17",
         "description": "Visar och berättar om skärgårdslivet förr och nu.",
         "facebook": "Möja-Hembygdsmuseum-100057307065516",
         "fee": "no",
-        "image": "Interiör._Möja_Museum._Förevisning_av_hur_man_spinner_ull_en_vanlig_syssla_förr.jpg",
-        "is_in": "Möja",
         "museum": "history",
         "name": "Möja Hembygdsmuseum",
         "note": "Ideellt drivet museum. Medlemskap 130 SEK/år Swishnummer 12338997. PG 917961-5.",
@@ -44510,14 +44518,15 @@
         "payment:swish": "yes",
         "phone": "+46 70 308 05 40",
         "ref:stockholmarchipelagotrail": "sat:poi:pja4r",
-        "source": "bing",
         "tourism": "museum",
         "website": "https://www.hembygd.se/moja",
-        "wikidata": "Q135443020"
+        "wikidata": "Q135443020",
+        "wikimedia_commons": "File:Interiör. Möja Museum. Förevisning av hur man spinner ull en vanlig syssla förr.jpg"
       },
       "tagValueUrls": {
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:pja4r",
-        "website": "https://www.hembygd.se/moja"
+        "website": "https://www.hembygd.se/moja",
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/File:Interi%C3%B6r.%20M%C3%B6ja%20Museum.%20F%C3%B6revisning%20av%20hur%20man%20spinner%20ull%20en%20vanlig%20syssla%20f%C3%B6rr.jpg"
       }
     },
     {
