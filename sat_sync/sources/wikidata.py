@@ -1,5 +1,5 @@
 import json
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 from urllib.parse import urlencode
 
 from sat_sync.models import Identity
@@ -25,6 +25,24 @@ class WikidataSource:
             return self._search_by_external_id(external_id)
         else:
             return self._search_all()
+
+    def identity_assertions(self) -> list[dict[str, str]]:
+        """Return all P14545 claims without requiring a label or truncating results."""
+        query = """
+        SELECT ?item ?sat_id WHERE {
+          ?item wdt:P14545 ?sat_id .
+        }
+        """
+        result = self._query_wikidata(query)
+        assertions = []
+        for binding in result.get("results", {}).get("bindings", []):
+            assertions.append(
+                {
+                    "wikidata": binding.get("item", {}).get("value", "").rsplit("/", 1)[-1],
+                    "satId": binding.get("sat_id", {}).get("value", ""),
+                }
+            )
+        return assertions
 
     def _search_by_external_id(self, external_id: str) -> list[Identity]:
         """Söka efter en specifik externa identifierare."""
@@ -88,10 +106,12 @@ class WikidataSource:
         }
 
         url = f"{self.SPARQL_ENDPOINT}?{urlencode(params)}"
-
-        try:
-            with urlopen(url) as response:
-                return json.loads(response.read().decode("utf-8"))
-        except Exception as e:
-            print(f"Fel vid Wikidata-fråga: {e}")
-            return {"results": {"bindings": []}}
+        request = Request(
+            url,
+            headers={
+                "Accept": "application/sparql-results+json",
+                "User-Agent": "sat-sync/1.0 (+https://github.com/salgo60/sat-sync)",
+            },
+        )
+        with urlopen(request, timeout=60) as response:
+            return json.loads(response.read().decode("utf-8"))
