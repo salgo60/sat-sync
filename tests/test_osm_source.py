@@ -78,4 +78,62 @@ def test_object_types_retries_temporary_gateway_errors(monkeypatch):
 
     assert OSMSource().object_types([123]) == {123: ["way"]}
     assert len(attempts) == 2
-    assert sleeps == [1]
+    assert sleeps == [5]
+
+
+def test_object_types_honors_retry_after_for_rate_limited_requests(monkeypatch):
+    class Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_args):
+            return None
+
+        def read(self):
+            return json.dumps({"elements": [{"type": "node", "id": 123}]}).encode()
+
+    attempts = []
+
+    def fake_urlopen(request, timeout):
+        attempts.append(request)
+        if len(attempts) == 1:
+            raise urllib.error.HTTPError(
+                request.full_url,
+                429,
+                "Too Many Requests",
+                {"Retry-After": "37"},
+                None,
+            )
+        return Response()
+
+    sleeps = []
+    monkeypatch.setattr("sat_sync.sources.osm.urlopen", fake_urlopen)
+    monkeypatch.setattr("sat_sync.sources.osm.time.sleep", sleeps.append)
+
+    assert OSMSource().object_types([123]) == {123: ["node"]}
+    assert sleeps == [37.0]
+
+
+def test_object_types_paces_separate_batches(monkeypatch):
+    class Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_args):
+            return None
+
+        def read(self):
+            return b'{"elements":[]}'
+
+    calls = []
+    sleeps = []
+    monkeypatch.setattr(
+        "sat_sync.sources.osm.urlopen",
+        lambda request, timeout: (calls.append(request) or Response()),
+    )
+    monkeypatch.setattr("sat_sync.sources.osm.time.sleep", sleeps.append)
+
+    OSMSource().object_types(list(range(1, 602)))
+
+    assert len(calls) == 3
+    assert sleeps == [5, 5]
