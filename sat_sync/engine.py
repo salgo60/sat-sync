@@ -1,9 +1,12 @@
+from typing import Any
+
+
 class ReconciliationEngine:
 
     def __init__(self, rules):
         self.rules = rules
 
-    def run(self, identities):
+    def run(self, identities) -> list[Any]:
 
         findings = []
 

@@ -3,6 +3,7 @@
 * [OSM-egenskaper per kategori](https://salgo60.github.io/sat-sync/sat_osm_ref_report.html)
 * [OSM-egenskaper på leden](https://salgo60.github.io/sat-sync/sat_osm_trail_report.html)
 * [Hiking use cases: current support, gaps and priorities](https://salgo60.github.io/sat-sync/sat_use_cases.html?lang=en)
+* [Evergreen identity findings pilot](https://salgo60.github.io/sat-sync/evergreen_report.html)
 
 Both OSM reports have an **English / Svenska** button and support `?lang=en`
 and `?lang=sv` (Swedish by default). Switching languages preserves active filters
@@ -126,6 +127,11 @@ They are often the natural consequence of independent communities maintaining in
 SAT Sync acts as an **identity broker** rather than a synchronization engine.
 
 Its primary output is **knowledge**, not modified data.
+
+The manually refreshed [Evergreen pilot](EVERGREEN.md) adds versioned,
+read-only findings for SAT POIs and their OSM `ref:stockholmarchipelagotrail`
+and Wikidata P14545 links. It complements, rather than replaces, the existing
+coverage dashboards and quality-history reports.
 
 ---
 

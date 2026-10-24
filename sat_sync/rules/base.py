@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from typing import Any
 
-from sat_sync.findings import Finding
 from sat_sync.models import Identity
 
 
@@ -16,6 +16,6 @@ class Rule(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def evaluate(self, identities: list[Identity]) -> list[Finding]:
+    def evaluate(self, identities: list[Identity]) -> list[Any]:
         """Evaluate identities and return findings."""
         raise NotImplementedError

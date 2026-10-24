@@ -12,13 +12,21 @@ class SATSource:
     def identities(self):
         with open(self.datafile, encoding="utf-8") as f:
             data = json.load(f)
+        return self.identities_from_data(data)
 
-        return [
-            Identity(
-                sat_id=item.get("satId") or item.get("sat_id"),
-                name=item.get("name"),
-                wikidata=item.get("wikidata"),
-                osm_id=item.get("osm"),
+    @staticmethod
+    def identities_from_data(data: dict | list) -> list[Identity]:
+        """Normalize a SAT JSON array or POI GeoJSON into reconciliation identities."""
+        items = data if isinstance(data, list) else data.get("features", [])
+        identities = []
+        for item in items:
+            props = item.get("properties", item)
+            identities.append(
+                Identity(
+                    sat_id=props.get("id") or props.get("satId") or props.get("sat_id"),
+                    name=props.get("name"),
+                    wikidata=props.get("wikidata"),
+                    osm_id=props.get("osm"),
+                )
             )
-            for item in data
-        ]
+        return identities
