@@ -26,7 +26,8 @@ OUTPUT_FILE = Path("osm_postpass_data.json")
 def fetch_postpass_data() -> dict:
     """Hämta data från PostPass via SQL."""
     headers = {
-        "User-Agent": "sat-sync/1.0 (+https://github.com/salgo60/sat-sync)",
+        "User-Agent": "sat-sync/1.0 (+https://github.com/salgo60/sat-sync; salgo60@msn.com)",
+        "Accept": "application/geo+json, application/json",
     }
     
     # PostPass API expects POST with data parameter
