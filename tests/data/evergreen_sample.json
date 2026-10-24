@@ -1,0 +1,93 @@
+{
+  "sat": {
+    "features": [
+      {
+        "properties": {
+          "id": "sat:poi:alpha",
+          "name": "Alpha",
+          "osm": "osm:way:101",
+          "wikidata": "wikidata:Q100"
+        }
+      },
+      {
+        "properties": {
+          "id": "sat:poi:beta",
+          "name": "Beta"
+        }
+      },
+      {
+        "properties": {
+          "id": "sat:poi:gamma",
+          "name": "Gamma",
+          "osm": "osm:node:303",
+          "wikidata": "wikidata:Q300"
+        }
+      }
+    ]
+  },
+  "osm": {
+    "features": [
+      {
+        "properties": {
+          "osm_type": "way",
+          "osm_id": 101,
+          "tags": {
+            "name": "Alpha",
+            "ref:stockholmarchipelagotrail": "sat:poi:alpha"
+          }
+        }
+      },
+      {
+        "properties": {
+          "osm_type": "node",
+          "osm_id": 202,
+          "tags": {
+            "ref:stockholmarchipelagotrail": "sat:poi:alpha"
+          }
+        }
+      },
+      {
+        "properties": {
+          "osm_type": "node",
+          "osm_id": 304,
+          "tags": {
+            "ref:stockholmarchipelagotrail": "sat:poi:gamma"
+          }
+        }
+      },
+      {
+        "properties": {
+          "osm_type": "way",
+          "osm_id": 404,
+          "tags": {
+            "ref:stockholmarchipelagotrail": "sat:poi:removed"
+          }
+        }
+      },
+      {
+        "properties": {
+          "osm_type": "node",
+          "osm_id": 505,
+          "tags": {
+            "ref:stockholmarchipelagotrail": "sat:poi:"
+          }
+        }
+      },
+      {
+        "properties": {
+          "osm_type": "relation",
+          "osm_id": 606,
+          "tags": {
+            "ref:stockholmarchipelagotrail": "sat:pier:example"
+          }
+        }
+      }
+    ]
+  },
+  "wikidata": [
+    {"wikidata": "Q100", "satId": "sat:poi:alpha"},
+    {"wikidata": "Q101", "satId": "sat:poi:alpha"},
+    {"wikidata": "Q301", "satId": "sat:poi:gamma"},
+    {"wikidata": "Q999", "satId": "sat:poi:removed"}
+  ]
+}

@@ -1,5 +1,5 @@
 import json
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 from urllib.parse import urlencode
 
 from sat_sync.models import Identity
@@ -86,6 +86,29 @@ class OSMSource:
                 )
 
         return identities
+
+    def object_types(self, osm_ids: list[int]) -> dict[int, list[str]]:
+        """Resolve object types for numeric OSM IDs without assuming geometry type."""
+        ids = sorted(
+            {osm_id for osm_id in osm_ids if isinstance(osm_id, int) and not isinstance(osm_id, bool)}
+        )
+        object_types: dict[int, list[str]] = {}
+        for start in range(0, len(ids), 300):
+            id_list = ",".join(str(osm_id) for osm_id in ids[start : start + 300])
+            query = f"[out:json][timeout:60];nwr(id:{id_list});out ids;"
+            request = Request(
+                self.OVERPASS_API,
+                data=query.encode("utf-8"),
+                headers={
+                    "Accept": "application/json",
+                    "User-Agent": "sat-sync/1.0 (+https://github.com/salgo60/sat-sync)",
+                },
+            )
+            with urlopen(request, timeout=90) as response:
+                result = json.loads(response.read().decode("utf-8"))
+            for element in result.get("elements", []):
+                object_types.setdefault(element["id"], []).append(element["type"])
+        return object_types
 
     def _query_overpass(self, query: str) -> dict:
         """Kör en Overpass API-fråga."""
