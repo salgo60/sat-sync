@@ -1,4 +1,6 @@
 import json
+import time
+import urllib.error
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode
 
@@ -13,6 +15,8 @@ class OSMSource:
 
     OVERPASS_API = "https://overpass-api.de/api/interpreter"
     TAG = "ref:stockholmarchipelagotrail"
+    USER_AGENT = "sat-sync/1.0 (+https://github.com/salgo60/sat-sync; salgo60@msn.com)"
+    RETRYABLE_HTTP_CODES = {429, 500, 502, 503, 504}
 
     def identities(self, external_id: str | None = None) -> list[Identity]:
         """
@@ -101,11 +105,22 @@ class OSMSource:
                 data=query.encode("utf-8"),
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "sat-sync/1.0 (+https://github.com/salgo60/sat-sync)",
+                    "User-Agent": self.USER_AGENT,
                 },
             )
-            with urlopen(request, timeout=90) as response:
-                result = json.loads(response.read().decode("utf-8"))
+            for attempt in range(3):
+                try:
+                    with urlopen(request, timeout=90) as response:
+                        result = json.loads(response.read().decode("utf-8"))
+                    break
+                except urllib.error.HTTPError as error:
+                    if error.code not in self.RETRYABLE_HTTP_CODES or attempt == 2:
+                        raise
+                    time.sleep(2**attempt)
+                except (TimeoutError, urllib.error.URLError):
+                    if attempt == 2:
+                        raise
+                    time.sleep(2**attempt)
             for element in result.get("elements", []):
                 object_types.setdefault(element["id"], []).append(element["type"])
         return object_types
@@ -115,11 +130,16 @@ class OSMSource:
         data = query.encode("utf-8")
 
         try:
-            request = urlopen(
+            request = Request(
                 self.OVERPASS_API,
                 data=data,
+                headers={
+                    "Accept": "application/json",
+                    "User-Agent": self.USER_AGENT,
+                },
             )
-            return json.loads(request.read().decode("utf-8"))
+            with urlopen(request, timeout=90) as response:
+                return json.loads(response.read().decode("utf-8"))
         except Exception as e:
             print(f"Fel vid Overpass API-fråga: {e}")
             return {"elements": []}

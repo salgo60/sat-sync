@@ -13,6 +13,7 @@ class WikidataSource:
 
     PROPERTY = "P14545"
     SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
+    USER_AGENT = "sat-sync/1.0 (+https://github.com/salgo60/sat-sync; salgo60@msn.com)"
 
     def identities(self, external_id: str | None = None) -> list[Identity]:
         """
@@ -110,7 +111,7 @@ class WikidataSource:
             url,
             headers={
                 "Accept": "application/sparql-results+json",
-                "User-Agent": "sat-sync/1.0 (+https://github.com/salgo60/sat-sync)",
+                "User-Agent": self.USER_AGENT,
             },
         )
         with urlopen(request, timeout=60) as response:
