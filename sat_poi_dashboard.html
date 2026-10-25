@@ -128,6 +128,7 @@
         <a href="sat_todo_map.html">🗺️ TODO-karta</a> &nbsp;|&nbsp;
         <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank"><span id="improvementsLink">💡 Förbättringsförslag</span></a> &nbsp;|&nbsp;
         <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkHdr">📈 Datakvalitet över tid</span></a> &nbsp;|&nbsp;
+        <a href="evergreen_report.html" id="evergreenLinkHdr">🌿 Evergreen-fynd</a> &nbsp;|&nbsp;
         <a data-report-link href="sat_osm_ref_report.html"><span id="osmPropertiesLinkHdr">📊 OSM-egenskaper</span></a> &nbsp;|&nbsp;
         <a data-report-link href="sat_osm_trail_report.html"><span id="trailPropertiesLinkHdr">🥾 Ledegenskaper</span></a> &nbsp;|&nbsp;
         <a href="sat_use_cases.html" id="useCasesLinkHdr">Användningsfall</a> &nbsp;|&nbsp;
@@ -10537,6 +10538,7 @@
       <a data-todo-list-href href="sat_todo_list.html"><span id="todoListLinkFtr">✅ TODO-lista</span></a> |
       <a href="https://github.com/salgo60/sat-sync/issues/new?title=F%C3%B6rb%C3%A4ttringsf%C3%B6rslag&labels=enhancement&body=Beskriv+f%C3%B6rb%C3%A4ttringsf%C3%B6rslaget+h%C3%A4r" target="_blank">💡 Förbättringsförslag</a> |
       <a data-quality-history-href href="sat_poi_quality_history.html"><span id="qualityHistoryLinkFtr">📈 Datakvalitet över tid</span></a> |
+      <a href="evergreen_report.html" id="evergreenLinkFtr">🌿 Evergreen-fynd</a> |
       <a data-report-link href="sat_osm_ref_report.html"><span id="osmPropertiesLinkFtr">📊 OSM-egenskaper</span></a> |
       <a data-report-link href="sat_osm_trail_report.html"><span id="trailPropertiesLinkFtr">🥾 Ledegenskaper</span></a> |
       <a href="sat_about.html"><span id="aboutLinkFtr">ℹ️ About</span></a>
@@ -10903,7 +10905,8 @@
           communityFlyerDesc: 'Flyern visar hur community-baserad data och offentliga aktörers kunskap tillsammans kan bygga en tillförlitlig digital tvilling.',
           communityFlyerHint: 'Klicka på bilden för att öppna den i full storlek.',
           osmPropertiesLink: '📊 OSM-egenskaper',
-          trailPropertiesLink: '🥾 Ledegenskaper'
+          trailPropertiesLink: '🥾 Ledegenskaper',
+          evergreenLink: '🌿 Evergreen-fynd'
         },
         en: {
           all: 'All',
@@ -10970,7 +10973,8 @@
           communityFlyerDesc: 'The flyer shows how community-based data and public-sector knowledge can combine to build a reliable digital twin.',
           communityFlyerHint: 'Click the image to open it full size.',
           osmPropertiesLink: '📊 OSM properties',
-          trailPropertiesLink: '🥾 Trail properties'
+          trailPropertiesLink: '🥾 Trail properties',
+          evergreenLink: '🌿 Evergreen findings'
         }
       };
 
@@ -11223,6 +11227,11 @@
         const qualityFtr = document.getElementById('qualityHistoryLinkFtr');
         if (qualityHdr) qualityHdr.textContent = qualityLabel;
         if (qualityFtr) qualityFtr.textContent = qualityLabel;
+        const evergreenLabel = t('evergreenLink');
+        const evergreenHdr = document.getElementById('evergreenLinkHdr');
+        const evergreenFtr = document.getElementById('evergreenLinkFtr');
+        if (evergreenHdr) evergreenHdr.textContent = evergreenLabel;
+        if (evergreenFtr) evergreenFtr.textContent = evergreenLabel;
         document.querySelectorAll('a[data-quality-history-href]').forEach((link) => {
           link.setAttribute('href', qualityUrl);
         });
