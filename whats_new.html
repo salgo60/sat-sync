@@ -34,8 +34,27 @@
   <p class="sub">
     Nya funktioner och förbättringar – nyast först.
     Alla ändringar via <a href="https://github.com/salgo60/sat-sync/pulls?q=is%3Apr" target="_blank">GitHub Pull Requests</a>.
-    <br><a href="sat_poi_dashboard.html">← Öppna dashboarden</a> · <a href="sat_todo_map.html">Öppna TODO-kartan</a> · <a href="sat_todo_list.html">Öppna TODO-listan</a>
+    <br><a href="sat_poi_dashboard.html">← Öppna dashboarden</a> · <a href="evergreen_report.html">🌿 Evergreen-fynd</a> · <a href="sat_todo_map.html">Öppna TODO-kartan</a> · <a href="sat_todo_list.html">Öppna TODO-listan</a>
   </p>
+
+  <div class="entry">
+    <div class="date">Oktober 2026</div>
+    <div class="pr-links">
+      <a href="https://github.com/salgo60/sat-sync/pull/177" target="_blank">PR #177</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/salgo60/sat-sync/pull/178" target="_blank">PR #178</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/salgo60/sat-sync/pull/179" target="_blank">PR #179</a>
+    </div>
+    <h2>🌿 Evergreen: granska SAT-, OSM- och Wikidata-länkar</h2>
+    <ul>
+      <li><strong>Ny, read-only granskning för SAT POI.</strong> Jämför SAT-ID:n med OSM-taggen <code>ref:stockholmarchipelagotrail</code> och Wikidata-egenskapen <code>P14545</code>.</li>
+      <li><strong>Fynd med historik och källbelägg.</strong> Versionerad JSON får stabila fynd-ID:n, tidsstämplar, evidens och direktlänkar till SAT, OSM och Wikidata. Den första körningen gav 666 fynd att granska – observationer, inte bekräftade fel.</li>
+      <li><strong>Manuell uppdatering.</strong> GitHub Actions körs på begäran och publicerar rapporten; tillfälliga Overpass-fel och sänkt rate limit hanteras med återförsök, <code>Retry-After</code> och pauser mellan batcher.</li>
+      <li><strong>Ingen automatisk ändring.</strong> Evergreen ändrar inte SAT, OSM eller Wikidata och skapar eller stänger inga GitHub Issues. Kontrollera alltid om en skillnad är en legitim modelleringsskillnad.</li>
+      <li><a href="evergreen_report.html">Öppna Evergreen-rapporten</a> · <a href="EVERGREEN.md">Så rapporterar och granskar du fynd</a>.</li>
+    </ul>
+  </div>
 
   <div class="entry">
     <div class="date">September 2026</div>
