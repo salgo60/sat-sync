@@ -54,3 +54,6 @@ def test_description_is_in_static_table_and_client_data(monkeypatch):
     assert "<td>Vatten &lt;källa&gt; &amp; &lt;/script&gt;" in html
     assert '"name": "Vatten \\u003ckälla>' in html
     assert description not in html
+    assert '<a href="evergreen_report.html" id="evergreenLinkHdr">🌿 Evergreen-fynd</a>' in html
+    assert '<a href="evergreen_report.html" id="evergreenLinkFtr">🌿 Evergreen-fynd</a>' in html
+    assert "🌿 Evergreen findings" in html
