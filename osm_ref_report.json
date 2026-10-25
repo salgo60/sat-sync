@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-24T04:39:07.620117Z",
+  "generatedAt": "2026-10-25T04:38:21.400376Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
   "refKey": "ref:stockholmarchipelagotrail",
   "totalObjects": 1162,
-  "uniqueTagKeys": 517,
+  "uniqueTagKeys": 518,
   "osmTypes": {
     "node": 824,
     "way": 303,
@@ -599,6 +599,20 @@
               "value": "yes",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:picnic_table%3Dyes?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "ref:swetrails",
+          "count": 1,
+          "percent": 10.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:swetrails?uselang=sv",
+          "topValues": [
+            {
+              "value": "poi/Arholma-nord-vindskydd",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:swetrails%3Dpoi%2FArholma-nord-vindskydd?uselang=sv",
               "directUrl": null
             }
           ]
@@ -30043,6 +30057,7 @@
         "operator": "Stockholm Archipelago Trail",
         "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:bhm9p",
+        "ref:swetrails": "poi/Arholma-nord-vindskydd",
         "shelter_type": "lean_to",
         "website": "https://www.facebook.com/groups/1327237162079801/permalink/1535026461300869/",
         "wheelchair": "no",
