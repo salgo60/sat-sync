@@ -6,6 +6,72 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.8870493,
+          59.4070248
+        ]
+      },
+      "properties": {
+        "id": "osm:227774456",
+        "name": "Möja järnväg",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:227774456",
+        "lat": 59.4070248,
+        "lon": 18.8870493
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.216567,
+          58.9406652
+        ]
+      },
+      "properties": {
+        "id": "osm:511936203",
+        "name": "Ryssundet",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:511936203",
+        "lat": 58.9406652,
+        "lon": 18.216567
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7427297,
+          59.2084123
+        ]
+      },
+      "properties": {
+        "id": "osm:116730483",
+        "name": "Stig Utblickan",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:116730483",
+        "lat": 59.2084123,
+        "lon": 18.7427297
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           19.1227381,
           59.862053
         ]
@@ -21,72 +87,6 @@
         "osmId": "node:5745003236",
         "lat": 59.862053,
         "lon": 19.1227381
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9339021,
-          59.6616427
-        ]
-      },
-      "properties": {
-        "id": "osm:12896559427",
-        "name": "L2017:1973 Labyrint Fornlämning",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://app.raa.se/open/fornsok/lamning/0a28d8d8-29d2-48d0-80fc-1e05b881adc2",
-        "phone": "",
-        "osmId": "node:12896559427",
-        "lat": 59.6616427,
-        "lon": 18.9339021
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.8128854,
-          59.4796519
-        ]
-      },
-      "properties": {
-        "id": "osm:12836972901",
-        "name": "Hjärtstartare Ragnars kiosk",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://openaedmap.org/sv/#map=17.75/59.479652/18.812885&node_id=12836972901",
-        "phone": "",
-        "osmId": "node:12836972901",
-        "lat": 59.4796519,
-        "lon": 18.8128854
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.8154941,
-          59.4832502
-        ]
-      },
-      "properties": {
-        "id": "osm:4964697340",
-        "name": "Idholmens Gårdsbutik",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:4964697340",
-        "lat": 59.4832502,
-        "lon": 18.8154941
       }
     },
     {
@@ -138,72 +138,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.8873061,
-          59.4106093
-        ]
-      },
-      "properties": {
-        "id": "osm:13943852950",
-        "name": "Möja bio",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "Möja Dansbana",
-        "website": "https://mojadansbana.se/om-moja-bio/",
-        "phone": "",
-        "osmId": "node:13943852950",
-        "lat": 59.4106093,
-        "lon": 18.8873061
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.8832525,
-          59.406367
-        ]
-      },
-      "properties": {
-        "id": "osm:12089216143",
-        "name": "Hjärtstartare på utsidan av brandstationen",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:12089216143",
-        "lat": 59.406367,
-        "lon": 18.8832525
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9056407,
-          59.2891247
-        ]
-      },
-      "properties": {
-        "id": "osm:12805766201",
-        "name": "Hjärtstartare Fläskberget",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:12805766201",
-        "lat": 59.2891247,
-        "lon": 18.9056407
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.9059366,
           59.2885832
         ]
@@ -241,50 +175,6 @@
         "osmId": "node:13947244421",
         "lat": 59.2856701,
         "lon": 18.922658
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9147532,
-          59.289482
-        ]
-      },
-      "properties": {
-        "id": "osm:7056186809",
-        "name": "Konstnären Axel Sjöberg skulptören Carl Eldh",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:7056186809",
-        "lat": 59.289482,
-        "lon": 18.9147532
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.9146089,
-          59.2894617
-        ]
-      },
-      "properties": {
-        "id": "osm:12805742901",
-        "name": "Hjärtstartare Sandhamns värdshus",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:12805742901",
-        "lat": 59.2894617,
-        "lon": 18.9146089
       }
     },
     {
@@ -336,116 +226,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.5765727,
-          59.4057576
-        ]
-      },
-      "properties": {
-        "id": "osm:13144410779",
-        "name": "tourism=viewpoint",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13144410779",
-        "lat": 59.4057576,
-        "lon": 18.5765727
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.3735095,
-          59.0344638
-        ]
-      },
-      "properties": {
-        "id": "osm:14004499739",
-        "name": "Ornö Elpodtaxi Ornö båtvarv",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://orno.se/resa-pa-orno/",
-        "phone": "",
-        "osmId": "node:14004499739",
-        "lat": 59.0344638,
-        "lon": 18.3735095
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.4780537,
-          59.1212496
-        ]
-      },
-      "properties": {
-        "id": "osm:12903206306",
-        "name": "Ornöhuvud naturhamn",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://www.hamnkartan.se/hamnar/orno-huvud",
-        "phone": "",
-        "osmId": "node:12903206306",
-        "lat": 59.1212496,
-        "lon": 18.4780537
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.4327052,
-          59.0520458
-        ]
-      },
-      "properties": {
-        "id": "osm:12908913865",
-        "name": "Ornö Elpodtaxi Kyrkviken",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://orno.se/resa-pa-orno/",
-        "phone": "",
-        "osmId": "node:12908913865",
-        "lat": 59.0520458,
-        "lon": 18.4327052
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.5375921,
-          59.0583451
-        ]
-      },
-      "properties": {
-        "id": "osm:12912985261",
-        "name": "Rumpudden, Fjärdlång naturhamn",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://www.explorearchipelago.com/sv/sthlm/sodra-skargarden/fjardlang",
-        "phone": "",
-        "osmId": "node:12912985261",
-        "lat": 59.0583451,
-        "lon": 18.5375921
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.5121006,
           59.044629
         ]
@@ -490,21 +270,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.5199264,
-          59.0490091
+          18.5375921,
+          59.0583451
         ]
       },
       "properties": {
-        "id": "osm:12912946927",
-        "name": "Naturhamn Mörkviken",
+        "id": "osm:12912985261",
+        "name": "Rumpudden, Fjärdlång naturhamn",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
         "website": "https://www.explorearchipelago.com/sv/sthlm/sodra-skargarden/fjardlang",
         "phone": "",
-        "osmId": "node:12912946927",
-        "lat": 59.0490091,
-        "lon": 18.5199264
+        "osmId": "node:12912985261",
+        "lat": 59.0583451,
+        "lon": 18.5375921
       }
     },
     {
@@ -534,50 +314,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.3264739,
-          58.970209
-        ]
-      },
-      "properties": {
-        "id": "osm:13116509993",
-        "name": "Dricksvatten Utö brygga",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13116509993",
-        "lat": 58.970209,
-        "lon": 18.3264739
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.3263001,
-          58.9701772
-        ]
-      },
-      "properties": {
-        "id": "osm:9141418273",
-        "name": "Dricksvatten Utö brygga",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:9141418273",
-        "lat": 58.9701772,
-        "lon": 18.3263001
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.3258728,
           58.9700329
         ]
@@ -593,50 +329,6 @@
         "osmId": "node:13947774319",
         "lat": 58.9700329,
         "lon": 18.3258728
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.3260712,
-          58.9701612
-        ]
-      },
-      "properties": {
-        "id": "osm:13116509991",
-        "name": "Dricksvatten Utö brygga",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13116509991",
-        "lat": 58.9701612,
-        "lon": 18.3260712
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.325813,
-          58.9701524
-        ]
-      },
-      "properties": {
-        "id": "osm:13116509992",
-        "name": "Dricksvatten Utö brygga",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13116509992",
-        "lat": 58.9701524,
-        "lon": 18.325813
       }
     },
     {
@@ -798,50 +490,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.176822,
-          58.9199732
-        ]
-      },
-      "properties": {
-        "id": "osm:4936508702",
-        "name": "Rånö camping",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "Rånö Brygga",
-        "website": "https://rano.se/stugor/",
-        "phone": "",
-        "osmId": "node:4936508702",
-        "lat": 58.9199732,
-        "lon": 18.176822
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.8570696,
-          58.7686066
-        ]
-      },
-      "properties": {
-        "id": "osm:2942213742",
-        "name": "Hamnkontor Landsort - Café Norrhamn",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://www.svenskagasthamnar.se/stockholms-skargard/landsort-norrhamnen/",
-        "phone": "",
-        "osmId": "node:2942213742",
-        "lat": 58.7686066,
-        "lon": 17.8570696
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           17.862722,
           58.7695949
         ]
@@ -908,21 +556,219 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.8655417,
-          58.7428212
+          18.176822,
+          58.9199732
         ]
       },
       "properties": {
-        "id": "osm:14003129088",
-        "name": "Neptunigaffel nr 38",
+        "id": "osm:4936508702",
+        "name": "Rånö camping",
         "category": "Övrigt",
         "section": "unknown",
-        "operator": "Neptuni Orden",
-        "website": "https://neptuniorden.myclub.se/menu/pages/23025",
+        "operator": "Rånö Brygga",
+        "website": "https://rano.se/stugor/",
         "phone": "",
-        "osmId": "node:14003129088",
-        "lat": 58.7428212,
-        "lon": 17.8655417
+        "osmId": "node:4936508702",
+        "lat": 58.9199732,
+        "lon": 18.176822
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8873061,
+          59.4106093
+        ]
+      },
+      "properties": {
+        "id": "osm:13943852950",
+        "name": "Möja bio",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "Möja Dansbana",
+        "website": "https://mojadansbana.se/om-moja-bio/",
+        "phone": "",
+        "osmId": "node:13943852950",
+        "lat": 59.4106093,
+        "lon": 18.8873061
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8154941,
+          59.4832502
+        ]
+      },
+      "properties": {
+        "id": "osm:4964697340",
+        "name": "Idholmens Gårdsbutik",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:4964697340",
+        "lat": 59.4832502,
+        "lon": 18.8154941
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9147532,
+          59.289482
+        ]
+      },
+      "properties": {
+        "id": "osm:7056186809",
+        "name": "Konstnären Axel Sjöberg skulptören Carl Eldh",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:7056186809",
+        "lat": 59.289482,
+        "lon": 18.9147532
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3263001,
+          58.9701772
+        ]
+      },
+      "properties": {
+        "id": "osm:9141418273",
+        "name": "Dricksvatten Utö brygga",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:9141418273",
+        "lat": 58.9701772,
+        "lon": 18.3263001
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3260712,
+          58.9701612
+        ]
+      },
+      "properties": {
+        "id": "osm:13116509991",
+        "name": "Dricksvatten Utö brygga",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13116509991",
+        "lat": 58.9701612,
+        "lon": 18.3260712
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.325813,
+          58.9701524
+        ]
+      },
+      "properties": {
+        "id": "osm:13116509992",
+        "name": "Dricksvatten Utö brygga",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13116509992",
+        "lat": 58.9701524,
+        "lon": 18.325813
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3264739,
+          58.970209
+        ]
+      },
+      "properties": {
+        "id": "osm:13116509993",
+        "name": "Dricksvatten Utö brygga",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13116509993",
+        "lat": 58.970209,
+        "lon": 18.3264739
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5765727,
+          59.4057576
+        ]
+      },
+      "properties": {
+        "id": "osm:13144410779",
+        "name": "tourism=viewpoint",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13144410779",
+        "lat": 59.4057576,
+        "lon": 18.5765727
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8832525,
+          59.406367
+        ]
+      },
+      "properties": {
+        "id": "osm:12089216143",
+        "name": "Hjärtstartare på utsidan av brandstationen",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12089216143",
+        "lat": 59.406367,
+        "lon": 18.8832525
       }
     },
     {
@@ -952,6 +798,204 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          17.8570696,
+          58.7686066
+        ]
+      },
+      "properties": {
+        "id": "osm:2942213742",
+        "name": "Hamnkontor Landsort - Café Norrhamn",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.svenskagasthamnar.se/stockholms-skargard/landsort-norrhamnen/",
+        "phone": "",
+        "osmId": "node:2942213742",
+        "lat": 58.7686066,
+        "lon": 17.8570696
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4780537,
+          59.1212496
+        ]
+      },
+      "properties": {
+        "id": "osm:12903206306",
+        "name": "Ornöhuvud naturhamn",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.hamnkartan.se/hamnar/orno-huvud",
+        "phone": "",
+        "osmId": "node:12903206306",
+        "lat": 59.1212496,
+        "lon": 18.4780537
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.8655417,
+          58.7428212
+        ]
+      },
+      "properties": {
+        "id": "osm:14003129088",
+        "name": "Neptunigaffel nr 38",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "Neptuni Orden",
+        "website": "https://neptuniorden.myclub.se/menu/pages/23025",
+        "phone": "",
+        "osmId": "node:14003129088",
+        "lat": 58.7428212,
+        "lon": 17.8655417
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4327052,
+          59.0520458
+        ]
+      },
+      "properties": {
+        "id": "osm:12908913865",
+        "name": "Ornö Elpodtaxi Kyrkviken",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://orno.se/resa-pa-orno/",
+        "phone": "",
+        "osmId": "node:12908913865",
+        "lat": 59.0520458,
+        "lon": 18.4327052
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3735095,
+          59.0344638
+        ]
+      },
+      "properties": {
+        "id": "osm:14004499739",
+        "name": "Ornö Elpodtaxi Ornö båtvarv",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://orno.se/resa-pa-orno/",
+        "phone": "",
+        "osmId": "node:14004499739",
+        "lat": 59.0344638,
+        "lon": 18.3735095
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9146089,
+          59.2894617
+        ]
+      },
+      "properties": {
+        "id": "osm:12805742901",
+        "name": "Hjärtstartare Sandhamns värdshus",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12805742901",
+        "lat": 59.2894617,
+        "lon": 18.9146089
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9056407,
+          59.2891247
+        ]
+      },
+      "properties": {
+        "id": "osm:12805766201",
+        "name": "Hjärtstartare Fläskberget",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12805766201",
+        "lat": 59.2891247,
+        "lon": 18.9056407
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9339021,
+          59.6616427
+        ]
+      },
+      "properties": {
+        "id": "osm:12896559427",
+        "name": "L2017:1973 Labyrint Fornlämning",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://app.raa.se/open/fornsok/lamning/0a28d8d8-29d2-48d0-80fc-1e05b881adc2",
+        "phone": "",
+        "osmId": "node:12896559427",
+        "lat": 59.6616427,
+        "lon": 18.9339021
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5199264,
+          59.0490091
+        ]
+      },
+      "properties": {
+        "id": "osm:12912946927",
+        "name": "Naturhamn Mörkviken",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.explorearchipelago.com/sv/sthlm/sodra-skargarden/fjardlang",
+        "phone": "",
+        "osmId": "node:12912946927",
+        "lat": 59.0490091,
+        "lon": 18.5199264
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           17.8645753,
           58.7449558
         ]
@@ -974,21 +1018,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.121391,
-          59.844967
+          18.8128854,
+          59.4796519
         ]
       },
       "properties": {
-        "id": "osm:800808700",
-        "name": "Österhamn",
+        "id": "osm:12836972901",
+        "name": "Hjärtstartare Ragnars kiosk",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
-        "website": "",
+        "website": "https://openaedmap.org/sv/#map=17.75/59.479652/18.812885&node_id=12836972901",
         "phone": "",
-        "osmId": "node:800808700",
-        "lat": 59.844967,
-        "lon": 19.121391
+        "osmId": "node:12836972901",
+        "lat": 59.4796519,
+        "lon": 18.8128854
       }
     },
     {
@@ -1282,6 +1326,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.9152824,
+          59.2868548
+        ]
+      },
+      "properties": {
+        "id": "osm:11153211515",
+        "name": "Utegym Sandhamn",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:11153211515",
+        "lat": 59.2868548,
+        "lon": 18.9152824
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           18.324817,
           58.9699194
         ]
@@ -1304,21 +1370,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.9152824,
-          59.2868548
+          19.121391,
+          59.844967
         ]
       },
       "properties": {
-        "id": "osm:11153211515",
-        "name": "Utegym Sandhamn",
+        "id": "osm:800808700",
+        "name": "Österhamn",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "node:11153211515",
-        "lat": 59.2868548,
-        "lon": 18.9152824
+        "osmId": "node:800808700",
+        "lat": 59.844967,
+        "lon": 19.121391
       }
     },
     {
@@ -1429,6 +1495,28 @@
         "osmId": "node:4990875347",
         "lat": 59.8448116,
         "lon": 19.1214005
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7368303,
+          59.1972478
+        ]
+      },
+      "properties": {
+        "id": "osm:14122757356",
+        "name": "amenity=waste_basket",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14122757356",
+        "lat": 59.1972478,
+        "lon": 18.7368303
       }
     },
     {
@@ -1825,28 +1913,6 @@
         "osmId": "node:14122204220",
         "lat": 59.7749747,
         "lon": 19.0826415
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.7368303,
-          59.1972478
-        ]
-      },
-      "properties": {
-        "id": "osm:14122757356",
-        "name": "amenity=waste_basket",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:14122757356",
-        "lat": 59.1972478,
-        "lon": 18.7368303
       }
     },
     {
@@ -3042,50 +3108,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.0799685,
-          59.77201178
-        ]
-      },
-      "properties": {
-        "id": "osm:1389899659",
-        "name": "Lidö utegym",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:1389899659",
-        "lat": 59.77201178,
-        "lon": 19.0799685
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.112221984615385,
-          59.85162681538462
-        ]
-      },
-      "properties": {
-        "id": "osm:465662321",
-        "name": "Arholmagården",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "byalaget på Arholma",
-        "website": "",
-        "phone": "",
-        "osmId": "way:465662321",
-        "lat": 59.85162681538462,
-        "lon": 19.112221984615385
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.7141365,
           59.4541446
         ]
@@ -3680,138 +3702,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.7482696,
-          59.4764827
-        ]
-      },
-      "properties": {
-        "id": "osm:14159545411",
-        "name": "bord och bänkar",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:14159545411",
-        "lat": 59.4764827,
-        "lon": 18.7482696
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.1320416,
-          59.8621285
-        ]
-      },
-      "properties": {
-        "id": "osm:12959418501",
-        "name": "amenity=bench",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:12959418501",
-        "lat": 59.8621285,
-        "lon": 19.1320416
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.10662174,
-          59.84712254
-        ]
-      },
-      "properties": {
-        "id": "osm:473046134",
-        "name": "Arholma Lotsplats",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://lotsarnastockholm.se/index.php/arholma-lotsplats/",
-        "phone": "",
-        "osmId": "way:473046134",
-        "lat": 59.84712254,
-        "lon": 19.10662174
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.915354020000002,
-          59.66144316
-        ]
-      },
-      "properties": {
-        "id": "osm:388325263",
-        "name": "Villa Romanov",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:388325263",
-        "lat": 59.66144316,
-        "lon": 18.915354020000002
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.91624902,
-          59.66101543999999
-        ]
-      },
-      "properties": {
-        "id": "osm:388325411",
-        "name": "Furusunds museipaviljong",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://www.furusund.se/museipaviljongen-2/",
-        "phone": "",
-        "osmId": "way:388325411",
-        "lat": 59.66101543999999,
-        "lon": 18.91624902
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.834147549504337,
-          59.605638589591074
-        ]
-      },
-      "properties": {
-        "id": "osm:19451276",
-        "name": "Yxlan",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:19451276",
-        "lat": 59.605638589591074,
-        "lon": 18.834147549504337
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.1212094,
           59.8449706
         ]
@@ -3849,6 +3739,50 @@
         "osmId": "node:13069275536",
         "lat": 59.8449436,
         "lon": 19.1211906
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7482696,
+          59.4764827
+        ]
+      },
+      "properties": {
+        "id": "osm:14159545411",
+        "name": "bord och bänkar",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14159545411",
+        "lat": 59.4764827,
+        "lon": 18.7482696
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.1320416,
+          59.8621285
+        ]
+      },
+      "properties": {
+        "id": "osm:12959418501",
+        "name": "amenity=bench",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12959418501",
+        "lat": 59.8621285,
+        "lon": 19.1320416
       }
     },
     {
@@ -3966,28 +3900,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.0873485,
-          59.7859875
-        ]
-      },
-      "properties": {
-        "id": "osm:12753930289",
-        "name": "amenity=bench",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:12753930289",
-        "lat": 59.7859875,
-        "lon": 19.0873485
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.7554328,
           59.4736416
         ]
@@ -4003,6 +3915,28 @@
         "osmId": "node:14159557081",
         "lat": 59.4736416,
         "lon": 18.7554328
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0873485,
+          59.7859875
+        ]
+      },
+      "properties": {
+        "id": "osm:12753930289",
+        "name": "amenity=bench",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12753930289",
+        "lat": 59.7859875,
+        "lon": 19.0873485
       }
     },
     {
@@ -4047,50 +3981,6 @@
         "osmId": "node:12873924931",
         "lat": 59.030921,
         "lon": 18.5101155
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.3135751,
-          58.9528532
-        ]
-      },
-      "properties": {
-        "id": "osm:12738957958",
-        "name": "OSM node:12738957958",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:12738957958",
-        "lat": 58.9528532,
-        "lon": 18.3135751
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.0804948,
-          59.7740501
-        ]
-      },
-      "properties": {
-        "id": "osm:14112124485",
-        "name": "amenity=bench",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:14112124485",
-        "lat": 59.7740501,
-        "lon": 19.0804948
       }
     },
     {
@@ -4157,6 +4047,50 @@
         "osmId": "node:13052870022",
         "lat": 58.9675625,
         "lon": 18.3602765
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3135751,
+          58.9528532
+        ]
+      },
+      "properties": {
+        "id": "osm:12738957958",
+        "name": "OSM node:12738957958",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:12738957958",
+        "lat": 58.9528532,
+        "lon": 18.3135751
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0804948,
+          59.7740501
+        ]
+      },
+      "properties": {
+        "id": "osm:14112124485",
+        "name": "amenity=bench",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:14112124485",
+        "lat": 59.7740501,
+        "lon": 19.0804948
       }
     },
     {
@@ -4333,138 +4267,6 @@
         "osmId": "node:13144410780",
         "lat": 59.4057388,
         "lon": 18.5766259
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.83432656,
-          59.60795062
-        ]
-      },
-      "properties": {
-        "id": "osm:1389909894",
-        "name": "Hamnvikens utegym",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:1389909894",
-        "lat": 59.60795062,
-        "lon": 18.83432656
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.820971985714287,
-          59.47991644285714
-        ]
-      },
-      "properties": {
-        "id": "osm:1305399445",
-        "name": "Utegym Finnhamn",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:1305399445",
-        "lat": 59.47991644285714,
-        "lon": 18.820971985714287
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.760443577777778,
-          59.46946758888888
-        ]
-      },
-      "properties": {
-        "id": "osm:1193228226",
-        "name": "Lurkan",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://www.ingmarso.se/vi-p%C3%A5-%C3%B6n",
-        "phone": "",
-        "osmId": "way:1193228226",
-        "lat": 59.46946758888888,
-        "lon": 18.760443577777778
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.8870493,
-          59.4070248
-        ]
-      },
-      "properties": {
-        "id": "osm:227774456",
-        "name": "Möja järnväg",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:227774456",
-        "lat": 59.4070248,
-        "lon": 18.8870493
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.216567,
-          58.9406652
-        ]
-      },
-      "properties": {
-        "id": "osm:511936203",
-        "name": "Ryssundet",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:511936203",
-        "lat": 58.9406652,
-        "lon": 18.216567
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.7427297,
-          59.2084123
-        ]
-      },
-      "properties": {
-        "id": "osm:116730483",
-        "name": "Stig Utblickan",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:116730483",
-        "lat": 59.2084123,
-        "lon": 18.7427297
       }
     },
     {
@@ -4736,28 +4538,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.9187596,
-          59.2879984
-        ]
-      },
-      "properties": {
-        "id": "osm:13930058601",
-        "name": "Hjärtstartare Seglarhotellet",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "node:13930058601",
-        "lat": 59.2879984,
-        "lon": 18.9187596
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.3178422,
           58.9666868
         ]
@@ -4773,6 +4553,28 @@
         "osmId": "node:12874566169",
         "lat": 58.9666868,
         "lon": 18.3178422
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9187596,
+          59.2879984
+        ]
+      },
+      "properties": {
+        "id": "osm:13930058601",
+        "name": "Hjärtstartare Seglarhotellet",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "node:13930058601",
+        "lat": 59.2879984,
+        "lon": 18.9187596
       }
     },
     {
@@ -4905,50 +4707,6 @@
         "osmId": "node:14162051984",
         "lat": 59.7852905,
         "lon": 19.1031494
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.65494736,
-          59.43919962
-        ]
-      },
-      "properties": {
-        "id": "osm:958701083",
-        "name": "Hembygdsgård Svartsö",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:958701083",
-        "lat": 59.43919962,
-        "lon": 18.65494736
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.69072788755245,
-          59.45067911482517
-        ]
-      },
-      "properties": {
-        "id": "osm:12893696",
-        "name": "Svartsö",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:12893696",
-        "lat": 59.45067911482517,
-        "lon": 18.69072788755245
       }
     },
     {
@@ -5330,28 +5088,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.527825659036985,
-          59.04741357076065
-        ]
-      },
-      "properties": {
-        "id": "osm:24846389",
-        "name": "Fjärdlång",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:24846389",
-        "lat": 59.04741357076065,
-        "lon": 18.527825659036985
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.6885058,
           59.1820012
         ]
@@ -5389,28 +5125,6 @@
         "osmId": "node:13075628000",
         "lat": 59.4847326,
         "lon": 18.8124321
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.275661059999997,
-          58.95072646
-        ]
-      },
-      "properties": {
-        "id": "osm:322949078",
-        "name": "Villa Söderängen",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://villasoderangen.se/",
-        "phone": "",
-        "osmId": "way:322949078",
-        "lat": 58.95072646,
-        "lon": 18.275661059999997
       }
     },
     {
@@ -5462,21 +5176,175 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.11064108,
-          58.8810704
+          19.112221984615385,
+          59.85162681538462
         ]
       },
       "properties": {
-        "id": "osm:186188151",
-        "name": "Nåttarös bryggas väntkur",
+        "id": "osm:465662321",
+        "name": "Arholmagården",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "byalaget på Arholma",
+        "website": "",
+        "phone": "",
+        "osmId": "way:465662321",
+        "lat": 59.85162681538462,
+        "lon": 19.112221984615385
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.10662174,
+          59.84712254
+        ]
+      },
+      "properties": {
+        "id": "osm:473046134",
+        "name": "Arholma Lotsplats",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://lotsarnastockholm.se/index.php/arholma-lotsplats/",
+        "phone": "",
+        "osmId": "way:473046134",
+        "lat": 59.84712254,
+        "lon": 19.10662174
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.915354020000002,
+          59.66144316
+        ]
+      },
+      "properties": {
+        "id": "osm:388325263",
+        "name": "Villa Romanov",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "way:186188151",
-        "lat": 58.8810704,
-        "lon": 18.11064108
+        "osmId": "way:388325263",
+        "lat": 59.66144316,
+        "lon": 18.915354020000002
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.91624902,
+          59.66101543999999
+        ]
+      },
+      "properties": {
+        "id": "osm:388325411",
+        "name": "Furusunds museipaviljong",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.furusund.se/museipaviljongen-2/",
+        "phone": "",
+        "osmId": "way:388325411",
+        "lat": 59.66101543999999,
+        "lon": 18.91624902
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.834147549504337,
+          59.605638589591074
+        ]
+      },
+      "properties": {
+        "id": "osm:19451276",
+        "name": "Yxlan",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:19451276",
+        "lat": 59.605638589591074,
+        "lon": 18.834147549504337
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.65494736,
+          59.43919962
+        ]
+      },
+      "properties": {
+        "id": "osm:958701083",
+        "name": "Hembygdsgård Svartsö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:958701083",
+        "lat": 59.43919962,
+        "lon": 18.65494736
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.527825659036985,
+          59.04741357076065
+        ]
+      },
+      "properties": {
+        "id": "osm:24846389",
+        "name": "Fjärdlång",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:24846389",
+        "lat": 59.04741357076065,
+        "lon": 18.527825659036985
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.275661059999997,
+          58.95072646
+        ]
+      },
+      "properties": {
+        "id": "osm:322949078",
+        "name": "Villa Söderängen",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://villasoderangen.se/",
+        "phone": "",
+        "osmId": "way:322949078",
+        "lat": 58.95072646,
+        "lon": 18.275661059999997
       }
     },
     {
@@ -5506,43 +5374,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.5531146,
-          59.40759197999999
+          18.760443577777778,
+          59.46946758888888
         ]
       },
       "properties": {
-        "id": "osm:219372725",
-        "name": "amenity=shelter",
+        "id": "osm:1193228226",
+        "name": "Lurkan",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
-        "website": "",
+        "website": "https://www.ingmarso.se/vi-p%C3%A5-%C3%B6n",
         "phone": "",
-        "osmId": "way:219372725",
-        "lat": 59.40759197999999,
-        "lon": 18.5531146
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.431624,
-          59.05188926000001
-        ]
-      },
-      "properties": {
-        "id": "osm:1533863291",
-        "name": "Björkösunds Fisk",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "Anders Jansson",
-        "website": "",
-        "phone": "",
-        "osmId": "way:1533863291",
-        "lat": 59.05188926000001,
-        "lon": 18.431624
+        "osmId": "way:1193228226",
+        "lat": 59.46946758888888,
+        "lon": 18.760443577777778
       }
     },
     {
@@ -5572,6 +5418,160 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          17.86536573846154,
+          58.74227389230769
+        ]
+      },
+      "properties": {
+        "id": "osm:1449298611",
+        "name": "Pegelhuset",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://visitlandsort.se/maritima-kulturarvet/skargardssamhallet-landsort/pegelhuset/",
+        "phone": "",
+        "osmId": "way:1449298611",
+        "lat": 58.74227389230769,
+        "lon": 17.86536573846154
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.69072788755245,
+          59.45067911482517
+        ]
+      },
+      "properties": {
+        "id": "osm:12893696",
+        "name": "Svartsö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:12893696",
+        "lat": 59.45067911482517,
+        "lon": 18.69072788755245
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.11064108,
+          58.8810704
+        ]
+      },
+      "properties": {
+        "id": "osm:186188151",
+        "name": "Nåttarös bryggas väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:186188151",
+        "lat": 58.8810704,
+        "lon": 18.11064108
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.83432656,
+          59.60795062
+        ]
+      },
+      "properties": {
+        "id": "osm:1389909894",
+        "name": "Hamnvikens utegym",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1389909894",
+        "lat": 59.60795062,
+        "lon": 18.83432656
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.431624,
+          59.05188926000001
+        ]
+      },
+      "properties": {
+        "id": "osm:1533863291",
+        "name": "Björkösunds Fisk",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "Anders Jansson",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1533863291",
+        "lat": 59.05188926000001,
+        "lon": 18.431624
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.820971985714287,
+          59.47991644285714
+        ]
+      },
+      "properties": {
+        "id": "osm:1305399445",
+        "name": "Utegym Finnhamn",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1305399445",
+        "lat": 59.47991644285714,
+        "lon": 18.820971985714287
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0799685,
+          59.77201178
+        ]
+      },
+      "properties": {
+        "id": "osm:1389899659",
+        "name": "Lidö utegym",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1389899659",
+        "lat": 59.77201178,
+        "lon": 19.0799685
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           17.86554356,
           58.74105836
         ]
@@ -5594,6 +5594,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.5531146,
+          59.40759197999999
+        ]
+      },
+      "properties": {
+        "id": "osm:219372725",
+        "name": "amenity=shelter",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:219372725",
+        "lat": 59.40759197999999,
+        "lon": 18.5531146
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           18.887293436363635,
           59.4105523
         ]
@@ -5609,6 +5631,50 @@
         "osmId": "way:226055517",
         "lat": 59.4105523,
         "lon": 18.887293436363635
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.294516016666666,
+          58.9574445
+        ]
+      },
+      "properties": {
+        "id": "osm:322949033",
+        "name": "Spränga bryggas väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:322949033",
+        "lat": 58.9574445,
+        "lon": 18.294516016666666
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.821164966666668,
+          59.48063663333333
+        ]
+      },
+      "properties": {
+        "id": "osm:1305399446",
+        "name": "Finnhamns Hundrastgård",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://finnhamn.se/aktiviteter/",
+        "phone": "",
+        "osmId": "way:1305399446",
+        "lat": 59.48063663333333,
+        "lon": 18.821164966666668
       }
     },
     {
@@ -5682,50 +5748,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.86536573846154,
-          58.74227389230769
-        ]
-      },
-      "properties": {
-        "id": "osm:1449298611",
-        "name": "Pegelhuset",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://visitlandsort.se/maritima-kulturarvet/skargardssamhallet-landsort/pegelhuset/",
-        "phone": "",
-        "osmId": "way:1449298611",
-        "lat": 58.74227389230769,
-        "lon": 17.86536573846154
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.821164966666668,
-          59.48063663333333
-        ]
-      },
-      "properties": {
-        "id": "osm:1305399446",
-        "name": "Finnhamns Hundrastgård",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://finnhamn.se/aktiviteter/",
-        "phone": "",
-        "osmId": "way:1305399446",
-        "lat": 59.48063663333333,
-        "lon": 18.821164966666668
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.55889808,
           59.418937099999994
         ]
@@ -5792,6 +5814,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.204822926728585,
+          58.912397045717235
+        ]
+      },
+      "properties": {
+        "id": "osm:10694823",
+        "name": "Ålö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:10694823",
+        "lat": 58.912397045717235,
+        "lon": 18.204822926728585
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           18.693648739002626,
           59.187845517664044
         ]
@@ -5836,28 +5880,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.204822926728585,
-          58.912397045717235
-        ]
-      },
-      "properties": {
-        "id": "osm:10694823",
-        "name": "Ålö",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:10694823",
-        "lat": 58.912397045717235,
-        "lon": 18.204822926728585
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.914752975000003,
           59.66231264440299
         ]
@@ -5880,28 +5902,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.55362456,
-          59.40765288
-        ]
-      },
-      "properties": {
-        "id": "osm:1425904357",
-        "name": "Vindskydd Södra Bryggan Grinda",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:1425904357",
-        "lat": 59.40765288,
-        "lon": 18.55362456
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.33123492,
           58.966343800000004
         ]
@@ -5917,94 +5917,6 @@
         "osmId": "way:1551677338",
         "lat": 58.966343800000004,
         "lon": 18.33123492
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.1108293,
-          58.88078524
-        ]
-      },
-      "properties": {
-        "id": "osm:1551354054",
-        "name": "Nåttarö väntkur",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:1551354054",
-        "lat": 58.88078524,
-        "lon": 18.1108293
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.55983352631173,
-          59.412827618004115
-        ]
-      },
-      "properties": {
-        "id": "osm:2663146",
-        "name": "Grinda",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:2663146",
-        "lat": 59.412827618004115,
-        "lon": 18.55983352631173
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.766415638605697,
-          59.474095287256375
-        ]
-      },
-      "properties": {
-        "id": "osm:25045412",
-        "name": "Ingmarsö",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:25045412",
-        "lat": 59.474095287256375,
-        "lon": 18.766415638605697
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.72728804,
-          59.4658496
-        ]
-      },
-      "properties": {
-        "id": "osm:716593406",
-        "name": "Brottö bryggas väntkur",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:716593406",
-        "lat": 59.4658496,
-        "lon": 18.72728804
       }
     },
     {
@@ -6122,6 +6034,50 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.55362456,
+          59.40765288
+        ]
+      },
+      "properties": {
+        "id": "osm:1425904357",
+        "name": "Vindskydd Södra Bryggan Grinda",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1425904357",
+        "lat": 59.40765288,
+        "lon": 18.55362456
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.766415638605697,
+          59.474095287256375
+        ]
+      },
+      "properties": {
+        "id": "osm:25045412",
+        "name": "Ingmarsö",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:25045412",
+        "lat": 59.474095287256375,
+        "lon": 18.766415638605697
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           18.67694564,
           59.45863002
         ]
@@ -6210,21 +6166,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.48334215,
-          59.11194791666667
+          18.1108293,
+          58.88078524
         ]
       },
       "properties": {
-        "id": "osm:1556445562",
-        "name": "Ornöboda bryggas väntkur",
+        "id": "osm:1551354054",
+        "name": "Nåttarö väntkur",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "way:1556445562",
-        "lat": 59.11194791666667,
-        "lon": 18.48334215
+        "osmId": "way:1551354054",
+        "lat": 58.88078524,
+        "lon": 18.1108293
       }
     },
     {
@@ -6247,28 +6203,6 @@
         "osmId": "way:1305287604",
         "lat": 59.423931800000005,
         "lon": 18.90962312
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.294516016666666,
-          58.9574445
-        ]
-      },
-      "properties": {
-        "id": "osm:322949033",
-        "name": "Spränga bryggas väntkur",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:322949033",
-        "lat": 58.9574445,
-        "lon": 18.294516016666666
       }
     },
     {
@@ -6313,6 +6247,160 @@
         "osmId": "way:14477930",
         "lat": 59.47964149026798,
         "lon": 18.81607327503526
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.55983352631173,
+          59.412827618004115
+        ]
+      },
+      "properties": {
+        "id": "osm:2663146",
+        "name": "Grinda",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:2663146",
+        "lat": 59.412827618004115,
+        "lon": 18.55983352631173
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8750744,
+          59.40417186
+        ]
+      },
+      "properties": {
+        "id": "osm:527351318",
+        "name": "Möjaström väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:527351318",
+        "lat": 59.40417186,
+        "lon": 18.8750744
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.87411168,
+          59.40356582
+        ]
+      },
+      "properties": {
+        "id": "osm:1558339640",
+        "name": "Södermöja väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1558339640",
+        "lat": 59.40356582,
+        "lon": 18.87411168
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.429700580000002,
+          59.050946079999996
+        ]
+      },
+      "properties": {
+        "id": "osm:227699562",
+        "name": "Ornö skola",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://ornoskola.haninge.se//",
+        "phone": "",
+        "osmId": "way:227699562",
+        "lat": 59.050946079999996,
+        "lon": 18.429700580000002
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.110453698881788,
+          59.83874028274761
+        ]
+      },
+      "properties": {
+        "id": "osm:6930812",
+        "name": "Arholma",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:6930812",
+        "lat": 59.83874028274761,
+        "lon": 19.110453698881788
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.29242876,
+          58.955510079999996
+        ]
+      },
+      "properties": {
+        "id": "osm:1375183417",
+        "name": "Utö hembygdsförening",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "https://www.uto.se/kultur/",
+        "phone": "",
+        "osmId": "way:1375183417",
+        "lat": 58.955510079999996,
+        "lon": 18.29242876
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.72728804,
+          59.4658496
+        ]
+      },
+      "properties": {
+        "id": "osm:716593406",
+        "name": "Brottö bryggas väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:716593406",
+        "lat": 59.4658496,
+        "lon": 18.72728804
       }
     },
     {
@@ -6430,6 +6518,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.48334215,
+          59.11194791666667
+        ]
+      },
+      "properties": {
+        "id": "osm:1556445562",
+        "name": "Ornöboda bryggas väntkur",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:1556445562",
+        "lat": 59.11194791666667,
+        "lon": 18.48334215
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           18.89581302,
           59.4105544
         ]
@@ -6474,138 +6584,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.8750744,
-          59.40417186
-        ]
-      },
-      "properties": {
-        "id": "osm:527351318",
-        "name": "Möjaström väntkur",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:527351318",
-        "lat": 59.40417186,
-        "lon": 18.8750744
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.87411168,
-          59.40356582
-        ]
-      },
-      "properties": {
-        "id": "osm:1558339640",
-        "name": "Södermöja väntkur",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:1558339640",
-        "lat": 59.40356582,
-        "lon": 18.87411168
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.429700580000002,
-          59.050946079999996
-        ]
-      },
-      "properties": {
-        "id": "osm:227699562",
-        "name": "Ornö skola",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://ornoskola.haninge.se//",
-        "phone": "",
-        "osmId": "way:227699562",
-        "lat": 59.050946079999996,
-        "lon": 18.429700580000002
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.310760024817707,
-          58.94861274117188
-        ]
-      },
-      "properties": {
-        "id": "osm:6315443",
-        "name": "Utö",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:6315443",
-        "lat": 58.94861274117188,
-        "lon": 18.310760024817707
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.110453698881788,
-          59.83874028274761
-        ]
-      },
-      "properties": {
-        "id": "osm:6930812",
-        "name": "Arholma",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "",
-        "phone": "",
-        "osmId": "way:6930812",
-        "lat": 59.83874028274761,
-        "lon": 19.110453698881788
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.29242876,
-          58.955510079999996
-        ]
-      },
-      "properties": {
-        "id": "osm:1375183417",
-        "name": "Utö hembygdsförening",
-        "category": "Övrigt",
-        "section": "unknown",
-        "operator": "",
-        "website": "https://www.uto.se/kultur/",
-        "phone": "",
-        "osmId": "way:1375183417",
-        "lat": 58.955510079999996,
-        "lon": 18.29242876
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.75416588,
           59.46630422
         ]
@@ -6621,6 +6599,28 @@
         "osmId": "way:1192040766",
         "lat": 59.46630422,
         "lon": 18.75416588
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.915541507481752,
+          59.283256090328464
+        ]
+      },
+      "properties": {
+        "id": "osm:24811650",
+        "name": "Sandön",
+        "category": "Övrigt",
+        "section": "unknown",
+        "operator": "",
+        "website": "",
+        "phone": "",
+        "osmId": "way:24811650",
+        "lat": 59.283256090328464,
+        "lon": 18.915541507481752
       }
     },
     {
@@ -6650,21 +6650,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.915541507481752,
-          59.283256090328464
+          18.310760024817707,
+          58.94861274117188
         ]
       },
       "properties": {
-        "id": "osm:24811650",
-        "name": "Sandön",
+        "id": "osm:6315443",
+        "name": "Utö",
         "category": "Övrigt",
         "section": "unknown",
         "operator": "",
         "website": "",
         "phone": "",
-        "osmId": "way:24811650",
-        "lat": 59.283256090328464,
-        "lon": 18.915541507481752
+        "osmId": "way:6315443",
+        "lat": 58.94861274117188,
+        "lon": 18.310760024817707
       }
     }
   ],
