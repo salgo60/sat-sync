@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T04:44:49.202763Z",
+  "generatedAt": "2026-10-27T08:20:23.967359Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -420,6 +420,38 @@
           ]
         },
         {
+          "key": "ref:swetrails",
+          "count": 4,
+          "percent": 40.0,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:swetrails?uselang=sv",
+          "topValues": [
+            {
+              "value": "poi/Lammuddens-Vindskydd",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:swetrails%3Dpoi%2FLammuddens-Vindskydd?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "poi/Talluddens-vindskydd",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:swetrails%3Dpoi%2FTalluddens-vindskydd?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "poi/Lilla-Jolpans-vindskydd",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:swetrails%3Dpoi%2FLilla-Jolpans-vindskydd?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "poi/Arholma-nord-vindskydd",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:swetrails%3Dpoi%2FArholma-nord-vindskydd?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "access",
           "count": 3,
           "percent": 30.0,
@@ -599,20 +631,6 @@
               "value": "yes",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:picnic_table%3Dyes?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "ref:swetrails",
-          "count": 1,
-          "percent": 10.0,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:swetrails?uselang=sv",
-          "topValues": [
-            {
-              "value": "poi/Arholma-nord-vindskydd",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:swetrails%3Dpoi%2FArholma-nord-vindskydd?uselang=sv",
               "directUrl": null
             }
           ]
@@ -5663,6 +5681,20 @@
               "value": "no",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:power_supply%3Dno?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "ref:swetrails",
+          "count": 1,
+          "percent": 7.7,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:ref:swetrails?uselang=sv",
+          "topValues": [
+            {
+              "value": "poi/Landsorts-tältplats",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:ref:swetrails%3Dpoi%2FLandsorts-t%C3%A4ltplats?uselang=sv",
               "directUrl": null
             }
           ]
@@ -30090,6 +30122,7 @@
         "name": "Lammuddens vindskydd",
         "opening_hours": "24/7",
         "ref:stockholmarchipelagotrail": "sat:poi:yz9hq",
+        "ref:swetrails": "poi/Lammuddens-Vindskydd",
         "shelter_type": "lean_to",
         "tourism": "viewpoint",
         "website": "https://grillplatser.nu/Grillplats/Visa/Lammuddens-vindskydd",
@@ -30159,6 +30192,7 @@
         "operator": "Stockholm Archipelago Trail",
         "operator:wikidata": "Q131318799",
         "ref:stockholmarchipelagotrail": "sat:poi:r2q53",
+        "ref:swetrails": "poi/Lilla-Jolpans-vindskydd",
         "shelter_type": "lean_to",
         "start_date": "2025-04",
         "tourism": "viewpoint",
@@ -30226,6 +30260,7 @@
         "name": "Talluddens vindskydd",
         "opening_hours": "24/7",
         "ref:stockholmarchipelagotrail": "sat:poi:yjaxe",
+        "ref:swetrails": "poi/Talluddens-vindskydd",
         "shelter_type": "lean_to",
         "wheelchair": "no",
         "wikidata": "Q133830267",
@@ -40116,6 +40151,7 @@
         "name": "Landsorts tältplats",
         "name:signed": "no",
         "ref:stockholmarchipelagotrail": "sat:poi:2y3sb",
+        "ref:swetrails": "poi/Landsorts-tältplats",
         "shower": "no",
         "tents": "yes",
         "toilets": "yes",
