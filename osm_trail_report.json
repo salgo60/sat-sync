@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T08:20:59.662607Z",
+  "generatedAt": "2026-10-30T04:34:37.012306Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -1996,9 +1996,9 @@
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
       "topValues": [
         {
-          "value": "Rodd­båtar tillgängliga maj–november. 2026 låg dom i vattnet 15 april",
+          "value": "Rodd­båtar tillgängliga maj–oktober. 2026 låg dom i vattnet 15 april",
           "count": 1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93november.%202026%20l%C3%A5g%20dom%20i%20vattnet%2015%20april?uselang=sv",
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93oktober.%202026%20l%C3%A5g%20dom%20i%20vattnet%2015%20april?uselang=sv",
           "directUrl": null
         }
       ]
@@ -2010,9 +2010,9 @@
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:en?uselang=sv",
       "topValues": [
         {
-          "value": "Rowing boats available between maj–november",
+          "value": "Rowing boats available between May and October.",
           "count": 1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DRowing%20boats%20available%20between%20maj%E2%80%93november?uselang=sv",
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DRowing%20boats%20available%20between%20May%20and%20October.?uselang=sv",
           "directUrl": null
         }
       ]
@@ -2192,9 +2192,9 @@
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
       "topValues": [
         {
-          "value": "24/7",
+          "value": "May 1-Oct 31",
           "count": 1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D24%2F7?uselang=sv",
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3DMay%201-Oct%2031?uselang=sv",
           "directUrl": null
         }
       ]
@@ -2248,9 +2248,9 @@
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal:description?uselang=sv",
       "topValues": [
         {
-          "value": "Rodd­båtar tillgängliga 1 maj–10 november",
+          "value": "Rodd­båtar tillgängliga 1 maj–31 oktober",
           "count": 1,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%201%20maj%E2%80%9310%20november?uselang=sv",
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%201%20maj%E2%80%9331%20oktober?uselang=sv",
           "directUrl": null
         }
       ]
@@ -25923,9 +25923,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
-              "value": "Rodd­båtar tillgängliga maj–november. 2026 låg dom i vattnet 15 april",
+              "value": "Rodd­båtar tillgängliga maj–oktober. 2026 låg dom i vattnet 15 april",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93november.%202026%20l%C3%A5g%20dom%20i%20vattnet%2015%20april?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93oktober.%202026%20l%C3%A5g%20dom%20i%20vattnet%2015%20april?uselang=sv",
               "directUrl": null
             }
           ]
@@ -25937,9 +25937,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:en?uselang=sv",
           "topValues": [
             {
-              "value": "Rowing boats available between maj–november",
+              "value": "Rowing boats available between May and October.",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DRowing%20boats%20available%20between%20maj%E2%80%93november?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DRowing%20boats%20available%20between%20May%20and%20October.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -25979,9 +25979,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
           "topValues": [
             {
-              "value": "24/7",
+              "value": "May 1-Oct 31",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D24%2F7?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3DMay%201-Oct%2031?uselang=sv",
               "directUrl": null
             }
           ]
@@ -26049,9 +26049,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal:description?uselang=sv",
           "topValues": [
             {
-              "value": "Rodd­båtar tillgängliga 1 maj–10 november",
+              "value": "Rodd­båtar tillgängliga 1 maj–31 oktober",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%201%20maj%E2%80%9310%20november?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%201%20maj%E2%80%9331%20oktober?uselang=sv",
               "directUrl": null
             }
           ]
@@ -26646,19 +26646,19 @@
           "role": "",
           "tags": {
             "capacity": "3",
-            "description": "Rodd­båtar tillgängliga maj–november. 2026 låg dom i vattnet 15 april",
-            "description:en": "Rowing boats available between maj–november",
+            "description": "Rodd­båtar tillgängliga maj–oktober. 2026 låg dom i vattnet 15 april",
+            "description:en": "Rowing boats available between May and October.",
             "image": "https://commons.wikimedia.org/wiki/File:B%C3%A5tluffarleden_Finnhamns_sidan_01.jpg",
             "image:license": "CC-0",
             "name": "Båtluffarleden",
             "note": "Vandringsbåtar gratis att använda. Driften på Finnhamn meddelar: saknas båtarna mer än 30 min så kan man ringa oss på 08-542 462 12",
             "note:en": "Hikingboats free to use. The operations at Finnhamn announce: if the boats are missing for more than 30 minutes, you can call us at +46-8-542 462 12",
-            "opening_hours": "24/7",
+            "opening_hours": "May 1-Oct 31",
             "operator:phone": "+46-8-542 462 12",
             "ref:stockholmarchipelagotrail": "sat:poi:n83ax",
             "route": "rowing_boat",
             "seasonal": "yes",
-            "seasonal:description": "Rodd­båtar tillgängliga 1 maj–10 november",
+            "seasonal:description": "Rodd­båtar tillgängliga 1 maj–31 oktober",
             "wikidata": "Q133884655",
             "wikimedia_commons": "Category:Rowboats_for_crossing_Ingmarsö_Finnhamn"
           }
@@ -43548,19 +43548,19 @@
       ],
       "tags": {
         "capacity": "3",
-        "description": "Rodd­båtar tillgängliga maj–november. 2026 låg dom i vattnet 15 april",
-        "description:en": "Rowing boats available between maj–november",
+        "description": "Rodd­båtar tillgängliga maj–oktober. 2026 låg dom i vattnet 15 april",
+        "description:en": "Rowing boats available between May and October.",
         "image": "https://commons.wikimedia.org/wiki/File:B%C3%A5tluffarleden_Finnhamns_sidan_01.jpg",
         "image:license": "CC-0",
         "name": "Båtluffarleden",
         "note": "Vandringsbåtar gratis att använda. Driften på Finnhamn meddelar: saknas båtarna mer än 30 min så kan man ringa oss på 08-542 462 12",
         "note:en": "Hikingboats free to use. The operations at Finnhamn announce: if the boats are missing for more than 30 minutes, you can call us at +46-8-542 462 12",
-        "opening_hours": "24/7",
+        "opening_hours": "May 1-Oct 31",
         "operator:phone": "+46-8-542 462 12",
         "ref:stockholmarchipelagotrail": "sat:poi:n83ax",
         "route": "rowing_boat",
         "seasonal": "yes",
-        "seasonal:description": "Rodd­båtar tillgängliga 1 maj–10 november",
+        "seasonal:description": "Rodd­båtar tillgängliga 1 maj–31 oktober",
         "wikidata": "Q133884655",
         "wikimedia_commons": "Category:Rowboats_for_crossing_Ingmarsö_Finnhamn"
       }

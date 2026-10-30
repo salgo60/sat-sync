@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T08:20:23.967359Z",
+  "generatedAt": "2026-10-30T04:33:53.758206Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -16795,8 +16795,8 @@
         },
         {
           "key": "image",
-          "count": 63,
-          "percent": 76.8,
+          "count": 64,
+          "percent": 78.0,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:image?uselang=sv",
           "topValues": [
             {
@@ -19312,9 +19312,15 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
-              "value": "Gratis roddbåtar för vandrare att korsa sundet. Rodd­båtar tillgängliga maj–november. 2026 låg dom i vattnet 15 april",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DGratis%20roddb%C3%A5tar%20f%C3%B6r%20vandrare%20att%20korsa%20sundet.%20Rodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93november.%202026%20l%C3%A5g%20dom%20i%20vattnet%2015%20april?uselang=sv",
+              "value": "Gratis roddbåtar för vandrare att korsa sundet. Rodd­båtar tillgängliga maj–oktober. 2026 låg dom i vattnet 15 april",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DGratis%20roddb%C3%A5tar%20f%C3%B6r%20vandrare%20att%20korsa%20sundet.%20Rodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93oktober.%202026%20l%C3%A5g%20dom%20i%20vattnet%2015%20april?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Gratis roddbåtar för vandrare att korsa sundet. Roddbåtar tillgängliga maj–oktober. 2026 låg de i vattnet redan 15 april.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DGratis%20roddb%C3%A5tar%20f%C3%B6r%20vandrare%20att%20korsa%20sundet.%20Roddb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93oktober.%202026%20l%C3%A5g%20de%20i%20vattnet%20redan%2015%20april.?uselang=sv",
               "directUrl": null
             },
             {
@@ -19333,12 +19339,6 @@
               "value": "Hyr din cykel och hämta direkt på bryggan där båten lägger till.",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DHyr%20din%20cykel%20och%20h%C3%A4mta%20direkt%20p%C3%A5%20bryggan%20d%C3%A4r%20b%C3%A5ten%20l%C3%A4gger%20till.?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Hyr cykel på Ålö och lämna tillbaka på Utö",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DHyr%20cykel%20p%C3%A5%20%C3%85l%C3%B6%20och%20l%C3%A4mna%20tillbaka%20p%C3%A5%20Ut%C3%B6?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19370,9 +19370,9 @@
               "directUrl": null
             },
             {
-              "value": "May 1-Nov 10",
+              "value": "May 1-Oct 31",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3DMay%201-Nov%2010?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3DMay%201-Oct%2031?uselang=sv",
               "directUrl": null
             },
             {
@@ -19576,15 +19576,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:en?uselang=sv",
           "topValues": [
             {
-              "value": "Free rowing boats for hikers to cross the sound. Available May–November.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DFree%20rowing%20boats%20for%20hikers%20to%20cross%20the%20sound.%20Available%20May%E2%80%93November.?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Rowing boats available between maj–november. description=Free rowing boats for hikers to cross the water",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DRowing%20boats%20available%20between%20maj%E2%80%93november.%20description%3DFree%20rowing%20boats%20for%20hikers%20to%20cross%20the%20water?uselang=sv",
+              "value": "Free rowing boats for hikers to cross the sound. Available May–October.",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DFree%20rowing%20boats%20for%20hikers%20to%20cross%20the%20sound.%20Available%20May%E2%80%93October.?uselang=sv",
               "directUrl": null
             },
             {
@@ -19644,6 +19638,26 @@
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:mapillary%3D742238704858353?uselang=sv",
               "directUrl": "https://www.mapillary.com/app/user/salgo601?pKey=742238704858353"
+            }
+          ]
+        },
+        {
+          "key": "note",
+          "count": 3,
+          "percent": 9.7,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note?uselang=sv",
+          "topValues": [
+            {
+              "value": "Vandringsbåtar gratis att använda. Driften på Finnhamn meddelar: saknas båtarna mer än 30 min så kan man ringa oss på 08-542 462 12.",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DVandringsb%C3%A5tar%20gratis%20att%20anv%C3%A4nda.%20Driften%20p%C3%A5%20Finnhamn%20meddelar%3A%20saknas%20b%C3%A5tarna%20mer%20%C3%A4n%2030%20min%20s%C3%A5%20kan%20man%20ringa%20oss%20p%C3%A5%2008-542%20462%2012.?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Kontakta Svartsö Lanthandel för öppettider och bokning av cyklar.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DKontakta%20Svarts%C3%B6%20Lanthandel%20f%C3%B6r%20%C3%B6ppettider%20och%20bokning%20av%20cyklar.?uselang=sv",
+              "directUrl": null
             }
           ]
         },
@@ -19724,6 +19738,20 @@
           ]
         },
         {
+          "key": "bin",
+          "count": 2,
+          "percent": 6.5,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:bin?uselang=sv",
+          "topValues": [
+            {
+              "value": "no",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:bin%3Dno?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
           "key": "boat",
           "count": 2,
           "percent": 6.5,
@@ -19758,9 +19786,23 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:de?uselang=sv",
           "topValues": [
             {
-              "value": "Kostenlose Ruderboote für Wanderer, um die Meerenge zu überqueren. Verfügbar von Mai bis November.",
+              "value": "Kostenlose Ruderboote für Wanderer, um die Meerenge zu überqueren. Verfügbar von Mai bis Oktober.",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:de%3DKostenlose%20Ruderboote%20f%C3%BCr%20Wanderer%2C%20um%20die%20Meerenge%20zu%20%C3%BCberqueren.%20Verf%C3%BCgbar%20von%20Mai%20bis%20November.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:de%3DKostenlose%20Ruderboote%20f%C3%BCr%20Wanderer%2C%20um%20die%20Meerenge%20zu%20%C3%BCberqueren.%20Verf%C3%BCgbar%20von%20Mai%20bis%20Oktober.?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "description:es",
+          "count": 2,
+          "percent": 6.5,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:es?uselang=sv",
+          "topValues": [
+            {
+              "value": "Botes de remos gratuitos para excursionistas para cruzar el estrecho. Disponibles de mayo a octubre.",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:es%3DBotes%20de%20remos%20gratuitos%20para%20excursionistas%20para%20cruzar%20el%20estrecho.%20Disponibles%20de%20mayo%20a%20octubre.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19772,9 +19814,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:fr?uselang=sv",
           "topValues": [
             {
-              "value": "Barques à rames gratuites pour les randonneurs afin de traverser le détroit. Disponibles de mai à novembre.",
+              "value": "Barques à rames gratuites pour les randonneurs afin de traverser le détroit. Disponibles de mai à octobre.",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:fr%3DBarques%20%C3%A0%20rames%20gratuites%20pour%20les%20randonneurs%20afin%20de%20traverser%20le%20d%C3%A9troit.%20Disponibles%20de%20mai%20%C3%A0%20novembre.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:fr%3DBarques%20%C3%A0%20rames%20gratuites%20pour%20les%20randonneurs%20afin%20de%20traverser%20le%20d%C3%A9troit.%20Disponibles%20de%20mai%20%C3%A0%20octobre.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19836,26 +19878,6 @@
           ]
         },
         {
-          "key": "note",
-          "count": 2,
-          "percent": 6.5,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:note?uselang=sv",
-          "topValues": [
-            {
-              "value": "Vandringsbåtar gratis att använda. Driften på Finnhamn meddelar: saknas båtarna mer än 30 min så kan man ringa oss på 08-542 462 12.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DVandringsb%C3%A5tar%20gratis%20att%20anv%C3%A4nda.%20Driften%20p%C3%A5%20Finnhamn%20meddelar%3A%20saknas%20b%C3%A5tarna%20mer%20%C3%A4n%2030%20min%20s%C3%A5%20kan%20man%20ringa%20oss%20p%C3%A5%2008-542%20462%2012.?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Kontakta Svartsö Lanthandel för öppettider och bokning av cyklar.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note%3DKontakta%20Svarts%C3%B6%20Lanthandel%20f%C3%B6r%20%C3%B6ppettider%20och%20bokning%20av%20cyklar.?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "note:de",
           "count": 2,
           "percent": 6.5,
@@ -19877,14 +19899,8 @@
           "topValues": [
             {
               "value": "Free hiking boats to use. Finnhamn operations announce: if the boats are missing for more than 30 minutes, please call +46-8-542 462 12.",
-              "count": 1,
+              "count": 2,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note:en%3DFree%20hiking%20boats%20to%20use.%20Finnhamn%20operations%20announce%3A%20if%20the%20boats%20are%20missing%20for%20more%20than%2030%20minutes%2C%20please%20call%20%2B46-8-542%20462%2012.?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "Free hiking boats to use. The operations at Finnhamn announce: if the boats are missing for more than 30 minutes, you can call us at +46-8-542 462 12.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:note:en%3DFree%20hiking%20boats%20to%20use.%20The%20operations%20at%20Finnhamn%20announce%3A%20if%20the%20boats%20are%20missing%20for%20more%20than%2030%20minutes%2C%20you%20can%20call%20us%20at%20%2B46-8-542%20462%2012.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19930,15 +19946,15 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours:description?uselang=sv",
           "topValues": [
             {
-              "value": "Rodd­båtar tillgängliga maj–november.",
+              "value": "Rodd­båtar tillgängliga maj–oktober.",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93november.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93oktober.?uselang=sv",
               "directUrl": null
             },
             {
-              "value": "Rowing boats available May–November",
+              "value": "Roddbåtar tillgängliga maj–oktober.",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description%3DRowing%20boats%20available%20May%E2%80%93November?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description%3DRoddb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93oktober.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19950,9 +19966,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours:description:de?uselang=sv",
           "topValues": [
             {
-              "value": "Ruderboote verfügbar von Mai bis November.",
+              "value": "Ruderboote verfügbar von Mai bis Oktober.",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description:de%3DRuderboote%20verf%C3%BCgbar%20von%20Mai%20bis%20November.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description:de%3DRuderboote%20verf%C3%BCgbar%20von%20Mai%20bis%20Oktober.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19964,9 +19980,23 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours:description:en?uselang=sv",
           "topValues": [
             {
-              "value": "Rowing boats available May–November.",
+              "value": "Rowing boats available May–October.",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description:en%3DRowing%20boats%20available%20May%E2%80%93November.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description:en%3DRowing%20boats%20available%20May%E2%80%93October.?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "opening_hours:description:es",
+          "count": 2,
+          "percent": 6.5,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours:description:es?uselang=sv",
+          "topValues": [
+            {
+              "value": "Botes de remos disponibles de mayo a octubre.",
+              "count": 2,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description:es%3DBotes%20de%20remos%20disponibles%20de%20mayo%20a%20octubre.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -19978,9 +20008,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours:description:fr?uselang=sv",
           "topValues": [
             {
-              "value": "Barques à rames disponibles de mai à novembre.",
+              "value": "Barques à rames disponibles de mai à octobre.",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description:fr%3DBarques%20%C3%A0%20rames%20disponibles%20de%20mai%20%C3%A0%20novembre.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description:fr%3DBarques%20%C3%A0%20rames%20disponibles%20de%20mai%20%C3%A0%20octobre.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -20090,9 +20120,15 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal:description?uselang=sv",
           "topValues": [
             {
-              "value": "Rodd­båtar tillgängliga 1 maj–10 november.",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%201%20maj%E2%80%9310%20november.?uselang=sv",
+              "value": "Rodd­båtar tillgängliga 1 maj–31 oktober.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%201%20maj%E2%80%9331%20oktober.?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Roddbåtar tillgängliga 1 maj–31 oktober.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description%3DRoddb%C3%A5tar%20tillg%C3%A4ngliga%201%20maj%E2%80%9331%20oktober.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -20104,9 +20140,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal:description:de?uselang=sv",
           "topValues": [
             {
-              "value": "Ruderboote verfügbar vom 1. Mai bis 10. November.",
+              "value": "Ruderboote verfügbar vom 1. Mai bis 31. Oktober.",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description:de%3DRuderboote%20verf%C3%BCgbar%20vom%201.%20Mai%20bis%2010.%20November.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description:de%3DRuderboote%20verf%C3%BCgbar%20vom%201.%20Mai%20bis%2031.%20Oktober.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -20118,9 +20154,15 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal:description:en?uselang=sv",
           "topValues": [
             {
-              "value": "Rowing boats available 1 May–10 November.",
-              "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description:en%3DRowing%20boats%20available%201%20May%E2%80%9310%20November.?uselang=sv",
+              "value": "Rowing boats available 1 May–31 October .",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description:en%3DRowing%20boats%20available%201%20May%E2%80%9331%20October%20.?uselang=sv",
+              "directUrl": null
+            },
+            {
+              "value": "Rowing boats available 1 May–31 October.",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description:en%3DRowing%20boats%20available%201%20May%E2%80%9331%20October.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -20132,9 +20174,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal:description:es?uselang=sv",
           "topValues": [
             {
-              "value": "Botes de remos disponibles del 1 de mayo al 10 de noviembre.",
+              "value": "Botes de remos disponibles del 1 de mayo al 31 de octubre.",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description:es%3DBotes%20de%20remos%20disponibles%20del%201%20de%20mayo%20al%2010%20de%20noviembre.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description:es%3DBotes%20de%20remos%20disponibles%20del%201%20de%20mayo%20al%2031%20de%20octubre.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -20146,9 +20188,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal:description:fr?uselang=sv",
           "topValues": [
             {
-              "value": "Barques à rames disponibles du 1ᵉʳ mai au 10 novembre.",
+              "value": "Barques à rames disponibles du 1ᵉʳ mai au 31 octobre.",
               "count": 2,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description:fr%3DBarques%20%C3%A0%20rames%20disponibles%20du%201%E1%B5%89%CA%B3%20mai%20au%2010%20novembre.?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description:fr%3DBarques%20%C3%A0%20rames%20disponibles%20du%201%E1%B5%89%CA%B3%20mai%20au%2031%20octobre.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -20224,20 +20266,6 @@
           ]
         },
         {
-          "key": "bin",
-          "count": 1,
-          "percent": 3.2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:bin?uselang=sv",
-          "topValues": [
-            {
-              "value": "no",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:bin%3Dno?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "boat_rental",
           "count": 1,
           "percent": 3.2,
@@ -20294,20 +20322,6 @@
           ]
         },
         {
-          "key": "description:es",
-          "count": 1,
-          "percent": 3.2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:es?uselang=sv",
-          "topValues": [
-            {
-              "value": "Botes de remos gratuitos para excursionistas para cruzar el estrecho. Disponibles de mayo a noviembre.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:es%3DBotes%20de%20remos%20gratuitos%20para%20excursionistas%20para%20cruzar%20el%20estrecho.%20Disponibles%20de%20mayo%20a%20noviembre.?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
           "key": "jetski_rental",
           "count": 1,
           "percent": 3.2,
@@ -20331,20 +20345,6 @@
               "value": "harbour",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:office%3Dharbour?uselang=sv",
-              "directUrl": null
-            }
-          ]
-        },
-        {
-          "key": "opening_hours:description:es",
-          "count": 1,
-          "percent": 3.2,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours:description:es?uselang=sv",
-          "topValues": [
-            {
-              "value": "Botes de remos disponibles de mayo a noviembre.",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours:description:es%3DBotes%20de%20remos%20disponibles%20de%20mayo%20a%20noviembre.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -29086,9 +29086,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description?uselang=sv",
           "topValues": [
             {
-              "value": "Rodd­båtar tillgängliga maj–november. 2026 låg dom i vattnet 15 april",
+              "value": "Rodd­båtar tillgängliga maj–oktober. 2026 låg dom i vattnet 15 april",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93november.%202026%20l%C3%A5g%20dom%20i%20vattnet%2015%20april?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%20maj%E2%80%93oktober.%202026%20l%C3%A5g%20dom%20i%20vattnet%2015%20april?uselang=sv",
               "directUrl": null
             },
             {
@@ -29134,9 +29134,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:description:en?uselang=sv",
           "topValues": [
             {
-              "value": "Rowing boats available between maj–november",
+              "value": "Rowing boats available between May and October.",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DRowing%20boats%20available%20between%20maj%E2%80%93november?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:description:en%3DRowing%20boats%20available%20between%20May%20and%20October.?uselang=sv",
               "directUrl": null
             }
           ]
@@ -29204,9 +29204,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:opening_hours?uselang=sv",
           "topValues": [
             {
-              "value": "24/7",
+              "value": "May 1-Oct 31",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D24%2F7?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3DMay%201-Oct%2031?uselang=sv",
               "directUrl": null
             }
           ]
@@ -29260,9 +29260,9 @@
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:seasonal:description?uselang=sv",
           "topValues": [
             {
-              "value": "Rodd­båtar tillgängliga 1 maj–10 november",
+              "value": "Rodd­båtar tillgängliga 1 maj–31 oktober",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%201%20maj%E2%80%9310%20november?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:seasonal:description%3DRodd%C2%ADb%C3%A5tar%20tillg%C3%A4ngliga%201%20maj%E2%80%9331%20oktober?uselang=sv",
               "directUrl": null
             }
           ]
@@ -50977,11 +50977,13 @@
       "lat": 59.2890071,
       "lon": 18.8976653,
       "tags": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_(161).jpg",
         "natural": "beach",
         "ref:stockholmarchipelagotrail": "sat:poi:25bc2",
         "surface": "sand"
       },
       "tagValueUrls": {
+        "image": "https://commons.wikimedia.org/wiki/File:SAT_Sandhamn_2025_april_(161).jpg",
         "ref:stockholmarchipelagotrail": "https://map.stockholmarchipelagotrail.com/?sat:poi:25bc2"
       }
     },
@@ -53960,11 +53962,11 @@
         "boat": "yes",
         "boat_rental:fee": "no",
         "capacity": "3",
-        "description": "Gratis roddbåtar för vandrare att korsa sundet. Rodd­båtar tillgängliga maj–november. 2026 låg dom i vattnet 15 april",
-        "description:de": "Kostenlose Ruderboote für Wanderer, um die Meerenge zu überqueren. Verfügbar von Mai bis November.",
-        "description:en": "Free rowing boats for hikers to cross the sound. Available May–November.",
-        "description:es": "Botes de remos gratuitos para excursionistas para cruzar el estrecho. Disponibles de mayo a noviembre.",
-        "description:fr": "Barques à rames gratuites pour les randonneurs afin de traverser le détroit. Disponibles de mai à novembre.",
+        "description": "Gratis roddbåtar för vandrare att korsa sundet. Rodd­båtar tillgängliga maj–oktober. 2026 låg dom i vattnet 15 april",
+        "description:de": "Kostenlose Ruderboote für Wanderer, um die Meerenge zu überqueren. Verfügbar von Mai bis Oktober.",
+        "description:en": "Free rowing boats for hikers to cross the sound. Available May–October.",
+        "description:es": "Botes de remos gratuitos para excursionistas para cruzar el estrecho. Disponibles de mayo a octubre.",
+        "description:fr": "Barques à rames gratuites pour les randonneurs afin de traverser le détroit. Disponibles de mai à octobre.",
         "dinghy_rental": "yes",
         "fee": "no",
         "image": "https://commons.wikimedia.org/wiki/File:Ingmars%C3%B6_202508_SAT_32.jpg",
@@ -53979,22 +53981,22 @@
         "note:en": "Free hiking boats to use. Finnhamn operations announce: if the boats are missing for more than 30 minutes, please call +46-8-542 462 12.",
         "note:es": "Botes gratuitos para excursionistas. La administración de Finnhamn informa : si los botes faltan durante más de 30 minutos, llame al +46-8-542 462 12.",
         "note:fr": "Barques gratuites pour les randonneurs. L’exploitation de Finnhamn indique : si les bateaux manquent depuis plus de 30 minutes, veuillez appeler le +46-8-542 462 12.",
-        "opening_hours": "May 1-Nov 10",
-        "opening_hours:description": "Rodd­båtar tillgängliga maj–november.",
-        "opening_hours:description:de": "Ruderboote verfügbar von Mai bis November.",
-        "opening_hours:description:en": "Rowing boats available May–November.",
-        "opening_hours:description:es": "Botes de remos disponibles de mayo a noviembre.",
-        "opening_hours:description:fr": "Barques à rames disponibles de mai à novembre.",
+        "opening_hours": "May 1-Oct 31",
+        "opening_hours:description": "Rodd­båtar tillgängliga maj–oktober.",
+        "opening_hours:description:de": "Ruderboote verfügbar von Mai bis Oktober.",
+        "opening_hours:description:en": "Rowing boats available May–October.",
+        "opening_hours:description:es": "Botes de remos disponibles de mayo a octubre.",
+        "opening_hours:description:fr": "Barques à rames disponibles de mai à octobre.",
         "operator:phone": "+46-8-542 462 12",
         "public_transport": "platform",
         "ref:stockholmarchipelagotrail": "sat:poi:n83ax",
         "route": "hiking",
         "seasonal": "yes",
-        "seasonal:description": "Rodd­båtar tillgängliga 1 maj–10 november.",
-        "seasonal:description:de": "Ruderboote verfügbar vom 1. Mai bis 10. November.",
-        "seasonal:description:en": "Rowing boats available 1 May–10 November.",
-        "seasonal:description:es": "Botes de remos disponibles del 1 de mayo al 10 de noviembre.",
-        "seasonal:description:fr": "Barques à rames disponibles du 1ᵉʳ mai au 10 novembre.",
+        "seasonal:description": "Rodd­båtar tillgängliga 1 maj–31 oktober.",
+        "seasonal:description:de": "Ruderboote verfügbar vom 1. Mai bis 31. Oktober.",
+        "seasonal:description:en": "Rowing boats available 1 May–31 October .",
+        "seasonal:description:es": "Botes de remos disponibles del 1 de mayo al 31 de octubre.",
+        "seasonal:description:fr": "Barques à rames disponibles du 1ᵉʳ mai au 31 octobre.",
         "shelter": "no",
         "tactile_paving": "no",
         "wikidata": "Q133884655",
@@ -54022,13 +54024,15 @@
         "access": "yes",
         "amenity": "boat_sharing",
         "bench": "no",
+        "bin": "no",
         "boat": "yes",
         "boat_rental:fee": "no",
         "capacity": "3",
-        "description": "Gratis roddbåtar för vandrare att korsa sundet. Rodd­båtar tillgängliga maj–november. 2026 låg dom i vattnet 15 april",
-        "description:de": "Kostenlose Ruderboote für Wanderer, um die Meerenge zu überqueren. Verfügbar von Mai bis November.",
-        "description:en": "Rowing boats available between maj–november. description=Free rowing boats for hikers to cross the water",
-        "description:fr": "Barques à rames gratuites pour les randonneurs afin de traverser le détroit. Disponibles de mai à novembre.",
+        "description": "Gratis roddbåtar för vandrare att korsa sundet. Roddbåtar tillgängliga maj–oktober. 2026 låg de i vattnet redan 15 april.",
+        "description:de": "Kostenlose Ruderboote für Wanderer, um die Meerenge zu überqueren. Verfügbar von Mai bis Oktober.",
+        "description:en": "Free rowing boats for hikers to cross the sound. Available May–October.",
+        "description:es": "Botes de remos gratuitos para excursionistas para cruzar el estrecho. Disponibles de mayo a octubre.",
+        "description:fr": "Barques à rames gratuites pour les randonneurs afin de traverser le détroit. Disponibles de mai à octobre.",
         "dinghy_rental": "yes",
         "fee": "no",
         "image": "https://commons.wikimedia.org/wiki/File:B%C3%A5tluffarb%C3%A5tarna.jpg",
@@ -54037,25 +54041,27 @@
         "mapillary": "515486946143231",
         "name": "Båtluffarbåtarna",
         "network": "lcn",
+        "note": "Vandringsbåtar gratis att använda. Driften på Finnhamn meddelar: saknas båtarna mer än 30 min så kan man ringa oss på 08-542 462 12.",
         "note:de": "Kostenlose Wanderboote zur Nutzung. Die Betreiber auf Finnhamn melden: Wenn die Boote länger als 30 Minuten fehlen, rufen Sie bitte +46-8-542 462 12 an.",
-        "note:en": "Free hiking boats to use. The operations at Finnhamn announce: if the boats are missing for more than 30 minutes, you can call us at +46-8-542 462 12.",
+        "note:en": "Free hiking boats to use. Finnhamn operations announce: if the boats are missing for more than 30 minutes, please call +46-8-542 462 12.",
         "note:es": "Botes gratuitos para excursionistas. La administración de Finnhamn informa: si los botes faltan durante más de 30 minutos, llame al +46-8-542 462 12.",
         "note:fr": "Barques gratuites pour les randonneurs. L’exploitation de Finnhamn indique : si les bateaux manquent depuis plus de 30 minutes, veuillez appeler le +46-8-542 462 12.",
-        "opening_hours": "May 1-Nov 10",
-        "opening_hours:description": "Rowing boats available May–November",
-        "opening_hours:description:de": "Ruderboote verfügbar von Mai bis November.",
-        "opening_hours:description:en": "Rowing boats available May–November.",
-        "opening_hours:description:fr": "Barques à rames disponibles de mai à novembre.",
+        "opening_hours": "May 1-Oct 31",
+        "opening_hours:description": "Roddbåtar tillgängliga maj–oktober.",
+        "opening_hours:description:de": "Ruderboote verfügbar von Mai bis Oktober.",
+        "opening_hours:description:en": "Rowing boats available May–October.",
+        "opening_hours:description:es": "Botes de remos disponibles de mayo a octubre.",
+        "opening_hours:description:fr": "Barques à rames disponibles de mai à octobre.",
         "operator:phone": "+46-8-542 462 12",
         "public_transport": "platform",
         "ref:stockholmarchipelagotrail": "sat:poi:2szbh",
         "route": "hiking",
         "seasonal": "yes",
-        "seasonal:description": "Rodd­båtar tillgängliga 1 maj–10 november.",
-        "seasonal:description:de": "Ruderboote verfügbar vom 1. Mai bis 10. November.",
-        "seasonal:description:en": "Rowing boats available 1 May–10 November.",
-        "seasonal:description:es": "Botes de remos disponibles del 1 de mayo al 10 de noviembre.",
-        "seasonal:description:fr": "Barques à rames disponibles du 1ᵉʳ mai au 10 novembre.",
+        "seasonal:description": "Roddbåtar tillgängliga 1 maj–31 oktober.",
+        "seasonal:description:de": "Ruderboote verfügbar vom 1. Mai bis 31. Oktober.",
+        "seasonal:description:en": "Rowing boats available 1 May–31 October.",
+        "seasonal:description:es": "Botes de remos disponibles del 1 de mayo al 31 de octubre.",
+        "seasonal:description:fr": "Barques à rames disponibles du 1ᵉʳ mai au 31 octobre.",
         "shelter": "no",
         "tactile_paving": "no",
         "wikidata": "Q133884655",
@@ -63342,19 +63348,19 @@
       "lon": 18.8014653,
       "tags": {
         "capacity": "3",
-        "description": "Rodd­båtar tillgängliga maj–november. 2026 låg dom i vattnet 15 april",
-        "description:en": "Rowing boats available between maj–november",
+        "description": "Rodd­båtar tillgängliga maj–oktober. 2026 låg dom i vattnet 15 april",
+        "description:en": "Rowing boats available between May and October.",
         "image": "https://commons.wikimedia.org/wiki/File:B%C3%A5tluffarleden_Finnhamns_sidan_01.jpg",
         "image:license": "CC-0",
         "name": "Båtluffarleden",
         "note": "Vandringsbåtar gratis att använda. Driften på Finnhamn meddelar: saknas båtarna mer än 30 min så kan man ringa oss på 08-542 462 12",
         "note:en": "Hikingboats free to use. The operations at Finnhamn announce: if the boats are missing for more than 30 minutes, you can call us at +46-8-542 462 12",
-        "opening_hours": "24/7",
+        "opening_hours": "May 1-Oct 31",
         "operator:phone": "+46-8-542 462 12",
         "ref:stockholmarchipelagotrail": "sat:poi:n83ax",
         "route": "rowing_boat",
         "seasonal": "yes",
-        "seasonal:description": "Rodd­båtar tillgängliga 1 maj–10 november",
+        "seasonal:description": "Rodd­båtar tillgängliga 1 maj–31 oktober",
         "wikidata": "Q133884655",
         "wikimedia_commons": "Category:Rowboats_for_crossing_Ingmarsö_Finnhamn"
       },
