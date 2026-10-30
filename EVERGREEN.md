@@ -32,6 +32,33 @@ may legitimately be represented by multiple OSM objects, and communities may
 model places at different levels of detail. Check the source objects and their
 context before reporting a finding.
 
+### Legitimate modelling differences
+
+These examples show why a finding needs human interpretation. The links are
+discussion and evidence, not a universal rule that every similar case is
+already resolved.
+
+| Case | Example and source | How to interpret it |
+| --- | --- | --- |
+| A village of cabins | The SAT discussion [“Saknas bra modell för stugby”](https://github.com/salgo60/Stockholm_Archipelago_Trail/issues/484) links two SAT POIs to two OSM ways within a cabin village. | A group of nearby cabins may be represented as individual buildings in OSM, while SAT's places to visit or stay can use a different grouping. Proximity or a shared name alone does not prove duplicate identity. |
+| A bathing place | The discussion [“Badplatser ett modulerings problem ?!?!? OSM”](https://github.com/salgo60/Stockholm_Archipelago_Trail/issues/433) documents SAT bathing-place IDs alongside OSM `natural=beach` ways and `leisure=bathing_place` nodes, and raises `leisure=swimming_area` as a possible modelling approach. | A SAT bathing place can cover a beach and a designated swimming area, which OSM may map as separate physical or functional features. Treat a one-to-many relationship as a modelling possibility; do not merge IDs or call the features duplicates without checking their meanings. |
+| A wind shelter with a firepit | SAT may show the shelter and its associated grill as one point, while OSM can map the shelter and firepit separately, or describe both functions on one object. | The SAT point can represent a visitor-facing place or amenity grouping rather than a single OSM feature. Different object counts are not, by themselves, evidence of a bad link. |
+| A hotel with a restaurant | One SAT place may offer both accommodation and food, while OSM can represent those functions on one feature or on separate features. | Multiple categories or linked OSM objects can describe distinct services at the same venue. Check whether the mappings refer to the venue, a building, or a particular service. |
+
+At the **concept level**, a maintained category crosswalk may use SKOS relations
+such as `skos:closeMatch` or `skos:broadMatch` when the concepts are genuinely
+similar or broader/narrower. Record the relation and its rationale; do not
+assert equivalence where the meanings differ. At the **object level**, record
+the actual SAT-to-OSM/Wikidata links and their evidence. SKOS concept mappings
+do not establish that two individual features are the same, and
+`owl:sameAs` should not be inferred from shared names, proximity, or a
+one-to-many mapping.
+
+Evergreen should keep reporting the observed source facts. A documented
+modelling pattern can provide context for reviewers, but should not silently
+hide a finding: exceptions and category mappings need explicit evidence and
+community review.
+
 The workflow only reads SAT, OSM, and Wikidata. It writes the generated report
 and finding history to this repository. It does **not** edit SAT source data,
 OSM, Wikidata, or GitHub Issues; it does not create or close issues.
