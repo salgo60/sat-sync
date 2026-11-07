@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T04:29:35.997227Z",
+  "generatedAt": "2026-11-07T04:32:23.538377Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -766,10 +766,10 @@
               "directUrl": "https://commons.wikimedia.org/wiki/Category:Spr%C3%A4nga_ferry_stop"
             },
             {
-              "value": "Category:Norra_Svartsö_ferry_stop",
+              "value": "Category:Norra_Svartsö_feery_stop_windshelter",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3ANorra_Svarts%C3%B6_ferry_stop?uselang=sv",
-              "directUrl": "https://commons.wikimedia.org/wiki/Category:Norra_Svarts%C3%B6_ferry_stop"
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:wikimedia_commons%3DCategory%3ANorra_Svarts%C3%B6_feery_stop_windshelter?uselang=sv",
+              "directUrl": "https://commons.wikimedia.org/wiki/Category:Norra_Svarts%C3%B6_feery_stop_windshelter"
             }
           ]
         },
@@ -30745,11 +30745,11 @@
         "ref:stockholmarchipelagotrail": "unknown",
         "shelter_type": "public_transport",
         "source": "survey",
-        "wikimedia_commons": "Category:Norra_Svartsö_ferry_stop"
+        "wikimedia_commons": "Category:Norra_Svartsö_feery_stop_windshelter"
       },
       "tagValueUrls": {
         "image": "https://commons.wikimedia.org/wiki/File:Svarts%C3%B6_SAT_april_2025_Norra_Svarts%C3%B6_brygga.jpg",
-        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Norra_Svarts%C3%B6_ferry_stop"
+        "wikimedia_commons": "https://commons.wikimedia.org/wiki/Category:Norra_Svarts%C3%B6_feery_stop_windshelter"
       }
     },
     {
