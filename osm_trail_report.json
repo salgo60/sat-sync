@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T04:33:52.852367Z",
+  "generatedAt": "2026-11-15T04:29:21.325397Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:300];\nrelation(19012437)->.super;\nrelation(r.super)->.sections;\n(.super;.sections;way(r.sections);node(r.sections););\nout body center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A300%5D%3B%0Arelation%2819012437%29-%3E.super%3B%0Arelation%28r.super%29-%3E.sections%3B%0A%28.super%3B.sections%3Bway%28r.sections%29%3Bnode%28r.sections%29%3B%29%3B%0Aout%20body%20center%3B",
@@ -209,7 +209,7 @@
       "topValues": [
         {
           "value": "compacted",
-          "count": 208,
+          "count": 209,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:surface%3Dcompacted?uselang=sv",
           "directUrl": null
         },
@@ -232,15 +232,15 @@
           "directUrl": null
         },
         {
-          "value": "unpaved",
-          "count": 31,
-          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:surface%3Dunpaved?uselang=sv",
-          "directUrl": null
-        },
-        {
           "value": "dirt",
           "count": 31,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:surface%3Ddirt?uselang=sv",
+          "directUrl": null
+        },
+        {
+          "value": "unpaved",
+          "count": 30,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:surface%3Dunpaved?uselang=sv",
           "directUrl": null
         },
         {
@@ -1259,13 +1259,13 @@
     },
     {
       "key": "lit",
-      "count": 23,
-      "percent": 3.0,
+      "count": 24,
+      "percent": 3.1,
       "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:lit?uselang=sv",
       "topValues": [
         {
           "value": "yes",
-          "count": 13,
+          "count": 14,
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:lit%3Dyes?uselang=sv",
           "directUrl": null
         },
@@ -14904,8 +14904,8 @@
           "percent": 2.2
         },
         "lit": {
-          "count": 0,
-          "percent": 0.0
+          "count": 1,
+          "percent": 2.2
         },
         "access": {
           "count": 0,
@@ -14987,7 +14987,7 @@
           "topValues": [
             {
               "value": "compacted",
-              "count": 20,
+              "count": 21,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:surface%3Dcompacted?uselang=sv",
               "directUrl": null
             },
@@ -15025,12 +15025,6 @@
               "value": "sand",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:surface%3Dsand?uselang=sv",
-              "directUrl": null
-            },
-            {
-              "value": "unpaved",
-              "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:surface%3Dunpaved?uselang=sv",
               "directUrl": null
             }
           ]
@@ -15513,6 +15507,20 @@
               "value": "1",
               "count": 1,
               "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:layer%3D1?uselang=sv",
+              "directUrl": null
+            }
+          ]
+        },
+        {
+          "key": "lit",
+          "count": 1,
+          "percent": 2.2,
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:lit?uselang=sv",
+          "topValues": [
+            {
+              "value": "yes",
+              "count": 1,
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:lit%3Dyes?uselang=sv",
               "directUrl": null
             }
           ]
@@ -16145,7 +16153,7 @@
             "maxspeed": "70",
             "name": "Tullvägen",
             "sac_scale": "hiking",
-            "surface": "unpaved",
+            "surface": "compacted",
             "trail_visibility": "good",
             "trailblazed": "no"
           }
@@ -16159,6 +16167,7 @@
             "highway": "tertiary",
             "image": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_2025_april_f%C3%A4rjestopp_Furusund_Furusundsbrygga.jpg",
             "lane_markings": "no",
+            "lit": "yes",
             "maxspeed": "40",
             "name": "Furusunds strandväg",
             "ref": "AB 1050",
@@ -37826,7 +37835,7 @@
         "maxspeed": "70",
         "name": "Tullvägen",
         "sac_scale": "hiking",
-        "surface": "unpaved",
+        "surface": "compacted",
         "trail_visibility": "good",
         "trailblazed": "no"
       }
@@ -37842,6 +37851,7 @@
         "highway": "tertiary",
         "image": "https://commons.wikimedia.org/wiki/File:SAT_Furusund_2025_april_f%C3%A4rjestopp_Furusund_Furusundsbrygga.jpg",
         "lane_markings": "no",
+        "lit": "yes",
         "maxspeed": "40",
         "name": "Furusunds strandväg",
         "ref": "AB 1050",
