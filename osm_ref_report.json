@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T04:33:28.172745Z",
+  "generatedAt": "2026-11-22T04:29:18.299066Z",
   "source": "https://overpass-api.de/api/interpreter",
   "query": "[out:json][timeout:180];nwr[\"ref:stockholmarchipelagotrail\"];out tags center;",
   "overpassTurboUrl": "https://overpass-turbo.eu/?Q=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnwr%5B%22ref%3Astockholmarchipelagotrail%22%5D%3Bout%20tags%20center%3B",
@@ -19376,9 +19376,9 @@
               "directUrl": null
             },
             {
-              "value": "2026 Jun 15-2025 Aug 17: Mo-Su 09:30-13:30; 2025 Sep Sa-Su 09:30-13:30",
+              "value": "Mo-Su 09:30-13:30",
               "count": 1,
-              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3D2026%20Jun%2015-2025%20Aug%2017%3A%20Mo-Su%2009%3A30-13%3A30%3B%202025%20Sep%20Sa-Su%2009%3A30-13%3A30?uselang=sv",
+              "wikiUrl": "https://wiki.openstreetmap.org/wiki/Tag:opening_hours%3DMo-Su%2009%3A30-13%3A30?uselang=sv",
               "directUrl": null
             },
             {
@@ -43206,7 +43206,7 @@
         "image:license": "CC0 1.0",
         "level": "0",
         "name": "Coop Ingmarsö",
-        "opening_hours": "2025 Sep 29+ Mo 10:00-14:00; Tu-Th 14:00-17:00; Fr 12:00-17:00; Sa 10:00-13:00; Su off",
+        "opening_hours": "Mo 10:00-14:00; Tu-Th 14:00-17:00; Fr 12:00-17:00; Sa 10:00-13:00; Su off",
         "operator": "Möja konsumtionsförening",
         "operator:website": "https://konsummoja.se/",
         "operator:wikidata": "Q134459778",
@@ -43482,7 +43482,7 @@
         "image": "https://commons.wikimedia.org/wiki/File:SAT_N%C3%A4md%C3%B6_vandring_aff%C3%A4ren_handlaren.jpg",
         "image:license": "CC0 1.0",
         "name": "Handlar'n Nämdö",
-        "opening_hours": "Jan-May: Fr 10:00-18:00; Sa 10:00-15:00; 2026 Jun 2-13: Tu,Th,Fr 10:00-18:00; Sa 10:00-15:00",
+        "opening_hours": "Jan-May Fr 10:00-18:00; Jan-May Sa 10:00-15:00",
         "ref:stockholmarchipelagotrail": "sat:poi:6qpzh",
         "shop": "supermarket",
         "source:opening_hours": "https://www.namdosolvik.com/handla",
@@ -54360,7 +54360,7 @@
         "kayak_rental": "yes",
         "name": "Möja Outdoor",
         "name:en": "Möja Outdoor",
-        "opening_hours": "2026 Jun 15-2025 Aug 17: Mo-Su 09:30-13:30; 2025 Sep Sa-Su 09:30-13:30",
+        "opening_hours": "Mo-Su 09:30-13:30",
         "phone": "+46 76 145 18 57",
         "ref:stockholmarchipelagotrail": "sat:poi:dq4bj",
         "rowboat_rental": "yes",
